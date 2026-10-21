@@ -1,0 +1,183 @@
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 03 · HARDWARE</span>
+    <h2 class="sec-title">Hardware Layer — Pin-Level Wiring</h2>
+    <p class="sec-sub">Landscape pages: one netlist diagram per page with its design rationale. Every connection is
+      labeled to the pin; pin <strong>names</strong> are functional, <strong>numbers</strong> must follow each device's
+      datasheet (all ⚠ items must be verified on the bench).
+      Colors follow the architecture diagram: <span class="pill pill-solar">18 V power zone</span>
+      <span class="pill pill-ok">storage</span> <span class="pill pill-volt">low-voltage / metering</span>
+      <span class="pill pill-risk">safety-critical</span>.</p>
+  </div>
+  <figure class="tight">
+    <div class="figframe tight">@@hw1-input|700@@</div>
+    <div class="figcap"><span class="fignum">Fig. 2</span>　18 V input protection and MPPT charging.</div>
+  </figure>
+  <div class="row">
+    <div class="col w60">
+      <h4 style="margin-top:1mm">Protection-stage selection: five items that must be re-derived at the new power level</h4>
+      <table class="t">
+        <tr><th style="width:12%">Ref</th><th style="width:22%">v1.0</th><th style="width:24%">v2.0</th><th style="width:42%">Why</th></tr>
+        <tr><td class="mono">F1</td><td>on the PMB</td><td><strong>inside the panel junction box</strong></td>
+            <td>A fuse at the load end cannot protect the cable itself; an 18 V / 1.8 A short will arc</td></tr>
+        <tr class="alt"><td class="mono">TVS1</td><td>SMAJ24A</td><td>SMAJ26A ⚠ finalize after measured V<sub>oc</sub></td>
+            <td>Rule: breakdown &gt; measured V<sub>oc</sub> × 1.15, else it conducts and heats on every sunny day</td></tr>
+        <tr><td class="mono">D1</td><td>SS34 (3 A)</td><td><strong>SS54 (5 A)</strong></td>
+            <td>Current up from 0.5 A to 1.7 A; SS34 margin insufficient</td></tr>
+        <tr class="alt"><td class="mono">C1</td><td>100 µF</td><td><strong>220 µF / 35 V low-ESR</strong></td>
+            <td>Higher input power needs more input storage</td></tr>
+        <tr><td class="mono">L1</td><td>none</td><td><strong>common-mode choke + ferrite</strong></td>
+            <td><span class="pill pill-risk">EMC</span>　suppress cable-borne common-mode noise (new)</td></tr>
+        <tr class="alt"><td class="mono">RS1</td><td>0.1 Ω</td><td><strong>0.02 Ω</strong></td>
+            <td>1.8 A × 0.1 Ω = 180 mV exceeds the INA226 81.92 mV full-scale</td></tr>
+      </table>
+    </div>
+    <div class="col w40">
+      <div class="co warn" style="margin-top:1mm"><span class="co-t">30 W source, 5 W sink: current limiting is mandatory</span>
+        A 30 W input at 90% efficiency can push <strong>6.9 A</strong> into a 3.9 V battery, while the safe charge rate of a
+        2500 mAh cell is 0.5 C = <strong>1.25 A</strong>. <strong>Without R<sub>cs</sub> limiting, the battery will be
+        overcharged to failure.</strong></div>
+      <div class="co risk"><span class="co-t">Irradiance simulation: only uniform whole-panel attenuation</span>
+        Use a neutral-density mesh across the <strong>entire</strong> panel. <strong>Never shade partially</strong> — a shaded
+        cell is reverse-biased into a <strong>hot spot</strong> (can exceed 100 °C, damaging the panel or worse), and the
+        I-V curve develops multiple peaks that lock the MPPT onto the wrong one.</div>
+    </div>
+  </div>
+</div>
+
+<div class="cont">
+  <figure class="tight" style="margin-top:0">
+    <div class="figframe tight">@@hw2-charge|520@@</div>
+    <div class="figcap"><span class="fignum">Fig. 3</span>　Charge-side switching (upper half of ADR-006).</div>
+  </figure>
+  <div class="row">
+    <div class="col w50">
+      <h4 style="margin-top:1mm">Interlock truth table — only two states are legal</h4>
+      <table class="t">
+        <tr><th style="width:12%">Q1</th><th style="width:12%">Q2</th><th style="width:26%">Result</th><th style="width:50%">Meaning</th></tr>
+        <tr><td class="mono">OFF</td><td class="mono">OFF</td><td><span class="pill pill-ok">legal</span></td><td>no charging (night / FAULT / battery temp out of range)</td></tr>
+        <tr class="alt"><td class="mono">ON</td><td class="mono">OFF</td><td><span class="pill pill-ok">legal</span></td><td>battery A charging, B supplying</td></tr>
+        <tr><td class="mono">OFF</td><td class="mono">ON</td><td><span class="pill pill-ok">legal</span></td><td>battery B charging, A supplying</td></tr>
+        <tr class="alt"><td class="mono">ON</td><td class="mono">ON</td><td><span class="pill pill-risk">forbidden</span></td>
+            <td><strong>both batteries directly paralleled</strong> — must be blocked by hardware, not firmware alone</td></tr>
+      </table>
+      <p style="font-size:8.4pt;color:#46556E;margin-top:2mm">
+        Circulating current: ΔV = 0.5 V, ~50 mΩ cell ESR each ⚠, ~20 mΩ wiring →
+        <code>I = 0.5 ÷ (0.05 + 0.05 + 0.02) ≈ 4.2 A</code>, far beyond the safe discharge rate of a 2500 mAh cell —
+        repeatedly tripping the PCM and damaging the cells.</p>
+    </div>
+    <div class="col w50">
+      <div class="co risk" style="margin-top:1mm"><span class="co-t">TC-13 — mandatory verification before assembly</span>
+        <strong>Use adjustable current-limited supplies throughout; never real batteries.</strong>
+        Supply 1 → BAT_A at 3.90 V / 100 mA limit; supply 2 → BAT_B at 3.70 V / 100 mA limit (a 0.2 V difference is enough
+        to expose any parallel path). ① Sweep all 16 gate combinations — any path &gt; 10 mA is a FAIL;
+        ② with all FETs off, current should be ~0 (else a body diode is backwards); ③ fault injection: force Q1=Q2=ON,
+        the interlock must block it; ④ on MCU reset or power loss all FETs default OFF.
+        <br/><strong>Real batteries only after all checks pass.</strong></div>
+      <div class="co warn"><span class="co-t">Battery temperature window</span>
+        NTCs on the cell surface (thermal grease + Kapton). <strong>No charging below 0 °C or above 45 °C</strong> —
+        low-temperature charging plates lithium, a common cause of safety incidents. ⚠ The CN3791 has no built-in
+        temperature protection; this must be done in firmware.</div>
+    </div>
+  </div>
+</div>
+
+<div class="cont">
+  <figure class="tight" style="margin-top:0">
+    <div class="figframe tight">@@hw3-discharge|640@@</div>
+    <div class="figcap"><span class="fignum">Fig. 4</span>　Discharge-side switching and the umbilical.</div>
+  </figure>
+  <div class="row">
+    <div class="col w55">
+      <h4 style="margin-top:1mm">Umbilical J6 netlist</h4>
+      <table class="t">
+        <tr><th style="width:8%">Pin</th><th style="width:22%">Net</th><th style="width:16%">Level</th><th style="width:54%">Constraints</th></tr>
+        <tr><td class="mono c">1</td><td class="mono">BAT_OUT+</td><td>≤ 4.2 V</td><td>metered through RS2; at the chest it enters the supercap first, then the load switch</td></tr>
+        <tr class="alt"><td class="mono c">2</td><td class="mono">GND</td><td>0 V</td><td>power-ground return</td></tr>
+        <tr><td class="mono c">3</td><td class="mono">GND</td><td>0 V</td><td>signal ground; star-joined with pin 2 on the PMB-H side</td></tr>
+        <tr class="alt"><td class="mono c">4</td><td class="mono">CTRL_LOAD</td><td>3.3 V logic</td><td>← MCU D7; R1 pull-up guarantees load defaults OFF if the MCU dies</td></tr>
+        <tr><td class="mono c">5</td><td class="mono">SYNC</td><td>3.3 V logic</td><td>← MCU D10; 10 ms pulse at each end of an acquisition window</td></tr>
+        <tr class="alt"><td class="mono c">—</td><td class="mono">SHIELD</td><td>—</td><td><strong>grounded at PMB-H only</strong>, floating at the other end to avoid a ground loop</td></tr>
+      </table>
+    </div>
+    <div class="col w45">
+      <div class="co risk" style="margin-top:1mm"><span class="co-t">Easiest mistake: P-MOS body-diode orientation</span>
+        If Q3/Q4 are backwards, <strong>the body diodes keep both batteries paralleled even with the gates off</strong>.
+        Prefer an ideal-diode IC with reverse blocking (e.g. LM66100) — far more reliable than back-to-back discrete FETs.
+        <br/>At schematic review, draw each body diode explicitly; after assembly verify with a DMM:
+        <strong>with Q3 off, BAT_A+ ↔ LOAD_BUS must be open in both directions</strong> (conduction in either direction =
+        wrong orientation; rework).</div>
+      <div class="co warn"><span class="co-t">Break-away: a cable crossing the body</span>
+        Falls and dressing will yank it. A magnetic or frangible connector is mandatory (&gt; ~20 N releases the connector
+        rather than tugging electrodes); leave slack and clip the cable; on disconnect the supercap holds power → MCU logs
+        the event → orderly shutdown.</div>
+    </div>
+  </div>
+</div>
+
+<div class="cont">
+  <figure class="tight" style="margin-top:0">
+    <div class="figframe tight">@@hw5-chest|760@@</div>
+    <div class="figcap"><span class="fignum">Fig. 5</span>　Chest unit LIB → BITalino. No switching supply, no 18 V, quiescent draw &lt; 1 mW inside this unit.</div>
+  </figure>
+  <div class="row">
+    <div class="col w50">
+      <h4 style="margin-top:1mm">Supercap subsystem: the numbers</h4>
+      <table class="t">
+        <tr><th style="width:38%">Quantity</th><th style="width:26%">Value</th><th style="width:36%">Source</th></tr>
+        <tr><td>Series combination</td><td class="num">5.4 V / 5 F</td><td>2 × 2.7 V 10 F</td></tr>
+        <tr class="alt"><td>Usable energy (4.2 → 3.4 V)</td><td class="num">15.2 J</td><td>½·C·(V₁²−V₂²)</td></tr>
+        <tr><td>Hold-up at 240 mW</td><td class="num">63 s</td><td>15.2 J ÷ 0.24 W</td></tr>
+        <tr class="alt"><td>Actually needed</td><td class="num">1 ms</td><td>switch dead time</td></tr>
+        <tr><td><strong>Margin</strong></td><td class="num">&gt; 10 000×</td><td>—</td></tr>
+        <tr class="alt"><td>Leakage + balancing loss</td><td class="num">≈ 280 µW</td><td>was 39% of indoor harvest in v1.0; <strong>irrelevant at the new power level</strong> — 100 kΩ balancers are fine</td></tr>
+      </table>
+    </div>
+    <div class="col w50">
+      <div class="co risk" style="margin-top:1mm"><span class="co-t">Pre-charge: no direct paralleling</span>
+        Slapping a discharged 5 F cap onto a 4.0 V lithium cell pulls <strong>tens of amps</strong> instantaneously.
+        Pre-charge is mandatory: <code>10 Ω current limit → Q6 bypass once ΔV &lt; 50 mV</code>.
+        Confirm the cap is discharged (&lt; 0.1 V) before soldering; supercaps are <strong>polarized</strong> — reverse
+        them and they bulge.</div>
+      <div class="co info"><span class="co-t">π filter and sync injection</span>
+        The 10 µH + 22 µF ×2 π filter is the second EMC line of defense (the first is architectural isolation).
+        The sync pulse reaches I1 through 1 kΩ + BAT54S clamp; ⚠ verify level tolerance, and <strong>the two ends must
+        share ground</strong>.</div>
+    </div>
+  </div>
+</div>
+
+<div class="cont">
+  <div class="row">
+    <div class="col w40">
+      <figure class="tight" style="margin-top:0">
+        <div class="figframe tight">@@hw4-sense|285@@</div>
+        <div class="figcap"><span class="fignum">Fig. 6</span>　Metering &amp; control bus.
+          Two INA226 on one I²C bus, addresses split via A0/A1 (0x40 / 0x41).</div>
+      </figure>
+      <div class="foot-note" style="margin-top:2.4mm"><strong style="color:#A8291F">Two non-negotiable hardware constraints　</strong>
+        <strong>① Kelvin 4-wire</strong> — sense taps at the pad <strong>center</strong>, never sharing the current path;
+        else 10–30% systematic error corrupts EAR.
+        <strong>② Physical partitioning</strong> — ≥ 3 mm copper-free band between 18 V and LV zones; no shared
+        harness or connector.</div>
+    </div>
+    <div class="col w60">
+      <h3 style="margin-top:0">3.1　MCU pin assignment</h3>
+      <table class="t">
+        <tr><th style="width:17%">Pin</th><th style="width:20%">Net name</th><th style="width:12%">Dir</th><th style="width:51%">Function &amp; constraints</th></tr>
+        <tr><td class="mono">D4 / SDA</td><td class="mono">I2C_SDA</td><td>bidir</td><td>INA226 ×2　⚠ verify XIAO default I²C mapping</td></tr>
+        <tr class="alt"><td class="mono">D5 / SCL</td><td class="mono">I2C_SCL</td><td>out</td><td>4.7 kΩ pull-up to 3V3</td></tr>
+        <tr><td class="mono">D1</td><td class="mono">GATE_CHG_A</td><td>out</td><td>Q1 gate (via interlock); must be hi-Z at reset → default off</td></tr>
+        <tr class="alt"><td class="mono">D2</td><td class="mono">GATE_CHG_B</td><td>out</td><td>Q2 gate (via interlock)</td></tr>
+        <tr><td class="mono">D3</td><td class="mono">GATE_DIS_A</td><td>out</td><td>Q3 gate　<strong>break-before-make, 1 ms dead time</strong></td></tr>
+        <tr class="alt"><td class="mono">D6</td><td class="mono">GATE_DIS_B</td><td>out</td><td>Q4 gate</td></tr>
+        <tr><td class="mono">D7</td><td class="mono">CTRL_LOAD</td><td>out</td><td>→ J6.4 → Q5; R1 pull-up for fail-safe off</td></tr>
+        <tr class="alt"><td class="mono">D8</td><td class="mono">CHRG_STAT</td><td>in</td><td>CN3791 charge status (CV detect → coulomb recalibration)</td></tr>
+        <tr><td class="mono">D10</td><td class="mono">SYNC_OUT</td><td>out</td><td>→ J6.5 → BITalino I1; 10 ms pulse at both ends of an acq window</td></tr>
+        <tr class="alt"><td class="mono">D0 / A0</td><td class="mono">NTC_A</td><td>analog</td><td>battery A temp; charge allowed 0 °C &lt; T &lt; 45 °C</td></tr>
+        <tr><td class="mono">A1</td><td class="mono">NTC_B</td><td>analog</td><td>battery B temp　⚠ actual ADC pin per module silkscreen</td></tr>
+        <tr class="alt"><td class="mono">3V3 / GND</td><td class="mono">—</td><td>power</td><td>on-board LDO; AGND &amp; PGND star-join at <strong>battery negative</strong></td></tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8"/>
+<title>Solar-Harvesting Wearable Health Monitoring System — System Architecture Proposal</title>
+<style>
+/* ============================ 设计系统 ============================ */
+/* ink 墨色 / deep 深蓝 / solar 太阳能金 / volt 信号蓝 —— 三色克制使用 */
+
+@page { size: A4; margin: 17mm 16mm 16mm 16mm;
+  @top-left { content: "Solar-Harvesting Wearable Health Monitoring System";
+    font-family: UI; font-size: 7.4pt; color: #9AA5B8; letter-spacing: 0.3pt; }
+  @top-right { content: "System Architecture Proposal v2.0 · Final";
+    font-family: UI; font-size: 7.4pt; color: #9AA5B8; }
+  @bottom-left { content: "From: Project Lead   ·   To: Vice Dean";
+    font-family: UI; font-size: 7.4pt; color: #B4BDCC; }
+}
+
+
+
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: UI, CJK, sans-serif;
+  font-size: 9.8pt; line-height: 1.62; color: #16203A;
+  -fs-text-justify: none;
+}
+p { margin: 0 0 7pt; }
+strong, b { font-weight: 700; color: #0B1220; }
+em { font-style: normal; color: #B8720F; font-weight: 500; }
+a { color: #2F6BE4; text-decoration: none; }
+sup { font-size: 6.5pt; color: #8B97AB; vertical-align: super; }
+
+/* ---------- 封面 ---------- */
+.cover { width: 210mm; height: 297mm; position: relative;
+         background-color: #0B1220; color: #FFFFFF; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 30mm; }
+.cover-eyebrow { font-family: Display, CJK; font-size: 8.4pt; font-weight: 600;
+  letter-spacing: 2.6pt; color: #E09B2D; text-transform: uppercase; margin-bottom: 22mm; }
+.cover-title { font-family: Display, CJK; font-weight: 700; font-size: 29pt;
+  line-height: 1.34; letter-spacing: -0.2pt; color: #FFFFFF; margin: 0 0 7mm; }
+.cover-title .thin { font-weight: 500; color: #9FB0CC; display: block; font-size: 15pt;
+  letter-spacing: 0.6pt; margin-top: 4mm; line-height:1.5; }
+.cover-rule { width: 34mm; height: 2.2pt; background-color: #E09B2D; margin: 0 0 7mm; }
+.cover-lede { font-size: 10.2pt; line-height: 1.85; color: #C3CEE2; max-width: 132mm; }
+.cover-lede .hl { color: #FFFFFF; font-weight: 600; }
+.cover-art { position: absolute; left: 22mm; right: 22mm; top: 168mm; }
+.cover-meta { position: absolute; left: 22mm; right: 22mm; bottom: 20mm;
+  border-top: 0.6pt solid #2A3A57; padding-top: 6mm; }
+.cover-meta table { width: 100%; border-collapse: collapse; }
+.cover-meta td { vertical-align: top; padding-right: 8mm; }
+.cm-k { font-family: Display, CJK; font-size: 6.4pt; letter-spacing: 1.5pt; color: #6F809C;
+  text-transform: uppercase; padding-bottom: 1.6mm; }
+.cm-v { font-size: 8.2pt; line-height:1.45; color: #E8EDF6; font-weight: 500; }
+
+/* ---------- 章节 ---------- */
+.sec { page-break-before: always; }
+.cont { page-break-before: auto; }
+.pg { page-break-before: always; }
+figure.tight { margin: 2mm 0 3mm; }
+.figframe.tight { padding: 2.6mm 3mm 2mm; }
+.row { -fs-table-paginate: paginate; }
+table.t tr { page-break-inside: avoid; }
+.co, .layer, .kpi, .prob, .ms-i { page-break-inside: avoid; }
+h3 { page-break-after: avoid; }
+.sec-head { border-bottom: 1.4pt solid #0B1220; padding-bottom: 3.2mm; margin-bottom: 6mm; }
+.sec-num { font-family: Display, CJK; font-size: 8pt; font-weight: 700; letter-spacing: 2.4pt;
+  color: #E09B2D; display: block; margin-bottom: 1.8mm; }
+.sec-title { font-family: Display, CJK; font-size: 17pt; font-weight: 700;
+  color: #0B1220; margin: 0; line-height: 1.3; letter-spacing: -0.1pt; }
+.sec-sub { font-size: 9pt; color: #6B7891; margin-top: 2mm; line-height:1.6; }
+
+h3 { font-family: Display, CJK; font-size: 11.2pt; font-weight: 700; color: #14233D;
+  margin: 6mm 0 2.6mm; padding-left: 3mm; border-left: 2.4pt solid #E09B2D; line-height:1.35; }
+h4 { font-family: UI, CJK; font-size: 9.6pt; font-weight: 700; color: #14233D;
+  margin: 5mm 0 2mm; }
+
+/* ---------- 基础组件 ---------- */
+.mono, code { font-family: Mono, CJK; font-size: 8.3pt; }
+code { background-color: #EEF2F8; color: #14233D; padding: 0.6pt 2.4pt; border-radius: 2.4pt; }
+.pill { display: inline-block; white-space: nowrap; font-family: Display, CJK; font-size: 7pt; font-weight: 700;
+  letter-spacing: 0.9pt; padding: 1.4pt 5pt; border-radius: 9pt; }
+.pill-solar { background-color: #FDF3E2; color: #96590A; }
+.pill-volt  { background-color: #E9F0FE; color: #1F4FAE; }
+.pill-ok    { background-color: #E4F4EE; color: #0E6B4D; }
+.pill-risk  { background-color: #FCEAE8; color: #A8291F; }
+.pill-muted { background-color: #EEF1F6; color: #5B6880; }
+
+.lead { font-size: 10.6pt; line-height: 1.72; color: #2B3854; }
+.note { font-size: 8.4pt; color: #7A8699; }
+
+/* ---------- 表格 ---------- */
+table.t { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm;
+  -fs-table-paginate: paginate; font-size: 8.7pt; }
+table.t th { font-family: Display, CJK; font-size: 7.2pt; font-weight: 700;
+  letter-spacing: 0.7pt; color: #FFFFFF; background-color: #14233D;
+  text-align: left; padding: 2.2mm 2.4mm; }
+table.t td { padding: 2mm 2.4mm; border-bottom: 0.5pt solid #E4E9F1;
+  vertical-align: top; line-height: 1.5; }
+table.t tr.alt td { background-color: #F8FAFD; }
+table.t td.num { font-family: Display, CJK; font-weight: 600; text-align: right;
+  font-size: 8.8pt; color: #14233D; }
+table.t td.c { text-align: center; }
+table.t caption { caption-side: bottom; font-size: 7.6pt; color: #8B97AB;
+  text-align: left; padding-top: 2mm; line-height:1.5; }
+
+/* ---------- 图 ---------- */
+figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
+.figcap { font-size: 7.8pt; color: #7A8699; margin-top: 2.5mm; line-height: 1.55;
+  border-left: 1.6pt solid #E4E9F1; padding-left: 3mm; }
+.figcap .fignum { font-family: Display, CJK; font-weight: 700; color: #B8720F;
+  letter-spacing: 0.6pt; }
+.figframe { border: 0.6pt solid #E4E9F1; border-radius: 4pt; padding: 4mm 4mm 3mm;
+  background-color: #FCFDFE; }
+
+/* ---------- 栅格（无 flex，用 table） ---------- */
+.row { display: table; width: 100%; border-collapse: separate; border-spacing: 3mm 0; }
+.row.tight { border-spacing: 2mm 0; }
+.row > .col { display: table-cell; vertical-align: top; }
+.row.g0 { border-spacing: 0; }
+.w50 { width: 50%; } .w33 { width: 33.33%; } .w66 { width: 66.66%; }
+.w25 { width: 25%; } .w40 { width: 40%; } .w60 { width: 60%; }
+
+/* ---------- KPI 数字块 ---------- */
+.kpi { border: 0.6pt solid #E4E9F1; border-radius: 5pt; padding: 4mm 4mm 3.4mm;
+  background-color: #FCFDFE; }
+.kpi-k { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700; letter-spacing: 1.4pt;
+  color: #8B97AB; text-transform: uppercase; margin-bottom: 2mm; }
+.kpi-v { font-family: Display, CJK; font-size: 22pt; font-weight: 700; color: #0B1220;
+  line-height: 1; letter-spacing: -0.6pt; }
+.kpi-v .u { font-size: 10pt; font-weight: 600; color: #6B7891; letter-spacing: 0; }
+.kpi-d { font-size: 7.8pt; color: #7A8699; margin-top: 2.2mm; line-height: 1.5; }
+.kpi.accent { border-color: #F0D5A4; background-color: #FEFAF3; }
+.kpi.accent .kpi-v { color: #B8720F; }
+
+/* ---------- 问题卡（醒目区） ---------- */
+.prob-hero { background-color: #0B1220; color: #FFFFFF; border-radius: 6pt;
+  padding: 5mm 6mm 4.6mm; margin-bottom: 3.6mm; }
+.prob-hero .ph-eye { font-family: Display, CJK; font-size: 7.4pt; font-weight: 700;
+  letter-spacing: 2.4pt; color: #E09B2D; text-transform: uppercase; }
+.prob-hero .ph-t { font-family: Display, CJK; font-size: 16.5pt; font-weight: 700;
+  margin: 3mm 0 2.5mm; line-height: 1.32; }
+.prob-hero .ph-s { font-size: 8.4pt; color: #AFBDD4; line-height: 1.6; max-width: 150mm; }
+
+.prob { border: 0.6pt solid #E4E9F1; border-left: 3.4pt solid #14233D;
+  border-radius: 4pt; padding: 2.4mm 3.6mm 1.9mm; margin-bottom: 1.9mm;
+  page-break-inside: avoid; background-color: #FFFFFF; }
+.prob-q { font-family: Display, CJK; font-size: 9.4pt; font-weight: 700; color: #0B1220;
+  margin-bottom: 1.3mm; line-height: 1.45; }
+.prob-n { display: inline-block; min-width: 5.4mm; height: 5.4mm; line-height: 5.4mm;
+  text-align: center; background-color: #14233D; color: #FFFFFF; border-radius: 2.6pt;
+  font-family: Display, CJK; font-size: 8.4pt; font-weight: 700; margin-right: 2.4mm;
+  padding: 0 1.2mm; }
+.prob.p-risk  { border-left-color: #CB4034; }
+.prob.p-risk  .prob-n { background-color: #CB4034; }
+.prob.p-solar { border-left-color: #B8720F; }
+.prob.p-solar .prob-n { background-color: #B8720F; }
+.prob-line { font-size: 7.85pt; line-height: 1.48; color: #46556E; margin-bottom: 0.7mm; }
+.prob-line .lb { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700;
+  letter-spacing: 0.8pt; color: #FFFFFF; background-color: #9AA5B8;
+  padding: 0.8pt 3.2pt; border-radius: 2.2pt; margin-right: 2.2mm; }
+.prob-line.solve .lb { background-color: #15845F; }
+.prob-line.risk  .lb { background-color: #CB4034; }
+.prob-line.check .lb { background-color: #2F6BE4; }
+
+/* ---------- Callout ---------- */
+.co { border-radius: 5pt; padding: 3.2mm 4mm; margin: 3.2mm 0; font-size: 8.8pt;
+  line-height: 1.6; page-break-inside: avoid; }
+.co-t { font-family: Display, CJK; font-weight: 700; font-size: 9.6pt; margin-bottom: 1.8mm;
+  display: block; }
+.co.ok    { background-color: #EFF8F4; border-left: 2.6pt solid #15845F; color: #1D4238; }
+.co.ok .co-t { color: #0E6B4D; }
+.co.warn  { background-color: #FEF8EC; border-left: 2.6pt solid #E09B2D; color: #4A3A1B; }
+.co.warn .co-t { color: #96590A; }
+.co.risk  { background-color: #FDF0EE; border-left: 2.6pt solid #CB4034; color: #4A211C; }
+.co.risk .co-t { color: #A8291F; }
+.co.info  { background-color: #F1F5FD; border-left: 2.6pt solid #2F6BE4; color: #1F2E4A; }
+.co.info .co-t { color: #1F4FAE; }
+.co.neutral { background-color: #F6F8FC; border-left: 2.6pt solid #46556E; color: #2B3854; }
+.co.neutral .co-t { color: #14233D; }
+
+/* ---------- 物料清单 ---------- */
+.bom-legend { display: table; width: 100%; border-spacing: 3mm 0; margin-bottom: 4mm; }
+.bom-legend .bl { display: table-cell; width: 33.33%; border-radius: 5pt; padding: 3.4mm 4mm;
+  color: #FFFFFF; }
+.bl-have { background-color: #15845F; }
+.bl-make { background-color: #B8720F; }
+.bl-buy  { background-color: #2F6BE4; }
+.bl-k { font-family: Display, CJK; font-size: 7pt; font-weight: 700; letter-spacing: 1.6pt;
+  text-transform: uppercase; opacity: 1; }
+.bl-v { font-family: Display, CJK; font-size: 16pt; font-weight: 700; margin-top: 1.4mm; line-height:1; }
+.bl-d { font-size: 7.6pt; margin-top: 1.6mm; line-height: 1.45; }
+.tag { display: inline-block; width: 4.4mm; height: 4.4mm; border-radius: 1.6pt;
+  text-align: center; font-family: Display, CJK; font-size: 6.6pt; font-weight: 700;
+  color: #FFFFFF; line-height: 4.4mm; }
+.tag-have { background-color: #15845F; } .tag-make { background-color: #B8720F; }
+.tag-buy { background-color: #2F6BE4; }
+
+/* ---------- 层级说明 ---------- */
+.layer { border: 0.7pt solid #E4E9F1; border-left: 3.2pt solid #14233D; border-radius: 4pt;
+  padding: 3.4mm 4mm; margin-bottom: 2.6mm; page-break-inside: avoid; }
+.layer-h { font-family: Display, CJK; font-size: 9.8pt; font-weight: 700; color: #0B1220;
+  margin-bottom: 1.4mm; }
+.layer-h .lid { font-family: Display, CJK; font-size: 7.4pt; font-weight: 700; color: #FFFFFF;
+  background-color: #14233D; padding: 1pt 4pt; border-radius: 2.6pt; margin-right: 2.6mm;
+  letter-spacing: 0.8pt; }
+.layer-d { font-size: 8.5pt; color: #46556E; line-height: 1.6; }
+.layer.l-hw { border-left-color: #B8720F; } .layer.l-hw .lid { background-color: #B8720F; }
+.layer.l-fw { border-left-color: #15845F; } .layer.l-fw .lid { background-color: #15845F; }
+.layer.l-sw { border-left-color: #2F6BE4; } .layer.l-sw .lid { background-color: #2F6BE4; }
+.layer.l-dt { border-left-color: #6B4FCF; } .layer.l-dt .lid { background-color: #6B4FCF; }
+
+/* ---------- 列表 ---------- */
+ul.cl { list-style: none; padding-left: 0; margin: 2mm 0 4mm; }
+ul.cl li { font-size: 8.8pt; line-height: 1.6; padding-left: 6mm; margin-bottom: 1.8mm;
+  position: relative; }
+ul.cl li .bullet { position: absolute; left: 0; top: 0; font-family: Display, CJK;
+  font-size: 7.6pt; font-weight: 700; color: #B8720F; }
+ol.n { padding-left: 5mm; margin: 2mm 0 4mm; font-size: 8.9pt; line-height: 1.62; }
+ol.n li { margin-bottom: 1.6mm; }
+
+/* ---------- 里程碑 ---------- */
+.ms { border-left: 1.4pt solid #E4E9F1; padding-left: 5mm; margin-left: 2mm; }
+.ms-i { position: relative; margin-bottom: 2.4mm; page-break-inside: avoid; }
+.ms-w { font-family: Display, CJK; font-size: 7.2pt; font-weight: 700; letter-spacing: 1.2pt;
+  color: #FFFFFF; background-color: #14233D; padding: 1pt 4.4pt; border-radius: 2.6pt; }
+.ms-t { font-family: Display, CJK; font-size: 9.2pt; font-weight: 700; color: #0B1220;
+  margin: 1.2mm 0 0.7mm; }
+.ms-d { font-size: 8.2pt; color: #46556E; line-height: 1.52; }
+.ms-gate { font-size: 7.8pt; color: #A8291F; margin-top: 1mm; font-weight: 500; }
+
+/* ---------- 脚注/注记 ---------- */
+.foot-note { font-size: 7.4pt; color: #8B97AB; line-height: 1.5; margin-top: 2.4mm;
+  border-top: 0.5pt solid #E4E9F1; padding-top: 2mm; }
+.conf { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700; padding: 0.6pt 3pt;
+  border-radius: 2pt; letter-spacing: 0.5pt; }
+.conf-v { background-color: #E4F4EE; color: #0E6B4D; }
+.conf-c { background-color: #FEF3E0; color: #96590A; }
+.conf-q { background-color: #EEF1F6; color: #5B6880; }
+
+/* ---------- EN density tuning ---------- */
+.sec-head { padding-bottom: 2.6mm; margin-bottom: 4.6mm; }
+.sec-sub { margin-top: 1.6mm; }
+.ms { padding-left: 4.6mm; }
+.ms-i { margin-bottom: 1.5mm; }
+.ms-t { font-size: 8.9pt; margin: 0.9mm 0 0.5mm; }
+.ms-d { font-size: 8.0pt; line-height: 1.42; }
+.ms-gate { font-size: 7.6pt; margin-top: 0.6mm; line-height: 1.4; }
+
+</style>
+</head>
+<body>
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 06 · BILL OF MATERIALS</span>
+    <h2 class="sec-title">Bill of Materials</h2>
+    <p class="sec-sub">Organized in three classes: <strong>in stock</strong> (usable now), <strong>to fabricate</strong>
+      (in-house PCBs and cable assemblies), <strong>to purchase</strong> (P0/P1/P2 tiers, each with "why it must be bought").</p>
+  </div>
+
+  <div class="bom-legend">
+    <div class="bl bl-have"><div class="bl-k">A · IN STOCK</div><div class="bl-v">24 items</div>
+      <div class="bl-d">Verified line by line against <code style="background:rgba(255,255,255,0.18);color:#fff">components.csv</code>;
+        3 items had their roles corrected, 2 serve for prototyping only</div></div>
+    <div class="bl bl-make"><div class="bl-k">B · TO FABRICATE</div><div class="bl-v">3 parts</div>
+      <div class="bl-d">PMB-H main board, LIB chest board, 5-core shielded umbilical;
+        within the lab's PCB capability, ~1 h of hand soldering</div></div>
+    <div class="bl bl-buy"><div class="bl-k">C · TO PURCHASE</div><div class="bl-v">P0 · 11 items</div>
+      <div class="bl-d">plus P1 ×10 (data quality) and P2 ×6 (scope-dependent)</div></div>
+  </div>
+
+  <h3>6.1　<span class="tag tag-have">A</span>　In-stock materials and confirmed roles</h3>
+  <table class="t">
+    <tr><th style="width:30%">Item</th><th style="width:9%">Qty</th><th style="width:22%">Role in this architecture</th><th style="width:39%">Status &amp; notes</th></tr>
+    <tr><td>395×460 mm 18 V 30 W solar panel</td><td class="c">1</td><td>sole energy source</td>
+        <td><span class="pill pill-solar">role set</span>　backpack/rack mounted, not skin-tight; <strong>never connect directly to EVK10941</strong></td></tr>
+    <tr class="alt"><td>EVK10941 (AEM10941)</td><td class="c">1</td><td>low-voltage comparison branch</td>
+        <td><span class="pill pill-muted">off main chain</span>　~5 V input limit, incompatible with the 18 V panel; pair with a small flex panel for comparison work</td></tr>
+    <tr><td>523450 1000 mAh Li battery pack</td><td class="c">1</td><td>control Unit A supply</td>
+        <td>only 0.64 d autonomy — insufficient for the DUT; ⚠ confirm whether it has a PCM protection board</td></tr>
+    <tr class="alt"><td>BITalino (bare boards)</td><td class="c">2</td><td>DUT + control pair</td>
+        <td><span class="pill pill-risk">to verify</span>　⚠ model / BT or BLE / measured power draw (TC-01)</td></tr>
+    <tr><td>BITalino HeartBIT kit</td><td class="c">1 kit</td><td>primary ECG acquisition</td>
+        <td><span class="pill pill-risk">to verify</span>　⚠ check packing list item by item; does it include an extra main board (2 or 3 boards total)</td></tr>
+    <tr class="alt"><td>2.7 V 10 F supercapacitors</td><td class="c">3</td><td>battery-switch hold-up</td>
+        <td><span class="pill pill-solar">role changed</span>　2 in series → 5.4 V/5 F; 3rd is a spare. v1.0's leakage worry is irrelevant at the new power level</td></tr>
+    <tr><td>YJL3404A</td><td class="c">1</td><td>load-switch prototyping</td>
+        <td><span class="pill pill-ok">identified</span>　MOSFET. A single unit isn't reproducible — production part is P0-7</td></tr>
+    <tr class="alt"><td>TEUCER HP600</td><td class="c">1</td><td>component → enclosure conduction</td>
+        <td><span class="pill pill-risk">role must be corrected</span>　it is a <strong>heat-conducting</strong> pad;
+          between panel and body it would pump 60–70 °C into skin. The body side needs insulation (P0-10)</td></tr>
+    <tr><td>K-type surface thermocouples</td><td class="c">2</td><td>thermal-safety sensing</td>
+        <td>measurement points grew from 2 to 4 — 2 more needed (P1-14)</td></tr>
+    <tr class="alt"><td>Mini thermocouple meter / pocket DMM / USB tester</td><td class="c">1 ea</td><td>basic measurement</td>
+        <td>sufficient; ⚠ measuring I<sub>sc</sub> needs the DMM's 10 A range and 10 A jack</td></tr>
+    <tr><td>Digital temp-controlled iron / wire strippers / solder / heat-shrink / PH2.0 wire / Dupont wires</td><td class="c">—</td><td>assembly tools &amp; consumables</td>
+        <td>sufficient; ⚠ confirm solder is leaded (300–330 °C) or lead-free (340–370 °C)</td></tr>
+    <tr class="alt"><td>Disposable ECG electrodes</td><td class="c">1 pack</td><td>consumable</td>
+        <td><span class="pill pill-risk">severely short</span>　a long-term study needs ~500 pcs (P0-8)</td></tr>
+    <tr><td>Breadboard / board shears / thermal grease</td><td class="c">—</td><td>bench aids</td>
+        <td>⚠ breadboards <strong>must not be used in the charge path</strong> (contact resistance heats; readings untrustworthy)</td></tr>
+  </table>
+  <div class="co warn"><span class="co-t">One thing missing from delivered stock: a TEG module</span>
+    The delivered thermal parts (K-type thermocouples ×2, thermal grease, TEUCER HP600, thermometer) are all
+    <strong>sensing and conduction</strong> parts — <strong>none generate power</strong>. The thermoelectric comparison
+    experiment cannot run on current stock; continuing it requires a TEG module (P2-22).
+    In this proposal those thermal parts are repurposed for <strong>thermal-safety verification</strong> (TC-07) —
+    mandatory for a body-worn device anyway.</div>
+</div>
+
+<div class="cont">
+  <h3 style="margin-top:0">6.2　<span class="tag tag-make">B</span>　The three parts to fabricate</h3>
+  <table class="t">
+    <tr><th style="width:16%">Part no.</th><th style="width:20%">Name</th><th style="width:14%">Process</th><th style="width:50%">Content &amp; effort</th></tr>
+    <tr><td class="mono">PMB-H</td><td>power main board (backpack unit)</td><td>2-layer in-house PCB</td>
+        <td>18 V protection, CN3791 MPPT, Q1–Q4 switching with hardware interlock, dual batteries + NTCs, INA226 ×2 with
+          Kelvin shunts, telemetry MCU. ≈ <strong>50 × 70 mm</strong>; ≥ 3 mm copper-free isolation band on the PCB</td></tr>
+    <tr class="alt"><td class="mono">LIB</td><td>load interface board (chest unit)</td><td>2-layer in-house PCB</td>
+        <td>supercap hold-up + pre-charge, Q5 load switch + soft start, π filter, sync-pulse injection + clamp, JST-PH out.
+          ≈ <strong>25 × 20 mm</strong>; no switching supply, no 18 V</td></tr>
+    <tr><td class="mono">J6-ASSY</td><td>5-core shielded umbilical</td><td>hand assembly</td>
+        <td>0.5–1 m shielded cable + magnetic/frangible connectors both ends; <strong>shield grounded at PMB-H only</strong>
+          (single-ended, avoids ground loops); pinout labeled on both ends</td></tr>
+  </table>
+
+  <h3>6.3　Three scenarios for the lab's PCB capability</h3>
+  <p>The lab has PCB fabrication equipment, compressing the iteration loop from "5–7 day fab" to <strong>same day</strong>.
+    Its capability must be characterized first (Q7, §8):</p>
+  <table class="t">
+    <tr><th style="width:20%">Scenario</th><th style="width:26%">Capability</th><th style="width:30%">How PMB-H gets built</th><th style="width:24%">Verdict</th></tr>
+    <tr><td><strong>A</strong>　mill only</td><td>1/2-sided copper, rivet vias, no solder mask</td>
+        <td>in-house 2-layer; <strong>INA226 (VSSOP-10, 0.5 mm pitch) replaced by a soldered-in module</strong></td>
+        <td><span class="pill pill-ok">viable</span>　conformal coat required</td></tr>
+    <tr class="alt"><td><strong>B</strong>　etch + via metallization + solder mask</td><td>near-industrial 2-layer</td>
+        <td>in-house, VSSOP-10 directly placeable</td><td><span class="pill pill-ok">recommended</span></td></tr>
+    <tr><td><strong>C</strong>　B + reflow / hot air / stencil</td><td>full prototype line</td>
+        <td>all in-house, any package</td><td><span class="pill pill-ok">best</span></td></tr>
+  </table>
+  <div class="co ok"><span class="co-t">Good news: the QFN problem is gone</span>
+    v1.0's worst process obstacle was the AEM10941's QFN-40 (0.5 mm pitch, bottom pad — impossible for a lab iron).
+    After the change, AEM10941 is off the main chain; the hardest remaining package is the INA226's VSSOP-10,
+    worked around with a ready-made module in scenario A. <strong>In all three scenarios, Rev B needs no outsourced PCBA.</strong></div>
+
+  <h3>6.4　Hand-soldering work list</h3>
+  <p>Once the PCBs exist, the iron work (~1 h total, all easy through-hole):</p>
+  <div class="row">
+    <div class="col w50"><ul class="cl">
+      <li><span class="box"></span>J1 screw terminal / XT30 (PV input)　★☆☆</li>
+      <li><span class="box"></span>J2 / J3 JST-PH 2.0 vertical (batteries A/B)　★☆☆</li>
+      <li><span class="box"></span>J4 / J5 2-pin headers (NTC ×2)　★☆☆</li>
+      <li><span class="box"></span>J6 5-core connector (umbilical)　★☆☆</li>
+    </ul></div>
+    <div class="col w50"><ul class="cl">
+      <li><span class="box"></span>C10 / C11 supercaps ×2 (through-hole, <strong>mind polarity</strong>)　★★☆</li>
+      <li><span class="box"></span>XIAO nRF52840 module (castellated)　★★☆</li>
+      <li><span class="box"></span>test-point headers ×6　★☆☆</li>
+      <li><span class="box"></span>J7 JST-PH (→ BITalino, <strong>measure polarity first</strong>)　★☆☆</li>
+    </ul></div>
+  </div>
+  <div class="co risk"><span class="co-t">The two jobs most likely to cause irreversible damage</span>
+    <strong>① Lithium-cell lead termination</strong> — never solder on the cell body; handle one wire at a time, heat-shrink
+    first, finish and insulate the red wire before touching the black; clear the bench of metal debris; keep a fireproof
+    container handy.
+    <br/><strong>② BITalino battery-lead polarity check</strong> — JST-PH has no keying; the two wires can be swapped in the
+    housing and pin order varies by vendor. Measure polarity with the supplied battery first, photograph for the record,
+    double-check with a second person; ⚠ whether BITalino has reverse-polarity protection is unknown —
+    <strong>treat it as unprotected</strong>.</div>
+</div>
+
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 07 · PROCUREMENT</span>
+    <h2 class="sec-title"><span class="tag tag-buy">C</span>　Items to Purchase</h2>
+    <p class="sec-sub">Part numbers are suggestions — equivalents are fine. <strong>Lithium cells have the longest lead
+      time and some couriers refuse them; order them first.</strong></p>
+  </div>
+
+  <h3>7.1　P0 · Blockers without these (11 items)</h3>
+  <table class="t">
+    <tr><th style="width:5%">#</th><th style="width:22%">Item</th><th style="width:24%">Spec</th>
+        <th style="width:7%">Qty</th><th style="width:42%">Why it must be bought</th></tr>
+    <tr><td class="num">1</td><td><strong>1S lithium cells</strong></td><td>3.7 V <strong>2500 mAh</strong>, with PCM, PH2.0 leads</td><td class="c">4</td>
+        <td>existing 1000 mAh gives only 0.64 d autonomy — blackout on consecutive overcast days. 2500×2 = 3.2 d; 4 cells = dual + spares</td></tr>
+    <tr class="alt"><td class="num">2</td><td><strong>MPPT charge module</strong></td><td>CN3791, input ≤28 V, charge current adjustable ≥1.25 A</td><td class="c">3</td>
+        <td>the only charge path. ⚠ before ordering confirm the module's max charge current and inductor spec (market modules often under-spec vs the chip)</td></tr>
+    <tr><td class="num">3</td><td><strong>INA226 modules</strong></td><td>I²C, external shunt</td><td class="c">4</td>
+        <td>the entire basis of EAR. Metering only one side leaves self-discharge and quiescent draw unaccounted — EAR becomes fiction</td></tr>
+    <tr class="alt"><td class="num">4</td><td><strong>Precision shunts</strong></td><td><strong>0.02 Ω</strong>, 1%, 2512</td><td class="c">20</td>
+        <td>v1.0's 0.1 Ω exceeds the INA226 range at the new power (1.8 A × 0.1 Ω = 180 mV &gt; 81.92 mV)</td></tr>
+    <tr><td class="num">5</td><td><strong>Irradiance reference</strong></td><td>calibrated reference silicon cell (preferred) <em>or</em> lux meter</td><td class="c">1</td>
+        <td>without it, no "under different light" conclusion can reproduce. ⚠ lux ≠ W/m² — reports must state the conversion assumed</td></tr>
+    <tr class="alt"><td class="num">6</td><td><strong>Telemetry MCU</strong></td><td>Seeed XIAO nRF52840</td><td class="c">3</td>
+        <td>carrier for metering + scheduling + sync</td></tr>
+    <tr><td class="num">7</td><td><strong>Power MOSFETs</strong></td><td>P-ch AO3401 / N-ch AO3400, SOT-23</td><td class="c">30 ea</td>
+        <td>4 for battery switching + load switch. The single YJL3404A in stock is neither enough nor reproducible</td></tr>
+    <tr class="alt"><td class="num">8</td><td><strong>ECG electrodes</strong></td><td>standard snap-type disposable gel electrodes</td><td class="c">500</td>
+        <td>pure consumable. ~3 per session × 2 sessions/day × 90 days</td></tr>
+    <tr><td class="num">9</td><td><strong>Ideal-diode ICs</strong></td><td>LM66100 or similar, with reverse blocking</td><td class="c">10</td>
+        <td>sidesteps the body-diode trap (still paralleled when off); far more reliable than back-to-back discrete FETs</td></tr>
+    <tr class="alt"><td class="num">10</td><td><strong>Thermal insulation</strong></td><td>EVA foam / aerogel pad, 3–5 mm</td><td class="c">1 roll</td>
+        <td>panel rear reaches 60–70 °C; the body side must insulate. <strong>A thermal pad cannot substitute — opposite direction</strong></td></tr>
+    <tr><td class="num">11</td><td><strong>18 V wiring &amp; connectors</strong></td><td>18 AWG shielded silicone wire 2 m, XT30 M/F ×5, 2 A slow-blow fuse holder + 10 fuses</td><td class="c">1 set</td>
+        <td>an 18 V / 1.8 A short will arc; fuses and proper wire are the safety floor</td></tr>
+  </table>
+
+  <h3>7.2　P1 · Strongly recommended (data quality &amp; safety)</h3>
+  <table class="t">
+    <tr><th style="width:5%">#</th><th style="width:24%">Item</th><th style="width:26%">Spec</th><th style="width:7%">Qty</th><th style="width:38%">Rationale</th></tr>
+    <tr><td class="num">12</td><td><strong>Adjustable DC supply</strong></td><td>0–30 V / 0–5 A, <strong>current-limited</strong></td><td class="c">1</td>
+        <td>power-on checks and the battery-interlock test (TC-13) all require a current-limited supply. <strong>The single best board-saver</strong>; skip if the Workspace already has one</td></tr>
+    <tr class="alt"><td class="num">13</td><td>DC electronic load</td><td>60–150 W, CC adjustable</td><td class="c">1</td><td>panel I-V curves, battery discharge curves</td></tr>
+    <tr><td class="num">14</td><td>K-type surface thermocouples</td><td>matching the existing meter</td><td class="c">4</td><td>points grew from 2 to 4 (panel rear / skin side / battery / charger case)</td></tr>
+    <tr class="alt"><td class="num">15</td><td><strong>Small flex PV panels</strong></td><td>5–6 V / ~1 W</td><td class="c">2</td>
+        <td>keeps EVK10941 useful and preserves the "two harvesting paths compared" research line. Trivial cost, high paper value</td></tr>
+    <tr><td class="num">16</td><td>EMC materials</td><td>common-mode chokes, ferrite clamps, copper shielding tape</td><td class="c">10 ea</td><td>mitigation for the #1 risk</td></tr>
+    <tr class="alt"><td class="num">17</td><td>Protection parts</td><td>SMAJ26A, SS54, 220 µF/35 V low-ESR, Polyfuse</td><td class="c">10 ea</td><td>re-selected for the new power level</td></tr>
+    <tr><td class="num">18</td><td>NTC thermistors</td><td>10 kΩ B3950</td><td class="c">10</td><td>0–45 °C charge-window protection (CN3791 has none built in)</td></tr>
+    <tr class="alt"><td class="num">19</td><td>Break-away connectors</td><td>magnetic 5-core or frangible</td><td class="c">4</td><td>safety part of the split topology; &gt; ~20 N releases the connector, not the electrodes</td></tr>
+    <tr><td class="num">20</td><td>PCB consumables</td><td>copper clad, mills/drills, via rivets, conformal coat, IPA</td><td class="c">1 batch</td><td>pairs with the lab's PCB equipment; <strong>unmasked boards must be conformal-coated</strong> (sweat-proof on-body)</td></tr>
+    <tr class="alt"><td class="num">21</td><td>Assembly consumables</td><td>flux, solder wick, Kapton tape, heat-shrink, cable clips</td><td class="c">1 ea</td><td>—</td></tr>
+  </table>
+
+  <h3>7.3　P2 · Optional (depends on open items)</h3>
+  <table class="t">
+    <tr><th style="width:5%">#</th><th style="width:30%">Item</th><th style="width:65%">Trigger condition</th></tr>
+    <tr><td class="num">22</td><td>TEG module + heatsink</td><td><strong>only if the thermoelectric comparison line continues</strong> (Q5) — nothing in current stock generates power</td></tr>
+    <tr class="alt"><td class="num">23</td><td>ADS1292R / MAX86150 module</td><td>only if Phase 3 custom low-power node starts (Q3)</td></tr>
+    <tr><td class="num">24</td><td>Oscilloscope (≥50 MHz)</td><td>strongly recommended if the Workspace lacks one — EMC work cannot proceed without it</td></tr>
+    <tr class="alt"><td class="num">25</td><td>Thermal camera</td><td>deeper thermal-distribution study; borrowing is fine</td></tr>
+    <tr><td class="num">26</td><td>Function generator</td><td>ECG-phantom stimulus (a phone's audio out can stand in)</td></tr>
+    <tr class="alt"><td class="num">27</td><td>Carry / rack structural parts</td><td>depends on the panel-mounting choice in Q1</td></tr>
+  </table>
+</div>
+
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 08 · PLAN</span>
+    <h2 class="sec-title">Schedule &amp; Verification Gates</h2>
+    <p class="sec-sub">The plan pivots on weeks 5–6: the <strong>TC-05 ECG-phantom noise comparison</strong> decides the
+      simple vs complex route — no dual-battery hardware before it reports. Assumptions: procurement ≤ 2 wk, ethics ≤ 6 wk,
+      same-day PCBs. <strong>Procurement and ethics must both start in week 1</strong>. W12+ is Phase 3 (optional, pending Q3) and write-up.</p>
+  </div>
+
+  <div class="ms">
+    <div class="ms-i"><span class="ms-w">W1</span>
+      <div class="ms-t">Component verification &amp; baseline measurements</div>
+      <div class="ms-d">panel weight &amp; laminate type, measured V<sub>oc</sub>/I<sub>sc</sub>, BITalino model + BT/BLE check, HeartBIT packing list, <strong>TC-01 measured power draw</strong>, place orders.</div>
+      <div class="ms-gate">Gate: all ⚠ items cleared; TC-01 values replace every power estimate and EAR is recomputed.</div></div>
+
+    <div class="ms-i"><span class="ms-w">W2</span>
+      <div class="ms-t">Repo, conventions &amp; ethics application</div>
+      <div class="ms-d">Git repo + run-manifest convention, CI skeleton, PCB-equipment capability survey, <strong>ethics application submitted</strong>.</div>
+      <div class="ms-gate">Gate: P0 orders placed; ethics filed (critical path — earlier is better).</div></div>
+
+    <div class="ms-i"><span class="ms-w">W3–4</span>
+      <div class="ms-t">PMB-H in-house board &amp; firmware v0.1</div>
+      <div class="ms-d">PCB fab and assembly, power-on checklist all green, firmware drivers + state machine, TC-02 panel I-V, TC-17 temp-coefficient calibration.</div>
+      <div class="ms-gate">Gate: power-on checklist fully passed (current-limited first power-up, 18 V vs LV insulation test).</div></div>
+
+    <div class="ms-i"><span class="ms-w">W5–6</span>
+      <div class="ms-t">TC-05 ECG-phantom noise comparison — decision point</div>
+      <div class="ms-d">2×2 factorial (phantom 0 / 1 mV × harvester OFF / ON), 5 × 5 min per cell; Welch PSD on the 0.5–40 Hz floor, watching for irradiance-tracking peaks. TC-04 chain efficiency in parallel.</div>
+      <div class="ms-gate">Decision: Δ noise floor &lt; 10 µV<sub>rms</sub> → drop dual batteries; otherwise build ADR-006 and re-measure.</div></div>
+
+    <div class="ms-i"><span class="ms-w">W7</span>
+      <div class="ms-t">Converge the architecture per TC-05</div>
+      <div class="ms-d">if dual batteries needed: TC-13 interlock verification (16 gate combos + 4 fault injections, <strong>current-limited supplies only, no real batteries</strong>).</div>
+      <div class="ms-gate">Gate: real batteries only after TC-13 fully passes.</div></div>
+
+    <div class="ms-i"><span class="ms-w">W8</span>
+      <div class="ms-t">LIB board, umbilical &amp; thermal safety</div>
+      <div class="ms-d">TC-15 supercap hold-up, TC-16 cable break-away, <strong>TC-07 stage 1: ex-vivo skin-phantom thermal test</strong>.</div>
+      <div class="ms-gate">Gate: <strong>no on-body work until thermal stage 1 passes.</strong></div></div>
+
+    <div class="ms-i"><span class="ms-w">W9–10</span>
+      <div class="ms-t">System integration &amp; long runs</div>
+      <div class="ms-d">TC-06 continuous 72 h energy balance (first run attended, segmented), TC-19 measured autonomy, TC-09 clock-drift characterization.</div>
+      <div class="ms-gate">Gate: telemetry completeness &gt; 99%; EAR ≥ 1.5.</div></div>
+
+    <div class="ms-i"><span class="ms-w">W11</span>
+      <div class="ms-t">On-body validation &amp; dual-unit comparison</div>
+      <div class="ms-d">TC-07 stage 2 (gradual on-body; abort on score &lt;4 or skin ≥40 °C), TC-08 dual-unit agreement, TC-11 outdoor EAR.</div>
+      <div class="ms-gate">Gate: continuous-acquisition EAR ≥ 1.5; R-peak agreement &gt; 99%.</div></div>
+
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 09 · OPEN ITEMS</span>
+    <h2 class="sec-title">7 Items Needing Confirmation</h2>
+    <p class="sec-sub">Each comes with our recommendation for a quick sign-off. Q1 changes the mechanical and thermal design — prioritize it.</p>
+  </div>
+
+  <table class="t">
+    <tr><th style="width:5%">#</th><th style="width:30%">Question</th><th style="width:30%">Why it matters</th><th style="width:35%">Our recommendation</th></tr>
+    <tr><td class="num">1</td><td><strong>How does the panel travel with the person?</strong> backpack / mounted on wheelchair or walker / fixed base station</td>
+        <td>drives thermal safety, ergonomics, structural purchases, and the project's clinical framing</td>
+        <td><span class="pill pill-ok">recommend B</span>　mount on a wheelchair / walker / stroller — weight carried by the
+          device, thermal risk greatly reduced; "PV on an assistive device + wearable monitoring" has clear clinical value
+          in rehab medicine, more convincing than "a healthy person carrying a panel"</td></tr>
+    <tr class="alt"><td class="num">2</td><td>Project naming: with the panel no longer worn, still call it "self-powered wearable"?</td>
+        <td>once the panel is carried rather than worn, the phrase invites misreading and may be challenged at defense</td>
+        <td>rename to <code>solar-harvesting wearable health monitoring system</code>, with the mounting position stated
+          explicitly in methods. <strong>All WPT-related terms remain banned</strong></td></tr>
+    <tr><td class="num">3</td><td>Is BITalino the final load? Is a custom low-power node still needed</td>
+        <td>with ample energy this flips from "required" to "optional" — it directly decides whether Phase 3 starts</td>
+        <td>use BITalino through Phases 1–2 (energy suffices); decide Phase 3 on time and goals</td></tr>
+    <tr class="alt"><td class="num">4</td><td>BITalino main boards: 2 or 3 in total? BT or BLE version</td>
+        <td>drives the power model and host stack; whether dual-unit comparison can run simultaneously</td>
+        <td>we verify on-site in W1 and report with photos. Plan conservatively for BT; BLE would be a bonus</td></tr>
+    <tr><td class="num">5</td><td>Does the thermoelectric comparison continue</td>
+        <td>delivered stock has only sensing thermocouples — <strong>no generating device at all</strong>; it cannot run now</td>
+        <td>if continuing, buy TEG (P2-22); if not, the thermal parts are repurposed to thermal-safety verification (already in TC-07)</td></tr>
+    <tr class="alt"><td class="num">6</td><td>Ethics-approval path and timeline for human-subject work</td>
+        <td>ECG acquisition is human data; <strong>retroactive approval is generally not accepted — data would be void</strong></td>
+        <td>please indicate the review body and process; we submit before end of W2</td></tr>
+    <tr><td class="num">7</td><td>Smart Healthcare Workspace access progress and available instruments</td>
+        <td>decides whether P1-12 (current-limited supply), P2-24 (oscilloscope) etc. must be purchased</td>
+        <td>please confirm availability of: <strong>adjustable current-limited supply, oscilloscope, electronic load,
+          environmental chamber, lux/irradiance meter, thermal camera</strong>; and the PCB equipment's exact capability
+          (via metallization / solder mask / min trace / reflow)</td></tr>
+  </table>
+
+  <div class="co neutral"><span class="co-t">Known limitations of this proposal</span>
+    <strong>①</strong> Scenario irradiance figures are engineering estimates spanning up to 5× (indoor-window especially);
+    they must be replaced by reference-cell measurements, updating all EAR numbers in §1.
+    <strong>②</strong> BITalino's 240 mW is still an estimate — TC-01 is pending, and it is the foundation of every calculation.
+    <strong>③</strong> Panel mounting is undecided (Q1); this proposal assumes backpack mounting — a rack mount would relax
+    thermal and ergonomic analysis significantly.
+    <strong>④</strong> CN3791's max charge current and inductor spec are unverified; if under 1.25 A, move to LT3652 or lower the charge rate.
+    <strong>⑤</strong> The lab's PCB capability is unknown; §6.3 gives a three-scenario matrix to converge after surveying.
+    <strong>⑥</strong> Whether the dual-battery architecture (ADR-006) is needed depends on TC-05.</div>
+
+  <div class="co ok"><span class="co-t">Our immediate actions upon approval</span>
+    ① fix the mechanical and insulation design per Q1 and complete the structural purchases;
+    ② place the P0 order the same day (lithium cells first);
+    ③ file the ethics application along the Q6 path;
+    ④ complete component verification and TC-01 in W1, report measured data, and update every energy number in this proposal.</div>
+</div>
+</body>
+</html>

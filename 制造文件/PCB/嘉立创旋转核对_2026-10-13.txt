@@ -1,0 +1,95 @@
+pmbh C1 22u 25V C45783 -- footprint not fetched
+pmbh C10  1u 50V         C15849    C_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh C11 22u 25V C45783 -- footprint not fetched
+pmbh C12  1u 50V         C15849    C_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh C13  1u 50V         C15849    C_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh C14  10u 10V        C19702    C_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh C15  100u 35V       C2836437  CP_Elec_6.3x7.7              kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.03 OK 
+pmbh C2 22u 25V C45783 -- footprint not fetched
+pmbh C20  100n           C14663    C_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh C3   1u 50V         C15849    C_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh C30  100n           C14663    C_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh C4   100n           C14663    C_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh C40  100n           C14663    C_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh C5   100n           C14663    C_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh C50  100n           C14663    C_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh C6   220n           C21120    C_0603_1608Metric            kicad=  180 cpl=  180 need=  180  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh C60  100n           C14663    C_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh C7 22u 25V C45783 -- footprint not fetched
+pmbh C70  100n           C14663    C_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh C8   100n           C14663    C_0603_1608Metric            kicad=   90 cpl=   90 need=   90  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh C9   100n           C14663    C_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh D1   BZT52C10       C173431   D_SOD-123                    kicad=  270 cpl=  270 need=  270  off=(+0.00,+0.00)mm err=0.04 OK 
+pmbh D2   SMAJ10A        C134939   D_SMA                        kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.20 OK 
+pmbh D3   BZT52C10       C173431   D_SOD-123                    kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.04 OK 
+pmbh D4   B5819W         C8598     D_SOD-123                    kicad=  270 cpl=  270 need=  270  off=(+0.00,+0.00)mm err=0.05 OK 
+pmbh D5   SS34           C8678     D_SMA                        kicad=  270 cpl=  270 need=  270  off=(+0.00,+0.00)mm err=0.20 OK 
+pmbh D6   SMF5.0A        C193402   D_SOD-123F                   kicad=   90 cpl=   90 need=   90  off=(+0.00,+0.00)mm err=0.23 OK 
+pmbh F1   1.5A 16V       C883152   Fuse_1812_4532Metric         kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.28 OK 
+pmbh J1   KF350-3.5-2P   C474892   TerminalBlock_Phoenix_PT-1,5 kicad=  270 cpl=  270 need=  270  off=(+1.75,+0.00)mm err=0.00 OK 
+pmbh J2   PH2.0 2P       C295747   JST_PH_S2B-PH-SM4-TB_1x02-1M kicad=    0 cpl=  180 need=    0  off=(+0.00,+0.08)mm err=0.00 BAD
+pmbh J3   PH2.0 2P       C295747   JST_PH_S2B-PH-SM4-TB_1x02-1M kicad=    0 cpl=  180 need=    0  off=(+0.00,+0.08)mm err=0.00 BAD
+pmbh J4   PM254-1-07-Z-8 C2897370  PinSocket_1x07_P2.54mm_Verti kicad=  270 cpl=  270 need=  180  off=(+0.00,+7.62)mm err=0.00 BAD
+pmbh J5   PM254-1-07-Z-8 C2897370  PinSocket_1x07_P2.54mm_Verti kicad=  270 cpl=  270 need=  180  off=(+0.00,+7.62)mm err=0.00 BAD
+pmbh J6   PH2.0 5P       C265104   JST_PH_S5B-PH-SM4-TB_1x05-1M kicad=    0 cpl=  180 need=  180  off=(-0.00,+0.14)mm err=0.00 OK 
+pmbh J7   PH2.0 2P       C295747   JST_PH_S2B-PH-SM4-TB_1x02-1M kicad=  270 cpl=   90 need=  270  off=(+0.00,+0.08)mm err=0.00 BAD
+pmbh J8   PH2.0 2P       C295747   JST_PH_S2B-PH-SM4-TB_1x02-1M kicad=  270 cpl=   90 need=  270  off=(+0.00,+0.08)mm err=0.00 BAD
+pmbh L1   22uH 1.8A      C83454    L_Sunlord_SWPA6045S          kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.35 OK 
+pmbh M1   AO3401A        C15127    SOT-23                       kicad=    0 cpl=  270 need=  180  off=(+0.07,-0.00)mm err=0.20 BAD
+pmbh Q1   AO3401A        C15127    SOT-23                       kicad=  180 cpl=   90 need=    0  off=(+0.07,-0.00)mm err=0.20 BAD
+pmbh Q2   AO3400A        C20917    SOT-23                       kicad=    0 cpl=  270 need=  180  off=(+0.02,+0.00)mm err=0.06 BAD
+pmbh Q3   AO3400A        C20917    SOT-23                       kicad=    0 cpl=  270 need=  180  off=(+0.02,+0.00)mm err=0.06 BAD
+pmbh Q4   AO3400A        C20917    SOT-23                       kicad=    0 cpl=  270 need=  180  off=(+0.02,+0.00)mm err=0.06 BAD
+pmbh Q5   AO3401A        C15127    SOT-23                       kicad=    0 cpl=  270 need=  180  off=(+0.07,-0.00)mm err=0.20 BAD
+pmbh Q6   AO3400A        C20917    SOT-23                       kicad=    0 cpl=  270 need=  180  off=(+0.02,+0.00)mm err=0.06 BAD
+pmbh Q8   AO3400A        C20917    SOT-23                       kicad=    0 cpl=  270 need=  180  off=(+0.02,+0.00)mm err=0.06 BAD
+pmbh R1   22k            C31850    R_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R10  100k           C25803    R_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R11  10k            C25804    R_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R12  100k           C25803    R_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R13  10k            C25804    R_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R14  100k           C25803    R_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R15  1k             C21190    R_0603_1608Metric            kicad=   90 cpl=   90 need=   90  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R17  4.7k           C23162    R_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R18  4.7k           C23162    R_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R19  1M             C22935    R_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R2   100k           C25803    R_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R20  100k           C25803    R_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R3   100k           C25803    R_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R4   120            C22787    R_0603_1608Metric            kicad=  180 cpl=  180 need=  180  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R5   200k           C25811    R_0603_1608Metric            kicad=  180 cpl=  180 need=  180  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R6   51k            C23196    R_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R7   100k           C25803    R_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh R8   0.1 1W 1%      C2903496  R_1206_3216Metric            kicad=  270 cpl=  270 need=  270  off=(+0.00,+0.00)mm err=0.02 OK 
+pmbh R9   100k           C25803    R_0603_1608Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.07 OK 
+pmbh RS1A 0.05 1W 1%     C2904224  R_1206_3216Metric            kicad=   90 cpl=   90 need=   90  off=(+0.00,+0.00)mm err=0.02 OK 
+pmbh RS1B 0.22 1W 1%     C6627428  R_1206_3216Metric            kicad=   90 cpl=   90 need=   90  off=(+0.00,+0.00)mm err=0.02 OK 
+pmbh RS2  0.05 1W 1%     C2904224  R_1206_3216Metric            kicad=  270 cpl=  270 need=  270  off=(+0.00,+0.00)mm err=0.02 OK 
+pmbh RS3  0.1 1W 1%      C2903496  R_1206_3216Metric            kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.02 OK 
+pmbh RS4  0.47 1%        C28320    R_1206_3216Metric            kicad=   90 cpl=   90 need=   90  off=(+0.00,+0.00)mm err=0.02 OK 
+pmbh RS5  0.47 1%        C28320    R_1206_3216Metric            kicad=   90 cpl=   90 need=   90  off=(+0.00,+0.00)mm err=0.02 OK 
+pmbh U1   CN3791         C154992   SSOP-10_3.9x4.9mm_P1.00mm    kicad=    0 cpl=  270 need=  270  off=(+0.00,+0.00)mm err=0.21 OK 
+pmbh U2   INA226AIDGSR   C49851    MSOP-10_3x3mm_P0.5mm         kicad=  180 cpl=  180 need=   90  off=(+0.00,-0.00)mm err=0.01 BAD
+pmbh U3   INA226AIDGSR   C49851    MSOP-10_3x3mm_P0.5mm         kicad=  180 cpl=  180 need=   90  off=(+0.00,-0.00)mm err=0.01 BAD
+pmbh U4   INA226AIDGSR   C49851    MSOP-10_3x3mm_P0.5mm         kicad=    0 cpl=    0 need=  270  off=(+0.00,-0.00)mm err=0.01 BAD
+pmbh U5   INA226AIDGSR   C49851    MSOP-10_3x3mm_P0.5mm         kicad=  180 cpl=  180 need=   90  off=(+0.00,-0.00)mm err=0.01 BAD
+pmbh U6   INA226AIDGSR   C49851    MSOP-10_3x3mm_P0.5mm         kicad=  180 cpl=  180 need=   90  off=(+0.00,-0.00)mm err=0.01 BAD
+pmbh U7   INA226AIDGSR   C49851    MSOP-10_3x3mm_P0.5mm         kicad=  180 cpl=  180 need=   90  off=(+0.00,-0.00)mm err=0.01 BAD
+pmbh U8   ME6211C33M5G-N C82942    SOT-23-5                     kicad=    0 cpl=  270 need=  270  off=(+0.00,+0.00)mm err=0.02 OK 
+libb C1 22u 25V C45783 -- footprint not fetched
+libb C2   100n           C14663    C_0603_1608Metric            kicad=   90 cpl=   90 need=   90  off=(+0.00,+0.00)mm err=0.07 OK 
+libb C3 22u 25V C45783 -- footprint not fetched
+libb C4   100n           C14663    C_0603_1608Metric            kicad=   90 cpl=   90 need=   90  off=(+0.00,+0.00)mm err=0.07 OK 
+libb D1   SMF5.0A        C193402   D_SOD-123F                   kicad=   90 cpl=   90 need=   90  off=(+0.00,+0.00)mm err=0.23 OK 
+libb D2   B5819W         C8598     D_SOD-123                    kicad=    0 cpl=    0 need=    0  off=(+0.00,+0.00)mm err=0.05 OK 
+libb D3   BAT54S         C47546    SOT-23                       kicad=    0 cpl=  270 need=  180  off=(+0.05,+0.00)mm err=0.15 BAD
+libb J1   PH2.0 5P       C265104   JST_PH_S5B-PH-SM4-TB_1x05-1M kicad=   90 cpl=  270 need=  270  off=(-0.00,+0.14)mm err=0.00 OK 
+libb J2   PH2.0 2P       C295747   JST_PH_S2B-PH-SM4-TB_1x02-1M kicad=    0 cpl=  180 need=    0  off=(+0.00,+0.08)mm err=0.00 BAD
+libb J3   PH2.0 2P       C295747   JST_PH_S2B-PH-SM4-TB_1x02-1M kicad=    0 cpl=  180 need=    0  off=(+0.00,+0.08)mm err=0.00 BAD
+libb Q1   AO3401A        C15127    SOT-23                       kicad=    0 cpl=  270 need=  180  off=(+0.07,-0.00)mm err=0.20 BAD
+libb R1   100k           C25803    R_0603_1608Metric            kicad=   90 cpl=   90 need=   90  off=(+0.00,+0.00)mm err=0.07 OK 
+libb R2   33 1W          C53728    R_2512_6332Metric            kicad=   90 cpl=   90 need=   90  off=(+0.00,+0.00)mm err=0.10 OK 
+libb R3   100k           C25803    R_0603_1608Metric            kicad=   90 cpl=   90 need=   90  off=(+0.00,+0.00)mm err=0.07 OK 
+libb R4   100k           C25803    R_0603_1608Metric            kicad=   90 cpl=   90 need=   90  off=(+0.00,+0.00)mm err=0.07 OK 
+libb R5   1k             C21190    R_0603_1608Metric            kicad=   90 cpl=   90 need=   90  off=(+0.00,+0.00)mm err=0.07 OK 
+libb U1   LM66100DCKR    C2869734  SOT-363_SC-70-6              kicad=    0 cpl=  180 need=  270  off=(+0.00,+0.00)mm err=0.26 BAD

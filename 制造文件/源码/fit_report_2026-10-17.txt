@@ -1,0 +1,18 @@
+== NEW parts
+  PMB-H: {'points': 12026, 'inside': 19, 'inside_lifted_0p05': 0, 'control_pushed_1mm': 44}
+  LIB: {'points': 12028, 'inside': 60, 'inside_lifted_0p05': 0, 'control_pushed_1mm': 152}
+  Core B (LOD1): {'points': 12766, 'inside': 0, 'inside_lifted_0p05': 0, 'control_pushed_1mm': 143}
+  104050 battery (40x50+3x10): {'overlap_mm3': 7.947, 'free_travel_mm': {'+X': 'already touching', '-X': 'already touching', '+Y': 'already touching', '-Y': 'already touching', '+Z': 'already touching'}}
+  104050 battery, bumps excluded (39.4 wide): {'overlap_mm3': 0.0, 'free_travel_mm': {'+X': 0.0, '-X': 0.0, '+Y': np.float64(1.0), '-Y': 0.0, '+Z': np.float64(1.0)}}
+  Core B (56x65 + 3.5 sockets): {'overlap_mm3': 0.0, 'free_travel_mm': {'+X': np.float64(0.72), '-X': np.float64(0.72), '+Y': np.float64(0.72), '-Y': np.float64(0.28), '+Z': np.float64(0.5)}}
+  Board Kit 108x65 (official): {'overlap_mm3': 0.0, 'free_travel_mm': {'+X': np.float64(0.72), '-X': np.float64(0.72), '+Y': np.float64(0.28), '-Y': np.float64(0.72), '+Z': np.float64(1.19)}}
+  523450 battery: {'overlap_mm3': 0.0, 'free_travel_mm': {'+X': np.float64(1.28), '-X': np.float64(1.28), '+Y': np.float64(0.38), '-Y': np.float64(0.38), '+Z': np.float64(8.78)}}
+== OLD parts (before this change)
+  PMB-H: {'points': 12026, 'inside': 12, 'inside_lifted_0p05': 0, 'control_pushed_1mm': 37}
+  LIB: {'points': 12028, 'inside': 75, 'inside_lifted_0p05': 0, 'control_pushed_1mm': 171}
+  Core B (LOD1): {'points': 12766, 'inside': 0, 'inside_lifted_0p05': 0, 'control_pushed_1mm': 174}
+  104050 battery (40x50+3x10): {'overlap_mm3': 0.0, 'free_travel_mm': {'+X': np.float64(14.0), '-X': np.float64(14.0), '+Y': np.float64(1.0), '-Y': np.float64(1.0), '+Z': np.float64(3.0)}}
+  104050 battery, bumps excluded (39.4 wide): {'overlap_mm3': 0.0, 'free_travel_mm': {'+X': np.float64(14.28), '-X': np.float64(14.28), '+Y': np.float64(1.0), '-Y': np.float64(1.0), '+Z': np.float64(3.0)}}
+  Core B (56x65 + 3.5 sockets): {'overlap_mm3': 0.0, 'free_travel_mm': {'+X': np.float64(0.72), '-X': np.float64(0.72), '+Y': np.float64(0.72), '-Y': np.float64(2.97), '+Z': np.float64(0.5)}}
+  Board Kit 108x65 (official): {'overlap_mm3': 0.0, 'free_travel_mm': {'+X': np.float64(0.72), '-X': np.float64(0.72), '+Y': np.float64(2.97), '-Y': np.float64(0.72), '+Z': np.float64(3.38)}}
+  523450 battery: {'overlap_mm3': 0.0, 'free_travel_mm': {'+X': np.float64(1.28), '-X': np.float64(1.28), '+Y': np.float64(9.5), '-Y': np.float64(10.5), '+Z': np.float64(8.78)}}

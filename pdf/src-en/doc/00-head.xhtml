@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8"/>
+<title>Solar-Harvesting Wearable Health Monitoring System — System Architecture Proposal</title>
+<style>
+/* ============================ 设计系统 ============================ */
+/* ink 墨色 / deep 深蓝 / solar 太阳能金 / volt 信号蓝 —— 三色克制使用 */
+
+@@PAGE_RULES@@
+
+
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: UI, CJK, sans-serif;
+  font-size: 9.8pt; line-height: 1.62; color: #16203A;
+  -fs-text-justify: none;
+}
+p { margin: 0 0 7pt; }
+strong, b { font-weight: 700; color: #0B1220; }
+em { font-style: normal; color: #B8720F; font-weight: 500; }
+a { color: #2F6BE4; text-decoration: none; }
+sup { font-size: 6.5pt; color: #8B97AB; vertical-align: super; }
+
+/* ---------- 封面 ---------- */
+.cover { width: 210mm; height: 297mm; position: relative;
+         background-color: #0B1220; color: #FFFFFF; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 30mm; }
+.cover-eyebrow { font-family: Display, CJK; font-size: 8.4pt; font-weight: 600;
+  letter-spacing: 2.6pt; color: #E09B2D; text-transform: uppercase; margin-bottom: 22mm; }
+.cover-title { font-family: Display, CJK; font-weight: 700; font-size: 29pt;
+  line-height: 1.34; letter-spacing: -0.2pt; color: #FFFFFF; margin: 0 0 7mm; }
+.cover-title .thin { font-weight: 500; color: #9FB0CC; display: block; font-size: 15pt;
+  letter-spacing: 0.6pt; margin-top: 4mm; line-height:1.5; }
+.cover-rule { width: 34mm; height: 2.2pt; background-color: #E09B2D; margin: 0 0 7mm; }
+.cover-lede { font-size: 10.2pt; line-height: 1.85; color: #C3CEE2; max-width: 132mm; }
+.cover-lede .hl { color: #FFFFFF; font-weight: 600; }
+.cover-art { position: absolute; left: 22mm; right: 22mm; top: 168mm; }
+.cover-meta { position: absolute; left: 22mm; right: 22mm; bottom: 20mm;
+  border-top: 0.6pt solid #2A3A57; padding-top: 6mm; }
+.cover-meta table { width: 100%; border-collapse: collapse; }
+.cover-meta td { vertical-align: top; padding-right: 8mm; }
+.cm-k { font-family: Display, CJK; font-size: 6.4pt; letter-spacing: 1.5pt; color: #6F809C;
+  text-transform: uppercase; padding-bottom: 1.6mm; }
+.cm-v { font-size: 8.2pt; line-height:1.45; color: #E8EDF6; font-weight: 500; }
+
+/* ---------- 章节 ---------- */
+.sec { page-break-before: always; }
+.cont { page-break-before: auto; }
+.pg { page-break-before: always; }
+figure.tight { margin: 2mm 0 3mm; }
+.figframe.tight { padding: 2.6mm 3mm 2mm; }
+.row { -fs-table-paginate: paginate; }
+table.t tr { page-break-inside: avoid; }
+.co, .layer, .kpi, .prob, .ms-i { page-break-inside: avoid; }
+h3 { page-break-after: avoid; }
+.sec-head { border-bottom: 1.4pt solid #0B1220; padding-bottom: 3.2mm; margin-bottom: 6mm; }
+.sec-num { font-family: Display, CJK; font-size: 8pt; font-weight: 700; letter-spacing: 2.4pt;
+  color: #E09B2D; display: block; margin-bottom: 1.8mm; }
+.sec-title { font-family: Display, CJK; font-size: 17pt; font-weight: 700;
+  color: #0B1220; margin: 0; line-height: 1.3; letter-spacing: -0.1pt; }
+.sec-sub { font-size: 9pt; color: #6B7891; margin-top: 2mm; line-height:1.6; }
+
+h3 { font-family: Display, CJK; font-size: 11.2pt; font-weight: 700; color: #14233D;
+  margin: 6mm 0 2.6mm; padding-left: 3mm; border-left: 2.4pt solid #E09B2D; line-height:1.35; }
+h4 { font-family: UI, CJK; font-size: 9.6pt; font-weight: 700; color: #14233D;
+  margin: 5mm 0 2mm; }
+
+/* ---------- 基础组件 ---------- */
+.mono, code { font-family: Mono, CJK; font-size: 8.3pt; }
+code { background-color: #EEF2F8; color: #14233D; padding: 0.6pt 2.4pt; border-radius: 2.4pt; }
+.pill { display: inline-block; white-space: nowrap; font-family: Display, CJK; font-size: 7pt; font-weight: 700;
+  letter-spacing: 0.9pt; padding: 1.4pt 5pt; border-radius: 9pt; }
+.pill-solar { background-color: #FDF3E2; color: #96590A; }
+.pill-volt  { background-color: #E9F0FE; color: #1F4FAE; }
+.pill-ok    { background-color: #E4F4EE; color: #0E6B4D; }
+.pill-risk  { background-color: #FCEAE8; color: #A8291F; }
+.pill-muted { background-color: #EEF1F6; color: #5B6880; }
+
+.lead { font-size: 10.6pt; line-height: 1.72; color: #2B3854; }
+.note { font-size: 8.4pt; color: #7A8699; }
+
+/* ---------- 表格 ---------- */
+table.t { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm;
+  -fs-table-paginate: paginate; font-size: 8.7pt; }
+table.t th { font-family: Display, CJK; font-size: 7.2pt; font-weight: 700;
+  letter-spacing: 0.7pt; color: #FFFFFF; background-color: #14233D;
+  text-align: left; padding: 2.2mm 2.4mm; }
+table.t td { padding: 2mm 2.4mm; border-bottom: 0.5pt solid #E4E9F1;
+  vertical-align: top; line-height: 1.5; }
+table.t tr.alt td { background-color: #F8FAFD; }
+table.t td.num { font-family: Display, CJK; font-weight: 600; text-align: right;
+  font-size: 8.8pt; color: #14233D; }
+table.t td.c { text-align: center; }
+table.t caption { caption-side: bottom; font-size: 7.6pt; color: #8B97AB;
+  text-align: left; padding-top: 2mm; line-height:1.5; }
+
+/* ---------- 图 ---------- */
+figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
+.figcap { font-size: 7.8pt; color: #7A8699; margin-top: 2.5mm; line-height: 1.55;
+  border-left: 1.6pt solid #E4E9F1; padding-left: 3mm; }
+.figcap .fignum { font-family: Display, CJK; font-weight: 700; color: #B8720F;
+  letter-spacing: 0.6pt; }
+.figframe { border: 0.6pt solid #E4E9F1; border-radius: 4pt; padding: 4mm 4mm 3mm;
+  background-color: #FCFDFE; }
+
+/* ---------- 栅格（无 flex，用 table） ---------- */
+.row { display: table; width: 100%; border-collapse: separate; border-spacing: 3mm 0; }
+.row.tight { border-spacing: 2mm 0; }
+.row > .col { display: table-cell; vertical-align: top; }
+.row.g0 { border-spacing: 0; }
+.w50 { width: 50%; } .w33 { width: 33.33%; } .w66 { width: 66.66%; }
+.w25 { width: 25%; } .w40 { width: 40%; } .w60 { width: 60%; }
+
+/* ---------- KPI 数字块 ---------- */
+.kpi { border: 0.6pt solid #E4E9F1; border-radius: 5pt; padding: 4mm 4mm 3.4mm;
+  background-color: #FCFDFE; }
+.kpi-k { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700; letter-spacing: 1.4pt;
+  color: #8B97AB; text-transform: uppercase; margin-bottom: 2mm; }
+.kpi-v { font-family: Display, CJK; font-size: 22pt; font-weight: 700; color: #0B1220;
+  line-height: 1; letter-spacing: -0.6pt; }
+.kpi-v .u { font-size: 10pt; font-weight: 600; color: #6B7891; letter-spacing: 0; }
+.kpi-d { font-size: 7.8pt; color: #7A8699; margin-top: 2.2mm; line-height: 1.5; }
+.kpi.accent { border-color: #F0D5A4; background-color: #FEFAF3; }
+.kpi.accent .kpi-v { color: #B8720F; }
+
+/* ---------- 问题卡（醒目区） ---------- */
+.prob-hero { background-color: #0B1220; color: #FFFFFF; border-radius: 6pt;
+  padding: 5mm 6mm 4.6mm; margin-bottom: 3.6mm; }
+.prob-hero .ph-eye { font-family: Display, CJK; font-size: 7.4pt; font-weight: 700;
+  letter-spacing: 2.4pt; color: #E09B2D; text-transform: uppercase; }
+.prob-hero .ph-t { font-family: Display, CJK; font-size: 16.5pt; font-weight: 700;
+  margin: 3mm 0 2.5mm; line-height: 1.32; }
+.prob-hero .ph-s { font-size: 8.4pt; color: #AFBDD4; line-height: 1.6; max-width: 150mm; }
+
+.prob { border: 0.6pt solid #E4E9F1; border-left: 3.4pt solid #14233D;
+  border-radius: 4pt; padding: 2.4mm 3.6mm 1.9mm; margin-bottom: 1.9mm;
+  page-break-inside: avoid; background-color: #FFFFFF; }
+.prob-q { font-family: Display, CJK; font-size: 9.4pt; font-weight: 700; color: #0B1220;
+  margin-bottom: 1.3mm; line-height: 1.45; }
+.prob-n { display: inline-block; min-width: 5.4mm; height: 5.4mm; line-height: 5.4mm;
+  text-align: center; background-color: #14233D; color: #FFFFFF; border-radius: 2.6pt;
+  font-family: Display, CJK; font-size: 8.4pt; font-weight: 700; margin-right: 2.4mm;
+  padding: 0 1.2mm; }
+.prob.p-risk  { border-left-color: #CB4034; }
+.prob.p-risk  .prob-n { background-color: #CB4034; }
+.prob.p-solar { border-left-color: #B8720F; }
+.prob.p-solar .prob-n { background-color: #B8720F; }
+.prob-line { font-size: 7.85pt; line-height: 1.48; color: #46556E; margin-bottom: 0.7mm; }
+.prob-line .lb { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700;
+  letter-spacing: 0.8pt; color: #FFFFFF; background-color: #9AA5B8;
+  padding: 0.8pt 3.2pt; border-radius: 2.2pt; margin-right: 2.2mm; }
+.prob-line.solve .lb { background-color: #15845F; }
+.prob-line.risk  .lb { background-color: #CB4034; }
+.prob-line.check .lb { background-color: #2F6BE4; }
+
+/* ---------- Callout ---------- */
+.co { border-radius: 5pt; padding: 3.2mm 4mm; margin: 3.2mm 0; font-size: 8.8pt;
+  line-height: 1.6; page-break-inside: avoid; }
+.co-t { font-family: Display, CJK; font-weight: 700; font-size: 9.6pt; margin-bottom: 1.8mm;
+  display: block; }
+.co.ok    { background-color: #EFF8F4; border-left: 2.6pt solid #15845F; color: #1D4238; }
+.co.ok .co-t { color: #0E6B4D; }
+.co.warn  { background-color: #FEF8EC; border-left: 2.6pt solid #E09B2D; color: #4A3A1B; }
+.co.warn .co-t { color: #96590A; }
+.co.risk  { background-color: #FDF0EE; border-left: 2.6pt solid #CB4034; color: #4A211C; }
+.co.risk .co-t { color: #A8291F; }
+.co.info  { background-color: #F1F5FD; border-left: 2.6pt solid #2F6BE4; color: #1F2E4A; }
+.co.info .co-t { color: #1F4FAE; }
+.co.neutral { background-color: #F6F8FC; border-left: 2.6pt solid #46556E; color: #2B3854; }
+.co.neutral .co-t { color: #14233D; }
+
+/* ---------- 物料清单 ---------- */
+.bom-legend { display: table; width: 100%; border-spacing: 3mm 0; margin-bottom: 4mm; }
+.bom-legend .bl { display: table-cell; width: 33.33%; border-radius: 5pt; padding: 3.4mm 4mm;
+  color: #FFFFFF; }
+.bl-have { background-color: #15845F; }
+.bl-make { background-color: #B8720F; }
+.bl-buy  { background-color: #2F6BE4; }
+.bl-k { font-family: Display, CJK; font-size: 7pt; font-weight: 700; letter-spacing: 1.6pt;
+  text-transform: uppercase; opacity: 1; }
+.bl-v { font-family: Display, CJK; font-size: 16pt; font-weight: 700; margin-top: 1.4mm; line-height:1; }
+.bl-d { font-size: 7.6pt; margin-top: 1.6mm; line-height: 1.45; }
+.tag { display: inline-block; width: 4.4mm; height: 4.4mm; border-radius: 1.6pt;
+  text-align: center; font-family: Display, CJK; font-size: 6.6pt; font-weight: 700;
+  color: #FFFFFF; line-height: 4.4mm; }
+.tag-have { background-color: #15845F; } .tag-make { background-color: #B8720F; }
+.tag-buy { background-color: #2F6BE4; }
+
+/* ---------- 层级说明 ---------- */
+.layer { border: 0.7pt solid #E4E9F1; border-left: 3.2pt solid #14233D; border-radius: 4pt;
+  padding: 3.4mm 4mm; margin-bottom: 2.6mm; page-break-inside: avoid; }
+.layer-h { font-family: Display, CJK; font-size: 9.8pt; font-weight: 700; color: #0B1220;
+  margin-bottom: 1.4mm; }
+.layer-h .lid { font-family: Display, CJK; font-size: 7.4pt; font-weight: 700; color: #FFFFFF;
+  background-color: #14233D; padding: 1pt 4pt; border-radius: 2.6pt; margin-right: 2.6mm;
+  letter-spacing: 0.8pt; }
+.layer-d { font-size: 8.5pt; color: #46556E; line-height: 1.6; }
+.layer.l-hw { border-left-color: #B8720F; } .layer.l-hw .lid { background-color: #B8720F; }
+.layer.l-fw { border-left-color: #15845F; } .layer.l-fw .lid { background-color: #15845F; }
+.layer.l-sw { border-left-color: #2F6BE4; } .layer.l-sw .lid { background-color: #2F6BE4; }
+.layer.l-dt { border-left-color: #6B4FCF; } .layer.l-dt .lid { background-color: #6B4FCF; }
+
+/* ---------- 列表 ---------- */
+ul.cl { list-style: none; padding-left: 0; margin: 2mm 0 4mm; }
+ul.cl li { font-size: 8.8pt; line-height: 1.6; padding-left: 6mm; margin-bottom: 1.8mm;
+  position: relative; }
+ul.cl li .bullet { position: absolute; left: 0; top: 0; font-family: Display, CJK;
+  font-size: 7.6pt; font-weight: 700; color: #B8720F; }
+ol.n { padding-left: 5mm; margin: 2mm 0 4mm; font-size: 8.9pt; line-height: 1.62; }
+ol.n li { margin-bottom: 1.6mm; }
+
+/* ---------- 里程碑 ---------- */
+.ms { border-left: 1.4pt solid #E4E9F1; padding-left: 5mm; margin-left: 2mm; }
+.ms-i { position: relative; margin-bottom: 2.4mm; page-break-inside: avoid; }
+.ms-w { font-family: Display, CJK; font-size: 7.2pt; font-weight: 700; letter-spacing: 1.2pt;
+  color: #FFFFFF; background-color: #14233D; padding: 1pt 4.4pt; border-radius: 2.6pt; }
+.ms-t { font-family: Display, CJK; font-size: 9.2pt; font-weight: 700; color: #0B1220;
+  margin: 1.2mm 0 0.7mm; }
+.ms-d { font-size: 8.2pt; color: #46556E; line-height: 1.52; }
+.ms-gate { font-size: 7.8pt; color: #A8291F; margin-top: 1mm; font-weight: 500; }
+
+/* ---------- 脚注/注记 ---------- */
+.foot-note { font-size: 7.4pt; color: #8B97AB; line-height: 1.5; margin-top: 2.4mm;
+  border-top: 0.5pt solid #E4E9F1; padding-top: 2mm; }
+.conf { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700; padding: 0.6pt 3pt;
+  border-radius: 2pt; letter-spacing: 0.5pt; }
+.conf-v { background-color: #E4F4EE; color: #0E6B4D; }
+.conf-c { background-color: #FEF3E0; color: #96590A; }
+.conf-q { background-color: #EEF1F6; color: #5B6880; }
+
+/* ---------- EN density tuning ---------- */
+.sec-head { padding-bottom: 2.6mm; margin-bottom: 4.6mm; }
+.sec-sub { margin-top: 1.6mm; }
+.ms { padding-left: 4.6mm; }
+.ms-i { margin-bottom: 1.5mm; }
+.ms-t { font-size: 8.9pt; margin: 0.9mm 0 0.5mm; }
+.ms-d { font-size: 8.0pt; line-height: 1.42; }
+.ms-gate { font-size: 7.6pt; margin-top: 0.6mm; line-height: 1.4; }
+
+</style>
+</head>
+<body>

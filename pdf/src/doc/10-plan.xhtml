@@ -1,0 +1,105 @@
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 08 · PLAN</span>
+    <h2 class="sec-title">推进计划与验证门禁</h2>
+    <p class="sec-sub">整个计划的枢纽在第 5–6 周：<strong>TC-05 心电体模噪声对照</strong>的结果决定后面走简单路线还是复杂路线。
+      在它出结果之前，不要投入双电池的硬件工作。<br/>
+      时间线假设：采购周期 ≤ 2 周、伦理审批 ≤ 6 周、实验室制板当天可得；任一项超期则整体顺延。
+      W1–W2 并行度最高，<strong>采购与伦理必须在第一周就启动</strong>。W12 起为 Phase 3（可选，视 Q3 答复）与成果整理。</p>
+  </div>
+
+  <div class="ms">
+    <div class="ms-i"><span class="ms-w">W1</span>
+      <div class="ms-t">器件核验与基线实测</div>
+      <div class="ms-d">面板称重与层压类型确认、实测 V<sub>oc</sub>/I<sub>sc</sub>、BITalino 型号与 BT/BLE 核验、HeartBIT 装箱清单核对、<strong>TC-01 实测功耗</strong>、采购单发出。</div>
+      <div class="ms-gate">门禁：所有 ⚠ 项清零；TC-01 的实测值替换本方案全部功耗估计，并重算 EAR。</div></div>
+
+    <div class="ms-i"><span class="ms-w">W2</span>
+      <div class="ms-t">仓库、规范与伦理申请</div>
+      <div class="ms-d">Git 仓库与 run manifest 规范、CI 骨架、PCB 设备能力摸底、<strong>伦理审批申请提交</strong>。</div>
+      <div class="ms-gate">门禁：P0 采购已下单；伦理申请已递交（这是关键路径，越早越好）。</div></div>
+
+    <div class="ms-i"><span class="ms-w">W3–4</span>
+      <div class="ms-t">PMB-H 自制板与固件 v0.1</div>
+      <div class="ms-d">PCB 制作与装配、上电检查逐项通过、固件驱动层与状态机、TC-02 面板 I-V、TC-17 温度系数标定。</div>
+      <div class="ms-gate">门禁：上电检查清单全过（含限流电源试电、18 V 区与低压区绝缘测试）。</div></div>
+
+    <div class="ms-i"><span class="ms-w">W5–6</span>
+      <div class="ms-t">TC-05 心电体模噪声对照　—　决策点</div>
+      <div class="ms-d">2×2 因子设计（体模输入 0 / 1 mV × 收集器 OFF / ON），每格 5 次 × 5 分钟；Welch 法计算 0.5–40 Hz 噪声底，观察 PSD 上是否出现随光照移动的谱峰。同期完成 TC-04 收集链效率。</div>
+      <div class="ms-gate">决策：Δ噪声底 &lt; 10 µV<sub>rms</sub> → 砍掉双电池，省一半硬件复杂度；否则上 ADR-006 并重测。</div></div>
+
+    <div class="ms-i"><span class="ms-w">W7</span>
+      <div class="ms-t">按 TC-05 结果收敛架构</div>
+      <div class="ms-d">若需双电池：TC-13 互锁验证（16 种栅极组合 + 4 项故障注入，<strong>全部用限流电源，不接真电池</strong>）。</div>
+      <div class="ms-gate">门禁：TC-13 全部通过，才允许接入真电池。</div></div>
+
+    <div class="ms-i"><span class="ms-w">W8</span>
+      <div class="ms-t">LIB 小板、分体线缆与热安全</div>
+      <div class="ms-d">TC-15 超容 hold-up 时长、TC-16 线缆拉脱安全、<strong>TC-07 阶段一：离体皮肤模拟体热测试</strong>。</div>
+      <div class="ms-gate">门禁：<strong>热安全阶段一不通过，一律不得上身。</strong></div></div>
+
+    <div class="ms-i"><span class="ms-w">W9–10</span>
+      <div class="ms-t">整机联调与长时运行</div>
+      <div class="ms-d">TC-06 连续 72 h 能量收支（首次有人值守分段进行）、TC-19 自主度实测、TC-09 时钟漂移特性。</div>
+      <div class="ms-gate">门禁：遥测数据完整率 &gt; 99%；EAR ≥ 1.5。</div></div>
+
+    <div class="ms-i"><span class="ms-w">W11</span>
+      <div class="ms-t">上身验证与双机对照</div>
+      <div class="ms-d">TC-07 阶段二（渐进上身，主观评分 ≥4 或皮肤侧 ≥40 °C 立即终止）、TC-08 双机一致性、TC-11 户外 EAR。</div>
+      <div class="ms-gate">门禁：连续采集 EAR ≥ 1.5；R 峰检出一致率 &gt; 99%。</div></div>
+
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 09 · OPEN ITEMS</span>
+    <h2 class="sec-title">需要确认的 7 件事</h2>
+    <p class="sec-sub">每项都附我方建议，便于直接批复。其中 Q1 会改变机械与热设计，建议优先。</p>
+  </div>
+
+  <table class="t">
+    <tr><th style="width:5%">#</th><th style="width:30%">问题</th><th style="width:30%">为什么要问</th><th style="width:35%">我方建议</th></tr>
+    <tr><td class="num">1</td><td><strong>面板怎么跟着人走？</strong>背负 / 装在轮椅／助行器上 / 固定基站</td>
+        <td>决定热安全、人因、机械件采购，以及项目的临床定位</td>
+        <td><span class="pill pill-ok">建议方案 B</span>　装在轮椅／助行器／婴儿车等辅助器具上。
+          重量由器具承担，热风险大幅下降；「辅助器具搭载光伏 + 可穿戴监测」在康复医学领域有明确临床价值，
+          比「给健康人背块板子」更有说服力</td></tr>
+    <tr class="alt"><td class="num">2</td><td>项目名称与用词：面板不在身上了，还称 "self-powered wearable" 吗</td>
+        <td>面板改为随身携带后，该措辞易被理解为面板在身上，答辩可能被质疑</td>
+        <td>建议改为 <code>solar-harvesting wearable health monitoring system</code>，
+          方法部分明确写清面板安装位置。<strong>WPT 相关词汇仍全部禁用</strong></td></tr>
+    <tr><td class="num">3</td><td>BITalino 是最终负载吗？是否还需要自研低功耗节点</td>
+        <td>能量充裕后，这从「必需」变成「可选」，直接决定 Phase 3 是否启动</td>
+        <td>建议 Phase 1–2 就用 BITalino（能量已够）；Phase 3 视时间与目标再定</td></tr>
+    <tr class="alt"><td class="num">4</td><td>BITalino 主板共 2 块还是 3 块？BT 版还是 BLE 版</td>
+        <td>决定功耗模型与主机软件栈；双机对照能否同时进行</td>
+        <td>我方 W1 现场核验并拍照回报。建议按 BT 保守规划，BLE 是意外之喜</td></tr>
+    <tr><td class="num">5</td><td>热电对照实验是否继续</td>
+        <td>到货的只有测温热电偶，<strong>没有任何发电模块</strong>，当前无法开展</td>
+        <td>若继续需补购 TEG（P2-22）。若不继续，现有热学件改用于热安全验证（已写入 TC-07）</td></tr>
+    <tr class="alt"><td class="num">6</td><td>人体实验伦理审批的路径与时限</td>
+        <td>采集 ECG 属人体数据；<strong>事后补批通常不被认可，数据会作废</strong></td>
+        <td>请指明审查机构与流程，我方 W2 前提交</td></tr>
+    <tr><td class="num">7</td><td>Smart Healthcare Workspace 准入进度与可用仪器</td>
+        <td>决定 P1-12（限流电源）、P2-24（示波器）等是否需自购</td>
+        <td>请确认是否可用：<strong>可调限流电源、示波器、电子负载、恒温箱、照度计／辐照度计、红外热像仪</strong>；
+          另需确认 PCB 制板设备的具体能力（过孔金属化 / 阻焊 / 最小线宽 / 是否有回流炉）</td></tr>
+  </table>
+
+  <div class="co neutral"><span class="co-t">本方案的已知局限</span>
+    <strong>①</strong> 辐照度场景值为工程经验估计，跨度可达 5 倍（尤其室内窗边），必须用参考电池片实测替换，
+    §1 的全部 EAR 数字随之更新。
+    <strong>②</strong> BITalino 功耗 240 mW 仍是估计值，TC-01 尚未完成——它是所有计算的地基。
+    <strong>③</strong> 面板安装方式未定（Q1），本方案按背负式撰写；若改为支架式，热与人因分析会显著放宽。
+    <strong>④</strong> CN3791 的最大充电电流与电感规格未核实，若不足 1.25 A 需改用 LT3652 或降低充电倍率。
+    <strong>⑤</strong> 实验室 PCB 设备能力未知，§6.3 给了三情形矩阵，需摸底后收敛。
+    <strong>⑥</strong> 双电池架构（ADR-006）是否需要，取决于 TC-05 的结果。</div>
+
+  <div class="co ok"><span class="co-t">批复后我方的即时动作</span>
+    ① 按 Q1 的选择确定机械与隔热方案，补齐对应结构件采购；
+    ② P0 清单当日下单（锂电池优先）；
+    ③ 按 Q6 指定路径提交伦理申请；
+    ④ W1 完成器件核验与 TC-01，回报实测数据并同步更新本方案的全部能量数字。</div>
+</div>

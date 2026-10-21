@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8"/>
+<title>太阳能采集供电的可穿戴健康监测系统 — 系统架构方案</title>
+<style>
+/* ============================ 设计系统 ============================ */
+/* ink 墨色 / deep 深蓝 / solar 太阳能金 / volt 信号蓝 —— 三色克制使用 */
+
+@page { size: A4; margin: 17mm 16mm 16mm 16mm;
+  @top-left { content: "太阳能采集供电的可穿戴健康监测系统";
+    font-family: UI, CJK; font-size: 7.4pt; color: #9AA5B8; letter-spacing: 0.3pt; }
+  @top-right { content: "系统架构方案 v2.0 · 确认稿";
+    font-family: UI, CJK; font-size: 7.4pt; color: #9AA5B8; }
+  @bottom-left { content: "提交：项目执行人   ·   收件：副院长";
+    font-family: UI, CJK; font-size: 7.4pt; color: #B4BDCC; }
+}
+
+
+
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: UI, CJK, sans-serif;
+  font-size: 9.8pt; line-height: 1.62; color: #16203A;
+  -fs-text-justify: none;
+}
+p { margin: 0 0 7pt; }
+strong, b { font-weight: 700; color: #0B1220; }
+em { font-style: normal; color: #B8720F; font-weight: 500; }
+a { color: #2F6BE4; text-decoration: none; }
+sup { font-size: 6.5pt; color: #8B97AB; vertical-align: super; }
+
+/* ---------- 封面 ---------- */
+.cover { width: 210mm; height: 297mm; position: relative;
+         background-color: #0B1220; color: #FFFFFF; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 30mm; }
+.cover-eyebrow { font-family: Display, CJK; font-size: 8.4pt; font-weight: 600;
+  letter-spacing: 2.6pt; color: #E09B2D; text-transform: uppercase; margin-bottom: 22mm; }
+.cover-title { font-family: Display, CJK; font-weight: 700; font-size: 29pt;
+  line-height: 1.34; letter-spacing: -0.2pt; color: #FFFFFF; margin: 0 0 7mm; }
+.cover-title .thin { font-weight: 500; color: #9FB0CC; display: block; font-size: 15pt;
+  letter-spacing: 0.6pt; margin-top: 4mm; line-height:1.5; }
+.cover-rule { width: 34mm; height: 2.2pt; background-color: #E09B2D; margin: 0 0 7mm; }
+.cover-lede { font-size: 10.2pt; line-height: 1.85; color: #C3CEE2; max-width: 132mm; }
+.cover-lede .hl { color: #FFFFFF; font-weight: 600; }
+.cover-art { position: absolute; left: 22mm; right: 22mm; top: 168mm; }
+.cover-meta { position: absolute; left: 22mm; right: 22mm; bottom: 20mm;
+  border-top: 0.6pt solid #2A3A57; padding-top: 6mm; }
+.cover-meta table { width: 100%; border-collapse: collapse; }
+.cover-meta td { vertical-align: top; padding-right: 8mm; }
+.cm-k { font-family: Display, CJK; font-size: 6.4pt; letter-spacing: 1.5pt; color: #6F809C;
+  text-transform: uppercase; padding-bottom: 1.6mm; }
+.cm-v { font-size: 8.2pt; line-height:1.45; color: #E8EDF6; font-weight: 500; }
+
+/* ---------- 章节 ---------- */
+.sec { page-break-before: always; }
+.cont { page-break-before: auto; }
+.pg { page-break-before: always; }
+figure.tight { margin: 2mm 0 3mm; }
+.figframe.tight { padding: 2.6mm 3mm 2mm; }
+.row { -fs-table-paginate: paginate; }
+table.t tr { page-break-inside: avoid; }
+.co, .layer, .kpi, .prob, .ms-i { page-break-inside: avoid; }
+h3 { page-break-after: avoid; }
+.sec-head { border-bottom: 1.4pt solid #0B1220; padding-bottom: 3.2mm; margin-bottom: 6mm; }
+.sec-num { font-family: Display, CJK; font-size: 8pt; font-weight: 700; letter-spacing: 2.4pt;
+  color: #E09B2D; display: block; margin-bottom: 1.8mm; }
+.sec-title { font-family: Display, CJK; font-size: 17pt; font-weight: 700;
+  color: #0B1220; margin: 0; line-height: 1.3; letter-spacing: -0.1pt; }
+.sec-sub { font-size: 9pt; color: #6B7891; margin-top: 2mm; line-height:1.6; }
+
+h3 { font-family: Display, CJK; font-size: 11.2pt; font-weight: 700; color: #14233D;
+  margin: 6mm 0 2.6mm; padding-left: 3mm; border-left: 2.4pt solid #E09B2D; line-height:1.35; }
+h4 { font-family: UI, CJK; font-size: 9.6pt; font-weight: 700; color: #14233D;
+  margin: 5mm 0 2mm; }
+
+/* ---------- 基础组件 ---------- */
+.mono, code { font-family: Mono, CJK; font-size: 8.3pt; }
+code { background-color: #EEF2F8; color: #14233D; padding: 0.6pt 2.4pt; border-radius: 2.4pt; }
+.pill { display: inline-block; white-space: nowrap; font-family: Display, CJK; font-size: 7pt; font-weight: 700;
+  letter-spacing: 0.9pt; padding: 1.4pt 5pt; border-radius: 9pt; }
+.pill-solar { background-color: #FDF3E2; color: #96590A; }
+.pill-volt  { background-color: #E9F0FE; color: #1F4FAE; }
+.pill-ok    { background-color: #E4F4EE; color: #0E6B4D; }
+.pill-risk  { background-color: #FCEAE8; color: #A8291F; }
+.pill-muted { background-color: #EEF1F6; color: #5B6880; }
+
+.lead { font-size: 10.6pt; line-height: 1.72; color: #2B3854; }
+.note { font-size: 8.4pt; color: #7A8699; }
+
+/* ---------- 表格 ---------- */
+table.t { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm;
+  -fs-table-paginate: paginate; font-size: 8.7pt; }
+table.t th { font-family: Display, CJK; font-size: 7.2pt; font-weight: 700;
+  letter-spacing: 0.7pt; color: #FFFFFF; background-color: #14233D;
+  text-align: left; padding: 2.2mm 2.4mm; }
+table.t td { padding: 2mm 2.4mm; border-bottom: 0.5pt solid #E4E9F1;
+  vertical-align: top; line-height: 1.5; }
+table.t tr.alt td { background-color: #F8FAFD; }
+table.t td.num { font-family: Display, CJK; font-weight: 600; text-align: right;
+  font-size: 8.8pt; color: #14233D; }
+table.t td.c { text-align: center; }
+table.t caption { caption-side: bottom; font-size: 7.6pt; color: #8B97AB;
+  text-align: left; padding-top: 2mm; line-height:1.5; }
+
+/* ---------- 图 ---------- */
+figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
+.figcap { font-size: 7.8pt; color: #7A8699; margin-top: 2.5mm; line-height: 1.55;
+  border-left: 1.6pt solid #E4E9F1; padding-left: 3mm; }
+.figcap .fignum { font-family: Display, CJK; font-weight: 700; color: #B8720F;
+  letter-spacing: 0.6pt; }
+.figframe { border: 0.6pt solid #E4E9F1; border-radius: 4pt; padding: 4mm 4mm 3mm;
+  background-color: #FCFDFE; }
+
+/* ---------- 栅格（无 flex，用 table） ---------- */
+.row { display: table; width: 100%; border-collapse: separate; border-spacing: 3mm 0; }
+.row.tight { border-spacing: 2mm 0; }
+.row > .col { display: table-cell; vertical-align: top; }
+.row.g0 { border-spacing: 0; }
+.w50 { width: 50%; } .w33 { width: 33.33%; } .w66 { width: 66.66%; }
+.w25 { width: 25%; } .w40 { width: 40%; } .w60 { width: 60%; }
+
+/* ---------- KPI 数字块 ---------- */
+.kpi { border: 0.6pt solid #E4E9F1; border-radius: 5pt; padding: 4mm 4mm 3.4mm;
+  background-color: #FCFDFE; }
+.kpi-k { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700; letter-spacing: 1.4pt;
+  color: #8B97AB; text-transform: uppercase; margin-bottom: 2mm; }
+.kpi-v { font-family: Display, CJK; font-size: 22pt; font-weight: 700; color: #0B1220;
+  line-height: 1; letter-spacing: -0.6pt; }
+.kpi-v .u { font-size: 10pt; font-weight: 600; color: #6B7891; letter-spacing: 0; }
+.kpi-d { font-size: 7.8pt; color: #7A8699; margin-top: 2.2mm; line-height: 1.5; }
+.kpi.accent { border-color: #F0D5A4; background-color: #FEFAF3; }
+.kpi.accent .kpi-v { color: #B8720F; }
+
+/* ---------- 问题卡（醒目区） ---------- */
+.prob-hero { background-color: #0B1220; color: #FFFFFF; border-radius: 6pt;
+  padding: 5mm 6mm 4.6mm; margin-bottom: 3.6mm; }
+.prob-hero .ph-eye { font-family: Display, CJK; font-size: 7.4pt; font-weight: 700;
+  letter-spacing: 2.4pt; color: #E09B2D; text-transform: uppercase; }
+.prob-hero .ph-t { font-family: Display, CJK; font-size: 16.5pt; font-weight: 700;
+  margin: 3mm 0 2.5mm; line-height: 1.32; }
+.prob-hero .ph-s { font-size: 8.4pt; color: #AFBDD4; line-height: 1.6; max-width: 150mm; }
+
+.prob { border: 0.6pt solid #E4E9F1; border-left: 3.4pt solid #14233D;
+  border-radius: 4pt; padding: 2.4mm 3.6mm 1.9mm; margin-bottom: 1.9mm;
+  page-break-inside: avoid; background-color: #FFFFFF; }
+.prob-q { font-family: Display, CJK; font-size: 9.4pt; font-weight: 700; color: #0B1220;
+  margin-bottom: 1.3mm; line-height: 1.45; }
+.prob-n { display: inline-block; min-width: 5.4mm; height: 5.4mm; line-height: 5.4mm;
+  text-align: center; background-color: #14233D; color: #FFFFFF; border-radius: 2.6pt;
+  font-family: Display, CJK; font-size: 8.4pt; font-weight: 700; margin-right: 2.4mm;
+  padding: 0 1.2mm; }
+.prob.p-risk  { border-left-color: #CB4034; }
+.prob.p-risk  .prob-n { background-color: #CB4034; }
+.prob.p-solar { border-left-color: #B8720F; }
+.prob.p-solar .prob-n { background-color: #B8720F; }
+.prob-line { font-size: 7.85pt; line-height: 1.48; color: #46556E; margin-bottom: 0.7mm; }
+.prob-line .lb { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700;
+  letter-spacing: 0.8pt; color: #FFFFFF; background-color: #9AA5B8;
+  padding: 0.8pt 3.2pt; border-radius: 2.2pt; margin-right: 2.2mm; }
+.prob-line.solve .lb { background-color: #15845F; }
+.prob-line.risk  .lb { background-color: #CB4034; }
+.prob-line.check .lb { background-color: #2F6BE4; }
+
+/* ---------- Callout ---------- */
+.co { border-radius: 5pt; padding: 3.2mm 4mm; margin: 3.2mm 0; font-size: 8.8pt;
+  line-height: 1.6; page-break-inside: avoid; }
+.co-t { font-family: Display, CJK; font-weight: 700; font-size: 9.6pt; margin-bottom: 1.8mm;
+  display: block; }
+.co.ok    { background-color: #EFF8F4; border-left: 2.6pt solid #15845F; color: #1D4238; }
+.co.ok .co-t { color: #0E6B4D; }
+.co.warn  { background-color: #FEF8EC; border-left: 2.6pt solid #E09B2D; color: #4A3A1B; }
+.co.warn .co-t { color: #96590A; }
+.co.risk  { background-color: #FDF0EE; border-left: 2.6pt solid #CB4034; color: #4A211C; }
+.co.risk .co-t { color: #A8291F; }
+.co.info  { background-color: #F1F5FD; border-left: 2.6pt solid #2F6BE4; color: #1F2E4A; }
+.co.info .co-t { color: #1F4FAE; }
+.co.neutral { background-color: #F6F8FC; border-left: 2.6pt solid #46556E; color: #2B3854; }
+.co.neutral .co-t { color: #14233D; }
+
+/* ---------- 物料清单 ---------- */
+.bom-legend { display: table; width: 100%; border-spacing: 3mm 0; margin-bottom: 4mm; }
+.bom-legend .bl { display: table-cell; width: 33.33%; border-radius: 5pt; padding: 3.4mm 4mm;
+  color: #FFFFFF; }
+.bl-have { background-color: #15845F; }
+.bl-make { background-color: #B8720F; }
+.bl-buy  { background-color: #2F6BE4; }
+.bl-k { font-family: Display, CJK; font-size: 7pt; font-weight: 700; letter-spacing: 1.6pt;
+  text-transform: uppercase; opacity: 1; }
+.bl-v { font-family: Display, CJK; font-size: 16pt; font-weight: 700; margin-top: 1.4mm; line-height:1; }
+.bl-d { font-size: 7.6pt; margin-top: 1.6mm; line-height: 1.45; }
+.tag { display: inline-block; width: 4.4mm; height: 4.4mm; border-radius: 1.6pt;
+  text-align: center; font-family: Display, CJK; font-size: 6.6pt; font-weight: 700;
+  color: #FFFFFF; line-height: 4.4mm; }
+.tag-have { background-color: #15845F; } .tag-make { background-color: #B8720F; }
+.tag-buy { background-color: #2F6BE4; }
+
+/* ---------- 层级说明 ---------- */
+.layer { border: 0.7pt solid #E4E9F1; border-left: 3.2pt solid #14233D; border-radius: 4pt;
+  padding: 3.4mm 4mm; margin-bottom: 2.6mm; page-break-inside: avoid; }
+.layer-h { font-family: Display, CJK; font-size: 9.8pt; font-weight: 700; color: #0B1220;
+  margin-bottom: 1.4mm; }
+.layer-h .lid { font-family: Display, CJK; font-size: 7.4pt; font-weight: 700; color: #FFFFFF;
+  background-color: #14233D; padding: 1pt 4pt; border-radius: 2.6pt; margin-right: 2.6mm;
+  letter-spacing: 0.8pt; }
+.layer-d { font-size: 8.5pt; color: #46556E; line-height: 1.6; }
+.layer.l-hw { border-left-color: #B8720F; } .layer.l-hw .lid { background-color: #B8720F; }
+.layer.l-fw { border-left-color: #15845F; } .layer.l-fw .lid { background-color: #15845F; }
+.layer.l-sw { border-left-color: #2F6BE4; } .layer.l-sw .lid { background-color: #2F6BE4; }
+.layer.l-dt { border-left-color: #6B4FCF; } .layer.l-dt .lid { background-color: #6B4FCF; }
+
+/* ---------- 列表 ---------- */
+ul.cl { list-style: none; padding-left: 0; margin: 2mm 0 4mm; }
+ul.cl li { font-size: 8.8pt; line-height: 1.6; padding-left: 6mm; margin-bottom: 1.8mm;
+  position: relative; }
+ul.cl li .bullet { position: absolute; left: 0; top: 0; font-family: Display, CJK;
+  font-size: 7.6pt; font-weight: 700; color: #B8720F; }
+ol.n { padding-left: 5mm; margin: 2mm 0 4mm; font-size: 8.9pt; line-height: 1.62; }
+ol.n li { margin-bottom: 1.6mm; }
+
+/* ---------- 里程碑 ---------- */
+.ms { border-left: 1.4pt solid #E4E9F1; padding-left: 5mm; margin-left: 2mm; }
+.ms-i { position: relative; margin-bottom: 2.4mm; page-break-inside: avoid; }
+.ms-w { font-family: Display, CJK; font-size: 7.2pt; font-weight: 700; letter-spacing: 1.2pt;
+  color: #FFFFFF; background-color: #14233D; padding: 1pt 4.4pt; border-radius: 2.6pt; }
+.ms-t { font-family: Display, CJK; font-size: 9.2pt; font-weight: 700; color: #0B1220;
+  margin: 1.2mm 0 0.7mm; }
+.ms-d { font-size: 8.2pt; color: #46556E; line-height: 1.52; }
+.ms-gate { font-size: 7.8pt; color: #A8291F; margin-top: 1mm; font-weight: 500; }
+
+/* ---------- 脚注/注记 ---------- */
+.foot-note { font-size: 7.4pt; color: #8B97AB; line-height: 1.5; margin-top: 2.4mm;
+  border-top: 0.5pt solid #E4E9F1; padding-top: 2mm; }
+.conf { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700; padding: 0.6pt 3pt;
+  border-radius: 2pt; letter-spacing: 0.5pt; }
+.conf-v { background-color: #E4F4EE; color: #0E6B4D; }
+.conf-c { background-color: #FEF3E0; color: #96590A; }
+.conf-q { background-color: #EEF1F6; color: #5B6880; }
+
+</style>
+</head>
+<body>
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 06 · BILL OF MATERIALS</span>
+    <h2 class="sec-title">材料清单</h2>
+    <p class="sec-sub">按三类组织：<strong>已到货</strong>（可直接使用）、<strong>需自制</strong>（自研 PCB 与线缆组件）、
+      <strong>需采购</strong>（分 P0/P1/P2 三档，每项给出「为什么必须买」）。</p>
+  </div>
+
+  <div class="bom-legend">
+    <div class="bl bl-have"><div class="bl-k">A · IN STOCK　已到货</div><div class="bl-v">24 项</div>
+      <div class="bl-d">对照 <code style="background:rgba(255,255,255,0.18);color:#fff">元件总揽.csv</code> 逐条核验；
+        其中 3 项用途已修正，2 项仅作原型验证</div></div>
+    <div class="bl bl-make"><div class="bl-k">B · TO FABRICATE　需自制</div><div class="bl-v">3 件</div>
+      <div class="bl-d">PMB-H 主板、LIB 胸口小板、5 芯屏蔽线缆组件；
+        实验室制板设备可覆盖，手焊工作量约 1 小时</div></div>
+    <div class="bl bl-buy"><div class="bl-k">C · TO PURCHASE　需采购</div><div class="bl-v">P0 11 项</div>
+      <div class="bl-d">另有 P1 10 项（影响数据质量）、P2 6 项（取决于研究范围）</div></div>
+  </div>
+
+  <h3>6.1　<span class="tag tag-have">A</span>　已到货物料与用途确认</h3>
+  <table class="t">
+    <tr><th style="width:30%">物料</th><th style="width:9%">数量</th><th style="width:22%">在本架构中的角色</th><th style="width:39%">状态与说明</th></tr>
+    <tr><td>395×460 mm 18 V 30 W 太阳能板</td><td class="c">1</td><td>唯一能量源</td>
+        <td><span class="pill pill-solar">用途已定</span>　背包／支架安装，不可贴身；<strong>绝不可直连 EVK10941</strong></td></tr>
+    <tr class="alt"><td>EVK10941（AEM10941）</td><td class="c">1</td><td>低压采集对比支路</td>
+        <td><span class="pill pill-muted">移出主链路</span>　输入上限约 5 V，与 18 V 板不兼容；建议配小柔性板做对比研究</td></tr>
+    <tr><td>523450 1000 mAh 锂电池组</td><td class="c">1</td><td>对照组 Unit A 供电</td>
+        <td>自主度仅 0.64 天，不足以支撑 DUT；⚠ 需确认是否自带 PCM 保护板</td></tr>
+    <tr class="alt"><td>BITalino（散板）</td><td class="c">2</td><td>DUT + 对照双机</td>
+        <td><span class="pill pill-risk">待核验</span>　⚠ 型号／BT 还是 BLE／实测功耗（TC-01）</td></tr>
+    <tr><td>BITalino HeartBIT 套件</td><td class="c">1 套</td><td>心电采集主力</td>
+        <td><span class="pill pill-risk">待核验</span>　⚠ 装箱清单逐项核对；是否另含主板（共 2 块还是 3 块）</td></tr>
+    <tr class="alt"><td>2.7 V 10 F 超级电容</td><td class="c">3</td><td>电池切换 hold-up</td>
+        <td><span class="pill pill-solar">用途已变</span>　2 只串联 5.4 V/5 F；第 3 只备用。v1.0 担心的漏电在新功率等级下已无关紧要</td></tr>
+    <tr><td>YJL3404A</td><td class="c">1</td><td>负载开关原型验证</td>
+        <td><span class="pill pill-ok">已辨识</span>　MOSFET。仅 1 只不具可复现性，正式件见 P0-7</td></tr>
+    <tr class="alt"><td>TEUCER HP600</td><td class="c">1</td><td>器件→外壳 导热</td>
+        <td><span class="pill pill-risk">用途须纠正</span>　散热硅胶垫是<strong>导热</strong>件；
+          放在面板与人体之间会把 60–70 °C 的热量送进皮肤。人体侧须用隔热件（P0-10）</td></tr>
+    <tr><td>K 型表面热电偶</td><td class="c">2</td><td>热安全测温</td>
+        <td>测点由 2 点增至 4 点，需补 2 支（P1-14）</td></tr>
+    <tr class="alt"><td>迷你热电偶测温仪 / 掌上万用表 / USB 检测仪</td><td class="c">各 1</td><td>基础测量</td><td>够用；⚠ 测 Isc 需用万用表 10 A 挡与 10 A 孔</td></tr>
+    <tr><td>数显恒温焊台 / 剥线钳 / 焊锡 / 热缩管 / PH2.0 线材 / 杜邦线</td><td class="c">—</td><td>装配工具与耗材</td>
+        <td>够用；⚠ 需确认焊锡为有铅（300–330 °C）还是无铅（340–370 °C）</td></tr>
+    <tr class="alt"><td>一次性心电电极</td><td class="c">1 包</td><td>耗材</td>
+        <td><span class="pill pill-risk">严重不足</span>　长期研究需约 500 片（P0-8）</td></tr>
+    <tr><td>面包板 / 板材钳 / 导热硅脂</td><td class="c">—</td><td>台架辅助</td>
+        <td>⚠ 面包板<strong>不可用于充电回路</strong>（接触电阻发热，读数不可信）</td></tr>
+  </table>
+  <div class="co warn"><span class="co-t">已到货物料中缺失的一项：温差发电模块</span>
+    到货的热学件（K 型热电偶 ×2、导热硅脂、TEUCER HP600、测温仪）全部是<strong>测温与导热</strong>器件，
+    <strong>不是发电器件</strong>。热电对照实验在当前物料下无法开展；若需继续需补购 TEG 模块（P2-22）。
+    这批热学件在本方案中改用于<strong>热安全验证</strong>（TC-07），这在贴身器件上是必需项。</div>
+</div>
+
+<div class="cont">
+  <h3 style="margin-top:0">6.2　<span class="tag tag-make">B</span>　需自制的三件</h3>
+  <table class="t">
+    <tr><th style="width:16%">件号</th><th style="width:20%">名称</th><th style="width:14%">工艺</th><th style="width:50%">内容与工作量</th></tr>
+    <tr><td class="mono">PMB-H</td><td>电源主板（背包单元）</td><td>2 层自制 PCB</td>
+        <td>18 V 保护、CN3791 MPPT、Q1–Q4 切换与硬件互锁、双电池与 NTC、INA226 ×2 与开尔文分流、遥测 MCU。
+          约 <strong>50 × 70 mm</strong>；PCB 上须以 ≥3 mm 无铜隔离带分区</td></tr>
+    <tr class="alt"><td class="mono">LIB</td><td>负载接口板（胸口单元）</td><td>2 层自制 PCB</td>
+        <td>超容 hold-up 与预充、Q5 负载开关与软启动、π 型滤波、同步脉冲注入与钳位、JST-PH 出线。
+          约 <strong>25 × 20 mm</strong>；无开关电源、无 18 V</td></tr>
+    <tr><td class="mono">J6-ASSY</td><td>5 芯屏蔽线缆组件</td><td>手工装配</td>
+        <td>0.5–1 m 屏蔽线 + 两端磁吸／易断连接器；<strong>屏蔽层仅 PMB-H 端接地</strong>（单端，避免地环路）；
+          线序两端贴标签</td></tr>
+  </table>
+
+  <h3>6.3　实验室制板设备的三种情形</h3>
+  <p>实验室具备 PCB 制作设备，这把迭代周期从「打样 5–7 天」压缩到<strong>当天</strong>。
+    需先摸底设备能力（§8 待确认 Q7）：</p>
+  <table class="t">
+    <tr><th style="width:20%">情形</th><th style="width:26%">设备能力</th><th style="width:30%">PMB-H 怎么做</th><th style="width:24%">结论</th></tr>
+    <tr><td><strong>A</strong>　仅雕刻机</td><td>单/双面铜，铆钉过孔，无阻焊</td>
+        <td>自制 2 层板；<strong>INA226（VSSOP-10，0.5 mm 间距）改用成品模块插接</strong></td>
+        <td><span class="pill pill-ok">可行</span>　须涂三防漆</td></tr>
+    <tr class="alt"><td><strong>B</strong>　蚀刻 + 过孔金属化 + 阻焊</td><td>接近工业 2 层板</td>
+        <td>自制，可直接贴 VSSOP-10</td><td><span class="pill pill-ok">推荐</span></td></tr>
+    <tr><td><strong>C</strong>　B + 回流炉/热风/钢网</td><td>完整原型线</td>
+        <td>全部自制，任意封装</td><td><span class="pill pill-ok">最佳</span></td></tr>
+  </table>
+  <div class="co ok"><span class="co-t">好消息：QFN 难题已经消失</span>
+    v1.0 中最大的工艺障碍是 AEM10941 的 QFN-40（0.5 mm 间距、底部焊盘，恒温烙铁绝无可能手焊）。
+    方案变更后 AEM10941 不再进入主链路，现在最难的封装只剩 INA226 的 VSSOP-10，
+    情形 A 下用成品模块即可规避。<strong>三种情形下 Rev B 都不需要外发 PCBA。</strong></div>
+
+  <h3>6.4　手焊工作量清单</h3>
+  <p>PCB 制好后需要动烙铁的部分（合计约 1 小时，全部为低难度通孔件）：</p>
+  <div class="row">
+    <div class="col w50"><ul class="cl">
+      <li><span class="box"></span>J1 螺钉端子 / XT30（PV 输入）　★☆☆</li>
+      <li><span class="box"></span>J2 / J3 JST-PH 2.0 立式（电池 A/B）　★☆☆</li>
+      <li><span class="box"></span>J4 / J5 2 脚排针（NTC ×2）　★☆☆</li>
+      <li><span class="box"></span>J6 5 芯连接器（分体线缆）　★☆☆</li>
+    </ul></div>
+    <div class="col w50"><ul class="cl">
+      <li><span class="box"></span>C10 / C11 超级电容 ×2（通孔，<strong>注意极性</strong>）　★★☆</li>
+      <li><span class="box"></span>XIAO nRF52840 模块（邮票孔）　★★☆</li>
+      <li><span class="box"></span>测试点排针 ×6　★☆☆</li>
+      <li><span class="box"></span>J7 JST-PH（→ BITalino，<strong>极性须先实测</strong>）　★☆☆</li>
+    </ul></div>
+  </div>
+  <div class="co risk"><span class="co-t">两个最容易造成不可逆损失的作业</span>
+    <strong>① 锂电池引线端接</strong>——绝不在电芯本体焊接；一次只处理一根线，先套热缩管，
+    焊完红线并包覆后才动黑线；工作台清空金属碎屑，备防火容器。
+    <br/><strong>② BITalino 电池座极性核验</strong>——JST-PH 没有防呆，两根线可互换插入塑壳，
+    不同厂商引脚定义不同。必须用自带电池先测出极性、拍照存档、双人复核；
+    ⚠ BITalino 是否有反接保护未知，<strong>按「没有保护」对待</strong>。</div>
+</div>
+
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 07 · PROCUREMENT</span>
+    <h2 class="sec-title"><span class="tag tag-buy">C</span>　需采购物料</h2>
+    <p class="sec-sub">型号为建议，可用等效件替换。<strong>锂电池交期最长且部分快递不收，建议最先下单。</strong></p>
+  </div>
+
+  <h3>7.1　P0 · 不买就推不动（11 项）</h3>
+  <table class="t">
+    <tr><th style="width:5%">#</th><th style="width:22%">物料</th><th style="width:24%">规格</th>
+        <th style="width:7%">数量</th><th style="width:42%">为什么必须买</th></tr>
+    <tr><td class="num">1</td><td><strong>1S 锂电池</strong></td><td>3.7 V <strong>2500 mAh</strong>，带 PCM，PH2.0 出线</td><td class="c">4</td>
+        <td>现有 1000 mAh 自主度仅 0.64 天，连续阴雨即断电。2500×2 = 3.2 天；4 块 = 双电池 + 备份</td></tr>
+    <tr class="alt"><td class="num">2</td><td><strong>MPPT 充电模块</strong></td><td>CN3791，输入 ≤28 V，充电电流可调至 ≥1.25 A</td><td class="c">3</td>
+        <td>唯一充电路径。⚠ 下单前确认模块的最大充电电流与电感规格（淘宝模块用料常低于芯片能力）</td></tr>
+    <tr><td class="num">3</td><td><strong>INA226 模块</strong></td><td>I²C，可外接分流电阻</td><td class="c">4</td>
+        <td>EAR 的全部依据。只测一端算不清电池自放电与系统静态功耗，EAR 就是编的</td></tr>
+    <tr class="alt"><td class="num">4</td><td><strong>精密分流电阻</strong></td><td><strong>0.02 Ω</strong>，1%，2512</td><td class="c">20</td>
+        <td>v1.0 选的 0.1 Ω 在新功率下超 INA226 量程（1.8 A × 0.1 Ω = 180 mV &gt; 81.92 mV）</td></tr>
+    <tr><td class="num">5</td><td><strong>辐照度参考</strong></td><td>标定参考硅电池片（优先）<em>或</em> 照度计</td><td class="c">1</td>
+        <td>没有它，所有「不同光照下」的结论都无法复现。⚠ 照度计测 lux ≠ W/m²，报告须写明换算假设</td></tr>
+    <tr class="alt"><td class="num">6</td><td><strong>遥测 MCU</strong></td><td>Seeed XIAO nRF52840</td><td class="c">3</td>
+        <td>计量 + 调度 + 同步的载体</td></tr>
+    <tr><td class="num">7</td><td><strong>功率 MOSFET</strong></td><td>P 沟道 AO3401 / N 沟道 AO3400，SOT-23</td><td class="c">各 30</td>
+        <td>电池切换 4 只 + 负载开关。现有 YJL3404A 仅 1 只，不够也不可复现</td></tr>
+    <tr class="alt"><td class="num">8</td><td><strong>心电电极</strong></td><td>标准 snap 式一次性凝胶电极</td><td class="c">500 片</td>
+        <td>纯耗材。按每次 3 片 × 每天 2 次 × 90 天估算</td></tr>
+    <tr><td class="num">9</td><td><strong>理想二极管 IC</strong></td><td>LM66100 或同类，带反向阻断</td><td class="c">10</td>
+        <td>规避体二极管陷阱（关断态仍并联），比分立 FET 背靠背可靠得多</td></tr>
+    <tr class="alt"><td class="num">10</td><td><strong>隔热材料</strong></td><td>EVA 泡沫垫 / 气凝胶垫，3–5 mm</td><td class="c">1 卷</td>
+        <td>面板背面 60–70 °C，人体侧必须隔热。<strong>导热垫不能替代，方向相反</strong></td></tr>
+    <tr><td class="num">11</td><td><strong>18 V 线缆与连接器</strong></td><td>18 AWG 屏蔽硅胶线 2 m、XT30 公母各 5、2 A 慢断保险丝座 + 保险丝 10</td><td class="c">1 套</td>
+        <td>18 V / 1.8 A 短路会拉电弧；保险丝与合格线缆是安全底线</td></tr>
+  </table>
+
+  <h3>7.2　P1 · 强烈建议（影响数据质量与安全）</h3>
+  <table class="t">
+    <tr><th style="width:5%">#</th><th style="width:24%">物料</th><th style="width:26%">规格</th><th style="width:7%">数量</th><th style="width:38%">理由</th></tr>
+    <tr><td class="num">12</td><td><strong>可调直流电源</strong></td><td>0–30 V / 0–5 A，<strong>带限流</strong></td><td class="c">1</td>
+        <td>上电检查与电池互锁测试（TC-13）都必须用限流电源。<strong>这是最能防止烧板的一台仪器</strong>；若 Workspace 已有则不必买</td></tr>
+    <tr class="alt"><td class="num">13</td><td>直流电子负载</td><td>60–150 W 恒流可调</td><td class="c">1</td><td>面板 I-V 曲线、电池放电曲线</td></tr>
+    <tr><td class="num">14</td><td>K 型表面热电偶</td><td>与现有测温仪配套</td><td class="c">4</td><td>测点由 2 点增至 4 点（面板背面／皮肤侧／电池／充电器外壳）</td></tr>
+    <tr class="alt"><td class="num">15</td><td><strong>小型柔性光伏板</strong></td><td>5–6 V / 约 1 W</td><td class="c">2</td>
+        <td>让 EVK10941 不闲置，保住「两种采集路径对比」研究线。成本极低，论文价值高</td></tr>
+    <tr><td class="num">16</td><td>EMC 物料</td><td>共模扼流圈、磁环夹、铜箔屏蔽胶带</td><td class="c">各 10</td><td>头号风险的缓解措施</td></tr>
+    <tr class="alt"><td class="num">17</td><td>保护器件</td><td>SMAJ26A、SS54、220 µF/35 V 低 ESR、Polyfuse</td><td class="c">各 10</td><td>按新功率等级重选</td></tr>
+    <tr><td class="num">18</td><td>NTC 热敏电阻</td><td>10 kΩ B3950</td><td class="c">10</td><td>0–45 °C 充电窗口保护（CN3791 无内置温度保护）</td></tr>
+    <tr class="alt"><td class="num">19</td><td>防拉脱连接器</td><td>磁吸式 5 芯 或 易断连接器</td><td class="c">4</td><td>分体式的安全件；拉力 &gt; 约 20 N 时先断连接器而非扯动电极</td></tr>
+    <tr><td class="num">20</td><td>PCB 耗材</td><td>覆铜板、铣刀／钻头、过孔铆钉、三防漆、IPA</td><td class="c">1 批</td><td>配合实验室制板设备；<strong>无阻焊板必须涂三防漆</strong>（贴身防汗）</td></tr>
+    <tr class="alt"><td class="num">21</td><td>装配耗材</td><td>助焊剂、吸锡带、Kapton 胶带、热缩管、走线夹</td><td class="c">各 1</td><td>—</td></tr>
+  </table>
+
+  <h3>7.3　P2 · 可选（取决于待确认事项）</h3>
+  <table class="t">
+    <tr><th style="width:5%">#</th><th style="width:30%">物料</th><th style="width:65%">触发条件</th></tr>
+    <tr><td class="num">22</td><td>TEG 温差发电模块 + 散热片</td><td><strong>仅当确认继续热电对照路线</strong>（Q5）——当前物料中无任何发电器件</td></tr>
+    <tr class="alt"><td class="num">23</td><td>ADS1292R / MAX86150 模块</td><td>仅当启动 Phase 3 自研低功耗节点（Q3）</td></tr>
+    <tr><td class="num">24</td><td>示波器（≥50 MHz）</td><td>若 Workspace 没有则强烈建议——EMC 排查离不开它</td></tr>
+    <tr class="alt"><td class="num">25</td><td>红外热像仪</td><td>热分布深度研究；也可借用</td></tr>
+    <tr><td class="num">26</td><td>函数信号发生器</td><td>心电体模激励（手机音频输出可先顶替）</td></tr>
+    <tr class="alt"><td class="num">27</td><td>背负／支架结构件</td><td>取决于 Q1 的面板安装方案选择</td></tr>
+  </table>
+</div>
+
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 08 · PLAN</span>
+    <h2 class="sec-title">推进计划与验证门禁</h2>
+    <p class="sec-sub">整个计划的枢纽在第 5–6 周：<strong>TC-05 心电体模噪声对照</strong>的结果决定后面走简单路线还是复杂路线。
+      在它出结果之前，不要投入双电池的硬件工作。<br/>
+      时间线假设：采购周期 ≤ 2 周、伦理审批 ≤ 6 周、实验室制板当天可得；任一项超期则整体顺延。
+      W1–W2 并行度最高，<strong>采购与伦理必须在第一周就启动</strong>。W12 起为 Phase 3（可选，视 Q3 答复）与成果整理。</p>
+  </div>
+
+  <div class="ms">
+    <div class="ms-i"><span class="ms-w">W1</span>
+      <div class="ms-t">器件核验与基线实测</div>
+      <div class="ms-d">面板称重与层压类型确认、实测 V<sub>oc</sub>/I<sub>sc</sub>、BITalino 型号与 BT/BLE 核验、HeartBIT 装箱清单核对、<strong>TC-01 实测功耗</strong>、采购单发出。</div>
+      <div class="ms-gate">门禁：所有 ⚠ 项清零；TC-01 的实测值替换本方案全部功耗估计，并重算 EAR。</div></div>
+
+    <div class="ms-i"><span class="ms-w">W2</span>
+      <div class="ms-t">仓库、规范与伦理申请</div>
+      <div class="ms-d">Git 仓库与 run manifest 规范、CI 骨架、PCB 设备能力摸底、<strong>伦理审批申请提交</strong>。</div>
+      <div class="ms-gate">门禁：P0 采购已下单；伦理申请已递交（这是关键路径，越早越好）。</div></div>
+
+    <div class="ms-i"><span class="ms-w">W3–4</span>
+      <div class="ms-t">PMB-H 自制板与固件 v0.1</div>
+      <div class="ms-d">PCB 制作与装配、上电检查逐项通过、固件驱动层与状态机、TC-02 面板 I-V、TC-17 温度系数标定。</div>
+      <div class="ms-gate">门禁：上电检查清单全过（含限流电源试电、18 V 区与低压区绝缘测试）。</div></div>
+
+    <div class="ms-i"><span class="ms-w">W5–6</span>
+      <div class="ms-t">TC-05 心电体模噪声对照　—　决策点</div>
+      <div class="ms-d">2×2 因子设计（体模输入 0 / 1 mV × 收集器 OFF / ON），每格 5 次 × 5 分钟；Welch 法计算 0.5–40 Hz 噪声底，观察 PSD 上是否出现随光照移动的谱峰。同期完成 TC-04 收集链效率。</div>
+      <div class="ms-gate">决策：Δ噪声底 &lt; 10 µV<sub>rms</sub> → 砍掉双电池，省一半硬件复杂度；否则上 ADR-006 并重测。</div></div>
+
+    <div class="ms-i"><span class="ms-w">W7</span>
+      <div class="ms-t">按 TC-05 结果收敛架构</div>
+      <div class="ms-d">若需双电池：TC-13 互锁验证（16 种栅极组合 + 4 项故障注入，<strong>全部用限流电源，不接真电池</strong>）。</div>
+      <div class="ms-gate">门禁：TC-13 全部通过，才允许接入真电池。</div></div>
+
+    <div class="ms-i"><span class="ms-w">W8</span>
+      <div class="ms-t">LIB 小板、分体线缆与热安全</div>
+      <div class="ms-d">TC-15 超容 hold-up 时长、TC-16 线缆拉脱安全、<strong>TC-07 阶段一：离体皮肤模拟体热测试</strong>。</div>
+      <div class="ms-gate">门禁：<strong>热安全阶段一不通过，一律不得上身。</strong></div></div>
+
+    <div class="ms-i"><span class="ms-w">W9–10</span>
+      <div class="ms-t">整机联调与长时运行</div>
+      <div class="ms-d">TC-06 连续 72 h 能量收支（首次有人值守分段进行）、TC-19 自主度实测、TC-09 时钟漂移特性。</div>
+      <div class="ms-gate">门禁：遥测数据完整率 &gt; 99%；EAR ≥ 1.5。</div></div>
+
+    <div class="ms-i"><span class="ms-w">W11</span>
+      <div class="ms-t">上身验证与双机对照</div>
+      <div class="ms-d">TC-07 阶段二（渐进上身，主观评分 ≥4 或皮肤侧 ≥40 °C 立即终止）、TC-08 双机一致性、TC-11 户外 EAR。</div>
+      <div class="ms-gate">门禁：连续采集 EAR ≥ 1.5；R 峰检出一致率 &gt; 99%。</div></div>
+
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 09 · OPEN ITEMS</span>
+    <h2 class="sec-title">需要确认的 7 件事</h2>
+    <p class="sec-sub">每项都附我方建议，便于直接批复。其中 Q1 会改变机械与热设计，建议优先。</p>
+  </div>
+
+  <table class="t">
+    <tr><th style="width:5%">#</th><th style="width:30%">问题</th><th style="width:30%">为什么要问</th><th style="width:35%">我方建议</th></tr>
+    <tr><td class="num">1</td><td><strong>面板怎么跟着人走？</strong>背负 / 装在轮椅／助行器上 / 固定基站</td>
+        <td>决定热安全、人因、机械件采购，以及项目的临床定位</td>
+        <td><span class="pill pill-ok">建议方案 B</span>　装在轮椅／助行器／婴儿车等辅助器具上。
+          重量由器具承担，热风险大幅下降；「辅助器具搭载光伏 + 可穿戴监测」在康复医学领域有明确临床价值，
+          比「给健康人背块板子」更有说服力</td></tr>
+    <tr class="alt"><td class="num">2</td><td>项目名称与用词：面板不在身上了，还称 "self-powered wearable" 吗</td>
+        <td>面板改为随身携带后，该措辞易被理解为面板在身上，答辩可能被质疑</td>
+        <td>建议改为 <code>solar-harvesting wearable health monitoring system</code>，
+          方法部分明确写清面板安装位置。<strong>WPT 相关词汇仍全部禁用</strong></td></tr>
+    <tr><td class="num">3</td><td>BITalino 是最终负载吗？是否还需要自研低功耗节点</td>
+        <td>能量充裕后，这从「必需」变成「可选」，直接决定 Phase 3 是否启动</td>
+        <td>建议 Phase 1–2 就用 BITalino（能量已够）；Phase 3 视时间与目标再定</td></tr>
+    <tr class="alt"><td class="num">4</td><td>BITalino 主板共 2 块还是 3 块？BT 版还是 BLE 版</td>
+        <td>决定功耗模型与主机软件栈；双机对照能否同时进行</td>
+        <td>我方 W1 现场核验并拍照回报。建议按 BT 保守规划，BLE 是意外之喜</td></tr>
+    <tr><td class="num">5</td><td>热电对照实验是否继续</td>
+        <td>到货的只有测温热电偶，<strong>没有任何发电模块</strong>，当前无法开展</td>
+        <td>若继续需补购 TEG（P2-22）。若不继续，现有热学件改用于热安全验证（已写入 TC-07）</td></tr>
+    <tr class="alt"><td class="num">6</td><td>人体实验伦理审批的路径与时限</td>
+        <td>采集 ECG 属人体数据；<strong>事后补批通常不被认可，数据会作废</strong></td>
+        <td>请指明审查机构与流程，我方 W2 前提交</td></tr>
+    <tr><td class="num">7</td><td>Smart Healthcare Workspace 准入进度与可用仪器</td>
+        <td>决定 P1-12（限流电源）、P2-24（示波器）等是否需自购</td>
+        <td>请确认是否可用：<strong>可调限流电源、示波器、电子负载、恒温箱、照度计／辐照度计、红外热像仪</strong>；
+          另需确认 PCB 制板设备的具体能力（过孔金属化 / 阻焊 / 最小线宽 / 是否有回流炉）</td></tr>
+  </table>
+
+  <div class="co neutral"><span class="co-t">本方案的已知局限</span>
+    <strong>①</strong> 辐照度场景值为工程经验估计，跨度可达 5 倍（尤其室内窗边），必须用参考电池片实测替换，
+    §1 的全部 EAR 数字随之更新。
+    <strong>②</strong> BITalino 功耗 240 mW 仍是估计值，TC-01 尚未完成——它是所有计算的地基。
+    <strong>③</strong> 面板安装方式未定（Q1），本方案按背负式撰写；若改为支架式，热与人因分析会显著放宽。
+    <strong>④</strong> CN3791 的最大充电电流与电感规格未核实，若不足 1.25 A 需改用 LT3652 或降低充电倍率。
+    <strong>⑤</strong> 实验室 PCB 设备能力未知，§6.3 给了三情形矩阵，需摸底后收敛。
+    <strong>⑥</strong> 双电池架构（ADR-006）是否需要，取决于 TC-05 的结果。</div>
+
+  <div class="co ok"><span class="co-t">批复后我方的即时动作</span>
+    ① 按 Q1 的选择确定机械与隔热方案，补齐对应结构件采购；
+    ② P0 清单当日下单（锂电池优先）；
+    ③ 按 Q6 指定路径提交伦理申请；
+    ④ W1 完成器件核验与 TC-01，回报实测数据并同步更新本方案的全部能量数字。</div>
+</div>
+</body>
+</html>

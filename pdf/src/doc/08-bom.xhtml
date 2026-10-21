@@ -1,0 +1,111 @@
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 06 · BILL OF MATERIALS</span>
+    <h2 class="sec-title">材料清单</h2>
+    <p class="sec-sub">按三类组织：<strong>已到货</strong>（可直接使用）、<strong>需自制</strong>（自研 PCB 与线缆组件）、
+      <strong>需采购</strong>（分 P0/P1/P2 三档，每项给出「为什么必须买」）。</p>
+  </div>
+
+  <div class="bom-legend">
+    <div class="bl bl-have"><div class="bl-k">A · IN STOCK　已到货</div><div class="bl-v">24 项</div>
+      <div class="bl-d">对照 <code style="background:rgba(255,255,255,0.18);color:#fff">元件总揽.csv</code> 逐条核验；
+        其中 3 项用途已修正，2 项仅作原型验证</div></div>
+    <div class="bl bl-make"><div class="bl-k">B · TO FABRICATE　需自制</div><div class="bl-v">3 件</div>
+      <div class="bl-d">PMB-H 主板、LIB 胸口小板、5 芯屏蔽线缆组件；
+        实验室制板设备可覆盖，手焊工作量约 1 小时</div></div>
+    <div class="bl bl-buy"><div class="bl-k">C · TO PURCHASE　需采购</div><div class="bl-v">P0 11 项</div>
+      <div class="bl-d">另有 P1 10 项（影响数据质量）、P2 6 项（取决于研究范围）</div></div>
+  </div>
+
+  <h3>6.1　<span class="tag tag-have">A</span>　已到货物料与用途确认</h3>
+  <table class="t">
+    <tr><th style="width:30%">物料</th><th style="width:9%">数量</th><th style="width:22%">在本架构中的角色</th><th style="width:39%">状态与说明</th></tr>
+    <tr><td>395×460 mm 18 V 30 W 太阳能板</td><td class="c">1</td><td>唯一能量源</td>
+        <td><span class="pill pill-solar">用途已定</span>　背包／支架安装，不可贴身；<strong>绝不可直连 EVK10941</strong></td></tr>
+    <tr class="alt"><td>EVK10941（AEM10941）</td><td class="c">1</td><td>低压采集对比支路</td>
+        <td><span class="pill pill-muted">移出主链路</span>　输入上限约 5 V，与 18 V 板不兼容；建议配小柔性板做对比研究</td></tr>
+    <tr><td>523450 1000 mAh 锂电池组</td><td class="c">1</td><td>对照组 Unit A 供电</td>
+        <td>自主度仅 0.64 天，不足以支撑 DUT；⚠ 需确认是否自带 PCM 保护板</td></tr>
+    <tr class="alt"><td>BITalino（散板）</td><td class="c">2</td><td>DUT + 对照双机</td>
+        <td><span class="pill pill-risk">待核验</span>　⚠ 型号／BT 还是 BLE／实测功耗（TC-01）</td></tr>
+    <tr><td>BITalino HeartBIT 套件</td><td class="c">1 套</td><td>心电采集主力</td>
+        <td><span class="pill pill-risk">待核验</span>　⚠ 装箱清单逐项核对；是否另含主板（共 2 块还是 3 块）</td></tr>
+    <tr class="alt"><td>2.7 V 10 F 超级电容</td><td class="c">3</td><td>电池切换 hold-up</td>
+        <td><span class="pill pill-solar">用途已变</span>　2 只串联 5.4 V/5 F；第 3 只备用。v1.0 担心的漏电在新功率等级下已无关紧要</td></tr>
+    <tr><td>YJL3404A</td><td class="c">1</td><td>负载开关原型验证</td>
+        <td><span class="pill pill-ok">已辨识</span>　MOSFET。仅 1 只不具可复现性，正式件见 P0-7</td></tr>
+    <tr class="alt"><td>TEUCER HP600</td><td class="c">1</td><td>器件→外壳 导热</td>
+        <td><span class="pill pill-risk">用途须纠正</span>　散热硅胶垫是<strong>导热</strong>件；
+          放在面板与人体之间会把 60–70 °C 的热量送进皮肤。人体侧须用隔热件（P0-10）</td></tr>
+    <tr><td>K 型表面热电偶</td><td class="c">2</td><td>热安全测温</td>
+        <td>测点由 2 点增至 4 点，需补 2 支（P1-14）</td></tr>
+    <tr class="alt"><td>迷你热电偶测温仪 / 掌上万用表 / USB 检测仪</td><td class="c">各 1</td><td>基础测量</td><td>够用；⚠ 测 Isc 需用万用表 10 A 挡与 10 A 孔</td></tr>
+    <tr><td>数显恒温焊台 / 剥线钳 / 焊锡 / 热缩管 / PH2.0 线材 / 杜邦线</td><td class="c">—</td><td>装配工具与耗材</td>
+        <td>够用；⚠ 需确认焊锡为有铅（300–330 °C）还是无铅（340–370 °C）</td></tr>
+    <tr class="alt"><td>一次性心电电极</td><td class="c">1 包</td><td>耗材</td>
+        <td><span class="pill pill-risk">严重不足</span>　长期研究需约 500 片（P0-8）</td></tr>
+    <tr><td>面包板 / 板材钳 / 导热硅脂</td><td class="c">—</td><td>台架辅助</td>
+        <td>⚠ 面包板<strong>不可用于充电回路</strong>（接触电阻发热，读数不可信）</td></tr>
+  </table>
+  <div class="co warn"><span class="co-t">已到货物料中缺失的一项：温差发电模块</span>
+    到货的热学件（K 型热电偶 ×2、导热硅脂、TEUCER HP600、测温仪）全部是<strong>测温与导热</strong>器件，
+    <strong>不是发电器件</strong>。热电对照实验在当前物料下无法开展；若需继续需补购 TEG 模块（P2-22）。
+    这批热学件在本方案中改用于<strong>热安全验证</strong>（TC-07），这在贴身器件上是必需项。</div>
+</div>
+
+<div class="cont">
+  <h3 style="margin-top:0">6.2　<span class="tag tag-make">B</span>　需自制的三件</h3>
+  <table class="t">
+    <tr><th style="width:16%">件号</th><th style="width:20%">名称</th><th style="width:14%">工艺</th><th style="width:50%">内容与工作量</th></tr>
+    <tr><td class="mono">PMB-H</td><td>电源主板（背包单元）</td><td>2 层自制 PCB</td>
+        <td>18 V 保护、CN3791 MPPT、Q1–Q4 切换与硬件互锁、双电池与 NTC、INA226 ×2 与开尔文分流、遥测 MCU。
+          约 <strong>50 × 70 mm</strong>；PCB 上须以 ≥3 mm 无铜隔离带分区</td></tr>
+    <tr class="alt"><td class="mono">LIB</td><td>负载接口板（胸口单元）</td><td>2 层自制 PCB</td>
+        <td>超容 hold-up 与预充、Q5 负载开关与软启动、π 型滤波、同步脉冲注入与钳位、JST-PH 出线。
+          约 <strong>25 × 20 mm</strong>；无开关电源、无 18 V</td></tr>
+    <tr><td class="mono">J6-ASSY</td><td>5 芯屏蔽线缆组件</td><td>手工装配</td>
+        <td>0.5–1 m 屏蔽线 + 两端磁吸／易断连接器；<strong>屏蔽层仅 PMB-H 端接地</strong>（单端，避免地环路）；
+          线序两端贴标签</td></tr>
+  </table>
+
+  <h3>6.3　实验室制板设备的三种情形</h3>
+  <p>实验室具备 PCB 制作设备，这把迭代周期从「打样 5–7 天」压缩到<strong>当天</strong>。
+    需先摸底设备能力（§8 待确认 Q7）：</p>
+  <table class="t">
+    <tr><th style="width:20%">情形</th><th style="width:26%">设备能力</th><th style="width:30%">PMB-H 怎么做</th><th style="width:24%">结论</th></tr>
+    <tr><td><strong>A</strong>　仅雕刻机</td><td>单/双面铜，铆钉过孔，无阻焊</td>
+        <td>自制 2 层板；<strong>INA226（VSSOP-10，0.5 mm 间距）改用成品模块插接</strong></td>
+        <td><span class="pill pill-ok">可行</span>　须涂三防漆</td></tr>
+    <tr class="alt"><td><strong>B</strong>　蚀刻 + 过孔金属化 + 阻焊</td><td>接近工业 2 层板</td>
+        <td>自制，可直接贴 VSSOP-10</td><td><span class="pill pill-ok">推荐</span></td></tr>
+    <tr><td><strong>C</strong>　B + 回流炉/热风/钢网</td><td>完整原型线</td>
+        <td>全部自制，任意封装</td><td><span class="pill pill-ok">最佳</span></td></tr>
+  </table>
+  <div class="co ok"><span class="co-t">好消息：QFN 难题已经消失</span>
+    v1.0 中最大的工艺障碍是 AEM10941 的 QFN-40（0.5 mm 间距、底部焊盘，恒温烙铁绝无可能手焊）。
+    方案变更后 AEM10941 不再进入主链路，现在最难的封装只剩 INA226 的 VSSOP-10，
+    情形 A 下用成品模块即可规避。<strong>三种情形下 Rev B 都不需要外发 PCBA。</strong></div>
+
+  <h3>6.4　手焊工作量清单</h3>
+  <p>PCB 制好后需要动烙铁的部分（合计约 1 小时，全部为低难度通孔件）：</p>
+  <div class="row">
+    <div class="col w50"><ul class="cl">
+      <li><span class="box"></span>J1 螺钉端子 / XT30（PV 输入）　★☆☆</li>
+      <li><span class="box"></span>J2 / J3 JST-PH 2.0 立式（电池 A/B）　★☆☆</li>
+      <li><span class="box"></span>J4 / J5 2 脚排针（NTC ×2）　★☆☆</li>
+      <li><span class="box"></span>J6 5 芯连接器（分体线缆）　★☆☆</li>
+    </ul></div>
+    <div class="col w50"><ul class="cl">
+      <li><span class="box"></span>C10 / C11 超级电容 ×2（通孔，<strong>注意极性</strong>）　★★☆</li>
+      <li><span class="box"></span>XIAO nRF52840 模块（邮票孔）　★★☆</li>
+      <li><span class="box"></span>测试点排针 ×6　★☆☆</li>
+      <li><span class="box"></span>J7 JST-PH（→ BITalino，<strong>极性须先实测</strong>）　★☆☆</li>
+    </ul></div>
+  </div>
+  <div class="co risk"><span class="co-t">两个最容易造成不可逆损失的作业</span>
+    <strong>① 锂电池引线端接</strong>——绝不在电芯本体焊接；一次只处理一根线，先套热缩管，
+    焊完红线并包覆后才动黑线；工作台清空金属碎屑，备防火容器。
+    <br/><strong>② BITalino 电池座极性核验</strong>——JST-PH 没有防呆，两根线可互换插入塑壳，
+    不同厂商引脚定义不同。必须用自带电池先测出极性、拍照存档、双人复核；
+    ⚠ BITalino 是否有反接保护未知，<strong>按「没有保护」对待</strong>。</div>
+</div>

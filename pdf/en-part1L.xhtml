@@ -1,0 +1,1699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8"/>
+<title>Solar-Harvesting Wearable Health Monitoring System — System Architecture Proposal</title>
+<style>
+/* ============================ 设计系统 ============================ */
+/* ink 墨色 / deep 深蓝 / solar 太阳能金 / volt 信号蓝 —— 三色克制使用 */
+
+@page { size: A4 landscape; margin: 15mm 14mm 14mm 14mm;
+  @top-left { content: "Solar-Harvesting Wearable Health Monitoring System";
+    font-family: UI; font-size: 7.4pt; color: #9AA5B8; letter-spacing: 0.3pt; }
+  @top-right { content: "System Architecture Proposal v2.0 · Final";
+    font-family: UI; font-size: 7.4pt; color: #9AA5B8; }
+  @bottom-left { content: "From: Project Lead   ·   To: Vice Dean";
+    font-family: UI; font-size: 7.4pt; color: #B4BDCC; }
+}
+
+
+
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: UI, CJK, sans-serif;
+  font-size: 9.8pt; line-height: 1.62; color: #16203A;
+  -fs-text-justify: none;
+}
+p { margin: 0 0 7pt; }
+strong, b { font-weight: 700; color: #0B1220; }
+em { font-style: normal; color: #B8720F; font-weight: 500; }
+a { color: #2F6BE4; text-decoration: none; }
+sup { font-size: 6.5pt; color: #8B97AB; vertical-align: super; }
+
+/* ---------- 封面 ---------- */
+.cover { width: 210mm; height: 297mm; position: relative;
+         background-color: #0B1220; color: #FFFFFF; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 30mm; }
+.cover-eyebrow { font-family: Display, CJK; font-size: 8.4pt; font-weight: 600;
+  letter-spacing: 2.6pt; color: #E09B2D; text-transform: uppercase; margin-bottom: 22mm; }
+.cover-title { font-family: Display, CJK; font-weight: 700; font-size: 29pt;
+  line-height: 1.34; letter-spacing: -0.2pt; color: #FFFFFF; margin: 0 0 7mm; }
+.cover-title .thin { font-weight: 500; color: #9FB0CC; display: block; font-size: 15pt;
+  letter-spacing: 0.6pt; margin-top: 4mm; line-height:1.5; }
+.cover-rule { width: 34mm; height: 2.2pt; background-color: #E09B2D; margin: 0 0 7mm; }
+.cover-lede { font-size: 10.2pt; line-height: 1.85; color: #C3CEE2; max-width: 132mm; }
+.cover-lede .hl { color: #FFFFFF; font-weight: 600; }
+.cover-art { position: absolute; left: 22mm; right: 22mm; top: 168mm; }
+.cover-meta { position: absolute; left: 22mm; right: 22mm; bottom: 20mm;
+  border-top: 0.6pt solid #2A3A57; padding-top: 6mm; }
+.cover-meta table { width: 100%; border-collapse: collapse; }
+.cover-meta td { vertical-align: top; padding-right: 8mm; }
+.cm-k { font-family: Display, CJK; font-size: 6.4pt; letter-spacing: 1.5pt; color: #6F809C;
+  text-transform: uppercase; padding-bottom: 1.6mm; }
+.cm-v { font-size: 8.2pt; line-height:1.45; color: #E8EDF6; font-weight: 500; }
+
+/* ---------- 章节 ---------- */
+.sec { page-break-before: always; }
+.cont { page-break-before: auto; }
+.pg { page-break-before: always; }
+figure.tight { margin: 2mm 0 3mm; }
+.figframe.tight { padding: 2.6mm 3mm 2mm; }
+.row { -fs-table-paginate: paginate; }
+table.t tr { page-break-inside: avoid; }
+.co, .layer, .kpi, .prob, .ms-i { page-break-inside: avoid; }
+h3 { page-break-after: avoid; }
+.sec-head { border-bottom: 1.4pt solid #0B1220; padding-bottom: 3.2mm; margin-bottom: 6mm; }
+.sec-num { font-family: Display, CJK; font-size: 8pt; font-weight: 700; letter-spacing: 2.4pt;
+  color: #E09B2D; display: block; margin-bottom: 1.8mm; }
+.sec-title { font-family: Display, CJK; font-size: 17pt; font-weight: 700;
+  color: #0B1220; margin: 0; line-height: 1.3; letter-spacing: -0.1pt; }
+.sec-sub { font-size: 9pt; color: #6B7891; margin-top: 2mm; line-height:1.6; }
+
+h3 { font-family: Display, CJK; font-size: 11.2pt; font-weight: 700; color: #14233D;
+  margin: 6mm 0 2.6mm; padding-left: 3mm; border-left: 2.4pt solid #E09B2D; line-height:1.35; }
+h4 { font-family: UI, CJK; font-size: 9.6pt; font-weight: 700; color: #14233D;
+  margin: 5mm 0 2mm; }
+
+/* ---------- 基础组件 ---------- */
+.mono, code { font-family: Mono, CJK; font-size: 8.3pt; }
+code { background-color: #EEF2F8; color: #14233D; padding: 0.6pt 2.4pt; border-radius: 2.4pt; }
+.pill { display: inline-block; white-space: nowrap; font-family: Display, CJK; font-size: 7pt; font-weight: 700;
+  letter-spacing: 0.9pt; padding: 1.4pt 5pt; border-radius: 9pt; }
+.pill-solar { background-color: #FDF3E2; color: #96590A; }
+.pill-volt  { background-color: #E9F0FE; color: #1F4FAE; }
+.pill-ok    { background-color: #E4F4EE; color: #0E6B4D; }
+.pill-risk  { background-color: #FCEAE8; color: #A8291F; }
+.pill-muted { background-color: #EEF1F6; color: #5B6880; }
+
+.lead { font-size: 10.6pt; line-height: 1.72; color: #2B3854; }
+.note { font-size: 8.4pt; color: #7A8699; }
+
+/* ---------- 表格 ---------- */
+table.t { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm;
+  -fs-table-paginate: paginate; font-size: 8.7pt; }
+table.t th { font-family: Display, CJK; font-size: 7.2pt; font-weight: 700;
+  letter-spacing: 0.7pt; color: #FFFFFF; background-color: #14233D;
+  text-align: left; padding: 2.2mm 2.4mm; }
+table.t td { padding: 2mm 2.4mm; border-bottom: 0.5pt solid #E4E9F1;
+  vertical-align: top; line-height: 1.5; }
+table.t tr.alt td { background-color: #F8FAFD; }
+table.t td.num { font-family: Display, CJK; font-weight: 600; text-align: right;
+  font-size: 8.8pt; color: #14233D; }
+table.t td.c { text-align: center; }
+table.t caption { caption-side: bottom; font-size: 7.6pt; color: #8B97AB;
+  text-align: left; padding-top: 2mm; line-height:1.5; }
+
+/* ---------- 图 ---------- */
+figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
+.figcap { font-size: 7.8pt; color: #7A8699; margin-top: 2.5mm; line-height: 1.55;
+  border-left: 1.6pt solid #E4E9F1; padding-left: 3mm; }
+.figcap .fignum { font-family: Display, CJK; font-weight: 700; color: #B8720F;
+  letter-spacing: 0.6pt; }
+.figframe { border: 0.6pt solid #E4E9F1; border-radius: 4pt; padding: 4mm 4mm 3mm;
+  background-color: #FCFDFE; }
+
+/* ---------- 栅格（无 flex，用 table） ---------- */
+.row { display: table; width: 100%; border-collapse: separate; border-spacing: 3mm 0; }
+.row.tight { border-spacing: 2mm 0; }
+.row > .col { display: table-cell; vertical-align: top; }
+.row.g0 { border-spacing: 0; }
+.w50 { width: 50%; } .w33 { width: 33.33%; } .w66 { width: 66.66%; }
+.w25 { width: 25%; } .w40 { width: 40%; } .w60 { width: 60%; }
+
+/* ---------- KPI 数字块 ---------- */
+.kpi { border: 0.6pt solid #E4E9F1; border-radius: 5pt; padding: 4mm 4mm 3.4mm;
+  background-color: #FCFDFE; }
+.kpi-k { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700; letter-spacing: 1.4pt;
+  color: #8B97AB; text-transform: uppercase; margin-bottom: 2mm; }
+.kpi-v { font-family: Display, CJK; font-size: 22pt; font-weight: 700; color: #0B1220;
+  line-height: 1; letter-spacing: -0.6pt; }
+.kpi-v .u { font-size: 10pt; font-weight: 600; color: #6B7891; letter-spacing: 0; }
+.kpi-d { font-size: 7.8pt; color: #7A8699; margin-top: 2.2mm; line-height: 1.5; }
+.kpi.accent { border-color: #F0D5A4; background-color: #FEFAF3; }
+.kpi.accent .kpi-v { color: #B8720F; }
+
+/* ---------- 问题卡（醒目区） ---------- */
+.prob-hero { background-color: #0B1220; color: #FFFFFF; border-radius: 6pt;
+  padding: 5mm 6mm 4.6mm; margin-bottom: 3.6mm; }
+.prob-hero .ph-eye { font-family: Display, CJK; font-size: 7.4pt; font-weight: 700;
+  letter-spacing: 2.4pt; color: #E09B2D; text-transform: uppercase; }
+.prob-hero .ph-t { font-family: Display, CJK; font-size: 16.5pt; font-weight: 700;
+  margin: 3mm 0 2.5mm; line-height: 1.32; }
+.prob-hero .ph-s { font-size: 8.4pt; color: #AFBDD4; line-height: 1.6; max-width: 150mm; }
+
+.prob { border: 0.6pt solid #E4E9F1; border-left: 3.4pt solid #14233D;
+  border-radius: 4pt; padding: 2.4mm 3.6mm 1.9mm; margin-bottom: 1.9mm;
+  page-break-inside: avoid; background-color: #FFFFFF; }
+.prob-q { font-family: Display, CJK; font-size: 9.4pt; font-weight: 700; color: #0B1220;
+  margin-bottom: 1.3mm; line-height: 1.45; }
+.prob-n { display: inline-block; min-width: 5.4mm; height: 5.4mm; line-height: 5.4mm;
+  text-align: center; background-color: #14233D; color: #FFFFFF; border-radius: 2.6pt;
+  font-family: Display, CJK; font-size: 8.4pt; font-weight: 700; margin-right: 2.4mm;
+  padding: 0 1.2mm; }
+.prob.p-risk  { border-left-color: #CB4034; }
+.prob.p-risk  .prob-n { background-color: #CB4034; }
+.prob.p-solar { border-left-color: #B8720F; }
+.prob.p-solar .prob-n { background-color: #B8720F; }
+.prob-line { font-size: 7.85pt; line-height: 1.48; color: #46556E; margin-bottom: 0.7mm; }
+.prob-line .lb { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700;
+  letter-spacing: 0.8pt; color: #FFFFFF; background-color: #9AA5B8;
+  padding: 0.8pt 3.2pt; border-radius: 2.2pt; margin-right: 2.2mm; }
+.prob-line.solve .lb { background-color: #15845F; }
+.prob-line.risk  .lb { background-color: #CB4034; }
+.prob-line.check .lb { background-color: #2F6BE4; }
+
+/* ---------- Callout ---------- */
+.co { border-radius: 5pt; padding: 3.2mm 4mm; margin: 3.2mm 0; font-size: 8.8pt;
+  line-height: 1.6; page-break-inside: avoid; }
+.co-t { font-family: Display, CJK; font-weight: 700; font-size: 9.6pt; margin-bottom: 1.8mm;
+  display: block; }
+.co.ok    { background-color: #EFF8F4; border-left: 2.6pt solid #15845F; color: #1D4238; }
+.co.ok .co-t { color: #0E6B4D; }
+.co.warn  { background-color: #FEF8EC; border-left: 2.6pt solid #E09B2D; color: #4A3A1B; }
+.co.warn .co-t { color: #96590A; }
+.co.risk  { background-color: #FDF0EE; border-left: 2.6pt solid #CB4034; color: #4A211C; }
+.co.risk .co-t { color: #A8291F; }
+.co.info  { background-color: #F1F5FD; border-left: 2.6pt solid #2F6BE4; color: #1F2E4A; }
+.co.info .co-t { color: #1F4FAE; }
+.co.neutral { background-color: #F6F8FC; border-left: 2.6pt solid #46556E; color: #2B3854; }
+.co.neutral .co-t { color: #14233D; }
+
+/* ---------- 物料清单 ---------- */
+.bom-legend { display: table; width: 100%; border-spacing: 3mm 0; margin-bottom: 4mm; }
+.bom-legend .bl { display: table-cell; width: 33.33%; border-radius: 5pt; padding: 3.4mm 4mm;
+  color: #FFFFFF; }
+.bl-have { background-color: #15845F; }
+.bl-make { background-color: #B8720F; }
+.bl-buy  { background-color: #2F6BE4; }
+.bl-k { font-family: Display, CJK; font-size: 7pt; font-weight: 700; letter-spacing: 1.6pt;
+  text-transform: uppercase; opacity: 1; }
+.bl-v { font-family: Display, CJK; font-size: 16pt; font-weight: 700; margin-top: 1.4mm; line-height:1; }
+.bl-d { font-size: 7.6pt; margin-top: 1.6mm; line-height: 1.45; }
+.tag { display: inline-block; width: 4.4mm; height: 4.4mm; border-radius: 1.6pt;
+  text-align: center; font-family: Display, CJK; font-size: 6.6pt; font-weight: 700;
+  color: #FFFFFF; line-height: 4.4mm; }
+.tag-have { background-color: #15845F; } .tag-make { background-color: #B8720F; }
+.tag-buy { background-color: #2F6BE4; }
+
+/* ---------- 层级说明 ---------- */
+.layer { border: 0.7pt solid #E4E9F1; border-left: 3.2pt solid #14233D; border-radius: 4pt;
+  padding: 3.4mm 4mm; margin-bottom: 2.6mm; page-break-inside: avoid; }
+.layer-h { font-family: Display, CJK; font-size: 9.8pt; font-weight: 700; color: #0B1220;
+  margin-bottom: 1.4mm; }
+.layer-h .lid { font-family: Display, CJK; font-size: 7.4pt; font-weight: 700; color: #FFFFFF;
+  background-color: #14233D; padding: 1pt 4pt; border-radius: 2.6pt; margin-right: 2.6mm;
+  letter-spacing: 0.8pt; }
+.layer-d { font-size: 8.5pt; color: #46556E; line-height: 1.6; }
+.layer.l-hw { border-left-color: #B8720F; } .layer.l-hw .lid { background-color: #B8720F; }
+.layer.l-fw { border-left-color: #15845F; } .layer.l-fw .lid { background-color: #15845F; }
+.layer.l-sw { border-left-color: #2F6BE4; } .layer.l-sw .lid { background-color: #2F6BE4; }
+.layer.l-dt { border-left-color: #6B4FCF; } .layer.l-dt .lid { background-color: #6B4FCF; }
+
+/* ---------- 列表 ---------- */
+ul.cl { list-style: none; padding-left: 0; margin: 2mm 0 4mm; }
+ul.cl li { font-size: 8.8pt; line-height: 1.6; padding-left: 6mm; margin-bottom: 1.8mm;
+  position: relative; }
+ul.cl li .bullet { position: absolute; left: 0; top: 0; font-family: Display, CJK;
+  font-size: 7.6pt; font-weight: 700; color: #B8720F; }
+ol.n { padding-left: 5mm; margin: 2mm 0 4mm; font-size: 8.9pt; line-height: 1.62; }
+ol.n li { margin-bottom: 1.6mm; }
+
+/* ---------- 里程碑 ---------- */
+.ms { border-left: 1.4pt solid #E4E9F1; padding-left: 5mm; margin-left: 2mm; }
+.ms-i { position: relative; margin-bottom: 2.4mm; page-break-inside: avoid; }
+.ms-w { font-family: Display, CJK; font-size: 7.2pt; font-weight: 700; letter-spacing: 1.2pt;
+  color: #FFFFFF; background-color: #14233D; padding: 1pt 4.4pt; border-radius: 2.6pt; }
+.ms-t { font-family: Display, CJK; font-size: 9.2pt; font-weight: 700; color: #0B1220;
+  margin: 1.2mm 0 0.7mm; }
+.ms-d { font-size: 8.2pt; color: #46556E; line-height: 1.52; }
+.ms-gate { font-size: 7.8pt; color: #A8291F; margin-top: 1mm; font-weight: 500; }
+
+/* ---------- 脚注/注记 ---------- */
+.foot-note { font-size: 7.4pt; color: #8B97AB; line-height: 1.5; margin-top: 2.4mm;
+  border-top: 0.5pt solid #E4E9F1; padding-top: 2mm; }
+.conf { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700; padding: 0.6pt 3pt;
+  border-radius: 2pt; letter-spacing: 0.5pt; }
+.conf-v { background-color: #E4F4EE; color: #0E6B4D; }
+.conf-c { background-color: #FEF3E0; color: #96590A; }
+.conf-q { background-color: #EEF1F6; color: #5B6880; }
+
+/* ---------- EN density tuning ---------- */
+.sec-head { padding-bottom: 2.6mm; margin-bottom: 4.6mm; }
+.sec-sub { margin-top: 1.6mm; }
+.ms { padding-left: 4.6mm; }
+.ms-i { margin-bottom: 1.5mm; }
+.ms-t { font-size: 8.9pt; margin: 0.9mm 0 0.5mm; }
+.ms-d { font-size: 8.0pt; line-height: 1.42; }
+.ms-gate { font-size: 7.6pt; margin-top: 0.6mm; line-height: 1.4; }
+
+</style>
+</head>
+<body>
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 03 · HARDWARE</span>
+    <h2 class="sec-title">Hardware Layer — Pin-Level Wiring</h2>
+    <p class="sec-sub">Landscape pages: one netlist diagram per page with its design rationale. Every connection is
+      labeled to the pin; pin <strong>names</strong> are functional, <strong>numbers</strong> must follow each device's
+      datasheet (all ⚠ items must be verified on the bench).
+      Colors follow the architecture diagram: <span class="pill pill-solar">18 V power zone</span>
+      <span class="pill pill-ok">storage</span> <span class="pill pill-volt">low-voltage / metering</span>
+      <span class="pill pill-risk">safety-critical</span>.</p>
+  </div>
+  <figure class="tight">
+    <div class="figframe tight"><svg
+ viewBox="0.00 0.00 775.00 194.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="700" height="175">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 190)">
+<title>G</title>
+<g id="clust1" class="cluster">
+<title>cluster_hv</title>
+<path fill="#fefbf5" stroke="#b8720f" d="M20,-8C20,-8 746.75,-8 746.75,-8 752.75,-8 758.75,-14 758.75,-20 758.75,-20 758.75,-166 758.75,-166 758.75,-172 752.75,-178 746.75,-178 746.75,-178 20,-178 20,-178 14,-178 8,-172 8,-166 8,-166 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text xml:space="preserve" text-anchor="start" x="16" y="-167.4" font-family="PingFang SC" font-weight="bold" font-size="8.00" fill="#b8720f">18 V power zone — ≥3 mm copper&#45;free band to low&#45;voltage zone on PCB</text>
+</g>
+
+<g id="node1" class="node">
+<title>PV</title>
+<polygon fill="#ffffff" stroke="none" points="26,-88.5 26,-143.5 117.25,-143.5 117.25,-88.5 26,-88.5"/>
+<polygon fill="none" stroke="#cbd4e3" points="26,-88.5 26,-143.5 117.25,-143.5 117.25,-88.5 26,-88.5"/>
+<polygon fill="#b8720f" stroke="none" points="27,-122.5 27,-142.5 116.25,-142.5 116.25,-122.5 27,-122.5"/>
+<text xml:space="preserve" text-anchor="start" x="30" y="-132.9" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">PV PANEL</text>
+<text xml:space="preserve" text-anchor="start" x="30.75" y="-126.8" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">30 W / 18 V</text>
+<polygon fill="#f6f8fc" stroke="none" points="27,-106 27,-122.5 46.5,-122.5 46.5,-106 27,-106"/>
+<text xml:space="preserve" text-anchor="start" x="30" y="-112" font-family="Menlo" font-size="7.00" fill="#0b1220">PV+</text>
+<text xml:space="preserve" text-anchor="start" x="49.5" y="-112" font-family="PingFang SC" font-size="7.00" fill="#46556e">red 18AWG shielded</text>
+<polygon fill="#f6f8fc" stroke="none" points="27,-89.5 27,-106 46.5,-106 46.5,-89.5 27,-89.5"/>
+<text xml:space="preserve" text-anchor="start" x="30" y="-95.5" font-family="Menlo" font-size="7.00" fill="#0b1220">PV−</text>
+<text xml:space="preserve" text-anchor="start" x="49.5" y="-95.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">black</text>
+</g>
+
+<g id="node2" class="node">
+<title>PROT</title>
+<polygon fill="#ffffff" stroke="none" points="209.5,-39.75 209.5,-144.25 339.75,-144.25 339.75,-39.75 209.5,-39.75"/>
+<polygon fill="none" stroke="#cbd4e3" points="209.5,-39.75 209.5,-144.25 339.75,-144.25 339.75,-39.75 209.5,-39.75"/>
+<polygon fill="#b8720f" stroke="none" points="210.5,-123.25 210.5,-143.25 338.75,-143.25 338.75,-123.25 210.5,-123.25"/>
+<text xml:space="preserve" text-anchor="start" x="213.5" y="-133.65" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">PROTECTION</text>
+<text xml:space="preserve" text-anchor="start" x="222.5" y="-127.55" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">18 V zone</text>
+<polygon fill="#f6f8fc" stroke="none" points="210.5,-106.75 210.5,-123.25 234.5,-123.25 234.5,-106.75 210.5,-106.75"/>
+<text xml:space="preserve" text-anchor="start" x="213.5" y="-112.75" font-family="Menlo" font-size="7.00" fill="#0b1220">F1</text>
+<text xml:space="preserve" text-anchor="start" x="237.5" y="-112.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">2 A slow&#45;blow · in panel j&#45;box</text>
+<polygon fill="#f6f8fc" stroke="none" points="210.5,-90.25 210.5,-106.75 234.5,-106.75 234.5,-90.25 210.5,-90.25"/>
+<text xml:space="preserve" text-anchor="start" x="213.5" y="-96.25" font-family="Menlo" font-size="7.00" fill="#0b1220">TVS1</text>
+<text xml:space="preserve" text-anchor="start" x="237.5" y="-96.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">SMAJ26A across PV+/PV−</text>
+<polygon fill="#f6f8fc" stroke="none" points="210.5,-73.75 210.5,-90.25 234.5,-90.25 234.5,-73.75 210.5,-73.75"/>
+<text xml:space="preserve" text-anchor="start" x="213.5" y="-79.75" font-family="Menlo" font-size="7.00" fill="#0b1220">D1</text>
+<text xml:space="preserve" text-anchor="start" x="237.5" y="-79.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">SS54 anti&#45;reverse 40 V/5 A</text>
+<polygon fill="#f6f8fc" stroke="none" points="210.5,-57.25 210.5,-73.75 234.5,-73.75 234.5,-57.25 210.5,-57.25"/>
+<text xml:space="preserve" text-anchor="start" x="213.5" y="-63.25" font-family="Menlo" font-size="7.00" fill="#0b1220">C1</text>
+<text xml:space="preserve" text-anchor="start" x="237.5" y="-63.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">220 µF/35 V low ESR</text>
+<polygon fill="#f6f8fc" stroke="none" points="210.5,-40.75 210.5,-57.25 234.5,-57.25 234.5,-40.75 210.5,-40.75"/>
+<text xml:space="preserve" text-anchor="start" x="213.5" y="-46.75" font-family="Menlo" font-size="7.00" fill="#0b1220">L1</text>
+<text xml:space="preserve" text-anchor="start" x="237.5" y="-46.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">CM choke + ferrite</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>PV:e&#45;&gt;PROT:w</title>
+<path fill="none" stroke="#b8720f" stroke-width="1.6" d="M117.25,-114.25C155.53,-114.25 167,-114.9 201.72,-114.99"/>
+<polygon fill="#b8720f" stroke="#b8720f" stroke-width="1.6" points="201.58,-116.92 207.08,-115 201.58,-113.07 201.58,-116.92"/>
+<text xml:space="preserve" text-anchor="start" x="150.25" y="-116.3" font-family="Menlo" font-size="6.00" fill="#b8720f">PV+ 18V</text>
+</g>
+
+<g id="node3" class="node">
+<title>RS1</title>
+<polygon fill="#ffffff" stroke="none" points="428.25,-47.25 428.25,-118.75 526.25,-118.75 526.25,-47.25 428.25,-47.25"/>
+<polygon fill="none" stroke="#cbd4e3" points="428.25,-47.25 428.25,-118.75 526.25,-118.75 526.25,-47.25 428.25,-47.25"/>
+<polygon fill="#2f6be4" stroke="none" points="429.25,-97.75 429.25,-117.75 525.25,-117.75 525.25,-97.75 429.25,-97.75"/>
+<text xml:space="preserve" text-anchor="start" x="432.25" y="-108.15" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">RS1 &#160;0.02 Ω</text>
+<text xml:space="preserve" text-anchor="start" x="442.38" y="-102.05" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">1% / 2512</text>
+<polygon fill="#f6f8fc" stroke="none" points="429.25,-81.25 429.25,-97.75 457.75,-97.75 457.75,-81.25 429.25,-81.25"/>
+<text xml:space="preserve" text-anchor="start" x="432.25" y="-87.25" font-family="Menlo" font-size="7.00" fill="#0b1220">IN</text>
+<text xml:space="preserve" text-anchor="start" x="460.75" y="-87.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">← L1</text>
+<polygon fill="#f6f8fc" stroke="none" points="429.25,-64.75 429.25,-81.25 457.75,-81.25 457.75,-64.75 429.25,-64.75"/>
+<text xml:space="preserve" text-anchor="start" x="432.25" y="-70.75" font-family="Menlo" font-size="7.00" fill="#0b1220">OUT</text>
+<text xml:space="preserve" text-anchor="start" x="460.75" y="-70.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">→ VIN</text>
+<polygon fill="#f6f8fc" stroke="none" points="429.25,-48.25 429.25,-64.75 457.75,-64.75 457.75,-48.25 429.25,-48.25"/>
+<text xml:space="preserve" text-anchor="start" x="432.25" y="-54.25" font-family="Menlo" font-size="7.00" fill="#0b1220">K+/K−</text>
+<text xml:space="preserve" text-anchor="start" x="460.75" y="-54.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">Kelvin → INA226#1</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>PROT:e&#45;&gt;RS1:w</title>
+<path fill="none" stroke="#b8720f" stroke-width="1.6" d="M339.75,-49C380.3,-49 384.58,-84.6 420.6,-89.05"/>
+<polygon fill="#b8720f" stroke="#b8720f" stroke-width="1.6" points="420.23,-90.95 425.83,-89.36 420.46,-87.11 420.23,-90.95"/>
+<text xml:space="preserve" text-anchor="start" x="372.75" y="-80.14" font-family="Menlo" font-size="6.00" fill="#b8720f">VBUS18</text>
+</g>
+
+<g id="node4" class="node">
+<title>CHG</title>
+<polygon fill="#ffffff" stroke="none" points="593.25,-22.5 593.25,-143.5 740.75,-143.5 740.75,-22.5 593.25,-22.5"/>
+<polygon fill="none" stroke="#cbd4e3" points="593.25,-22.5 593.25,-143.5 740.75,-143.5 740.75,-22.5 593.25,-22.5"/>
+<polygon fill="#b8720f" stroke="none" points="594.25,-122.5 594.25,-142.5 739.75,-142.5 739.75,-122.5 594.25,-122.5"/>
+<text xml:space="preserve" text-anchor="start" x="653.5" y="-132.9" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">CN3791</text>
+<text xml:space="preserve" text-anchor="start" x="597.25" y="-126.8" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">MPPT 1&#45;cell Li charger　⚠ pin nos. per datasheet</text>
+<polygon fill="#f6f8fc" stroke="none" points="594.25,-106 594.25,-122.5 631.38,-122.5 631.38,-106 594.25,-106"/>
+<text xml:space="preserve" text-anchor="start" x="597.25" y="-112" font-family="Menlo" font-size="7.00" fill="#0b1220">VIN</text>
+<text xml:space="preserve" text-anchor="start" x="634.38" y="-112" font-family="PingFang SC" font-size="7.00" fill="#46556e">18 V input</text>
+<polygon fill="#f6f8fc" stroke="none" points="594.25,-89.5 594.25,-106 631.38,-106 631.38,-89.5 594.25,-89.5"/>
+<text xml:space="preserve" text-anchor="start" x="597.25" y="-95.5" font-family="Menlo" font-size="7.00" fill="#0b1220">GND</text>
+<text xml:space="preserve" text-anchor="start" x="634.38" y="-95.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">PGND</text>
+<polygon fill="#f6f8fc" stroke="none" points="594.25,-73 594.25,-89.5 631.38,-89.5 631.38,-73 594.25,-73"/>
+<text xml:space="preserve" text-anchor="start" x="597.25" y="-79" font-family="Menlo" font-size="7.00" fill="#0b1220">MPPT</text>
+<text xml:space="preserve" text-anchor="start" x="634.38" y="-79" font-family="PingFang SC" font-size="7.00" fill="#46556e">divider ≈0.76×Voc ≈16.5 V</text>
+<polygon fill="#f6f8fc" stroke="none" points="594.25,-56.5 594.25,-73 631.38,-73 631.38,-56.5 594.25,-56.5"/>
+<text xml:space="preserve" text-anchor="start" x="597.25" y="-62.5" font-family="Menlo" font-size="7.00" fill="#0b1220">CS</text>
+<text xml:space="preserve" text-anchor="start" x="634.38" y="-62.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">Rcs → charge 1.25 A</text>
+<polygon fill="#f6f8fc" stroke="none" points="594.25,-40 594.25,-56.5 631.38,-56.5 631.38,-40 594.25,-40"/>
+<text xml:space="preserve" text-anchor="start" x="597.25" y="-46" font-family="Menlo" font-size="7.00" fill="#0b1220">BAT</text>
+<text xml:space="preserve" text-anchor="start" x="634.38" y="-46" font-family="PingFang SC" font-size="7.00" fill="#46556e">4.2 V CC/CV → CHG_OUT</text>
+<polygon fill="#f6f8fc" stroke="none" points="594.25,-23.5 594.25,-40 631.38,-40 631.38,-23.5 594.25,-23.5"/>
+<text xml:space="preserve" text-anchor="start" x="597.25" y="-29.5" font-family="Menlo" font-size="7.00" fill="#0b1220">CHRG</text>
+<text xml:space="preserve" text-anchor="start" x="634.38" y="-29.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">→ MCU D8</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>RS1:e&#45;&gt;CHG:w</title>
+<path fill="none" stroke="#b8720f" stroke-width="1.6" d="M526.25,-73C558.35,-73 558.51,-107.76 585.37,-113.46"/>
+<polygon fill="#b8720f" stroke="#b8720f" stroke-width="1.6" points="585.18,-115.38 590.84,-114.01 585.56,-111.55 585.18,-115.38"/>
+</g>
+</g>
+</svg></div>
+    <div class="figcap"><span class="fignum">Fig. 2</span>　18 V input protection and MPPT charging.</div>
+  </figure>
+  <div class="row">
+    <div class="col w60">
+      <h4 style="margin-top:1mm">Protection-stage selection: five items that must be re-derived at the new power level</h4>
+      <table class="t">
+        <tr><th style="width:12%">Ref</th><th style="width:22%">v1.0</th><th style="width:24%">v2.0</th><th style="width:42%">Why</th></tr>
+        <tr><td class="mono">F1</td><td>on the PMB</td><td><strong>inside the panel junction box</strong></td>
+            <td>A fuse at the load end cannot protect the cable itself; an 18 V / 1.8 A short will arc</td></tr>
+        <tr class="alt"><td class="mono">TVS1</td><td>SMAJ24A</td><td>SMAJ26A ⚠ finalize after measured V<sub>oc</sub></td>
+            <td>Rule: breakdown &gt; measured V<sub>oc</sub> × 1.15, else it conducts and heats on every sunny day</td></tr>
+        <tr><td class="mono">D1</td><td>SS34 (3 A)</td><td><strong>SS54 (5 A)</strong></td>
+            <td>Current up from 0.5 A to 1.7 A; SS34 margin insufficient</td></tr>
+        <tr class="alt"><td class="mono">C1</td><td>100 µF</td><td><strong>220 µF / 35 V low-ESR</strong></td>
+            <td>Higher input power needs more input storage</td></tr>
+        <tr><td class="mono">L1</td><td>none</td><td><strong>common-mode choke + ferrite</strong></td>
+            <td><span class="pill pill-risk">EMC</span>　suppress cable-borne common-mode noise (new)</td></tr>
+        <tr class="alt"><td class="mono">RS1</td><td>0.1 Ω</td><td><strong>0.02 Ω</strong></td>
+            <td>1.8 A × 0.1 Ω = 180 mV exceeds the INA226 81.92 mV full-scale</td></tr>
+      </table>
+    </div>
+    <div class="col w40">
+      <div class="co warn" style="margin-top:1mm"><span class="co-t">30 W source, 5 W sink: current limiting is mandatory</span>
+        A 30 W input at 90% efficiency can push <strong>6.9 A</strong> into a 3.9 V battery, while the safe charge rate of a
+        2500 mAh cell is 0.5 C = <strong>1.25 A</strong>. <strong>Without R<sub>cs</sub> limiting, the battery will be
+        overcharged to failure.</strong></div>
+      <div class="co risk"><span class="co-t">Irradiance simulation: only uniform whole-panel attenuation</span>
+        Use a neutral-density mesh across the <strong>entire</strong> panel. <strong>Never shade partially</strong> — a shaded
+        cell is reverse-biased into a <strong>hot spot</strong> (can exceed 100 °C, damaging the panel or worse), and the
+        I-V curve develops multiple peaks that lock the MPPT onto the wrong one.</div>
+    </div>
+  </div>
+</div>
+
+<div class="cont">
+  <figure class="tight" style="margin-top:0">
+    <div class="figframe tight"><svg
+ viewBox="0.00 0.00 558.00 194.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="520" height="181">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 190.25)">
+<title>G</title>
+
+<g id="node1" class="node">
+<title>CO</title>
+<polygon fill="#fdf3e2" stroke="none" points="36.88,-72.75 36.88,-104.75 99.12,-104.75 99.12,-72.75 36.88,-72.75"/>
+<polygon fill="none" stroke="#b8720f" points="36.88,-72.75 36.88,-104.75 99.12,-104.75 99.12,-72.75 36.88,-72.75"/>
+<text xml:space="preserve" text-anchor="start" x="48.5" y="-92.15" font-family="PingFang SC" font-weight="bold" font-size="8.00" fill="#b8720f">CHG_OUT</text>
+<text xml:space="preserve" text-anchor="start" x="42.88" y="-86.05" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">from CN3791.BAT</text>
+<text xml:space="preserve" text-anchor="start" x="48.12" y="-80.05" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">4.2 V / 1.25 A</text>
+</g>
+
+<g id="node2" class="node">
+<title>Q12</title>
+<polygon fill="#ffffff" stroke="none" points="199,-61.25 199,-182.25 319.5,-182.25 319.5,-61.25 199,-61.25"/>
+<polygon fill="none" stroke="#cbd4e3" points="199,-61.25 199,-182.25 319.5,-182.25 319.5,-61.25 199,-61.25"/>
+<polygon fill="#14233d" stroke="none" points="200,-161.25 200,-181.25 318.5,-181.25 318.5,-161.25 200,-161.25"/>
+<text xml:space="preserve" text-anchor="start" x="203" y="-171.65" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">Q1 · Q2 &#160;charge switching</text>
+<text xml:space="preserve" text-anchor="start" x="221.38" y="-165.55" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">P&#45;MOS AO3401 / SOT&#45;23</text>
+<polygon fill="#f6f8fc" stroke="none" points="200,-144.75 200,-161.25 227.75,-161.25 227.75,-144.75 200,-144.75"/>
+<text xml:space="preserve" text-anchor="start" x="203" y="-150.75" font-family="Menlo" font-size="7.00" fill="#0b1220">Q1.G</text>
+<text xml:space="preserve" text-anchor="start" x="230.75" y="-150.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">← MCU D1 (via interlock)</text>
+<polygon fill="#f6f8fc" stroke="none" points="200,-128.25 200,-144.75 227.75,-144.75 227.75,-128.25 200,-128.25"/>
+<text xml:space="preserve" text-anchor="start" x="203" y="-134.25" font-family="Menlo" font-size="7.00" fill="#0b1220">Q1.S</text>
+<text xml:space="preserve" text-anchor="start" x="230.75" y="-134.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">CHG_OUT</text>
+<polygon fill="#f6f8fc" stroke="none" points="200,-111.75 200,-128.25 227.75,-128.25 227.75,-111.75 200,-111.75"/>
+<text xml:space="preserve" text-anchor="start" x="203" y="-117.75" font-family="Menlo" font-size="7.00" fill="#0b1220">Q1.D</text>
+<text xml:space="preserve" text-anchor="start" x="230.75" y="-117.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">→ BAT_A+</text>
+<polygon fill="#f6f8fc" stroke="none" points="200,-95.25 200,-111.75 227.75,-111.75 227.75,-95.25 200,-95.25"/>
+<text xml:space="preserve" text-anchor="start" x="203" y="-101.25" font-family="Menlo" font-size="7.00" fill="#0b1220">Q2.G</text>
+<text xml:space="preserve" text-anchor="start" x="230.75" y="-101.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">← MCU D2 (via interlock)</text>
+<polygon fill="#f6f8fc" stroke="none" points="200,-78.75 200,-95.25 227.75,-95.25 227.75,-78.75 200,-78.75"/>
+<text xml:space="preserve" text-anchor="start" x="203" y="-84.75" font-family="Menlo" font-size="7.00" fill="#0b1220">Q2.S</text>
+<text xml:space="preserve" text-anchor="start" x="230.75" y="-84.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">CHG_OUT</text>
+<polygon fill="#f6f8fc" stroke="none" points="200,-62.25 200,-78.75 227.75,-78.75 227.75,-62.25 200,-62.25"/>
+<text xml:space="preserve" text-anchor="start" x="203" y="-68.25" font-family="Menlo" font-size="7.00" fill="#0b1220">Q2.D</text>
+<text xml:space="preserve" text-anchor="start" x="230.75" y="-68.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">→ BAT_B+</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>CO&#45;&gt;Q12:w</title>
+<path fill="none" stroke="#b8720f" stroke-width="1.5" d="M103.07,-108.72C126.7,-120.84 159.53,-134.33 191.37,-136.26"/>
+<polygon fill="#b8720f" stroke="#b8720f" stroke-width="1.5" points="191.17,-138.18 196.73,-136.43 191.29,-134.34 191.17,-138.18"/>
+</g>
+
+<g id="edge2" class="edge">
+<title>CO&#45;&gt;Q12:w</title>
+<path fill="none" stroke="#b8720f" stroke-width="1.5" d="M107.11,-87.97C130.89,-87.54 162.39,-87.08 191.31,-87.01"/>
+<polygon fill="#b8720f" stroke="#b8720f" stroke-width="1.5" points="191.23,-88.94 196.73,-87 191.23,-85.09 191.23,-88.94"/>
+</g>
+
+<g id="node4" class="node">
+<title>BA</title>
+<polygon fill="#ffffff" stroke="none" points="412,-104 412,-175.5 542.25,-175.5 542.25,-104 412,-104"/>
+<polygon fill="none" stroke="#cbd4e3" points="412,-104 412,-175.5 542.25,-175.5 542.25,-104 412,-104"/>
+<polygon fill="#15845f" stroke="none" points="413,-154.5 413,-174.5 541.25,-174.5 541.25,-154.5 413,-154.5"/>
+<text xml:space="preserve" text-anchor="start" x="427.62" y="-164.9" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">BATTERY A</text>
+<text xml:space="preserve" text-anchor="start" x="416" y="-158.8" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">2500 mAh / with PCM</text>
+<polygon fill="#f6f8fc" stroke="none" points="413,-138 413,-154.5 441.5,-154.5 441.5,-138 413,-138"/>
+<text xml:space="preserve" text-anchor="start" x="416" y="-144" font-family="Menlo" font-size="7.00" fill="#0b1220">+</text>
+<text xml:space="preserve" text-anchor="start" x="444.5" y="-144" font-family="PingFang SC" font-size="7.00" fill="#46556e">JST&#45;PH pin1 ⚠ verify polarity</text>
+<polygon fill="#f6f8fc" stroke="none" points="413,-121.5 413,-138 441.5,-138 441.5,-121.5 413,-121.5"/>
+<text xml:space="preserve" text-anchor="start" x="416" y="-127.5" font-family="Menlo" font-size="7.00" fill="#0b1220">−</text>
+<text xml:space="preserve" text-anchor="start" x="444.5" y="-127.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">pin2 → PGND</text>
+<polygon fill="#f6f8fc" stroke="none" points="413,-105 413,-121.5 441.5,-121.5 441.5,-105 413,-105"/>
+<text xml:space="preserve" text-anchor="start" x="416" y="-111" font-family="Menlo" font-size="7.00" fill="#0b1220">NTC_A</text>
+<text xml:space="preserve" text-anchor="start" x="444.5" y="-111" font-family="PingFang SC" font-size="7.00" fill="#46556e">10 kΩ B3950 → MCU A0</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>Q12:e&#45;&gt;BA:w</title>
+<path fill="none" stroke="#15845f" stroke-width="1.5" d="M319.5,-120C359.56,-120 368.25,-143.07 404.39,-145.96"/>
+<polygon fill="#15845f" stroke="#15845f" stroke-width="1.5" points="404.16,-147.87 409.73,-146.16 404.31,-144.03 404.16,-147.87"/>
+<text xml:space="preserve" text-anchor="start" x="354.5" y="-139.99" font-family="Menlo" font-size="6.00" fill="#15845f">BAT_A+</text>
+</g>
+
+<g id="node5" class="node">
+<title>BB</title>
+<polygon fill="#ffffff" stroke="none" points="418.38,-4 418.38,-75.5 535.88,-75.5 535.88,-4 418.38,-4"/>
+<polygon fill="none" stroke="#cbd4e3" points="418.38,-4 418.38,-75.5 535.88,-75.5 535.88,-4 418.38,-4"/>
+<polygon fill="#15845f" stroke="none" points="419.38,-54.5 419.38,-74.5 534.88,-74.5 534.88,-54.5 419.38,-54.5"/>
+<text xml:space="preserve" text-anchor="start" x="434" y="-64.9" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">BATTERY B</text>
+<text xml:space="preserve" text-anchor="start" x="422.38" y="-58.8" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">2500 mAh / with PCM</text>
+<polygon fill="#f6f8fc" stroke="none" points="419.38,-38 419.38,-54.5 447.88,-54.5 447.88,-38 419.38,-38"/>
+<text xml:space="preserve" text-anchor="start" x="422.38" y="-44" font-family="Menlo" font-size="7.00" fill="#0b1220">+</text>
+<text xml:space="preserve" text-anchor="start" x="450.88" y="-44" font-family="PingFang SC" font-size="7.00" fill="#46556e">JST&#45;PH pin1</text>
+<polygon fill="#f6f8fc" stroke="none" points="419.38,-21.5 419.38,-38 447.88,-38 447.88,-21.5 419.38,-21.5"/>
+<text xml:space="preserve" text-anchor="start" x="422.38" y="-27.5" font-family="Menlo" font-size="7.00" fill="#0b1220">−</text>
+<text xml:space="preserve" text-anchor="start" x="450.88" y="-27.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">pin2 → PGND</text>
+<polygon fill="#f6f8fc" stroke="none" points="419.38,-5 419.38,-21.5 447.88,-21.5 447.88,-5 419.38,-5"/>
+<text xml:space="preserve" text-anchor="start" x="422.38" y="-11" font-family="Menlo" font-size="7.00" fill="#0b1220">NTC_B</text>
+<text xml:space="preserve" text-anchor="start" x="450.88" y="-11" font-family="PingFang SC" font-size="7.00" fill="#46556e">10 kΩ B3950 → MCU A1</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>Q12:e&#45;&gt;BB:w</title>
+<path fill="none" stroke="#15845f" stroke-width="1.5" d="M319.5,-70.5C362.1,-70.5 372.02,-49.01 410.79,-46.49"/>
+<polygon fill="#15845f" stroke="#15845f" stroke-width="1.5" points="410.67,-48.42 416.11,-46.32 410.55,-44.57 410.67,-48.42"/>
+<text xml:space="preserve" text-anchor="start" x="354.5" y="-65.5" font-family="Menlo" font-size="6.00" fill="#15845f">BAT_B+</text>
+</g>
+
+<g id="node3" class="node">
+<title>ILK</title>
+<polygon fill="#fceae8" stroke="none" points="8,-137.75 8,-169.75 128,-169.75 128,-137.75 8,-137.75"/>
+<polygon fill="none" stroke="#cb4034" points="8,-137.75 8,-169.75 128,-169.75 128,-137.75 8,-137.75"/>
+<text xml:space="preserve" text-anchor="start" x="14" y="-157.15" font-family="PingFang SC" font-weight="bold" font-size="8.00" fill="#cb4034">hw interlock: inverter + AND</text>
+<text xml:space="preserve" text-anchor="start" x="33.5" y="-151.05" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">Q1·Q2 never on together</text>
+<text xml:space="preserve" text-anchor="start" x="15.12" y="-145.05" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">MCU runaway = parallel cells → 4.2 A</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>ILK&#45;&gt;Q12:w</title>
+<path fill="none" stroke="#cb4034" stroke-dasharray="5,2" d="M135.8,-153.22C153.88,-153.11 173.59,-153.02 192.2,-153"/>
+<polygon fill="#cb4034" stroke="#cb4034" points="191.99,-154.93 197.49,-153 191.99,-151.08 191.99,-154.93"/>
+</g>
+
+<g id="edge6" class="edge">
+<title>ILK&#45;&gt;Q12:w</title>
+<path fill="none" stroke="#cb4034" stroke-dasharray="5,2" d="M110.6,-133.89C138.03,-121.44 172.43,-107.17 192.19,-104.1"/>
+<polygon fill="#cb4034" stroke="#cb4034" points="192.18,-106.04 197.49,-103.63 191.84,-102.2 192.18,-106.04"/>
+</g>
+</g>
+</svg></div>
+    <div class="figcap"><span class="fignum">Fig. 3</span>　Charge-side switching (upper half of ADR-006).</div>
+  </figure>
+  <div class="row">
+    <div class="col w50">
+      <h4 style="margin-top:1mm">Interlock truth table — only two states are legal</h4>
+      <table class="t">
+        <tr><th style="width:12%">Q1</th><th style="width:12%">Q2</th><th style="width:26%">Result</th><th style="width:50%">Meaning</th></tr>
+        <tr><td class="mono">OFF</td><td class="mono">OFF</td><td><span class="pill pill-ok">legal</span></td><td>no charging (night / FAULT / battery temp out of range)</td></tr>
+        <tr class="alt"><td class="mono">ON</td><td class="mono">OFF</td><td><span class="pill pill-ok">legal</span></td><td>battery A charging, B supplying</td></tr>
+        <tr><td class="mono">OFF</td><td class="mono">ON</td><td><span class="pill pill-ok">legal</span></td><td>battery B charging, A supplying</td></tr>
+        <tr class="alt"><td class="mono">ON</td><td class="mono">ON</td><td><span class="pill pill-risk">forbidden</span></td>
+            <td><strong>both batteries directly paralleled</strong> — must be blocked by hardware, not firmware alone</td></tr>
+      </table>
+      <p style="font-size:8.4pt;color:#46556E;margin-top:2mm">
+        Circulating current: ΔV = 0.5 V, ~50 mΩ cell ESR each ⚠, ~20 mΩ wiring →
+        <code>I = 0.5 ÷ (0.05 + 0.05 + 0.02) ≈ 4.2 A</code>, far beyond the safe discharge rate of a 2500 mAh cell —
+        repeatedly tripping the PCM and damaging the cells.</p>
+    </div>
+    <div class="col w50">
+      <div class="co risk" style="margin-top:1mm"><span class="co-t">TC-13 — mandatory verification before assembly</span>
+        <strong>Use adjustable current-limited supplies throughout; never real batteries.</strong>
+        Supply 1 → BAT_A at 3.90 V / 100 mA limit; supply 2 → BAT_B at 3.70 V / 100 mA limit (a 0.2 V difference is enough
+        to expose any parallel path). ① Sweep all 16 gate combinations — any path &gt; 10 mA is a FAIL;
+        ② with all FETs off, current should be ~0 (else a body diode is backwards); ③ fault injection: force Q1=Q2=ON,
+        the interlock must block it; ④ on MCU reset or power loss all FETs default OFF.
+        <br/><strong>Real batteries only after all checks pass.</strong></div>
+      <div class="co warn"><span class="co-t">Battery temperature window</span>
+        NTCs on the cell surface (thermal grease + Kapton). <strong>No charging below 0 °C or above 45 °C</strong> —
+        low-temperature charging plates lithium, a common cause of safety incidents. ⚠ The CN3791 has no built-in
+        temperature protection; this must be done in firmware.</div>
+    </div>
+  </div>
+</div>
+
+<div class="cont">
+  <figure class="tight" style="margin-top:0">
+    <div class="figframe tight"><svg
+ viewBox="0.00 0.00 720.00 212.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="640" height="188">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 208.25)">
+<title>G</title>
+
+<g id="node1" class="node">
+<title>BAT2</title>
+<polygon fill="#ffffff" stroke="none" points="8,-90.75 8,-162.25 101.5,-162.25 101.5,-90.75 8,-90.75"/>
+<polygon fill="none" stroke="#cbd4e3" points="8,-90.75 8,-162.25 101.5,-162.25 101.5,-90.75 8,-90.75"/>
+<polygon fill="#15845f" stroke="none" points="9,-141.25 9,-161.25 100.5,-161.25 100.5,-141.25 9,-141.25"/>
+<text xml:space="preserve" text-anchor="start" x="23.62" y="-151.65" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">BATTERY A / B</text>
+<text xml:space="preserve" text-anchor="start" x="12" y="-145.55" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">only one discharges at a time</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-124.75 9,-141.25 42,-141.25 42,-124.75 9,-124.75"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-130.75" font-family="Menlo" font-size="7.00" fill="#0b1220">BAT_A+</text>
+<text xml:space="preserve" text-anchor="start" x="45" y="-130.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">→ Q3.S</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-108.25 9,-124.75 42,-124.75 42,-108.25 9,-108.25"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-114.25" font-family="Menlo" font-size="7.00" fill="#0b1220">BAT_B+</text>
+<text xml:space="preserve" text-anchor="start" x="45" y="-114.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">→ Q4.S</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-91.75 9,-108.25 42,-108.25 42,-91.75 9,-91.75"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-97.75" font-family="Menlo" font-size="7.00" fill="#0b1220">PGND</text>
+<text xml:space="preserve" text-anchor="start" x="45" y="-97.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">single&#45;point star</text>
+</g>
+
+<g id="node2" class="node">
+<title>Q34</title>
+<polygon fill="#ffffff" stroke="none" points="168.5,-62.75 168.5,-200.25 302.5,-200.25 302.5,-62.75 168.5,-62.75"/>
+<polygon fill="none" stroke="#cbd4e3" points="168.5,-62.75 168.5,-200.25 302.5,-200.25 302.5,-62.75 168.5,-62.75"/>
+<polygon fill="#14233d" stroke="none" points="169.5,-179.25 169.5,-199.25 301.5,-199.25 301.5,-179.25 169.5,-179.25"/>
+<text xml:space="preserve" text-anchor="start" x="172.5" y="-189.65" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">Q3 · Q4 &#160;discharge switching</text>
+<text xml:space="preserve" text-anchor="start" x="184.12" y="-183.55" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">back&#45;to&#45;back dual FET or LM66100</text>
+<polygon fill="#f6f8fc" stroke="none" points="169.5,-162.75 169.5,-179.25 232.88,-179.25 232.88,-162.75 169.5,-162.75"/>
+<text xml:space="preserve" text-anchor="start" x="172.5" y="-168.75" font-family="Menlo" font-size="7.00" fill="#0b1220">Q3.G</text>
+<text xml:space="preserve" text-anchor="start" x="235.88" y="-168.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">← MCU D3</text>
+<polygon fill="#f6f8fc" stroke="none" points="169.5,-146.25 169.5,-162.75 232.88,-162.75 232.88,-146.25 169.5,-146.25"/>
+<text xml:space="preserve" text-anchor="start" x="172.5" y="-152.25" font-family="Menlo" font-size="7.00" fill="#0b1220">Q3.S</text>
+<text xml:space="preserve" text-anchor="start" x="235.88" y="-152.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">BAT_A+</text>
+<polygon fill="#f6f8fc" stroke="none" points="169.5,-129.75 169.5,-146.25 232.88,-146.25 232.88,-129.75 169.5,-129.75"/>
+<text xml:space="preserve" text-anchor="start" x="172.5" y="-135.75" font-family="Menlo" font-size="7.00" fill="#0b1220">Q3.D</text>
+<text xml:space="preserve" text-anchor="start" x="235.88" y="-135.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">→ LOAD_BUS</text>
+<polygon fill="#f6f8fc" stroke="none" points="169.5,-113.25 169.5,-129.75 232.88,-129.75 232.88,-113.25 169.5,-113.25"/>
+<text xml:space="preserve" text-anchor="start" x="172.5" y="-119.25" font-family="Menlo" font-size="7.00" fill="#0b1220">Q4.G</text>
+<text xml:space="preserve" text-anchor="start" x="235.88" y="-119.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">← MCU D6</text>
+<polygon fill="#f6f8fc" stroke="none" points="169.5,-96.75 169.5,-113.25 232.88,-113.25 232.88,-96.75 169.5,-96.75"/>
+<text xml:space="preserve" text-anchor="start" x="172.5" y="-102.75" font-family="Menlo" font-size="7.00" fill="#0b1220">Q4.S</text>
+<text xml:space="preserve" text-anchor="start" x="235.88" y="-102.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">BAT_B+</text>
+<polygon fill="#f6f8fc" stroke="none" points="169.5,-80.25 169.5,-96.75 232.88,-96.75 232.88,-80.25 169.5,-80.25"/>
+<text xml:space="preserve" text-anchor="start" x="172.5" y="-86.25" font-family="Menlo" font-size="7.00" fill="#0b1220">Q4.D</text>
+<text xml:space="preserve" text-anchor="start" x="235.88" y="-86.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">→ LOAD_BUS</text>
+<polygon fill="#f6f8fc" stroke="none" points="169.5,-63.75 169.5,-80.25 232.88,-80.25 232.88,-63.75 169.5,-63.75"/>
+<text xml:space="preserve" text-anchor="start" x="172.5" y="-69.75" font-family="Menlo" font-size="7.00" fill="#0b1220">⚠ body diode</text>
+<text xml:space="preserve" text-anchor="start" x="235.88" y="-69.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">must block reverse</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>BAT2:e&#45;&gt;Q34:w</title>
+<path fill="none" stroke="#2f6be4" stroke-width="1.5" d="M101.5,-133C130.09,-133 136.26,-150.96 161,-154.05"/>
+<polygon fill="#2f6be4" stroke="#2f6be4" stroke-width="1.5" points="160.63,-155.96 166.23,-154.36 160.86,-152.11 160.63,-155.96"/>
+</g>
+
+<g id="edge2" class="edge">
+<title>BAT2:e&#45;&gt;Q34:w</title>
+<path fill="none" stroke="#2f6be4" stroke-width="1.5" d="M101.5,-116.5C129,-116.5 136.91,-106.97 160.89,-105.26"/>
+<polygon fill="#2f6be4" stroke="#2f6be4" stroke-width="1.5" points="160.8,-107.19 166.23,-105.08 160.67,-103.34 160.8,-107.19"/>
+</g>
+
+<g id="node3" class="node">
+<title>RS2</title>
+<polygon fill="#ffffff" stroke="none" points="398.5,-69.75 398.5,-141.25 492.75,-141.25 492.75,-69.75 398.5,-69.75"/>
+<polygon fill="none" stroke="#cbd4e3" points="398.5,-69.75 398.5,-141.25 492.75,-141.25 492.75,-69.75 398.5,-69.75"/>
+<polygon fill="#2f6be4" stroke="none" points="399.5,-120.25 399.5,-140.25 491.75,-140.25 491.75,-120.25 399.5,-120.25"/>
+<text xml:space="preserve" text-anchor="start" x="413" y="-130.65" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">RS2 &#160;0.02 Ω</text>
+<text xml:space="preserve" text-anchor="start" x="402.5" y="-124.55" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">1% / 2512 · coulomb ctr</text>
+<polygon fill="#f6f8fc" stroke="none" points="399.5,-103.75 399.5,-120.25 428,-120.25 428,-103.75 399.5,-103.75"/>
+<text xml:space="preserve" text-anchor="start" x="402.5" y="-109.75" font-family="Menlo" font-size="7.00" fill="#0b1220">IN</text>
+<text xml:space="preserve" text-anchor="start" x="431" y="-109.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">LOAD_BUS</text>
+<polygon fill="#f6f8fc" stroke="none" points="399.5,-87.25 399.5,-103.75 428,-103.75 428,-87.25 399.5,-87.25"/>
+<text xml:space="preserve" text-anchor="start" x="402.5" y="-93.25" font-family="Menlo" font-size="7.00" fill="#0b1220">OUT</text>
+<text xml:space="preserve" text-anchor="start" x="431" y="-93.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">→ J6.1</text>
+<polygon fill="#f6f8fc" stroke="none" points="399.5,-70.75 399.5,-87.25 428,-87.25 428,-70.75 399.5,-70.75"/>
+<text xml:space="preserve" text-anchor="start" x="402.5" y="-76.75" font-family="Menlo" font-size="7.00" fill="#0b1220">K+/K−</text>
+<text xml:space="preserve" text-anchor="start" x="431" y="-76.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">→ INA226#2 bidir</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>Q34:e&#45;&gt;RS2:w</title>
+<path fill="none" stroke="#2f6be4" stroke-width="1.5" d="M302.5,-138C344.11,-138 353.28,-114.96 391.09,-112.26"/>
+<polygon fill="#2f6be4" stroke="#2f6be4" stroke-width="1.5" points="390.8,-114.19 396.23,-112.08 390.67,-110.35 390.8,-114.19"/>
+<text xml:space="preserve" text-anchor="start" x="335.5" y="-133.22" font-family="Menlo" font-size="6.00" fill="#2f6be4">LOAD_BUS</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>Q34:e&#45;&gt;RS2:w</title>
+<path fill="none" stroke="#2f6be4" stroke-width="1.5" d="M302.5,-88.5C343.85,-88.5 353.5,-109.33 391.13,-111.77"/>
+<polygon fill="#2f6be4" stroke="#2f6be4" stroke-width="1.5" points="390.67,-113.68 396.23,-111.93 390.79,-109.83 390.67,-113.68"/>
+</g>
+
+<g id="node4" class="node">
+<title>CBL</title>
+<polygon fill="#ffffff" stroke="none" points="559.75,-4 559.75,-125 703.5,-125 703.5,-4 559.75,-4"/>
+<polygon fill="none" stroke="#cbd4e3" points="559.75,-4 559.75,-125 703.5,-125 703.5,-4 559.75,-4"/>
+<polygon fill="#2f6be4" stroke="none" points="560.75,-104 560.75,-124 702.5,-124 702.5,-104 560.75,-104"/>
+<text xml:space="preserve" text-anchor="start" x="599" y="-114.4" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">J6 &#160;CABLE</text>
+<text xml:space="preserve" text-anchor="start" x="563.75" y="-108.3" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">5&#45;core shielded · magnetic break&#45;away</text>
+<polygon fill="#f6f8fc" stroke="none" points="560.75,-87.5 560.75,-104 620.75,-104 620.75,-87.5 560.75,-87.5"/>
+<text xml:space="preserve" text-anchor="start" x="563.75" y="-93.5" font-family="Menlo" font-size="7.00" fill="#0b1220">1 &#160;BAT_OUT+</text>
+<text xml:space="preserve" text-anchor="start" x="623.75" y="-93.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">≤ 4.2 V supply</text>
+<polygon fill="#f6f8fc" stroke="none" points="560.75,-71 560.75,-87.5 620.75,-87.5 620.75,-71 560.75,-71"/>
+<text xml:space="preserve" text-anchor="start" x="563.75" y="-77" font-family="Menlo" font-size="7.00" fill="#0b1220">2 &#160;GND</text>
+<text xml:space="preserve" text-anchor="start" x="623.75" y="-77" font-family="PingFang SC" font-size="7.00" fill="#46556e">power return</text>
+<polygon fill="#f6f8fc" stroke="none" points="560.75,-54.5 560.75,-71 620.75,-71 620.75,-54.5 560.75,-54.5"/>
+<text xml:space="preserve" text-anchor="start" x="563.75" y="-60.5" font-family="Menlo" font-size="7.00" fill="#0b1220">3 &#160;GND</text>
+<text xml:space="preserve" text-anchor="start" x="623.75" y="-60.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">signal gnd</text>
+<polygon fill="#f6f8fc" stroke="none" points="560.75,-38 560.75,-54.5 620.75,-54.5 620.75,-38 560.75,-38"/>
+<text xml:space="preserve" text-anchor="start" x="563.75" y="-44" font-family="Menlo" font-size="7.00" fill="#0b1220">4 &#160;CTRL_LOAD</text>
+<text xml:space="preserve" text-anchor="start" x="623.75" y="-44" font-family="PingFang SC" font-size="7.00" fill="#46556e">← MCU D7</text>
+<polygon fill="#f6f8fc" stroke="none" points="560.75,-21.5 560.75,-38 620.75,-38 620.75,-21.5 560.75,-21.5"/>
+<text xml:space="preserve" text-anchor="start" x="563.75" y="-27.5" font-family="Menlo" font-size="7.00" fill="#0b1220">5 &#160;SYNC</text>
+<text xml:space="preserve" text-anchor="start" x="623.75" y="-27.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">← MCU D10</text>
+<polygon fill="#f6f8fc" stroke="none" points="560.75,-5 560.75,-21.5 620.75,-21.5 620.75,-5 560.75,-5"/>
+<text xml:space="preserve" text-anchor="start" x="563.75" y="-11" font-family="Menlo" font-size="7.00" fill="#0b1220">SHIELD</text>
+<text xml:space="preserve" text-anchor="start" x="623.75" y="-11" font-family="PingFang SC" font-size="7.00" fill="#46556e">gnd at PMB&#45;H end only</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>RS2:e&#45;&gt;CBL:w</title>
+<path fill="none" stroke="#2f6be4" stroke-width="1.5" d="M492.75,-95.5C519.85,-95.5 528.45,-95.71 552.23,-95.74"/>
+<polygon fill="#2f6be4" stroke="#2f6be4" stroke-width="1.5" points="551.98,-97.67 557.48,-95.75 551.98,-93.82 551.98,-97.67"/>
+</g>
+</g>
+</svg></div>
+    <div class="figcap"><span class="fignum">Fig. 4</span>　Discharge-side switching and the umbilical.</div>
+  </figure>
+  <div class="row">
+    <div class="col w55">
+      <h4 style="margin-top:1mm">Umbilical J6 netlist</h4>
+      <table class="t">
+        <tr><th style="width:8%">Pin</th><th style="width:22%">Net</th><th style="width:16%">Level</th><th style="width:54%">Constraints</th></tr>
+        <tr><td class="mono c">1</td><td class="mono">BAT_OUT+</td><td>≤ 4.2 V</td><td>metered through RS2; at the chest it enters the supercap first, then the load switch</td></tr>
+        <tr class="alt"><td class="mono c">2</td><td class="mono">GND</td><td>0 V</td><td>power-ground return</td></tr>
+        <tr><td class="mono c">3</td><td class="mono">GND</td><td>0 V</td><td>signal ground; star-joined with pin 2 on the PMB-H side</td></tr>
+        <tr class="alt"><td class="mono c">4</td><td class="mono">CTRL_LOAD</td><td>3.3 V logic</td><td>← MCU D7; R1 pull-up guarantees load defaults OFF if the MCU dies</td></tr>
+        <tr><td class="mono c">5</td><td class="mono">SYNC</td><td>3.3 V logic</td><td>← MCU D10; 10 ms pulse at each end of an acquisition window</td></tr>
+        <tr class="alt"><td class="mono c">—</td><td class="mono">SHIELD</td><td>—</td><td><strong>grounded at PMB-H only</strong>, floating at the other end to avoid a ground loop</td></tr>
+      </table>
+    </div>
+    <div class="col w45">
+      <div class="co risk" style="margin-top:1mm"><span class="co-t">Easiest mistake: P-MOS body-diode orientation</span>
+        If Q3/Q4 are backwards, <strong>the body diodes keep both batteries paralleled even with the gates off</strong>.
+        Prefer an ideal-diode IC with reverse blocking (e.g. LM66100) — far more reliable than back-to-back discrete FETs.
+        <br/>At schematic review, draw each body diode explicitly; after assembly verify with a DMM:
+        <strong>with Q3 off, BAT_A+ ↔ LOAD_BUS must be open in both directions</strong> (conduction in either direction =
+        wrong orientation; rework).</div>
+      <div class="co warn"><span class="co-t">Break-away: a cable crossing the body</span>
+        Falls and dressing will yank it. A magnetic or frangible connector is mandatory (&gt; ~20 N releases the connector
+        rather than tugging electrodes); leave slack and clip the cable; on disconnect the supercap holds power → MCU logs
+        the event → orderly shutdown.</div>
+    </div>
+  </div>
+</div>
+
+<div class="cont">
+  <figure class="tight" style="margin-top:0">
+    <div class="figframe tight"><svg
+ viewBox="0.00 0.00 885.00 232.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="760" height="199">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 228)">
+<title>G</title>
+<g id="clust1" class="cluster">
+<title>cluster_chest</title>
+<path fill="#fafbfe" stroke="#2f6be4" d="M20,-8C20,-8 857,-8 857,-8 863,-8 869,-14 869,-20 869,-20 869,-204 869,-204 869,-210 863,-216 857,-216 857,-216 20,-216 20,-216 14,-216 8,-210 8,-204 8,-204 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text xml:space="preserve" text-anchor="start" x="16" y="-205.4" font-family="PingFang SC" font-weight="bold" font-size="8.00" fill="#2f6be4">Chest unit LIB — no switching supply · no 18 V · &lt; 1 mW</text>
+</g>
+
+<g id="node1" class="node">
+<title>CBL2</title>
+<polygon fill="#ffffff" stroke="none" points="26,-27 26,-115 132.25,-115 132.25,-27 26,-27"/>
+<polygon fill="none" stroke="#cbd4e3" points="26,-27 26,-115 132.25,-115 132.25,-27 26,-27"/>
+<polygon fill="#2f6be4" stroke="none" points="27,-94 27,-114 131.25,-114 131.25,-94 27,-94"/>
+<text xml:space="preserve" text-anchor="start" x="30" y="-104.4" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">J6 (chest end)</text>
+<text xml:space="preserve" text-anchor="start" x="30" y="-98.3" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">shield floating this end</text>
+<polygon fill="#f6f8fc" stroke="none" points="27,-77.5 27,-94 82.5,-94 82.5,-77.5 27,-77.5"/>
+<text xml:space="preserve" text-anchor="start" x="30" y="-83.5" font-family="Menlo" font-size="7.00" fill="#0b1220">1 BAT_OUT+</text>
+<text xml:space="preserve" text-anchor="start" x="85.5" y="-83.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">≤ 4.2 V</text>
+<polygon fill="#f6f8fc" stroke="none" points="27,-61 27,-77.5 82.5,-77.5 82.5,-61 27,-61"/>
+<text xml:space="preserve" text-anchor="start" x="30" y="-67" font-family="Menlo" font-size="7.00" fill="#0b1220">2 GND</text>
+<text xml:space="preserve" text-anchor="start" x="85.5" y="-67" font-family="PingFang SC" font-size="7.00" fill="#46556e">—</text>
+<polygon fill="#f6f8fc" stroke="none" points="27,-44.5 27,-61 82.5,-61 82.5,-44.5 27,-44.5"/>
+<text xml:space="preserve" text-anchor="start" x="30" y="-50.5" font-family="Menlo" font-size="7.00" fill="#0b1220">4 CTRL_LOAD</text>
+<text xml:space="preserve" text-anchor="start" x="85.5" y="-50.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">switch enable</text>
+<polygon fill="#f6f8fc" stroke="none" points="27,-28 27,-44.5 82.5,-44.5 82.5,-28 27,-28"/>
+<text xml:space="preserve" text-anchor="start" x="30" y="-34" font-family="Menlo" font-size="7.00" fill="#0b1220">5 SYNC</text>
+<text xml:space="preserve" text-anchor="start" x="85.5" y="-34" font-family="PingFang SC" font-size="7.00" fill="#46556e">sync pulse</text>
+</g>
+
+<g id="node2" class="node">
+<title>SC</title>
+<polygon fill="#ffffff" stroke="none" points="193.25,-77.75 193.25,-182.25 337.75,-182.25 337.75,-77.75 193.25,-77.75"/>
+<polygon fill="none" stroke="#cbd4e3" points="193.25,-77.75 193.25,-182.25 337.75,-182.25 337.75,-77.75 193.25,-77.75"/>
+<polygon fill="#15845f" stroke="none" points="194.25,-161.25 194.25,-181.25 336.75,-181.25 336.75,-161.25 194.25,-161.25"/>
+<text xml:space="preserve" text-anchor="start" x="229.5" y="-171.65" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">supercap hold&#45;up</text>
+<text xml:space="preserve" text-anchor="start" x="197.25" y="-165.55" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">2×2.7 V 10 F series → 5.4 V/5 F · 15.2 J · 63 s</text>
+<polygon fill="#f6f8fc" stroke="none" points="194.25,-144.75 194.25,-161.25 241.88,-161.25 241.88,-144.75 194.25,-144.75"/>
+<text xml:space="preserve" text-anchor="start" x="197.25" y="-150.75" font-family="Menlo" font-size="7.00" fill="#0b1220">+</text>
+<text xml:space="preserve" text-anchor="start" x="244.88" y="-150.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">BAT_OUT+</text>
+<polygon fill="#f6f8fc" stroke="none" points="194.25,-128.25 194.25,-144.75 241.88,-144.75 241.88,-128.25 194.25,-128.25"/>
+<text xml:space="preserve" text-anchor="start" x="197.25" y="-134.25" font-family="Menlo" font-size="7.00" fill="#0b1220">MID</text>
+<text xml:space="preserve" text-anchor="start" x="244.88" y="-134.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">bal 100 kΩ×2</text>
+<polygon fill="#f6f8fc" stroke="none" points="194.25,-111.75 194.25,-128.25 241.88,-128.25 241.88,-111.75 194.25,-111.75"/>
+<text xml:space="preserve" text-anchor="start" x="197.25" y="-117.75" font-family="Menlo" font-size="7.00" fill="#0b1220">−</text>
+<text xml:space="preserve" text-anchor="start" x="244.88" y="-117.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">GND</text>
+<polygon fill="#f6f8fc" stroke="none" points="194.25,-95.25 194.25,-111.75 241.88,-111.75 241.88,-95.25 194.25,-95.25"/>
+<text xml:space="preserve" text-anchor="start" x="197.25" y="-101.25" font-family="Menlo" font-size="7.00" fill="#0b1220">pre&#45;chg</text>
+<text xml:space="preserve" text-anchor="start" x="244.88" y="-101.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">10 Ω + Q6 bypass</text>
+<polygon fill="#f6f8fc" stroke="none" points="194.25,-78.75 194.25,-95.25 241.88,-95.25 241.88,-78.75 194.25,-78.75"/>
+<text xml:space="preserve" text-anchor="start" x="197.25" y="-84.75" font-family="Menlo" font-size="7.00" fill="#0b1220">⚠</text>
+<text xml:space="preserve" text-anchor="start" x="244.88" y="-84.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">direct parallel = tens of A</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>CBL2:e&#45;&gt;SC:w</title>
+<path fill="none" stroke="#2f6be4" stroke-width="1.5" d="M132.25,-85.75C169.77,-85.75 155.37,-143.88 185.59,-152.05"/>
+<polygon fill="#2f6be4" stroke="#2f6be4" stroke-width="1.5" points="185.3,-153.95 191,-152.72 185.78,-150.13 185.3,-153.95"/>
+</g>
+
+<g id="node3" class="node">
+<title>Q5</title>
+<polygon fill="#ffffff" stroke="none" points="505,-44.25 505,-181.75 647.25,-181.75 647.25,-44.25 505,-44.25"/>
+<polygon fill="none" stroke="#cbd4e3" points="505,-44.25 505,-181.75 647.25,-181.75 647.25,-44.25 505,-44.25"/>
+<polygon fill="#14233d" stroke="none" points="506,-160.75 506,-180.75 646.25,-180.75 646.25,-160.75 506,-160.75"/>
+<text xml:space="preserve" text-anchor="start" x="509" y="-171.15" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">Q5 load switch + π filter</text>
+<text xml:space="preserve" text-anchor="start" x="542.75" y="-165.05" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">P&#45;MOS AO3401</text>
+<polygon fill="#f6f8fc" stroke="none" points="506,-144.25 506,-160.75 557,-160.75 557,-144.25 506,-144.25"/>
+<text xml:space="preserve" text-anchor="start" x="509" y="-150.25" font-family="Menlo" font-size="7.00" fill="#0b1220">G</text>
+<text xml:space="preserve" text-anchor="start" x="560" y="-150.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">← CTRL_LOAD</text>
+<polygon fill="#f6f8fc" stroke="none" points="506,-127.75 506,-144.25 557,-144.25 557,-127.75 506,-127.75"/>
+<text xml:space="preserve" text-anchor="start" x="509" y="-133.75" font-family="Menlo" font-size="7.00" fill="#0b1220">R1</text>
+<text xml:space="preserve" text-anchor="start" x="560" y="-133.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">100 kΩ pull&#45;up to S</text>
+<polygon fill="#f6f8fc" stroke="none" points="506,-111.25 506,-127.75 557,-127.75 557,-111.25 506,-111.25"/>
+<text xml:space="preserve" text-anchor="start" x="509" y="-117.25" font-family="Menlo" font-size="7.00" fill="#0b1220">S</text>
+<text xml:space="preserve" text-anchor="start" x="560" y="-117.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">BAT_OUT+</text>
+<polygon fill="#f6f8fc" stroke="none" points="506,-94.75 506,-111.25 557,-111.25 557,-94.75 506,-94.75"/>
+<text xml:space="preserve" text-anchor="start" x="509" y="-100.75" font-family="Menlo" font-size="7.00" fill="#0b1220">D</text>
+<text xml:space="preserve" text-anchor="start" x="560" y="-100.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">→ π filter</text>
+<polygon fill="#f6f8fc" stroke="none" points="506,-78.25 506,-94.75 557,-94.75 557,-78.25 506,-78.25"/>
+<text xml:space="preserve" text-anchor="start" x="509" y="-84.25" font-family="Menlo" font-size="7.00" fill="#0b1220">soft start</text>
+<text xml:space="preserve" text-anchor="start" x="560" y="-84.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">R2 10 kΩ + 100 nF ≈1 ms</text>
+<polygon fill="#f6f8fc" stroke="none" points="506,-61.75 506,-78.25 557,-78.25 557,-61.75 506,-61.75"/>
+<text xml:space="preserve" text-anchor="start" x="509" y="-67.75" font-family="Menlo" font-size="7.00" fill="#0b1220">fail&#45;safe</text>
+<text xml:space="preserve" text-anchor="start" x="560" y="-67.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">MCU hi&#45;Z → off</text>
+<polygon fill="#f6f8fc" stroke="none" points="506,-45.25 506,-61.75 557,-61.75 557,-45.25 506,-45.25"/>
+<text xml:space="preserve" text-anchor="start" x="509" y="-51.25" font-family="Menlo" font-size="7.00" fill="#0b1220">π</text>
+<text xml:space="preserve" text-anchor="start" x="560" y="-51.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">10 µH + 22 µF×2 → J7</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>CBL2:e&#45;&gt;Q5:w</title>
+<path fill="none" stroke="#6b4fcf" stroke-width="1.1" stroke-dasharray="5,2" d="M132.25,-52.75C179.76,-52.75 303.19,-42.88 345.75,-64 359.31,-70.73 355.68,-80.86 367.75,-90 419.31,-129.03 436.75,-150.93 498.11,-152.42"/>
+<polygon fill="#6b4fcf" stroke="#6b4fcf" stroke-width="1.1" points="497.81,-154.34 503.34,-152.48 497.86,-150.49 497.81,-154.34"/>
+</g>
+
+<g id="node4" class="node">
+<title>SY</title>
+<polygon fill="#ffffff" stroke="none" points="375.75,-22.5 375.75,-77.5 467,-77.5 467,-22.5 375.75,-22.5"/>
+<polygon fill="none" stroke="#cbd4e3" points="375.75,-22.5 375.75,-77.5 467,-77.5 467,-22.5 375.75,-22.5"/>
+<polygon fill="#6b4fcf" stroke="none" points="376.75,-56.5 376.75,-76.5 466,-76.5 466,-56.5 376.75,-56.5"/>
+<text xml:space="preserve" text-anchor="start" x="396.62" y="-66.9" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">sync inject</text>
+<text xml:space="preserve" text-anchor="start" x="379.75" y="-60.8" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">1 kΩ + BAT54S clamp to 3V3</text>
+<polygon fill="#f6f8fc" stroke="none" points="376.75,-40 376.75,-56.5 413.88,-56.5 413.88,-40 376.75,-40"/>
+<text xml:space="preserve" text-anchor="start" x="379.75" y="-46" font-family="Menlo" font-size="7.00" fill="#0b1220">IN</text>
+<text xml:space="preserve" text-anchor="start" x="416.88" y="-46" font-family="PingFang SC" font-size="7.00" fill="#46556e">← SYNC</text>
+<polygon fill="#f6f8fc" stroke="none" points="376.75,-23.5 376.75,-40 413.88,-40 413.88,-23.5 376.75,-23.5"/>
+<text xml:space="preserve" text-anchor="start" x="379.75" y="-29.5" font-family="Menlo" font-size="7.00" fill="#0b1220">OUT</text>
+<text xml:space="preserve" text-anchor="start" x="416.88" y="-29.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">→ I1</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>CBL2:e&#45;&gt;SY:w</title>
+<path fill="none" stroke="#6b4fcf" stroke-width="1.1" d="M132.25,-36.25C144.71,-36.25 328.85,-46.41 368.8,-48.03"/>
+<polygon fill="#6b4fcf" stroke="#6b4fcf" stroke-width="1.1" points="368.53,-49.95 374.09,-48.2 368.65,-46.1 368.53,-49.95"/>
+</g>
+
+<g id="edge2" class="edge">
+<title>SC:e&#45;&gt;Q5:w</title>
+<path fill="none" stroke="#2f6be4" stroke-width="1.5" d="M337.75,-153C411.04,-153 428.09,-121.69 497.64,-119.61"/>
+<polygon fill="#2f6be4" stroke="#2f6be4" stroke-width="1.5" points="497.26,-121.54 502.73,-119.53 497.2,-117.69 497.26,-121.54"/>
+</g>
+
+<g id="node5" class="node">
+<title>BIT</title>
+<polygon fill="#ffffff" stroke="none" points="714.75,-22 714.75,-110 851,-110 851,-22 714.75,-22"/>
+<polygon fill="none" stroke="#cbd4e3" points="714.75,-22 714.75,-110 851,-110 851,-22 714.75,-22"/>
+<polygon fill="#cb4034" stroke="none" points="715.75,-89 715.75,-109 850,-109 850,-89 715.75,-89"/>
+<text xml:space="preserve" text-anchor="start" x="734.88" y="-99.4" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">BITalino</text>
+<text xml:space="preserve" text-anchor="start" x="718.75" y="-93.3" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">(r)evolution · ECG → A1</text>
+<polygon fill="#f6f8fc" stroke="none" points="715.75,-72.5 715.75,-89 744.25,-89 744.25,-72.5 715.75,-72.5"/>
+<text xml:space="preserve" text-anchor="start" x="718.75" y="-78.5" font-family="Menlo" font-size="7.00" fill="#0b1220">BAT +</text>
+<text xml:space="preserve" text-anchor="start" x="747.25" y="-78.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">J7 pin1 ⚠ measure polarity first</text>
+<polygon fill="#f6f8fc" stroke="none" points="715.75,-56 715.75,-72.5 744.25,-72.5 744.25,-56 715.75,-56"/>
+<text xml:space="preserve" text-anchor="start" x="718.75" y="-62" font-family="Menlo" font-size="7.00" fill="#0b1220">BAT −</text>
+<text xml:space="preserve" text-anchor="start" x="747.25" y="-62" font-family="PingFang SC" font-size="7.00" fill="#46556e">pin2</text>
+<polygon fill="#f6f8fc" stroke="none" points="715.75,-39.5 715.75,-56 744.25,-56 744.25,-39.5 715.75,-39.5"/>
+<text xml:space="preserve" text-anchor="start" x="718.75" y="-45.5" font-family="Menlo" font-size="7.00" fill="#0b1220">I1</text>
+<text xml:space="preserve" text-anchor="start" x="747.25" y="-45.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">10 ms sync pulse ⚠ verify level</text>
+<polygon fill="#f6f8fc" stroke="none" points="715.75,-23 715.75,-39.5 744.25,-39.5 744.25,-23 715.75,-23"/>
+<text xml:space="preserve" text-anchor="start" x="718.75" y="-29" font-family="Menlo" font-size="7.00" fill="#0b1220">GND</text>
+<text xml:space="preserve" text-anchor="start" x="747.25" y="-29" font-family="PingFang SC" font-size="7.00" fill="#46556e">must share gnd with PMB&#45;H</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>Q5:e&#45;&gt;BIT:w</title>
+<path fill="none" stroke="#2f6be4" stroke-width="1.5" d="M647.25,-53.5C676.82,-53.5 681.7,-76.27 707.03,-80.18"/>
+<polygon fill="#2f6be4" stroke="#2f6be4" stroke-width="1.5" points="706.86,-82.1 712.49,-80.58 707.14,-78.26 706.86,-82.1"/>
+<text xml:space="preserve" text-anchor="start" x="677.25" y="-71.07" font-family="Menlo" font-size="6.00" fill="#2f6be4">J7</text>
+</g>
+
+<g id="edge6" class="edge">
+<title>SY:e&#45;&gt;BIT:w</title>
+<path fill="none" stroke="#6b4fcf" stroke-width="1.1" d="M467,-31.75C480.36,-31.75 483.65,-30.39 497,-30 567.3,-27.95 585.65,-19.84 655.25,-30 680.1,-33.63 686.14,-45.36 707.84,-47.43"/>
+<polygon fill="#6b4fcf" stroke="#6b4fcf" stroke-width="1.1" points="707.5,-49.35 713.09,-47.67 707.68,-45.5 707.5,-49.35"/>
+</g>
+</g>
+</svg></div>
+    <div class="figcap"><span class="fignum">Fig. 5</span>　Chest unit LIB → BITalino. No switching supply, no 18 V, quiescent draw &lt; 1 mW inside this unit.</div>
+  </figure>
+  <div class="row">
+    <div class="col w50">
+      <h4 style="margin-top:1mm">Supercap subsystem: the numbers</h4>
+      <table class="t">
+        <tr><th style="width:38%">Quantity</th><th style="width:26%">Value</th><th style="width:36%">Source</th></tr>
+        <tr><td>Series combination</td><td class="num">5.4 V / 5 F</td><td>2 × 2.7 V 10 F</td></tr>
+        <tr class="alt"><td>Usable energy (4.2 → 3.4 V)</td><td class="num">15.2 J</td><td>½·C·(V₁²−V₂²)</td></tr>
+        <tr><td>Hold-up at 240 mW</td><td class="num">63 s</td><td>15.2 J ÷ 0.24 W</td></tr>
+        <tr class="alt"><td>Actually needed</td><td class="num">1 ms</td><td>switch dead time</td></tr>
+        <tr><td><strong>Margin</strong></td><td class="num">&gt; 10 000×</td><td>—</td></tr>
+        <tr class="alt"><td>Leakage + balancing loss</td><td class="num">≈ 280 µW</td><td>was 39% of indoor harvest in v1.0; <strong>irrelevant at the new power level</strong> — 100 kΩ balancers are fine</td></tr>
+      </table>
+    </div>
+    <div class="col w50">
+      <div class="co risk" style="margin-top:1mm"><span class="co-t">Pre-charge: no direct paralleling</span>
+        Slapping a discharged 5 F cap onto a 4.0 V lithium cell pulls <strong>tens of amps</strong> instantaneously.
+        Pre-charge is mandatory: <code>10 Ω current limit → Q6 bypass once ΔV &lt; 50 mV</code>.
+        Confirm the cap is discharged (&lt; 0.1 V) before soldering; supercaps are <strong>polarized</strong> — reverse
+        them and they bulge.</div>
+      <div class="co info"><span class="co-t">π filter and sync injection</span>
+        The 10 µH + 22 µF ×2 π filter is the second EMC line of defense (the first is architectural isolation).
+        The sync pulse reaches I1 through 1 kΩ + BAT54S clamp; ⚠ verify level tolerance, and <strong>the two ends must
+        share ground</strong>.</div>
+    </div>
+  </div>
+</div>
+
+<div class="cont">
+  <div class="row">
+    <div class="col w40">
+      <figure class="tight" style="margin-top:0">
+        <div class="figframe tight"><svg
+ viewBox="0.00 0.00 415.00 482.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="285" height="331">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 478)">
+<title>G</title>
+
+<g id="node1" class="node">
+<title>I1</title>
+<polygon fill="#ffffff" stroke="none" points="8,-316 8,-470 163.75,-470 163.75,-316 8,-316"/>
+<polygon fill="none" stroke="#cbd4e3" points="8,-316 8,-470 163.75,-470 163.75,-316 8,-316"/>
+<polygon fill="#2f6be4" stroke="none" points="9,-449 9,-469 162.75,-469 162.75,-449 9,-449"/>
+<text xml:space="preserve" text-anchor="start" x="25.88" y="-459.4" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">INA226 #1</text>
+<text xml:space="preserve" text-anchor="start" x="12" y="-453.3" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">PV&#45;side power metering</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-432.5 9,-449 37.5,-449 37.5,-432.5 9,-432.5"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-438.5" font-family="Menlo" font-size="7.00" fill="#0b1220">VIN+</text>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-438.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">RS1 Kelvin +</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-416 9,-432.5 37.5,-432.5 37.5,-416 9,-416"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-422" font-family="Menlo" font-size="7.00" fill="#0b1220">VIN−</text>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-422" font-family="PingFang SC" font-size="7.00" fill="#46556e">RS1 Kelvin −</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-399.5 9,-416 37.5,-416 37.5,-399.5 9,-399.5"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-405.5" font-family="Menlo" font-size="7.00" fill="#0b1220">VBUS</text>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-405.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">VBUS18 divider ⚠ 36 V max → divide</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-383 9,-399.5 37.5,-399.5 37.5,-383 9,-383"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-389" font-family="Menlo" font-size="7.00" fill="#0b1220">VS</text>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-389" font-family="PingFang SC" font-size="7.00" fill="#46556e">3V3</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-366.5 9,-383 37.5,-383 37.5,-366.5 9,-366.5"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-372.5" font-family="Menlo" font-size="7.00" fill="#0b1220">GND</text>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-372.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">AGND</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-350 9,-366.5 37.5,-366.5 37.5,-350 9,-350"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-356" font-family="Menlo" font-size="7.00" fill="#0b1220">SCL</text>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-356" font-family="PingFang SC" font-size="7.00" fill="#46556e">I²C</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-333.5 9,-350 37.5,-350 37.5,-333.5 9,-333.5"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-339.5" font-family="Menlo" font-size="7.00" fill="#0b1220">SDA</text>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-339.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">I²C</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-317 9,-333.5 37.5,-333.5 37.5,-317 9,-317"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-323" font-family="Menlo" font-size="7.00" fill="#0b1220">A0/A1</text>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-323" font-family="PingFang SC" font-size="7.00" fill="#46556e">GND/GND → 0x40</text>
+</g>
+
+<g id="node4" class="node">
+<title>MCU</title>
+<polygon fill="#ffffff" stroke="none" points="249,-4 249,-224 398.75,-224 398.75,-4 249,-4"/>
+<polygon fill="none" stroke="#cbd4e3" points="249,-4 249,-224 398.75,-224 398.75,-4 249,-4"/>
+<polygon fill="#6b4fcf" stroke="none" points="250,-203 250,-223 397.75,-223 397.75,-203 250,-203"/>
+<text xml:space="preserve" text-anchor="start" x="281.5" y="-213.4" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">XIAO nRF52840</text>
+<text xml:space="preserve" text-anchor="start" x="253" y="-207.3" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">BLE telem · power FSM · coulomb integ</text>
+<polygon fill="#f6f8fc" stroke="none" points="250,-186.5 250,-203 296.5,-203 296.5,-186.5 250,-186.5"/>
+<text xml:space="preserve" text-anchor="start" x="253" y="-192.5" font-family="Menlo" font-size="7.00" fill="#0b1220">D4 / SDA</text>
+<text xml:space="preserve" text-anchor="start" x="299.5" y="-192.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">I²C data ⚠ check default map</text>
+<polygon fill="#f6f8fc" stroke="none" points="250,-170 250,-186.5 296.5,-186.5 296.5,-170 250,-170"/>
+<text xml:space="preserve" text-anchor="start" x="253" y="-176" font-family="Menlo" font-size="7.00" fill="#0b1220">D5 / SCL</text>
+<text xml:space="preserve" text-anchor="start" x="299.5" y="-176" font-family="PingFang SC" font-size="7.00" fill="#46556e">I²C clock</text>
+<polygon fill="#f6f8fc" stroke="none" points="250,-153.5 250,-170 296.5,-170 296.5,-153.5 250,-153.5"/>
+<text xml:space="preserve" text-anchor="start" x="253" y="-159.5" font-family="Menlo" font-size="7.00" fill="#0b1220">D0 / A0</text>
+<text xml:space="preserve" text-anchor="start" x="299.5" y="-159.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">NTC_A</text>
+<polygon fill="#f6f8fc" stroke="none" points="250,-137 250,-153.5 296.5,-153.5 296.5,-137 250,-137"/>
+<text xml:space="preserve" text-anchor="start" x="253" y="-143" font-family="Menlo" font-size="7.00" fill="#0b1220">D1x / A1</text>
+<text xml:space="preserve" text-anchor="start" x="299.5" y="-143" font-family="PingFang SC" font-size="7.00" fill="#46556e">NTC_B</text>
+<polygon fill="#f6f8fc" stroke="none" points="250,-120.5 250,-137 296.5,-137 296.5,-120.5 250,-120.5"/>
+<text xml:space="preserve" text-anchor="start" x="253" y="-126.5" font-family="Menlo" font-size="7.00" fill="#0b1220">D1</text>
+<text xml:space="preserve" text-anchor="start" x="299.5" y="-126.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">Q1 gate (charge A)</text>
+<polygon fill="#f6f8fc" stroke="none" points="250,-104 250,-120.5 296.5,-120.5 296.5,-104 250,-104"/>
+<text xml:space="preserve" text-anchor="start" x="253" y="-110" font-family="Menlo" font-size="7.00" fill="#0b1220">D2</text>
+<text xml:space="preserve" text-anchor="start" x="299.5" y="-110" font-family="PingFang SC" font-size="7.00" fill="#46556e">Q2 gate (charge B)</text>
+<polygon fill="#f6f8fc" stroke="none" points="250,-87.5 250,-104 296.5,-104 296.5,-87.5 250,-87.5"/>
+<text xml:space="preserve" text-anchor="start" x="253" y="-93.5" font-family="Menlo" font-size="7.00" fill="#0b1220">D3</text>
+<text xml:space="preserve" text-anchor="start" x="299.5" y="-93.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">Q3 gate (discharge A)</text>
+<polygon fill="#f6f8fc" stroke="none" points="250,-71 250,-87.5 296.5,-87.5 296.5,-71 250,-71"/>
+<text xml:space="preserve" text-anchor="start" x="253" y="-77" font-family="Menlo" font-size="7.00" fill="#0b1220">D6</text>
+<text xml:space="preserve" text-anchor="start" x="299.5" y="-77" font-family="PingFang SC" font-size="7.00" fill="#46556e">Q4 gate (discharge B)</text>
+<polygon fill="#f6f8fc" stroke="none" points="250,-54.5 250,-71 296.5,-71 296.5,-54.5 250,-54.5"/>
+<text xml:space="preserve" text-anchor="start" x="253" y="-60.5" font-family="Menlo" font-size="7.00" fill="#0b1220">D7</text>
+<text xml:space="preserve" text-anchor="start" x="299.5" y="-60.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">CTRL_LOAD → J6.4</text>
+<polygon fill="#f6f8fc" stroke="none" points="250,-38 250,-54.5 296.5,-54.5 296.5,-38 250,-38"/>
+<text xml:space="preserve" text-anchor="start" x="253" y="-44" font-family="Menlo" font-size="7.00" fill="#0b1220">D8</text>
+<text xml:space="preserve" text-anchor="start" x="299.5" y="-44" font-family="PingFang SC" font-size="7.00" fill="#46556e">CN3791 CHRG read</text>
+<polygon fill="#f6f8fc" stroke="none" points="250,-21.5 250,-38 296.5,-38 296.5,-21.5 250,-21.5"/>
+<text xml:space="preserve" text-anchor="start" x="253" y="-27.5" font-family="Menlo" font-size="7.00" fill="#0b1220">D10</text>
+<text xml:space="preserve" text-anchor="start" x="299.5" y="-27.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">SYNC pulse → J6.5</text>
+<polygon fill="#f6f8fc" stroke="none" points="250,-5 250,-21.5 296.5,-21.5 296.5,-5 250,-5"/>
+<text xml:space="preserve" text-anchor="start" x="253" y="-11" font-family="Menlo" font-size="7.00" fill="#0b1220">3V3 / GND</text>
+<text xml:space="preserve" text-anchor="start" x="299.5" y="-11" font-family="PingFang SC" font-size="7.00" fill="#46556e">on&#45;board LDO · star gnd</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>I1:e&#45;&gt;MCU:w</title>
+<path fill="none" stroke="#2f6be4" stroke-width="1.1" d="M38.5,-358.25C102.96,-358.25 122.76,-342.89 171.75,-301 194.52,-281.53 213.86,-192.17 242.37,-179.7"/>
+<polygon fill="#2f6be4" stroke="#2f6be4" stroke-width="1.1" points="242.41,-181.66 247.37,-178.6 241.59,-177.9 242.41,-181.66"/>
+<text xml:space="preserve" text-anchor="start" x="200.75" y="-246.85" font-family="Menlo" font-size="6.00" fill="#2f6be4">SCL</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>I1:e&#45;&gt;MCU:w</title>
+<path fill="none" stroke="#2f6be4" stroke-width="1.1" d="M38.5,-341.75C100.43,-341.75 119.2,-333.77 171.75,-301 193.96,-287.15 196.35,-278.98 212,-258 229.87,-234.04 218.67,-200.77 241.9,-195.47"/>
+<polygon fill="#2f6be4" stroke="#2f6be4" stroke-width="1.1" points="242.07,-197.39 247.34,-194.92 241.68,-193.56 242.07,-197.39"/>
+<text xml:space="preserve" text-anchor="start" x="200.75" y="-274.52" font-family="Menlo" font-size="6.00" fill="#2f6be4">SDA</text>
+</g>
+
+<g id="node2" class="node">
+<title>I2</title>
+<polygon fill="#ffffff" stroke="none" points="36.5,-132 36.5,-286 135.25,-286 135.25,-132 36.5,-132"/>
+<polygon fill="none" stroke="#cbd4e3" points="36.5,-132 36.5,-286 135.25,-286 135.25,-132 36.5,-132"/>
+<polygon fill="#2f6be4" stroke="none" points="37.5,-265 37.5,-285 134.25,-285 134.25,-265 37.5,-265"/>
+<text xml:space="preserve" text-anchor="start" x="65.62" y="-275.4" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">INA226 #2</text>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-269.3" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">battery&#45;side bidir · coulomb ctr</text>
+<polygon fill="#f6f8fc" stroke="none" points="37.5,-248.5 37.5,-265 69,-265 69,-248.5 37.5,-248.5"/>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-254.5" font-family="Menlo" font-size="7.00" fill="#0b1220">VIN+</text>
+<text xml:space="preserve" text-anchor="start" x="72" y="-254.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">RS2 Kelvin +</text>
+<polygon fill="#f6f8fc" stroke="none" points="37.5,-232 37.5,-248.5 69,-248.5 69,-232 37.5,-232"/>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-238" font-family="Menlo" font-size="7.00" fill="#0b1220">VIN−</text>
+<text xml:space="preserve" text-anchor="start" x="72" y="-238" font-family="PingFang SC" font-size="7.00" fill="#46556e">RS2 Kelvin −</text>
+<polygon fill="#f6f8fc" stroke="none" points="37.5,-215.5 37.5,-232 69,-232 69,-215.5 37.5,-215.5"/>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-221.5" font-family="Menlo" font-size="7.00" fill="#0b1220">VBUS</text>
+<text xml:space="preserve" text-anchor="start" x="72" y="-221.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">LOAD_BUS direct</text>
+<polygon fill="#f6f8fc" stroke="none" points="37.5,-199 37.5,-215.5 69,-215.5 69,-199 37.5,-199"/>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-205" font-family="Menlo" font-size="7.00" fill="#0b1220">VS</text>
+<text xml:space="preserve" text-anchor="start" x="72" y="-205" font-family="PingFang SC" font-size="7.00" fill="#46556e">3V3</text>
+<polygon fill="#f6f8fc" stroke="none" points="37.5,-182.5 37.5,-199 69,-199 69,-182.5 37.5,-182.5"/>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-188.5" font-family="Menlo" font-size="7.00" fill="#0b1220">GND</text>
+<text xml:space="preserve" text-anchor="start" x="72" y="-188.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">AGND</text>
+<polygon fill="#f6f8fc" stroke="none" points="37.5,-166 37.5,-182.5 69,-182.5 69,-166 37.5,-166"/>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-172" font-family="Menlo" font-size="7.00" fill="#0b1220">SCL</text>
+<text xml:space="preserve" text-anchor="start" x="72" y="-172" font-family="PingFang SC" font-size="7.00" fill="#46556e">I²C</text>
+<polygon fill="#f6f8fc" stroke="none" points="37.5,-149.5 37.5,-166 69,-166 69,-149.5 37.5,-149.5"/>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-155.5" font-family="Menlo" font-size="7.00" fill="#0b1220">SDA</text>
+<text xml:space="preserve" text-anchor="start" x="72" y="-155.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">I²C</text>
+<polygon fill="#f6f8fc" stroke="none" points="37.5,-133 37.5,-149.5 69,-149.5 69,-133 37.5,-133"/>
+<text xml:space="preserve" text-anchor="start" x="40.5" y="-139" font-family="Menlo" font-size="7.00" fill="#0b1220">A0/A1</text>
+<text xml:space="preserve" text-anchor="start" x="72" y="-139" font-family="PingFang SC" font-size="7.00" fill="#46556e">VS/GND → 0x41</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>I2:e&#45;&gt;MCU:w</title>
+<path fill="none" stroke="#2f6be4" stroke-width="1.1" d="M70,-174.25C133.12,-174.25 149.13,-165.81 212,-171.5 226.05,-172.77 230.83,-176.7 242.02,-177.9"/>
+<polygon fill="#2f6be4" stroke="#2f6be4" stroke-width="1.1" points="241.75,-179.81 247.34,-178.17 241.94,-175.97 241.75,-179.81"/>
+<text xml:space="preserve" text-anchor="start" x="200.75" y="-173" font-family="Menlo" font-size="6.00" fill="#2f6be4">SCL</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>I2:e&#45;&gt;MCU:w</title>
+<path fill="none" stroke="#2f6be4" stroke-width="1.1" d="M70,-157.75C148.86,-157.75 166.74,-192.61 242.02,-194.66"/>
+<polygon fill="#2f6be4" stroke="#2f6be4" stroke-width="1.1" points="241.81,-196.58 247.34,-194.73 241.86,-192.73 241.81,-196.58"/>
+<text xml:space="preserve" text-anchor="start" x="200.75" y="-193.09" font-family="Menlo" font-size="6.00" fill="#2f6be4">SDA</text>
+</g>
+
+<g id="node3" class="node">
+<title>NTC</title>
+<polygon fill="#ffffff" stroke="none" points="40.25,-46.5 40.25,-101.5 131.5,-101.5 131.5,-46.5 40.25,-46.5"/>
+<polygon fill="none" stroke="#cbd4e3" points="40.25,-46.5 40.25,-101.5 131.5,-101.5 131.5,-46.5 40.25,-46.5"/>
+<polygon fill="#15845f" stroke="none" points="41.25,-80.5 41.25,-100.5 130.5,-100.5 130.5,-80.5 41.25,-80.5"/>
+<text xml:space="preserve" text-anchor="start" x="52.12" y="-90.9" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">NTC dividers ×2</text>
+<text xml:space="preserve" text-anchor="start" x="44.25" y="-84.8" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">charge only 0 °C &lt; T &lt; 45 °C</text>
+<polygon fill="#f6f8fc" stroke="none" points="41.25,-64 41.25,-80.5 71.62,-80.5 71.62,-64 41.25,-64"/>
+<text xml:space="preserve" text-anchor="start" x="44.25" y="-70" font-family="Menlo" font-size="7.00" fill="#0b1220">A0_IN</text>
+<text xml:space="preserve" text-anchor="start" x="74.62" y="-70" font-family="PingFang SC" font-size="7.00" fill="#46556e">10 kΩ ÷ NTC_A</text>
+<polygon fill="#f6f8fc" stroke="none" points="41.25,-47.5 41.25,-64 71.62,-64 71.62,-47.5 41.25,-47.5"/>
+<text xml:space="preserve" text-anchor="start" x="44.25" y="-53.5" font-family="Menlo" font-size="7.00" fill="#0b1220">A1_IN</text>
+<text xml:space="preserve" text-anchor="start" x="74.62" y="-53.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">10 kΩ ÷ NTC_B</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>NTC:e&#45;&gt;MCU:w</title>
+<path fill="none" stroke="#15845f" stroke-width="1.1" d="M131.5,-72.25C162.14,-72.25 209.37,-150.26 242.22,-160.62"/>
+<polygon fill="#15845f" stroke="#15845f" stroke-width="1.1" points="241.62,-162.47 247.36,-161.48 242.25,-158.67 241.62,-162.47"/>
+</g>
+
+<g id="edge6" class="edge">
+<title>NTC:e&#45;&gt;MCU:w</title>
+<path fill="none" stroke="#15845f" stroke-width="1.1" d="M131.5,-55.75C162.14,-55.75 209.37,-133.76 242.22,-144.12"/>
+<polygon fill="#15845f" stroke="#15845f" stroke-width="1.1" points="241.62,-145.97 247.36,-144.98 242.25,-142.17 241.62,-145.97"/>
+</g>
+</g>
+</svg></div>
+        <div class="figcap"><span class="fignum">Fig. 6</span>　Metering &amp; control bus.
+          Two INA226 on one I²C bus, addresses split via A0/A1 (0x40 / 0x41).</div>
+      </figure>
+      <div class="foot-note" style="margin-top:2.4mm"><strong style="color:#A8291F">Two non-negotiable hardware constraints　</strong>
+        <strong>① Kelvin 4-wire</strong> — sense taps at the pad <strong>center</strong>, never sharing the current path;
+        else 10–30% systematic error corrupts EAR.
+        <strong>② Physical partitioning</strong> — ≥ 3 mm copper-free band between 18 V and LV zones; no shared
+        harness or connector.</div>
+    </div>
+    <div class="col w60">
+      <h3 style="margin-top:0">3.1　MCU pin assignment</h3>
+      <table class="t">
+        <tr><th style="width:17%">Pin</th><th style="width:20%">Net name</th><th style="width:12%">Dir</th><th style="width:51%">Function &amp; constraints</th></tr>
+        <tr><td class="mono">D4 / SDA</td><td class="mono">I2C_SDA</td><td>bidir</td><td>INA226 ×2　⚠ verify XIAO default I²C mapping</td></tr>
+        <tr class="alt"><td class="mono">D5 / SCL</td><td class="mono">I2C_SCL</td><td>out</td><td>4.7 kΩ pull-up to 3V3</td></tr>
+        <tr><td class="mono">D1</td><td class="mono">GATE_CHG_A</td><td>out</td><td>Q1 gate (via interlock); must be hi-Z at reset → default off</td></tr>
+        <tr class="alt"><td class="mono">D2</td><td class="mono">GATE_CHG_B</td><td>out</td><td>Q2 gate (via interlock)</td></tr>
+        <tr><td class="mono">D3</td><td class="mono">GATE_DIS_A</td><td>out</td><td>Q3 gate　<strong>break-before-make, 1 ms dead time</strong></td></tr>
+        <tr class="alt"><td class="mono">D6</td><td class="mono">GATE_DIS_B</td><td>out</td><td>Q4 gate</td></tr>
+        <tr><td class="mono">D7</td><td class="mono">CTRL_LOAD</td><td>out</td><td>→ J6.4 → Q5; R1 pull-up for fail-safe off</td></tr>
+        <tr class="alt"><td class="mono">D8</td><td class="mono">CHRG_STAT</td><td>in</td><td>CN3791 charge status (CV detect → coulomb recalibration)</td></tr>
+        <tr><td class="mono">D10</td><td class="mono">SYNC_OUT</td><td>out</td><td>→ J6.5 → BITalino I1; 10 ms pulse at both ends of an acq window</td></tr>
+        <tr class="alt"><td class="mono">D0 / A0</td><td class="mono">NTC_A</td><td>analog</td><td>battery A temp; charge allowed 0 °C &lt; T &lt; 45 °C</td></tr>
+        <tr><td class="mono">A1</td><td class="mono">NTC_B</td><td>analog</td><td>battery B temp　⚠ actual ADC pin per module silkscreen</td></tr>
+        <tr class="alt"><td class="mono">3V3 / GND</td><td class="mono">—</td><td>power</td><td>on-board LDO; AGND &amp; PGND star-join at <strong>battery negative</strong></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 04 · FIRMWARE</span>
+    <h2 class="sec-title">Firmware Layer — Scheduling, Timestamps &amp; Safety</h2>
+    <p class="sec-sub">The telemetry MCU does exactly three things: <strong>metering</strong>, <strong>scheduling</strong>,
+      <strong>synchronization</strong>. It does not acquire biosignals (that is BITalino's job) and does no signal
+      processing (that is the host's job) — this purity exists for verifiability: if the telemetry MCU also acquired,
+      it could not independently verify the acquisition chain.</p>
+  </div>
+
+  <div class="row">
+    <div class="col w60">
+      <figure style="margin-top:0">
+        <div class="figframe"><svg
+ viewBox="0.00 0.00 425.00 347.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="408">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 343)">
+<title>G</title>
+
+<g id="node1" class="node">
+<title>BOOT</title>
+<polygon fill="#f4f6fa" stroke="none" points="8,-58 8,-138 49,-138 49,-58 8,-58"/>
+<polygon fill="none" stroke="#46556e" points="8,-58 8,-138 49,-138 49,-58 8,-58"/>
+<polygon fill="#46556e" stroke="none" points="9,-119 9,-137 48,-137 48,-119 9,-119"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-128.35" font-family="Menlo" font-weight="bold" font-size="7.00" fill="#ffffff">BOOT</text>
+<text xml:space="preserve" text-anchor="start" x="12.38" y="-123.25" font-family="Inter" font-size="5.00" fill="#e8eef8">self&#45;test</text>
+<text xml:space="preserve" text-anchor="start" x="12" y="-109.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">load</text>
+<text xml:space="preserve" text-anchor="start" x="33" y="-109.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">OFF</text>
+<text xml:space="preserve" text-anchor="start" x="12" y="-94.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">chg</text>
+<text xml:space="preserve" text-anchor="start" x="33" y="-94.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">ON</text>
+<text xml:space="preserve" text-anchor="start" x="12" y="-79.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">duty</text>
+<text xml:space="preserve" text-anchor="start" x="33" y="-79.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">—</text>
+<text xml:space="preserve" text-anchor="start" x="12" y="-64.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">telem</text>
+<text xml:space="preserve" text-anchor="start" x="33" y="-64.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">—</text>
+</g>
+
+<g id="node2" class="node">
+<title>CRIT</title>
+<polygon fill="#fceae8" stroke="none" points="150.5,-26 150.5,-106 194.5,-106 194.5,-26 150.5,-26"/>
+<polygon fill="none" stroke="#cb4034" points="150.5,-26 150.5,-106 194.5,-106 194.5,-26 150.5,-26"/>
+<polygon fill="#cb4034" stroke="none" points="151.5,-87 151.5,-105 193.5,-105 193.5,-87 151.5,-87"/>
+<text xml:space="preserve" text-anchor="start" x="154.5" y="-96.35" font-family="Menlo" font-weight="bold" font-size="7.00" fill="#ffffff">CRITICAL</text>
+<text xml:space="preserve" text-anchor="start" x="159.38" y="-91.25" font-family="Inter" font-size="5.00" fill="#e8eef8">SoC &lt; 10%</text>
+<text xml:space="preserve" text-anchor="start" x="154.5" y="-77.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">load</text>
+<text xml:space="preserve" text-anchor="start" x="176.62" y="-77.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">OFF</text>
+<text xml:space="preserve" text-anchor="start" x="154.5" y="-62.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">chg</text>
+<text xml:space="preserve" text-anchor="start" x="176.62" y="-62.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">ON</text>
+<text xml:space="preserve" text-anchor="start" x="154.5" y="-47.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">duty</text>
+<text xml:space="preserve" text-anchor="start" x="176.62" y="-47.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">0%</text>
+<text xml:space="preserve" text-anchor="start" x="154.5" y="-32.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">telem</text>
+<text xml:space="preserve" text-anchor="start" x="176.62" y="-32.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">60 s</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>BOOT&#45;&gt;CRIT</title>
+<path fill="none" stroke="#46556e" d="M56.88,-91.83C79.42,-86.75 111.54,-79.51 136.05,-73.99"/>
+<polygon fill="#46556e" stroke="#46556e" points="136.32,-75.9 141.27,-72.81 135.48,-72.14 136.32,-75.9"/>
+<text xml:space="preserve" text-anchor="start" x="84" y="-86.37" font-family="Menlo" font-size="6.00" fill="#46556e">SoC&lt;10</text>
+</g>
+
+<g id="node5" class="node">
+<title>FULL</title>
+<polygon fill="#e4f4ee" stroke="none" points="348.12,-117 348.12,-197 405.62,-197 405.62,-117 348.12,-117"/>
+<polygon fill="none" stroke="#15845f" points="348.12,-117 348.12,-197 405.62,-197 405.62,-117 348.12,-117"/>
+<polygon fill="#15845f" stroke="none" points="349.12,-178 349.12,-196 404.62,-196 404.62,-178 349.12,-178"/>
+<text xml:space="preserve" text-anchor="start" x="352.12" y="-187.35" font-family="Menlo" font-weight="bold" font-size="7.00" fill="#ffffff">FULL_RATE</text>
+<text xml:space="preserve" text-anchor="start" x="359.25" y="-182.25" font-family="Inter" font-size="5.00" fill="#e8eef8">SoC ≥ 40%</text>
+<text xml:space="preserve" text-anchor="start" x="352.12" y="-168.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">load</text>
+<text xml:space="preserve" text-anchor="start" x="373.12" y="-168.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">ON</text>
+<text xml:space="preserve" text-anchor="start" x="352.12" y="-153.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">chg</text>
+<text xml:space="preserve" text-anchor="start" x="373.12" y="-153.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">alternating</text>
+<text xml:space="preserve" text-anchor="start" x="352.12" y="-138.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">duty</text>
+<text xml:space="preserve" text-anchor="start" x="373.12" y="-138.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">100%</text>
+<text xml:space="preserve" text-anchor="start" x="352.12" y="-123.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">telem</text>
+<text xml:space="preserve" text-anchor="start" x="373.12" y="-123.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">1 s</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>BOOT&#45;&gt;FULL</title>
+<path fill="none" stroke="#46556e" d="M56.72,-105.3C77.61,-110.73 107.23,-118.01 133.5,-123 203.13,-136.22 284.92,-146.65 333.46,-152.31"/>
+<polygon fill="#46556e" stroke="#46556e" points="333.19,-154.21 338.87,-152.93 333.63,-150.39 333.19,-154.21"/>
+<text xml:space="preserve" text-anchor="start" x="161.25" y="-137.54" font-family="Menlo" font-size="6.00" fill="#46556e">SoC≥40</text>
+</g>
+
+<g id="node3" class="node">
+<title>HARV</title>
+<polygon fill="#fdf3e2" stroke="none" points="141.5,-197 141.5,-277 203.5,-277 203.5,-197 141.5,-197"/>
+<polygon fill="none" stroke="#b8720f" points="141.5,-197 141.5,-277 203.5,-277 203.5,-197 141.5,-197"/>
+<polygon fill="#b8720f" stroke="none" points="142.5,-258 142.5,-276 202.5,-276 202.5,-258 142.5,-258"/>
+<text xml:space="preserve" text-anchor="start" x="145.5" y="-267.35" font-family="Menlo" font-weight="bold" font-size="7.00" fill="#ffffff">HARVEST_ONLY</text>
+<text xml:space="preserve" text-anchor="start" x="162.75" y="-262.25" font-family="Inter" font-size="5.00" fill="#e8eef8">10–30%</text>
+<text xml:space="preserve" text-anchor="start" x="145.5" y="-248.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">load</text>
+<text xml:space="preserve" text-anchor="start" x="176.62" y="-248.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">OFF</text>
+<text xml:space="preserve" text-anchor="start" x="145.5" y="-233.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">chg</text>
+<text xml:space="preserve" text-anchor="start" x="176.62" y="-233.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">ON</text>
+<text xml:space="preserve" text-anchor="start" x="145.5" y="-218.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">duty</text>
+<text xml:space="preserve" text-anchor="start" x="176.62" y="-218.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">0%</text>
+<text xml:space="preserve" text-anchor="start" x="145.5" y="-203.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">telem</text>
+<text xml:space="preserve" text-anchor="start" x="176.62" y="-203.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">30 s</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>CRIT&#45;&gt;HARV</title>
+<path fill="none" stroke="#46556e" d="M142.59,-83.86C119.16,-100.37 92.13,-126.57 102.5,-154.75 108.22,-170.3 118.34,-184.92 129.13,-197.39"/>
+<polygon fill="#46556e" stroke="#46556e" points="127.67,-198.65 132.77,-201.47 130.54,-196.09 127.67,-198.65"/>
+<text xml:space="preserve" text-anchor="start" x="87.75" y="-148.75" font-family="Menlo" font-size="6.00" fill="#46556e">&gt;15%</text>
+</g>
+
+<g id="node6" class="node">
+<title>FAULT</title>
+<polygon fill="#fceae8" stroke="none" points="356,-4 356,-84 397.75,-84 397.75,-4 356,-4"/>
+<polygon fill="none" stroke="#cb4034" points="356,-4 356,-84 397.75,-84 397.75,-4 356,-4"/>
+<polygon fill="#cb4034" stroke="none" points="357,-65 357,-83 396.75,-83 396.75,-65 357,-65"/>
+<text xml:space="preserve" text-anchor="start" x="364.5" y="-74.35" font-family="Menlo" font-weight="bold" font-size="7.00" fill="#ffffff">FAULT</text>
+<text xml:space="preserve" text-anchor="start" x="360" y="-69.25" font-family="Inter" font-size="5.00" fill="#e8eef8">manual check</text>
+<text xml:space="preserve" text-anchor="start" x="360" y="-55.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">load</text>
+<text xml:space="preserve" text-anchor="start" x="381" y="-55.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">OFF</text>
+<text xml:space="preserve" text-anchor="start" x="360" y="-40.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">chg</text>
+<text xml:space="preserve" text-anchor="start" x="381" y="-40.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">OFF</text>
+<text xml:space="preserve" text-anchor="start" x="360" y="-25.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">duty</text>
+<text xml:space="preserve" text-anchor="start" x="381" y="-25.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">0%</text>
+<text xml:space="preserve" text-anchor="start" x="360" y="-10.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">telem</text>
+<text xml:space="preserve" text-anchor="start" x="381" y="-10.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">60 s</text>
+</g>
+
+<g id="edge9" class="edge">
+<title>CRIT&#45;&gt;FAULT</title>
+<path fill="none" stroke="#cb4034" stroke-width="1.2" stroke-dasharray="5,2" d="M202.5,-62.85C239.12,-58.87 302.09,-52.02 341.22,-47.77"/>
+<polygon fill="#cb4034" stroke="#cb4034" stroke-width="1.2" points="341.17,-49.71 346.43,-47.2 340.75,-45.88 341.17,-49.71"/>
+<text xml:space="preserve" text-anchor="start" x="238.5" y="-60.38" font-family="Menlo" font-size="6.00" fill="#cb4034">Vbat&lt;3.2 V or T out</text>
+</g>
+
+<g id="edge8" class="edge">
+<title>HARV&#45;&gt;CRIT</title>
+<path fill="none" stroke="#46556e" d="M133.78,-202.6C121.31,-189.08 109.04,-172.52 102.5,-154.75 92.94,-128.77 115.17,-104.48 137.05,-87.9"/>
+<polygon fill="#46556e" stroke="#46556e" points="138.06,-89.55 141.37,-84.75 135.79,-86.44 138.06,-89.55"/>
+<text xml:space="preserve" text-anchor="start" x="89.62" y="-148.75" font-family="Menlo" font-size="6.00" fill="#46556e">&lt;8%</text>
+</g>
+
+<g id="node4" class="node">
+<title>DUTY</title>
+<polygon fill="#fffdf6" stroke="none" points="344.75,-255 344.75,-335 409,-335 409,-255 344.75,-255"/>
+<polygon fill="none" stroke="#b8720f" points="344.75,-255 344.75,-335 409,-335 409,-255 344.75,-255"/>
+<polygon fill="#b8720f" stroke="none" points="345.75,-316 345.75,-334 408,-334 408,-316 345.75,-316"/>
+<text xml:space="preserve" text-anchor="start" x="348.75" y="-325.35" font-family="Menlo" font-weight="bold" font-size="7.00" fill="#ffffff">DUTY_CYCLE</text>
+<text xml:space="preserve" text-anchor="start" x="361.5" y="-320.25" font-family="Inter" font-size="5.00" fill="#e8eef8">30–40%</text>
+<text xml:space="preserve" text-anchor="start" x="348.75" y="-306.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">load</text>
+<text xml:space="preserve" text-anchor="start" x="369.75" y="-306.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">periodic</text>
+<text xml:space="preserve" text-anchor="start" x="348.75" y="-291.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">chg</text>
+<text xml:space="preserve" text-anchor="start" x="369.75" y="-291.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">off while acq</text>
+<text xml:space="preserve" text-anchor="start" x="348.75" y="-276.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">duty</text>
+<text xml:space="preserve" text-anchor="start" x="369.75" y="-276.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">dflt 3%</text>
+<text xml:space="preserve" text-anchor="start" x="348.75" y="-261.25" font-family="PingFang SC" font-size="6.00" fill="#8b97ab">telem</text>
+<text xml:space="preserve" text-anchor="start" x="369.75" y="-261.25" font-family="PingFang SC" font-size="6.00" fill="#0b1220">10 s</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>HARV&#45;&gt;DUTY</title>
+<path fill="none" stroke="#46556e" d="M211.25,-248.82C220.17,-251.55 229.66,-254.42 238.5,-257 269.05,-265.92 303.57,-275.47 330.37,-282.76"/>
+<polygon fill="#46556e" stroke="#46556e" points="329.73,-284.59 335.55,-284.17 330.74,-280.87 329.73,-284.59"/>
+<text xml:space="preserve" text-anchor="start" x="266.62" y="-278.57" font-family="Menlo" font-size="6.00" fill="#46556e">&gt;35%</text>
+</g>
+
+<g id="edge7" class="edge">
+<title>DUTY&#45;&gt;HARV</title>
+<path fill="none" stroke="#46556e" d="M336.8,-260.07C328.38,-254.24 319.17,-248.97 309.75,-245.5 280.53,-234.75 245.42,-232.8 218.16,-233.44"/>
+<polygon fill="#46556e" stroke="#46556e" points="218.36,-231.51 212.92,-233.61 218.48,-235.36 218.36,-231.51"/>
+<text xml:space="preserve" text-anchor="start" x="266.62" y="-247" font-family="Menlo" font-size="6.00" fill="#46556e">&lt;25%</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>DUTY&#45;&gt;FULL</title>
+<path fill="none" stroke="#46556e" d="M376.88,-251.15C376.88,-237.29 376.88,-221.86 376.88,-207.57"/>
+<polygon fill="#46556e" stroke="#46556e" points="378.8,-207.68 376.88,-202.18 374.95,-207.68 378.8,-207.68"/>
+<text xml:space="preserve" text-anchor="start" x="362.62" y="-223.75" font-family="Menlo" font-size="6.00" fill="#46556e">&gt;40%</text>
+</g>
+
+<g id="edge6" class="edge">
+<title>FULL&#45;&gt;DUTY</title>
+<path fill="none" stroke="#46556e" d="M386.22,-200.6C387.59,-211.34 388.28,-222.81 387.38,-233.5 387.08,-236.99 386.69,-240.57 386.24,-244.17"/>
+<polygon fill="#46556e" stroke="#46556e" points="384.33,-243.9 385.5,-249.61 388.15,-244.42 384.33,-243.9"/>
+<text xml:space="preserve" text-anchor="start" x="376.12" y="-223.75" font-family="Menlo" font-size="6.00" fill="#46556e">&lt;35%</text>
+</g>
+</g>
+</svg></div>
+        <div class="figcap"><span class="fignum">Fig. 7</span>　Energy state machine.
+          Every transition carries <strong>hysteresis</strong> (e.g. enter at 30% / exit at 25%) — without it, SoC jitter
+          near a threshold would flail the machine, the load switch would chatter, BITalino would keep reconnecting, and
+          the data would be worthless. Hysteresis band ≥ 5 percentage points, on an 8-point moving-average SoC.</div>
+      </figure>
+    </div>
+    <div class="col w40">
+      <h3 style="margin-top:0">4.1　Key changes vs v1.0</h3>
+      <table class="t">
+        <tr><th style="width:30%">State</th><th style="width:35%">v1.0</th><th style="width:35%">v2.0</th></tr>
+        <tr><td class="mono">FULL_RATE</td><td>exception above SoC 80%</td><td><strong>the default operating state</strong></td></tr>
+        <tr class="alt"><td class="mono">DUTY_CYCLE</td><td>primary mode</td><td>demoted to overcast-day saving mode</td></tr>
+        <tr><td>Entry threshold</td><td>SoC 80%</td><td><strong>SoC 40%</strong> (energy is ample; no need to be conservative)</td></tr>
+      </table>
+      <div class="co risk"><span class="co-t">The 4 invariants of battery_switch</span>
+        Every line of this module is hardware-safety relevant and needs full unit tests. Runtime asserts:
+        <br/>① Q1 and Q2 never on together; ② Q3 and Q4 never on together;
+        ③ the same battery never charges and discharges at once; ④ at least one battery always discharges
+        (else the load loses power).
+        <br/>Switching is <strong>break-before-make</strong> with 1 ms dead time, the gap bridged by the supercap;
+        <strong>every switch is logged as an event</strong> — post-processing must check for a matching artifact on the ECG.</div>
+    </div>
+  </div>
+
+  <h3>4.2　Firmware modules and the test boundary</h3>
+  <figure>
+    <div class="figframe"><svg
+ viewBox="0.00 0.00 782.00 179.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="680" height="156">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 175)">
+<title>G</title>
+
+<g id="node1" class="node">
+<title>HAL</title>
+<polygon fill="#ffffff" stroke="none" points="8,-62.5 8,-167 191.5,-167 191.5,-62.5 8,-62.5"/>
+<polygon fill="none" stroke="#cbd4e3" points="8,-62.5 8,-167 191.5,-167 191.5,-62.5 8,-62.5"/>
+<polygon fill="#b8720f" stroke="none" points="9,-146 9,-166 190.5,-166 190.5,-146 9,-146"/>
+<text xml:space="preserve" text-anchor="start" x="22.88" y="-156.4" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">drivers &#160;/ &#160;HAL</text>
+<text xml:space="preserve" text-anchor="start" x="12" y="-150.3" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">the only layer touching hardware</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-129.5 9,-146 78,-146 78,-129.5 9,-129.5"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-135.5" font-family="Menlo" font-size="7.00" fill="#0b1220">drv_ina226</text>
+<text xml:space="preserve" text-anchor="start" x="81" y="-135.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">bidir current · bus voltage · 16 bit</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-113 9,-129.5 78,-129.5 78,-113 9,-113"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-119" font-family="Menlo" font-size="7.00" fill="#0b1220">drv_ntc</text>
+<text xml:space="preserve" text-anchor="start" x="81" y="-119" font-family="PingFang SC" font-size="7.00" fill="#46556e">ADC + Steinhart&#45;Hart</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-96.5 9,-113 78,-113 78,-96.5 9,-96.5"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-102.5" font-family="Menlo" font-size="7.00" fill="#0b1220">load_switch</text>
+<text xml:space="preserve" text-anchor="start" x="81" y="-102.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">soft start · watchdog fail&#45;safe</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-80 9,-96.5 78,-96.5 78,-80 9,-80"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-86" font-family="Menlo" font-size="7.00" fill="#0b1220">battery_switch</text>
+<text xml:space="preserve" text-anchor="start" x="81" y="-86" font-family="PingFang SC" font-size="7.00" fill="#46556e">⚠ 4 invariants · 1 ms dead time</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-63.5 9,-80 78,-80 78,-63.5 9,-63.5"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-69.5" font-family="Menlo" font-size="7.00" fill="#0b1220">sync_marker</text>
+<text xml:space="preserve" text-anchor="start" x="81" y="-69.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">GPIO pulse + µs timestamp</text>
+</g>
+
+<g id="node2" class="node">
+<title>CORE</title>
+<polygon fill="#ffffff" stroke="none" points="257.5,-87 257.5,-158.5 452.25,-158.5 452.25,-87 257.5,-87"/>
+<polygon fill="none" stroke="#cbd4e3" points="257.5,-87 257.5,-158.5 452.25,-158.5 452.25,-87 257.5,-87"/>
+<polygon fill="#15845f" stroke="none" points="258.5,-137.5 258.5,-157.5 451.25,-157.5 451.25,-137.5 258.5,-137.5"/>
+<text xml:space="preserve" text-anchor="start" x="267.5" y="-147.9" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">core &#160;(no hardware calls)</text>
+<text xml:space="preserve" text-anchor="start" x="261.5" y="-141.8" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">pure logic → unit&#45;testable &amp; fuzzable on PC</text>
+<polygon fill="#f6f8fc" stroke="none" points="258.5,-121 258.5,-137.5 332,-137.5 332,-121 258.5,-121"/>
+<text xml:space="preserve" text-anchor="start" x="261.5" y="-127" font-family="Menlo" font-size="7.00" fill="#0b1220">power_fsm</text>
+<text xml:space="preserve" text-anchor="start" x="335" y="-127" font-family="PingFang SC" font-size="7.00" fill="#46556e">§ FSM · hysteresis ≥5 pct pts</text>
+<polygon fill="#f6f8fc" stroke="none" points="258.5,-104.5 258.5,-121 332,-121 332,-104.5 258.5,-104.5"/>
+<text xml:space="preserve" text-anchor="start" x="261.5" y="-110.5" font-family="Menlo" font-size="7.00" fill="#0b1220">coulomb_counter</text>
+<text xml:space="preserve" text-anchor="start" x="335" y="-110.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">∫I dt · recalib on full/empty</text>
+<polygon fill="#f6f8fc" stroke="none" points="258.5,-88 258.5,-104.5 332,-104.5 332,-88 258.5,-88"/>
+<text xml:space="preserve" text-anchor="start" x="261.5" y="-94" font-family="Menlo" font-size="7.00" fill="#0b1220">scheduler</text>
+<text xml:space="preserve" text-anchor="start" x="335" y="-94" font-family="PingFang SC" font-size="7.00" fill="#46556e">acq windows · 30&#45;min batt rotation</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>HAL:e&#45;&gt;CORE:w</title>
+<path fill="none" stroke="#46556e" stroke-width="1.1" d="M191.5,-137.75C218.53,-137.75 226.58,-130.65 250.35,-129.43"/>
+<polygon fill="#46556e" stroke="#46556e" stroke-width="1.1" points="250.39,-131.35 255.84,-129.29 250.29,-127.5 250.39,-131.35"/>
+</g>
+
+<g id="edge2" class="edge">
+<title>HAL:e&#45;&gt;CORE:w</title>
+<path fill="none" stroke="#46556e" stroke-width="1.1" d="M191.5,-88.25C218.51,-88.25 226.6,-94.93 250.36,-96.08"/>
+<polygon fill="#46556e" stroke="#46556e" stroke-width="1.1" points="250.29,-98.01 255.84,-96.21 250.38,-94.16 250.29,-98.01"/>
+</g>
+
+<g id="node3" class="node">
+<title>IO</title>
+<polygon fill="#ffffff" stroke="none" points="518.25,-103.25 518.25,-158.25 766.25,-158.25 766.25,-103.25 518.25,-103.25"/>
+<polygon fill="none" stroke="#cbd4e3" points="518.25,-103.25 518.25,-158.25 766.25,-158.25 766.25,-103.25 518.25,-103.25"/>
+<polygon fill="#2f6be4" stroke="none" points="519.25,-137.25 519.25,-157.25 765.25,-157.25 765.25,-137.25 519.25,-137.25"/>
+<text xml:space="preserve" text-anchor="start" x="563.5" y="-147.65" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">transport</text>
+<text xml:space="preserve" text-anchor="start" x="522.25" y="-141.55" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">disconnection is the norm, not the exception</text>
+<polygon fill="#f6f8fc" stroke="none" points="519.25,-120.75 519.25,-137.25 583.75,-137.25 583.75,-120.75 519.25,-120.75"/>
+<text xml:space="preserve" text-anchor="start" x="522.25" y="-126.75" font-family="Menlo" font-size="7.00" fill="#0b1220">ble_telemetry</text>
+<text xml:space="preserve" text-anchor="start" x="586.75" y="-126.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">GATT: PowerSample / SyncMarker / Config / Fault</text>
+<polygon fill="#f6f8fc" stroke="none" points="519.25,-104.25 519.25,-120.75 583.75,-120.75 583.75,-104.25 519.25,-104.25"/>
+<text xml:space="preserve" text-anchor="start" x="522.25" y="-110.25" font-family="Menlo" font-size="7.00" fill="#0b1220">nvs_log</text>
+<text xml:space="preserve" text-anchor="start" x="586.75" y="-110.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">flash on disconnect, replay on reconnect (dedup by seq)</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>CORE:e&#45;&gt;IO:w</title>
+<path fill="none" stroke="#46556e" stroke-width="1.1" d="M452.25,-129.25C479.06,-129.25 487.49,-129.04 511.15,-129.01"/>
+<polygon fill="#46556e" stroke="#46556e" stroke-width="1.1" points="511.09,-130.93 516.59,-129 511.08,-127.08 511.09,-130.93"/>
+</g>
+
+<g id="edge4" class="edge">
+<title>CORE:e&#45;&gt;IO:w</title>
+<path fill="none" stroke="#46556e" stroke-width="1.1" d="M452.25,-112.75C479.98,-112.75 486.96,-126.44 511.29,-128.69"/>
+<polygon fill="#46556e" stroke="#46556e" stroke-width="1.1" points="511.01,-130.6 516.59,-128.93 511.18,-126.76 511.01,-130.6"/>
+</g>
+
+<g id="node4" class="node">
+<title>TEST</title>
+<polygon fill="#ffffff" stroke="none" points="547.5,-4 547.5,-75.5 737,-75.5 737,-4 547.5,-4"/>
+<polygon fill="none" stroke="#cbd4e3" points="547.5,-4 547.5,-75.5 737,-75.5 737,-4 547.5,-4"/>
+<polygon fill="#6b4fcf" stroke="none" points="548.5,-54.5 548.5,-74.5 736,-74.5 736,-54.5 548.5,-54.5"/>
+<text xml:space="preserve" text-anchor="start" x="552.62" y="-64.9" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">tests &#160;(host)</text>
+<text xml:space="preserve" text-anchor="start" x="551.5" y="-58.8" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">runs without hardware</text>
+<polygon fill="#f6f8fc" stroke="none" points="548.5,-38 548.5,-54.5 617.5,-54.5 617.5,-38 548.5,-38"/>
+<text xml:space="preserve" text-anchor="start" x="551.5" y="-44" font-family="Menlo" font-size="7.00" fill="#0b1220">test_power_fsm</text>
+<text xml:space="preserve" text-anchor="start" x="620.5" y="-44" font-family="PingFang SC" font-size="7.00" fill="#46556e">walk all transitions, assert invariants</text>
+<polygon fill="#f6f8fc" stroke="none" points="548.5,-21.5 548.5,-38 617.5,-38 617.5,-21.5 548.5,-21.5"/>
+<text xml:space="preserve" text-anchor="start" x="551.5" y="-27.5" font-family="Menlo" font-size="7.00" fill="#0b1220">test_switch</text>
+<text xml:space="preserve" text-anchor="start" x="620.5" y="-27.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">inject &#39;reset mid&#45;switch&#39;</text>
+<polygon fill="#f6f8fc" stroke="none" points="548.5,-5 548.5,-21.5 617.5,-21.5 617.5,-5 548.5,-5"/>
+<text xml:space="preserve" text-anchor="start" x="551.5" y="-11" font-family="Menlo" font-size="7.00" fill="#0b1220">fuzz</text>
+<text xml:space="preserve" text-anchor="start" x="620.5" y="-11" font-family="PingFang SC" font-size="7.00" fill="#46556e">10⁶ random call sequences</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>CORE:e&#45;&gt;TEST:w</title>
+<path fill="none" stroke="#6b4fcf" stroke-dasharray="5,2" d="M452.25,-96.25C497.63,-96.25 499.6,-51.2 540.58,-46.62"/>
+<polygon fill="#6b4fcf" stroke="#6b4fcf" points="540.6,-48.55 545.99,-46.33 540.39,-44.71 540.6,-48.55"/>
+</g>
+</g>
+</svg></div>
+    <div class="figcap"><span class="fignum">Fig. 8</span>　Firmware layering.
+      <strong>Core constraint: <code>core/</code> contains no hardware calls</strong> — everything is injected through
+      function pointers, so the state machine runs unit tests on a PC (hysteresis, deadlock, FAULT paths) plus
+      10⁶-sequence fuzzing. The best-value architectural constraint in an embedded project.</div>
+  </figure>
+
+  <div class="row">
+    <div class="col w50">
+      <div class="co info"><span class="co-t">Coulomb counting: why no dedicated fuel-gauge chip</span>
+        SoC comes from bidirectional current integration on the battery-side INA226 — MAX17048 is gone. Three reasons:
+        <br/>① <strong>Package</strong> — MAX17048 is TDFN/WLP bottom-pad; the lab's tools can't do it;
+        <br/>② <strong>Scientific credibility</strong> — ModelGauge is a black box; raw coulomb counting drifts but is
+        <strong>explainable</strong>;
+        <br/>③ <strong>Resolution</strong> — 16 bit + 0.02 Ω → 125 µA LSB, better than voltage-based estimation.
+        <br/><span class="pill pill-solar">Cost</span>　power-loss persistence (flash write/60 s), full/empty
+        recalibration, temperature correction, plus one full charge–discharge cycle at start to learn true capacity
+        (nominal 2500 mAh often measures 2200–2400 mAh — uncalibrated SoC runs high).</div>
+    </div>
+    <div class="col w50">
+      <div class="co neutral"><span class="co-t">Two-ended sync pulses: a small but critical design</span>
+        A 10 ms sync pulse is emitted <strong>at each end of every acquisition window</strong>. Between the two pulses, the
+        MCU-side elapsed time is known (µs) and the BITalino-side sample count is known — their ratio is the
+        <strong>true rate of the BITalino sampling clock</strong>.
+        <br/>It will not be exactly 1000.000 Hz but 999.x or 1000.x Hz — uncorrected, hundreds of ms of drift in
+        10 minutes; <strong>the most commonly ignored error source in long recordings</strong>.
+        <br/>Every run report states the measured drift ppm; if it moves with temperature across runs, that itself is a
+        finding worth publishing.</div>
+      <div class="co warn"><span class="co-t">Offline log: disconnection is the norm, not the exception</span>
+        BLE drops are inevitable on-body. While disconnected, samples go to flash; on reconnect the backlog replays
+        before live streaming, deduplicated by <code>seq</code>. 20 B/sample × 0.1 Hz ≈ <strong>173 KB/day</strong> —
+        the nRF52840's 1 MB flash holds ~5 days; for longer add a W25Q128 (16 MB ≈ 90 days).</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 05 · SOFTWARE</span>
+    <h2 class="sec-title">Software Layer — Multi-Source Alignment, Storage &amp; Reproducibility</h2>
+    <p class="sec-sub">Three independent radio links, two time bases, and one conclusion that must still reproduce
+      three months from now. The engineering effort in this layer is usually underestimated in proportion to how
+      decisively it determines experimental success.</p>
+  </div>
+
+  <figure>
+    <div class="figframe"><svg
+ viewBox="0.00 0.00 726.00 88.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="740" height="90">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 83.5)">
+<title>G</title>
+
+<g id="node1" class="node">
+<title>SRC</title>
+<polygon fill="#ffffff" stroke="none" points="8,-4 8,-75.5 205.75,-75.5 205.75,-4 8,-4"/>
+<polygon fill="none" stroke="#cbd4e3" points="8,-4 8,-75.5 205.75,-75.5 205.75,-4 8,-4"/>
+<polygon fill="#b8720f" stroke="none" points="9,-54.5 9,-74.5 204.75,-74.5 204.75,-54.5 9,-54.5"/>
+<text xml:space="preserve" text-anchor="start" x="27" y="-64.9" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">sources &#160;×3</text>
+<text xml:space="preserve" text-anchor="start" x="12" y="-58.8" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">three independent radio links</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-38 9,-54.5 73.5,-54.5 73.5,-38 9,-38"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-44" font-family="Menlo" font-size="7.00" fill="#0b1220">BITalino DUT</text>
+<text xml:space="preserve" text-anchor="start" x="76.5" y="-44" font-family="PingFang SC" font-size="7.00" fill="#46556e">solar&#45;powered · ECG A1 · 1000 Hz</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-21.5 9,-38 73.5,-38 73.5,-21.5 9,-21.5"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-27.5" font-family="Menlo" font-size="7.00" fill="#0b1220">BITalino CTRL</text>
+<text xml:space="preserve" text-anchor="start" x="76.5" y="-27.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">battery&#45;only control · same lead</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-5 9,-21.5 73.5,-21.5 73.5,-5 9,-5"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-11" font-family="Menlo" font-size="7.00" fill="#0b1220">PMB telemetry</text>
+<text xml:space="preserve" text-anchor="start" x="76.5" y="-11" font-family="PingFang SC" font-size="7.00" fill="#46556e">power / SoC / temp / irradiance · 1 Hz</text>
+</g>
+
+<g id="node2" class="node">
+<title>COL</title>
+<polygon fill="#ffffff" stroke="none" points="268.75,-4 268.75,-75.5 443.25,-75.5 443.25,-4 268.75,-4"/>
+<polygon fill="none" stroke="#cbd4e3" points="268.75,-4 268.75,-75.5 443.25,-75.5 443.25,-4 268.75,-4"/>
+<polygon fill="#2f6be4" stroke="none" points="269.75,-54.5 269.75,-74.5 442.25,-74.5 442.25,-54.5 269.75,-54.5"/>
+<text xml:space="preserve" text-anchor="start" x="301.62" y="-64.9" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">collectors</text>
+<text xml:space="preserve" text-anchor="start" x="272.75" y="-58.8" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">asyncio · back&#45;pressure &amp; reconnect</text>
+<polygon fill="#f6f8fc" stroke="none" points="269.75,-38 269.75,-54.5 343.25,-54.5 343.25,-38 269.75,-38"/>
+<text xml:space="preserve" text-anchor="start" x="272.75" y="-44" font-family="Menlo" font-size="7.00" fill="#0b1220">bitalino_ble.py</text>
+<text xml:space="preserve" text-anchor="start" x="346.25" y="-44" font-family="PingFang SC" font-size="7.00" fill="#46556e">bleak · GATT</text>
+<polygon fill="#f6f8fc" stroke="none" points="269.75,-21.5 269.75,-38 343.25,-38 343.25,-21.5 269.75,-21.5"/>
+<text xml:space="preserve" text-anchor="start" x="272.75" y="-27.5" font-family="Menlo" font-size="7.00" fill="#0b1220">bitalino_bt.py</text>
+<text xml:space="preserve" text-anchor="start" x="346.25" y="-27.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">pyserial · SPP</text>
+<polygon fill="#f6f8fc" stroke="none" points="269.75,-5 269.75,-21.5 343.25,-21.5 343.25,-5 269.75,-5"/>
+<text xml:space="preserve" text-anchor="start" x="272.75" y="-11" font-family="Menlo" font-size="7.00" fill="#0b1220">pmb_ble.py</text>
+<text xml:space="preserve" text-anchor="start" x="346.25" y="-11" font-family="PingFang SC" font-size="7.00" fill="#46556e">custom GATT + replay dedup</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>SRC:e&#45;&gt;COL:w</title>
+<path fill="none" stroke="#46556e" stroke-width="1.2" d="M205.75,-46.25C231.23,-46.25 239.32,-46.25 261.68,-46.25"/>
+<polygon fill="#46556e" stroke="#46556e" stroke-width="1.2" points="261.43,-48.18 266.93,-46.25 261.43,-44.33 261.43,-48.18"/>
+</g>
+
+<g id="node3" class="node">
+<title>SYN</title>
+<polygon fill="#ffffff" stroke="none" points="506.25,-4 506.25,-75.5 710,-75.5 710,-4 506.25,-4"/>
+<polygon fill="none" stroke="#cbd4e3" points="506.25,-4 506.25,-75.5 710,-75.5 710,-4 506.25,-4"/>
+<polygon fill="#6b4fcf" stroke="none" points="507.25,-54.5 507.25,-74.5 709,-74.5 709,-54.5 507.25,-54.5"/>
+<text xml:space="preserve" text-anchor="start" x="556.38" y="-64.9" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">sync &#160;engine</text>
+<text xml:space="preserve" text-anchor="start" x="510.25" y="-58.8" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">software side of ADR&#45;005 · error &lt;10 ms, provable</text>
+<polygon fill="#f6f8fc" stroke="none" points="507.25,-38 507.25,-54.5 576.25,-54.5 576.25,-38 507.25,-38"/>
+<text xml:space="preserve" text-anchor="start" x="510.25" y="-44" font-family="Menlo" font-size="7.00" fill="#0b1220">marker_align</text>
+<text xml:space="preserve" text-anchor="start" x="579.25" y="-44" font-family="PingFang SC" font-size="7.00" fill="#46556e">detect I1 rising edge ↔ MCU µs stamps</text>
+<polygon fill="#f6f8fc" stroke="none" points="507.25,-21.5 507.25,-38 576.25,-38 576.25,-21.5 507.25,-21.5"/>
+<text xml:space="preserve" text-anchor="start" x="510.25" y="-27.5" font-family="Menlo" font-size="7.00" fill="#0b1220">clock_fit</text>
+<text xml:space="preserve" text-anchor="start" x="579.25" y="-27.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">linear fit → true rate + drift ppm</text>
+<polygon fill="#f6f8fc" stroke="none" points="507.25,-5 507.25,-21.5 576.25,-21.5 576.25,-5 507.25,-5"/>
+<text xml:space="preserve" text-anchor="start" x="510.25" y="-11" font-family="Menlo" font-size="7.00" fill="#0b1220">residual check</text>
+<text xml:space="preserve" text-anchor="start" x="579.25" y="-11" font-family="PingFang SC" font-size="7.00" fill="#46556e">residual &gt;2 samples → flag segment</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>COL:e&#45;&gt;SYN:w</title>
+<path fill="none" stroke="#46556e" stroke-width="1.2" d="M443.25,-46.25C468.73,-46.25 476.82,-46.25 499.18,-46.25"/>
+<polygon fill="#46556e" stroke="#46556e" stroke-width="1.2" points="498.93,-48.18 504.43,-46.25 498.93,-44.33 498.93,-48.18"/>
+</g>
+</g>
+</svg></div>
+    <div class="figcap"><span class="fignum">Fig. 9</span>　Ingest &amp; alignment (write path).
+      Host timestamps on the three sources suffer tens to hundreds of ms of Bluetooth buffering jitter, so alignment
+      <strong>does not rely on host clocks</strong> — it relies on hardware sync markers embedded in the data stream.</div>
+  </figure>
+  <figure>
+    <div class="figframe"><svg
+ viewBox="0.00 0.00 755.00 104.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="760" height="105">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 100)">
+<title>G</title>
+
+<g id="node1" class="node">
+<title>STO</title>
+<polygon fill="#ffffff" stroke="none" points="8,-20.25 8,-91.75 184,-91.75 184,-20.25 8,-20.25"/>
+<polygon fill="none" stroke="#cbd4e3" points="8,-20.25 8,-91.75 184,-91.75 184,-20.25 8,-20.25"/>
+<polygon fill="#15845f" stroke="none" points="9,-70.75 9,-90.75 183,-90.75 183,-70.75 9,-70.75"/>
+<text xml:space="preserve" text-anchor="start" x="52.12" y="-81.15" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">storage</text>
+<text xml:space="preserve" text-anchor="start" x="12" y="-75.05" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">raw immutable · processing re&#45;runnable</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-54.25 9,-70.75 64.5,-70.75 64.5,-54.25 9,-54.25"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-60.25" font-family="Menlo" font-size="7.00" fill="#0b1220">Parquet</text>
+<text xml:space="preserve" text-anchor="start" x="67.5" y="-60.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">raw signals · read&#45;only after write</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-37.75 9,-54.25 64.5,-54.25 64.5,-37.75 9,-37.75"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-43.75" font-family="Menlo" font-size="7.00" fill="#0b1220">TimescaleDB</text>
+<text xml:space="preserve" text-anchor="start" x="67.5" y="-43.75" font-family="PingFang SC" font-size="7.00" fill="#46556e">power_samples hypertable + events</text>
+<polygon fill="#f6f8fc" stroke="none" points="9,-21.25 9,-37.75 64.5,-37.75 64.5,-21.25 9,-21.25"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-27.25" font-family="Menlo" font-size="7.00" fill="#0b1220">manifest</text>
+<text xml:space="preserve" text-anchor="start" x="67.5" y="-27.25" font-family="PingFang SC" font-size="7.00" fill="#46556e">fw SHA · hw hash · calib capacity</text>
+</g>
+
+<g id="node2" class="node">
+<title>PROC</title>
+<polygon fill="#ffffff" stroke="none" points="247,-4 247,-92 453,-92 453,-4 247,-4"/>
+<polygon fill="none" stroke="#cbd4e3" points="247,-4 247,-92 453,-92 453,-4 247,-4"/>
+<polygon fill="#2f6be4" stroke="none" points="248,-71 248,-91 452,-91 452,-71 248,-71"/>
+<text xml:space="preserve" text-anchor="start" x="278.75" y="-81.4" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">processing</text>
+<text xml:space="preserve" text-anchor="start" x="251" y="-75.3" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">all re&#45;runnable, never overwrites raw</text>
+<polygon fill="#f6f8fc" stroke="none" points="248,-54.5 248,-71 303.5,-71 303.5,-54.5 248,-54.5"/>
+<text xml:space="preserve" text-anchor="start" x="251" y="-60.5" font-family="Menlo" font-size="7.00" fill="#0b1220">ecg_quality</text>
+<text xml:space="preserve" text-anchor="start" x="306.5" y="-60.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">0.5–40 Hz noise floor µVrms · baseline drift</text>
+<polygon fill="#f6f8fc" stroke="none" points="248,-38 248,-54.5 303.5,-54.5 303.5,-38 248,-38"/>
+<text xml:space="preserve" text-anchor="start" x="251" y="-44" font-family="Menlo" font-size="7.00" fill="#0b1220">hrv</text>
+<text xml:space="preserve" text-anchor="start" x="306.5" y="-44" font-family="PingFang SC" font-size="7.00" fill="#46556e">NeuroKit2 · R peaks · SDNN / RMSSD</text>
+<polygon fill="#f6f8fc" stroke="none" points="248,-21.5 248,-38 303.5,-38 303.5,-21.5 248,-21.5"/>
+<text xml:space="preserve" text-anchor="start" x="251" y="-27.5" font-family="Menlo" font-size="7.00" fill="#0b1220">energy</text>
+<text xml:space="preserve" text-anchor="start" x="306.5" y="-27.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">EAR / RES / autonomy</text>
+<polygon fill="#f6f8fc" stroke="none" points="248,-5 248,-21.5 303.5,-21.5 303.5,-5 248,-5"/>
+<text xml:space="preserve" text-anchor="start" x="251" y="-11" font-family="Menlo" font-size="7.00" fill="#0b1220">agreement</text>
+<text xml:space="preserve" text-anchor="start" x="306.5" y="-11" font-family="PingFang SC" font-size="7.00" fill="#46556e">Bland&#45;Altman: DUT vs control</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>STO:e&#45;&gt;PROC:w</title>
+<path fill="none" stroke="#46556e" stroke-width="1.2" d="M184,-62.5C209.48,-62.5 217.57,-62.71 239.93,-62.74"/>
+<polygon fill="#46556e" stroke="#46556e" stroke-width="1.2" points="239.68,-64.67 245.18,-62.75 239.69,-60.82 239.68,-64.67"/>
+</g>
+
+<g id="node3" class="node">
+<title>OUT</title>
+<polygon fill="#ffffff" stroke="none" points="516,-20.38 516,-87.62 738.5,-87.62 738.5,-20.38 516,-20.38"/>
+<polygon fill="none" stroke="#cbd4e3" points="516,-20.38 516,-87.62 738.5,-87.62 738.5,-20.38 516,-20.38"/>
+<polygon fill="#14233d" stroke="none" points="517,-70.88 517,-86.62 737.5,-86.62 737.5,-70.88 517,-70.88"/>
+<text xml:space="preserve" text-anchor="start" x="520" y="-77.03" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">delivery</text>
+<polygon fill="#f6f8fc" stroke="none" points="517,-54.38 517,-70.88 577,-70.88 577,-54.38 517,-54.38"/>
+<text xml:space="preserve" text-anchor="start" x="520" y="-60.38" font-family="Menlo" font-size="7.00" fill="#0b1220">Grafana</text>
+<text xml:space="preserve" text-anchor="start" x="580" y="-60.38" font-family="PingFang SC" font-size="7.00" fill="#46556e">live energy &amp; temp dashboard</text>
+<polygon fill="#f6f8fc" stroke="none" points="517,-37.88 517,-54.38 577,-54.38 577,-37.88 517,-37.88"/>
+<text xml:space="preserve" text-anchor="start" x="520" y="-43.88" font-family="Menlo" font-size="7.00" fill="#0b1220">report.ipynb</text>
+<text xml:space="preserve" text-anchor="start" x="580" y="-43.88" font-family="PingFang SC" font-size="7.00" fill="#46556e">one per TC, committed to Git</text>
+<polygon fill="#f6f8fc" stroke="none" points="517,-21.38 517,-37.88 577,-37.88 577,-21.38 517,-21.38"/>
+<text xml:space="preserve" text-anchor="start" x="520" y="-27.38" font-family="Menlo" font-size="7.00" fill="#0b1220">CI</text>
+<text xml:space="preserve" text-anchor="start" x="580" y="-27.38" font-family="PingFang SC" font-size="7.00" fill="#46556e">schema checks + golden cases + fw SHA exists</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>PROC:e&#45;&gt;OUT:w</title>
+<path fill="none" stroke="#46556e" stroke-width="1.2" d="M453,-62.75C478.48,-62.75 486.57,-62.65 508.93,-62.63"/>
+<polygon fill="#46556e" stroke="#46556e" stroke-width="1.2" points="508.68,-64.55 514.18,-62.63 508.68,-60.7 508.68,-64.55"/>
+</g>
+</g>
+</svg></div>
+    <div class="figcap"><span class="fignum">Fig. 10</span>　Storage &amp; analysis (read path).
+      Raw signals land in Parquet and are <strong>made read-only after writing</strong>; telemetry goes to TimescaleDB
+      hypertables; all processing is re-runnable and never overwrites raw data.</div>
+  </figure>
+
+  <div class="row">
+    <div class="col w50">
+      <h3 style="margin-top:0">5.1　Stack choices</h3>
+      <table class="t">
+        <tr><th style="width:24%">Stage</th><th style="width:30%">Choice</th><th style="width:46%">Rationale / constraints</th></tr>
+        <tr><td>BLE ingest</td><td class="mono">bleak (asyncio)</td><td>cross-platform; needs back-pressure and auto-reconnect</td></tr>
+        <tr class="alt"><td>Classic BT ingest</td><td class="mono">pyserial</td><td>if BITalino is the BT version; slow reconnects affect power-cycle strategy</td></tr>
+        <tr><td>Raw signals</td><td class="mono">Parquet (columnar)</td><td>1000 Hz × multi-channel × hours; a relational store doesn't pay off</td></tr>
+        <tr class="alt"><td>Telemetry series</td><td class="mono">TimescaleDB</td><td>hypertables + continuous aggregates; EAR integrated per window</td></tr>
+        <tr><td>ECG processing</td><td class="mono">NeuroKit2</td><td>R-peak detection and HRV; golden-case regression</td></tr>
+        <tr class="alt"><td>Dashboard</td><td class="mono">Grafana</td><td>live view of energy / temperature / state machine</td></tr>
+        <tr><td>Run records</td><td class="mono">YAML manifest + Git</td><td>committed alongside the data; never written after the fact</td></tr>
+        <tr class="alt"><td>CI</td><td class="mono">pytest + schema</td><td>includes "manifest fw SHA must really exist" check</td></tr>
+      </table>
+      <div class="co info"><span class="co-t">A discipline that looks pedantic but is the most effective</span>
+        CI verifies that <code>firmware_git_sha</code> in every manifest actually exists in the repo.
+        It forces you to <strong>commit firmware first, then run the experiment</strong> — not "tweak, run, and forget
+        what changed".</div>
+    </div>
+    <div class="col w50">
+      <h3 style="margin-top:0">5.2　Data model (core table)</h3>
+      <table class="t">
+        <tr><th style="width:34%">Field</th><th style="width:20%">Type</th><th style="width:46%">Notes</th></tr>
+        <tr><td class="mono">run_id</td><td class="mono">TEXT</td><td>primary-key prefix, maps to the manifest</td></tr>
+        <tr class="alt"><td class="mono">t_host / t_mcu_ms</td><td class="mono">TIMESTAMPTZ / BIGINT</td><td>aligned + raw MCU, both kept for traceability</td></tr>
+        <tr><td class="mono">seq</td><td class="mono">INT</td><td><strong>gap detection</strong> — wireless telemetry must prove nothing was lost, else the EAR integral is fiction</td></tr>
+        <tr class="alt"><td class="mono">v_pv_mv / i_pv_ua</td><td class="mono">INT</td><td>INA226 #1</td></tr>
+        <tr><td class="mono">v_bat_mv / i_bat_ua</td><td class="mono">INT</td><td>INA226 #2, signed bidirectional</td></tr>
+        <tr class="alt"><td class="mono">soc_pct</td><td class="mono">SMALLINT</td><td>coulomb-integration result</td></tr>
+        <tr><td class="mono">active_discharge_battery</td><td class="mono">CHAR(1)</td><td>'A' / 'B'　<span class="pill pill-solar">new in v2</span></td></tr>
+        <tr class="alt"><td class="mono">t_panel / t_skin / t_bat / t_chgr</td><td class="mono">SMALLINT</td><td>4-point thermometry　<span class="pill pill-solar">new in v2</span></td></tr>
+        <tr><td class="mono">irradiance_wm2</td><td class="mono">REAL</td><td>reference-cell measurement　<span class="pill pill-solar">new in v2</span></td></tr>
+        <tr class="alt"><td class="mono">fsm_state</td><td class="mono">SMALLINT</td><td>FSM state, for segmented statistics</td></tr>
+      </table>
+      <div class="co ok"><span class="co-t">Run Manifest required fields (CI rejects otherwise)</span>
+        <code>firmware_git_sha</code>　<code>pmb_h.build_hash</code>　<code>lib.build_hash</code>
+        　<code>battery_[ab].capacity_calibrated_mah</code>　<code>battery_[ab].cycles_before_run</code>
+        　<code>pv.attenuation</code>　<code>environment.irradiance_ref_wm2</code>
+        　<code>config.emc_strategy</code>（which of ADR-004 / 006 / 007 were active this run）
+        <br/>Even perfboard has versions: <strong>move one jumper wire → build_hash +1</strong>.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

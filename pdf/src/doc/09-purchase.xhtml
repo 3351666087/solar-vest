@@ -1,0 +1,63 @@
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 07 · PROCUREMENT</span>
+    <h2 class="sec-title"><span class="tag tag-buy">C</span>　需采购物料</h2>
+    <p class="sec-sub">型号为建议，可用等效件替换。<strong>锂电池交期最长且部分快递不收，建议最先下单。</strong></p>
+  </div>
+
+  <h3>7.1　P0 · 不买就推不动（11 项）</h3>
+  <table class="t">
+    <tr><th style="width:5%">#</th><th style="width:22%">物料</th><th style="width:24%">规格</th>
+        <th style="width:7%">数量</th><th style="width:42%">为什么必须买</th></tr>
+    <tr><td class="num">1</td><td><strong>1S 锂电池</strong></td><td>3.7 V <strong>2500 mAh</strong>，带 PCM，PH2.0 出线</td><td class="c">4</td>
+        <td>现有 1000 mAh 自主度仅 0.64 天，连续阴雨即断电。2500×2 = 3.2 天；4 块 = 双电池 + 备份</td></tr>
+    <tr class="alt"><td class="num">2</td><td><strong>MPPT 充电模块</strong></td><td>CN3791，输入 ≤28 V，充电电流可调至 ≥1.25 A</td><td class="c">3</td>
+        <td>唯一充电路径。⚠ 下单前确认模块的最大充电电流与电感规格（淘宝模块用料常低于芯片能力）</td></tr>
+    <tr><td class="num">3</td><td><strong>INA226 模块</strong></td><td>I²C，可外接分流电阻</td><td class="c">4</td>
+        <td>EAR 的全部依据。只测一端算不清电池自放电与系统静态功耗，EAR 就是编的</td></tr>
+    <tr class="alt"><td class="num">4</td><td><strong>精密分流电阻</strong></td><td><strong>0.02 Ω</strong>，1%，2512</td><td class="c">20</td>
+        <td>v1.0 选的 0.1 Ω 在新功率下超 INA226 量程（1.8 A × 0.1 Ω = 180 mV &gt; 81.92 mV）</td></tr>
+    <tr><td class="num">5</td><td><strong>辐照度参考</strong></td><td>标定参考硅电池片（优先）<em>或</em> 照度计</td><td class="c">1</td>
+        <td>没有它，所有「不同光照下」的结论都无法复现。⚠ 照度计测 lux ≠ W/m²，报告须写明换算假设</td></tr>
+    <tr class="alt"><td class="num">6</td><td><strong>遥测 MCU</strong></td><td>Seeed XIAO nRF52840</td><td class="c">3</td>
+        <td>计量 + 调度 + 同步的载体</td></tr>
+    <tr><td class="num">7</td><td><strong>功率 MOSFET</strong></td><td>P 沟道 AO3401 / N 沟道 AO3400，SOT-23</td><td class="c">各 30</td>
+        <td>电池切换 4 只 + 负载开关。现有 YJL3404A 仅 1 只，不够也不可复现</td></tr>
+    <tr class="alt"><td class="num">8</td><td><strong>心电电极</strong></td><td>标准 snap 式一次性凝胶电极</td><td class="c">500 片</td>
+        <td>纯耗材。按每次 3 片 × 每天 2 次 × 90 天估算</td></tr>
+    <tr><td class="num">9</td><td><strong>理想二极管 IC</strong></td><td>LM66100 或同类，带反向阻断</td><td class="c">10</td>
+        <td>规避体二极管陷阱（关断态仍并联），比分立 FET 背靠背可靠得多</td></tr>
+    <tr class="alt"><td class="num">10</td><td><strong>隔热材料</strong></td><td>EVA 泡沫垫 / 气凝胶垫，3–5 mm</td><td class="c">1 卷</td>
+        <td>面板背面 60–70 °C，人体侧必须隔热。<strong>导热垫不能替代，方向相反</strong></td></tr>
+    <tr><td class="num">11</td><td><strong>18 V 线缆与连接器</strong></td><td>18 AWG 屏蔽硅胶线 2 m、XT30 公母各 5、2 A 慢断保险丝座 + 保险丝 10</td><td class="c">1 套</td>
+        <td>18 V / 1.8 A 短路会拉电弧；保险丝与合格线缆是安全底线</td></tr>
+  </table>
+
+  <h3>7.2　P1 · 强烈建议（影响数据质量与安全）</h3>
+  <table class="t">
+    <tr><th style="width:5%">#</th><th style="width:24%">物料</th><th style="width:26%">规格</th><th style="width:7%">数量</th><th style="width:38%">理由</th></tr>
+    <tr><td class="num">12</td><td><strong>可调直流电源</strong></td><td>0–30 V / 0–5 A，<strong>带限流</strong></td><td class="c">1</td>
+        <td>上电检查与电池互锁测试（TC-13）都必须用限流电源。<strong>这是最能防止烧板的一台仪器</strong>；若 Workspace 已有则不必买</td></tr>
+    <tr class="alt"><td class="num">13</td><td>直流电子负载</td><td>60–150 W 恒流可调</td><td class="c">1</td><td>面板 I-V 曲线、电池放电曲线</td></tr>
+    <tr><td class="num">14</td><td>K 型表面热电偶</td><td>与现有测温仪配套</td><td class="c">4</td><td>测点由 2 点增至 4 点（面板背面／皮肤侧／电池／充电器外壳）</td></tr>
+    <tr class="alt"><td class="num">15</td><td><strong>小型柔性光伏板</strong></td><td>5–6 V / 约 1 W</td><td class="c">2</td>
+        <td>让 EVK10941 不闲置，保住「两种采集路径对比」研究线。成本极低，论文价值高</td></tr>
+    <tr><td class="num">16</td><td>EMC 物料</td><td>共模扼流圈、磁环夹、铜箔屏蔽胶带</td><td class="c">各 10</td><td>头号风险的缓解措施</td></tr>
+    <tr class="alt"><td class="num">17</td><td>保护器件</td><td>SMAJ26A、SS54、220 µF/35 V 低 ESR、Polyfuse</td><td class="c">各 10</td><td>按新功率等级重选</td></tr>
+    <tr><td class="num">18</td><td>NTC 热敏电阻</td><td>10 kΩ B3950</td><td class="c">10</td><td>0–45 °C 充电窗口保护（CN3791 无内置温度保护）</td></tr>
+    <tr class="alt"><td class="num">19</td><td>防拉脱连接器</td><td>磁吸式 5 芯 或 易断连接器</td><td class="c">4</td><td>分体式的安全件；拉力 &gt; 约 20 N 时先断连接器而非扯动电极</td></tr>
+    <tr><td class="num">20</td><td>PCB 耗材</td><td>覆铜板、铣刀／钻头、过孔铆钉、三防漆、IPA</td><td class="c">1 批</td><td>配合实验室制板设备；<strong>无阻焊板必须涂三防漆</strong>（贴身防汗）</td></tr>
+    <tr class="alt"><td class="num">21</td><td>装配耗材</td><td>助焊剂、吸锡带、Kapton 胶带、热缩管、走线夹</td><td class="c">各 1</td><td>—</td></tr>
+  </table>
+
+  <h3>7.3　P2 · 可选（取决于待确认事项）</h3>
+  <table class="t">
+    <tr><th style="width:5%">#</th><th style="width:30%">物料</th><th style="width:65%">触发条件</th></tr>
+    <tr><td class="num">22</td><td>TEG 温差发电模块 + 散热片</td><td><strong>仅当确认继续热电对照路线</strong>（Q5）——当前物料中无任何发电器件</td></tr>
+    <tr class="alt"><td class="num">23</td><td>ADS1292R / MAX86150 模块</td><td>仅当启动 Phase 3 自研低功耗节点（Q3）</td></tr>
+    <tr><td class="num">24</td><td>示波器（≥50 MHz）</td><td>若 Workspace 没有则强烈建议——EMC 排查离不开它</td></tr>
+    <tr class="alt"><td class="num">25</td><td>红外热像仪</td><td>热分布深度研究；也可借用</td></tr>
+    <tr><td class="num">26</td><td>函数信号发生器</td><td>心电体模激励（手机音频输出可先顶替）</td></tr>
+    <tr class="alt"><td class="num">27</td><td>背负／支架结构件</td><td>取决于 Q1 的面板安装方案选择</td></tr>
+  </table>
+</div>

@@ -1,0 +1,277 @@
+<title>Solar Vest Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: full-bleed WebGL stage; header strip on top, operating-mode rail left, part dossier right,
+   live power/data flow graph docked along the bottom; presentation captions float above the dock. */
+:root{
+  --bg:#060a12; --glass:rgba(10,16,28,.9); --glass-hi:rgba(255,255,255,.04); --line:rgba(150,185,255,.14); --line-hi:rgba(150,185,255,.28);
+  --ink:#e9eef8; --mute:#8e9cb4; --faint:#5b6982;
+  --sun:#f5b544; --data:#4fd1e8; --ecg:#ff6b8b; --good:#3ddc97; --warn:#ff8a4c; --violet:#b69cff; --ctrl:#7f8fb3;
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --f-data:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  color-scheme:dark;
+}
+[hidden]{display:none!important}
+html,body{height:100%;margin:0;overflow:hidden}
+body{background:var(--bg);color:var(--ink);font:13px/1.45 var(--f-body);-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--data);outline-offset:2px}
+#gl{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:14px;
+  box-shadow:0 1px 0 var(--glass-hi) inset,0 18px 40px -22px rgba(0,0,0,.8)}
+.mono{font-family:var(--f-data);font-variant-numeric:tabular-nums}
+
+/* ---------- header */
+header{position:fixed;z-index:20;top:calc(10px + env(safe-area-inset-top,0px));left:12px;right:12px;display:flex;align-items:center;gap:10px;pointer-events:none}
+header>*{pointer-events:auto}
+.brand{display:flex;align-items:center;gap:10px;padding:6px 14px 6px 8px;flex:none}
+.brand .sunmark{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,#ffd88a 0,#f5a524 45%,#b4561a 100%);box-shadow:0 0 18px -2px rgba(245,165,36,.75)}
+.brand .sunmark svg{width:18px;height:18px;stroke:#2a1600;fill:none;stroke-width:2;stroke-linecap:round}
+.brand h1{margin:0;font:700 16px/1.05 var(--f-display);letter-spacing:.01em}
+.brand p{margin:1px 0 0;font:500 10.5px var(--f-data);color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.seg{display:flex;gap:2px;padding:3px}
+.seg button{border:0;background:none;padding:7px 13px;border-radius:9px;cursor:pointer;color:var(--mute);font-weight:600;font-size:12.5px;white-space:nowrap}
+.seg button:hover{color:var(--ink);background:rgba(255,255,255,.05)}
+.seg button.on{color:#07111d;background:var(--data);box-shadow:0 0 16px -4px var(--data)}
+.spacer{flex:1}
+.tools{display:flex;align-items:center;gap:2px;padding:3px}
+.tool{border:0;background:none;height:32px;padding:0 11px;border-radius:9px;cursor:pointer;color:var(--mute);display:flex;align-items:center;gap:7px;font-weight:600;font-size:12.5px;white-space:nowrap}
+.tool svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tool:hover{color:var(--ink);background:rgba(255,255,255,.05)}
+.tool.on{color:var(--data);background:rgba(79,209,232,.12)}
+.tool.present{color:#1a0f00;background:var(--sun);box-shadow:0 0 18px -5px var(--sun)}
+.tool.present:hover{background:#ffc25e;color:#1a0f00}
+.explode{display:flex;align-items:center;gap:6px;padding-right:6px}
+input[type=range]{-webkit-appearance:none;appearance:none;height:4px;border-radius:3px;background:rgba(150,185,255,.22);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 3px rgba(79,209,232,.35)}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border:0;border-radius:50%;background:var(--ink)}
+#explode{width:84px}
+#views{position:fixed;z-index:19;top:calc(62px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);display:flex;gap:2px;padding:3px;max-width:calc(100% - 24px);overflow-x:auto;scrollbar-width:none}
+#views button{border:0;background:none;padding:5px 11px;border-radius:8px;color:var(--mute);cursor:pointer;font-size:12px;white-space:nowrap}
+#views button:hover{color:var(--ink);background:rgba(255,255,255,.05)}
+#views button.on{color:var(--data)}
+
+/* ---------- mode rail */
+#modes{position:fixed;z-index:15;top:calc(64px + env(safe-area-inset-top,0px));left:12px;width:292px;max-height:calc(100% - 64px - 290px);overflow:auto;padding:14px;box-sizing:border-box;scrollbar-width:thin}
+.eyebrow{margin:0 0 8px;font:500 10.5px var(--f-data);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:7px}
+.eyebrow i{width:8px;height:8px;border-radius:2px;display:inline-block}
+#modechips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+#modechips button{border:1px solid var(--line);background:rgba(255,255,255,.02);color:var(--mute);padding:5px 9px;border-radius:999px;cursor:pointer;font-size:12px;font-weight:500}
+#modechips button:hover{color:var(--ink);border-color:var(--line-hi)}
+#modechips button.on{color:#1a0f00;background:var(--sun);border-color:var(--sun)}
+#modechips button[data-m=night].on{background:#8fb3ff;border-color:#8fb3ff}
+#modechips button[data-m=glitch].on{background:var(--violet);border-color:var(--violet)}
+.slider{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;margin-bottom:10px}
+.slider label{font-size:12px;color:var(--mute)}
+.slider output{font:500 12px var(--f-data);color:var(--ink);text-align:right}
+.slider input{grid-column:1/-1;width:100%}
+.slider small{grid-column:1/-1;font-size:10.5px;color:var(--faint)}
+.metrics{display:grid;grid-template-columns:1fr auto;gap:5px 10px;margin:4px 0 0;padding:10px 0 0;border-top:1px solid var(--line)}
+.metrics dt{color:var(--mute);font-size:12px}
+.metrics dd{margin:0;font:500 12.5px var(--f-data);text-align:right;font-variant-numeric:tabular-nums}
+.metrics .big{font-size:20px;line-height:1.1}
+.pos{color:var(--good)} .neg{color:var(--warn)}
+#sharebar{grid-column:1/-1;height:6px;border-radius:4px;background:rgba(150,185,255,.14);overflow:hidden;margin:-1px 0 4px}
+#sharebar i{display:block;height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,#f5a524,#ffd27a);box-shadow:0 0 12px rgba(245,181,68,.7);transition:width .35s}
+#modenote{margin:10px 0 0;padding:9px 10px;border-radius:10px;background:rgba(255,255,255,.035);color:#c6d0e2;font-size:12px;line-height:1.5}
+
+/* ---------- dossier */
+#dossier{position:fixed;z-index:15;top:calc(64px + env(safe-area-inset-top,0px));right:12px;width:330px;max-height:calc(100% - 64px - 290px);overflow:auto;padding:16px 16px 14px;box-sizing:border-box;scrollbar-width:thin;animation:slidein .25s ease-out}
+@keyframes slidein{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}
+#dossier h2{margin:2px 0 2px;font:700 21px/1.12 var(--f-display);text-wrap:balance}
+#dossier .sub{margin:0 0 12px;color:var(--mute);font-size:12.5px}
+#dossier section{margin:0 0 10px}
+#dossier h3{margin:0 0 3px;font:500 10.5px var(--f-data);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+#dossier section p{margin:0;font-size:13px;line-height:1.55;color:#d6deeb}
+#dossier .why{padding:10px 12px;border-radius:10px;background:rgba(245,181,68,.08);border:1px solid rgba(245,181,68,.22)}
+#dossier .why h3{color:var(--sun)}
+#dossier dl{margin:4px 0 10px;display:grid;gap:4px}
+#dossier dl div{display:flex;justify-content:space-between;gap:12px;font-size:12px;padding:4px 0;border-bottom:1px dashed rgba(150,185,255,.12)}
+#dossier dt{color:var(--mute)} #dossier dd{margin:0;font-family:var(--f-data);text-align:right}
+#dossier .x{position:absolute;top:10px;right:10px;width:28px;height:28px;border:0;border-radius:8px;background:none;color:var(--mute);font-size:18px;cursor:pointer}
+#dossier .x:hover{background:rgba(255,255,255,.06);color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin:2px 0 10px}
+.chips span{font:500 10.5px var(--f-data);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-right:3px}
+.chip{border:1px solid rgba(245,181,68,.4);background:rgba(245,181,68,.08);color:#ffd68e;border-radius:999px;padding:3px 9px;font-size:11.5px;cursor:pointer}
+.chip:hover{background:rgba(245,181,68,.18)}
+.act{width:100%;border:1px solid rgba(79,209,232,.45);background:rgba(79,209,232,.1);color:var(--data);border-radius:10px;padding:9px;font-weight:600;cursor:pointer}
+.act:hover{background:rgba(79,209,232,.2)}
+
+/* ---------- labels */
+#leaders{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:8}
+#leaders line{stroke:rgba(233,238,248,.55);stroke-width:1}
+#leaders circle{fill:#e9eef8}
+#labels{position:fixed;inset:0;pointer-events:none;z-index:9}
+.lbl{position:absolute;left:0;top:0;height:26px;display:flex;align-items:center;gap:7px;padding:0 10px 0 8px;border-radius:8px;border:1px solid var(--line);
+  background:rgba(8,13,24,.82);color:var(--ink);font-size:12px;font-weight:500;white-space:nowrap;cursor:pointer;transition:opacity .2s,border-color .2s,box-shadow .2s}
+.lbl i{width:8px;height:8px;border-radius:2px;flex:none}
+.lbl:hover,.lbl.sel{border-color:var(--data);box-shadow:0 0 14px -3px var(--data)}
+#tip{position:fixed;left:0;top:0;z-index:30;pointer-events:none;padding:7px 10px;border-radius:9px;background:rgba(8,13,24,.92);border:1px solid var(--line-hi);opacity:0;transition:opacity .12s;max-width:260px}
+#tip.on{opacity:1}
+#tip b{display:block;font-size:12.5px} #tip span{color:var(--mute);font-size:11.5px}
+
+/* ---------- flow dock */
+#dock{position:fixed;z-index:14;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));height:262px;display:flex;flex-direction:column;transition:height .3s}
+#dock.min{height:40px}
+.dockhead{display:flex;align-items:center;gap:14px;padding:8px 12px 0 14px;flex:none}
+.dockhead h2{margin:0;font:700 13.5px var(--f-display);letter-spacing:.01em}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--mute)}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{width:16px;height:3px;border-radius:2px;display:inline-block}
+#t-dock{margin-left:auto}
+#t-dock svg{transition:transform .3s}
+#dock.min #t-dock svg{transform:rotate(180deg)}
+.flowwrap{flex:1;min-height:0;overflow-x:auto;overflow-y:hidden;padding:0 8px 6px}
+#flow{display:block;height:100%;min-width:900px;width:100%}
+#dock.min .flowwrap{display:none}
+#flow .e{fill:none;stroke-width:2;stroke-linecap:round;transition:opacity .3s}
+#flow .e.e{stroke:#6b5427} #flow .e.s{stroke:#6b2f3c} #flow .e.d{stroke:#245564} #flow .e.c{stroke:#3a4563;stroke-dasharray:3 4}
+#flow .e.broken{stroke:#ff3b5c;stroke-dasharray:6 6;opacity:1!important}
+#flow .ef{fill:none;stroke-linecap:round;stroke-dasharray:2 14;animation:flowdash 1s linear infinite;transition:opacity .3s,stroke-width .3s}
+#flow .ef.e{stroke:var(--sun);color:var(--sun);stroke-width:3} #flow .ef.s{stroke:var(--ecg);color:var(--ecg);stroke-width:2.4}
+#flow .ef.d{stroke:var(--data);color:var(--data);stroke-width:2.4} #flow .ef.c{stroke:#a9b6d6;color:#a9b6d6;stroke-width:1.6;stroke-dasharray:1 8}
+#flow .ef.violet{stroke:var(--violet);color:var(--violet)}
+@keyframes flowdash{to{stroke-dashoffset:-32}}
+#flow .node rect{fill:rgba(14,22,38,.95);stroke:var(--line-hi);stroke-width:1;transition:stroke .2s,fill .2s}
+#flow .node{cursor:pointer;outline:none}
+#flow .node:hover rect,#flow .node:focus rect,#flow .node.hl rect{stroke:var(--data);fill:rgba(20,40,60,.95)}
+#flow .node.flash rect{animation:nodeflash 1.2s ease-out}
+@keyframes nodeflash{0%,30%{stroke:var(--sun);stroke-width:3}100%{stroke-width:1}}
+#flow .node.src rect{fill:rgba(60,40,8,.9);stroke:rgba(245,181,68,.55)}
+#flow .t{fill:var(--ink);font:600 11.5px var(--f-body)}
+#flow .s{fill:var(--mute);font:400 10px var(--f-body)}
+#flow .v{fill:var(--sun);font:500 9.5px var(--f-data)}
+#flow .v.pos{fill:var(--good)} #flow .v.neg{fill:var(--warn)}
+#flow .el{fill:#ffd68e;font:500 11px var(--f-data)}
+#flow .el.note{fill:#a9c4ff}
+
+/* ---------- tour */
+#tour{position:fixed;z-index:25;left:50%;transform:translateX(-50%);bottom:calc(290px + env(safe-area-inset-bottom,0px));width:min(640px,calc(100% - 24px));padding:16px 18px 14px;box-sizing:border-box;
+  border-color:rgba(245,181,68,.35);animation:rise .3s ease-out}
+#dock.min ~ #tour{bottom:calc(66px + env(safe-area-inset-bottom,0px))}
+@keyframes rise{from{opacity:0;transform:translate(-50%,8px)}to{opacity:1;transform:translateX(-50%)}}
+@keyframes riseLeft{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+#tour .top{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+#tour-n{font:500 11px var(--f-data);color:var(--sun);letter-spacing:.08em}
+#tour h2{margin:0 0 6px;font:700 22px/1.15 var(--f-display);text-wrap:balance}
+#tour p{margin:0;color:#d4dcea;font-size:14px;line-height:1.55;max-width:62ch}
+#tour-asks{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+#tour-asks li{display:flex;gap:10px;align-items:baseline;padding:7px 10px;border-radius:9px;background:rgba(245,181,68,.08);border:1px solid rgba(245,181,68,.25);font-size:13px}
+#tour-asks b{font-family:var(--f-data);color:var(--sun)}
+#tour-bar{height:3px;border-radius:2px;background:rgba(150,185,255,.15);margin:12px 0 10px;overflow:hidden}
+#tour-bar i{display:block;height:100%;background:var(--sun);transition:width .3s}
+#tour .nav{display:flex;gap:8px;justify-content:flex-end;align-items:center}
+#tour .nav small{margin-right:auto;color:var(--faint);font-size:11px}
+.btn{border:1px solid var(--line-hi);background:rgba(255,255,255,.03);border-radius:9px;padding:7px 14px;cursor:pointer;font-weight:600}
+.btn:hover{background:rgba(255,255,255,.08)} .btn:disabled{opacity:.35;cursor:default}
+.btn.primary{background:var(--sun);color:#1a0f00;border-color:var(--sun)}
+#tour-x{margin-left:auto;border:0;background:none;color:var(--mute);cursor:pointer;font-size:12px}
+/* presenting: the step card takes the left column so the model stays clear in the middle */
+@media (min-width:901px){
+  body.touring #modes{display:none}
+  #tour{left:16px;top:64px;bottom:auto;transform:none;width:min(372px,calc(100% - 32px));max-height:calc(100% - 64px - 330px);overflow:auto;animation-name:riseLeft}
+  #dock.min ~ #tour{bottom:auto;max-height:calc(100% - 64px - 70px)}
+  #tour h2{font-size:21px}
+}
+
+/* ---------- loading */
+#boot{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:radial-gradient(80% 60% at 50% 40%,#0d1830 0,#060a12 70%);transition:opacity .6s}
+#boot.done{opacity:0;pointer-events:none}
+#boot .in{text-align:center}
+#boot h1{margin:14px 0 4px;font:700 26px var(--f-display)}
+#boot p{margin:0;color:var(--mute);font-size:12.5px}
+#boot .orb{width:56px;height:56px;margin:0 auto;border-radius:50%;background:radial-gradient(circle at 50% 45%,#ffe2a6 0,#f5a524 45%,#7a3a10 100%);box-shadow:0 0 40px rgba(245,165,36,.6);animation:breathe 1.6s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(.9);box-shadow:0 0 70px rgba(245,165,36,.85)}}
+#busy{position:fixed;z-index:40;left:50%;top:50%;transform:translate(-50%,-50%);padding:12px 16px;display:flex;gap:10px;align-items:center}
+#busy i{width:12px;height:12px;border-radius:50%;border:2px solid var(--data);border-top-color:transparent;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(1turn)}}
+
+@media (max-width:1180px){.tool .lbtxt{display:none}.brand p{display:none}}
+@media (max-width:900px){
+  header{flex-wrap:wrap}.spacer{display:none}
+  #views{top:auto;bottom:calc(60px + env(safe-area-inset-bottom,0px))}
+  #modes{top:auto;bottom:calc(104px + env(safe-area-inset-bottom,0px));left:12px;right:12px;width:auto;max-height:42%}
+  #dossier{top:auto;bottom:calc(104px + env(safe-area-inset-bottom,0px));left:12px;right:12px;width:auto;max-height:52%}
+  #dock{height:40px}
+  #tour{bottom:calc(60px + env(safe-area-inset-bottom,0px))}
+  .lbl{font-size:11px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<canvas id="gl" aria-label="3D model of the solar vest"></canvas>
+<svg id="leaders" aria-hidden="true"></svg>
+<div id="labels"></div>
+<div id="tip" role="tooltip"></div>
+
+<header>
+  <div class="brand glass">
+    <span class="sunmark"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/></svg></span>
+    <div><h1>Solar Vest Explorer</h1><p>Self-powered solar-harvesting wearable · v3.1</p></div>
+  </div>
+  <div class="seg glass" id="scenes" role="tablist" aria-label="Scene">
+    <button type="button" data-s="worn" class="on">Worn</button>
+    <button type="button" data-s="boards">Inside the boards</button>
+    <button type="button" data-s="bench">Bench rig</button>
+  </div>
+  <span class="spacer"></span>
+  <div class="tools glass">
+    <button type="button" class="tool on" id="t-modes" aria-pressed="true" title="Operating mode panel"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span class="lbtxt">Modes</span></button>
+    <button type="button" class="tool" id="t-xray" aria-pressed="false" title="X-ray shells (X)"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span class="lbtxt">X-ray</span></button>
+    <span class="explode"><button type="button" class="tool" id="t-explode" title="Exploded view (E)"><svg viewBox="0 0 24 24"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/></svg><span class="lbtxt">Explode</span></button><input type="range" id="explode" min="0" max="100" value="0" aria-label="Explode amount"></span>
+    <button type="button" class="tool on" id="t-labels" aria-pressed="true" title="Labels (L)"><svg viewBox="0 0 24 24"><path d="M20 12 12 20l-9-9V3h8l9 9Z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg><span class="lbtxt">Labels</span></button>
+    <button type="button" class="tool on" id="t-flow" aria-pressed="true" title="Energy flow particles"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg><span class="lbtxt">Flow</span></button>
+    <button type="button" class="tool present" id="t-present" title="Guided presentation (P)"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5Z"/></svg><span class="lbtxt">Present</span></button>
+  </div>
+</header>
+<nav id="views" class="glass" aria-label="Camera views"></nav>
+
+<aside id="modes" class="glass" aria-label="Operating mode">
+  <p class="eyebrow"><i style="background:var(--sun)"></i>Operating mode</p>
+  <div id="modechips"></div>
+  <div class="slider"><label for="g">Light on the panel</label><output id="g-out" class="mono">1000 W/m²</output>
+    <input type="range" id="g" min="0" max="1000" value="1000"></div>
+  <div class="slider"><label for="load">ECG unit B draws</label><output id="load-out" class="mono">65 mA</output>
+    <input type="range" id="load" min="20" max="140" step="5" value="65"><small>Assumed 65 mA from simulation TB5; measured on the bench in TC-01.</small></div>
+  <dl class="metrics">
+    <dt>Panel power into charger</dt><dd id="m-p" class="big">4.74 W</dd>
+    <dt>Charger output</dt><dd id="m-chg">1102 mA</dd>
+    <dt>Electronics use</dt><dd id="m-use">73 mA</dd>
+    <dt>Battery net</dt><dd id="m-net" class="pos">+1029 mA</dd>
+    <dt>Solar share of use</dt><dd id="m-share">100 %</dd>
+    <span id="sharebar"><i></i></span>
+    <dt>Battery alone lasts</dt><dd id="m-alone">34.2 h</dd>
+    <dt>At this light</dt><dd id="m-light">charging</dd>
+    <dt>Break-even light</dt><dd id="m-be">66 W/m²</dd>
+  </dl>
+  <p id="modenote"></p>
+</aside>
+
+<aside id="dossier" class="glass" aria-live="polite" hidden></aside>
+
+<section id="dock" class="glass" aria-label="Power and data flow">
+  <div class="dockhead">
+    <h2>Power &amp; data flow</h2>
+    <div class="legend"><span><i style="background:var(--sun)"></i>energy</span><span><i style="background:var(--ecg)"></i>sensor signal</span><span><i style="background:var(--data)"></i>data · BLE / I²C</span><span><i style="background:#a9b6d6"></i>control</span><span><i style="background:var(--violet)"></i>supercap hold-up</span></div>
+    <button type="button" class="tool" id="t-dock" aria-expanded="true" title="Show or hide the flow graph (F)"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+  </div>
+  <div class="flowwrap"><svg id="flow" viewBox="0 0 1400 236" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Live flow graph of energy, signals and data"></svg></div>
+</section>
+
+<section id="tour" class="glass" hidden aria-live="polite">
+  <div class="top"><span id="tour-n">1 / 11</span><button type="button" id="tour-x">Exit presentation (Esc)</button></div>
+  <h2 id="tour-t"></h2>
+  <p id="tour-p"></p>
+  <ul id="tour-asks" hidden>
+    <li><b>a</b><span>Approve the overall design</span></li>
+    <li><b>b</b><span>Shorten the panel's 5 m cable, or keep it and coil it (+90 g)</span></li>
+    <li><b>c</b><span>Have the vest made by an outside sample studio (RMB 500–1,500)</span></li>
+  </ul>
+  <div id="tour-bar"><i></i></div>
+  <div class="nav"><small>← → or Space to move</small><button type="button" class="btn" id="tour-prev">Back</button><button type="button" class="btn primary" id="tour-next">Next</button></div>
+</section>
+
+<div id="busy" class="glass" hidden><i></i><span>Loading…</span></div>
+<div id="boot"><div class="in"><div class="orb"></div><h1>Solar Vest Explorer</h1><p>Loading the 3D model…</p></div></div>

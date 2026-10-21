@@ -1,0 +1,86 @@
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 01</span>
+    <h2 class="sec-title">Key Conclusions &amp; the Energy Ledger</h2>
+    <p class="sec-sub">With the panel changed from "small flexible" to "30 W rigid", the energy budget had to be
+      recomputed end to end. Results below — the conclusion directionally reverses versus v1.0.</p>
+  </div>
+
+  <div class="row" style="margin-bottom:4mm">
+    <div class="col w25"><div class="kpi accent"><div class="kpi-k">EAR · Energy Autonomy Ratio</div>
+      <div class="kpi-v">1.0<span class="u">–3.9</span></div>
+      <div class="kpi-d">Harvested ÷ consumed. ≥ 1.0 is net-positive</div></div></div>
+    <div class="col w25"><div class="kpi"><div class="kpi-k">Daily draw, continuous</div>
+      <div class="kpi-v">5.76<span class="u"> Wh</span></div>
+      <div class="kpi-d">BITalino ≈ 240 mW × 24 h<sup>①</sup></div></div></div>
+    <div class="col w25"><div class="kpi"><div class="kpi-k">Autonomy</div>
+      <div class="kpi-v">3.2<span class="u"> days</span></div>
+      <div class="kpi-d">2 × 2500 mAh, zero light</div></div></div>
+    <div class="col w25"><div class="kpi"><div class="kpi-k">Switching power</div>
+      <div class="kpi-v">8<span class="u"> W</span></div>
+      <div class="kpi-d">~30× vs v1.0 → EMC risk</div></div></div>
+  </div>
+
+  <div class="co ok"><span class="co-t">Conclusion 1: continuous ECG acquisition is energy-feasible</span>
+    With <strong>2 h outdoors</strong> or <strong>6 h right beside a window</strong> per day, the system is net-positive.
+    The v1.0 constraint "duty cycle must be squeezed to 6.7%" is lifted — duty-cycling is kept, but demoted
+    to a saving measure for overcast days.</div>
+
+  <h3>1.1　Scenario yield and EAR</h3>
+  <table class="t">
+    <tr><th style="width:26%">Scenario</th><th style="width:13%">Plane irradiance</th><th style="width:11%">Cell temp</th>
+        <th style="width:12%">Panel output</th><th style="width:11%">Effective hrs</th><th style="width:13%">Daily harvest</th>
+        <th style="width:14%">EAR</th></tr>
+    <tr><td>Outdoor horizontal, sunny</td><td class="num">900 W/m²</td><td class="num">60 °C</td>
+        <td class="num">23.2 W</td><td class="c">reference</td><td class="c">—</td><td class="c">—</td></tr>
+    <tr class="alt"><td><strong>Outdoor backpack vertical, sunny</strong></td><td class="num">300 W/m²</td><td class="num">45 °C</td>
+        <td class="num">8.3 W</td><td class="num">2 h</td><td class="num">14.1 Wh</td>
+        <td><span class="pill pill-ok">2.45　ample</span></td></tr>
+    <tr><td>Outdoor overcast</td><td class="num">120 W/m²</td><td class="num">30 °C</td>
+        <td class="num">3.5 W</td><td class="num">2 h</td><td class="num">6.0 Wh</td>
+        <td><span class="pill pill-ok">1.04　marginal</span></td></tr>
+    <tr class="alt"><td><strong>Indoor, against S window &lt;0.5 m</strong></td><td class="num">150 W/m²</td><td class="num">30 °C</td>
+        <td class="num">4.4 W</td><td class="num">6 h</td><td class="num">22.5 Wh</td>
+        <td><span class="pill pill-ok">3.91　ample</span></td></tr>
+    <tr><td>Indoor, 2 m from window</td><td class="num">35 W/m²</td><td class="num">25 °C</td>
+        <td class="num">1.1 W</td><td class="num">6 h</td><td class="num">5.4 Wh</td>
+        <td><span class="pill pill-solar">0.94　slight deficit</span></td></tr>
+    <tr class="alt"><td>Indoor, office lighting 500 lux</td><td class="num">1.5 W/m²</td><td class="num">25 °C</td>
+        <td class="num">0.045 W</td><td class="num">8 h</td><td class="num">0.4 Wh</td>
+        <td><span class="pill pill-risk">0.07　infeasible</span></td></tr>
+    <caption>Panel output includes temperature coefficient −0.4 %/°C<sup>②</sup>; daily harvest includes 85% collection-chain
+      efficiency<sup>②</sup>. Irradiance figures are engineering estimates — Phase 0 replaces them with reference-cell
+      measurements, and every number in this table must be updated accordingly.</caption>
+  </table>
+
+  <div class="co warn"><span class="co-t">The one scenario that fails: indoor artificial lighting only</span>
+    Under office lighting the panel yields only ~45 mW, a daily harvest of 0.4 Wh — under 7% of consumption.
+    <strong>No material should ever describe this as "self-charging under indoor lighting".</strong>
+    This matches the Vice Dean's earlier judgment: solar extends runtime but cannot be promised to eliminate external charging.</div>
+
+  <h3>1.2　The bottleneck moved: from "can't harvest enough" to "can't store enough"</h3>
+  <p>Daily harvest is 14–22 Wh, while the existing 1000 mAh battery stores only 3.7 Wh. It fills early each day
+    and the rest is discarded; the first overcast stretch then kills the system. The standard design variable for
+    off-grid PV is <strong>autonomy (days)</strong>, conventionally 3–5.</p>
+  <table class="t">
+    <tr><th style="width:22%">Battery capacity</th><th style="width:16%">Usable energy</th><th style="width:18%">Autonomy</th>
+        <th style="width:20%">0.5 C charge current</th><th style="width:24%">Verdict</th></tr>
+    <tr><td>1000 mAh (existing)</td><td class="num">3.70 Wh</td><td class="num">0.64 d</td><td class="num">0.50 A</td>
+        <td><span class="pill pill-risk">insufficient</span>　two overcast days = blackout</td></tr>
+    <tr class="alt"><td>2000 mAh</td><td class="num">7.40 Wh</td><td class="num">1.28 d</td><td class="num">1.00 A</td><td>tight</td></tr>
+    <tr><td><strong>2500 mAh × 2 (recommended)</strong></td><td class="num">9.25 Wh ×2</td><td class="num">3.21 d</td><td class="num">1.25 A</td>
+        <td><span class="pill pill-ok">recommended</span>　and fits dual-battery alternation</td></tr>
+    <tr class="alt"><td>5000 mAh</td><td class="num">18.50 Wh</td><td class="num">3.21 d</td><td class="num">2.50 A</td>
+        <td>single cell also works, but loses dual-battery isolation</td></tr>
+  </table>
+
+  <h3>1.3　A 30 W panel driving a 0.24 W load is not waste</h3>
+  <p>Panel capability (8–23 W) far exceeds what the charger can absorb (~5 W). This is standard off-grid practice —
+    <strong>oversized array for low-light robustness</strong>:</p>
+  <ul class="cl">
+    <li><span class="bullet"></span>Size for "just enough at sunny noon" → the system fails entirely in overcast, winter, or poor orientation;</li>
+    <li><span class="bullet"></span>Size for "enough even overcast" → on sunny days current is limited and surplus discarded, but the system works year-round.</li>
+    <li><span class="bullet"></span>This panel still outputs 3.5 W under overcast — enough to charge at full rate. <strong>Its value is not peak power; it is worst-case floor capability.</strong></li>
+  </ul>
+  <div class="foot-note">① To be replaced by TC-01 measurement — this number is the foundation of every calculation in this section; ② to be measured or confirmed against datasheets.</div>
+</div>

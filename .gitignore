@@ -1,0 +1,28 @@
+# OS / editors / tools
+.DS_Store
+.claude/
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+
+# build outputs
+dist/
+pdf/target/
+pdf/*.pdf
+pdf/preview*/
+pdf/pv*/
+制造文件/源码/out/
+制造文件/源码/parts/
+制造文件/源码/SolarVest_Explorer_src/models/ports.json
+
+# machine-local or third-party files that must not be published
+pdf/cp.txt
+pdf/settings.xml
+pdf/assets/fonts/
+制造文件/参考资料/
+3D与PCB调研_验证样例/官方模型/
+
+# bundles go to GitHub Releases, not to the tree (the JLC Gerber zips are the exception)
+*.zip
+!制造文件/PCB/*/*_gerber_JLC.zip

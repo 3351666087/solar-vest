@@ -1,0 +1,174 @@
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 03 · HARDWARE</span>
+    <h2 class="sec-title">硬件层　引脚级连接</h2>
+    <p class="sec-sub">本章为横向页，每页一张网表图加对应的设计依据。所有连接标注到引脚；引脚<strong>名称</strong>按功能给出，
+      <strong>编号</strong>须以各器件数据手册为准（凡标 ⚠ 者为必须现场核实项）。
+      配色沿用总架构图：<span class="pill pill-solar">18 V 功率区</span>
+      <span class="pill pill-ok">储能区</span> <span class="pill pill-volt">低压／计量</span>
+      <span class="pill pill-risk">安全关键</span>。</p>
+  </div>
+  <figure class="tight">
+    <div class="figframe tight">@@hw1-input|820@@</div>
+    <div class="figcap"><span class="fignum">图 2</span>　18 V 输入保护与 MPPT 充电。</div>
+  </figure>
+  <div class="row">
+    <div class="col w60">
+      <h4 style="margin-top:1mm">保护段选型：功率上调后必须重算的五项</h4>
+      <table class="t">
+        <tr><th style="width:12%">位号</th><th style="width:22%">v1.0</th><th style="width:24%">v2.0</th><th style="width:42%">理由</th></tr>
+        <tr><td class="mono">F1</td><td>装在 PMB 上</td><td><strong>装在面板接线盒内</strong></td>
+            <td>保险丝装在负载端保护不了线缆本身；18 V / 1.8 A 短路会拉电弧</td></tr>
+        <tr class="alt"><td class="mono">TVS1</td><td>SMAJ24A</td><td>SMAJ26A ⚠ 实测 V<sub>oc</sub> 后定档</td>
+            <td>规则：击穿电压 &gt; 实测 V<sub>oc</sub> × 1.15，否则晴天持续导通发热</td></tr>
+        <tr><td class="mono">D1</td><td>SS34（3 A）</td><td><strong>SS54（5 A）</strong></td>
+            <td>电流由 0.5 A 升至 1.7 A，SS34 余量不足</td></tr>
+        <tr class="alt"><td class="mono">C1</td><td>100 µF</td><td><strong>220 µF / 35 V 低 ESR</strong></td>
+            <td>输入功率提高，需要更大的输入储能</td></tr>
+        <tr><td class="mono">L1</td><td>无</td><td><strong>共模扼流圈 + 磁环</strong></td>
+            <td><span class="pill pill-risk">EMC</span>　抑制经线缆传导的共模噪声（新增）</td></tr>
+        <tr class="alt"><td class="mono">RS1</td><td>0.1 Ω</td><td><strong>0.02 Ω</strong></td>
+            <td>1.8 A × 0.1 Ω = 180 mV，已超 INA226 的 81.92 mV 满量程</td></tr>
+      </table>
+    </div>
+    <div class="col w40">
+      <div class="co warn" style="margin-top:1mm"><span class="co-t">30 W 源配 5 W 汇：必须限流</span>
+        30 W 输入按 90% 效率可向 3.9 V 电池灌 <strong>6.9 A</strong>，而 2500 mAh 电芯的安全充电率是
+        0.5 C = <strong>1.25 A</strong>。<strong>不设 R<sub>cs</sub> 限流会把电池充爆。</strong></div>
+      <div class="co risk"><span class="co-t">辐照度模拟：只能整板均匀衰减</span>
+        用中性密度网<strong>整板</strong>衰减。<strong>禁止局部遮挡</strong>——被遮单体会被反向偏置形成
+        <strong>热斑</strong>（可超 100 °C，会损坏面板甚至引燃），且 I-V 出现多峰，MPPT 会锁错峰。</div>
+    </div>
+  </div>
+</div>
+
+<div class="cont">
+  <figure class="tight" style="margin-top:0">
+    <div class="figframe tight">@@hw2-charge|600@@</div>
+    <div class="figcap"><span class="fignum">图 3</span>　充电侧切换（ADR-006 上半部）。</div>
+  </figure>
+  <div class="row">
+    <div class="col w50">
+      <h4 style="margin-top:1mm">互锁真值表　—　只有两种状态是合法的</h4>
+      <table class="t">
+        <tr><th style="width:12%">Q1</th><th style="width:12%">Q2</th><th style="width:26%">结果</th><th style="width:50%">说明</th></tr>
+        <tr><td class="mono">OFF</td><td class="mono">OFF</td><td><span class="pill pill-ok">合法</span></td><td>不充电（夜间／FAULT／电池温度越界）</td></tr>
+        <tr class="alt"><td class="mono">ON</td><td class="mono">OFF</td><td><span class="pill pill-ok">合法</span></td><td>电池 A 充电，B 供电</td></tr>
+        <tr><td class="mono">OFF</td><td class="mono">ON</td><td><span class="pill pill-ok">合法</span></td><td>电池 B 充电，A 供电</td></tr>
+        <tr class="alt"><td class="mono">ON</td><td class="mono">ON</td><td><span class="pill pill-risk">禁止</span></td>
+            <td><strong>两块电池直接并联</strong>——必须由硬件阻止，不能只靠固件</td></tr>
+      </table>
+      <p style="font-size:8.4pt;color:#46556E;margin-top:2mm">
+        环流量化：ΔV = 0.5 V，电芯内阻各约 50 mΩ ⚠，走线约 20 mΩ →
+        <code>I = 0.5 ÷ (0.05 + 0.05 + 0.02) ≈ 4.2 A</code>，远超 2500 mAh 电芯的安全放电率，
+        会反复触发 PCM 保护并损伤电芯。</p>
+    </div>
+    <div class="col w50">
+      <div class="co risk" style="margin-top:1mm"><span class="co-t">TC-13　装配前必须做的验证</span>
+        <strong>全程使用可调限流电源，绝不用真电池。</strong>
+        电源 1 → BAT_A 设 3.90 V / 限流 100 mA；电源 2 → BAT_B 设 3.70 V / 限流 100 mA（0.2 V 压差足以暴露任何并联路径）。
+        ① 遍历 16 种栅极组合，任一路电流 &gt; 10 mA 即 FAIL；② 全部关断时电流应接近 0
+        （否则体二极管方向错误）；③ 故障注入：强制 Q1=Q2=ON，互锁应阻止；④ MCU 复位与断电时所有 FET 默认关断。
+        <br/><strong>全部通过才允许接入真电池。</strong></div>
+      <div class="co warn"><span class="co-t">电池温度窗口</span>
+        NTC 贴电芯表面（导热硅脂 + Kapton 固定）。<strong>T &lt; 0 °C 或 T &gt; 45 °C 禁止充电</strong>——
+        低温充电会析锂，是安全事故的常见成因。⚠ CN3791 没有内置温度保护，这一条必须由固件实现。</div>
+    </div>
+  </div>
+</div>
+
+<div class="cont">
+  <figure class="tight" style="margin-top:0">
+    <div class="figframe tight">@@hw3-discharge|735@@</div>
+    <div class="figcap"><span class="fignum">图 4</span>　放电侧切换与出线。</div>
+  </figure>
+  <div class="row">
+    <div class="col w55">
+      <h4 style="margin-top:1mm">分体线缆 J6 网表</h4>
+      <table class="t">
+        <tr><th style="width:8%">Pin</th><th style="width:22%">网络</th><th style="width:16%">电平</th><th style="width:54%">约束</th></tr>
+        <tr><td class="mono c">1</td><td class="mono">BAT_OUT+</td><td>≤ 4.2 V</td><td>经 RS2 计量后输出；胸口端先进超容再进负载开关</td></tr>
+        <tr class="alt"><td class="mono c">2</td><td class="mono">GND</td><td>0 V</td><td>功率地回流</td></tr>
+        <tr><td class="mono c">3</td><td class="mono">GND</td><td>0 V</td><td>信号地；与 pin 2 在 PMB-H 侧星型汇合</td></tr>
+        <tr class="alt"><td class="mono c">4</td><td class="mono">CTRL_LOAD</td><td>3.3 V 逻辑</td><td>← MCU D7；R1 上拉保证 MCU 失效时负载默认关断</td></tr>
+        <tr><td class="mono c">5</td><td class="mono">SYNC</td><td>3.3 V 逻辑</td><td>← MCU D10；10 ms 脉冲，采集窗首尾各一次</td></tr>
+        <tr class="alt"><td class="mono c">—</td><td class="mono">SHIELD</td><td>—</td><td><strong>仅 PMB-H 端接功率地</strong>，另一端浮空，避免地环路</td></tr>
+      </table>
+    </div>
+    <div class="col w45">
+      <div class="co risk" style="margin-top:1mm"><span class="co-t">最易出错处：P-MOS 的体二极管方向</span>
+        Q3/Q4 若方向接反，<strong>即使栅极关断，体二极管仍会让两块电池经二极管并联</strong>。
+        建议直接采用带反向阻断的理想二极管 IC（如 LM66100）规避，比分立 FET 背靠背可靠得多。
+        <br/>原理图评审时逐个画出体二极管方向确认；装配后用万用表验证：
+        <strong>Q3 关断时 BAT_A+ 与 LOAD_BUS 之间双向都不通</strong>（单向导通即为方向错误，返工）。</div>
+      <div class="co warn"><span class="co-t">防拉脱：一根线缆穿过身体</span>
+        跌倒、更衣都会拉扯它。必须用磁吸或易断连接器（&gt; 约 20 N 时先断连接器而非扯动电极），
+        线缆留松弛量并用走线夹固定；断连后超容维持供电 → MCU 记录事件 → 有序关断。</div>
+    </div>
+  </div>
+</div>
+
+<div class="cont">
+  <figure class="tight" style="margin-top:0">
+    <div class="figframe tight">@@hw5-chest|860@@</div>
+    <div class="figcap"><span class="fignum">图 5</span>　胸口单元 LIB → BITalino。此单元内无开关电源、无 18 V，静态功耗 &lt; 1 mW。</div>
+  </figure>
+  <div class="row">
+    <div class="col w50">
+      <h4 style="margin-top:1mm">超容子系统：数字</h4>
+      <table class="t">
+        <tr><th style="width:38%">量</th><th style="width:26%">值</th><th style="width:36%">来源</th></tr>
+        <tr><td>串联组合</td><td class="num">5.4 V / 5 F</td><td>2 × 2.7 V 10 F</td></tr>
+        <tr class="alt"><td>可用能量（4.2 → 3.4 V）</td><td class="num">15.2 J</td><td>½·C·(V₁²−V₂²)</td></tr>
+        <tr><td>240 mW 负载下维持</td><td class="num">63 s</td><td>15.2 J ÷ 0.24 W</td></tr>
+        <tr class="alt"><td>实际需要维持</td><td class="num">1 ms</td><td>切换死区</td></tr>
+        <tr><td><strong>裕量</strong></td><td class="num">&gt; 10 000×</td><td>—</td></tr>
+        <tr class="alt"><td>漏电 + 均压损耗</td><td class="num">约 280 µW</td><td>v1.0 曾占室内收集的 39%；<strong>新功率等级下已无关紧要</strong>，均压电阻可用 100 kΩ</td></tr>
+      </table>
+    </div>
+    <div class="col w50">
+      <div class="co risk" style="margin-top:1mm"><span class="co-t">预充：不能直接并联</span>
+        把放电的 5 F 电容直接并到 4.0 V 锂电上，瞬时电流可达<strong>数十安培</strong>。
+        必须预充：<code>10 Ω 限流 → 压差 &lt; 50 mV 后 Q6 旁路</code>。
+        焊前确认电容已放电（&lt; 0.1 V）；超容是<strong>极性器件</strong>，反接会鼓包。</div>
+      <div class="co info"><span class="co-t">π 型滤波与同步注入</span>
+        10 µH + 22 µF ×2 的 π 型滤波是 EMC 第二道防线（第一道是架构隔离）。
+        同步脉冲经 1 kΩ + BAT54S 钳位后送入 I1；⚠ 须核实电平范围，且<strong>两端必须共地</strong>。</div>
+    </div>
+  </div>
+</div>
+
+<div class="cont">
+  <div class="row">
+    <div class="col w40">
+      <figure class="tight" style="margin-top:0">
+        <div class="figframe tight">@@hw4-sense|330@@</div>
+        <div class="figcap"><span class="fignum">图 6</span>　计量与控制总线。
+          两颗 INA226 挂同一条 I²C，靠 A0/A1 区分地址（0x40 / 0x41）。</div>
+      </figure>
+      <div class="foot-note" style="margin-top:2.4mm"><strong style="color:#A8291F">两条不可省略的硬件约束　</strong>
+        <strong>① 开尔文四线</strong>——分流电阻采样线须从电阻焊盘<strong>正中</strong>引出，不得共用电流路径，
+        否则接触电阻与走线电阻被一并计入，系统误差可达 10–30%，EAR 随之失真。
+        <strong>② 物理分区</strong>——18 V 区与电池／低压区之间留 ≥ 3 mm 无铜隔离带，
+        两者不共用线束、不共用连接器。</div>
+    </div>
+    <div class="col w60">
+      <h3 style="margin-top:0">3.1　MCU 引脚分配表</h3>
+      <table class="t">
+        <tr><th style="width:17%">引脚</th><th style="width:20%">网络名</th><th style="width:12%">方向</th><th style="width:51%">用途与约束</th></tr>
+        <tr><td class="mono">D4 / SDA</td><td class="mono">I2C_SDA</td><td>双向</td><td>INA226 ×2　⚠ 核实 XIAO 默认 I²C 映射</td></tr>
+        <tr class="alt"><td class="mono">D5 / SCL</td><td class="mono">I2C_SCL</td><td>输出</td><td>4.7 kΩ 上拉至 3V3</td></tr>
+        <tr><td class="mono">D1</td><td class="mono">GATE_CHG_A</td><td>输出</td><td>Q1 栅极（经互锁）；复位时须为高阻 → 默认关断</td></tr>
+        <tr class="alt"><td class="mono">D2</td><td class="mono">GATE_CHG_B</td><td>输出</td><td>Q2 栅极（经互锁）</td></tr>
+        <tr><td class="mono">D3</td><td class="mono">GATE_DIS_A</td><td>输出</td><td>Q3 栅极　<strong>break-before-make，死区 1 ms</strong></td></tr>
+        <tr class="alt"><td class="mono">D6</td><td class="mono">GATE_DIS_B</td><td>输出</td><td>Q4 栅极</td></tr>
+        <tr><td class="mono">D7</td><td class="mono">CTRL_LOAD</td><td>输出</td><td>→ J6.4 → Q5；R1 上拉保证 fail-safe 关断</td></tr>
+        <tr class="alt"><td class="mono">D8</td><td class="mono">CHRG_STAT</td><td>输入</td><td>读 CN3791 充电状态（判定 CV 阶段 → 库仑计重标定）</td></tr>
+        <tr><td class="mono">D10</td><td class="mono">SYNC_OUT</td><td>输出</td><td>→ J6.5 → BITalino I1，10 ms 脉冲，采集窗首尾各一次</td></tr>
+        <tr class="alt"><td class="mono">D0 / A0</td><td class="mono">NTC_A</td><td>模拟</td><td>电池 A 温度；0 °C &lt; T &lt; 45 °C 方可充电</td></tr>
+        <tr><td class="mono">A1</td><td class="mono">NTC_B</td><td>模拟</td><td>电池 B 温度　⚠ 具体 ADC 引脚以模块丝印为准</td></tr>
+        <tr class="alt"><td class="mono">3V3 / GND</td><td class="mono">—</td><td>电源</td><td>板载 LDO；模拟地与功率地在<strong>电池负极单点</strong>汇合</td></tr>
+      </table>
+    </div>
+  </div>
+</div>

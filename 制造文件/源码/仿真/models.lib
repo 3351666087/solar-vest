@@ -1,0 +1,108 @@
+* ======================================================================================================
+* Device models for the PMB-H / LIB verification (ngspice). Every parameter traces to a datasheet value.
+* ======================================================================================================
+
+* ---- AO3400A  N-MOSFET 30 V (AOS datasheet: Vth 1.05 typ, Rds 18/19/24 mΩ @10/4.5/2.5 V,
+*      Ciss 630p Coss 75p Crss 50p, Rg 3 Ω, Vsd 0.7 V @1 A). Level-1 core + external R fitted to the 3 Rds points.
+.subckt AO3400A D G S
+Rg G Gi 3
+Rd D Di 8.4m
+Rs Si S 8.4m
+M1 Di Gi Si Si NCORE
+Cgs Gi Si 580p
+Cgd Gi Di 50p
+Cds Di Si 25p
+Dbody S D DBN
+.model NCORE NMOS (LEVEL=1 VTO=1.05 KP=96.3 LAMBDA=0.01)
+.model DBN D (IS=1.5e-12 N=1.0 RS=0.02 BV=30 IBV=250u CJO=60p TT=10n)
+.ends AO3400A
+
+* ---- AO3401A  P-MOSFET -30 V (Vth -0.9 typ, Rds 41/47/60 mΩ @-10/-4.5/-2.5 V, Ciss 645p Coss 80p Crss 55p,
+*      Rg 7.8 Ω, Vsd -0.7 V @-1 A)
+.subckt AO3401A D G S
+Rg G Gi 7.8
+Rd D Di 18.4m
+Rs Si S 18.4m
+M1 Di Gi Si Si PCORE
+Cgs Gi Si 590p
+Cgd Gi Di 55p
+Cds Di Si 25p
+Dbody D S DBP
+.model PCORE PMOS (LEVEL=1 VTO=-0.9 KP=27.1 LAMBDA=0.01)
+.model DBP D (IS=1.5e-12 N=1.0 RS=0.02 BV=30 IBV=250u CJO=60p TT=10n)
+.ends AO3401A
+
+* ---- diodes (fitted to datasheet Vf points)
+.model SS34    D (IS=1.7e-7 N=1.1 RS=9.5m BV=40 IBV=0.5m CJO=150p M=0.5 VJ=0.4)
+.model B5819W  D (IS=3e-6 N=1.05 RS=0.12 BV=40 IBV=1m CJO=50p M=0.5 VJ=0.4)
+.model BAT54   D (IS=4e-9 N=1.0 RS=2.2 BV=30 IBV=2u CJO=10p)
+.model BZT52C10 D (IS=1e-14 N=1 RS=1 BV=10.0 IBV=5m)
+* SMAJ10A: VRWM 10 V, VBR 11.1-12.3 V @1 mA, Vc 17 V @ 23.5 A ; SMF5.0A: VRWM 5 V, VBR 6.4-7.0 V, Vc 9.2 V @21.7 A
+.model SMAJ10A D (IS=1e-12 N=1 RS=0.23 BV=11.7 IBV=1m CJO=1n)
+.model SMF5V0A D (IS=1e-12 N=1 RS=0.12 BV=6.7 IBV=10m CJO=1.5n)
+.model ESD     D (IS=1e-15 N=1 RS=50)
+
+* ---- PV module 6 V / 6 W, 12 mono cells in series (photo-measured; Voc 8.0 V, Isc 0.85 A @1000 W/m², 25 °C).
+*      single-diode model per module: n = 1.3 per cell -> N = 15.6 for the string; Rs 0.25 Ω, Rsh = RSH param.
+.subckt PV12 P N PARAMS: G=1000 RSH=3k
+Iph N 1 {0.85*G/1000}
+Dpv 1 N DPV
+Rsh 1 N {RSH}
+Rser 1 P 0.25
+.model DPV D (IS=1.7e-9 N=15.6 EG=13.4 XTI=36)
+.ends PV12
+
+* ---- CN3791 behavioural model (datasheet: VMPPT 1.205 V, VCS 120 mV (21 mV precharge below 66.5 % VREG),
+*      VREG 4.2 V, fosc 300 kHz, Dmax 94 %, DRV low = VCC-6.3 V, UVLO 3.8 V, sleep when VCC-VBAT < 20 mV, COM = gm error node)
+.subckt CN3791 VCC GND DRV CSP BAT MPPT COM CHRGN
+* ramp as a PULSE source so ngspice places a breakpoint at every cycle start
+Vosc ramp GND PULSE(0 1 0 3.3233u 10n 0 3.3333u)
+* three error terms (positive = room to increase duty); the smallest wins (like the wired-min error amps in the IC)
+Bvcs vcsref GND V = V(BAT) < 2.795 ? 0.021 : 0.120
+Bmin err GND V = min(min( 40*(V(MPPT)-1.205), 10*(V(vcsref)-(V(CSP)-V(BAT))) ), 10*(4.2-V(BAT)))
+* transconductance amplifier into the external COM network (120 Ω + 220 nF), with anti-windup clamp 0..2.2 V
+* anti-windup 0..2.2 V as 20 mV linear ramps (continuous: the err-sign switch happens where the current is zero anyway)
+Bcom GND COM I = 0.5m*tanh(V(err)*10) * (V(err) > 0 ? min(1, max(0, (2.2-V(COM))/0.02)) : min(1, max(0, V(COM)/0.02)))
+* enable: UVLO and sleep (VCC must exceed BAT by 0.32 V to start, stops below +0.02 V)
+Ben en GND V = (V(VCC) > 3.8 && (V(VCC)-V(BAT)) > 0.02) ? 1 : 0
+* PWM comparator: duty = (COM-0.2)/1.8, max 94 %
+Bduty d GND V = max(0, min(0.94, (V(COM)-0.2)/1.8)) * V(en)
+* continuous comparator (≈20 ns transition) — a hard if/else here makes the solver chatter when ramp = duty
+Bpwm pwm GND V = 0.5*(1+tanh((V(d)-V(ramp))*150))
+* gate driver: DRV = VCC (off) or VCC-6.3 (on), 5 Ω output, 40 ns edges
+Bdrv drvi GND V = V(VCC) - 6.3*V(pwm)
+Rdrv drvi DRV 5
+Cdrv DRV GND 10p
+* status: CHRG pulled low (open drain ~80 Ω) while charging
+Schg CHRGN GND en GND SCHG
+.model SCHG SW (VT=0.5 VH=0.1 RON=80 ROFF=100Meg)
+* pin currents: VCC 1 mA operating, BAT 15 µA
+Ivcc VCC GND 1m
+Ibat BAT GND 15u
+.ends CN3791
+
+* ---- LM66100 ideal diode (datasheet: RON 91 mΩ @3.6 V, CE turn-on VCE-VIN < -150 mV (-80..-250), turn-off > +35 mV,
+*      ST open drain low when disabled, reverse current blocking). Hysteretic comparator via an ngspice switch.
+.subckt LM66100 VIN GND CE ST VOUT
+Bctl ctl GND V = V(VIN) - V(CE)
+* control > 0.15 -> enabled ; < -0.035 -> disabled
+Ren en GND 1Meg
+Venref vref GND 1
+Sen vref en ctl GND SEN
+.model SEN SW (VT=0.0575 VH=0.0925 RON=1 ROFF=1G)
+* pass element: forward-only (reverse current blocking) with RON, only when enabled — continuous form (max) so the solver cannot chatter
+Bpass VIN VOUT I = V(en) * max(V(VIN) - V(VOUT), 0) / 0.091
+Dbody VIN VOUT DBODY
+.model DBODY D (IS=1e-12 N=1.5)
+* status: open drain low when disabled
+Bdis dis GND V = 1 - V(en)
+Sst ST GND dis GND SST
+.model SST SW (VT=0.5 VH=0.05 RON=100 ROFF=1G)
+.ends LM66100
+
+* ---- ME6211C33 LDO: 3.3 V, dropout ~100 mV @100 mA (≈1 Ω), IQ 40 µA
+.subckt ME6211 VIN GND VOUT
+Bldo vo GND V = min(3.3, max(0, V(VIN) - 0.02))
+Rout vo VOUT 1.0
+Iq VIN GND 40u
+.ends ME6211

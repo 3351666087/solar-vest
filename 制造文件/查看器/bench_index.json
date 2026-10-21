@@ -1,0 +1,20 @@
+{
+"panel": "panel",
+"panel_glass": "panel",
+"stand_cradle_+X": "stand",
+"stand_base_+X": "stand",
+"bolt_pivot_+X": "stand",
+"bolt_lock_+X": "stand",
+"stand_cradle_-X": "stand",
+"stand_base_-X": "stand",
+"bolt_pivot_-X": "stand",
+"bolt_lock_-X": "stand",
+"ref1_holder": "sensors",
+"ref1_cell": "sensors",
+"TC1_tip": "sensors",
+"cover_ND_mesh": "cover",
+"back_pod_base": "back_pod",
+"PMB-H": "back_pod",
+"W01_bench": "cables",
+"table": "table"
+}

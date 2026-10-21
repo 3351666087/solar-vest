@@ -1,0 +1,63 @@
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 05 · SOFTWARE</span>
+    <h2 class="sec-title">软件层　多源对齐、存储与可复现</h2>
+    <p class="sec-sub">三条独立无线链路、两种时间基准、一个必须能在三个月后复现的结论。
+      这一层的工程量被低估的程度，通常和它决定实验成败的程度成正比。</p>
+  </div>
+
+  <figure>
+    <div class="figframe">@@sw-ingest|880@@</div>
+    <div class="figcap"><span class="fignum">图 9</span>　采集与对齐（写入侧）。
+      三路数据源的主机时间戳受蓝牙缓冲抖动影响可达数十至数百毫秒，
+      因此对齐<strong>不依赖主机时钟</strong>，而依赖嵌在数据流里的硬件同步标记。</div>
+  </figure>
+  <figure>
+    <div class="figframe">@@sw-serve|900@@</div>
+    <div class="figcap"><span class="fignum">图 10</span>　存储与分析（读取侧）。
+      原始信号落 Parquet 且<strong>写入后设为只读</strong>；遥测进 TimescaleDB 超表；
+      所有处理可重跑，永不覆盖原始数据。</div>
+  </figure>
+
+  <div class="row">
+    <div class="col w50">
+      <h3 style="margin-top:0">5.1　技术栈选型</h3>
+      <table class="t">
+        <tr><th style="width:24%">环节</th><th style="width:30%">选型</th><th style="width:46%">理由 / 约束</th></tr>
+        <tr><td>BLE 采集</td><td class="mono">bleak (asyncio)</td><td>跨平台；需实现背压与自动重连</td></tr>
+        <tr class="alt"><td>BT 经典采集</td><td class="mono">pyserial</td><td>BITalino 若为 BT 版；重连慢，影响功率循环策略</td></tr>
+        <tr><td>原始信号</td><td class="mono">Parquet (列存)</td><td>1000 Hz × 多通道 × 小时级；关系库不划算</td></tr>
+        <tr class="alt"><td>遥测时序</td><td class="mono">TimescaleDB</td><td>超表 + 连续聚合；EAR 按窗口积分</td></tr>
+        <tr><td>心电处理</td><td class="mono">NeuroKit2</td><td>R 峰检测与 HRV；黄金用例回归</td></tr>
+        <tr class="alt"><td>看板</td><td class="mono">Grafana</td><td>能量 / 温度 / 状态机实时视图</td></tr>
+        <tr><td>实验记录</td><td class="mono">YAML manifest + Git</td><td>与数据同仓库提交，不可事后补写</td></tr>
+        <tr class="alt"><td>CI</td><td class="mono">pytest + schema</td><td>含「manifest 的 fw SHA 必须真实存在」校验</td></tr>
+      </table>
+      <div class="co info"><span class="co-t">一条看似吹毛求疵、但最有效的实验纪律</span>
+        CI 校验每份 manifest 里的 <code>firmware_git_sha</code> 在仓库中真实存在。
+        它会强制你<strong>先提交固件、再做实验</strong>，而不是「改完随手跑一下，回头忘了改过什么」。</div>
+    </div>
+    <div class="col w50">
+      <h3 style="margin-top:0">5.2　数据模型（核心表）</h3>
+      <table class="t">
+        <tr><th style="width:34%">字段</th><th style="width:20%">类型</th><th style="width:46%">说明</th></tr>
+        <tr><td class="mono">run_id</td><td class="mono">TEXT</td><td>主键前缀，对应 manifest</td></tr>
+        <tr class="alt"><td class="mono">t_host / t_mcu_ms</td><td class="mono">TIMESTAMPTZ / BIGINT</td><td>对齐后 + MCU 原始，二者都保留以便追溯</td></tr>
+        <tr><td class="mono">seq</td><td class="mono">INT</td><td><strong>丢包检测</strong>——无线遥测必须能自证没丢数据，否则 EAR 的积分是错的</td></tr>
+        <tr class="alt"><td class="mono">v_pv_mv / i_pv_ua</td><td class="mono">INT</td><td>INA226 #1</td></tr>
+        <tr><td class="mono">v_bat_mv / i_bat_ua</td><td class="mono">INT</td><td>INA226 #2，双向有符号</td></tr>
+        <tr class="alt"><td class="mono">soc_pct</td><td class="mono">SMALLINT</td><td>库仑积分结果</td></tr>
+        <tr><td class="mono">active_discharge_battery</td><td class="mono">CHAR(1)</td><td>'A' / 'B'　<span class="pill pill-solar">v2 新增</span></td></tr>
+        <tr class="alt"><td class="mono">t_panel / t_skin / t_bat / t_chgr</td><td class="mono">SMALLINT</td><td>4 点测温　<span class="pill pill-solar">v2 新增</span></td></tr>
+        <tr><td class="mono">irradiance_wm2</td><td class="mono">REAL</td><td>参考电池片实测　<span class="pill pill-solar">v2 新增</span></td></tr>
+        <tr class="alt"><td class="mono">fsm_state</td><td class="mono">SMALLINT</td><td>状态机状态，用于分段统计</td></tr>
+      </table>
+      <div class="co ok"><span class="co-t">Run Manifest 必填项（否则 CI 拒绝）</span>
+        <code>firmware_git_sha</code>　<code>pmb_h.build_hash</code>　<code>lib.build_hash</code>
+        　<code>battery_[ab].capacity_calibrated_mah</code>　<code>battery_[ab].cycles_before_run</code>
+        　<code>pv.attenuation</code>　<code>environment.irradiance_ref_wm2</code>
+        　<code>config.emc_strategy</code>（本次启用了 ADR-004 / 006 / 007 中的哪些）
+        <br/>洞洞板也有版本：<strong>改一根飞线就 build_hash +1</strong>。</div>
+    </div>
+  </div>
+</div>

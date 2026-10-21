@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>太阳能背心装配</title>
+<style>
+:root{--bg:#eef0ed;--card:#ffffffee;--ink:#1d2321;--mute:#66706b;--line:#d6dbd6;--acc:#2456b8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141715;--card:#1e2320ee;--ink:#e8ece9;--mute:#9aa49f;--line:#323a36;--acc:#7aa2f0}}
+:root[data-theme="dark"]{--bg:#141715;--card:#1e2320ee;--ink:#e8ece9;--mute:#9aa49f;--line:#323a36;--acc:#7aa2f0}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:14px/1.5 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;overflow:hidden}
+#c{position:fixed;inset:0;width:100%;height:100%;display:block}
+.panel{position:fixed;top:16px;left:16px;width:310px;max-height:calc(100% - 32px);overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;backdrop-filter:blur(6px)}
+h1{font-size:16px;margin:0 0 2px}.sub{font-size:12px;color:var(--mute);margin-bottom:10px}
+.seg{display:flex;margin:6px 0 10px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{flex:1;font:inherit;font-size:13px;padding:5px 0;border:0;background:transparent;color:var(--ink);cursor:pointer}
+.seg button.on{background:var(--acc);color:#fff}
+.grp{display:flex;align-items:center;gap:8px;padding:3px 0;font-size:13px}.grp input{accent-color:var(--acc)}
+.views{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.views button{font:inherit;font-size:12px;padding:4px 9px;border-radius:7px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.views button:hover{border-color:var(--acc);color:var(--acc)}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}td{padding:2px 0;border-bottom:1px solid var(--line)}td:last-child{text-align:right;color:var(--mute)}
+#status{font-size:12px;color:var(--mute);margin-top:8px}
+@media (max-width:640px){.panel{top:auto;bottom:0;left:0;right:0;width:auto;max-height:46%;border-radius:12px 12px 0 0}}
+</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="panel">
+  <h1>太阳能背心 · 全系统</h1>
+  <div class="sub">6 W 面板 + PMB-H + 三台 BITalino（A/B/C）+ 全部接线 W01–W15 · 单位 m</div>
+  <div class="seg"><button data-s="worn" class="on">穿戴</button><button data-s="bench">台架（不上身）</button></div>
+  <div id="groups"></div>
+  <div class="views" id="views"></div>
+  <table id="facts"></table>
+  <div id="status">加载中…</div>
+</div>
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+const canvas = document.getElementById("c");
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(Math.min(2, devicePixelRatio));
+const scene = new THREE.Scene();
+const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+scene.background = new THREE.Color(dark ? 0x141715 : 0xeef0ed);
+const camera = new THREE.PerspectiveCamera(30, 1, 0.01, 20);
+const controls = new OrbitControls(camera, canvas); controls.enableDamping = true;
+scene.add(new THREE.HemisphereLight(0xffffff, 0x888c88, 1.2));
+const d1 = new THREE.DirectionalLight(0xffffff, 1.6); d1.position.set(1.5, 2.5, -2.0); scene.add(d1);
+const d2 = new THREE.DirectionalLight(0xffffff, 0.8); d2.position.set(-1.5, 1.5, 2.5); scene.add(d2);
+const SCENES = {
+  worn: {
+    files: ["assembly_with_torso_PRIVATE.glb", "assembly.glb"], index: "assembly_index.json",
+    names: { torso: "身体（来自扫描，仅本地）", vest: "背心", skin: "贴皮肤：电极 ×6 / 导联 / ECG 传感器 / 耳夹 PPG", panel: "太阳能板 6 V 6 W",
+      shoes: "面板支脚 ×6", sensors: "参考电池片 / 热电偶", back_pod: "背部仓 + 挂钩", back_pod_lid: "背部仓盖（半透明）", chest_pod: "胸前仓（B）",
+      chest_pod_lid: "胸前仓盖（半透明）", boards: "PCB / Core B / XIAO / 电池", A_heartbit: "A：HeartBIT（左胸袋）", C_board: "C：Board BLE（左下袋）",
+      C_lid: "C 外壳盖（半透明）", phone: "Android 手机（右下袋）", cables: "全部线缆 W01–W15" },
+    views: { iso: ["斜后方", [1.15, 1.75, -1.85], [0, 1.30, -0.05]], back: ["背面", [0, 1.32, -2.4], [0, 1.30, 0]], front: ["正面", [0, 1.32, 2.4], [0, 1.30, 0]],
+      side: ["右侧", [-2.4, 1.32, 0], [0, 1.30, 0]], pod: ["背部仓", [0.20, 1.32, -0.62], [0, 1.22, -0.21]], chest: ["胸前仓", [-0.30, 1.45, 0.55], [-0.10, 1.38, 0.20]],
+      shoe: ["支脚", [-0.45, 1.55, -0.45], [-0.11, 1.45, -0.22]], skin: ["电极", [0.0, 1.36, 0.95], [0, 1.30, 0.08]], ear: ["耳夹", [0.45, 1.72, 0.32], [0.07, 1.64, 0.0]] },
+    facts: [["面板上沿 / 倾角", "1.50 m / 4.75°（玻璃略朝天）"], ["面板气隙", "18 – 52 mm"], ["贴皮肤", "电极 6 片 + 耳垂 PPG"], ["背→胸 5 芯线 W06", "走线 0.53 m（买 0.7 m）"], ["数据", "A/B/C → Android 手机"]],
+    start: "iso" },
+  bench: {
+    files: ["bench.glb"], index: "bench_index.json",
+    names: { table: "桌面", panel: "面板", stand: "测试支架（打印件 ×4 + M4 螺栓）", sensors: "REF1 + 热电偶 TC1", cover: "ND 网遮挡罩（可换遮光 / 面料）", back_pod: "背部仓（开盖）", cables: "W01 面板线" },
+    views: { iso: ["斜视", [0.75, 0.55, -0.85], [0, 0.07, -0.05]], side: ["侧面（看倾角）", [1.2, 0.15, 0.0], [0, 0.07, 0]], top: ["俯视", [0.0, 1.3, 0.01], [0, 0, 0]] },
+    facts: [["支架刻度", "0 = 竖直，90 = 平放，每档 15°"], ["当前", "45°"], ["用途", "TC-02 / 03b / 21 / 24、充电烧机"]],
+    start: "iso" },
+};
+let current = null, groups = {}, cfg;
+const loader = new GLTFLoader(), cache = {};
+function resize() { const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+addEventListener("resize", resize); resize();
+function view(k) { const v = cfg.views[k]; camera.position.set(...v[1]); controls.target.set(...v[2]); controls.update(); }
+window.__cam = (p, t) => { camera.position.set(...p); controls.target.set(...t); controls.update(); };
+async function load(kind) {
+  cfg = SCENES[kind]; document.getElementById("status").textContent = "加载中…";
+  if (current) scene.remove(current);
+  const index = await (await fetch(cfg.index)).json();
+  let gltf = null, usedPrivate = false;
+  for (const f of cfg.files) { try { gltf = cache[f] || await loader.loadAsync(f); cache[f] = gltf; usedPrivate = f.includes("PRIVATE"); break; } catch (e) {} }
+  current = gltf.scene; groups = {};
+  current.traverse(o => {
+    if (!o.isMesh) return;
+    const g = index[o.name] || index[(o.parent && o.parent.name) || ""] || "vest";
+    (groups[g] = groups[g] || []).push(o);
+    if (!o.userData.prepared) {
+      o.material = o.material.clone(); o.material.side = THREE.DoubleSide;
+      if (["back_pod_lid", "chest_pod_lid", "C_lid", "cover"].includes(g)) { o.material.transparent = true; o.material.opacity = 0.35; o.material.depthWrite = false; }
+      if (g === "torso") { o.material.transparent = true; o.material.opacity = 0.85; }
+      if (o.name.includes("glass")) { o.material.transparent = true; o.material.opacity = 0.22; o.material.depthWrite = false; }
+      o.userData.prepared = true;
+    }
+    o.visible = true;
+  });
+  scene.add(current);
+  const box = document.getElementById("groups"); box.innerHTML = "";
+  for (const g of Object.keys(cfg.names)) {
+    if (!groups[g]) continue;
+    const row = document.createElement("label"); row.className = "grp";
+    row.innerHTML = `<input type="checkbox" checked> ${cfg.names[g]}`; box.appendChild(row);
+    row.querySelector("input").onchange = e => groups[g].forEach(o => o.visible = e.target.checked);
+  }
+  const vb = document.getElementById("views"); vb.innerHTML = "";
+  for (const [k, v] of Object.entries(cfg.views)) { const b = document.createElement("button"); b.textContent = v[0]; b.onclick = () => view(k); vb.appendChild(b); }
+  document.getElementById("facts").innerHTML = cfg.facts.map(([a, b]) => `<tr><td>${a}</td><td>${b}</td></tr>`).join("");
+  view(cfg.start);
+  document.getElementById("status").textContent = kind === "worn" ? (usedPrivate ? "已加载（含本地身体模型）" : "已加载（未包含身体模型）") : "已加载台架场景";
+  window.__groups = groups; window.__view = view;
+}
+document.querySelectorAll(".seg button").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".seg button").forEach(x => x.classList.toggle("on", x === b)); load(b.dataset.s);
+});
+await load("worn");
+renderer.setAnimationLoop(() => { controls.update(); renderer.render(scene, camera); });
+</script>
+</body>
+</html>

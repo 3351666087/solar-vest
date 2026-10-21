@@ -1,0 +1,2 @@
+Designator,Value,Footprint,Why not JLC,Note
+M1X,XIAO nRF52840 Sense,plug-in module,not stocked by JLC,buy the pre-soldered-header XIAO nRF52840 Sense; push into J4/J5 (USB-C toward board edge)

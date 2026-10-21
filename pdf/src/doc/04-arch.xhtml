@@ -1,0 +1,56 @@
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 02</span>
+    <h2 class="sec-title">系统总架构</h2>
+    <p class="sec-sub">四层结构。硬件层解决能量与噪声，嵌入式层解决调度与时标，软件层解决多源对齐与分析，
+      数据层解决可复现。</p>
+  </div>
+
+  <figure>
+    <div class="figframe">@@sys-arch|630@@</div>
+    <div class="figcap"><span class="fignum">图 1</span>　系统分层架构。
+      左侧色条为层标识，贯穿后文各章：<span class="pill pill-solar">硬件</span>
+      <span class="pill pill-ok">嵌入式</span> <span class="pill pill-volt">软件</span>
+      <span class="pill pill-muted">数据</span>。</div>
+  </figure>
+
+  <h3>2.1　两条决定架构形态的设计决策</h3>
+
+  <div class="co info"><span class="co-t">ADR-007　分体式拓扑：18 V 不上胸口</span>
+    系统拆成两个物理单元。<strong>18 V 功率链、MPPT 充电器、电池组全部留在背包单元</strong>，
+    只有 &lt; 4.2 V 的低压经 5 芯屏蔽线缆到达胸口单元。一次性解决四个问题：
+    <br/>① <strong>EMC</strong>——噪声源距心电放大器 0.5–1 m，中间无共模路径；
+    ② <strong>安全</strong>——18 V 在物理上不可能接近心电电极；
+    ③ <strong>热</strong>——充电器发热全在背包，胸口单元功耗 &lt; 1 mW；
+    ④ <strong>人因</strong>——面板与电池的重量由背包承担，胸口仅数十克。
+    <br/><span class="pill pill-solar">代价</span>　多一根线缆 → 必须有防拉脱设计（磁吸或易断连接器）。</div>
+
+  <div class="co info"><span class="co-t">ADR-006　双电池交替：用物理隔离解决 EMC，而不是滤波</span>
+    两块电池，任一时刻<strong>一块在充电、另一块在供电</strong>，由 MCU 每 30 分钟交换角色。
+    这样在采集时，<strong>供电链上根本没有开关电源在工作</strong>——不是把噪声滤掉，是让噪声不存在于测量回路里。
+    切换的几毫秒空窗由超级电容维持：5.4 V / 5 F 储能 15.2 J，在 240 mW 负载下可维持 63 秒，裕量超过 10 000 倍。
+    <br/><span class="pill pill-risk">前置条件</span>　必须有<strong>硬件互锁</strong>，防止两块电池意外并联
+    （0.5 V 压差下环流可达 4.2 A）。该电路在 TC-13 全部通过前不得接入真电池。</div>
+
+  <div class="co neutral"><span class="co-t">这两条要不要同时上？先测量，再决定复杂度</span>
+    ADR-006 的复杂度不低。建议 Phase 1 先只做软件级的「采集时关闭充电」（ADR-004），
+    用 <strong>TC-05 心电体模对照</strong>量化噪声到底有多严重：
+    <br/>· 若噪声底增量 &lt; 10 µV<sub>rms</sub><sup>①</sup> → <strong>砍掉双电池，省一半硬件复杂度</strong>；
+    <br/>· 若超过 → 再上 ADR-006，并重测。
+    <br/><strong>不要在 TC-05 出结果之前投入双电池的硬件工作。</strong></div>
+
+  <h3>2.2　各层职责与边界</h3>
+  <div class="layer l-hw"><div class="layer-h"><span class="lid">L1</span>硬件层　能量与噪声</div>
+    <div class="layer-d">采集、变换、储存、分配电能，并保证这一过程不污染生物信号。
+      关键约束：所有功率节点必须<strong>可计量</strong>（EAR 的前提），18 V 区与低压区必须<strong>物理分区</strong>。</div></div>
+  <div class="layer l-fw"><div class="layer-h"><span class="lid">L2</span>嵌入式层　调度与时标</div>
+    <div class="layer-d">能量状态机、电池切换、库仑积分、硬件同步脉冲、BLE 遥测与离线日志。
+      关键约束：状态机必须<strong>不含硬件调用</strong>，以便在 PC 上做单元测试；看门狗失效时负载必须默认关断。</div></div>
+  <div class="layer l-sw"><div class="layer-h"><span class="lid">L3</span>软件层　多源对齐与分析</div>
+    <div class="layer-d">三路独立数据源的采集、时间对齐、信号质量评估、能量指标计算与可视化。
+      关键约束：时间对齐误差必须 &lt; 10 ms <strong>且可证明</strong>（不是假设）。</div></div>
+  <div class="layer l-dt"><div class="layer-h"><span class="lid">L4</span>数据与运维层　可复现</div>
+    <div class="layer-d">原始数据不可变、处理可重跑、每次实验可追溯到当时的固件与硬件版本。
+      <strong>这一层不要省</strong>——三个月后看到一条异常曲线时，它是唯一能救你的东西。</div></div>
+  <div class="foot-note">① 该阈值为工程经验值，正式报告中应引用 IEC 60601-2-25 对心电设备噪声的量化要求。</div>
+</div>

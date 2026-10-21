@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 452" width="720" height="452">
+<rect x="6" y="8" width="708" height="104" rx="6" fill="#FDF3E2"/>
+<rect x="6" y="8" width="90" height="104" rx="6" fill="#B8720F"/>
+<rect x="82" y="8" width="14" height="104" rx="0" fill="#B8720F"/>
+<text x="16" y="29" font-family="Inter" font-size="9.5" fill="#FFFFFF" font-weight="700" letter-spacing="1.4">L1</text>
+<text x="16" y="46" font-family="Inter" font-size="10" fill="#FFFFFF" font-weight="700">Hardware</text>
+<text x="16" y="60" font-family="Inter" font-size="6.4" fill="#FFFFFF" letter-spacing="1.1">HARDWARE</text>
+<rect x="6" y="118" width="708" height="100" rx="6" fill="#E4F4EE"/>
+<rect x="6" y="118" width="90" height="100" rx="6" fill="#15845F"/>
+<rect x="82" y="118" width="14" height="100" rx="0" fill="#15845F"/>
+<text x="16" y="139" font-family="Inter" font-size="9.5" fill="#FFFFFF" font-weight="700" letter-spacing="1.4">L2</text>
+<text x="16" y="156" font-family="Inter" font-size="10" fill="#FFFFFF" font-weight="700">Firmware</text>
+<text x="16" y="170" font-family="Inter" font-size="6.4" fill="#FFFFFF" letter-spacing="1.1">FIRMWARE</text>
+<rect x="6" y="232" width="708" height="96" rx="6" fill="#EDF2FE"/>
+<rect x="6" y="232" width="90" height="96" rx="6" fill="#2F6BE4"/>
+<rect x="82" y="232" width="14" height="96" rx="0" fill="#2F6BE4"/>
+<text x="16" y="253" font-family="Inter" font-size="9.5" fill="#FFFFFF" font-weight="700" letter-spacing="1.4">L3</text>
+<text x="16" y="270" font-family="Inter" font-size="10" fill="#FFFFFF" font-weight="700">Software</text>
+<text x="16" y="284" font-family="Inter" font-size="6.4" fill="#FFFFFF" letter-spacing="1.1">SOFTWARE</text>
+<rect x="6" y="342" width="708" height="100" rx="6" fill="#EFEBFB"/>
+<rect x="6" y="342" width="90" height="100" rx="6" fill="#6B4FCF"/>
+<rect x="82" y="342" width="14" height="100" rx="0" fill="#6B4FCF"/>
+<text x="16" y="363" font-family="Inter" font-size="9.5" fill="#FFFFFF" font-weight="700" letter-spacing="1.4">L4</text>
+<text x="16" y="380" font-family="Inter" font-size="10" fill="#FFFFFF" font-weight="700">Data &amp; Ops</text>
+<text x="16" y="394" font-family="Inter" font-size="6.4" fill="#FFFFFF" letter-spacing="1.1">DATA &amp; OPS</text>
+<text x="106" y="24" font-family="Inter" font-size="7.4" fill="#B8720F" font-weight="700" letter-spacing="0.4">Backpack unit PMB-H (18 V zone)</text>
+<text x="520" y="24" font-family="Inter" font-size="7.2" fill="#46556E" font-weight="700">shielded &lt;4.2 V</text>
+<text x="616" y="24" font-family="Inter" font-size="7.4" fill="#2F6BE4" font-weight="700">Chest unit LIB</text>
+<rect x="104" y="30" width="404" height="64" rx="5" fill="#FFFFFF" stroke="#E09B2D" stroke-width="1"/>
+<rect x="612" y="30" width="86" height="64" rx="5" fill="#FFFFFF" stroke="#2F6BE4" stroke-width="1"/>
+<rect x="112.0" y="38" width="124.66666666666667" height="24" rx="4" fill="#F6F8FC" stroke="#D9E0EC" stroke-width="1"/>
+<text x="174.33333333333334" y="48.5" font-family="Heiti SC" font-size="7.8" fill="#0B1220" text-anchor="middle" font-weight="700">PV panel</text>
+<text x="174.33333333333334" y="59.5" font-family="Heiti SC" font-size="6.2" fill="#8B97AB" text-anchor="middle">30 W / 18 V</text>
+<rect x="243.66666666666669" y="38" width="124.66666666666667" height="24" rx="4" fill="#F6F8FC" stroke="#D9E0EC" stroke-width="1"/>
+<text x="306.0" y="48.5" font-family="Heiti SC" font-size="7.8" fill="#0B1220" text-anchor="middle" font-weight="700">Protection</text>
+<text x="306.0" y="59.5" font-family="Heiti SC" font-size="6.2" fill="#8B97AB" text-anchor="middle">F·TVS·anti-rev</text>
+<rect x="375.33333333333337" y="38" width="124.66666666666667" height="24" rx="4" fill="#F6F8FC" stroke="#D9E0EC" stroke-width="1"/>
+<text x="437.6666666666667" y="48.5" font-family="Heiti SC" font-size="7.8" fill="#0B1220" text-anchor="middle" font-weight="700">CN3791</text>
+<text x="437.6666666666667" y="59.5" font-family="Heiti SC" font-size="6.2" fill="#8B97AB" text-anchor="middle">MPPT charger</text>
+<rect x="112.0" y="66" width="124.66666666666667" height="24" rx="4" fill="#F6F8FC" stroke="#D9E0EC" stroke-width="1"/>
+<text x="174.33333333333334" y="76.5" font-family="Heiti SC" font-size="7.8" fill="#0B1220" text-anchor="middle" font-weight="700">Battery A</text>
+<text x="174.33333333333334" y="87.5" font-family="Heiti SC" font-size="6.2" fill="#8B97AB" text-anchor="middle">2500 mAh</text>
+<rect x="243.66666666666669" y="66" width="124.66666666666667" height="24" rx="4" fill="#F6F8FC" stroke="#D9E0EC" stroke-width="1"/>
+<text x="306.0" y="76.5" font-family="Heiti SC" font-size="7.8" fill="#0B1220" text-anchor="middle" font-weight="700">Battery B</text>
+<text x="306.0" y="87.5" font-family="Heiti SC" font-size="6.2" fill="#8B97AB" text-anchor="middle">2500 mAh</text>
+<rect x="375.33333333333337" y="66" width="124.66666666666667" height="24" rx="4" fill="#F6F8FC" stroke="#D9E0EC" stroke-width="1"/>
+<text x="437.6666666666667" y="76.5" font-family="Heiti SC" font-size="7.8" fill="#0B1220" text-anchor="middle" font-weight="700">Q1–Q4</text>
+<text x="437.6666666666667" y="87.5" font-family="Heiti SC" font-size="6.2" fill="#8B97AB" text-anchor="middle">chg/dis sw</text>
+<rect x="516" y="46" width="92" height="38" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<text x="562.0" y="63.5" font-family="Inter" font-size="7.0" fill="#0B1220" text-anchor="middle" font-weight="700">5-core shielded</text>
+<text x="562.0" y="74.5" font-family="Heiti SC" font-size="6.0" fill="#8B97AB" text-anchor="middle">break-away plug</text>
+<rect x="618" y="38" width="74" height="24" rx="4" fill="#F6F8FC" stroke="#D9E0EC" stroke-width="1"/>
+<text x="655.0" y="52.448" font-family="Inter" font-size="6.8" fill="#0B1220" text-anchor="middle" font-weight="700">hold-up cap</text>
+<rect x="618" y="66" width="74" height="24" rx="4" fill="#F6F8FC" stroke="#D9E0EC" stroke-width="1"/>
+<text x="655.0" y="80.736" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">BITalino</text>
+<rect x="106.0" y="132" width="92.83333333333333" height="34" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<rect x="106.0" y="132" width="3" height="34" rx="1.5" fill="#15845F"/>
+<text x="152.41666666666666" y="147.5" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">drivers</text>
+<text x="152.41666666666666" y="158.5" font-family="Heiti SC" font-size="5.8" fill="#8B97AB" text-anchor="middle">INA226·NTC</text>
+<rect x="205.83333333333331" y="132" width="92.83333333333333" height="34" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<rect x="205.83333333333331" y="132" width="3" height="34" rx="1.5" fill="#15845F"/>
+<text x="252.24999999999997" y="147.5" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">power FSM</text>
+<text x="252.24999999999997" y="158.5" font-family="Heiti SC" font-size="5.8" fill="#8B97AB" text-anchor="middle">5-state+hyst</text>
+<rect x="305.66666666666663" y="132" width="92.83333333333333" height="34" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<rect x="305.66666666666663" y="132" width="3" height="34" rx="1.5" fill="#15845F"/>
+<text x="352.0833333333333" y="147.5" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">batt switch</text>
+<text x="352.0833333333333" y="158.5" font-family="Heiti SC" font-size="5.8" fill="#8B97AB" text-anchor="middle">interlock+dead</text>
+<rect x="405.5" y="132" width="92.83333333333333" height="34" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<rect x="405.5" y="132" width="3" height="34" rx="1.5" fill="#15845F"/>
+<text x="451.9166666666667" y="147.5" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">coulomb ctr</text>
+<text x="451.9166666666667" y="158.5" font-family="Heiti SC" font-size="5.8" fill="#8B97AB" text-anchor="middle">bidir integ</text>
+<rect x="505.3333333333333" y="132" width="92.83333333333333" height="34" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<rect x="505.3333333333333" y="132" width="3" height="34" rx="1.5" fill="#15845F"/>
+<text x="551.75" y="147.5" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">sync pulse</text>
+<text x="551.75" y="158.5" font-family="Heiti SC" font-size="5.8" fill="#8B97AB" text-anchor="middle">hw timestamp</text>
+<rect x="605.1666666666666" y="132" width="92.83333333333333" height="34" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<rect x="605.1666666666666" y="132" width="3" height="34" rx="1.5" fill="#15845F"/>
+<text x="651.5833333333333" y="147.5" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">BLE telem</text>
+<text x="651.5833333333333" y="158.5" font-family="Heiti SC" font-size="5.8" fill="#8B97AB" text-anchor="middle">+ offline log</text>
+<text x="106" y="180" font-family="Inter" font-size="7.0" fill="#46556E">XIAO nRF52840 · Zephyr · pure-logic FSM is unit-testable on PC</text>
+<text x="106" y="196" font-family="Inter" font-size="7.0" fill="#8B97AB">watchdog fail → GPIO hi-Z → load switch defaults OFF (fail-safe)</text>
+<rect x="106.0" y="246" width="112.8" height="34" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<rect x="106.0" y="246" width="3" height="34" rx="1.5" fill="#2F6BE4"/>
+<text x="162.4" y="261.5" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">collectors</text>
+<text x="162.4" y="272.5" font-family="Heiti SC" font-size="6.0" fill="#8B97AB" text-anchor="middle">bleak / pyserial</text>
+<rect x="225.8" y="246" width="112.8" height="34" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<rect x="225.8" y="246" width="3" height="34" rx="1.5" fill="#2F6BE4"/>
+<text x="282.2" y="261.5" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">time align</text>
+<text x="282.2" y="272.5" font-family="Heiti SC" font-size="6.0" fill="#8B97AB" text-anchor="middle">sync-marker fit</text>
+<rect x="345.6" y="246" width="112.8" height="34" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<rect x="345.6" y="246" width="3" height="34" rx="1.5" fill="#2F6BE4"/>
+<text x="402.0" y="261.5" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">processing</text>
+<text x="402.0" y="272.5" font-family="Heiti SC" font-size="6.0" fill="#8B97AB" text-anchor="middle">NeuroKit2 · HRV</text>
+<rect x="465.4" y="246" width="112.8" height="34" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<rect x="465.4" y="246" width="3" height="34" rx="1.5" fill="#2F6BE4"/>
+<text x="521.8" y="261.5" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">energy</text>
+<text x="521.8" y="272.5" font-family="Heiti SC" font-size="6.0" fill="#8B97AB" text-anchor="middle">EAR / RES</text>
+<rect x="585.2" y="246" width="112.8" height="34" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<rect x="585.2" y="246" width="3" height="34" rx="1.5" fill="#2F6BE4"/>
+<text x="641.6" y="261.5" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">dashboard</text>
+<text x="641.6" y="272.5" font-family="Heiti SC" font-size="6.0" fill="#8B97AB" text-anchor="middle">Grafana</text>
+<text x="106" y="294" font-family="Inter" font-size="7.0" fill="#46556E">3 sources: BITalino DUT · BITalino CTRL · power telemetry — persisted after hw-sync alignment</text>
+<text x="106" y="310" font-family="Inter" font-size="7.0" fill="#8B97AB">fits the true sample rate and reports clock drift in ppm — main error in long recordings</text>
+<rect x="106.0" y="356" width="142.75" height="34" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<rect x="106.0" y="356" width="3" height="34" rx="1.5" fill="#6B4FCF"/>
+<text x="177.375" y="371.5" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">raw signals</text>
+<text x="177.375" y="382.5" font-family="Heiti SC" font-size="6.0" fill="#8B97AB" text-anchor="middle">Parquet immutable</text>
+<rect x="255.75" y="356" width="142.75" height="34" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<rect x="255.75" y="356" width="3" height="34" rx="1.5" fill="#6B4FCF"/>
+<text x="327.125" y="371.5" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">time series</text>
+<text x="327.125" y="382.5" font-family="Heiti SC" font-size="6.0" fill="#8B97AB" text-anchor="middle">TimescaleDB</text>
+<rect x="405.5" y="356" width="142.75" height="34" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<rect x="405.5" y="356" width="3" height="34" rx="1.5" fill="#6B4FCF"/>
+<text x="476.875" y="371.5" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">Run Manifest</text>
+<text x="476.875" y="382.5" font-family="Heiti SC" font-size="6.0" fill="#8B97AB" text-anchor="middle">fw SHA + hw hash</text>
+<rect x="555.25" y="356" width="142.75" height="34" rx="4" fill="#FFFFFF" stroke="#D9E0EC" stroke-width="1"/>
+<rect x="555.25" y="356" width="3" height="34" rx="1.5" fill="#6B4FCF"/>
+<text x="626.625" y="371.5" font-family="Inter" font-size="7.6" fill="#0B1220" text-anchor="middle" font-weight="700">CI checks</text>
+<text x="626.625" y="382.5" font-family="Heiti SC" font-size="6.0" fill="#8B97AB" text-anchor="middle">schema + golden</text>
+<text x="106" y="404" font-family="Inter" font-size="7.0" fill="#46556E">every run traceable to its fw commit, hw version, calibrated capacity &amp; measured irradiance</text>
+<line x1="186" y1="112" x2="186.0" y2="121.8" stroke="#8B97AB" stroke-width="1.1" stroke-linecap="round"/>
+<polygon points="186.0,126.0 183.3,120.1 188.7,120.1" fill="#8B97AB"/>
+<line x1="186" y1="218" x2="186.0" y2="235.8" stroke="#8B97AB" stroke-width="1.1" stroke-linecap="round"/>
+<polygon points="186.0,240.0 183.3,234.1 188.7,234.1" fill="#8B97AB"/>
+<line x1="186" y1="328" x2="186.0" y2="345.8" stroke="#8B97AB" stroke-width="1.1" stroke-linecap="round"/>
+<polygon points="186.0,350.0 183.3,344.1 188.7,344.1" fill="#8B97AB"/>
+<line x1="396" y1="112" x2="396.0" y2="121.8" stroke="#8B97AB" stroke-width="1.1" stroke-linecap="round"/>
+<polygon points="396.0,126.0 393.3,120.1 398.7,120.1" fill="#8B97AB"/>
+<line x1="396" y1="218" x2="396.0" y2="235.8" stroke="#8B97AB" stroke-width="1.1" stroke-linecap="round"/>
+<polygon points="396.0,240.0 393.3,234.1 398.7,234.1" fill="#8B97AB"/>
+<line x1="396" y1="328" x2="396.0" y2="345.8" stroke="#8B97AB" stroke-width="1.1" stroke-linecap="round"/>
+<polygon points="396.0,350.0 393.3,344.1 398.7,344.1" fill="#8B97AB"/>
+<line x1="596" y1="112" x2="596.0" y2="121.8" stroke="#8B97AB" stroke-width="1.1" stroke-linecap="round"/>
+<polygon points="596.0,126.0 593.3,120.1 598.7,120.1" fill="#8B97AB"/>
+<line x1="596" y1="218" x2="596.0" y2="235.8" stroke="#8B97AB" stroke-width="1.1" stroke-linecap="round"/>
+<polygon points="596.0,240.0 593.3,234.1 598.7,234.1" fill="#8B97AB"/>
+<line x1="596" y1="328" x2="596.0" y2="345.8" stroke="#8B97AB" stroke-width="1.1" stroke-linecap="round"/>
+<polygon points="596.0,350.0 593.3,344.1 598.7,344.1" fill="#8B97AB"/>
+<text x="192" y="122" font-family="Menlo" font-size="6.4" fill="#8B97AB">I²C / GPIO</text>
+<text x="402" y="236" font-family="Menlo" font-size="6.4" fill="#8B97AB">BLE / BT</text>
+<text x="602" y="346" font-family="Inter" font-size="6.4" fill="#8B97AB">write</text>
+<rect x="6" y="428" width="708" height="18" rx="4" fill="#F1F4F9"/>
+<text x="16" y="440" font-family="Inter" font-size="7.0" fill="#14233D" font-weight="700">Two stack-wide rules: ①  energy and measurement chains are separated in time (no charging while acquiring)   ②  every experiment must reproduce</text>
+</svg>

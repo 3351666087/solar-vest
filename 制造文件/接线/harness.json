@@ -1,0 +1,497 @@
+[
+ {
+  "id": "W01",
+  "name": "panel_lead",
+  "length_mm": 221,
+  "cut_mm": 350,
+  "od_mm": 5.0,
+  "ends": [
+   null,
+   "ferrule"
+  ],
+  "conductors": [
+   [
+    "+ 红",
+    "面板接线盒 +",
+    "PMB-H J1-1 PV_IN+"
+   ],
+   [
+    "− 蓝",
+    "面板接线盒 −",
+    "PMB-H J1-2 PV_IN−"
+   ]
+  ],
+  "source": "面板原线（照片实测：接线盒→防水接头约 4.2 m，其中线把约 3.8 m；接头→剥线端 0.41 m + 芯线 7–8 cm；外径 4.1 mm）。面板侧在 200 mm 处剪断，与接头侧的 100 mm 尾线焊接（2 点 + 热缩）；接头另一侧剪到 200 mm 剥线拧端子",
+  "route": "面板背后 → 线槽 T1 → 背部仓 PANEL 口（扎带桥固定）"
+ },
+ {
+  "id": "W02",
+  "name": "battery",
+  "length_mm": 50,
+  "cut_mm": 150,
+  "od_mm": 2.4,
+  "ends": [
+   null,
+   "PHR-2"
+  ],
+  "conductors": [
+   [
+    "红",
+    "电池 +（保护板后）",
+    "J2-1 BAT+"
+   ],
+   [
+    "黑",
+    "电池 −",
+    "J2-2 GND"
+   ]
+  ],
+  "source": "电池自带 PH2.0 插头（⚠ 红线对 J2 丝印 +）",
+  "route": "仓内：电池左端 → 跨隔板 → J2"
+ },
+ {
+  "id": "W03",
+  "name": "ntc",
+  "length_mm": 36,
+  "cut_mm": 150,
+  "od_mm": 1.8,
+  "ends": [
+   null,
+   "PHR-2"
+  ],
+  "conductors": [
+   [
+    "—",
+    "NTC 10 kΩ（无极性）",
+    "J3-1 NTC_ADC"
+   ],
+   [
+    "—",
+    "NTC",
+    "J3-2 GND"
+   ]
+  ],
+  "source": "成品 NTC 10k B3950 带 PH2.0 线（采购）",
+  "route": "NTC 用耐高温胶带贴在电池中部"
+ },
+ {
+  "id": "W04",
+  "name": "ref1",
+  "length_mm": 344,
+  "cut_mm": 450,
+  "od_mm": 2.4,
+  "ends": [
+   null,
+   "PHR-2"
+  ],
+  "conductors": [
+   [
+    "红",
+    "REF1 电池片 +",
+    "J7-1 REF1+"
+   ],
+   [
+    "黑",
+    "REF1 电池片 −",
+    "J7-2 GND"
+   ]
+  ],
+  "source": "剪下的面板线（2 芯 Ø4.1）0.45 m + 清单「PH2mm 直针带线」插头 1 个，焊 2 点 + 热缩",
+  "route": "REF1 夹子 → 面板左缘 → 线槽 T2 → REF1 口"
+ },
+ {
+  "id": "W05",
+  "name": "ref2",
+  "length_mm": 482,
+  "cut_mm": 600,
+  "od_mm": 2.4,
+  "ends": [
+   null,
+   "PHR-2"
+  ],
+  "conductors": [
+   [
+    "红",
+    "REF2 电池片 +",
+    "J8-1 REF2+"
+   ],
+   [
+    "黑",
+    "REF2 电池片 −",
+    "J8-2 GND"
+   ]
+  ],
+  "source": "剪下的面板线 0.6 m + PH2 插头 1 个，焊 2 点 + 热缩",
+  "route": "左肩 REF2 → 后育克 → 线槽 T3 → REF2 口"
+ },
+ {
+  "id": "W06",
+  "name": "J6_back_to_chest",
+  "length_mm": 531,
+  "cut_mm": 650,
+  "od_mm": 4.6,
+  "ends": [
+   "PHR-5",
+   "PHR-5"
+  ],
+  "conductors": [
+   [
+    "红",
+    "PMB-H J6-1 VLOAD",
+    "LIB J1-1 VLOAD"
+   ],
+   [
+    "黑",
+    "J6-2 GND",
+    "J1-2 GND"
+   ],
+   [
+    "黄",
+    "J6-3 SYNC",
+    "J1-3 SYNC_IN"
+   ],
+   [
+    "绿",
+    "J6-4 空（NC）",
+    "J1-4 备用（只到 TP5）"
+   ],
+   [
+    "黑/蓝",
+    "J6-5 GND",
+    "J1-5 GND"
+   ]
+  ],
+  "source": "PH2.0 5P 双头同向线 0.7 m（采购；走线 531 mm，0.6 m 不够留弯曲余量）；可在中间串 5P 磁吸连接器",
+  "route": "背部仓 CHEST 口 → 线槽 T4（右侧腰线）→ 胸前仓 BACK UNIT 口"
+ },
+ {
+  "id": "W07",
+  "name": "lib_to_core_bat",
+  "length_mm": 59,
+  "cut_mm": 150,
+  "od_mm": 2.0,
+  "ends": [
+   "PHR-2",
+   "PHR-2"
+  ],
+  "conductors": [
+   [
+    "红",
+    "LIB J2-1 VBIT",
+    "Core B 电池座 +"
+   ],
+   [
+    "黑",
+    "LIB J2-2 GND",
+    "Core B 电池座 −"
+   ]
+  ],
+  "source": "清单「PH2.0 连接线」双头 10 cm（⚠ 与 Core 原电池插头红线位置一致）",
+  "route": "仓内，跨过 Core 上方"
+ },
+ {
+  "id": "W08",
+  "name": "sync_to_I1",
+  "length_mm": 53,
+  "cut_mm": 150,
+  "od_mm": 2.4,
+  "ends": [
+   "PHR-2",
+   "UC-E6"
+  ],
+  "conductors": [
+   [
+    "—",
+    "LIB J3-1 SYNC_OUT",
+    "UC-E6 SIGNAL → Core B 口 I1"
+   ],
+   [
+    "—",
+    "LIB J3-2 GND",
+    "UC-E6 GND"
+   ],
+   [
+    "—",
+    "（不接）",
+    "UC-E6 VCC / REF 剪短绝缘"
+   ]
+  ],
+  "source": "PLUX「UC-E6 转开线」传感器线剪一头（采购）+ PH2 带线压接/焊接",
+  "route": "仓内 → 右侧窗口绕出 → 插 I1"
+ },
+ {
+  "id": "W09",
+  "name": "ecg_B_uce6",
+  "length_mm": 147,
+  "cut_mm": 250,
+  "od_mm": 3.0,
+  "ends": [
+   null,
+   "UC-E6"
+  ],
+  "conductors": [
+   [
+    "—",
+    "HeartBIT ECG 传感器 UC-E6",
+    "Core B 口 A2（PLUX 原装线，针对针）"
+   ]
+  ],
+  "source": "HeartBIT 套件 ECG 传感器自带的 30 cm UC-E6 传感器线（另有 10 cm 一根，太短）",
+  "route": "内袋 → 导线孔 B（铜扣眼）→ 口袋 → 插 A2"
+ },
+ {
+  "id": "W10a",
+  "name": "lead_B_IN+",
+  "length_mm": 185,
+  "cut_mm": 300,
+  "od_mm": 2.0,
+  "ends": [
+   null,
+   "snap"
+  ],
+  "conductors": [
+   [
+    "red",
+    "HeartBIT ECG 传感器 IN+",
+    "电极 B_IN+"
+   ]
+  ],
+  "source": "HeartBIT 套件 ECG 传感器自带导联",
+  "route": "皮肤与里布之间，松紧环固定"
+ },
+ {
+  "id": "W10b",
+  "name": "lead_B_IN−",
+  "length_mm": 142,
+  "cut_mm": 250,
+  "od_mm": 2.0,
+  "ends": [
+   null,
+   "snap"
+  ],
+  "conductors": [
+   [
+    "black",
+    "HeartBIT ECG 传感器 IN−",
+    "电极 B_IN-"
+   ]
+  ],
+  "source": "HeartBIT 套件 ECG 传感器自带导联",
+  "route": "皮肤与里布之间，松紧环固定"
+ },
+ {
+  "id": "W10c",
+  "name": "lead_B_REF",
+  "length_mm": 172,
+  "cut_mm": 300,
+  "od_mm": 2.0,
+  "ends": [
+   null,
+   "snap"
+  ],
+  "conductors": [
+   [
+    "white",
+    "HeartBIT ECG 传感器 REF",
+    "电极 B_REF"
+   ]
+  ],
+  "source": "HeartBIT 套件 ECG 传感器自带导联",
+  "route": "皮肤与里布之间，松紧环固定"
+ },
+ {
+  "id": "W12",
+  "name": "C_battery",
+  "length_mm": 118,
+  "cut_mm": 200,
+  "od_mm": 2.0,
+  "ends": [
+   null,
+   "PHR-2"
+  ],
+  "conductors": [
+   [
+    "红",
+    "523450 +",
+    "Board 电源块 PWR +"
+   ],
+   [
+    "黑",
+    "523450 −",
+    "PWR −"
+   ]
+  ],
+  "source": "清单「523450 1000 mAh」自带线；若插头不同，用「PH2mm 直针带线」改接",
+  "route": "仓内，绕板上沿"
+ },
+ {
+  "id": "W11",
+  "name": "C_electrode_cable",
+  "length_mm": 83,
+  "cut_mm": 200,
+  "od_mm": 3.0,
+  "ends": [
+   "UC-E6",
+   "Y"
+  ],
+  "conductors": [
+   [
+    "红",
+    "UC-E6 → C 的 ECG 模块",
+    "电极 C_IN+（左锁骨下）"
+   ],
+   [
+    "黑",
+    "—",
+    "电极 C_IN−（右锁骨下）"
+   ],
+   [
+    "白",
+    "—",
+    "电极 C_REF（左侧下肋）"
+   ]
+  ],
+  "source": "PLUX 3-lead 电极线（Board 套件自带，或从 HeartBIT 套件取）",
+  "route": "C 外壳左窗 → 导线孔 C → 背心内分叉 → 皮肤"
+ },
+ {
+  "id": "W11a",
+  "name": "lead_C_IN+",
+  "length_mm": 124,
+  "cut_mm": 250,
+  "od_mm": 2.0,
+  "ends": [
+   null,
+   "snap"
+  ],
+  "conductors": [
+   [
+    "red",
+    "3-lead 分叉",
+    "电极 C_IN+"
+   ]
+  ],
+  "source": "同 W11",
+  "route": "皮肤与里布之间"
+ },
+ {
+  "id": "W11b",
+  "name": "lead_C_IN-",
+  "length_mm": 148,
+  "cut_mm": 250,
+  "od_mm": 2.0,
+  "ends": [
+   null,
+   "snap"
+  ],
+  "conductors": [
+   [
+    "black",
+    "3-lead 分叉",
+    "电极 C_IN-"
+   ]
+  ],
+  "source": "同 W11",
+  "route": "皮肤与里布之间"
+ },
+ {
+  "id": "W11c",
+  "name": "lead_C_REF",
+  "length_mm": 163,
+  "cut_mm": 250,
+  "od_mm": 2.0,
+  "ends": [
+   null,
+   "snap"
+  ],
+  "conductors": [
+   [
+    "white",
+    "3-lead 分叉",
+    "电极 C_REF"
+   ]
+  ],
+  "source": "同 W11",
+  "route": "皮肤与里布之间"
+ },
+ {
+  "id": "W13",
+  "name": "pulsesensor",
+  "length_mm": 512,
+  "cut_mm": 600,
+  "od_mm": 2.6,
+  "ends": [
+   "UC-E6",
+   null
+  ],
+  "conductors": [
+   [
+    "红",
+    "PulseSensor +",
+    "A 口 A3 VCC"
+   ],
+   [
+    "黑",
+    "PulseSensor −",
+    "A3 GND"
+   ],
+   [
+    "紫",
+    "PulseSensor 信号",
+    "A3 SIGNAL"
+   ]
+  ],
+  "source": "HeartBIT 套件 PulseSensor 原装线（约 60 cm）",
+  "route": "A 口袋上沿 → 左前育克松紧环 → 颈侧 → 左耳垂耳夹"
+ },
+ {
+  "id": "W14",
+  "name": "TC1_panel",
+  "length_mm": 592,
+  "cut_mm": 700,
+  "od_mm": 1.8,
+  "ends": [
+   null,
+   "K-mini"
+  ],
+  "conductors": [
+   [
+    "黄/红",
+    "K 型热电偶 +",
+    "测温仪 K 插头 +"
+   ],
+   [
+    "红/蓝",
+    "K 型热电偶 −",
+    "测温仪 K 插头 −"
+   ]
+  ],
+  "source": "清单「K 型表面测温电热偶」原装带插头",
+  "route": "面板背板中心（耐高温铝箔胶带）→ 线槽 → 左前插头袋"
+ },
+ {
+  "id": "W15",
+  "name": "TC2_airgap",
+  "length_mm": 597,
+  "cut_mm": 700,
+  "od_mm": 1.8,
+  "ends": [
+   null,
+   "K-mini"
+  ],
+  "conductors": [
+   [
+    "黄/红",
+    "K 型热电偶 +",
+    "测温仪 K 插头 +"
+   ],
+   [
+    "红/蓝",
+    "K 型热电偶 −",
+    "测温仪 K 插头 −"
+   ]
+  ],
+  "source": "清单「K 型表面测温电热偶」原装带插头",
+  "route": "面板下方背心表面（测热量到人体）→ 线槽 → 插头袋"
+ }
+]

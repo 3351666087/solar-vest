@@ -1,0 +1,84 @@
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 01</span>
+    <h2 class="sec-title">关键结论与能量账</h2>
+    <p class="sec-sub">面板方案由「小型柔性板」变更为「30 W 刚性板」后，能量预算需要整体重算。以下为重算结果，
+      结论相对 v1.0 发生方向性反转。</p>
+  </div>
+
+  <div class="row" style="margin-bottom:4mm">
+    <div class="col w25"><div class="kpi accent"><div class="kpi-k">EAR 能量自主率</div>
+      <div class="kpi-v">1.0<span class="u">–3.9</span></div>
+      <div class="kpi-d">收集 ÷ 消耗。≥ 1.0 即为能量净正</div></div></div>
+    <div class="col w25"><div class="kpi"><div class="kpi-k">连续采集日耗</div>
+      <div class="kpi-v">5.76<span class="u"> Wh</span></div>
+      <div class="kpi-d">BITalino 约 240 mW × 24 h<sup>①</sup></div></div></div>
+    <div class="col w25"><div class="kpi"><div class="kpi-k">自主度</div>
+      <div class="kpi-v">3.2<span class="u"> 天</span></div>
+      <div class="kpi-d">2 × 2500 mAh，无光照续航</div></div></div>
+    <div class="col w25"><div class="kpi"><div class="kpi-k">开关电源功率</div>
+      <div class="kpi-v">8<span class="u"> W</span></div>
+      <div class="kpi-d">较 v1.0 上升约 30 倍 → EMC 风险</div></div></div>
+  </div>
+
+  <div class="co ok"><span class="co-t">结论一：连续心电采集在能量上已经可行</span>
+    只要设备每天能获得<strong>户外 2 小时</strong>或<strong>紧靠窗 6 小时</strong>的光照，系统即为能量净正。
+    v1.0 中「必须把采样占空比压到 6.7%」的限制已解除——占空比调度保留，但降级为阴雨天的节能手段。</div>
+
+  <h3>1.1　场景产能与 EAR</h3>
+  <table class="t">
+    <tr><th style="width:26%">场景</th><th style="width:13%">平面辐照度</th><th style="width:11%">电池温度</th>
+        <th style="width:12%">面板输出</th><th style="width:11%">有效时长</th><th style="width:13%">日收集</th>
+        <th style="width:14%">EAR</th></tr>
+    <tr><td>户外水平正对，晴</td><td class="num">900 W/m²</td><td class="num">60 °C</td>
+        <td class="num">23.2 W</td><td class="c">参考</td><td class="c">—</td><td class="c">—</td></tr>
+    <tr class="alt"><td><strong>户外背包垂直面，晴</strong></td><td class="num">300 W/m²</td><td class="num">45 °C</td>
+        <td class="num">8.3 W</td><td class="num">2 h</td><td class="num">14.1 Wh</td>
+        <td><span class="pill pill-ok">2.45　充裕</span></td></tr>
+    <tr><td>户外阴天</td><td class="num">120 W/m²</td><td class="num">30 °C</td>
+        <td class="num">3.5 W</td><td class="num">2 h</td><td class="num">6.0 Wh</td>
+        <td><span class="pill pill-ok">1.04　临界</span></td></tr>
+    <tr class="alt"><td><strong>室内紧靠南窗 &lt;0.5 m</strong></td><td class="num">150 W/m²</td><td class="num">30 °C</td>
+        <td class="num">4.4 W</td><td class="num">6 h</td><td class="num">22.5 Wh</td>
+        <td><span class="pill pill-ok">3.91　充裕</span></td></tr>
+    <tr><td>室内距窗 2 m</td><td class="num">35 W/m²</td><td class="num">25 °C</td>
+        <td class="num">1.1 W</td><td class="num">6 h</td><td class="num">5.4 Wh</td>
+        <td><span class="pill pill-solar">0.94　略亏</span></td></tr>
+    <tr class="alt"><td>室内纯人工照明 500 lux</td><td class="num">1.5 W/m²</td><td class="num">25 °C</td>
+        <td class="num">0.045 W</td><td class="num">8 h</td><td class="num">0.4 Wh</td>
+        <td><span class="pill pill-risk">0.07　不可行</span></td></tr>
+    <caption>面板输出已计入温度系数 −0.4 %/°C<sup>②</sup>；日收集含收集链效率 85%<sup>②</sup>。
+      辐照度为工程经验估计，Phase 0 将以参考电池片实测替换，届时本表全部数字需同步更新。</caption>
+  </table>
+
+  <div class="co warn"><span class="co-t">唯一不成立的场景：纯人工照明的室内</span>
+    办公室日光灯下面板输出仅约 45 mW，日收集 0.4 Wh，不足消耗的 7%。
+    <strong>任何材料中都不应表述为「在室内灯光下自动充电」。</strong>
+    这一点与副院长此前「太阳能可延长续航，但不能预先保证摆脱外部充电」的判断一致。</div>
+
+  <h3>1.2　瓶颈已经转移：从「收不够」变成「存不下」</h3>
+  <p>日收集 14–22 Wh，而现有 1000 mAh 电池仅能存 3.7 Wh。白天早早充满，其余能量弃掉；
+    一旦连续阴雨立即断电。离网光伏系统的标准设计变量是 <strong>自主度（Autonomy Days）</strong>，
+    工程惯例取 3–5 天。</p>
+  <table class="t">
+    <tr><th style="width:22%">电池容量</th><th style="width:16%">可用能量</th><th style="width:18%">自主度</th>
+        <th style="width:20%">0.5 C 充电电流</th><th style="width:24%">评价</th></tr>
+    <tr><td>1000 mAh（现有）</td><td class="num">3.70 Wh</td><td class="num">0.64 天</td><td class="num">0.50 A</td>
+        <td><span class="pill pill-risk">不足</span>　连续两天阴雨即断电</td></tr>
+    <tr class="alt"><td>2000 mAh</td><td class="num">7.40 Wh</td><td class="num">1.28 天</td><td class="num">1.00 A</td><td>偏紧</td></tr>
+    <tr><td><strong>2500 mAh × 2（推荐）</strong></td><td class="num">9.25 Wh ×2</td><td class="num">3.21 天</td><td class="num">1.25 A</td>
+        <td><span class="pill pill-ok">推荐</span>　并正好配合双电池交替架构</td></tr>
+    <tr class="alt"><td>5000 mAh</td><td class="num">18.50 Wh</td><td class="num">3.21 天</td><td class="num">2.50 A</td>
+        <td>单块亦可，但失去双电池隔离能力</td></tr>
+  </table>
+
+  <h3>1.3　30 W 板驱动 0.24 W 负载，不是浪费</h3>
+  <p>面板能力（8–23 W）远超充电器吸收能力（约 5 W）。这是离网光伏的标准做法——
+    <strong>oversized array for low-light robustness</strong>：</p>
+  <ul class="cl">
+    <li><span class="bullet"></span>按「晴天正午刚好够用」选板 → 阴天、冬天、朝向不佳时系统全部失效；</li>
+    <li><span class="bullet"></span>按「阴天也够用」选板 → 晴天时限流、弃掉多余能量，但全年可用。</li>
+    <li><span class="bullet"></span>本项目面板在阴天仍可输出 3.5 W，足以满负荷充电。<strong>它的价值不是峰值功率，是最差情况下的保底能力。</strong></li>
+  </ul>
+  <div class="foot-note">① 待 TC-01 实测替换，该数值是本节全部计算的地基；② 需实测或对照数据手册核实。</div>
+</div>

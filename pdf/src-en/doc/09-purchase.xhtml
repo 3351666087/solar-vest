@@ -1,0 +1,64 @@
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 07 · PROCUREMENT</span>
+    <h2 class="sec-title"><span class="tag tag-buy">C</span>　Items to Purchase</h2>
+    <p class="sec-sub">Part numbers are suggestions — equivalents are fine. <strong>Lithium cells have the longest lead
+      time and some couriers refuse them; order them first.</strong></p>
+  </div>
+
+  <h3>7.1　P0 · Blockers without these (11 items)</h3>
+  <table class="t">
+    <tr><th style="width:5%">#</th><th style="width:22%">Item</th><th style="width:24%">Spec</th>
+        <th style="width:7%">Qty</th><th style="width:42%">Why it must be bought</th></tr>
+    <tr><td class="num">1</td><td><strong>1S lithium cells</strong></td><td>3.7 V <strong>2500 mAh</strong>, with PCM, PH2.0 leads</td><td class="c">4</td>
+        <td>existing 1000 mAh gives only 0.64 d autonomy — blackout on consecutive overcast days. 2500×2 = 3.2 d; 4 cells = dual + spares</td></tr>
+    <tr class="alt"><td class="num">2</td><td><strong>MPPT charge module</strong></td><td>CN3791, input ≤28 V, charge current adjustable ≥1.25 A</td><td class="c">3</td>
+        <td>the only charge path. ⚠ before ordering confirm the module's max charge current and inductor spec (market modules often under-spec vs the chip)</td></tr>
+    <tr><td class="num">3</td><td><strong>INA226 modules</strong></td><td>I²C, external shunt</td><td class="c">4</td>
+        <td>the entire basis of EAR. Metering only one side leaves self-discharge and quiescent draw unaccounted — EAR becomes fiction</td></tr>
+    <tr class="alt"><td class="num">4</td><td><strong>Precision shunts</strong></td><td><strong>0.02 Ω</strong>, 1%, 2512</td><td class="c">20</td>
+        <td>v1.0's 0.1 Ω exceeds the INA226 range at the new power (1.8 A × 0.1 Ω = 180 mV &gt; 81.92 mV)</td></tr>
+    <tr><td class="num">5</td><td><strong>Irradiance reference</strong></td><td>calibrated reference silicon cell (preferred) <em>or</em> lux meter</td><td class="c">1</td>
+        <td>without it, no "under different light" conclusion can reproduce. ⚠ lux ≠ W/m² — reports must state the conversion assumed</td></tr>
+    <tr class="alt"><td class="num">6</td><td><strong>Telemetry MCU</strong></td><td>Seeed XIAO nRF52840</td><td class="c">3</td>
+        <td>carrier for metering + scheduling + sync</td></tr>
+    <tr><td class="num">7</td><td><strong>Power MOSFETs</strong></td><td>P-ch AO3401 / N-ch AO3400, SOT-23</td><td class="c">30 ea</td>
+        <td>4 for battery switching + load switch. The single YJL3404A in stock is neither enough nor reproducible</td></tr>
+    <tr class="alt"><td class="num">8</td><td><strong>ECG electrodes</strong></td><td>standard snap-type disposable gel electrodes</td><td class="c">500</td>
+        <td>pure consumable. ~3 per session × 2 sessions/day × 90 days</td></tr>
+    <tr><td class="num">9</td><td><strong>Ideal-diode ICs</strong></td><td>LM66100 or similar, with reverse blocking</td><td class="c">10</td>
+        <td>sidesteps the body-diode trap (still paralleled when off); far more reliable than back-to-back discrete FETs</td></tr>
+    <tr class="alt"><td class="num">10</td><td><strong>Thermal insulation</strong></td><td>EVA foam / aerogel pad, 3–5 mm</td><td class="c">1 roll</td>
+        <td>panel rear reaches 60–70 °C; the body side must insulate. <strong>A thermal pad cannot substitute — opposite direction</strong></td></tr>
+    <tr><td class="num">11</td><td><strong>18 V wiring &amp; connectors</strong></td><td>18 AWG shielded silicone wire 2 m, XT30 M/F ×5, 2 A slow-blow fuse holder + 10 fuses</td><td class="c">1 set</td>
+        <td>an 18 V / 1.8 A short will arc; fuses and proper wire are the safety floor</td></tr>
+  </table>
+
+  <h3>7.2　P1 · Strongly recommended (data quality &amp; safety)</h3>
+  <table class="t">
+    <tr><th style="width:5%">#</th><th style="width:24%">Item</th><th style="width:26%">Spec</th><th style="width:7%">Qty</th><th style="width:38%">Rationale</th></tr>
+    <tr><td class="num">12</td><td><strong>Adjustable DC supply</strong></td><td>0–30 V / 0–5 A, <strong>current-limited</strong></td><td class="c">1</td>
+        <td>power-on checks and the battery-interlock test (TC-13) all require a current-limited supply. <strong>The single best board-saver</strong>; skip if the Workspace already has one</td></tr>
+    <tr class="alt"><td class="num">13</td><td>DC electronic load</td><td>60–150 W, CC adjustable</td><td class="c">1</td><td>panel I-V curves, battery discharge curves</td></tr>
+    <tr><td class="num">14</td><td>K-type surface thermocouples</td><td>matching the existing meter</td><td class="c">4</td><td>points grew from 2 to 4 (panel rear / skin side / battery / charger case)</td></tr>
+    <tr class="alt"><td class="num">15</td><td><strong>Small flex PV panels</strong></td><td>5–6 V / ~1 W</td><td class="c">2</td>
+        <td>keeps EVK10941 useful and preserves the "two harvesting paths compared" research line. Trivial cost, high paper value</td></tr>
+    <tr><td class="num">16</td><td>EMC materials</td><td>common-mode chokes, ferrite clamps, copper shielding tape</td><td class="c">10 ea</td><td>mitigation for the #1 risk</td></tr>
+    <tr class="alt"><td class="num">17</td><td>Protection parts</td><td>SMAJ26A, SS54, 220 µF/35 V low-ESR, Polyfuse</td><td class="c">10 ea</td><td>re-selected for the new power level</td></tr>
+    <tr><td class="num">18</td><td>NTC thermistors</td><td>10 kΩ B3950</td><td class="c">10</td><td>0–45 °C charge-window protection (CN3791 has none built in)</td></tr>
+    <tr class="alt"><td class="num">19</td><td>Break-away connectors</td><td>magnetic 5-core or frangible</td><td class="c">4</td><td>safety part of the split topology; &gt; ~20 N releases the connector, not the electrodes</td></tr>
+    <tr><td class="num">20</td><td>PCB consumables</td><td>copper clad, mills/drills, via rivets, conformal coat, IPA</td><td class="c">1 batch</td><td>pairs with the lab's PCB equipment; <strong>unmasked boards must be conformal-coated</strong> (sweat-proof on-body)</td></tr>
+    <tr class="alt"><td class="num">21</td><td>Assembly consumables</td><td>flux, solder wick, Kapton tape, heat-shrink, cable clips</td><td class="c">1 ea</td><td>—</td></tr>
+  </table>
+
+  <h3>7.3　P2 · Optional (depends on open items)</h3>
+  <table class="t">
+    <tr><th style="width:5%">#</th><th style="width:30%">Item</th><th style="width:65%">Trigger condition</th></tr>
+    <tr><td class="num">22</td><td>TEG module + heatsink</td><td><strong>only if the thermoelectric comparison line continues</strong> (Q5) — nothing in current stock generates power</td></tr>
+    <tr class="alt"><td class="num">23</td><td>ADS1292R / MAX86150 module</td><td>only if Phase 3 custom low-power node starts (Q3)</td></tr>
+    <tr><td class="num">24</td><td>Oscilloscope (≥50 MHz)</td><td>strongly recommended if the Workspace lacks one — EMC work cannot proceed without it</td></tr>
+    <tr class="alt"><td class="num">25</td><td>Thermal camera</td><td>deeper thermal-distribution study; borrowing is fine</td></tr>
+    <tr><td class="num">26</td><td>Function generator</td><td>ECG-phantom stimulus (a phone's audio out can stand in)</td></tr>
+    <tr class="alt"><td class="num">27</td><td>Carry / rack structural parts</td><td>depends on the panel-mounting choice in Q1</td></tr>
+  </table>
+</div>

@@ -1,0 +1,57 @@
+<div class="sec">
+  <div class="prob-hero">
+    <div class="ph-eye">What this proposal solves</div>
+    <div class="ph-t">The 6 core problems this proposal solves</div>
+    <div class="ph-s">The first three are <strong style="color:#F0C77E">blockers</strong> — unsolved, the project either burns
+      hardware or collects untrustworthy data. The last three decide whether the system can run
+      <strong style="color:#F0C77E">long-term, safely, and reproducibly</strong>.
+      Every item comes with a concrete verification method — nothing is concluded on "should be fine".</div>
+  </div>
+
+  <div class="prob p-risk">
+    <div class="prob-q"><span class="prob-n">1</span>Connecting the 18 V PV panel directly to EVK10941 destroys the chip instantly</div>
+      <div class="prob-line risk"><span class="lb">NOW</span>The AEM10941 PV input limit is ~5 V<sup>①</sup>, while the delivered panel's V<sub>oc</sub> is ~21–22 V — <strong>over 4× the limit</strong>. Wired as originally assumed, the chip dies on the spot.</div>
+      <div class="prob-line solve"><span class="lb">FIX</span>Switch to a <code>CN3791</code> high-voltage MPPT charge path (input rating ~28 V<sup>①</sup>); EVK10941 leaves the main chain and becomes an independent "two harvesting paths compared" research branch.</div>
+      <div class="prob-line check"><span class="lb">VERIFY</span>Power-on checklist: current-limited supply first, diode-mode check of reverse-polarity protection, insulation test between the 18 V and low-voltage zones.</div>
+  </div>
+
+  <div class="prob p-risk">
+    <div class="prob-q"><span class="prob-n">2</span>An 8 W-class switching supply will pollute µV-level ECG　<span class="pill pill-risk">#1 technical risk</span></div>
+      <div class="prob-line risk"><span class="lb">NOW</span>After the panel change, switching power rose from 0.27 W to ~8 W (<strong>~30×</strong>). The envelope frequency of buck/boost converters in PFM burst mode <strong>can fall inside the 0.05–40 Hz ECG band</strong>; demodulated through electrode impedance it looks like physiology — data that "looks right but is wrong".</div>
+      <div class="prob-line solve"><span class="lb">FIX</span>Two architectural measures that cut the coupling path instead of filtering: <strong>① split topology</strong> — 18 V and the charger stay in the backpack unit; only &lt;4.2 V reaches the chest; <strong>② dual-battery alternation</strong> — one battery charges while the other powers the load, so during acquisition no switching supply is active on the supply rail.</div>
+      <div class="prob-line check"><span class="lb">VERIFY</span>TC-05 ECG-phantom 2×2 factorial comparison, quantifying the 0.5–40 Hz noise-floor delta; the result decides whether dual batteries are actually needed.</div>
+  </div>
+
+  <div class="prob p-solar">
+    <div class="prob-q"><span class="prob-n">3</span>Can continuous ECG acquisition truly be self-powered</div>
+      <div class="prob-line"><span class="lb">NOW</span>Under the v1.0 small-flex-panel assumption, self-powering reached only ~7%, forcing the sampling duty cycle down to 6.7% (40 s per 10 min) to break even.</div>
+      <div class="prob-line solve"><span class="lb">FIX</span>Re-budgeted with the 30 W panel: <strong>continuous acquisition is now feasible</strong>, with energy autonomy ratio EAR of <strong>1.0–3.9</strong> across lighting scenarios. Duty-cycling is demoted from "feasibility prerequisite" to "a saving measure for overcast days".</div>
+      <div class="prob-line check"><span class="lb">VERIFY</span>TC-06 unattended 72-hour energy balance; TC-11 outdoor on-body measurement of EAR ≥ 1.5.</div>
+  </div>
+
+  <div class="prob">
+    <div class="prob-q"><span class="prob-n">4</span>Battery capacity cannot ride out consecutive overcast days</div>
+      <div class="prob-line"><span class="lb">NOW</span>The existing 1000 mAh battery stores only 3.7 Wh — autonomy of <strong>0.64 days</strong>. Two overcast days in a row means blackout, making long-term wear studies impossible.</div>
+      <div class="prob-line solve"><span class="lb">FIX</span>Scale up to <strong>2 × 2500 mAh</strong>, raising autonomy to <strong>3.2 days</strong> — in line with the 3–5 day engineering convention for off-grid PV, and a natural fit for the dual-battery alternation architecture.</div>
+      <div class="prob-line check"><span class="lb">VERIFY</span>TC-19 measured continuous run time after shading ≥ 2.5 days.</div>
+  </div>
+
+  <div class="prob">
+    <div class="prob-q"><span class="prob-n">5</span>Heat from the panel and electronics can injure skin</div>
+      <div class="prob-line risk"><span class="lb">NOW</span>Under sun, the PV panel's rear face can reach 60–70 °C<sup>②</sup>. Following the common practice of placing a thermal pad between panel and body (TEUCER HP600 is a <strong>heat-conducting</strong> silicone pad) would pump that heat straight into the skin.</div>
+      <div class="prob-line solve"><span class="lb">FIX</span>Separate the two thermal paths explicitly: <strong>conduction</strong> for "component → enclosure" cooling; <strong>insulation on the body side</strong> — a 10–20 mm air gap plus low-conductivity foam/aerogel pad.</div>
+      <div class="prob-line check"><span class="lb">VERIFY</span>TC-07 in two stages: ex-vivo skin-phantom test first, on-body only after passing; 4-point synchronous thermometry, skin side &lt; 41 °C<sup>③</sup>.</div>
+  </div>
+
+  <div class="prob">
+    <div class="prob-q"><span class="prob-n">6</span>Experimental data must be reproducible and traceable</div>
+      <div class="prob-line"><span class="lb">NOW</span>Host timestamps on the two independent radio links (ECG + power telemetry) suffer tens to hundreds of ms of Bluetooth buffering jitter, so "the light right now" cannot be matched to "the waveform right now"; configuration drift would make an anomalous curve untraceable three months later.</div>
+      <div class="prob-line solve"><span class="lb">FIX</span><strong>Hardware-level sync</strong> — the telemetry MCU pulses a BITalino digital input, embedding markers in the data stream itself; <strong>Run Manifest</strong> — every run records firmware commit, hardware version hash, calibrated battery capacity, and measured irradiance.</div>
+      <div class="prob-line check"><span class="lb">VERIFY</span>TC-09 sync residual &lt; 2 samples; CI enforces that the firmware SHA in each manifest really exists in the repo.</div>
+  </div>
+
+  <div class="foot-note">
+    ① To be confirmed against datasheets; ② to be measured; ③ IEC 60601-1 limit for applied parts in prolonged skin contact without heating — the exact tier depends on material and contact duration, check Tables 23/24.
+    Every value marked <span class="conf conf-c">TBC</span> in this document is an engineering estimate and will be replaced by measurements in Phase 0.
+  </div>
+</div>

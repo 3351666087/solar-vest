@@ -1,0 +1,3 @@
+Designator,Value,Footprint,Why not JLC,Note
+SC1,10F 2.7V,hw:SuperCap_D10_L25_Flat_P5.00mm,not stocked by JLC,"2.7 V 10 F, 10x25 mm radial; lay flat on the silk outline, + to the square pad, solder 2 joints each"
+SC2,10F 2.7V,hw:SuperCap_D10_L25_Flat_P5.00mm,not stocked by JLC,"2.7 V 10 F, 10x25 mm radial; lay flat on the silk outline, + to the square pad, solder 2 joints each"

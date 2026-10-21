@@ -1,0 +1,65 @@
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">SECTION 05 · SOFTWARE</span>
+    <h2 class="sec-title">Software Layer — Multi-Source Alignment, Storage &amp; Reproducibility</h2>
+    <p class="sec-sub">Three independent radio links, two time bases, and one conclusion that must still reproduce
+      three months from now. The engineering effort in this layer is usually underestimated in proportion to how
+      decisively it determines experimental success.</p>
+  </div>
+
+  <figure>
+    <div class="figframe">@@sw-ingest|740@@</div>
+    <div class="figcap"><span class="fignum">Fig. 9</span>　Ingest &amp; alignment (write path).
+      Host timestamps on the three sources suffer tens to hundreds of ms of Bluetooth buffering jitter, so alignment
+      <strong>does not rely on host clocks</strong> — it relies on hardware sync markers embedded in the data stream.</div>
+  </figure>
+  <figure>
+    <div class="figframe">@@sw-serve|760@@</div>
+    <div class="figcap"><span class="fignum">Fig. 10</span>　Storage &amp; analysis (read path).
+      Raw signals land in Parquet and are <strong>made read-only after writing</strong>; telemetry goes to TimescaleDB
+      hypertables; all processing is re-runnable and never overwrites raw data.</div>
+  </figure>
+
+  <div class="row">
+    <div class="col w50">
+      <h3 style="margin-top:0">5.1　Stack choices</h3>
+      <table class="t">
+        <tr><th style="width:24%">Stage</th><th style="width:30%">Choice</th><th style="width:46%">Rationale / constraints</th></tr>
+        <tr><td>BLE ingest</td><td class="mono">bleak (asyncio)</td><td>cross-platform; needs back-pressure and auto-reconnect</td></tr>
+        <tr class="alt"><td>Classic BT ingest</td><td class="mono">pyserial</td><td>if BITalino is the BT version; slow reconnects affect power-cycle strategy</td></tr>
+        <tr><td>Raw signals</td><td class="mono">Parquet (columnar)</td><td>1000 Hz × multi-channel × hours; a relational store doesn't pay off</td></tr>
+        <tr class="alt"><td>Telemetry series</td><td class="mono">TimescaleDB</td><td>hypertables + continuous aggregates; EAR integrated per window</td></tr>
+        <tr><td>ECG processing</td><td class="mono">NeuroKit2</td><td>R-peak detection and HRV; golden-case regression</td></tr>
+        <tr class="alt"><td>Dashboard</td><td class="mono">Grafana</td><td>live view of energy / temperature / state machine</td></tr>
+        <tr><td>Run records</td><td class="mono">YAML manifest + Git</td><td>committed alongside the data; never written after the fact</td></tr>
+        <tr class="alt"><td>CI</td><td class="mono">pytest + schema</td><td>includes "manifest fw SHA must really exist" check</td></tr>
+      </table>
+      <div class="co info"><span class="co-t">A discipline that looks pedantic but is the most effective</span>
+        CI verifies that <code>firmware_git_sha</code> in every manifest actually exists in the repo.
+        It forces you to <strong>commit firmware first, then run the experiment</strong> — not "tweak, run, and forget
+        what changed".</div>
+    </div>
+    <div class="col w50">
+      <h3 style="margin-top:0">5.2　Data model (core table)</h3>
+      <table class="t">
+        <tr><th style="width:34%">Field</th><th style="width:20%">Type</th><th style="width:46%">Notes</th></tr>
+        <tr><td class="mono">run_id</td><td class="mono">TEXT</td><td>primary-key prefix, maps to the manifest</td></tr>
+        <tr class="alt"><td class="mono">t_host / t_mcu_ms</td><td class="mono">TIMESTAMPTZ / BIGINT</td><td>aligned + raw MCU, both kept for traceability</td></tr>
+        <tr><td class="mono">seq</td><td class="mono">INT</td><td><strong>gap detection</strong> — wireless telemetry must prove nothing was lost, else the EAR integral is fiction</td></tr>
+        <tr class="alt"><td class="mono">v_pv_mv / i_pv_ua</td><td class="mono">INT</td><td>INA226 #1</td></tr>
+        <tr><td class="mono">v_bat_mv / i_bat_ua</td><td class="mono">INT</td><td>INA226 #2, signed bidirectional</td></tr>
+        <tr class="alt"><td class="mono">soc_pct</td><td class="mono">SMALLINT</td><td>coulomb-integration result</td></tr>
+        <tr><td class="mono">active_discharge_battery</td><td class="mono">CHAR(1)</td><td>'A' / 'B'　<span class="pill pill-solar">new in v2</span></td></tr>
+        <tr class="alt"><td class="mono">t_panel / t_skin / t_bat / t_chgr</td><td class="mono">SMALLINT</td><td>4-point thermometry　<span class="pill pill-solar">new in v2</span></td></tr>
+        <tr><td class="mono">irradiance_wm2</td><td class="mono">REAL</td><td>reference-cell measurement　<span class="pill pill-solar">new in v2</span></td></tr>
+        <tr class="alt"><td class="mono">fsm_state</td><td class="mono">SMALLINT</td><td>FSM state, for segmented statistics</td></tr>
+      </table>
+      <div class="co ok"><span class="co-t">Run Manifest required fields (CI rejects otherwise)</span>
+        <code>firmware_git_sha</code>　<code>pmb_h.build_hash</code>　<code>lib.build_hash</code>
+        　<code>battery_[ab].capacity_calibrated_mah</code>　<code>battery_[ab].cycles_before_run</code>
+        　<code>pv.attenuation</code>　<code>environment.irradiance_ref_wm2</code>
+        　<code>config.emc_strategy</code>（which of ADR-004 / 006 / 007 were active this run）
+        <br/>Even perfboard has versions: <strong>move one jumper wire → build_hash +1</strong>.</div>
+    </div>
+  </div>
+</div>

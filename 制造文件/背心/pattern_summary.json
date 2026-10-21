@@ -1,0 +1,322 @@
+{
+ "shell": {
+  "YOKE_B": {
+   "area_m2": 0.0637,
+   "stretch_max": 1.036720889618292,
+   "stretch_min": 0.9866730469993207,
+   "size_mm": [
+    440,
+    219
+   ],
+   "bound_edge_mm": 536
+  },
+  "BACK_C": {
+   "area_m2": 0.1665,
+   "stretch_max": 1.030339950775861,
+   "stretch_min": 0.9731247188587613,
+   "size_mm": [
+    362,
+    482
+   ],
+   "bound_edge_mm": 321
+  },
+  "BACK_SL": {
+   "area_m2": 0.0498,
+   "stretch_max": 1.0269504398687568,
+   "stretch_min": 0.9813151860809932,
+   "size_mm": [
+    142,
+    478
+   ],
+   "bound_edge_mm": 338
+  },
+  "FRONT_L": {
+   "area_m2": 0.1071,
+   "stretch_max": 1.0173097056706721,
+   "stretch_min": 0.9797764591354752,
+   "size_mm": [
+    283,
+    436
+   ],
+   "bound_edge_mm": 407
+  },
+  "YOKE_FL": {
+   "area_m2": 0.0258,
+   "stretch_max": 1.0358472454930843,
+   "stretch_min": 0.9878036608741833,
+   "size_mm": [
+    241,
+    196
+   ],
+   "bound_edge_mm": 312
+  },
+  "SIDE_L": {
+   "area_m2": 0.0333,
+   "stretch_max": 1.0071430205709315,
+   "stretch_min": 0.9908184127095765,
+   "size_mm": [
+    109,
+    327
+   ],
+   "bound_edge_mm": 167
+  },
+  "BACK_SR": {
+   "area_m2": 0.0498,
+   "stretch_max": 1.0269504398687568,
+   "stretch_min": 0.9813151860809932,
+   "size_mm": [
+    142,
+    478
+   ],
+   "bound_edge_mm": 338
+  },
+  "FRONT_R": {
+   "area_m2": 0.1071,
+   "stretch_max": 1.0173097056706721,
+   "stretch_min": 0.9797764591354752,
+   "size_mm": [
+    283,
+    436
+   ],
+   "bound_edge_mm": 407
+  },
+  "YOKE_FR": {
+   "area_m2": 0.0258,
+   "stretch_max": 1.0358472454930843,
+   "stretch_min": 0.9878036608741833,
+   "size_mm": [
+    241,
+    196
+   ],
+   "bound_edge_mm": 312
+  },
+  "SIDE_R": {
+   "area_m2": 0.0333,
+   "stretch_max": 1.0071430205709315,
+   "stretch_min": 0.9908184127095765,
+   "size_mm": [
+    109,
+    327
+   ],
+   "bound_edge_mm": 167
+  }
+ },
+ "seams": [
+  {
+   "a": "FRONT_L",
+   "b": "SIDE_L",
+   "seam": "side_f",
+   "len_a_mm": 307.5,
+   "len_b_mm": 310.8,
+   "diff_mm": -3.3
+  },
+  {
+   "a": "BACK_SL",
+   "b": "SIDE_L",
+   "seam": "side_b",
+   "len_a_mm": 310.4,
+   "len_b_mm": 310.3,
+   "diff_mm": 0.2
+  },
+  {
+   "a": "BACK_C",
+   "b": "BACK_SL",
+   "seam": "princess",
+   "len_a_mm": 458.1,
+   "len_b_mm": 456.0,
+   "diff_mm": 2.0
+  },
+  {
+   "a": "YOKE_B",
+   "b": "BACK_C",
+   "seam": "yoke_b",
+   "len_a_mm": 438.9,
+   "len_b_mm": 435.3,
+   "diff_mm": 3.6
+  },
+  {
+   "a": "YOKE_FL",
+   "b": "FRONT_L",
+   "seam": "yoke_f",
+   "len_a_mm": 170.6,
+   "len_b_mm": 169.4,
+   "diff_mm": 1.2
+  },
+  {
+   "a": "YOKE_FL",
+   "b": "YOKE_B",
+   "seam": "shoulder",
+   "len_a_mm": 93.8,
+   "len_b_mm": 93.9,
+   "diff_mm": -0.1
+  }
+ ],
+ "lining": {
+  "YOKE_B": {
+   "area_m2": 0.0629,
+   "stretch_max": 1.0364302919337356,
+   "stretch_min": 0.9869663459129402,
+   "size_mm": [
+    438,
+    217
+   ],
+   "bound_edge_mm": 529
+  },
+  "BACK_C": {
+   "area_m2": 0.1653,
+   "stretch_max": 1.0302834531262253,
+   "stretch_min": 0.973030141806507,
+   "size_mm": [
+    359,
+    482
+   ],
+   "bound_edge_mm": 319
+  },
+  "BACK_SL": {
+   "area_m2": 0.0493,
+   "stretch_max": 1.0272282168447793,
+   "stretch_min": 0.9814822931902887,
+   "size_mm": [
+    140,
+    478
+   ],
+   "bound_edge_mm": 335
+  },
+  "FRONT_L": {
+   "area_m2": 0.1063,
+   "stretch_max": 1.0173446709566407,
+   "stretch_min": 0.9797133625944378,
+   "size_mm": [
+    281,
+    435
+   ],
+   "bound_edge_mm": 404
+  },
+  "YOKE_FL": {
+   "area_m2": 0.0254,
+   "stretch_max": 1.0359541594964528,
+   "stretch_min": 0.9878527679897382,
+   "size_mm": [
+    239,
+    194
+   ],
+   "bound_edge_mm": 309
+  },
+  "BACK_SR": {
+   "area_m2": 0.0493,
+   "stretch_max": 1.0272282168447793,
+   "stretch_min": 0.9814822931902887,
+   "size_mm": [
+    140,
+    478
+   ],
+   "bound_edge_mm": 335
+  },
+  "FRONT_R": {
+   "area_m2": 0.1063,
+   "stretch_max": 1.0173446709566407,
+   "stretch_min": 0.9797133625944378,
+   "size_mm": [
+    281,
+    435
+   ],
+   "bound_edge_mm": 404
+  },
+  "YOKE_FR": {
+   "area_m2": 0.0254,
+   "stretch_max": 1.0359541594964528,
+   "stretch_min": 0.9878527679897382,
+   "size_mm": [
+    239,
+    194
+   ],
+   "bound_edge_mm": 309
+  }
+ },
+ "extras": {
+  "P1_FRONT": {
+   "size_mm": [
+    143,
+    169
+   ],
+   "area_m2": 0.0219
+  },
+  "P1_FLAP": {
+   "size_mm": [
+    99,
+    65
+   ],
+   "area_m2": 0.0064
+  },
+  "P2_FRONT": {
+   "size_mm": [
+    134,
+    110
+   ],
+   "area_m2": 0.0134
+  },
+  "P2_FLAP": {
+   "size_mm": [
+    102,
+    60
+   ],
+   "area_m2": 0.0061
+  },
+  "P3_FRONT": {
+   "size_mm": [
+    194,
+    130
+   ],
+   "area_m2": 0.0233
+  },
+  "P3_FLAP": {
+   "size_mm": [
+    154,
+    65
+   ],
+   "area_m2": 0.01
+  },
+  "P4_FRONT": {
+   "size_mm": [
+    134,
+    206
+   ],
+   "area_m2": 0.0268
+  },
+  "P4_FLAP": {
+   "size_mm": [
+    110,
+    65
+   ],
+   "area_m2": 0.0072
+  },
+  "P5_FRONT": {
+   "size_mm": [
+    104,
+    94
+   ],
+   "area_m2": 0.0082
+  },
+  "P5_FLAP": {
+   "size_mm": [
+    68,
+    55
+   ],
+   "area_m2": 0.0037
+  },
+  "P6_INNER": {
+   "size_mm": [
+    54,
+    50
+   ],
+   "area_m2": 0.0027
+  },
+  "COVER": {
+   "size_mm": [
+    349,
+    258
+   ],
+   "area_m2": 0.0876
+  }
+ }
+}

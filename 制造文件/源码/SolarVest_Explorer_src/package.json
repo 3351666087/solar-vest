@@ -1,0 +1,20 @@
+{
+  "name": "solar-vest-explorer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive three.js explorer of the self-powered solar-harvesting wearable (vest, boards, bench rig, power/data flow).",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "three": "0.160.0",
+    "three-mesh-bvh": "0.8.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.24.2",
+    "@gltf-transform/core": "4.1.1",
+    "@gltf-transform/extensions": "4.1.1",
+    "meshoptimizer": "0.22.0"
+  }
+}
