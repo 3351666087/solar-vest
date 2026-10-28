@@ -1,0 +1,143 @@
+[
+ {
+  "name": "daytime charging",
+  "a_hex": "2a2a171720480fd61a370f9c013b0bbc073f0001",
+  "b_hex": "2a380103010700100e0000010100000000000000",
+  "ts": 1793210400.5,
+  "expected": {
+   "ts": 1793210400.5,
+   "seq": 42,
+   "vpv_v": 5.93,
+   "ipv_ma": 821.5,
+   "vbat_v": 3.912,
+   "ibat_ma": 687.0,
+   "vload_v": 3.895,
+   "iload_ma": 41.2,
+   "iref1_ma": 28.75,
+   "iref2_ma": 19.8,
+   "ina_ok": 63,
+   "ntc_c": 31.2,
+   "outputs": {
+    "load": true,
+    "pv": true,
+    "chg_inh": false,
+    "range_lo": false,
+    "sync": false
+   },
+   "inputs": {
+    "charging": true,
+    "done": false
+   },
+   "mode": {
+    "pv_auto": true,
+    "chg_auto": true,
+    "range_auto": true,
+    "autoload": false,
+    "load_manual_on": false
+   },
+   "safety": {
+    "batt_lockout": false,
+    "temp_inhibit": false,
+    "night_pv_off": false,
+    "ntc_fault": false
+   },
+   "uptime_s": 3600,
+   "reset_reason": 1,
+   "fw": 1
+  }
+ },
+ {
+  "name": "night, chips missing, NTC invalid",
+  "a_hex": "ff00000000e50c000000000000000000000d0001",
+  "b_hex": "ff00800200070c7f510100040100000000000000",
+  "ts": 1793250000.0,
+  "expected": {
+   "ts": 1793250000.0,
+   "seq": 255,
+   "vpv_v": 0.0,
+   "ipv_ma": 0.0,
+   "vbat_v": 3.301,
+   "ibat_ma": 0.0,
+   "vload_v": 0.0,
+   "iload_ma": 0.0,
+   "iref1_ma": 0.0,
+   "iref2_ma": 0.0,
+   "ina_ok": 13,
+   "ntc_c": null,
+   "outputs": {
+    "load": false,
+    "pv": true,
+    "chg_inh": false,
+    "range_lo": false,
+    "sync": false
+   },
+   "inputs": {
+    "charging": false,
+    "done": false
+   },
+   "mode": {
+    "pv_auto": true,
+    "chg_auto": true,
+    "range_auto": true,
+    "autoload": false,
+    "load_manual_on": false
+   },
+   "safety": {
+    "batt_lockout": false,
+    "temp_inhibit": false,
+    "night_pv_off": true,
+    "ntc_fault": true
+   },
+   "uptime_s": 86399,
+   "reset_reason": 4,
+   "fw": 1
+  }
+ },
+ {
+  "name": "negative currents, all flags",
+  "a_hex": "07e817f1ffe50c2efbd00cfdffffff00803f0001",
+  "b_hex": "07c9ff1f031f0fffffffffff0100000000000000",
+  "ts": 1793260000.25,
+  "expected": {
+   "ts": 1793260000.25,
+   "seq": 7,
+   "vpv_v": 6.12,
+   "ipv_ma": -1.5,
+   "vbat_v": 3.301,
+   "ibat_ma": -123.4,
+   "vload_v": 3.28,
+   "iload_ma": -0.3,
+   "iref1_ma": -0.01,
+   "iref2_ma": -327.68,
+   "ina_ok": 63,
+   "ntc_c": -5.5,
+   "outputs": {
+    "load": true,
+    "pv": true,
+    "chg_inh": true,
+    "range_lo": true,
+    "sync": true
+   },
+   "inputs": {
+    "charging": true,
+    "done": true
+   },
+   "mode": {
+    "pv_auto": true,
+    "chg_auto": true,
+    "range_auto": true,
+    "autoload": true,
+    "load_manual_on": true
+   },
+   "safety": {
+    "batt_lockout": true,
+    "temp_inhibit": true,
+    "night_pv_off": true,
+    "ntc_fault": true
+   },
+   "uptime_s": 4294967295,
+   "reset_reason": 255,
+   "fw": 1
+  }
+ }
+]

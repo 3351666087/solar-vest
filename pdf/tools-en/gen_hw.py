@@ -1,5 +1,5 @@
 import sys, os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "tools"))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from dotkit import *
 OUT = os.path.join(os.path.dirname(__file__), "..", "src-en/dot")
 
@@ -23,7 +23,7 @@ b += chip("CHG", "CN3791", [
       ("cs","CS","Rcs → charge 1.25 A"),
       ("bat","BAT","4.2 V CC/CV → CHG_OUT"),
       ("chrg","CHRG","→ MCU D8")],
-      sub="MPPT 1-cell Li charger　⚠ pin nos. per datasheet", hdr=SOLAR)
+      sub="MPPT 1-cell Li charger ⚠ pin nos. per datasheet", hdr=SOLAR)
 b += edge("PV:p_o:e","PROT:i:w","PV+ 18V",SOLAR,1.6)
 b += edge("PROT:o_o:e","RS1:a:w","VBUS18",SOLAR,1.6)
 b += edge("RS1:b_o:e","CHG:vin:w","",SOLAR,1.6)

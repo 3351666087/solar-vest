@@ -5,8 +5,8 @@
 <meta charset="UTF-8"/>
 <title>Solar-Harvesting Wearable Health Monitoring System — System Architecture Proposal</title>
 <style>
-/* ============================ 设计系统 ============================ */
-/* ink 墨色 / deep 深蓝 / solar 太阳能金 / volt 信号蓝 —— 三色克制使用 */
+/* ============================ Design system ============================ */
+/* ink / deep (navy) / solar (gold) / volt (signal blue) — accent colours used sparingly */
 
 @page { size: A4; margin: 17mm 16mm 16mm 16mm;
   @top-left { content: "Solar-Harvesting Wearable Health Monitoring System";
@@ -31,7 +31,7 @@ em { font-style: normal; color: #B8720F; font-weight: 500; }
 a { color: #2F6BE4; text-decoration: none; }
 sup { font-size: 6.5pt; color: #8B97AB; vertical-align: super; }
 
-/* ---------- 封面 ---------- */
+/* ---------- Cover ---------- */
 .cover { width: 210mm; height: 297mm; position: relative;
          background-color: #0B1220; color: #FFFFFF; }
 .cover-inner { position: absolute; left: 22mm; right: 22mm; top: 30mm; }
@@ -53,7 +53,7 @@ sup { font-size: 6.5pt; color: #8B97AB; vertical-align: super; }
   text-transform: uppercase; padding-bottom: 1.6mm; }
 .cm-v { font-size: 8.2pt; line-height:1.45; color: #E8EDF6; font-weight: 500; }
 
-/* ---------- 章节 ---------- */
+/* ---------- Sections ---------- */
 .sec { page-break-before: always; }
 .cont { page-break-before: auto; }
 .pg { page-break-before: always; }
@@ -75,7 +75,7 @@ h3 { font-family: Display, CJK; font-size: 11.2pt; font-weight: 700; color: #142
 h4 { font-family: UI, CJK; font-size: 9.6pt; font-weight: 700; color: #14233D;
   margin: 5mm 0 2mm; }
 
-/* ---------- 基础组件 ---------- */
+/* ---------- Base components ---------- */
 .mono, code { font-family: Mono, CJK; font-size: 8.3pt; }
 code { background-color: #EEF2F8; color: #14233D; padding: 0.6pt 2.4pt; border-radius: 2.4pt; }
 .pill { display: inline-block; white-space: nowrap; font-family: Display, CJK; font-size: 7pt; font-weight: 700;
@@ -89,7 +89,7 @@ code { background-color: #EEF2F8; color: #14233D; padding: 0.6pt 2.4pt; border-r
 .lead { font-size: 10.6pt; line-height: 1.72; color: #2B3854; }
 .note { font-size: 8.4pt; color: #7A8699; }
 
-/* ---------- 表格 ---------- */
+/* ---------- Tables ---------- */
 table.t { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm;
   -fs-table-paginate: paginate; font-size: 8.7pt; }
 table.t th { font-family: Display, CJK; font-size: 7.2pt; font-weight: 700;
@@ -104,7 +104,7 @@ table.t td.c { text-align: center; }
 table.t caption { caption-side: bottom; font-size: 7.6pt; color: #8B97AB;
   text-align: left; padding-top: 2mm; line-height:1.5; }
 
-/* ---------- 图 ---------- */
+/* ---------- Figures ---------- */
 figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
 .figcap { font-size: 7.8pt; color: #7A8699; margin-top: 2.5mm; line-height: 1.55;
   border-left: 1.6pt solid #E4E9F1; padding-left: 3mm; }
@@ -113,7 +113,7 @@ figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
 .figframe { border: 0.6pt solid #E4E9F1; border-radius: 4pt; padding: 4mm 4mm 3mm;
   background-color: #FCFDFE; }
 
-/* ---------- 栅格（无 flex，用 table） ---------- */
+/* ---------- Grid (no flex; uses table) ---------- */
 .row { display: table; width: 100%; border-collapse: separate; border-spacing: 3mm 0; }
 .row.tight { border-spacing: 2mm 0; }
 .row > .col { display: table-cell; vertical-align: top; }
@@ -121,7 +121,7 @@ figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
 .w50 { width: 50%; } .w33 { width: 33.33%; } .w66 { width: 66.66%; }
 .w25 { width: 25%; } .w40 { width: 40%; } .w60 { width: 60%; }
 
-/* ---------- KPI 数字块 ---------- */
+/* ---------- KPI figure blocks ---------- */
 .kpi { border: 0.6pt solid #E4E9F1; border-radius: 5pt; padding: 4mm 4mm 3.4mm;
   background-color: #FCFDFE; }
 .kpi-k { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700; letter-spacing: 1.4pt;
@@ -133,7 +133,7 @@ figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
 .kpi.accent { border-color: #F0D5A4; background-color: #FEFAF3; }
 .kpi.accent .kpi-v { color: #B8720F; }
 
-/* ---------- 问题卡（醒目区） ---------- */
+/* ---------- Issue cards (callouts) ---------- */
 .prob-hero { background-color: #0B1220; color: #FFFFFF; border-radius: 6pt;
   padding: 5mm 6mm 4.6mm; margin-bottom: 3.6mm; }
 .prob-hero .ph-eye { font-family: Display, CJK; font-size: 7.4pt; font-weight: 700;
@@ -179,7 +179,7 @@ figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
 .co.neutral { background-color: #F6F8FC; border-left: 2.6pt solid #46556E; color: #2B3854; }
 .co.neutral .co-t { color: #14233D; }
 
-/* ---------- 物料清单 ---------- */
+/* ---------- Bill of materials ---------- */
 .bom-legend { display: table; width: 100%; border-spacing: 3mm 0; margin-bottom: 4mm; }
 .bom-legend .bl { display: table-cell; width: 33.33%; border-radius: 5pt; padding: 3.4mm 4mm;
   color: #FFFFFF; }
@@ -196,7 +196,7 @@ figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
 .tag-have { background-color: #15845F; } .tag-make { background-color: #B8720F; }
 .tag-buy { background-color: #2F6BE4; }
 
-/* ---------- 层级说明 ---------- */
+/* ---------- Layer descriptions ---------- */
 .layer { border: 0.7pt solid #E4E9F1; border-left: 3.2pt solid #14233D; border-radius: 4pt;
   padding: 3.4mm 4mm; margin-bottom: 2.6mm; page-break-inside: avoid; }
 .layer-h { font-family: Display, CJK; font-size: 9.8pt; font-weight: 700; color: #0B1220;
@@ -210,7 +210,7 @@ figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
 .layer.l-sw { border-left-color: #2F6BE4; } .layer.l-sw .lid { background-color: #2F6BE4; }
 .layer.l-dt { border-left-color: #6B4FCF; } .layer.l-dt .lid { background-color: #6B4FCF; }
 
-/* ---------- 列表 ---------- */
+/* ---------- Lists ---------- */
 ul.cl { list-style: none; padding-left: 0; margin: 2mm 0 4mm; }
 ul.cl li { font-size: 8.8pt; line-height: 1.6; padding-left: 6mm; margin-bottom: 1.8mm;
   position: relative; }
@@ -219,7 +219,7 @@ ul.cl li .bullet { position: absolute; left: 0; top: 0; font-family: Display, CJ
 ol.n { padding-left: 5mm; margin: 2mm 0 4mm; font-size: 8.9pt; line-height: 1.62; }
 ol.n li { margin-bottom: 1.6mm; }
 
-/* ---------- 里程碑 ---------- */
+/* ---------- Milestones ---------- */
 .ms { border-left: 1.4pt solid #E4E9F1; padding-left: 5mm; margin-left: 2mm; }
 .ms-i { position: relative; margin-bottom: 2.4mm; page-break-inside: avoid; }
 .ms-w { font-family: Display, CJK; font-size: 7.2pt; font-weight: 700; letter-spacing: 1.2pt;
@@ -229,7 +229,7 @@ ol.n li { margin-bottom: 1.6mm; }
 .ms-d { font-size: 8.2pt; color: #46556E; line-height: 1.52; }
 .ms-gate { font-size: 7.8pt; color: #A8291F; margin-top: 1mm; font-weight: 500; }
 
-/* ---------- 脚注/注记 ---------- */
+/* ---------- Footnotes / annotations ---------- */
 .foot-note { font-size: 7.4pt; color: #8B97AB; line-height: 1.5; margin-top: 2.4mm;
   border-top: 0.5pt solid #E4E9F1; padding-top: 2mm; }
 .conf { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700; padding: 0.6pt 3pt;
@@ -268,7 +268,7 @@ ol.n li { margin-bottom: 1.6mm; }
   </div>
 
   <div class="prob p-risk">
-    <div class="prob-q"><span class="prob-n">2</span>An 8 W-class switching supply will pollute µV-level ECG　<span class="pill pill-risk">#1 technical risk</span></div>
+    <div class="prob-q"><span class="prob-n">2</span>An 8 W-class switching supply will pollute µV-level ECG <span class="pill pill-risk">#1 technical risk</span></div>
       <div class="prob-line risk"><span class="lb">NOW</span>After the panel change, switching power rose from 0.27 W to ~8 W (<strong>~30×</strong>). The envelope frequency of buck/boost converters in PFM burst mode <strong>can fall inside the 0.05–40 Hz ECG band</strong>; demodulated through electrode impedance it looks like physiology — data that "looks right but is wrong".</div>
       <div class="prob-line solve"><span class="lb">FIX</span>Two architectural measures that cut the coupling path instead of filtering: <strong>① split topology</strong> — 18 V and the charger stay in the backpack unit; only &lt;4.2 V reaches the chest; <strong>② dual-battery alternation</strong> — one battery charges while the other powers the load, so during acquisition no switching supply is active on the supply rail.</div>
       <div class="prob-line check"><span class="lb">VERIFY</span>TC-05 ECG-phantom 2×2 factorial comparison, quantifying the 0.5–40 Hz noise-floor delta; the result decides whether dual batteries are actually needed.</div>
@@ -336,7 +336,7 @@ ol.n li { margin-bottom: 1.6mm; }
     The v1.0 constraint "duty cycle must be squeezed to 6.7%" is lifted — duty-cycling is kept, but demoted
     to a saving measure for overcast days.</div>
 
-  <h3>1.1　Scenario yield and EAR</h3>
+  <h3>1.1 Scenario yield and EAR</h3>
   <table class="t">
     <tr><th style="width:26%">Scenario</th><th style="width:13%">Plane irradiance</th><th style="width:11%">Cell temp</th>
         <th style="width:12%">Panel output</th><th style="width:11%">Effective hrs</th><th style="width:13%">Daily harvest</th>
@@ -345,19 +345,19 @@ ol.n li { margin-bottom: 1.6mm; }
         <td class="num">23.2 W</td><td class="c">reference</td><td class="c">—</td><td class="c">—</td></tr>
     <tr class="alt"><td><strong>Outdoor backpack vertical, sunny</strong></td><td class="num">300 W/m²</td><td class="num">45 °C</td>
         <td class="num">8.3 W</td><td class="num">2 h</td><td class="num">14.1 Wh</td>
-        <td><span class="pill pill-ok">2.45　ample</span></td></tr>
+        <td><span class="pill pill-ok">2.45 ample</span></td></tr>
     <tr><td>Outdoor overcast</td><td class="num">120 W/m²</td><td class="num">30 °C</td>
         <td class="num">3.5 W</td><td class="num">2 h</td><td class="num">6.0 Wh</td>
-        <td><span class="pill pill-ok">1.04　marginal</span></td></tr>
+        <td><span class="pill pill-ok">1.04 marginal</span></td></tr>
     <tr class="alt"><td><strong>Indoor, against S window &lt;0.5 m</strong></td><td class="num">150 W/m²</td><td class="num">30 °C</td>
         <td class="num">4.4 W</td><td class="num">6 h</td><td class="num">22.5 Wh</td>
-        <td><span class="pill pill-ok">3.91　ample</span></td></tr>
+        <td><span class="pill pill-ok">3.91 ample</span></td></tr>
     <tr><td>Indoor, 2 m from window</td><td class="num">35 W/m²</td><td class="num">25 °C</td>
         <td class="num">1.1 W</td><td class="num">6 h</td><td class="num">5.4 Wh</td>
-        <td><span class="pill pill-solar">0.94　slight deficit</span></td></tr>
+        <td><span class="pill pill-solar">0.94 slight deficit</span></td></tr>
     <tr class="alt"><td>Indoor, office lighting 500 lux</td><td class="num">1.5 W/m²</td><td class="num">25 °C</td>
         <td class="num">0.045 W</td><td class="num">8 h</td><td class="num">0.4 Wh</td>
-        <td><span class="pill pill-risk">0.07　infeasible</span></td></tr>
+        <td><span class="pill pill-risk">0.07 infeasible</span></td></tr>
     <caption>Panel output includes temperature coefficient −0.4 %/°C<sup>②</sup>; daily harvest includes 85% collection-chain
       efficiency<sup>②</sup>. Irradiance figures are engineering estimates — Phase 0 replaces them with reference-cell
       measurements, and every number in this table must be updated accordingly.</caption>
@@ -368,7 +368,7 @@ ol.n li { margin-bottom: 1.6mm; }
     <strong>No material should ever describe this as "self-charging under indoor lighting".</strong>
     This matches the Vice Dean's earlier judgment: solar extends runtime but cannot be promised to eliminate external charging.</div>
 
-  <h3>1.2　The bottleneck moved: from "can't harvest enough" to "can't store enough"</h3>
+  <h3>1.2 The bottleneck moved: from "can't harvest enough" to "can't store enough"</h3>
   <p>Daily harvest is 14–22 Wh, while the existing 1000 mAh battery stores only 3.7 Wh. It fills early each day
     and the rest is discarded; the first overcast stretch then kills the system. The standard design variable for
     off-grid PV is <strong>autonomy (days)</strong>, conventionally 3–5.</p>
@@ -376,15 +376,15 @@ ol.n li { margin-bottom: 1.6mm; }
     <tr><th style="width:22%">Battery capacity</th><th style="width:16%">Usable energy</th><th style="width:18%">Autonomy</th>
         <th style="width:20%">0.5 C charge current</th><th style="width:24%">Verdict</th></tr>
     <tr><td>1000 mAh (existing)</td><td class="num">3.70 Wh</td><td class="num">0.64 d</td><td class="num">0.50 A</td>
-        <td><span class="pill pill-risk">insufficient</span>　two overcast days = blackout</td></tr>
+        <td><span class="pill pill-risk">insufficient</span> two overcast days = blackout</td></tr>
     <tr class="alt"><td>2000 mAh</td><td class="num">7.40 Wh</td><td class="num">1.28 d</td><td class="num">1.00 A</td><td>tight</td></tr>
     <tr><td><strong>2500 mAh × 2 (recommended)</strong></td><td class="num">9.25 Wh ×2</td><td class="num">3.21 d</td><td class="num">1.25 A</td>
-        <td><span class="pill pill-ok">recommended</span>　and fits dual-battery alternation</td></tr>
+        <td><span class="pill pill-ok">recommended</span> and fits dual-battery alternation</td></tr>
     <tr class="alt"><td>5000 mAh</td><td class="num">18.50 Wh</td><td class="num">3.21 d</td><td class="num">2.50 A</td>
         <td>single cell also works, but loses dual-battery isolation</td></tr>
   </table>
 
-  <h3>1.3　A 30 W panel driving a 0.24 W load is not waste</h3>
+  <h3>1.3 A 30 W panel driving a 0.24 W load is not waste</h3>
   <p>Panel capability (8–23 W) far exceeds what the charger can absorb (~5 W). This is standard off-grid practice —
     <strong>oversized array for low-light robustness</strong>:</p>
   <ul class="cl">
@@ -548,15 +548,15 @@ ol.n li { margin-bottom: 1.6mm; }
 <rect x="6" y="428" width="708" height="18" rx="4" fill="#F1F4F9"/>
 <text x="16" y="440" font-family="Inter" font-size="7.0" fill="#14233D" font-weight="700">Two stack-wide rules: ①  energy and measurement chains are separated in time (no charging while acquiring)   ②  every experiment must reproduce</text>
 </svg></div>
-    <div class="figcap"><span class="fignum">Fig. 1</span>　Layered system architecture.
+    <div class="figcap"><span class="fignum">Fig. 1</span> Layered system architecture.
       The color bars on the left identify each layer throughout this document: <span class="pill pill-solar">hardware</span>
       <span class="pill pill-ok">firmware</span> <span class="pill pill-volt">software</span>
       <span class="pill pill-muted">data</span>.</div>
   </figure>
 
-  <h3>2.1　Two decisions that shape the architecture</h3>
+  <h3>2.1 Two decisions that shape the architecture</h3>
 
-  <div class="co info"><span class="co-t">ADR-007　Split topology: no 18 V on the chest</span>
+  <div class="co info"><span class="co-t">ADR-007 Split topology: no 18 V on the chest</span>
     The system splits into two physical units. <strong>The 18 V power chain, MPPT charger, and batteries all stay in
     the backpack unit</strong>; only &lt; 4.2 V reaches the chest unit over a 5-core shielded cable.
     Four problems solved at once:
@@ -564,15 +564,15 @@ ol.n li { margin-bottom: 1.6mm; }
     ② <strong>Safety</strong> — 18 V physically cannot approach the ECG electrodes;
     ③ <strong>Heat</strong> — all charger heat stays in the backpack; chest-unit dissipation &lt; 1 mW;
     ④ <strong>Ergonomics</strong> — panel and battery weight rides in the backpack; the chest carries only tens of grams.
-    <br/><span class="pill pill-solar">Cost</span>　one extra cable → a break-away design is mandatory (magnetic or frangible connector).</div>
+    <br/><span class="pill pill-solar">Cost</span> one extra cable → a break-away design is mandatory (magnetic or frangible connector).</div>
 
-  <div class="co info"><span class="co-t">ADR-006　Dual-battery alternation: solve EMC by physical isolation, not filtering</span>
+  <div class="co info"><span class="co-t">ADR-006 Dual-battery alternation: solve EMC by physical isolation, not filtering</span>
     Two batteries: at any instant <strong>one is charging, the other is powering the load</strong>, roles swapped by the MCU
     every 30 min. During acquisition <strong>no switching supply is operating on the supply rail at all</strong> — noise is not
     filtered out, it simply does not exist in the measurement loop.
     The few-ms switchover gap is bridged by a supercapacitor: 5.4 V / 5 F stores 15.2 J, holding a 240 mW load for 63 s —
     a margin of over 10,000×.
-    <br/><span class="pill pill-risk">Precondition</span>　a <strong>hardware interlock</strong> is mandatory to prevent accidental
+    <br/><span class="pill pill-risk">Precondition</span> a <strong>hardware interlock</strong> is mandatory to prevent accidental
     parallel connection of the batteries (a 0.5 V difference drives ~4.2 A of circulating current). This circuit must not
     see real batteries until TC-13 fully passes.</div>
 
@@ -583,7 +583,7 @@ ol.n li { margin-bottom: 1.6mm; }
     <br/>· if above → build ADR-006 and re-measure.
     <br/><strong>Do not invest hardware effort in dual batteries before TC-05 returns a result.</strong></div>
 
-  <h3>2.2　Layer responsibilities and boundaries</h3>
+  <h3>2.2 Layer responsibilities and boundaries</h3>
   <div class="layer l-hw"><div class="layer-h"><span class="lid">L1</span>Hardware layer — energy &amp; noise</div>
     <div class="layer-d">Harvest, convert, store, and distribute energy without polluting the biosignal.
       Key constraints: every power node must be <strong>meterable</strong> (a precondition for EAR); the 18 V zone and the

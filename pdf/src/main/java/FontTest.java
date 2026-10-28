@@ -7,14 +7,23 @@ import org.apache.fontbox.ttf.*;
 import org.apache.pdfbox.io.RandomAccessReadBufferedFile;
 import java.io.*;
 
+/**
+ * Font smoke test for the PDF renderer. The document is English, but Render.java still
+ * registers CJK-capable fonts (family "PF") and the ICU CJK line breaker, so the sample
+ * keeps two CJK lines (written as Java unicode escapes, a short Chinese phrase meaning
+ * "solar-harvesting wearable health monitoring system" / "EMC risk") to check that the
+ * CJK glyphs and both weights (400/700) still render, alongside Latin text.
+ */
 public class FontTest {
   static final String HTML = """
     <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html>
     <html xmlns="http://www.w3.org/1999/xhtml"><head><meta charset="UTF-8"/><style>
     @page{size:A4;margin:15mm} body{font-family:PF;font-size:11pt}
     </style></head><body>
-    <p style="font-weight:400">正文 400：太阳能采集供电的可穿戴健康监测系统，能量自主率 EAR 3.91。</p>
-    <p style="font-weight:700">标题 700：电磁兼容是本项目的头号技术风险 — EMC Risk</p>
+    <p style="font-weight:400">Body 400: solar-harvesting wearable health monitoring system, energy autonomy ratio EAR 3.91.</p>
+    <p style="font-weight:700">Heading 700: electromagnetic compatibility is the top technical risk of this project — EMC Risk</p>
+    <p style="font-weight:400">CJK 400: \u592a\u9633\u80fd\u91c7\u96c6\u4f9b\u7535\u7684\u53ef\u7a7f\u6234\u5065\u5eb7\u76d1\u6d4b\u7cfb\u7edf</p>
+    <p style="font-weight:700">CJK 700: \u7535\u78c1\u517c\u5bb9\u98ce\u9669</p>
     <p>Latin 0123456789 — 18V/1.67A, 2500mAh, ±0.4%/°C</p>
     </body></html>""";
 

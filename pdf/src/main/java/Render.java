@@ -67,7 +67,7 @@ public class Render {
             PdfRendererBuilder b = new PdfRendererBuilder();
             b.useFastMode();
             b.useSVGDrawer(new BatikSVGDrawer());
-            // 中日韩断行：默认断行器只认空格，必须换成 ICU
+            // CJK line breaking: the default breaker only breaks at spaces, so switch to ICU
             b.useUnicodeLineBreaker(new ICUBreakers.ICULineBreaker(Locale.CHINA));
             b.useUnicodeCharacterBreaker(new ICUBreakers.ICUCharacterBreaker(Locale.CHINA));
             // Latin — Inter (static weights)

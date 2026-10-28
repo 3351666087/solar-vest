@@ -11,7 +11,7 @@
   </div>
   <figure class="tight">
     <div class="figframe tight">@@hw1-input|700@@</div>
-    <div class="figcap"><span class="fignum">Fig. 2</span>　18 V input protection and MPPT charging.</div>
+    <div class="figcap"><span class="fignum">Fig. 2</span> 18 V input protection and MPPT charging.</div>
   </figure>
   <div class="row">
     <div class="col w60">
@@ -27,7 +27,7 @@
         <tr class="alt"><td class="mono">C1</td><td>100 µF</td><td><strong>220 µF / 35 V low-ESR</strong></td>
             <td>Higher input power needs more input storage</td></tr>
         <tr><td class="mono">L1</td><td>none</td><td><strong>common-mode choke + ferrite</strong></td>
-            <td><span class="pill pill-risk">EMC</span>　suppress cable-borne common-mode noise (new)</td></tr>
+            <td><span class="pill pill-risk">EMC</span> suppress cable-borne common-mode noise (new)</td></tr>
         <tr class="alt"><td class="mono">RS1</td><td>0.1 Ω</td><td><strong>0.02 Ω</strong></td>
             <td>1.8 A × 0.1 Ω = 180 mV exceeds the INA226 81.92 mV full-scale</td></tr>
       </table>
@@ -48,7 +48,7 @@
 <div class="cont">
   <figure class="tight" style="margin-top:0">
     <div class="figframe tight">@@hw2-charge|520@@</div>
-    <div class="figcap"><span class="fignum">Fig. 3</span>　Charge-side switching (upper half of ADR-006).</div>
+    <div class="figcap"><span class="fignum">Fig. 3</span> Charge-side switching (upper half of ADR-006).</div>
   </figure>
   <div class="row">
     <div class="col w50">
@@ -85,7 +85,7 @@
 <div class="cont">
   <figure class="tight" style="margin-top:0">
     <div class="figframe tight">@@hw3-discharge|640@@</div>
-    <div class="figcap"><span class="fignum">Fig. 4</span>　Discharge-side switching and the umbilical.</div>
+    <div class="figcap"><span class="fignum">Fig. 4</span> Discharge-side switching and the umbilical.</div>
   </figure>
   <div class="row">
     <div class="col w55">
@@ -118,7 +118,7 @@
 <div class="cont">
   <figure class="tight" style="margin-top:0">
     <div class="figframe tight">@@hw5-chest|760@@</div>
-    <div class="figcap"><span class="fignum">Fig. 5</span>　Chest unit LIB → BITalino. No switching supply, no 18 V, quiescent draw &lt; 1 mW inside this unit.</div>
+    <div class="figcap"><span class="fignum">Fig. 5</span> Chest unit LIB → BITalino. No switching supply, no 18 V, quiescent draw &lt; 1 mW inside this unit.</div>
   </figure>
   <div class="row">
     <div class="col w50">
@@ -152,30 +152,30 @@
     <div class="col w40">
       <figure class="tight" style="margin-top:0">
         <div class="figframe tight">@@hw4-sense|285@@</div>
-        <div class="figcap"><span class="fignum">Fig. 6</span>　Metering &amp; control bus.
+        <div class="figcap"><span class="fignum">Fig. 6</span> Metering &amp; control bus.
           Two INA226 on one I²C bus, addresses split via A0/A1 (0x40 / 0x41).</div>
       </figure>
-      <div class="foot-note" style="margin-top:2.4mm"><strong style="color:#A8291F">Two non-negotiable hardware constraints　</strong>
+      <div class="foot-note" style="margin-top:2.4mm"><strong style="color:#A8291F">Two non-negotiable hardware constraints </strong>
         <strong>① Kelvin 4-wire</strong> — sense taps at the pad <strong>center</strong>, never sharing the current path;
         else 10–30% systematic error corrupts EAR.
         <strong>② Physical partitioning</strong> — ≥ 3 mm copper-free band between 18 V and LV zones; no shared
         harness or connector.</div>
     </div>
     <div class="col w60">
-      <h3 style="margin-top:0">3.1　MCU pin assignment</h3>
+      <h3 style="margin-top:0">3.1 MCU pin assignment</h3>
       <table class="t">
         <tr><th style="width:17%">Pin</th><th style="width:20%">Net name</th><th style="width:12%">Dir</th><th style="width:51%">Function &amp; constraints</th></tr>
-        <tr><td class="mono">D4 / SDA</td><td class="mono">I2C_SDA</td><td>bidir</td><td>INA226 ×2　⚠ verify XIAO default I²C mapping</td></tr>
+        <tr><td class="mono">D4 / SDA</td><td class="mono">I2C_SDA</td><td>bidir</td><td>INA226 ×2 ⚠ verify XIAO default I²C mapping</td></tr>
         <tr class="alt"><td class="mono">D5 / SCL</td><td class="mono">I2C_SCL</td><td>out</td><td>4.7 kΩ pull-up to 3V3</td></tr>
         <tr><td class="mono">D1</td><td class="mono">GATE_CHG_A</td><td>out</td><td>Q1 gate (via interlock); must be hi-Z at reset → default off</td></tr>
         <tr class="alt"><td class="mono">D2</td><td class="mono">GATE_CHG_B</td><td>out</td><td>Q2 gate (via interlock)</td></tr>
-        <tr><td class="mono">D3</td><td class="mono">GATE_DIS_A</td><td>out</td><td>Q3 gate　<strong>break-before-make, 1 ms dead time</strong></td></tr>
+        <tr><td class="mono">D3</td><td class="mono">GATE_DIS_A</td><td>out</td><td>Q3 gate <strong>break-before-make, 1 ms dead time</strong></td></tr>
         <tr class="alt"><td class="mono">D6</td><td class="mono">GATE_DIS_B</td><td>out</td><td>Q4 gate</td></tr>
         <tr><td class="mono">D7</td><td class="mono">CTRL_LOAD</td><td>out</td><td>→ J6.4 → Q5; R1 pull-up for fail-safe off</td></tr>
         <tr class="alt"><td class="mono">D8</td><td class="mono">CHRG_STAT</td><td>in</td><td>CN3791 charge status (CV detect → coulomb recalibration)</td></tr>
         <tr><td class="mono">D10</td><td class="mono">SYNC_OUT</td><td>out</td><td>→ J6.5 → BITalino I1; 10 ms pulse at both ends of an acq window</td></tr>
         <tr class="alt"><td class="mono">D0 / A0</td><td class="mono">NTC_A</td><td>analog</td><td>battery A temp; charge allowed 0 °C &lt; T &lt; 45 °C</td></tr>
-        <tr><td class="mono">A1</td><td class="mono">NTC_B</td><td>analog</td><td>battery B temp　⚠ actual ADC pin per module silkscreen</td></tr>
+        <tr><td class="mono">A1</td><td class="mono">NTC_B</td><td>analog</td><td>battery B temp ⚠ actual ADC pin per module silkscreen</td></tr>
         <tr class="alt"><td class="mono">3V3 / GND</td><td class="mono">—</td><td>power</td><td>on-board LDO; AGND &amp; PGND star-join at <strong>battery negative</strong></td></tr>
       </table>
     </div>

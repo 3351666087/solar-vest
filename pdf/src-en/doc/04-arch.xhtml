@@ -8,15 +8,15 @@
 
   <figure>
     <div class="figframe">@@sys-arch|630@@</div>
-    <div class="figcap"><span class="fignum">Fig. 1</span>　Layered system architecture.
+    <div class="figcap"><span class="fignum">Fig. 1</span> Layered system architecture.
       The color bars on the left identify each layer throughout this document: <span class="pill pill-solar">hardware</span>
       <span class="pill pill-ok">firmware</span> <span class="pill pill-volt">software</span>
       <span class="pill pill-muted">data</span>.</div>
   </figure>
 
-  <h3>2.1　Two decisions that shape the architecture</h3>
+  <h3>2.1 Two decisions that shape the architecture</h3>
 
-  <div class="co info"><span class="co-t">ADR-007　Split topology: no 18 V on the chest</span>
+  <div class="co info"><span class="co-t">ADR-007 Split topology: no 18 V on the chest</span>
     The system splits into two physical units. <strong>The 18 V power chain, MPPT charger, and batteries all stay in
     the backpack unit</strong>; only &lt; 4.2 V reaches the chest unit over a 5-core shielded cable.
     Four problems solved at once:
@@ -24,15 +24,15 @@
     ② <strong>Safety</strong> — 18 V physically cannot approach the ECG electrodes;
     ③ <strong>Heat</strong> — all charger heat stays in the backpack; chest-unit dissipation &lt; 1 mW;
     ④ <strong>Ergonomics</strong> — panel and battery weight rides in the backpack; the chest carries only tens of grams.
-    <br/><span class="pill pill-solar">Cost</span>　one extra cable → a break-away design is mandatory (magnetic or frangible connector).</div>
+    <br/><span class="pill pill-solar">Cost</span> one extra cable → a break-away design is mandatory (magnetic or frangible connector).</div>
 
-  <div class="co info"><span class="co-t">ADR-006　Dual-battery alternation: solve EMC by physical isolation, not filtering</span>
+  <div class="co info"><span class="co-t">ADR-006 Dual-battery alternation: solve EMC by physical isolation, not filtering</span>
     Two batteries: at any instant <strong>one is charging, the other is powering the load</strong>, roles swapped by the MCU
     every 30 min. During acquisition <strong>no switching supply is operating on the supply rail at all</strong> — noise is not
     filtered out, it simply does not exist in the measurement loop.
     The few-ms switchover gap is bridged by a supercapacitor: 5.4 V / 5 F stores 15.2 J, holding a 240 mW load for 63 s —
     a margin of over 10,000×.
-    <br/><span class="pill pill-risk">Precondition</span>　a <strong>hardware interlock</strong> is mandatory to prevent accidental
+    <br/><span class="pill pill-risk">Precondition</span> a <strong>hardware interlock</strong> is mandatory to prevent accidental
     parallel connection of the batteries (a 0.5 V difference drives ~4.2 A of circulating current). This circuit must not
     see real batteries until TC-13 fully passes.</div>
 
@@ -43,7 +43,7 @@
     <br/>· if above → build ADR-006 and re-measure.
     <br/><strong>Do not invest hardware effort in dual batteries before TC-05 returns a result.</strong></div>
 
-  <h3>2.2　Layer responsibilities and boundaries</h3>
+  <h3>2.2 Layer responsibilities and boundaries</h3>
   <div class="layer l-hw"><div class="layer-h"><span class="lid">L1</span>Hardware layer — energy &amp; noise</div>
     <div class="layer-d">Harvest, convert, store, and distribute energy without polluting the biosignal.
       Key constraints: every power node must be <strong>meterable</strong> (a precondition for EAR); the 18 V zone and the

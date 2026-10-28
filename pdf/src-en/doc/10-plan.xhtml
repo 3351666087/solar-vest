@@ -2,41 +2,44 @@
   <div class="sec-head">
     <span class="sec-num">SECTION 08 · PLAN</span>
     <h2 class="sec-title">Schedule &amp; Verification Gates</h2>
-    <p class="sec-sub">The plan pivots on weeks 5–6: the <strong>TC-05 ECG-phantom noise comparison</strong> decides the
-      simple vs complex route — no dual-battery hardware before it reports. Assumptions: procurement ≤ 2 wk, ethics ≤ 6 wk,
-      same-day PCBs. <strong>Procurement and ethics must both start in week 1</strong>. W12+ is Phase 3 (optional, pending Q3) and write-up.</p>
+    <p class="sec-sub">The plan pivots on weeks 5–6: the <strong>TC-05 ECG-phantom noise comparison</strong> decides whether
+      the rest follows the simple or the complex route. Do not invest in dual-battery hardware work before it reports.<br/>
+      Timeline assumptions: procurement lead time ≤ 2 weeks, ethics approval ≤ 6 weeks, lab-made PCBs available the same day;
+      if any of these slips, the whole schedule shifts accordingly. W1–W2 have the highest parallelism, and
+      <strong>procurement and the ethics application must both start in week 1</strong>. From W12 on: Phase 3 (optional,
+      depending on the answer to Q3) and write-up of results.</p>
   </div>
 
   <div class="ms">
     <div class="ms-i"><span class="ms-w">W1</span>
       <div class="ms-t">Component verification &amp; baseline measurements</div>
-      <div class="ms-d">panel weight &amp; laminate type, measured V<sub>oc</sub>/I<sub>sc</sub>, BITalino model + BT/BLE check, HeartBIT packing list, <strong>TC-01 measured power draw</strong>, place orders.</div>
-      <div class="ms-gate">Gate: all ⚠ items cleared; TC-01 values replace every power estimate and EAR is recomputed.</div></div>
+      <div class="ms-d">weigh the panel and confirm its laminate type, measure V<sub>oc</sub>/I<sub>sc</sub>, verify the BITalino model and BT/BLE version, check the HeartBIT packing list, <strong>TC-01 measured power draw</strong>, send out purchase orders.</div>
+      <div class="ms-gate">Gate: all ⚠ items cleared; TC-01 measured values replace every power estimate in this proposal, and EAR is recomputed.</div></div>
 
     <div class="ms-i"><span class="ms-w">W2</span>
       <div class="ms-t">Repo, conventions &amp; ethics application</div>
       <div class="ms-d">Git repo + run-manifest convention, CI skeleton, PCB-equipment capability survey, <strong>ethics application submitted</strong>.</div>
-      <div class="ms-gate">Gate: P0 orders placed; ethics filed (critical path — earlier is better).</div></div>
+      <div class="ms-gate">Gate: P0 purchases ordered; ethics application submitted (this is the critical path — the earlier the better).</div></div>
 
     <div class="ms-i"><span class="ms-w">W3–4</span>
       <div class="ms-t">PMB-H in-house board &amp; firmware v0.1</div>
-      <div class="ms-d">PCB fab and assembly, power-on checklist all green, firmware drivers + state machine, TC-02 panel I-V, TC-17 temp-coefficient calibration.</div>
-      <div class="ms-gate">Gate: power-on checklist fully passed (current-limited first power-up, 18 V vs LV insulation test).</div></div>
+      <div class="ms-d">PCB fabrication and assembly, power-on checks passed item by item, firmware drivers + state machine, TC-02 panel I-V, TC-17 temp-coefficient calibration.</div>
+      <div class="ms-gate">Gate: power-on checklist fully passed (including first power-up on a current-limited supply and an insulation test between the 18 V zone and the low-voltage zone).</div></div>
 
     <div class="ms-i"><span class="ms-w">W5–6</span>
       <div class="ms-t">TC-05 ECG-phantom noise comparison — decision point</div>
-      <div class="ms-d">2×2 factorial (phantom 0 / 1 mV × harvester OFF / ON), 5 × 5 min per cell; Welch PSD on the 0.5–40 Hz floor, watching for irradiance-tracking peaks. TC-04 chain efficiency in parallel.</div>
-      <div class="ms-gate">Decision: Δ noise floor &lt; 10 µV<sub>rms</sub> → drop dual batteries; otherwise build ADR-006 and re-measure.</div></div>
+      <div class="ms-d">2×2 factorial (phantom 0 / 1 mV × harvester OFF / ON), 5 runs × 5 min per cell; compute the 0.5–40 Hz noise floor with Welch's method and check whether the PSD shows spectral peaks that move with illumination. TC-04 harvesting-chain efficiency is completed in the same period.</div>
+      <div class="ms-gate">Decision: Δ noise floor &lt; 10 µV<sub>rms</sub> → drop dual batteries, saving half the hardware complexity; otherwise adopt ADR-006 and re-measure.</div></div>
 
     <div class="ms-i"><span class="ms-w">W7</span>
       <div class="ms-t">Converge the architecture per TC-05</div>
-      <div class="ms-d">if dual batteries needed: TC-13 interlock verification (16 gate combos + 4 fault injections, <strong>current-limited supplies only, no real batteries</strong>).</div>
-      <div class="ms-gate">Gate: real batteries only after TC-13 fully passes.</div></div>
+      <div class="ms-d">if dual batteries are needed: TC-13 interlock verification (16 gate combos + 4 fault injections, <strong>current-limited supplies only, no real batteries</strong>).</div>
+      <div class="ms-gate">Gate: real batteries may be connected only after TC-13 passes in full.</div></div>
 
     <div class="ms-i"><span class="ms-w">W8</span>
       <div class="ms-t">LIB board, umbilical &amp; thermal safety</div>
-      <div class="ms-d">TC-15 supercap hold-up, TC-16 cable break-away, <strong>TC-07 stage 1: ex-vivo skin-phantom thermal test</strong>.</div>
-      <div class="ms-gate">Gate: <strong>no on-body work until thermal stage 1 passes.</strong></div></div>
+      <div class="ms-d">TC-15 supercap hold-up time, TC-16 cable pull-out safety, <strong>TC-07 stage 1: ex-vivo skin-phantom thermal test</strong>.</div>
+      <div class="ms-gate">Gate: <strong>if thermal-safety stage 1 does not pass, nothing goes on-body.</strong></div></div>
 
     <div class="ms-i"><span class="ms-w">W9–10</span>
       <div class="ms-t">System integration &amp; long runs</div>
@@ -45,7 +48,7 @@
 
     <div class="ms-i"><span class="ms-w">W11</span>
       <div class="ms-t">On-body validation &amp; dual-unit comparison</div>
-      <div class="ms-d">TC-07 stage 2 (gradual on-body; abort on score &lt;4 or skin ≥40 °C), TC-08 dual-unit agreement, TC-11 outdoor EAR.</div>
+      <div class="ms-d">TC-07 stage 2 (gradual on-body exposure; stop immediately on a subjective score ≥4 or skin-side temperature ≥40 °C), TC-08 dual-unit agreement, TC-11 outdoor EAR.</div>
       <div class="ms-gate">Gate: continuous-acquisition EAR ≥ 1.5; R-peak agreement &gt; 99%.</div></div>
 
   </div>
@@ -62,7 +65,7 @@
     <tr><th style="width:5%">#</th><th style="width:30%">Question</th><th style="width:30%">Why it matters</th><th style="width:35%">Our recommendation</th></tr>
     <tr><td class="num">1</td><td><strong>How does the panel travel with the person?</strong> backpack / mounted on wheelchair or walker / fixed base station</td>
         <td>drives thermal safety, ergonomics, structural purchases, and the project's clinical framing</td>
-        <td><span class="pill pill-ok">recommend B</span>　mount on a wheelchair / walker / stroller — weight carried by the
+        <td><span class="pill pill-ok">recommend B</span> mount on a wheelchair / walker / stroller — weight carried by the
           device, thermal risk greatly reduced; "PV on an assistive device + wearable monitoring" has clear clinical value
           in rehab medicine, more convincing than "a healthy person carrying a panel"</td></tr>
     <tr class="alt"><td class="num">2</td><td>Project naming: with the panel no longer worn, still call it "self-powered wearable"?</td>

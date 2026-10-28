@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""English build — mirrors build.py but reads src-en/, tools-en/, assets/svg-en/
+"""English build: reads src-en/, tools-en/, assets/svg-en/
 and emits en-*.xhtml part files + parts-en.txt."""
 import glob, os, re, subprocess, sys
 

@@ -4,22 +4,23 @@
     <h2 class="sec-title">Firmware Layer — Scheduling, Timestamps &amp; Safety</h2>
     <p class="sec-sub">The telemetry MCU does exactly three things: <strong>metering</strong>, <strong>scheduling</strong>,
       <strong>synchronization</strong>. It does not acquire biosignals (that is BITalino's job) and does no signal
-      processing (that is the host's job) — this purity exists for verifiability: if the telemetry MCU also acquired,
-      it could not independently verify the acquisition chain.</p>
+      processing (that is the host's job) — keeping its duties this narrow is purely for verifiability: if the telemetry
+      MCU also took part in acquisition, it could not be used to independently verify the acquisition chain.</p>
   </div>
 
   <div class="row">
     <div class="col w60">
       <figure style="margin-top:0">
         <div class="figframe">@@fw-fsm|500@@</div>
-        <div class="figcap"><span class="fignum">Fig. 7</span>　Energy state machine.
-          Every transition carries <strong>hysteresis</strong> (e.g. enter at 30% / exit at 25%) — without it, SoC jitter
-          near a threshold would flail the machine, the load switch would chatter, BITalino would keep reconnecting, and
-          the data would be worthless. Hysteresis band ≥ 5 percentage points, on an 8-point moving-average SoC.</div>
+        <div class="figcap"><span class="fignum">Fig. 7</span> Energy state machine.
+          Every transition carries <strong>hysteresis</strong> (e.g. enter at 30% / exit at 25%) — without it, when SoC jitters
+          around a threshold the state machine switches wildly, the load switch toggles on and off repeatedly, BITalino
+          keeps reconnecting, and all the data is void. The hysteresis band is at least 5 percentage points and uses the
+          SoC after an 8-point moving average.</div>
       </figure>
     </div>
     <div class="col w40">
-      <h3 style="margin-top:0">4.1　Key changes vs v1.0</h3>
+      <h3 style="margin-top:0">4.1 Key changes vs v1.0</h3>
       <table class="t">
         <tr><th style="width:30%">State</th><th style="width:35%">v1.0</th><th style="width:35%">v2.0</th></tr>
         <tr><td class="mono">FULL_RATE</td><td>exception above SoC 80%</td><td><strong>the default operating state</strong></td></tr>
@@ -36,40 +37,47 @@
     </div>
   </div>
 
-  <h3>4.2　Firmware modules and the test boundary</h3>
+  <h3>4.2 Firmware modules and the test boundary</h3>
   <figure>
     <div class="figframe">@@fw-modules|680@@</div>
-    <div class="figcap"><span class="fignum">Fig. 8</span>　Firmware layering.
+    <div class="figcap"><span class="fignum">Fig. 8</span> Firmware layering.
       <strong>Core constraint: <code>core/</code> contains no hardware calls</strong> — everything is injected through
-      function pointers, so the state machine runs unit tests on a PC (hysteresis, deadlock, FAULT paths) plus
-      10⁶-sequence fuzzing. The best-value architectural constraint in an embedded project.</div>
+      function pointers. The state machine can therefore run unit tests on a PC, fed with synthetic SoC sequences, to
+      verify the hysteresis, verify it never deadlocks, and verify the FAULT path, plus fuzzing with 10⁶ random call
+      sequences. This is the architectural constraint that pays for itself most in an embedded project.</div>
   </figure>
 
   <div class="row">
     <div class="col w50">
       <div class="co info"><span class="co-t">Coulomb counting: why no dedicated fuel-gauge chip</span>
         SoC comes from bidirectional current integration on the battery-side INA226 — MAX17048 is gone. Three reasons:
-        <br/>① <strong>Package</strong> — MAX17048 is TDFN/WLP bottom-pad; the lab's tools can't do it;
-        <br/>② <strong>Scientific credibility</strong> — ModelGauge is a black box; raw coulomb counting drifts but is
-        <strong>explainable</strong>;
+        <br/>① <strong>Package</strong> — MAX17048 is a TDFN/WLP bottom-pad part that neither the lab equipment nor a
+        soldering iron can handle;
+        <br/>② <strong>Scientific credibility</strong> — ModelGauge is a black-box algorithm; you cannot know what
+        corrections it applies internally. Raw coulomb integration drifts, but it is <strong>explainable</strong> and can
+        be stated clearly in the paper;
         <br/>③ <strong>Resolution</strong> — 16 bit + 0.02 Ω → 125 µA LSB, better than voltage-based estimation.
-        <br/><span class="pill pill-solar">Cost</span>　power-loss persistence (flash write/60 s), full/empty
-        recalibration, temperature correction, plus one full charge–discharge cycle at start to learn true capacity
-        (nominal 2500 mAh often measures 2200–2400 mAh — uncalibrated SoC runs high).</div>
+        <br/><span class="pill pill-solar">Cost</span> it must handle power-loss persistence (flash write every 60 s),
+        recalibration on full-charge events (CV-phase current falls to 0.05 C), recalibration on deep discharge, and
+        temperature correction, and one complete full-charge/full-discharge cycle must be run at project start to
+        calibrate the true capacity (a cell rated 2500 mAh may measure only 2200–2400 mAh; without calibration SoC
+        reads systematically high).</div>
     </div>
     <div class="col w50">
       <div class="co neutral"><span class="co-t">Two-ended sync pulses: a small but critical design</span>
         A 10 ms sync pulse is emitted <strong>at each end of every acquisition window</strong>. Between the two pulses, the
         MCU-side elapsed time is known (µs) and the BITalino-side sample count is known — their ratio is the
         <strong>true rate of the BITalino sampling clock</strong>.
-        <br/>It will not be exactly 1000.000 Hz but 999.x or 1000.x Hz — uncorrected, hundreds of ms of drift in
-        10 minutes; <strong>the most commonly ignored error source in long recordings</strong>.
-        <br/>Every run report states the measured drift ppm; if it moves with temperature across runs, that itself is a
-        finding worth publishing.</div>
+        <br/>You will find it is not exactly 1000.000 Hz but 999.x or 1000.x Hz. Left uncorrected, this drifts by
+        several hundred milliseconds within 10 minutes — <strong>the most commonly overlooked error source in long-term
+        recordings</strong>.
+        <br/>Every experiment report must state the measured drift in ppm; if it varies with temperature between runs,
+        that in itself is a finding worth writing into the paper.</div>
       <div class="co warn"><span class="co-t">Offline log: disconnection is the norm, not the exception</span>
-        BLE drops are inevitable on-body. While disconnected, samples go to flash; on reconnect the backlog replays
-        before live streaming, deduplicated by <code>seq</code>. 20 B/sample × 0.1 Hz ≈ <strong>173 KB/day</strong> —
-        the nRF52840's 1 MB flash holds ~5 days; for longer add a W25Q128 (16 MB ≈ 90 days).</div>
+        In on-body experiments BLE disconnections are certain to happen (walking out of range, phone screen locking,
+        interference). While disconnected, telemetry samples are written to flash; after reconnecting, the backlog is
+        uploaded first and then the device switches to the live stream, with the host deduplicating by <code>seq</code>. 20 B/sample × 0.1 Hz ≈ <strong>173 KB/day</strong> —
+        the nRF52840's internal 1 MB flash holds about 5 days; for longer, add an external W25Q128 (16 MB ≈ 90 days).</div>
     </div>
   </div>
 </div>

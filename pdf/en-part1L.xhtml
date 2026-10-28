@@ -5,8 +5,8 @@
 <meta charset="UTF-8"/>
 <title>Solar-Harvesting Wearable Health Monitoring System — System Architecture Proposal</title>
 <style>
-/* ============================ 设计系统 ============================ */
-/* ink 墨色 / deep 深蓝 / solar 太阳能金 / volt 信号蓝 —— 三色克制使用 */
+/* ============================ Design system ============================ */
+/* ink / deep (navy) / solar (gold) / volt (signal blue) — accent colours used sparingly */
 
 @page { size: A4 landscape; margin: 15mm 14mm 14mm 14mm;
   @top-left { content: "Solar-Harvesting Wearable Health Monitoring System";
@@ -31,7 +31,7 @@ em { font-style: normal; color: #B8720F; font-weight: 500; }
 a { color: #2F6BE4; text-decoration: none; }
 sup { font-size: 6.5pt; color: #8B97AB; vertical-align: super; }
 
-/* ---------- 封面 ---------- */
+/* ---------- Cover ---------- */
 .cover { width: 210mm; height: 297mm; position: relative;
          background-color: #0B1220; color: #FFFFFF; }
 .cover-inner { position: absolute; left: 22mm; right: 22mm; top: 30mm; }
@@ -53,7 +53,7 @@ sup { font-size: 6.5pt; color: #8B97AB; vertical-align: super; }
   text-transform: uppercase; padding-bottom: 1.6mm; }
 .cm-v { font-size: 8.2pt; line-height:1.45; color: #E8EDF6; font-weight: 500; }
 
-/* ---------- 章节 ---------- */
+/* ---------- Sections ---------- */
 .sec { page-break-before: always; }
 .cont { page-break-before: auto; }
 .pg { page-break-before: always; }
@@ -75,7 +75,7 @@ h3 { font-family: Display, CJK; font-size: 11.2pt; font-weight: 700; color: #142
 h4 { font-family: UI, CJK; font-size: 9.6pt; font-weight: 700; color: #14233D;
   margin: 5mm 0 2mm; }
 
-/* ---------- 基础组件 ---------- */
+/* ---------- Base components ---------- */
 .mono, code { font-family: Mono, CJK; font-size: 8.3pt; }
 code { background-color: #EEF2F8; color: #14233D; padding: 0.6pt 2.4pt; border-radius: 2.4pt; }
 .pill { display: inline-block; white-space: nowrap; font-family: Display, CJK; font-size: 7pt; font-weight: 700;
@@ -89,7 +89,7 @@ code { background-color: #EEF2F8; color: #14233D; padding: 0.6pt 2.4pt; border-r
 .lead { font-size: 10.6pt; line-height: 1.72; color: #2B3854; }
 .note { font-size: 8.4pt; color: #7A8699; }
 
-/* ---------- 表格 ---------- */
+/* ---------- Tables ---------- */
 table.t { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm;
   -fs-table-paginate: paginate; font-size: 8.7pt; }
 table.t th { font-family: Display, CJK; font-size: 7.2pt; font-weight: 700;
@@ -104,7 +104,7 @@ table.t td.c { text-align: center; }
 table.t caption { caption-side: bottom; font-size: 7.6pt; color: #8B97AB;
   text-align: left; padding-top: 2mm; line-height:1.5; }
 
-/* ---------- 图 ---------- */
+/* ---------- Figures ---------- */
 figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
 .figcap { font-size: 7.8pt; color: #7A8699; margin-top: 2.5mm; line-height: 1.55;
   border-left: 1.6pt solid #E4E9F1; padding-left: 3mm; }
@@ -113,7 +113,7 @@ figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
 .figframe { border: 0.6pt solid #E4E9F1; border-radius: 4pt; padding: 4mm 4mm 3mm;
   background-color: #FCFDFE; }
 
-/* ---------- 栅格（无 flex，用 table） ---------- */
+/* ---------- Grid (no flex; uses table) ---------- */
 .row { display: table; width: 100%; border-collapse: separate; border-spacing: 3mm 0; }
 .row.tight { border-spacing: 2mm 0; }
 .row > .col { display: table-cell; vertical-align: top; }
@@ -121,7 +121,7 @@ figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
 .w50 { width: 50%; } .w33 { width: 33.33%; } .w66 { width: 66.66%; }
 .w25 { width: 25%; } .w40 { width: 40%; } .w60 { width: 60%; }
 
-/* ---------- KPI 数字块 ---------- */
+/* ---------- KPI figure blocks ---------- */
 .kpi { border: 0.6pt solid #E4E9F1; border-radius: 5pt; padding: 4mm 4mm 3.4mm;
   background-color: #FCFDFE; }
 .kpi-k { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700; letter-spacing: 1.4pt;
@@ -133,7 +133,7 @@ figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
 .kpi.accent { border-color: #F0D5A4; background-color: #FEFAF3; }
 .kpi.accent .kpi-v { color: #B8720F; }
 
-/* ---------- 问题卡（醒目区） ---------- */
+/* ---------- Issue cards (callouts) ---------- */
 .prob-hero { background-color: #0B1220; color: #FFFFFF; border-radius: 6pt;
   padding: 5mm 6mm 4.6mm; margin-bottom: 3.6mm; }
 .prob-hero .ph-eye { font-family: Display, CJK; font-size: 7.4pt; font-weight: 700;
@@ -179,7 +179,7 @@ figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
 .co.neutral { background-color: #F6F8FC; border-left: 2.6pt solid #46556E; color: #2B3854; }
 .co.neutral .co-t { color: #14233D; }
 
-/* ---------- 物料清单 ---------- */
+/* ---------- Bill of materials ---------- */
 .bom-legend { display: table; width: 100%; border-spacing: 3mm 0; margin-bottom: 4mm; }
 .bom-legend .bl { display: table-cell; width: 33.33%; border-radius: 5pt; padding: 3.4mm 4mm;
   color: #FFFFFF; }
@@ -196,7 +196,7 @@ figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
 .tag-have { background-color: #15845F; } .tag-make { background-color: #B8720F; }
 .tag-buy { background-color: #2F6BE4; }
 
-/* ---------- 层级说明 ---------- */
+/* ---------- Layer descriptions ---------- */
 .layer { border: 0.7pt solid #E4E9F1; border-left: 3.2pt solid #14233D; border-radius: 4pt;
   padding: 3.4mm 4mm; margin-bottom: 2.6mm; page-break-inside: avoid; }
 .layer-h { font-family: Display, CJK; font-size: 9.8pt; font-weight: 700; color: #0B1220;
@@ -210,7 +210,7 @@ figure { margin: 4mm 0 6mm; page-break-inside: avoid; }
 .layer.l-sw { border-left-color: #2F6BE4; } .layer.l-sw .lid { background-color: #2F6BE4; }
 .layer.l-dt { border-left-color: #6B4FCF; } .layer.l-dt .lid { background-color: #6B4FCF; }
 
-/* ---------- 列表 ---------- */
+/* ---------- Lists ---------- */
 ul.cl { list-style: none; padding-left: 0; margin: 2mm 0 4mm; }
 ul.cl li { font-size: 8.8pt; line-height: 1.6; padding-left: 6mm; margin-bottom: 1.8mm;
   position: relative; }
@@ -219,7 +219,7 @@ ul.cl li .bullet { position: absolute; left: 0; top: 0; font-family: Display, CJ
 ol.n { padding-left: 5mm; margin: 2mm 0 4mm; font-size: 8.9pt; line-height: 1.62; }
 ol.n li { margin-bottom: 1.6mm; }
 
-/* ---------- 里程碑 ---------- */
+/* ---------- Milestones ---------- */
 .ms { border-left: 1.4pt solid #E4E9F1; padding-left: 5mm; margin-left: 2mm; }
 .ms-i { position: relative; margin-bottom: 2.4mm; page-break-inside: avoid; }
 .ms-w { font-family: Display, CJK; font-size: 7.2pt; font-weight: 700; letter-spacing: 1.2pt;
@@ -229,7 +229,7 @@ ol.n li { margin-bottom: 1.6mm; }
 .ms-d { font-size: 8.2pt; color: #46556E; line-height: 1.52; }
 .ms-gate { font-size: 7.8pt; color: #A8291F; margin-top: 1mm; font-weight: 500; }
 
-/* ---------- 脚注/注记 ---------- */
+/* ---------- Footnotes / annotations ---------- */
 .foot-note { font-size: 7.4pt; color: #8B97AB; line-height: 1.5; margin-top: 2.4mm;
   border-top: 0.5pt solid #E4E9F1; padding-top: 2mm; }
 .conf { font-family: Display, CJK; font-size: 6.8pt; font-weight: 700; padding: 0.6pt 3pt;
@@ -263,12 +263,12 @@ ol.n li { margin-bottom: 1.6mm; }
   </div>
   <figure class="tight">
     <div class="figframe tight"><svg
- viewBox="0.00 0.00 775.00 194.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="700" height="175">
+ viewBox="0.00 0.00 771.00 194.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="700" height="176">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 190)">
 <title>G</title>
 <g id="clust1" class="cluster">
 <title>cluster_hv</title>
-<path fill="#fefbf5" stroke="#b8720f" d="M20,-8C20,-8 746.75,-8 746.75,-8 752.75,-8 758.75,-14 758.75,-20 758.75,-20 758.75,-166 758.75,-166 758.75,-172 752.75,-178 746.75,-178 746.75,-178 20,-178 20,-178 14,-178 8,-172 8,-166 8,-166 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<path fill="#fefbf5" stroke="#b8720f" d="M20,-8C20,-8 743,-8 743,-8 749,-8 755,-14 755,-20 755,-20 755,-166 755,-166 755,-172 749,-178 743,-178 743,-178 20,-178 20,-178 14,-178 8,-172 8,-166 8,-166 8,-20 8,-20 8,-14 14,-8 20,-8"/>
 <text xml:space="preserve" text-anchor="start" x="16" y="-167.4" font-family="PingFang SC" font-weight="bold" font-size="8.00" fill="#b8720f">18 V power zone — ≥3 mm copper&#45;free band to low&#45;voltage zone on PCB</text>
 </g>
 
@@ -345,29 +345,29 @@ ol.n li { margin-bottom: 1.6mm; }
 
 <g id="node4" class="node">
 <title>CHG</title>
-<polygon fill="#ffffff" stroke="none" points="593.25,-22.5 593.25,-143.5 740.75,-143.5 740.75,-22.5 593.25,-22.5"/>
-<polygon fill="none" stroke="#cbd4e3" points="593.25,-22.5 593.25,-143.5 740.75,-143.5 740.75,-22.5 593.25,-22.5"/>
-<polygon fill="#b8720f" stroke="none" points="594.25,-122.5 594.25,-142.5 739.75,-142.5 739.75,-122.5 594.25,-122.5"/>
-<text xml:space="preserve" text-anchor="start" x="653.5" y="-132.9" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">CN3791</text>
-<text xml:space="preserve" text-anchor="start" x="597.25" y="-126.8" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">MPPT 1&#45;cell Li charger　⚠ pin nos. per datasheet</text>
-<polygon fill="#f6f8fc" stroke="none" points="594.25,-106 594.25,-122.5 631.38,-122.5 631.38,-106 594.25,-106"/>
+<polygon fill="#ffffff" stroke="none" points="593.25,-22.5 593.25,-143.5 737,-143.5 737,-22.5 593.25,-22.5"/>
+<polygon fill="none" stroke="#cbd4e3" points="593.25,-22.5 593.25,-143.5 737,-143.5 737,-22.5 593.25,-22.5"/>
+<polygon fill="#b8720f" stroke="none" points="594.25,-122.5 594.25,-142.5 736,-142.5 736,-122.5 594.25,-122.5"/>
+<text xml:space="preserve" text-anchor="start" x="651.62" y="-132.9" font-family="Menlo" font-weight="bold" font-size="8.00" fill="#ffffff">CN3791</text>
+<text xml:space="preserve" text-anchor="start" x="597.25" y="-126.8" font-family="PingFang SC" font-size="6.00" fill="#c8d3e6">MPPT 1&#45;cell Li charger ⚠ pin nos. per datasheet</text>
+<polygon fill="#f6f8fc" stroke="none" points="594.25,-106 594.25,-122.5 629.5,-122.5 629.5,-106 594.25,-106"/>
 <text xml:space="preserve" text-anchor="start" x="597.25" y="-112" font-family="Menlo" font-size="7.00" fill="#0b1220">VIN</text>
-<text xml:space="preserve" text-anchor="start" x="634.38" y="-112" font-family="PingFang SC" font-size="7.00" fill="#46556e">18 V input</text>
-<polygon fill="#f6f8fc" stroke="none" points="594.25,-89.5 594.25,-106 631.38,-106 631.38,-89.5 594.25,-89.5"/>
+<text xml:space="preserve" text-anchor="start" x="632.5" y="-112" font-family="PingFang SC" font-size="7.00" fill="#46556e">18 V input</text>
+<polygon fill="#f6f8fc" stroke="none" points="594.25,-89.5 594.25,-106 629.5,-106 629.5,-89.5 594.25,-89.5"/>
 <text xml:space="preserve" text-anchor="start" x="597.25" y="-95.5" font-family="Menlo" font-size="7.00" fill="#0b1220">GND</text>
-<text xml:space="preserve" text-anchor="start" x="634.38" y="-95.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">PGND</text>
-<polygon fill="#f6f8fc" stroke="none" points="594.25,-73 594.25,-89.5 631.38,-89.5 631.38,-73 594.25,-73"/>
+<text xml:space="preserve" text-anchor="start" x="632.5" y="-95.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">PGND</text>
+<polygon fill="#f6f8fc" stroke="none" points="594.25,-73 594.25,-89.5 629.5,-89.5 629.5,-73 594.25,-73"/>
 <text xml:space="preserve" text-anchor="start" x="597.25" y="-79" font-family="Menlo" font-size="7.00" fill="#0b1220">MPPT</text>
-<text xml:space="preserve" text-anchor="start" x="634.38" y="-79" font-family="PingFang SC" font-size="7.00" fill="#46556e">divider ≈0.76×Voc ≈16.5 V</text>
-<polygon fill="#f6f8fc" stroke="none" points="594.25,-56.5 594.25,-73 631.38,-73 631.38,-56.5 594.25,-56.5"/>
+<text xml:space="preserve" text-anchor="start" x="632.5" y="-79" font-family="PingFang SC" font-size="7.00" fill="#46556e">divider ≈0.76×Voc ≈16.5 V</text>
+<polygon fill="#f6f8fc" stroke="none" points="594.25,-56.5 594.25,-73 629.5,-73 629.5,-56.5 594.25,-56.5"/>
 <text xml:space="preserve" text-anchor="start" x="597.25" y="-62.5" font-family="Menlo" font-size="7.00" fill="#0b1220">CS</text>
-<text xml:space="preserve" text-anchor="start" x="634.38" y="-62.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">Rcs → charge 1.25 A</text>
-<polygon fill="#f6f8fc" stroke="none" points="594.25,-40 594.25,-56.5 631.38,-56.5 631.38,-40 594.25,-40"/>
+<text xml:space="preserve" text-anchor="start" x="632.5" y="-62.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">Rcs → charge 1.25 A</text>
+<polygon fill="#f6f8fc" stroke="none" points="594.25,-40 594.25,-56.5 629.5,-56.5 629.5,-40 594.25,-40"/>
 <text xml:space="preserve" text-anchor="start" x="597.25" y="-46" font-family="Menlo" font-size="7.00" fill="#0b1220">BAT</text>
-<text xml:space="preserve" text-anchor="start" x="634.38" y="-46" font-family="PingFang SC" font-size="7.00" fill="#46556e">4.2 V CC/CV → CHG_OUT</text>
-<polygon fill="#f6f8fc" stroke="none" points="594.25,-23.5 594.25,-40 631.38,-40 631.38,-23.5 594.25,-23.5"/>
+<text xml:space="preserve" text-anchor="start" x="632.5" y="-46" font-family="PingFang SC" font-size="7.00" fill="#46556e">4.2 V CC/CV → CHG_OUT</text>
+<polygon fill="#f6f8fc" stroke="none" points="594.25,-23.5 594.25,-40 629.5,-40 629.5,-23.5 594.25,-23.5"/>
 <text xml:space="preserve" text-anchor="start" x="597.25" y="-29.5" font-family="Menlo" font-size="7.00" fill="#0b1220">CHRG</text>
-<text xml:space="preserve" text-anchor="start" x="634.38" y="-29.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">→ MCU D8</text>
+<text xml:space="preserve" text-anchor="start" x="632.5" y="-29.5" font-family="PingFang SC" font-size="7.00" fill="#46556e">→ MCU D8</text>
 </g>
 
 <g id="edge3" class="edge">
@@ -377,7 +377,7 @@ ol.n li { margin-bottom: 1.6mm; }
 </g>
 </g>
 </svg></div>
-    <div class="figcap"><span class="fignum">Fig. 2</span>　18 V input protection and MPPT charging.</div>
+    <div class="figcap"><span class="fignum">Fig. 2</span> 18 V input protection and MPPT charging.</div>
   </figure>
   <div class="row">
     <div class="col w60">
@@ -393,7 +393,7 @@ ol.n li { margin-bottom: 1.6mm; }
         <tr class="alt"><td class="mono">C1</td><td>100 µF</td><td><strong>220 µF / 35 V low-ESR</strong></td>
             <td>Higher input power needs more input storage</td></tr>
         <tr><td class="mono">L1</td><td>none</td><td><strong>common-mode choke + ferrite</strong></td>
-            <td><span class="pill pill-risk">EMC</span>　suppress cable-borne common-mode noise (new)</td></tr>
+            <td><span class="pill pill-risk">EMC</span> suppress cable-borne common-mode noise (new)</td></tr>
         <tr class="alt"><td class="mono">RS1</td><td>0.1 Ω</td><td><strong>0.02 Ω</strong></td>
             <td>1.8 A × 0.1 Ω = 180 mV exceeds the INA226 81.92 mV full-scale</td></tr>
       </table>
@@ -538,7 +538,7 @@ ol.n li { margin-bottom: 1.6mm; }
 </g>
 </g>
 </svg></div>
-    <div class="figcap"><span class="fignum">Fig. 3</span>　Charge-side switching (upper half of ADR-006).</div>
+    <div class="figcap"><span class="fignum">Fig. 3</span> Charge-side switching (upper half of ADR-006).</div>
   </figure>
   <div class="row">
     <div class="col w50">
@@ -704,7 +704,7 @@ ol.n li { margin-bottom: 1.6mm; }
 </g>
 </g>
 </svg></div>
-    <div class="figcap"><span class="fignum">Fig. 4</span>　Discharge-side switching and the umbilical.</div>
+    <div class="figcap"><span class="fignum">Fig. 4</span> Discharge-side switching and the umbilical.</div>
   </figure>
   <div class="row">
     <div class="col w55">
@@ -895,7 +895,7 @@ ol.n li { margin-bottom: 1.6mm; }
 </g>
 </g>
 </svg></div>
-    <div class="figcap"><span class="fignum">Fig. 5</span>　Chest unit LIB → BITalino. No switching supply, no 18 V, quiescent draw &lt; 1 mW inside this unit.</div>
+    <div class="figcap"><span class="fignum">Fig. 5</span> Chest unit LIB → BITalino. No switching supply, no 18 V, quiescent draw &lt; 1 mW inside this unit.</div>
   </figure>
   <div class="row">
     <div class="col w50">
@@ -1100,30 +1100,30 @@ ol.n li { margin-bottom: 1.6mm; }
 </g>
 </g>
 </svg></div>
-        <div class="figcap"><span class="fignum">Fig. 6</span>　Metering &amp; control bus.
+        <div class="figcap"><span class="fignum">Fig. 6</span> Metering &amp; control bus.
           Two INA226 on one I²C bus, addresses split via A0/A1 (0x40 / 0x41).</div>
       </figure>
-      <div class="foot-note" style="margin-top:2.4mm"><strong style="color:#A8291F">Two non-negotiable hardware constraints　</strong>
+      <div class="foot-note" style="margin-top:2.4mm"><strong style="color:#A8291F">Two non-negotiable hardware constraints </strong>
         <strong>① Kelvin 4-wire</strong> — sense taps at the pad <strong>center</strong>, never sharing the current path;
         else 10–30% systematic error corrupts EAR.
         <strong>② Physical partitioning</strong> — ≥ 3 mm copper-free band between 18 V and LV zones; no shared
         harness or connector.</div>
     </div>
     <div class="col w60">
-      <h3 style="margin-top:0">3.1　MCU pin assignment</h3>
+      <h3 style="margin-top:0">3.1 MCU pin assignment</h3>
       <table class="t">
         <tr><th style="width:17%">Pin</th><th style="width:20%">Net name</th><th style="width:12%">Dir</th><th style="width:51%">Function &amp; constraints</th></tr>
-        <tr><td class="mono">D4 / SDA</td><td class="mono">I2C_SDA</td><td>bidir</td><td>INA226 ×2　⚠ verify XIAO default I²C mapping</td></tr>
+        <tr><td class="mono">D4 / SDA</td><td class="mono">I2C_SDA</td><td>bidir</td><td>INA226 ×2 ⚠ verify XIAO default I²C mapping</td></tr>
         <tr class="alt"><td class="mono">D5 / SCL</td><td class="mono">I2C_SCL</td><td>out</td><td>4.7 kΩ pull-up to 3V3</td></tr>
         <tr><td class="mono">D1</td><td class="mono">GATE_CHG_A</td><td>out</td><td>Q1 gate (via interlock); must be hi-Z at reset → default off</td></tr>
         <tr class="alt"><td class="mono">D2</td><td class="mono">GATE_CHG_B</td><td>out</td><td>Q2 gate (via interlock)</td></tr>
-        <tr><td class="mono">D3</td><td class="mono">GATE_DIS_A</td><td>out</td><td>Q3 gate　<strong>break-before-make, 1 ms dead time</strong></td></tr>
+        <tr><td class="mono">D3</td><td class="mono">GATE_DIS_A</td><td>out</td><td>Q3 gate <strong>break-before-make, 1 ms dead time</strong></td></tr>
         <tr class="alt"><td class="mono">D6</td><td class="mono">GATE_DIS_B</td><td>out</td><td>Q4 gate</td></tr>
         <tr><td class="mono">D7</td><td class="mono">CTRL_LOAD</td><td>out</td><td>→ J6.4 → Q5; R1 pull-up for fail-safe off</td></tr>
         <tr class="alt"><td class="mono">D8</td><td class="mono">CHRG_STAT</td><td>in</td><td>CN3791 charge status (CV detect → coulomb recalibration)</td></tr>
         <tr><td class="mono">D10</td><td class="mono">SYNC_OUT</td><td>out</td><td>→ J6.5 → BITalino I1; 10 ms pulse at both ends of an acq window</td></tr>
         <tr class="alt"><td class="mono">D0 / A0</td><td class="mono">NTC_A</td><td>analog</td><td>battery A temp; charge allowed 0 °C &lt; T &lt; 45 °C</td></tr>
-        <tr><td class="mono">A1</td><td class="mono">NTC_B</td><td>analog</td><td>battery B temp　⚠ actual ADC pin per module silkscreen</td></tr>
+        <tr><td class="mono">A1</td><td class="mono">NTC_B</td><td>analog</td><td>battery B temp ⚠ actual ADC pin per module silkscreen</td></tr>
         <tr class="alt"><td class="mono">3V3 / GND</td><td class="mono">—</td><td>power</td><td>on-board LDO; AGND &amp; PGND star-join at <strong>battery negative</strong></td></tr>
       </table>
     </div>
@@ -1136,8 +1136,8 @@ ol.n li { margin-bottom: 1.6mm; }
     <h2 class="sec-title">Firmware Layer — Scheduling, Timestamps &amp; Safety</h2>
     <p class="sec-sub">The telemetry MCU does exactly three things: <strong>metering</strong>, <strong>scheduling</strong>,
       <strong>synchronization</strong>. It does not acquire biosignals (that is BITalino's job) and does no signal
-      processing (that is the host's job) — this purity exists for verifiability: if the telemetry MCU also acquired,
-      it could not independently verify the acquisition chain.</p>
+      processing (that is the host's job) — keeping its duties this narrow is purely for verifiability: if the telemetry
+      MCU also took part in acquisition, it could not be used to independently verify the acquisition chain.</p>
   </div>
 
   <div class="row">
@@ -1314,14 +1314,15 @@ ol.n li { margin-bottom: 1.6mm; }
 </g>
 </g>
 </svg></div>
-        <div class="figcap"><span class="fignum">Fig. 7</span>　Energy state machine.
-          Every transition carries <strong>hysteresis</strong> (e.g. enter at 30% / exit at 25%) — without it, SoC jitter
-          near a threshold would flail the machine, the load switch would chatter, BITalino would keep reconnecting, and
-          the data would be worthless. Hysteresis band ≥ 5 percentage points, on an 8-point moving-average SoC.</div>
+        <div class="figcap"><span class="fignum">Fig. 7</span> Energy state machine.
+          Every transition carries <strong>hysteresis</strong> (e.g. enter at 30% / exit at 25%) — without it, when SoC jitters
+          around a threshold the state machine switches wildly, the load switch toggles on and off repeatedly, BITalino
+          keeps reconnecting, and all the data is void. The hysteresis band is at least 5 percentage points and uses the
+          SoC after an 8-point moving average.</div>
       </figure>
     </div>
     <div class="col w40">
-      <h3 style="margin-top:0">4.1　Key changes vs v1.0</h3>
+      <h3 style="margin-top:0">4.1 Key changes vs v1.0</h3>
       <table class="t">
         <tr><th style="width:30%">State</th><th style="width:35%">v1.0</th><th style="width:35%">v2.0</th></tr>
         <tr><td class="mono">FULL_RATE</td><td>exception above SoC 80%</td><td><strong>the default operating state</strong></td></tr>
@@ -1338,7 +1339,7 @@ ol.n li { margin-bottom: 1.6mm; }
     </div>
   </div>
 
-  <h3>4.2　Firmware modules and the test boundary</h3>
+  <h3>4.2 Firmware modules and the test boundary</h3>
   <figure>
     <div class="figframe"><svg
  viewBox="0.00 0.00 782.00 179.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="680" height="156">
@@ -1451,37 +1452,44 @@ ol.n li { margin-bottom: 1.6mm; }
 </g>
 </g>
 </svg></div>
-    <div class="figcap"><span class="fignum">Fig. 8</span>　Firmware layering.
+    <div class="figcap"><span class="fignum">Fig. 8</span> Firmware layering.
       <strong>Core constraint: <code>core/</code> contains no hardware calls</strong> — everything is injected through
-      function pointers, so the state machine runs unit tests on a PC (hysteresis, deadlock, FAULT paths) plus
-      10⁶-sequence fuzzing. The best-value architectural constraint in an embedded project.</div>
+      function pointers. The state machine can therefore run unit tests on a PC, fed with synthetic SoC sequences, to
+      verify the hysteresis, verify it never deadlocks, and verify the FAULT path, plus fuzzing with 10⁶ random call
+      sequences. This is the architectural constraint that pays for itself most in an embedded project.</div>
   </figure>
 
   <div class="row">
     <div class="col w50">
       <div class="co info"><span class="co-t">Coulomb counting: why no dedicated fuel-gauge chip</span>
         SoC comes from bidirectional current integration on the battery-side INA226 — MAX17048 is gone. Three reasons:
-        <br/>① <strong>Package</strong> — MAX17048 is TDFN/WLP bottom-pad; the lab's tools can't do it;
-        <br/>② <strong>Scientific credibility</strong> — ModelGauge is a black box; raw coulomb counting drifts but is
-        <strong>explainable</strong>;
+        <br/>① <strong>Package</strong> — MAX17048 is a TDFN/WLP bottom-pad part that neither the lab equipment nor a
+        soldering iron can handle;
+        <br/>② <strong>Scientific credibility</strong> — ModelGauge is a black-box algorithm; you cannot know what
+        corrections it applies internally. Raw coulomb integration drifts, but it is <strong>explainable</strong> and can
+        be stated clearly in the paper;
         <br/>③ <strong>Resolution</strong> — 16 bit + 0.02 Ω → 125 µA LSB, better than voltage-based estimation.
-        <br/><span class="pill pill-solar">Cost</span>　power-loss persistence (flash write/60 s), full/empty
-        recalibration, temperature correction, plus one full charge–discharge cycle at start to learn true capacity
-        (nominal 2500 mAh often measures 2200–2400 mAh — uncalibrated SoC runs high).</div>
+        <br/><span class="pill pill-solar">Cost</span> it must handle power-loss persistence (flash write every 60 s),
+        recalibration on full-charge events (CV-phase current falls to 0.05 C), recalibration on deep discharge, and
+        temperature correction, and one complete full-charge/full-discharge cycle must be run at project start to
+        calibrate the true capacity (a cell rated 2500 mAh may measure only 2200–2400 mAh; without calibration SoC
+        reads systematically high).</div>
     </div>
     <div class="col w50">
       <div class="co neutral"><span class="co-t">Two-ended sync pulses: a small but critical design</span>
         A 10 ms sync pulse is emitted <strong>at each end of every acquisition window</strong>. Between the two pulses, the
         MCU-side elapsed time is known (µs) and the BITalino-side sample count is known — their ratio is the
         <strong>true rate of the BITalino sampling clock</strong>.
-        <br/>It will not be exactly 1000.000 Hz but 999.x or 1000.x Hz — uncorrected, hundreds of ms of drift in
-        10 minutes; <strong>the most commonly ignored error source in long recordings</strong>.
-        <br/>Every run report states the measured drift ppm; if it moves with temperature across runs, that itself is a
-        finding worth publishing.</div>
+        <br/>You will find it is not exactly 1000.000 Hz but 999.x or 1000.x Hz. Left uncorrected, this drifts by
+        several hundred milliseconds within 10 minutes — <strong>the most commonly overlooked error source in long-term
+        recordings</strong>.
+        <br/>Every experiment report must state the measured drift in ppm; if it varies with temperature between runs,
+        that in itself is a finding worth writing into the paper.</div>
       <div class="co warn"><span class="co-t">Offline log: disconnection is the norm, not the exception</span>
-        BLE drops are inevitable on-body. While disconnected, samples go to flash; on reconnect the backlog replays
-        before live streaming, deduplicated by <code>seq</code>. 20 B/sample × 0.1 Hz ≈ <strong>173 KB/day</strong> —
-        the nRF52840's 1 MB flash holds ~5 days; for longer add a W25Q128 (16 MB ≈ 90 days).</div>
+        In on-body experiments BLE disconnections are certain to happen (walking out of range, phone screen locking,
+        interference). While disconnected, telemetry samples are written to flash; after reconnecting, the backlog is
+        uploaded first and then the device switches to the live stream, with the host deduplicating by <code>seq</code>. 20 B/sample × 0.1 Hz ≈ <strong>173 KB/day</strong> —
+        the nRF52840's internal 1 MB flash holds about 5 days; for longer, add an external W25Q128 (16 MB ≈ 90 days).</div>
     </div>
   </div>
 </div>
@@ -1568,7 +1576,7 @@ ol.n li { margin-bottom: 1.6mm; }
 </g>
 </g>
 </svg></div>
-    <div class="figcap"><span class="fignum">Fig. 9</span>　Ingest &amp; alignment (write path).
+    <div class="figcap"><span class="fignum">Fig. 9</span> Ingest &amp; alignment (write path).
       Host timestamps on the three sources suffer tens to hundreds of ms of Bluetooth buffering jitter, so alignment
       <strong>does not rely on host clocks</strong> — it relies on hardware sync markers embedded in the data stream.</div>
   </figure>
@@ -1647,14 +1655,14 @@ ol.n li { margin-bottom: 1.6mm; }
 </g>
 </g>
 </svg></div>
-    <div class="figcap"><span class="fignum">Fig. 10</span>　Storage &amp; analysis (read path).
+    <div class="figcap"><span class="fignum">Fig. 10</span> Storage &amp; analysis (read path).
       Raw signals land in Parquet and are <strong>made read-only after writing</strong>; telemetry goes to TimescaleDB
       hypertables; all processing is re-runnable and never overwrites raw data.</div>
   </figure>
 
   <div class="row">
     <div class="col w50">
-      <h3 style="margin-top:0">5.1　Stack choices</h3>
+      <h3 style="margin-top:0">5.1 Stack choices</h3>
       <table class="t">
         <tr><th style="width:24%">Stage</th><th style="width:30%">Choice</th><th style="width:46%">Rationale / constraints</th></tr>
         <tr><td>BLE ingest</td><td class="mono">bleak (asyncio)</td><td>cross-platform; needs back-pressure and auto-reconnect</td></tr>
@@ -1672,7 +1680,7 @@ ol.n li { margin-bottom: 1.6mm; }
         what changed".</div>
     </div>
     <div class="col w50">
-      <h3 style="margin-top:0">5.2　Data model (core table)</h3>
+      <h3 style="margin-top:0">5.2 Data model (core table)</h3>
       <table class="t">
         <tr><th style="width:34%">Field</th><th style="width:20%">Type</th><th style="width:46%">Notes</th></tr>
         <tr><td class="mono">run_id</td><td class="mono">TEXT</td><td>primary-key prefix, maps to the manifest</td></tr>
@@ -1681,16 +1689,16 @@ ol.n li { margin-bottom: 1.6mm; }
         <tr class="alt"><td class="mono">v_pv_mv / i_pv_ua</td><td class="mono">INT</td><td>INA226 #1</td></tr>
         <tr><td class="mono">v_bat_mv / i_bat_ua</td><td class="mono">INT</td><td>INA226 #2, signed bidirectional</td></tr>
         <tr class="alt"><td class="mono">soc_pct</td><td class="mono">SMALLINT</td><td>coulomb-integration result</td></tr>
-        <tr><td class="mono">active_discharge_battery</td><td class="mono">CHAR(1)</td><td>'A' / 'B'　<span class="pill pill-solar">new in v2</span></td></tr>
-        <tr class="alt"><td class="mono">t_panel / t_skin / t_bat / t_chgr</td><td class="mono">SMALLINT</td><td>4-point thermometry　<span class="pill pill-solar">new in v2</span></td></tr>
-        <tr><td class="mono">irradiance_wm2</td><td class="mono">REAL</td><td>reference-cell measurement　<span class="pill pill-solar">new in v2</span></td></tr>
+        <tr><td class="mono">active_discharge_battery</td><td class="mono">CHAR(1)</td><td>'A' / 'B' <span class="pill pill-solar">new in v2</span></td></tr>
+        <tr class="alt"><td class="mono">t_panel / t_skin / t_bat / t_chgr</td><td class="mono">SMALLINT</td><td>4-point thermometry <span class="pill pill-solar">new in v2</span></td></tr>
+        <tr><td class="mono">irradiance_wm2</td><td class="mono">REAL</td><td>reference-cell measurement <span class="pill pill-solar">new in v2</span></td></tr>
         <tr class="alt"><td class="mono">fsm_state</td><td class="mono">SMALLINT</td><td>FSM state, for segmented statistics</td></tr>
       </table>
       <div class="co ok"><span class="co-t">Run Manifest required fields (CI rejects otherwise)</span>
-        <code>firmware_git_sha</code>　<code>pmb_h.build_hash</code>　<code>lib.build_hash</code>
-        　<code>battery_[ab].capacity_calibrated_mah</code>　<code>battery_[ab].cycles_before_run</code>
-        　<code>pv.attenuation</code>　<code>environment.irradiance_ref_wm2</code>
-        　<code>config.emc_strategy</code>（which of ADR-004 / 006 / 007 were active this run）
+        <code>firmware_git_sha</code> <code>pmb_h.build_hash</code> <code>lib.build_hash</code>
+         <code>battery_[ab].capacity_calibrated_mah</code> <code>battery_[ab].cycles_before_run</code>
+         <code>pv.attenuation</code> <code>environment.irradiance_ref_wm2</code>
+         <code>config.emc_strategy</code> (which of ADR-004 / 006 / 007 were active this run)
         <br/>Even perfboard has versions: <strong>move one jumper wire → build_hash +1</strong>.</div>
     </div>
   </div>

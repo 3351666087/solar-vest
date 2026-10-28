@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Solar Vest Assembly</title>
+<style>
+:root{
+  --sv-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --sv-bg:#eef0ec;--sv-bg-hi:#fbfbf8;--sv-bg-lo:#e2e5df;--sv-ink:#17201c;--sv-mute:#6b746f;--sv-line:rgba(23,32,28,.09);
+  --sv-glass:rgba(255,255,255,.72);--sv-hl:rgba(255,255,255,.8);--sv-shadow:rgba(30,40,35,.28);--sv-hover:rgba(23,32,28,.06);
+  --sv-acc:#2a78d6;--sv-acc-soft:rgba(42,120,214,.12);--sv-track:rgba(23,32,28,.16);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --sv-bg:#121513;--sv-bg-hi:#1f2522;--sv-bg-lo:#0b0d0c;--sv-ink:#e9eeeb;--sv-mute:#98a29d;--sv-line:rgba(255,255,255,.08);
+  --sv-glass:rgba(28,33,30,.72);--sv-hl:rgba(255,255,255,.05);--sv-shadow:rgba(0,0,0,.6);--sv-hover:rgba(255,255,255,.06);
+  --sv-acc:#3987e5;--sv-acc-soft:rgba(57,135,229,.18);--sv-track:rgba(255,255,255,.18)}}
+:root[data-theme="dark"]{
+  --sv-bg:#121513;--sv-bg-hi:#1f2522;--sv-bg-lo:#0b0d0c;--sv-ink:#e9eeeb;--sv-mute:#98a29d;--sv-line:rgba(255,255,255,.08);
+  --sv-glass:rgba(28,33,30,.72);--sv-hl:rgba(255,255,255,.05);--sv-shadow:rgba(0,0,0,.6);--sv-hover:rgba(255,255,255,.06);
+  --sv-acc:#3987e5;--sv-acc-soft:rgba(57,135,229,.18);--sv-track:rgba(255,255,255,.18)}
+html,body{margin:0;height:100%;background:var(--sv-bg);overflow:hidden}
+#app{position:fixed;inset:0}
+.brand{position:fixed;top:14px;left:14px;z-index:6;display:flex;align-items:center;gap:12px;padding:10px 14px 10px 12px;width:268px;box-sizing:border-box;
+  font:13px/1.35 var(--sv-font);color:var(--sv-ink)}
+.brand .mark{width:34px;height:34px;border-radius:10px;flex:none;display:grid;place-items:center;
+  background:linear-gradient(145deg,#f5b52e,#eb6834);box-shadow:0 6px 16px -6px #eb6834}
+.brand .mark svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round}
+.brand h1{margin:0;font-size:14.5px;font-weight:650;letter-spacing:.01em}
+.brand .eyebrow{margin:0 0 1px;font-size:10.5px;letter-spacing:.09em;color:var(--sv-mute);font-weight:600}
+.brand .theme{margin-left:auto;width:30px;height:30px;display:grid;place-items:center}
+.brand .theme svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.7}
+.status{position:fixed;left:16px;bottom:16px;z-index:6;font:11.5px var(--sv-font);color:var(--sv-mute);display:flex;align-items:center;gap:7px}
+.status i{width:7px;height:7px;border-radius:50%;background:#1baf7a;box-shadow:0 0 0 3px rgba(27,175,122,.18)}
+.status.private i{background:#eda100;box-shadow:0 0 0 3px rgba(237,161,0,.2)}
+#app .sv-panel{top:80px;max-height:calc(100% - 190px)}
+@media (max-width:720px){.brand{width:auto;right:60px}.status{display:none}#app .sv-panel{top:auto}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="brand sv-glass">
+  <div class="mark"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg></div>
+  <div><p class="eyebrow">SOLAR VEST</p><h1>Assembly viewer</h1></div>
+  <button class="sv-btn theme" id="theme" title="Toggle light/dark theme"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+</div>
+<div class="status" id="status"><i></i><span>Loading…</span></div>
+<script src="viewer.bundle.js"></script>
+<script>
+const COLORS = { vest:"#59636b", skin:"#e34948", panel:"#2a78d6", shoes:"#8a8f98", sensors:"#eda100", back_pod:"#1baf7a", back_pod_lid:"#3aa6b9",
+  chest_pod:"#4a3aa7", chest_pod_lid:"#9085e9", boards:"#008300", A_heartbit:"#9a6b3f", C_board:"#eb6834", C_lid:"#f2a07b", phone:"#5b8def", cables:"#e87ba4", torso:"#c9b8a8",
+  table:"#8a8f98", stand:"#59636b", cover:"#3aa6b9" };
+const viewer = SolarVestViewer.mountViewer(document.getElementById("app"), {
+  strings: { layers:"Layers", all:"Show all", solo:"Solo", loading:"Loading models…", hint:"Left-drag to rotate · scroll to zoom · right-drag to pan",
+    reset:"Reset view", spin:"Auto-rotate", shot:"Save screenshot", full:"Full screen", panel:"Layers panel",
+    keys:"<kbd>1</kbd>–<kbd>9</kbd> views · <kbd>R</kbd> reset · <kbd>A</kbd> rotate · <kbd>F</kbd> full screen" },
+  sceneOrder: ["worn", "bench"], sceneLabels: { worn:"Worn", bench:"Bench rig (off-body)" },
+  scenes: {
+    worn: { files: ["assembly_with_torso_PRIVATE.mo.glb", "assembly.mo.glb"], index: "assembly_index.json", colors: COLORS,
+      names: { torso:"Body (scan, local only)", vest:"Vest", skin:"On skin: electrodes / leads / ear clip", panel:"Solar panel 6 V 6 W", shoes:"Panel shoes ×6",
+        sensors:"Reference cells / thermocouples", back_pod:"Back pod + hooks", back_pod_lid:"Back pod lid", chest_pod:"Chest pod (B + LIB)", chest_pod_lid:"Chest pod lid",
+        boards:"PCBs / batteries / XIAO", A_heartbit:"A · HeartBIT (left lower front pocket)", C_board:"C · Board BLE (left chest pocket)", C_lid:"C case lid",
+        phone:"Android phone (right lower front pocket)", cables:"Cables W01–W15" },
+      views: { iso:["Rear three-quarter",[1.15,1.75,-1.85],[0,1.30,-0.05]], back:["Back",[0,1.32,-2.4],[0,1.30,0]], front:["Front",[0,1.34,2.3],[0,1.30,0]],
+        side:["Side",[-2.4,1.32,0],[0,1.30,0]], pod:["Back pod",[0.22,1.40,-0.72],[0,1.21,-0.20]], chest:["Chest pod",[-0.36,1.47,0.46],[-0.115,1.38,0.15]],
+        cpocket:["C case",[0.42,1.50,0.55],[0.12,1.38,0.13]], skin:["Electrodes",[0.18,1.42,1.02],[0,1.36,0.08]], ear:["Ear clip",[0.45,1.72,0.32],[0.07,1.64,0.0]] },
+      facts: [["Panel top edge / tilt","1.50 m / 4.75°"],["Panel air gap","18–52 mm"],["On skin","electrodes ×6 + earlobe PPG"],["Back→chest W06","routed 0.53 m · buy 0.7 m"],["Data","A / B / C → Android phone"]],
+      start: "iso" },
+    bench: { files: ["bench.mo.glb"], index: "bench_index.json", colors: COLORS,
+      names: { table:"Table", panel:"Panel", stand:"Test stand", sensors:"REF1 + thermocouple TC1", cover:"ND mesh cover", back_pod:"Back pod (lid off)", cables:"W01 panel cable" },
+      views: { iso:["Oblique",[0.82,0.62,-0.98],[0,0.06,-0.04]], side:["Side (tilt)",[1.2,0.15,0.0],[0,0.07,0]], top:["Top",[0.0,1.3,0.01],[0,0,0]] },
+      facts: [["Stand angle marks","0 = vertical · 15° per step"],["Current","45°"],["Used for","TC-02 / 03b / 21 / 24"]], start: "iso" } },
+  onLoad: (kind, file) => {
+    const s = document.getElementById("status"), priv = /PRIVATE/.test(file || "");
+    s.classList.toggle("private", priv);
+    s.querySelector("span").textContent = kind === "bench" ? "Bench scene" : (priv ? "Includes local body model (do not share)" : "Public model (no body)");
+  },
+});
+const root = document.documentElement;
+document.getElementById("theme").onclick = () => {
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+};
+</script>
+</body>
+</html>

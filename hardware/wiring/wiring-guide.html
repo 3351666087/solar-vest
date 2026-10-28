@@ -1,0 +1,1032 @@
+<title>SolarVest Wiring Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;700&display=swap">
+<style>
+/* Layout: bench-manual — sticky section bar, overview diagram + pinned detail panel, then to-scale pod views, wire cards, bring-up checklist. */
+:root{
+  --bg:#f1f3f0; --surface:#ffffff; --sunk:#e6eae6; --fg:#17201c; --muted:#56635d; --line:#d0d8d3;
+  --accent:#0d6b50; --accent-ink:#ffffff; --accent-soft:#d6ebe2;
+  --danger:#b3261e; --danger-soft:#fbe6e3; --warn:#9a5800; --warn-soft:#fbefd9; --ok:#2c7a38; --ok-soft:#dff0e1;
+  --mask:#1d5a46; --mask-edge:#0f3a2c; --silk:#eef4f0; --pad:#d4a43e; --module:#2a302d; --module-ink:#e9eeeb;
+  --bita:#fbfbf8; --bita-edge:#a9b0ac; --bita-ink:#33403a; --cell:#2f4f8a; --cell-ink:#eaf0fb;
+  --frame:#94a29b; --frame-fill:#e2e7e3; --skin:#efe5dc; --skin-edge:#b9a796; --electrode:#ffffff;
+  --wr-red:#d7261e; --wr-black:#202422; --wr-blue:#1f5fc4; --wr-yellow:#e2b000; --wr-green:#23934a;
+  --wr-white:#f7f7f4; --wr-purple:#7c3bbd; --wr-grey:#9aa19d; --wire-edge:#3c4541;
+  --f-sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono","SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1311; --surface:#161d1a; --sunk:#111714; --fg:#e2e9e5; --muted:#93a29b; --line:#2a3631;
+  --accent:#4cc79b; --accent-ink:#06261b; --accent-soft:#163429;
+  --danger:#ff8a7a; --danger-soft:#3a1714; --warn:#f3b85e; --warn-soft:#33260f; --ok:#7ad38a; --ok-soft:#173020;
+  --mask:#1b4f3e; --mask-edge:#0a261d; --silk:#e6efea; --pad:#d9ad4f; --module:#0b0e0d; --module-ink:#d8e0dc;
+  --bita:#d9ddd9; --bita-edge:#7d8781; --bita-ink:#24302a; --cell:#3a5c9c; --cell-ink:#eef3fc;
+  --frame:#5c6b64; --frame-fill:#1a221e; --skin:#3b3530; --skin-edge:#806f61; --electrode:#e9ece9;
+  --wr-black:#0a0c0b; --wire-edge:#b8c4be; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1311; --surface:#161d1a; --sunk:#111714; --fg:#e2e9e5; --muted:#93a29b; --line:#2a3631;
+  --accent:#4cc79b; --accent-ink:#06261b; --accent-soft:#163429;
+  --danger:#ff8a7a; --danger-soft:#3a1714; --warn:#f3b85e; --warn-soft:#33260f; --ok:#7ad38a; --ok-soft:#173020;
+  --mask:#1b4f3e; --mask-edge:#0a261d; --silk:#e6efea; --pad:#d9ad4f; --module:#0b0e0d; --module-ink:#d8e0dc;
+  --bita:#d9ddd9; --bita-edge:#7d8781; --bita-ink:#24302a; --cell:#3a5c9c; --cell-ink:#eef3fc;
+  --frame:#5c6b64; --frame-fill:#1a221e; --skin:#3b3530; --skin-edge:#806f61; --electrode:#e9ece9;
+  --wr-black:#0a0c0b; --wire-edge:#b8c4be; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.65 var(--f-sans);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1240px;margin:0 auto}
+h1,h2,h3{text-wrap:balance;line-height:1.25;margin:0}
+h1{font-size:30px;font-weight:700;letter-spacing:.01em}
+h2{font-size:21px;font-weight:700}
+h3{font-size:16px;font-weight:700}
+p{margin:0}
+code,.mono{font-family:var(--f-mono);font-size:.92em}
+.muted{color:var(--muted)}
+a{color:var(--accent)}
+
+header.top{padding-block:32px 18px;display:grid;gap:14px}
+header.top .lede{max-width:70ch;color:var(--muted)}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.rule{background:var(--danger-soft);color:var(--fg);border-radius:8px;padding:10px 14px;font-size:14px;display:flex;gap:10px}
+.rule b{color:var(--danger);font-family:var(--f-mono)}
+
+nav.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);
+  display:flex;gap:4px;overflow-x:auto;padding-block:8px;margin-bottom:8px;scrollbar-width:none}
+nav.bar a{flex:none;text-decoration:none;color:var(--muted);font-size:14px;padding:5px 11px;border-radius:999px}
+nav.bar a:hover,nav.bar a:focus-visible{color:var(--fg);background:var(--sunk);outline:none}
+
+section{padding-block:28px 8px;display:grid;gap:14px;scroll-margin-top:56px}
+.sec-head{display:grid;gap:4px}
+.sec-head p{max-width:72ch;color:var(--muted)}
+
+.ov-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:18px;align-items:start}
+@media (max-width:1000px){.ov-grid{grid-template-columns:minmax(0,1fr)}}
+.fig{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow-x:auto;min-width:0}
+.fig svg{display:block;width:100%;height:auto}
+.fig.ov svg{min-width:860px}
+.fig.mm svg{min-width:620px}
+.fig.torso svg{min-width:300px;max-width:520px;margin:0 auto}
+.panel{position:sticky;top:64px;min-width:0}
+.hint{font-size:13px;color:var(--muted);padding:8px 12px}
+
+/* svg vocabulary */
+svg text{font-family:var(--f-sans)}
+.pod{fill:var(--frame-fill);stroke:var(--frame);stroke-dasharray:6 4;stroke-width:1.2}
+.podlbl{font-size:12px;fill:var(--muted);letter-spacing:.06em}
+.node{fill:var(--surface);stroke:var(--frame);stroke-width:1.2}
+.board{fill:var(--mask);stroke:var(--mask-edge);stroke-width:1.2}
+.bita{fill:var(--bita);stroke:var(--bita-edge);stroke-width:1.2}
+.module{fill:var(--module)}
+.cellr{fill:var(--cell)}
+.nt{font-size:14px;font-weight:700;fill:var(--fg)}
+.ns{font-size:11.5px;fill:var(--muted)}
+.on-board{fill:var(--silk)}
+.on-bita{fill:var(--bita-ink)}
+.on-cell{fill:var(--cell-ink)}
+.on-module{fill:var(--module-ink)}
+.port{fill:var(--pad);stroke:var(--mask-edge);stroke-width:1}
+.port.idle{fill:var(--frame-fill);stroke:var(--frame)}
+.pl{font:600 11px var(--f-mono);fill:var(--fg)}
+.pl.on-board{fill:var(--silk)}
+.pl.on-bita{fill:var(--bita-ink)}
+.pl.idle{fill:var(--muted);font-weight:400}
+.wire{cursor:pointer}
+.wire .hit{stroke:transparent;fill:none;pointer-events:stroke}
+.wtag rect{fill:var(--surface);stroke:var(--fg)}
+.wtag text{font-family:var(--f-mono);font-weight:600;fill:var(--fg)}
+.wire.is-sel .wtag rect{fill:var(--accent);stroke:var(--accent)}
+.wire.is-sel .wtag text{fill:var(--accent-ink)}
+.ov.has-sel .wire:not(.is-sel){opacity:.14}
+.wire{transition:opacity .15s}
+@media (prefers-reduced-motion:reduce){.wire{transition:none}}
+.dot{stroke:var(--wire-edge)}
+.elab{font:600 11px var(--f-mono);fill:var(--fg)}
+
+/* mm-scaled views */
+.mm .podwall{fill:var(--frame-fill);stroke:var(--frame);stroke-width:.6}
+.mm .gap{fill:var(--surface)}
+.mm .board,.mm .bita{stroke-width:.3}
+.mm .pad{fill:var(--pad);stroke:none}
+.mm .pad.p1{stroke:var(--danger);stroke-width:.35}
+.mm .housing{fill:var(--bita);stroke:var(--bita-edge);stroke-width:.2;opacity:.92}
+.mm .term{fill:var(--wr-blue);opacity:.85}
+.mm .hole{fill:var(--frame-fill);stroke:var(--pad);stroke-width:.5}
+.mm .tp{fill:var(--pad);stroke:var(--mask-edge);stroke-width:.2}
+.mm .tpl{font:600 1.9px var(--f-mono);fill:var(--silk)}
+.mm .silk{font:600 1.6px var(--f-mono);fill:var(--silk)}
+.mm .pn{font:700 1.05px var(--f-mono);fill:var(--mask-edge)}
+.mm .co{font:1.75px var(--f-mono);fill:var(--silk)}
+.mm .co b,.mm .co .h{font-weight:700}
+.mm .out{font:2.3px var(--f-sans);fill:var(--fg)}
+.mm .out.m{fill:var(--muted)}
+.mm .big{font:700 4px var(--f-sans);fill:var(--silk);opacity:.35}
+.mm .sock{fill:var(--pad);stroke:var(--bita-edge);stroke-width:.2}
+.mm .sock.idle{fill:var(--frame-fill)}
+.mm .sl{font:600 2.5px var(--f-mono);fill:var(--bita-ink)}
+.mm .sl.idle{font-weight:400;opacity:.55}
+.mm .cap{fill:none;stroke:var(--silk);stroke-width:.25;stroke-dasharray:.8 .6}
+.mm .dash{fill:none;stroke:var(--fg);stroke-width:.35;stroke-dasharray:1 .8}
+.mm .bt{font:700 3.2px var(--f-sans);fill:var(--bita-ink);opacity:.5}
+
+/* cards */
+.wcard{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;gap:10px;min-width:0;scroll-margin-top:64px}
+.wcard.is-sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
+.wcard header{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.wid{font:600 13px var(--f-mono);background:var(--fg);color:var(--bg);border-radius:5px;padding:1px 7px}
+.chip{font-size:12px;border-radius:999px;padding:1px 9px;border:1px solid var(--line);color:var(--muted)}
+.chip.must{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+.chip.opt{background:var(--warn-soft);color:var(--warn);border-color:transparent}
+.chip.body,.chip.none{background:var(--sunk)}
+.chip.none{text-decoration:line-through;text-decoration-color:var(--muted)}
+.route{font-size:14px;color:var(--muted)}
+.arr{color:var(--muted);padding-inline:2px}
+.pins{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+.pins td{padding:5px 6px;border-top:1px solid var(--line);vertical-align:top}
+.pins td:first-child{white-space:nowrap;width:1%}
+.pins td.arr{width:1%}
+.sw{display:inline-block;width:22px;height:8px;border-radius:4px;background:var(--c);border:1px solid var(--wire-edge);margin-right:6px;vertical-align:middle}
+.sw.x{background:repeating-linear-gradient(135deg,var(--surface) 0 3px,var(--muted) 3px 4px)}
+.tblwrap{overflow-x:auto}
+dl.kv{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 12px;font-size:14px}
+dl.kv dt{color:var(--muted);white-space:nowrap}
+dl.kv dd{margin:0;min-width:0}
+dl.kv ul{margin:0;padding-left:18px}
+.warn{background:var(--warn-soft);border-radius:6px;padding:6px 10px;font-size:13.5px}
+.warn.d{background:var(--danger-soft)}
+.warn.d::before{content:"Danger ";font-weight:700;color:var(--danger)}
+.ver{background:var(--ok-soft);border-radius:6px;padding:6px 10px;font-size:13.5px}
+.ver::before{content:"Verify ";font-weight:700;color:var(--ok)}
+.seebtn{justify-self:start;font:13px var(--f-sans);color:var(--accent);background:none;border:1px solid var(--line);border-radius:6px;padding:3px 10px;cursor:pointer}
+.seebtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filters button{font:14px var(--f-sans);color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 12px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.filters button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:14px}
+
+.two{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){.two{grid-template-columns:minmax(0,1fr)}}
+.stack{display:grid;gap:18px}
+.stack>.note{grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));align-items:start;column-gap:28px}
+.stack>.note>div.blk{display:grid;gap:10px;min-width:0}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:10px;min-width:0;font-size:14px}
+table.grid{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+table.grid th,table.grid td{text-align:left;padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+table.grid th{color:var(--muted);font-weight:500;white-space:nowrap}
+table.grid td.mono{white-space:nowrap}
+
+/* steps */
+.prog{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--muted)}
+.prog .bar{flex:1;height:6px;background:var(--sunk);border-radius:3px;overflow:hidden;max-width:420px}
+.prog .bar i{display:block;height:100%;background:var(--accent);width:0}
+.prog button{font:13px var(--f-sans);background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:2px 10px;cursor:pointer}
+ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:st}
+ol.steps>li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;display:grid;gap:8px;counter-increment:st}
+ol.steps>li h3{display:flex;gap:10px;align-items:baseline}
+ol.steps>li h3::before{content:counter(st);font:600 14px var(--f-mono);color:var(--accent);min-width:1.5em}
+ol.steps>li .why{color:var(--muted);font-size:14px;max-width:80ch}
+.items{display:grid;gap:4px}
+.items label{display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:10px;align-items:start;font-size:14px;padding:5px 6px;border-radius:6px;cursor:pointer}
+.items label:hover{background:var(--sunk)}
+.items input{margin-top:4px;accent-color:var(--accent)}
+.items .exp{font:13px var(--f-mono);color:var(--accent);white-space:nowrap;text-align:right}
+.items label:has(input:checked) span:not(.exp){color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+@media (max-width:640px){.items label{grid-template-columns:20px minmax(0,1fr)}.items .exp{grid-column:2;text-align:left;white-space:normal}}
+
+pre.code{margin:0;background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;font:12.5px/1.55 var(--f-mono);tab-size:2}
+.codehead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.copy{font:14px var(--f-sans);background:var(--fg);color:var(--bg);border:0;border-radius:6px;padding:5px 14px;cursor:pointer}
+.copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{padding-block:32px 0;color:var(--muted);font-size:13px;max-width:80ch}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <h1>SolarVest Wiring Guide</h1>
+  <p class="lede">For bench bring-up: without wearing the vest, connect the back pod, chest pod, C and A together on the desk. Every wire is specified down to the pin. Socket positions and pin numbers on PMB-H and LIB are taken from the two boards’ KiCad files, positions inside the enclosures from the printed-part source code, and wire colours from the wiring table. Click any wire in the diagram and the panel on the right shows how to connect it.</p>
+  <div class="rules">
+    <div class="rule"><b>1</b><span>Three polarised connections have no reverse-polarity protection: battery into J2, W07 into Core B, W12 into C. Before plugging in, confirm polarity using the method on the wire’s card.</span></div>
+    <div class="rule"><b>2</b><span>The W06 5-core cable must be pin 1 to pin 1. Check it once with the continuity (beep) range before powering up; a reversed cable shorts the load output straight to ground.</span></div>
+    <div class="rule"><b>3</b><span>While electrodes are on a person, do not plug USB into the XIAO. With the Mac on its charger, the body would be connected to mains earth through USB.</span></div>
+  </div>
+</header>
+
+<nav class="bar" aria-label="Sections">
+  <a href="#overview">Overview</a><a href="#back">Back pod</a><a href="#chest">Chest pod</a><a href="#ca">C and A</a><a href="#electrodes">Electrode positions</a><a href="#wires">Wire by wire</a><a href="#bringup">Bench bring-up</a><a href="#firmware">Test sketch</a><a href="#extras">Bench extras</a>
+</nav>
+
+<section id="overview">
+  <div class="sec-head"><h2>Overview</h2><p>The system has 4 units and 14 wire groups (the W08 sync wire has been dropped in favour of software synchronisation). This diagram only shows what connects to what; block positions are schematic. For the real socket positions on the boards, see the three millimetre-scale drawings that follow.</p></div>
+  <div class="ov-grid">
+    <div class="fig ov" id="ovfig"></div>
+    <aside class="panel" id="detail" aria-live="polite"></aside>
+  </div>
+</section>
+
+<section id="back">
+  <div class="sec-head"><h2>Back pod: PMB-H and battery</h2><p>Top view with the lid removed — what you see when you open the grey box (PMB-H is not rotated in the pod, so the silkscreen reads upright). Scale 1 unit = 1 mm. Pads outlined in red are pin 1.</p></div>
+  <div class="stack">
+    <div class="fig mm" id="backfig"></div>
+    <div class="note">
+      <div class="blk">
+      <h3>PMB-H connector pinout</h3>
+      <div class="tblwrap"><table class="grid">
+        <thead><tr><th>Connector</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>Wire</th></tr></thead>
+        <tbody>
+        <tr><td class="mono">J1 screw terminal</td><td>PV_IN+</td><td>PV_IN−</td><td></td><td></td><td></td><td class="mono">W01</td></tr>
+        <tr><td class="mono">J2 PH2.0</td><td>BAT+</td><td>GND</td><td></td><td></td><td></td><td class="mono">W02</td></tr>
+        <tr><td class="mono">J3 PH2.0</td><td>NTC_ADC</td><td>GND</td><td></td><td></td><td></td><td class="mono">W03</td></tr>
+        <tr><td class="mono">J7 PH2.0</td><td>REF1+</td><td>GND</td><td></td><td></td><td></td><td class="mono">W04</td></tr>
+        <tr><td class="mono">J8 PH2.0</td><td>REF2+</td><td>GND</td><td></td><td></td><td></td><td class="mono">W05</td></tr>
+        <tr><td class="mono">J6 PH2.0 5P</td><td>VLOAD</td><td>GND</td><td>SYNC</td><td>NC</td><td>GND</td><td class="mono">W06</td></tr>
+        </tbody></table></div>
+      <h3>XIAO socket (plug-in, no wiring needed)</h3>
+      <div class="tblwrap"><table class="grid">
+        <thead><tr><th>XIAO pin</th><th>Net</th><th>Function / power-up default</th></tr></thead>
+        <tbody>
+        <tr><td class="mono">D0 / A0</td><td class="mono">NTC_ADC</td><td>Battery temperature</td></tr>
+        <tr><td class="mono">D1</td><td class="mono">NTC_EN</td><td>High powers the NTC divider</td></tr>
+        <tr><td class="mono">D2</td><td class="mono">SYNC_OUT</td><td>Sync pulse, via 1 kΩ to J6-3</td></tr>
+        <tr><td class="mono">D3</td><td class="mono">LOAD_EN</td><td>High = power the chest unit; default off (pull-down)</td></tr>
+        <tr><td class="mono">D4 / D5</td><td class="mono">SDA / SCL</td><td>6 × INA226</td></tr>
+        <tr><td class="mono">D6</td><td class="mono">CHG_INH</td><td>High = inhibit charging; default charging</td></tr>
+        <tr><td class="mono">D7</td><td class="mono">RANGE_LO</td><td>High = indoor range for panel current; default high range</td></tr>
+        <tr><td class="mono">D8 / D9</td><td class="mono">CHRG_N / DONE_N</td><td>Low = charging / fully charged</td></tr>
+        <tr><td class="mono">D10</td><td class="mono">PV_EN</td><td>Low = disconnect panel at night; default on (pull-up)</td></tr>
+        <tr><td class="mono">3V3 / GND</td><td class="mono">3V3 / GND</td><td>Supplied by on-board ME6211</td></tr>
+        <tr><td class="mono">5V</td><td>Not connected</td><td></td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="blk">
+      <h3>Test points</h3>
+      <p class="muted">TP1 VPV · TP2 VSYS · TP3 BAT+ · TP4 VLOAD · TP5 3V3 · TP6 GND · TP7 SDA · TP8 SCL. When measuring voltages, always clip the black probe to TP6.</p>
+    
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="chest">
+  <div class="sec-head"><h2>Chest pod: LIB and Core B</h2><p>Top view with the lid removed. LIB is rotated 180° in the pod, so its silkscreen reads upside down, and the drawing shows it upside down as well. Core B’s port positions match the lid engraving: right side, bottom to top, I1 / A4 / A3 / A2 / A1. It is fitted correctly when the switch and micro-USB are at the end away from LIB, next to the O1–A5 row (PLUX manual Fig. 12).</p></div>
+  <div class="stack">
+    <div class="fig mm" id="chestfig"></div>
+    <div class="note">
+      <div class="blk">
+      <h3>LIB connector pinout</h3>
+      <div class="tblwrap"><table class="grid">
+        <thead><tr><th>Connector</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>Wire</th></tr></thead>
+        <tbody>
+        <tr><td class="mono">J1 ← back</td><td>VLOAD</td><td>GND</td><td>SYNC_IN</td><td>spare</td><td>GND</td><td class="mono">W06</td></tr>
+        <tr><td class="mono">J2 → Core battery socket</td><td>VBIT</td><td>GND</td><td></td><td></td><td></td><td class="mono">W07</td></tr>
+        <tr><td class="mono">J3</td><td>SYNC_OUT</td><td>GND</td><td></td><td></td><td></td><td>unused</td></tr>
+        </tbody></table></div>
+      <h3>Test points</h3>
+      <p class="muted">TP1 VLOAD · TP2 VBIT · TP3 VSC (supercap top) · TP4 GND · TP5 spare. When measuring voltages, clip the black probe to TP4.</p>
+      </div>
+      <div class="blk">
+      <h3>Core B ports used</h3>
+      <table class="grid"><tbody>
+        <tr><td class="mono">Battery socket</td><td>W07, from LIB J2. B does not use its own LiPo and is not plugged into USB</td></tr>
+        <tr><td class="mono">I1</td><td>Not connected (software sync instead)</td></tr>
+        <tr><td class="mono">A2</td><td>W09, HeartBIT ECG sensor</td></tr>
+        <tr><td class="mono">Others</td><td>Not connected</td></tr>
+      </tbody></table>
+      <p class="muted">Core B’s battery socket is at the PWR end (the white 2P socket next to the switch and micro-USB), the farthest point from LIB, so W07 has to cross over the top of the Core. The socket position in the drawing is estimated from your photo, accurate to a few millimetres.</p>
+    
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ca">
+  <div class="sec-head"><h2>C and A</h2><p>C is the Board Kit with its own battery, serving as the control for B. A is an unmodified stock HeartBIT with only the PulseSensor connected. Neither goes through PMB-H.</p></div>
+  <div class="stack">
+    <div class="fig mm" id="cfig"></div>
+    <div class="note">
+      <div class="blk">
+      <h3>C (Board Kit)</h3>
+      <table class="grid"><tbody>
+        <tr><td class="mono">W12</td><td>523450 battery → battery socket on the Board power block. Red = +. Check polarity once per the W12 card before plugging in</td></tr>
+        <tr><td class="mono">W11</td><td>3-lead electrode cable → left-hand <b>ECG</b> port (lid engraved ECG ←). Red C_IN+, black C_IN−, white C_REF</td></tr>
+        <tr><td class="mono">Others</td><td>EEG / EDA / EMG not connected</td></tr>
+      </tbody></table>
+      <h3>A (HeartBIT Core BT)</h3>
+      <table class="grid"><tbody>
+        <tr><td class="mono">W13</td><td>Original PulseSensor cable → <b>A3</b>, ear clip on the left earlobe</td></tr>
+        <tr><td class="mono">Power</td><td>Own 700 mAh battery, unchanged</td></tr>
+        <tr><td class="mono">Data</td><td>Classic Bluetooth, paired with an Android phone or the Mac</td></tr>
+      </tbody></table>
+      </div>
+      <div class="blk">
+      <h3>Temperature (W14 / W15)</h3>
+      <p class="muted">The plugs of the two type-K thermocouples go only into the thermometer, never into any circuit board. TC1 is taped with aluminium-foil tape to the centre of the panel backsheet; TC2 goes on the vest surface under the panel (during bench work, on the desk or on clothing).</p>
+    
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="electrodes">
+  <div class="sec-head"><h2>Electrode positions</h2><p>Subject viewed from the front: the subject’s left is on the right of the drawing. During bench work there is no vest; disposable electrodes go directly on these 6 positions. B and C are both lead I, offset vertically by 5 cm, with left/right-symmetric reference electrodes.</p></div>
+  <div class="two">
+    <div class="fig torso" id="torsofig"></div>
+    <div class="note">
+      <table class="grid">
+        <thead><tr><th>Electrode</th><th>Position</th><th>Lead</th><th>Connects to</th></tr></thead>
+        <tbody>
+        <tr><td class="mono">B_IN+</td><td>On left clavicle, 8.5 cm from midline</td><td><i class="sw" style="--c:var(--wr-red)"></i>red</td><td>B’s ECG sensor</td></tr>
+        <tr><td class="mono">B_IN−</td><td>On right clavicle, 8.5 cm from midline</td><td><i class="sw" style="--c:var(--wr-black)"></i>black</td><td>Same as above</td></tr>
+        <tr><td class="mono">B_REF</td><td>Right lower ribs (lower costal margin), 10 cm from midline</td><td><i class="sw" style="--c:var(--wr-white)"></i>white</td><td>Same as above</td></tr>
+        <tr><td class="mono">C_IN+</td><td>5 cm directly below B_IN+</td><td><i class="sw" style="--c:var(--wr-red)"></i>red</td><td>C’s 3-lead cable</td></tr>
+        <tr><td class="mono">C_IN−</td><td>5 cm directly below B_IN−</td><td><i class="sw" style="--c:var(--wr-black)"></i>black</td><td>Same as above</td></tr>
+        <tr><td class="mono">C_REF</td><td>Left lower ribs, mirror of B_REF</td><td><i class="sw" style="--c:var(--wr-white)"></i>white</td><td>Same as above</td></tr>
+        </tbody>
+      </table>
+      <p>Clean the skin with an alcohol swab and let it dry before applying. Lead colours are fixed: red = IN+, black = IN−, white = REF (PLUX manual Table 2).</p>
+    </div>
+  </div>
+</section>
+
+<section id="wires">
+  <div class="sec-head"><h2>Wire by wire</h2><p>Wires marked “Bench: required” are connected for this bring-up; “optional” wires can be left off and bring-up still completes; “On-body only” wires are connected once the vest is made.</p></div>
+  <div class="filters" role="group" aria-label="Filter by unit" id="filters"></div>
+  <div class="cards" id="cards"></div>
+</section>
+
+<section id="bringup">
+  <div class="sec-head"><h2>Bench bring-up: 11 steps</h2><p>Work in order; move on only when the readings of each step are correct. Ticks are stored only in this device’s browser. The green text on the right is the expected reading. You need: multimeter, breadboard plus 1 PH2.0 straight-pin header, soldering station and heat-shrink, a Mac with Arduino IDE installed, an Android phone, disposable ECG electrodes.</p></div>
+  <div class="prog"><span id="progtxt">0 / 0</span><span class="bar"><i id="progbar"></i></span><button type="button" id="reset">Clear ticks</button></div>
+  <ol class="steps" id="steps"></ol>
+</section>
+
+<section id="firmware">
+  <div class="sec-head"><h2>Test sketch</h2><p>Used in step 5. It is for bring-up only: it scans the 6 INA226s, prints voltage, current and NTC temperature every second, and lets you toggle the load, panel, charging and sync pulse with serial commands. The load is off at power-up, matching the board’s hardware default. This is not the production firmware: no BLE and no thermal-protection logic.</p></div>
+  <div class="codehead"><span class="muted">Arduino IDE · board Seeed XIAO nRF52840 Sense · serial 115200</span><button type="button" class="copy" id="copybtn">Copy code</button></div>
+  <pre class="code" id="fwcode"></pre>
+</section>
+
+<section id="extras">
+  <div class="sec-head"><h2>Bench extra wiring (not on body)</h2><p>These are temporary connections for experiments only; remove them afterwards.</p></div>
+  <div class="note">
+    <div class="tblwrap"><table class="grid">
+      <thead><tr><th>ID</th><th>Purpose</th><th>How to connect</th><th>Notes</th></tr></thead>
+      <tbody>
+      <tr><td class="mono">B01</td><td>Lab supply replaces the panel</td><td>Red → J1-1 PV_IN+, black → J1-2 PV_IN−</td><td>7.0 V, 1.0 A current limit, never above 9 V. Allows charging and firmware bring-up on cloudy days</td></tr>
+      <tr><td class="mono">B02</td><td>TC-01 power consumption (A or C)</td><td>Battery + → breadboard → multimeter mA range in series → breadboard → device +; − straight through</td><td>Use 2 PH2mm straight-pin pre-wired leads + a straight-pin header. B need not be measured: INA226 0x42 measures it continuously</td></tr>
+      <tr><td class="mono">B03</td><td>TC-02 panel I-V curve</td><td>Panel + → cement resistor → panel −; multimeter across the resistor reads voltage, I = V / R</td><td>Open circuit gives Voc; short circuit on the multimeter’s 10 A range gives Isc. Place REF1 coplanar with the panel to record irradiance</td></tr>
+      <tr><td class="mono">B04</td><td>Charging and capacity</td><td>USB tester inserted in the A and C charging cables and the XIAO flashing cable</td><td>A and C are charged only when not worn</td></tr>
+      </tbody></table></div>
+    <h3>How to make up the B03 resistances</h3>
+    <p class="muted">What was bought is 10 each of 1 / 2.2 / 5 / 10 / 20 Ω (5 W); combine them in series to make the 9 planned steps:</p>
+    <div class="tblwrap"><table class="grid">
+      <thead><tr><th>Planned</th><th>Series</th><th>Actual</th></tr></thead>
+      <tbody>
+      <tr><td class="mono">3.3 Ω</td><td>1 + 2.2</td><td class="mono">3.2 Ω</td></tr>
+      <tr><td class="mono">4.7 Ω</td><td>2.2 + 2.2</td><td class="mono">4.4 Ω</td></tr>
+      <tr><td class="mono">6.8 Ω</td><td>2.2 + 2.2 + 2.2</td><td class="mono">6.6 Ω</td></tr>
+      <tr><td class="mono">10 Ω</td><td>10</td><td class="mono">10 Ω</td></tr>
+      <tr><td class="mono">15 Ω</td><td>10 + 5</td><td class="mono">15 Ω</td></tr>
+      <tr><td class="mono">22 Ω</td><td>20 + 2.2</td><td class="mono">22.2 Ω</td></tr>
+      <tr><td class="mono">33 Ω</td><td>20 + 10 + 2.2 + 1</td><td class="mono">33.2 Ω</td></tr>
+      <tr><td class="mono">68 Ω</td><td>3 × 20 + 5 + 2.2 + 1</td><td class="mono">68.2 Ω</td></tr>
+      <tr><td class="mono">150 Ω</td><td>7 × 20 + 10</td><td class="mono">150 Ω</td></tr>
+      </tbody></table></div>
+    <p class="muted">When calculating current, use the series resistance measured with the multimeter, not the nominal value.</p>
+  </div>
+</section>
+
+<footer>Data sources: <a href="wiring-table.md">hardware/wiring/wiring-table.md</a>, <a href="harness.json">harness.json</a>; <a href="../pcb/pmbh/pmbh.kicad_pcb">hardware/pcb/pmbh/pmbh.kicad_pcb</a>, <a href="../pcb/libb/libb.kicad_pcb">hardware/pcb/libb/libb.kicad_pcb</a>; <a href="../../tools/cad/pmbh.py">tools/cad/pmbh.py</a>, <a href="../../tools/cad/libb.py">libb.py</a>, <a href="../../tools/cad/enclosures.py">enclosures.py</a>. The millimetre-scale parts of the drawings use board-file coordinates; for the Core B battery socket, the position of C’s power block and the actual wire colours, the physical hardware takes precedence.</footer>
+</div>
+
+<script type="text/plain" id="fwsrc">// PMB-H bench bring-up test sketch (bench use only, not the production firmware)
+// Board: Seeed XIAO nRF52840 Sense; serial monitor 115200
+// Commands: l load LOAD_EN   p panel PV_EN   i inhibit charging CHG_INH
+//           r indoor panel-current range RANGE_LO   s sync pulse SYNC   h help
+#include <Wire.h>
+
+// XIAO pin number → PMB-H net
+const int NTC_EN = 1, SYNC = 2, LOAD_EN = 3, CHG_INH = 6, RANGE_LO = 7,
+          CHRG_N = 8, DONE_N = 9, PV_EN = 10;
+
+struct Ina { uint8_t addr; const char *name; float shunt; bool ok; };
+Ina ina[] = {
+  {0x40, "PV high ", 0.050f, false},   // panel current, high range (RS1A)
+  {0x43, "PV low  ", 0.220f, false},   // panel current, indoor range (RS1B, reads only after r is enabled)
+  {0x41, "BAT     ", 0.050f, false},   // positive = charging, negative = discharging
+  {0x42, "LOAD(B) ", 0.100f, false},   // chest unit (B + LIB)
+  {0x44, "REF1    ", -0.470f, false},  // reference-cell short-circuit current; both cells are wired reversed, so negated
+  {0x45, "REF2    ", -0.470f, false},
+};
+
+bool loadOn = false, pvOn = true, inhOn = false, lowRange = false, syncOn = false;
+bool syncLevel = false;
+uint32_t tSync = 0, tPrint = 0;
+
+bool rd(uint8_t a, uint8_t reg, int16_t &v) {
+  Wire.beginTransmission(a);
+  Wire.write(reg);
+  if (Wire.endTransmission() != 0) return false;
+  if (Wire.requestFrom(a, (uint8_t)2) != 2) return false;
+  uint8_t hi = Wire.read();
+  uint8_t lo = Wire.read();
+  v = (int16_t)((hi << 8) | lo);
+  return true;
+}
+
+void apply() {
+  digitalWrite(LOAD_EN, loadOn);
+  digitalWrite(PV_EN, pvOn);
+  digitalWrite(CHG_INH, inhOn);
+  digitalWrite(RANGE_LO, lowRange);
+}
+
+void help() {
+  Serial.println("l=load  p=panel  i=inhibit charging  r=indoor range  s=sync pulse  h=help");
+}
+
+void setup() {
+  pinMode(LOAD_EN, OUTPUT); pinMode(PV_EN, OUTPUT); pinMode(CHG_INH, OUTPUT);
+  pinMode(RANGE_LO, OUTPUT); pinMode(SYNC, OUTPUT); pinMode(NTC_EN, OUTPUT);
+  pinMode(CHRG_N, INPUT); pinMode(DONE_N, INPUT);
+  apply();                                   // load off, panel on, charging allowed, high range
+
+  Serial.begin(115200);
+  for (uint32_t t = millis(); !Serial && millis() - t < 4000; ) {}
+  Wire.begin();
+
+  Serial.println("I2C scan (expect 0x40 0x41 0x42 0x43 0x44 0x45):");
+  for (uint8_t a = 1; a < 127; a++) {
+    Wire.beginTransmission(a);
+    if (Wire.endTransmission() == 0) { Serial.print("  0x"); Serial.println(a, HEX); }
+  }
+  for (auto &u : ina) {
+    int16_t id;
+    u.ok = rd(u.addr, 0xFE, id) && (uint16_t)id == 0x5449;   // INA226 manufacturer ID
+  }
+  help();
+}
+
+void loop() {
+  while (Serial.available()) {
+    char c = Serial.read();
+    if (c == 'l') loadOn = !loadOn;
+    else if (c == 'p') pvOn = !pvOn;
+    else if (c == 'i') inhOn = !inhOn;
+    else if (c == 'r') lowRange = !lowRange;
+    else if (c == 's') syncOn = !syncOn;
+    else if (c == 'h') help();
+    else continue;
+    apply();
+  }
+
+  if (millis() - tSync >= 500) {             // with s on, D2 toggles every 0.5 s
+    tSync = millis();
+    syncLevel = syncOn && !syncLevel;
+    digitalWrite(SYNC, syncLevel);
+  }
+
+  if (millis() - tPrint < 1000) return;
+  tPrint = millis();
+
+  Serial.println("----");
+  for (auto &u : ina) {
+    int16_t sh, bus;
+    Serial.print(u.name);
+    if (!u.ok || !rd(u.addr, 0x01, sh) || !rd(u.addr, 0x02, bus)) { Serial.println(" not found"); continue; }
+    Serial.print(bus * 1.25e-3f, 3); Serial.print(" V  ");
+    Serial.print(sh * 2.5e-6f / u.shunt * 1000.0f, 1); Serial.println(" mA");
+  }
+
+  digitalWrite(NTC_EN, HIGH); delay(10);          // wait for C9 to charge (τ ≤ 0.8 ms)
+  int raw = analogRead(A0);
+  digitalWrite(NTC_EN, LOW);
+  float v = raw * 3.6f / 1023.0f;            // Seeed nRF52 core default: 10-bit, 3.6 V full scale
+  if (v < 0.01f) v = 0.01f;
+  if (v > 3.28f) v = 3.28f;
+  float r = 10000.0f * v / (3.3f - v);       // R11 = 10 kΩ pull-up to NTC_EN
+  float tc = 1.0f / (1.0f / 298.15f + logf(r / 10000.0f) / 3950.0f) - 273.15f;
+  Serial.print("NTC  ADC "); Serial.print(raw);
+  Serial.print("  approx "); Serial.print(tc, 1); Serial.println(" °C (rough; cross-check with the thermometer)");
+
+  Serial.print("Charging "); Serial.print(digitalRead(CHRG_N) == LOW ? "yes" : "no");
+  Serial.print("  Full "); Serial.println(digitalRead(DONE_N) == LOW ? "yes" : "no");
+  Serial.print("LOAD "); Serial.print(loadOn);   Serial.print("  PV ");   Serial.print(pvOn);
+  Serial.print("  INH "); Serial.print(inhOn);   Serial.print("  LOW ");  Serial.print(lowRange);
+  Serial.print("  SYNC "); Serial.println(syncOn);
+}
+</script>
+
+<script>
+(function(){
+const COL={r:'--wr-red',k:'--wr-black',b:'--wr-blue',y:'--wr-yellow',g:'--wr-green',w:'--wr-white',p:'--wr-purple',n:'--wr-grey'};
+const CNAME={r:'red',k:'black',b:'blue',y:'yellow',g:'green',w:'white',p:'purple',n:'—',x:'not connected'};
+const NEED={must:'Bench: required',opt:'Bench: optional',body:'On-body only',none:'Not connected'};
+const GROUPS=[['all','All'],['back','Back pod'],['chest','Chest pod'],['c','C'],['a','A'],['tc','Temperature']];
+
+/* ---------- wires ---------- */
+const W=[
+{id:'W01',g:'back',need:'must',title:'Panel lead',from:'6 V 6 W panel (waterproof quick connector)',to:'PMB-H J1 screw terminal',
+ cond:[{c:'r',a:'Panel +',b:'J1-1 · PV_IN+ (silkscreen PANEL+, upper screw)'},{c:'b',a:'Panel −',b:'J1-2 · PV_IN− (silkscreen PANEL−, lower screw)'}],
+ bench:'Use the 0.41 m stripped tail that comes on the other half of the waterproof quick connector and screw it straight into J1; the panel lead is not cut. Without sun, use the lab supply instead (see bench extra B01).',
+ body:'Route 221 mm, cut length 350 mm. This requires cutting the panel lead; the panel belongs to the vice dean, so get her consent first.',
+ how:['Strip the cores 6–7 mm and twist tight; crimp on bootlace ferrules if available','Loosen the J1 screws, insert fully, tighten, and check that a gentle pull does not release it'],
+ warn:['The board has reverse-polarity protection (Q1); a reversed connection causes no damage, it just won’t charge.','Do not set the lab supply above 9 V; the input TVS is 10 V.'],
+ ver:['TP1 VPV to TP6: 5.9–6.1 V while charging in sunlight (MPPT holds the panel at 5.93 V); about 7 V when not charging.']},
+{id:'W02',g:'back',need:'must',title:'Battery',from:'104050 LiPo 2500 mAh',to:'PMB-H J2',
+ cond:[{c:'r',a:'Battery +',b:'J2-1 · BAT+'},{c:'k',a:'Battery −',b:'J2-2 · GND'}],
+ bench:'Use the lead you already soldered the PH2.0 plug onto; 50 mm inside the pod.',body:'Same as bench.',
+ how:['Put 2 mm foam under the battery and place it in the battery bay, leads towards the divider','Check before plugging in: with the silkscreen facing you upright and the socket opening towards you, the red wire must be on the left (the + side of the “+|-” silkscreen)'],
+ warn:['!The board has no battery reverse-polarity protection; plugging it in reversed will destroy the board.','The battery must have a protection board (PCM): a small circuit board under the tape at one end of the battery.'],
+ ver:['After plugging in, TP3 BAT+ to TP6: 3.0–4.2 V, positive reading.','TP5 3V3: 3.25–3.35 V.']},
+{id:'W03',g:'back',need:'must',title:'Battery temperature NTC',from:'NTC 10 kΩ B3950 (with PH2.0 lead)',to:'PMB-H J3',
+ cond:[{c:'n',a:'NTC end 1',b:'J3-1 · NTC_ADC'},{c:'n',a:'NTC end 2',b:'J3-2 · GND'}],
+ bench:'Plug in directly; tape the NTC head to the middle of the battery with aluminium-foil tape.',body:'Same as bench.',
+ how:['The NTC has no polarity; either plug orientation is correct'],warn:[],
+ ver:['The NTC line of the test sketch reads close to room temperature (within a few degrees; the reading is a rough estimate).']},
+{id:'W04',g:'back',need:'must',title:'Reference cell REF1',from:'REF1 reference cell (40×28, 30 mA)',to:'PMB-H J7',
+ cond:[{c:'r',a:'Ref. cell +',b:'J7-1 · REF1+ (upper pin)'},{c:'k',a:'Ref. cell −',b:'J7-2 · GND'}],
+ bench:'Take a PH2mm straight-pin pre-wired lead; solder red to the cell +, black to −, heat-shrink over the joints.',
+ body:'Route 344 mm, cut length 450 mm. Extend with panel-lead offcut (again, ask the vice dean first).',
+ how:[],warn:['Both physical cells are wired reversed (confirmed with a torch on 2026-10-28). No rewiring needed: the loop contains only the cell and a 0.47 Ω resistor, so the current magnitude is unchanged, and the sketch already negates it.'],
+ ver:['Test sketch REF1 line: a few tenths of a mA under indoor lighting, about 30 mA in direct sun.']},
+{id:'W05',g:'back',need:'must',title:'Reference cell REF2',from:'REF2 reference cell',to:'PMB-H J8',
+ cond:[{c:'r',a:'Ref. cell +',b:'J8-1 · REF2+ (upper pin)'},{c:'k',a:'Ref. cell −',b:'J8-2 · GND'}],
+ bench:'Same as W04: solder on a PH2mm straight-pin pre-wired lead.',body:'Route 482 mm, cut length 600 mm, held on the left shoulder with hook-and-loop tape.',
+ how:[],warn:['Both physical cells are wired reversed (confirmed with a torch on 2026-10-28). No rewiring needed: the loop contains only the cell and a 0.47 Ω resistor, so the current magnitude is unchanged, and the sketch already negates it.'],
+ ver:['With both cells under the same light, REF1 and REF2 read about the same.']},
+{id:'W06',g:'back',need:'must',title:'Back → chest 5-core cable',from:'PMB-H J6',to:'LIB J1',
+ cond:[{c:'r',a:'J6-1 · VLOAD',b:'LIB J1-1 · VLOAD'},{c:'k',a:'J6-2 · GND',b:'J1-2 · GND'},{c:'y',a:'J6-3 · SYNC',b:'J1-3 · SYNC_IN'},{c:'g',a:'J6-4 · NC',b:'J1-4 · spare (to TP5 only)'},{c:'b',a:'J6-5 · GND',b:'J1-5 · GND'}],
+ bench:'Meizhu PH2.0 5P straight-through cable 1 m, plug both ends in directly. Wire colours follow the actual cable in your hands — match by pin number; the colours in the drawing are only illustrative.',
+ body:'Route 531 mm. Coil the excess of the 1 m cable once outside the chest pod, or switch to 0.7 m.',
+ how:['The PMB-H end exits through the CHEST port on the right of the back pod','The LIB end enters through the BACK UNIT port at the lower left of the chest pod'],
+ warn:['!Must be a straight-through cable, pin 1 to pin 1. A reversed cable connects VLOAD to GND at the far end — a short circuit as soon as the load is switched on.'],
+ ver:['Unpowered, battery unplugged, both ends connected: on continuity range, PMB-H TP4 (VLOAD) to LIB TP1 (VLOAD) should beep (< 1 Ω). No beep means the cable is reversed — replace it.']},
+{id:'W07',g:'chest',need:'must',title:'LIB → Core B battery socket',from:'LIB J2',to:'Core B battery socket',
+ cond:[{c:'r',a:'LIB J2-1 · VBIT',b:'Core B battery socket +'},{c:'k',a:'LIB J2-2 · GND',b:'Core B battery socket −'}],
+ bench:'PH2.0 double-ended cable 10 cm (the “PH2.0 jumper cable” in the BOM).',body:'Same as bench; the cable crosses over the Core.',
+ how:['No need to unplug if already connected: VBIT is dead while the load is off. First confirm LIB TP2 to TP4 ≈ 0 V on the voltage range','Continuity: LIB TP2 (VBIT) ↔ the Core B battery-socket pin on the silkscreen + side must beep','Continuity: LIB TP4 (GND) ↔ the other socket pin must beep','Only if crossed (TP2 connected to the − side) do you need to unplug the Core end and swap the pins','If not yet plugged in, you can also use the breadboard method: W07 into LIB, the other end into a PH2.0 straight-pin header; after powering up in step 6, find the + column and compare it with the column of the red wire on the original Core battery'],
+ warn:['!Core B’s battery socket has no confirmed reverse-polarity protection; reversing it may destroy the Core.','The polarity of the BITalino battery socket is opposite to common Chinese-market PH2.0 battery leads. If it measures reversed, swap the pins at the Core end: press down the metal barb in the small window on the side of the plug with a needle, pull the wire out, swap the two and reinsert until they click, then tug gently to confirm. No cutting needed. Measure again after swapping.'],
+ ver:['Switch Core B ON: the LED blinks and the phone or OpenSignals can discover B.']},
+{id:'W08',g:'chest',need:'none',title:'Sync pulse (not connected; software sync instead)',from:'LIB J3',to:'Core B port I1',
+ cond:[{c:'x',a:'LIB J3',b:'Left empty, no cable'},{c:'x',a:'Core B port I1',b:'Left empty'}],
+ bench:'Not connected. B and PMB-H data are aligned by phone timestamps (second-level is enough); B and C ECGs are aligned on R waves to about 1 ms (see the “Align B and C” bench bring-up step).',
+ body:'Same as bench, not connected.',
+ how:['If hardware sync is ever needed: the SYNC path from PMB-H to LIB J3 is all in place; only a cable with a UC-E6 plug on one end is missing'],
+ warn:['Leaving LIB J3 empty is safe: SYNC_OUT has a 1 kΩ resistor and clamp diodes in front of it, so leaving it floating has no effect.'],
+ ver:['After R-wave alignment, B and C differ by < 5 ms on the same heartbeat.']},
+{id:'W09',g:'chest',need:'must',title:'ECG sensor → Core B A2',from:'HeartBIT ECG sensor',to:'Core B port A2',
+ cond:[{c:'n',a:'ECG sensor UC-E6 cable (the 30 cm one)',b:'Core B port A2'}],
+ bench:'Original PLUX cable, pin-to-pin, plug in directly.',body:'Route 147 mm; the sensor sits in inner pocket P6 at the sternum, cable through cable hole B.',
+ how:['Use the 30 cm cable; the 10 cm one is too short','The UC-E6 plug is keyed: align its flat side with the flat side of the socket; do not force it'],warn:[],
+ ver:['With electrodes applied, OpenSignals shows an ECG waveform on channel A2.']},
+{id:'W10',g:'chest',need:'must',title:'B’s three leads',from:'HeartBIT ECG sensor leads',to:'Electrodes B_IN+ / B_IN− / B_REF',
+ cond:[{c:'r',a:'IN+',b:'B_IN+ · on left clavicle, 8.5 cm from midline'},{c:'k',a:'IN−',b:'B_IN− · on right clavicle, 8.5 cm from midline'},{c:'w',a:'REF',b:'B_REF · right lower ribs, 10 cm from midline'}],
+ bench:'The sensor’s own leads, snapped onto disposable electrodes.',body:'W10a 185 mm, W10b 142 mm, W10c 172 mm, routed between skin and lining, held by elastic loops.',
+ how:[],warn:['!While electrodes are on the body, do not plug USB into the XIAO.'],
+ ver:['The three lead colours match the electrode positions (see the “Electrode positions” drawing).']},
+{id:'W11',g:'c',need:'must',title:'C’s 3-lead electrode cable',from:'PLUX 3-lead electrode cable',to:'C Board ECG port → electrodes C_IN+ / C_IN− / C_REF',
+ cond:[{c:'r',a:'Red',b:'C_IN+ · 5 cm directly below B_IN+'},{c:'k',a:'Black',b:'C_IN− · 5 cm directly below B_IN−'},{c:'w',a:'White',b:'C_REF · left lower ribs, mirror of B_REF'}],
+ bench:'UC-E6 plug into the ECG port on the left of the Board (lid engraved ECG ←); snap the three leads onto the electrodes.',body:'Exits the left window of the C case, through cable hole C, and splits on the inside of the vest.',
+ how:[],warn:[],ver:['With C on, the phone app shows C’s and B’s ECG simultaneously, with R waves lining up.']},
+{id:'W12',g:'c',need:'must',title:'C’s battery',from:'523450 1000 mAh',to:'C Board power-block battery socket',
+ cond:[{c:'r',a:'Battery +',b:'Board battery socket +'},{c:'k',a:'Battery −',b:'Board battery socket −'}],
+ bench:'The battery’s own lead. If the plug does not match the Board socket, re-terminate with a PH2mm straight-pin pre-wired lead.',body:'Same as bench; the battery lies flat under the board.',
+ how:['Can be checked while plugged in: with C off, on the voltage range put the red probe on the Board battery-socket pin on the silkscreen + side and the black probe on the other; it should read +3.x V. A negative reading means unplug immediately and swap the pins'],
+ warn:['!The Board battery socket’s reverse-polarity protection is unconfirmed; plugging in reversed may destroy the board.','Board and Core come from the same maker, so the socket polarity is very likely also opposite to Chinese-market battery leads. If it measures reversed, swap the pins as described for W07.'],ver:['Board powers on and the LED behaves normally.']},
+{id:'W13',g:'a',need:'must',title:'PulseSensor → A’s A3',from:'HeartBIT PulseSensor (original cable ≈ 60 cm)',to:'A (HeartBIT Core BT) port A3',
+ cond:[{c:'r',a:'VCC',b:'A3 VCC'},{c:'k',a:'GND',b:'A3 GND'},{c:'p',a:'Signal',b:'A3 SIGNAL'}],
+ bench:'Original cable, UC-E6 plug straight into A3. Fit the PulseSensor into the ear clip and clip it to the left earlobe.',body:'Route 512 mm, out of the top edge of A’s pocket, through the left-front yoke elastic loop to the side of the neck.',
+ how:[],warn:[],ver:['With A connected to the phone over Classic Bluetooth, A3 shows a pulse waveform.']},
+{id:'W14',g:'tc',need:'opt',title:'Thermocouple TC1 (panel backsheet)',from:'Type-K thermocouple',to:'Thermometer K plug',
+ cond:[{c:'y',a:'+',b:'K plug +'},{c:'r',a:'−',b:'K plug −'}],
+ bench:'Supplied with plug; plug straight into the thermometer. Used for the I-V curve (B03): apply thermal paste to the tip and tape it with aluminium-foil tape to the centre of the panel backsheet.',body:'Route 592 mm, via the channel to the left-front plug pouch.',
+ how:[],warn:[],ver:['Reads normally at room temperature.']},
+{id:'W15',g:'tc',need:'opt',title:'Thermocouple TC2 (vest surface)',from:'Type-K thermocouple',to:'Thermometer K plug',
+ cond:[{c:'y',a:'+',b:'K plug +'},{c:'r',a:'−',b:'K plug −'}],
+ bench:'Can be left off during bench work.',body:'Route 597 mm, taped to the vest surface directly under the panel to measure heat transferred to the body. Above 40 °C, stop prolonged wear.',
+ how:[],warn:[],ver:['Reads normally at room temperature.']}
+];
+const WBY=Object.fromEntries(W.map(w=>[w.id,w]));
+
+/* ---------- svg helpers ---------- */
+function offsetPts(pts,o){
+  const n=pts.length,segN=[],out=[];
+  for(let i=0;i<n-1;i++){const dx=pts[i+1][0]-pts[i][0],dy=pts[i+1][1]-pts[i][1],L=Math.hypot(dx,dy)||1;segN.push([-dy/L,dx/L]);}
+  for(let i=0;i<n;i++){
+    let nx,ny;
+    if(i===0)[nx,ny]=segN[0];else if(i===n-1)[nx,ny]=segN[n-2];
+    else{const a=segN[i-1],b=segN[i],d=1+a[0]*b[0]+a[1]*b[1];nx=(a[0]+b[0])/d;ny=(a[1]+b[1])/d;}
+    out.push([pts[i][0]+nx*o,pts[i][1]+ny*o]);
+  }
+  return out;
+}
+const dstr=p=>'M'+p.map(q=>q[0].toFixed(2)+' '+q[1].toFixed(2)).join(' L');
+function bundle(pts,cols,gap,w){
+  let s='';const m=cols.length;
+  cols.forEach((c,i)=>{
+    const p=offsetPts(pts,(i-(m-1)/2)*gap),d=dstr(p);
+    s+=`<path d="${d}" fill="none" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--wire-edge)" stroke-width="${(w*1.55).toFixed(2)}"/>`;
+    s+=`<path d="${d}" fill="none" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(${COL[c]})" stroke-width="${w}"/>`;
+  });
+  return s;
+}
+function tag(x,y,id,s){
+  const w=34*s,h=17*s;
+  return `<g class="wtag"><rect x="${x-w/2}" y="${y-h/2}" width="${w}" height="${h}" rx="${4*s}" stroke-width="${s}"/><text x="${x}" y="${y+4*s}" text-anchor="middle" font-size="${11*s}">${id}</text></g>`;
+}
+/* a wire group: segs=[{pts,cols}], hitW in user units */
+function wireG(id,segs,gap,w,hitW,tagAt,s){
+  let inner='',hit='';
+  segs.forEach(sg=>{inner+=bundle(sg.pts,sg.cols,gap,w);hit+=`<path class="hit" d="${dstr(sg.pts)}" stroke-width="${hitW}"/>`;});
+  return `<g class="wire" data-w="${id}">${inner}${hit}${tagAt?tag(tagAt[0],tagAt[1],id,s):''}</g>`;
+}
+const T=(x,y,s,cls,anc,extra)=>`<text x="${x}" y="${y}" class="${cls||''}" text-anchor="${anc||'start'}" ${extra||''}>${s}</text>`;
+const R=(x,y,w,h,cls,rx)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx==null?6:rx}" class="${cls}"/>`;
+const C=(x,y,r,cls,st)=>`<circle cx="${x}" cy="${y}" r="${r}" class="${cls}" ${st?`style="${st}"`:''}/>`;
+const portSq=(x,y,cls)=>`<rect x="${x-5}" y="${y-5}" width="10" height="10" rx="2" class="port ${cls||''}"/>`;
+
+/* ---------- overview (px) ---------- */
+function overview(){
+  let s='';
+  // frames
+  s+=R(290,10,420,560,'pod',12)+T(304,32,'Back pod (grey print)','podlbl');
+  s+=R(750,10,420,560,'pod',12)+T(764,32,'Chest pod (white print)','podlbl');
+  s+=R(290,600,390,190,'pod',12)+T(304,622,'C case','podlbl');
+  s+=R(720,600,320,170,'pod',12)+T(734,622,'A: stock HeartBIT case','podlbl');
+  // panel + refs
+  s+=R(20,35,240,110,'node',8);
+  for(let i=0;i<5;i++)for(let j=0;j<2;j++)s+=`<rect x="${34+i*30}" y="${78+j*28}" width="26" height="24" rx="2" style="fill:var(--cell);opacity:.35"/>`;
+  s+=T(34,60,'6 V 6 W panel','nt')+T(176,60,'vice dean’s','ns');
+  s+=R(20,190,170,64,'node',8)+T(32,216,'REF1 ref. cell','nt')+T(32,238,'40×28 · 30 mA','ns');
+  s+=R(20,280,170,64,'node',8)+T(32,306,'REF2 ref. cell','nt')+T(32,328,'40×28 · 30 mA','ns');
+  // PMB-H
+  s+=R(320,50,360,260,'board',8)+T(340,80,'PMB-H','nt on-board')+T(340,98,'MPPT charger · 6 × INA226','ns on-board','start','style="opacity:.8"');
+  s+=R(548,62,118,84,'module',6)+T(607,92,'XIAO','nt on-module','middle')+T(607,110,'nRF52840 Sense','ns on-module','middle')+T(607,130,'USB-C →','ns on-module','middle');
+  [[320,90,'J1','start',8],[320,200,'J7','start',8],[320,240,'J8','start',8]].forEach(p=>{s+=portSq(p[0],p[1])+T(p[0]+10,p[1]+4,p[2],'pl on-board');});
+  [[400,310,'J2'],[470,310,'J3'],[600,310,'J6']].forEach(p=>{s+=portSq(p[0],p[1])+T(p[0],p[1]-10,p[2],'pl on-board','middle');});
+  s+=R(330,420,220,80,'cellr',8)+T(345,452,'104050 LiPo','nt on-cell')+T(345,474,'2500 mAh · with PCM','ns on-cell','start','style="opacity:.85"');
+  s+=C(505,455,9,'node')+T(505,459,'NTC','ns','middle','style="font-size:9px"');
+  s+=T(300,95,'PANEL','ns','start','style="font-size:9px"');
+  s+=T(704,486,'CHEST port','ns','end','style="font-size:10px"');
+  // chest
+  s+=R(790,50,320,230,'bita',8)+T(810,80,'BITalino B','nt on-bita')+T(810,98,'Core BLE · DUT, solar-powered','ns');
+  const rs=[['A1',120],['A2',155],['A3',190],['A4',225],['I1',260]];
+  rs.forEach(([l,y])=>{const act=(l==='A2');s+=portSq(1110,y,act?'':'idle')+T(1098,y+4,l,'pl on-bita '+(act?'':'idle'),'end');});
+  [['A5',120],['A6',155],['PWM',190],['O2',225],['O1',260]].forEach(([l,y])=>{s+=portSq(790,y,'idle')+T(802,y+4,l,'pl idle');});
+  s+=portSq(840,280)+T(840,268,'Batt','pl on-bita','middle');
+  s+=R(790,390,260,150,'board',8)+T(810,452,'LIB','nt on-board')+T(810,472,'Ideal diode','ns on-board','start','style="opacity:.8"')+T(810,490,'+ 2 × 10 F supercaps','ns on-board','start','style="opacity:.8"');
+  s+=portSq(790,470)+T(802,474,'J1','pl on-board');
+  s+=portSq(840,390)+T(840,410,'J2','pl on-board','middle');
+  s+=portSq(920,390)+T(920,410,'J3','pl on-board','middle');
+  s+=T(756,462,'BACK UNIT port','ns','start','style="font-size:10px"');
+  s+=R(1190,120,120,80,'node',8)+T(1202,146,'ECG sensor','nt')+T(1202,166,'HeartBIT','ns')+T(1202,184,'P6 at sternum','ns');
+  // C
+  s+=R(310,640,230,120,'bita',8)+T(328,668,'C · Board Kit','nt on-bita')+T(328,688,'Control, own battery','ns');
+  [['EEG',655],['EDA',677],['ECG',700],['EMG',722]].forEach(([l,y])=>{const act=l==='ECG';s+=portSq(310,y,act?'':'idle')+T(322,y+4,l,'pl on-bita '+(act?'':'idle'));});
+  s+=portSq(540,730)+T(528,734,'Batt','pl on-bita','end');
+  s+=R(580,650,80,110,'cellr',8)+T(620,700,'523450','ns on-cell','middle')+T(620,718,'1000 mAh','ns on-cell','middle');
+  // A
+  s+=R(740,640,280,110,'bita',8)+T(758,668,'A · HeartBIT Core BT','nt on-bita')+T(758,688,'Own 700 mAh · Classic BT','ns');
+  s+=portSq(1020,690)+T(1008,694,'A3','pl on-bita','end');
+  s+=R(1080,650,130,80,'node',8)+T(1092,678,'PulseSensor','nt')+T(1092,698,'Left earlobe clip','ns');
+  // meter
+  s+=R(720,800,150,80,'node',8)+T(734,828,'K thermometer','nt')+T(734,848,'Two inputs','ns');
+  s+=T(1010,834,'TC1 panel backsheet centre','ns')+T(1010,864,'TC2 vest surface under panel','ns');
+
+  // wires
+  const g=[];
+  g.push(wireG('W01',[{pts:[[260,90],[320,90]],cols:['r','b']}],5,3,16,[287,72],1));
+  g.push(wireG('W04',[{pts:[[190,222],[255,222],[255,200],[320,200]],cols:['r','k']}],5,3,16,[222,208],1));
+  g.push(wireG('W05',[{pts:[[190,312],[270,312],[270,240],[320,240]],cols:['r','k']}],5,3,16,[222,298],1));
+  g.push(wireG('W02',[{pts:[[400,420],[400,310]],cols:['r','k']}],5,3,16,[400,372],1));
+  g.push(wireG('W03',[{pts:[[505,446],[505,380],[470,380],[470,310]],cols:['n','n']}],5,3,16,[505,410],1));
+  g.push(wireG('W06',[{pts:[[600,310],[600,470],[790,470]],cols:['r','k','y','g','b']}],4.5,2.6,22,[695,452],1));
+  g.push(wireG('W07',[{pts:[[840,390],[840,280]],cols:['r','k']}],5,3,16,[868,335],1));
+    g.push(wireG('W09',[{pts:[[1110,155],[1190,155]],cols:['n']}],5,4,16,[1150,138],1));
+  // W10 leads
+  const b=[['r',1215,300,'B_IN+'],['k',1250,370,'B_IN−'],['w',1285,440,'B_REF']];
+  g.push(wireG('W10',b.map(e=>({pts:[[e[1],200],[e[1],e[2]]],cols:[e[0]]})),5,3,16,[1232,240],1));
+  // W11 trunk + leads
+  const cl=[['r',650,'C_IN+'],['k',700,'C_IN−'],['w',750,'C_REF']];
+  const w11=[{pts:[[225,700],[310,700]],cols:['r','k','w']}];
+  cl.forEach((e,i)=>{const y0=696+i*4;w11.push({pts:e[1]===700?[[225,700],[110,700]]:[[225,y0],[205,y0],[205,e[1]],[110,e[1]]],cols:[e[0]]});});
+  g.push(wireG('W11',w11,4,2.6,16,[262,682],1));
+  g.push(wireG('W12',[{pts:[[580,730],[540,730]],cols:['r','k']}],5,3,16,[560,712],1));
+  g.push(wireG('W13',[{pts:[[1020,690],[1080,690]],cols:['r','k','p']}],4.5,2.6,16,[1050,670],1));
+  g.push(wireG('W14',[{pts:[[870,830],[1000,830]],cols:['y','r']}],5,3,16,[935,814],1));
+  g.push(wireG('W15',[{pts:[[870,860],[1000,860]],cols:['y','r']}],5,3,16,[935,876],1));
+  s+=g.join('');
+  // electrode dots on top of leads
+  b.forEach(e=>{s+=C(e[1],e[2],9,'dot',`fill:var(--electrode);stroke-width:2`)+T(e[1]-14,e[2]+4,e[3],'elab','end');});
+  cl.forEach(e=>{s+=C(110,e[1],9,'dot',`fill:var(--electrode);stroke-width:2`)+T(94,e[1]+4,e[2],'elab','end');});
+  return `<svg viewBox="0 0 1330 900" role="img" aria-label="System wiring overview">${s}</svg>`;
+}
+
+/* ---------- back pod (mm, PCB coords) ---------- */
+function backPod(){
+  let s='';
+  s+=`<rect x="92" y="95" width="98" height="134" rx="4" class="podwall"/>`;
+  [[107.5,2.4],[140.2,2.25],[149.6,2.25]].forEach(([y,r])=>{s+=`<rect x="91.4" y="${y-r}" width="1.2" height="${2*r}" class="gap"/>`;});
+  s+=`<rect x="189.4" y="162.4" width="1.2" height="5.2" class="gap"/><rect x="189.4" y="106.5" width="1.2" height="13" class="gap"/>`;
+  s+=T(94,99.4,'Back pod inner wall (schematic)','out m');
+  s+=`<rect x="100" y="100" width="86" height="60" rx="1" class="board"/>`;
+  s+=T(128,129,'PMB-H','big','middle');
+  [[102.6,102.6],[102.6,157.4],[183.4,157.4],[183.4,130]].forEach(([x,y])=>{s+=C(x,y,1.6,'hole');});
+  // XIAO
+  s+=`<rect x="162" y="104.06" width="21" height="17.88" rx="1.2" class="module"/><rect x="183" y="109.4" width="2.8" height="7.2" rx=".8" style="fill:var(--frame)"/>`;
+  s+=T(172.5,112.6,'XIAO nRF52840 Sense','on-module','middle','style="font-size:1.80px"')+T(172.5,115,'USB-C to board edge →','on-module','middle','style="font-size:1.56px"');
+  const j4=['D0','D1','D2','D3','D4','D5','D6'],j5=['5V','GND','3V3','D10','D9','D8','D7'];
+  for(let i=0;i<7;i++){const x=180.12-i*2.54;
+    s+=C(x,105.38,.55,'tp')+C(x,120.62,.55,'tp');
+    s+=T(x,107.4,j4[i],'on-module','middle','style="font-size:1.14px"')+T(x,119.3,j5[i],'on-module','middle','style="font-size:1.14px"');}
+  // TPs
+  [[125,115.5,'TP1 VPV'],[155.5,118,'TP2 VSYS'],[142,133,'TP3 BAT+'],[148,136,'TP4 VLOAD'],[175.5,126,'TP5 3V3'],[109,129,'TP6 GND'],[162.5,101.6,'TP7 SDA'],[173.5,101.6,'TP8 SCL']].forEach(([x,y,l])=>{s+=C(x,y,.75,'tp')+T(x+1.2,y+.55,l,'tpl');});
+  // connectors
+  // J1 screw terminal, opening left
+  s+=`<rect x="98.6" y="105.3" width="8" height="7.9" rx=".4" class="term"/>`;
+  [[105,107.5,1],[105,111,2]].forEach(([x,y,n])=>{s+=C(x,y,1.05,'pad'+(n===1?' p1':''))+T(x,y+.33,n,'pn','middle');});
+  s+=T(111.05,108.65,'PANEL+','silk')+T(111.05,111.65,'PANEL−','silk');
+  // left PH2 J7/J8
+  [[139.2,'J7 REF1',134.8],[148.6,'J8 REF2',146]].forEach(([y1,lab,ly])=>{
+    s+=`<rect x="101.9" y="${y1-1.5}" width="5.55" height="5" rx=".3" class="housing"/>`;
+    [[y1,1],[y1+2,2]].forEach(([y,n])=>{s+=`<rect x="107.75" y="${y-.5}" width="1.8" height="1" class="pad${n===1?' p1':''}"/>`+T(108.65,y+.33,n,'pn','middle');});
+    s+=T(103,ly,lab,'silk');
+    s+=T(110.2,y1+.5,'1 '+(lab.includes('1')?'REF1+':'REF2+'),'co')+T(110.2,y1+2.5,'2 GND','co');
+  });
+  // bottom PH2 J2 / J3 / J6
+  [[130,2,'J2'],[142,2,'J3'],[158,5,'J6']].forEach(([cx,n,l])=>{
+    const w=2*(n-1)+3.8;
+    s+=`<rect x="${cx-w/2}" y="152.5" width="${w}" height="6" rx=".3" class="housing"/>`;
+    for(let i=0;i<n;i++){const x=cx-(n-1)+2*i;s+=`<rect x="${x-.5}" y="150.75" width="1" height="1.8" class="pad${i===0?' p1':''}"/>`+T(x,151.98,i+1,'pn','middle');}
+  });
+  s+=T(130,148.85,'J2 BAT 1S LiPo + | −','silk','middle')+T(142,146.6,'J3 NTC 10k','silk','middle')+T(166.75,149.6,'J6 TO CHEST','silk','middle');
+  // callouts in free area below board
+  s+=T(94,165,'J2  1 BAT+  2 GND','out','start','style="font-size:1.92px"')+T(94,168,'J3  1 NTC_ADC  2 GND','out','start','style="font-size:1.92px"');
+  s+=T(166,175,'J6  1 VLOAD  2 GND  3 SYNC','out','start','style="font-size:1.92px"')+T(166,177.8,'      4 NC  5 GND','out','start','style="font-size:1.92px"');
+  // battery + NTC
+  s+=`<rect x="122.7" y="175" width="40.6" height="50" rx="1.5" class="cellr"/>`;
+  s+=T(143,212,'104050','on-cell','middle','style="font-size:3.60px;font-weight:700"')+T(143,216.5,'2500 mAh · leads to divider','on-cell','middle','style="font-size:2.04px"');
+  // wires
+  const g=[];
+  g.push(wireG('W01',[{pts:[[70,109.25],[98.6,109.25]],cols:['r','b']}],3.5,.9,4,[82,104],.16));
+  g.push(wireG('W04',[{pts:[[70,140.2],[101.9,140.2]],cols:['r','k']}],2,.8,3.5,[82,136.4],.16));
+  g.push(wireG('W05',[{pts:[[70,149.6],[101.9,149.6]],cols:['r','k']}],2,.8,3.5,[82,153.4],.16));
+  g.push(wireG('W02',[{pts:[[130,175],[130,158.5]],cols:['r','k']}],2,.8,3.5,[126,166.5],.16));
+  g.push(wireG('W03',[{pts:[[149,197],[142,197],[142,158.5]],cols:['n','n']}],2,.7,3.5,[146,186],.16));
+  g.push(wireG('W06',[{pts:[[214,165],[158,165],[158,158.5]],cols:['r','k','y','g','b']}],2,.75,5,[204,160.5],.16));
+  s+=g.join('');
+  s+=C(150,197,1.5,'node')+T(150,200.8,'NTC mid-battery','on-cell','middle','style="font-size:1.68px"');
+  s+=T(69,108,'Panel','out','end')+T(69,110.6,'waterproof-conn. tail','out m','end','style="font-size:1.80px"');
+  s+=T(69,140.9,'REF1 ref. cell','out','end')+T(69,150.3,'REF2 ref. cell','out','end');
+  s+=T(216,165.7,'→ chest pod','out')+T(216,168.3,'LIB J1','out m','start','style="font-size:1.92px"');
+  s+=T(192,113.6,'USB port','out m','start','style="font-size:1.92px"');
+  return `<svg viewBox="40 94 200 136" role="img" aria-label="Back pod wiring, millimetre scale">${s}</svg>`;
+}
+
+/* ---------- chest pod (mm, pod coords; LIB via X=156-x, Y=140-y) ---------- */
+function chestPod(){
+  let s='';
+  const L=(x,y)=>[156-x,140-y];
+  s+=`<rect x="-2.75" y="-67.75" width="61.5" height="70.75" rx="3" class="podwall"/><rect x="-11" y="1" width="69.75" height="41.75" rx="3" class="podwall"/>`;
+  s+=`<rect x="-11.6" y="25.5" width="1.2" height="5" class="gap"/>`;
+  s+=`<rect x="58.2" y="-64.5" width="1.2" height="64" class="gap"/><rect x="-3.3" y="-64.5" width="1.2" height="64" class="gap"/>`;
+  // Core B
+  s+=`<rect x="0" y="-65" width="56" height="65" rx="1" class="bita"/>`;
+  s+=T(28,-36,'BITalino B','bt','middle')+T(28,-31.5,'Core BLE','bt','middle','style="font-size:2.88px"');
+  s+=`<rect x="9.5" y="-67.6" width="8" height="2.6" rx=".4" style="fill:var(--frame)"/>`+T(13.5,-62.6,'ON/OFF','sl','middle','style="font-size:1.92px"');
+  const SY=[5.2,18.6,32.1,45.6,59.1],LR=['I1','A4','A3','A2','A1'],LL=['O1','O2','PWM','A6','A5'];
+  SY.forEach((y,i)=>{const act=LR[i]==='A2';
+    s+=`<rect x="51" y="${-y-3}" width="6.4" height="6" rx=".4" class="sock${act?'':' idle'}"/>`+T(49.6,-y+.8,LR[i],'sl'+(act?'':' idle'),'end');
+    s+=`<rect x="-1.4" y="${-y-3}" width="6.4" height="6" rx=".4" class="sock idle"/>`+T(6.4,-y+.8,LL[i],'sl idle');});
+  // LIB board
+  s+=`<rect x="0" y="3" width="56" height="37" rx="1" class="board"/>`;
+  [[102.6,134.4],[153.4,134.4]].forEach(([x,y])=>{const [X,Y]=L(x,y);s+=C(X,Y,1.6,'hole');});
+  // supercaps
+  [[131,107,'SC1'],[131,119,'SC2']].forEach(([x,y,l])=>{const [X,Y]=L(x,y);s+=C(X,Y,5,'cap')+T(X+5.6,Y+.6,l,'silk');});
+  [[131,104.5,1],[131,109.5,0],[131,116.5,1],[131,121.5,0]].forEach(([x,y,p])=>{const [X,Y]=L(x,y);s+=C(X,Y,.75,'pad'+(p?' p1':''))+(p?T(X-1.6,Y+.5,'+','silk','middle','style="font-size:2.16px"'):'');});
+  // TPs
+  [[144.5,121.5,'TP1 VLOAD'],[144.5,102.5,'TP2 VBIT'],[134,106.5,'TP3 VSC'],[148,121.5,'TP4 GND'],[151.5,121.5,'TP5']].forEach(([x,y,l],i)=>{const [X,Y]=L(x,y);s+=C(X,Y,.75,'tp');
+    if(i===0)s+=T(X+1.2,Y-1.3,l,'tpl');else if(i===3)s+=T(X+.1,Y+2.6,l,'tpl','middle');else if(i===4)s+=T(X-.1,Y-1.3,l,'tpl','middle');else s+=T(X+1.2,Y+.55,l,'tpl');});
+  // LIB J1 (opening left)
+  {const [bx]=L(152.25,0);s+=`<rect x="${bx}" y="22.1" width="5.5" height="11.8" rx=".3" class="housing"/>`;
+   [116,114,112,110,108].forEach((y,i)=>{const [X,Y]=L(145.95,y);s+=`<rect x="${X-.9}" y="${Y-.5}" width="1.8" height="1" class="pad${i===0?' p1':''}"/>`+T(X,Y+.33,i+1,'pn','middle');});}
+  // J2, J3 (opening toward Core)
+  [[142.5,'J2'],[128,'J3']].forEach(([cx,l])=>{const [X]=L(cx,0);
+    s+=`<rect x="${X-2.9}" y="4.2" width="5.8" height="6.1" rx=".3" class="housing"/>`;
+    [[cx-1,1],[cx+1,2]].forEach(([x,n])=>{const [px,py]=L(x,128.95);s+=`<rect x="${px-.5}" y="${py-.9}" width="1" height="1.8" class="pad${n===1?' p1':''}"/>`+T(px,py+.33,n,'pn','middle');});});
+  s+=`<g transform="rotate(180 38 22)">${T(38,22,'LIB  Rev A','silk','middle','style="font-size:2.40px"')}</g>`;
+  s+=T(34,13.6,'J2 → Core batt socket','co')+T(34,15.6,'  1 VBIT   2 GND','co');
+  s+=T(34,29.5,'J1 ← back W06','co')+T(34,31.5,'  1 VLOAD (top)','co')+T(34,33.5,'  2 GND  3 SYNC_IN','co')+T(34,35.5,'  4 spare  5 GND','co');
+  s+=T(34,8.8,'J3 empty (no W08)','co');
+  // wires
+  const g=[];
+  g.push(wireG('W06',[{pts:[[-26,28],[3.75,28]],cols:['r','k','y','g','b']}],2,.75,5,[-24,37.5],.16));
+  g.push(wireG('W07',[{pts:[[17,-46],[17,-2],[13.5,-2],[13.5,4.2]],cols:['r','k']}],2,.8,3.5,[23,-24],.16));
+    g.push(wireG('W09',[{pts:[[57.4,-45.6],[80,-45.6]],cols:['n']}],2,1,3.5,[70,-49],.16));
+  s+=g.join('');
+  s+=`<rect x="12.5" y="-53" width="9" height="7" rx=".8" class="dash" style="stroke:var(--bita-ink)"/>`+T(19,-54.6,'Core B batt socket (PWR block, white 2P)','sl','middle','style="font-size:1.8px"');
+  s+=T(-41,20.5,'← back pod PMB-H J6','out','start','style="font-size:2.04px"')+T(-41,43,'BACK UNIT port','out m','start','style="font-size:1.92px"');
+  s+=T(81,-45,'HeartBIT ECG sensor','out','start','style="font-size:2.16px"')+T(81,-42.4,'pocket P6 at sternum','out m','start','style="font-size:1.92px"');
+  return `<svg viewBox="-42 -72 162 118" role="img" aria-label="Chest pod wiring, millimetre scale">${s}</svg>`;
+}
+
+/* ---------- C (mm, X along board, Y = 65 - y) ---------- */
+function cCase(){
+  let s='';
+  s+=`<rect x="-2.75" y="-3" width="113.5" height="70.75" rx="3" class="podwall"/><rect x="-3.4" y="2" width="1.2" height="62" class="gap"/>`;
+  s+=`<rect x="0" y="0" width="108" height="65" rx="1" class="bita"/>`;
+  s+=T(62,9.5,'C · Board Kit','bt','middle');
+  const so={EEG:55.2,EDA:41.1,ECG:27.4,EMG:13.0};
+  Object.entries(so).forEach(([l,y])=>{const Y=65-y,act=l==='ECG';s+=`<rect x="-1.4" y="${Y-3}" width="6.4" height="6" rx=".4" class="sock${act?'':' idle'}"/>`+T(6.6,Y+.8,l,'sl'+(act?'':' idle'));});
+  s+=`<rect x="20" y="14" width="52" height="36" rx="1.2" class="dash"/>`+T(46,47.6,'523450 battery lies flat under the board','sl','middle','style="font-size:2.16px"');
+  s+=`<rect x="56.2" y="64" width="7" height="2.6" rx=".5" style="fill:var(--frame)"/><rect x="65.5" y="64" width="8.5" height="2.6" rx=".5" style="fill:var(--frame)"/>`;
+  s+=T(59.7,70.6,'USB','out m','middle','style="font-size:1.80px"')+T(69.8,70.6,'Switch','out m','middle','style="font-size:1.80px"');
+  s+=T(80,60,'W12: battery into power-block socket','sl','middle','style="font-size:2.04px"');
+  const g=[];
+  g.push(wireG('W11',[{pts:[[-34,37.6],[-1.4,37.6]],cols:['n']},
+    {pts:[[-34,37.6],[-40,37.6],[-40,29],[-50,29]],cols:['r']},{pts:[[-34,37.6],[-50,37.6]],cols:['k']},{pts:[[-34,37.6],[-40,37.6],[-40,46],[-50,46]],cols:['w']}],2,.9,3.5,[-20,33.6],.16));
+  s+=g.join('');
+  [['C_IN+',29],['C_IN−',37.6],['C_REF',46]].forEach(([l,y])=>{s+=C(-52,y,1.8,'dot',`fill:var(--electrode);stroke-width:.4`)+T(-55,y+.7,l,'out','end');});
+  s+=T(-20,42.6,'UC-E6 plug into ECG port','out m','middle','style="font-size:1.80px"');
+  return `<svg viewBox="-76 -8 190 84" role="img" aria-label="C case wiring, millimetre scale">${s}</svg>`;
+}
+
+/* ---------- torso ---------- */
+function torso(){
+  let s='';
+  s+=`<path d="M -55 -70 C -50 -40 -70 -25 -110 -18 L -175 -5 C -197 5 -202 40 -190 90 L -172 140 C -160 220 -152 300 -150 340 L -155 440 L 155 440 L 150 340 C 152 300 160 220 172 140 L 190 90 C 202 40 197 5 175 -5 L 110 -18 C 70 -25 50 -40 55 -70 Z" style="fill:var(--skin);stroke:var(--skin-edge)" stroke-width="2"/>`;
+  s+=`<path d="M -15 -6 C -60 -20 -110 -22 -152 -12 M 15 -6 C 60 -20 110 -22 152 -12" fill="none" style="stroke:var(--skin-edge)" stroke-width="3" stroke-linecap="round"/>`;
+  s+=`<path d="M -150 252 C -100 228 -50 168 0 152 C 50 168 100 228 150 252" fill="none" style="stroke:var(--skin-edge)" stroke-width="2" stroke-dasharray="8 6"/>`;
+  s+=`<line x1="0" y1="-60" x2="0" y2="430" style="stroke:var(--skin-edge)" stroke-width="1" stroke-dasharray="3 6"/>`;
+  s+=T(-160,268,'Costal margin','ns','start');
+  const sensor=[0,110],cbox=[120,150];
+  const leads=[[sensor,[85,10],'r'],[sensor,[-85,10],'k'],[sensor,[-100,240],'w'],[cbox,[85,60],'r'],[cbox,[-85,60],'k'],[cbox,[100,240],'w']];
+  leads.forEach(([a,b,c])=>{s+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" style="stroke:var(--wire-edge)" stroke-width="5"/><line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" style="stroke:var(${COL[c]})" stroke-width="3"/>`;});
+  s+=`<rect x="-26" y="96" width="52" height="28" rx="5" class="bita"/>`+T(0,114,'B sensor','pl on-bita','middle');
+  s+=`<rect x="96" y="136" width="48" height="28" rx="5" class="bita"/>`+T(120,154,'C','pl on-bita','middle');
+  const E=[['B_IN+',85,10,'r',1],['B_IN−',-85,10,'k',-1],['B_REF',-100,240,'w',-1],['C_IN+',85,60,'r',1],['C_IN−',-85,60,'k',-1],['C_REF',100,240,'w',1]];
+  E.forEach(([l,x,y,c,side])=>{s+=C(x,y,12,'dot',`fill:var(--electrode);stroke:var(${COL[c]});stroke-width:4`)+T(x+side*18,y+5,l,'elab',side>0?'start':'end');});
+  s+=T(-200,-58,'Subject’s right','ns','start')+T(200,-58,'Subject’s left','ns','end');
+  return `<svg viewBox="-215 -80 430 530" role="img" aria-label="Electrode positions, subject viewed from the front">${s}</svg>`;
+}
+
+/* ---------- cards ---------- */
+function card(w,inPanel){
+  const pins=w.cond.map(c=>`<tr><td>${c.c==='x'?'<i class="sw x"></i>':`<i class="sw" style="--c:var(${COL[c.c]})"></i>`}${CNAME[c.c]}</td><td>${c.a}</td><td class="arr">→</td><td>${c.b}</td></tr>`).join('');
+  const li=a=>a.length?`<ul>${a.map(x=>`<li>${x}</li>`).join('')}</ul>`:'';
+  const warns=w.warn.map(x=>x[0]==='!'?`<div class="warn d">${x.slice(1)}</div>`:`<div class="warn">${x}</div>`).join('');
+  const vers=w.ver.map(x=>`<div class="ver">${x}</div>`).join('');
+  return `<article class="wcard" ${inPanel?'':`id="card-${w.id}"`} data-card="${w.id}">
+    <header><span class="wid">${w.id}</span><h3>${w.title}</h3><span class="chip ${w.need}">${NEED[w.need]}</span></header>
+    <p class="route">${w.from}<span class="arr"> → </span>${w.to}</p>
+    <div class="tblwrap"><table class="pins"><tbody>${pins}</tbody></table></div>
+    <dl class="kv"><dt>Bench</dt><dd>${w.bench}</dd><dt>On body</dt><dd>${w.body}</dd>${w.how.length?`<dt>Steps</dt><dd>${li(w.how)}</dd>`:''}</dl>
+    ${warns}${vers}
+    ${inPanel?`<button type="button" class="seebtn" data-goto="${w.id}">Show in list</button>`:`<button type="button" class="seebtn" data-see="${w.id}">Show on diagram</button>`}
+  </article>`;
+}
+
+/* ---------- steps ---------- */
+const STEPS=[
+{t:'Visual inspection (unpowered)',why:'First rule out obvious problems such as wrong insertion or parts soldered backwards.',items:[
+ ['All 14 XIAO pins are in J4 and J5, not offset by one; USB-C faces the board edge (direction of the USB-> silkscreen)',''],
+ ['LIB’s two supercaps: the leg on the “−” stripe side of the can is not in the hole marked “+” on the silkscreen',''],
+ ['Multimeter on resistance, black probe on PMB-H TP6, red probe on TP1–TP5 in turn','None is 0 Ω'],
+ ['LIB: black probe TP4, red probe TP2 (VBIT). VLOAD and VSC read very low because of the supercaps; ignore them','Not 0 Ω']]},
+{t:'Check W06, W07, W12 in place without unplugging',why:'Can be done with all plugs and the battery connected: the load switch is off by default, so VLOAD and VBIT are dead. First confirm they are dead on the voltage range, then use continuity.',items:[
+ ['Voltage range: PMB-H TP4, LIB TP1, LIB TP2 to their respective GND','All ≈ 0 V'],
+ ['W06 continuity: PMB-H TP6 ↔ LIB TP4','Beeps'],
+ ['W06 continuity: PMB-H TP4 ↔ LIB TP1','Beeps'],
+ ['W07 continuity: LIB TP2 (VBIT) ↔ Core B battery-socket pin on the silkscreen + side','Beeps'],
+ ['W07 continuity: LIB TP4 (GND) ↔ the other Core B battery-socket pin','Beeps'],
+ ['W12 voltage range (C off): red probe on the Board battery-socket + pin, black probe on the other','+3.x V'],
+ ['W06 fails to beep on either check, W07 is crossed, or W12 reads negative → only then unplug that one connector and fix it','']]},
+{t:'Battery onto the board',why:'First power-up of PMB-H. The load switch is off by default, so the chest unit is still unpowered.',items:[
+ ['Across the two battery wires','3.0–4.2 V'],
+ ['NTC into J3, NTC head on the middle of the battery',''],
+ ['Before plugging into J2: silkscreen upright facing you, socket opening towards you, red wire on the left',''],
+ ['TP3 BAT+','= battery voltage'],
+ ['TP2 VSYS','≈ TP3'],
+ ['TP5 3V3','3.25–3.35 V'],
+ ['TP4 VLOAD','≈ 0 V'],
+ ['TP1 VPV (with no panel connected the battery back-feeds through the charge transistor; normal)','battery voltage − 0.3…0.7 V'],
+ ['Anything getting hot, or TP5 wrong → unplug the battery immediately','']]},
+{t:'Connect the panel, check charging',why:'Verifies the CN3791 MPPT. Without sun, use the lab supply (bench extra B01).',items:[
+ ['W01: red → upper J1 screw (PANEL+), blue → lower screw (PANEL−)',''],
+ ['Panel in sunlight, TP1 VPV','5.9–6.1 V'],
+ ['With the lab supply at 7.0 V / 1 A limit instead, supply ammeter','0.3–1.2 A'],
+ ['TP3 BAT+ after a few minutes','Rising slowly'],
+ ['Under indoor lighting the panel cannot reach 6.05 V and charging does not start; this is normal','']]},
+{t:'Flash the test sketch',why:'Firmware is on the critical path. This step first exercises the 6 INA226s and every control pin with a minimal sketch.',items:[
+ ['Install the Seeed nRF52 board package in Arduino IDE and select Seeed XIAO nRF52840 Sense; keep the battery connected',''],
+ ['Connect the XIAO to the Mac over USB-C, upload the “Test sketch”, serial 115200',''],
+ ['I2C scan result','0x40 0x41 0x42 0x43 0x44 0x45'],
+ ['BAT line voltage vs multimeter at TP3','Within 1 %'],
+ ['BAT line current in sunlight','Positive (charging)'],
+ ['In the dark, enter p (panel off), TP1 VPV','Drops to near 0 V'],
+ ['Enter p again to restore','']]},
+{t:'Power up the chest unit',why:'LIB is powered and the supercaps precharge, then Core B is supplied.',items:[
+ ['Enter l (LOAD 1)',''],
+ ['LIB TP1 VLOAD (black probe on LIB TP4)','≈ battery voltage'],
+ ['LIB TP2 VBIT','≈ VLOAD, within 0.1 V'],
+ ['LIB TP3 VSC','Rises slowly from 0, reaching VLOAD − 0.3 V in about 7 minutes'],
+ ['Confirm W07 polarity with the breadboard method on its card',''],
+ ['W07 into Core B, switch ON','LED blinks'],
+ ['Serial LOAD(B) line (record it: this is B’s power consumption)','Tens of mA'],
+ ['The phone app or OpenSignals discovers B and starts acquisition','']]},
+{t:'Reference cells',why:'REF1 and REF2 record irradiance.',items:[
+ ['W04 into J7, W05 into J8',''],
+ ['REF1 / REF2 lines under indoor lighting','A few tenths of a mA'],
+ ['Direct sun on a clear day','About 30 mA'],
+ ['Both cells under the same light','Readings close']]},
+{t:'ECG: B and C simultaneously',why:'Bench version of the core comparison experiment. Unplug USB before applying electrodes to the body.',items:[
+ ['Unplug the XIAO’s USB-C',''],
+ ['Apply 6 disposable electrodes per “Electrode positions”',''],
+ ['W09 into Core B’s A2; snap the three W10 leads onto B’s electrodes',''],
+ ['C: W12 battery connected, W11 into the ECG port, leads snapped onto C’s electrodes, C switched on',''],
+ ['Phone app connected to B and C simultaneously','Both ECG channels clean'],
+ ['Record 5 minutes sitting still, save the file','']]},
+{t:'Align B and C (software sync)',why:'No sync wire. B, C and the XIAO all connect to the same phone: coarse alignment by phone timestamps first, then fine alignment on R waves. Use the 5 minutes of data from the previous step.',items:[
+ ['Detect R waves (the spike of each heartbeat) in B and in C',''],
+ ['After phone-timestamp alignment, R-wave time difference on the same heartbeat','< 100 ms'],
+ ['After fine alignment by R-wave cross-correlation, residual','< 5 ms'],
+ ['Align the PMB-H power log with B’s ECG by phone timestamps','Second-level is enough']]},
+{t:'How long the supercaps hold up',why:'A demo the vice dean can follow: the back is disconnected and the chest keeps recording.',items:[
+ ['B is recording and VSC has been charging for over 7 minutes',''],
+ ['Unplug W06 from LIB J1','B keeps recording for 17–60 s before dropping out'],
+ ['Reconnect W06; B powers up again','']]},
+{t:'A and temperature',why:'A is independent, so it is connected last.',items:[
+ ['PulseSensor into A’s A3, ear clip on the left earlobe, A switched on',''],
+ ['Pair A with the phone over Classic Bluetooth','Pulse waveform on A3'],
+ ['Plug both thermocouples into the thermometer','Normal reading at room temperature']]}
+];
+let saved={};
+try{saved=JSON.parse(localStorage.getItem('sv-wiring-steps')||'{}')||{};}catch(e){saved={};}
+function renderSteps(){
+  const ol=document.getElementById('steps');
+  ol.innerHTML=STEPS.map((st,i)=>`<li><h3>${st.t}</h3><p class="why">${st.why}</p><div class="items">${st.items.map((it,j)=>{const k=i+'-'+j;return `<label><input type="checkbox" id="st-${k}" data-k="${k}" ${saved[k]?'checked':''}><span>${it[0]}</span><span class="exp">${it[1]}</span></label>`;}).join('')}</div></li>`).join('');
+  ol.addEventListener('change',e=>{const k=e.target.dataset.k;if(!k)return;if(e.target.checked)saved[k]=1;else delete saved[k];try{localStorage.setItem('sv-wiring-steps',JSON.stringify(saved));}catch(err){}prog();});
+  prog();
+}
+function prog(){
+  const all=document.querySelectorAll('#steps input').length,done=document.querySelectorAll('#steps input:checked').length;
+  document.getElementById('progtxt').textContent=done+' / '+all;
+  document.getElementById('progbar').style.width=(all?done/all*100:0)+'%';
+}
+document.getElementById('reset').addEventListener('click',()=>{saved={};try{localStorage.removeItem('sv-wiring-steps');}catch(e){}document.querySelectorAll('#steps input').forEach(i=>i.checked=false);prog();});
+
+/* ---------- mount ---------- */
+document.getElementById('ovfig').innerHTML=overview()+'<p class="hint">Click any wire: the others fade and the panel on the right shows how to connect it.</p>';
+document.getElementById('backfig').innerHTML=backPod();
+document.getElementById('chestfig').innerHTML=chestPod();
+document.getElementById('cfig').innerHTML=cCase();
+document.getElementById('torsofig').innerHTML=torso();
+document.getElementById('fwcode').textContent=document.getElementById('fwsrc').textContent.trim();
+
+let filter='all';
+const fdiv=document.getElementById('filters');
+fdiv.innerHTML=GROUPS.map(([k,l])=>`<button type="button" data-f="${k}" aria-pressed="${k==='all'}">${l}</button>`).join('');
+function renderCards(){
+  document.getElementById('cards').innerHTML=W.filter(w=>filter==='all'||w.g===filter).map(w=>card(w,false)).join('');
+  markCards();
+}
+fdiv.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;filter=b.dataset.f;fdiv.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));renderCards();});
+
+let sel=null;
+function markCards(){document.querySelectorAll('#cards .wcard').forEach(c=>c.classList.toggle('is-sel',c.dataset.card===sel));}
+function select(id){
+  sel=id;
+  document.querySelectorAll('.fig').forEach(f=>{const has=!!f.querySelector(`.wire[data-w="${id}"]`);f.classList.toggle('has-sel',has);});
+  document.querySelectorAll('.wire').forEach(g=>g.classList.toggle('is-sel',g.dataset.w===id));
+  document.getElementById('detail').innerHTML=card(WBY[id],true);
+  markCards();
+}
+document.addEventListener('click',e=>{
+  const g=e.target.closest('.wire');
+  if(g){select(g.dataset.w);return;}
+  const see=e.target.closest('[data-see]');
+  if(see){select(see.dataset.see);document.getElementById('overview').scrollIntoView({behavior:'smooth'});return;}
+  const go=e.target.closest('[data-goto]');
+  if(go){if(filter!=='all'&&WBY[go.dataset.goto].g!==filter){filter='all';fdiv.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.f==='all'));renderCards();}
+    const c=document.getElementById('card-'+go.dataset.goto);if(c)c.scrollIntoView({behavior:'smooth'});return;}
+  if(e.target.closest('svg')&&!e.target.closest('.wire')){sel=null;document.querySelectorAll('.fig').forEach(f=>f.classList.remove('has-sel'));document.querySelectorAll('.wire').forEach(x=>x.classList.remove('is-sel'));markCards();}
+});
+
+const btn=document.getElementById('copybtn');
+btn.addEventListener('click',()=>{
+  const txt=document.getElementById('fwcode').textContent;
+  const done=()=>{btn.textContent='Copied';setTimeout(()=>btn.textContent='Copy code',1600);};
+  const fallback=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('fwcode'));const s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected — press ⌘C';};
+  try{navigator.clipboard.writeText(txt).then(done,fallback);}catch(e){fallback();}
+});
+
+renderCards();
+renderSteps();
+select('W06');
+})();
+</script>

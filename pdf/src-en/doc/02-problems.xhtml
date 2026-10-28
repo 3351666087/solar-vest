@@ -16,7 +16,7 @@
   </div>
 
   <div class="prob p-risk">
-    <div class="prob-q"><span class="prob-n">2</span>An 8 W-class switching supply will pollute µV-level ECG　<span class="pill pill-risk">#1 technical risk</span></div>
+    <div class="prob-q"><span class="prob-n">2</span>An 8 W-class switching supply will pollute µV-level ECG <span class="pill pill-risk">#1 technical risk</span></div>
       <div class="prob-line risk"><span class="lb">NOW</span>After the panel change, switching power rose from 0.27 W to ~8 W (<strong>~30×</strong>). The envelope frequency of buck/boost converters in PFM burst mode <strong>can fall inside the 0.05–40 Hz ECG band</strong>; demodulated through electrode impedance it looks like physiology — data that "looks right but is wrong".</div>
       <div class="prob-line solve"><span class="lb">FIX</span>Two architectural measures that cut the coupling path instead of filtering: <strong>① split topology</strong> — 18 V and the charger stay in the backpack unit; only &lt;4.2 V reaches the chest; <strong>② dual-battery alternation</strong> — one battery charges while the other powers the load, so during acquisition no switching supply is active on the supply rail.</div>
       <div class="prob-line check"><span class="lb">VERIFY</span>TC-05 ECG-phantom 2×2 factorial comparison, quantifying the 0.5–40 Hz noise-floor delta; the result decides whether dual batteries are actually needed.</div>

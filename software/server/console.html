@@ -1,0 +1,1272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0d1014">
+<title>SolarVest Console</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f5a524'/%3E%3Cg stroke='%23f5a524' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M16 2v4M16 26v4M2 16h4M26 16h4M6 6l3 3M23 23l3 3M6 26l3-3M23 9l3-3'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+:root {
+  --bg: #0b0e12;
+  --bg-2: #10141a;
+  --panel: #141920;
+  --panel-2: #1a2029;
+  --line: #262e3a;
+  --line-2: #323c4b;
+  --text: #e7ebf0;
+  --text-2: #a9b3c1;
+  --muted: #6f7b8c;
+  --amber: #f5a524;
+  --amber-2: #ffc35c;
+  --amber-dim: rgba(245, 165, 36, .14);
+  --green: #3ecf8e;
+  --green-dim: rgba(62, 207, 142, .14);
+  --red: #ff6b6b;
+  --red-dim: rgba(255, 107, 107, .14);
+  --blue: #5aa9ff;
+  --violet: #b48cff;
+  --cyan: #45d4e0;
+  --radius: 12px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100vh; background: var(--bg); color: var(--text);
+  font: 14px/1.5 var(--font); font-variant-numeric: tabular-nums;
+  background-image: radial-gradient(1200px 500px at 85% -10%, rgba(245,165,36,.07), transparent 60%);
+  background-attachment: fixed;
+}
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; border-radius: 6px; }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.hidden { display: none !important; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- login ---------- */
+#login { min-height: 100vh; display: grid; place-items: center; padding: 24px 16px; }
+.login-card {
+  width: 100%; max-width: 360px; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 16px; padding: 28px 24px; box-shadow: 0 20px 60px rgba(0,0,0,.45);
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 650; letter-spacing: .02em; }
+.brand svg { flex: none; }
+.brand small { color: var(--muted); font-weight: 500; letter-spacing: 0; }
+.login-card h1 { font-size: 20px; margin: 18px 0 4px; }
+.login-card p { margin: 0 0 18px; color: var(--text-2); font-size: 13px; }
+.field { display: grid; gap: 6px; margin-bottom: 14px; }
+.field label { font-size: 12px; color: var(--text-2); }
+.input {
+  width: 100%; padding: 11px 12px; background: var(--bg-2); border: 1px solid var(--line-2);
+  border-radius: 10px; outline: none;
+}
+.input:focus-visible { border-color: var(--amber); outline-offset: 0; }
+.err { color: var(--red); font-size: 13px; min-height: 20px; margin: 2px 0 10px; }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 8px 14px; min-height: 36px; border-radius: 10px; cursor: pointer; text-decoration: none;
+  background: var(--panel-2); border: 1px solid var(--line-2); color: var(--text); font-weight: 550;
+  transition: background .15s, border-color .15s, opacity .15s;
+}
+.btn:hover:not(:disabled) { border-color: #45505f; background: #1f2631; }
+.btn.primary { background: var(--amber); border-color: var(--amber); color: #1a1205; }
+.btn.primary:hover:not(:disabled) { background: var(--amber-2); border-color: var(--amber-2); }
+.btn.danger { color: var(--red); border-color: rgba(255,107,107,.4); }
+.btn.danger:hover:not(:disabled) { background: var(--red-dim); }
+.btn.ghost { background: transparent; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn.block { width: 100%; min-height: 44px; }
+
+/* ---------- layout ---------- */
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 16px 48px; }
+header.top {
+  position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  background: rgba(11,14,18,.82); border-bottom: 1px solid var(--line);
+}
+.top-in { max-width: 1240px; margin: 0 auto; padding: 10px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.top-in .brand { margin-right: auto; }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; order: 3; width: 100%; }
+@media (min-width: 900px) { .pills { order: 0; width: auto; } }
+.pill {
+  display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px;
+  background: var(--panel); border: 1px solid var(--line); font-size: 12px; color: var(--text-2); white-space: nowrap;
+}
+.pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); flex: none; }
+.pill.ok .dot { background: var(--green); box-shadow: 0 0 0 3px var(--green-dim); }
+.pill.warn .dot { background: var(--amber); box-shadow: 0 0 0 3px var(--amber-dim); }
+.pill.bad .dot { background: var(--red); box-shadow: 0 0 0 3px var(--red-dim); }
+.clock { font-family: var(--mono); color: var(--text-2); font-size: 13px; }
+
+.section-h { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 26px 2px 10px; flex-wrap: wrap; }
+.section-h h2 { margin: 0; font-size: 13px; font-weight: 650; letter-spacing: .08em; color: var(--text-2); }
+.section-h .hint { font-size: 12px; color: var(--muted); }
+
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+
+/* ---------- tiles ---------- */
+.tiles { display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 720px) { .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .tiles { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+.tile { padding: 12px 14px 12px; position: relative; overflow: hidden; min-width: 0; }
+.tile::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent, var(--line-2)); opacity: .9; }
+.tile h3 { margin: 0 0 6px; font-size: 12px; font-weight: 600; color: var(--text-2); display: flex; justify-content: space-between; gap: 6px; }
+.tile h3 .tag { font-weight: 500; color: var(--muted); font-size: 11px; }
+.big { font-family: var(--mono); font-size: 26px; font-weight: 600; line-height: 1.15; letter-spacing: -.02em; white-space: nowrap; }
+.big .u { font-size: 13px; font-weight: 500; color: var(--text-2); margin-left: 3px; letter-spacing: 0; }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 1px 10px; margin-top: 8px; font-size: 12px; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; text-align: right; font-family: var(--mono); color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.badges { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; min-height: 20px; }
+.badge { font-size: 11px; padding: 1px 7px; border-radius: 6px; background: var(--panel-2); color: var(--text-2); border: 1px solid var(--line); }
+.badge.ok { color: var(--green); border-color: rgba(62,207,142,.35); background: var(--green-dim); }
+.badge.warn { color: var(--amber); border-color: rgba(245,165,36,.35); background: var(--amber-dim); }
+.badge.bad { color: var(--red); border-color: rgba(255,107,107,.35); background: var(--red-dim); }
+.soc { height: 4px; background: var(--bg-2); border-radius: 2px; margin-top: 8px; overflow: hidden; }
+.soc i { display: block; height: 100%; width: 0; background: var(--green); transition: width .4s; }
+
+/* ---------- charts ---------- */
+.seg { display: inline-flex; background: var(--bg-2); border: 1px solid var(--line); border-radius: 10px; padding: 3px; gap: 2px; }
+.seg button {
+  border: 0; background: transparent; padding: 5px 12px; border-radius: 7px; cursor: pointer; color: var(--text-2);
+  font-size: 13px; font-weight: 550; min-height: 30px;
+}
+.seg button[aria-pressed="true"] { background: var(--panel-2); color: var(--amber); box-shadow: inset 0 0 0 1px var(--line-2); }
+.seg button:disabled { opacity: .45; cursor: not-allowed; }
+.charts { display: grid; gap: 10px; grid-template-columns: 1fr; }
+@media (min-width: 1100px) { .charts { grid-template-columns: 2fr 1fr 1fr; } }
+.chart { padding: 12px 12px 8px; min-width: 0; }
+.chart-h { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+.chart-h h3 { margin: 0; font-size: 13px; font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--text-2); }
+.legend span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.legend i { width: 10px; height: 3px; border-radius: 2px; display: inline-block; }
+.legend b { font-family: var(--mono); font-weight: 500; color: var(--text); }
+.chart canvas { display: block; width: 100%; height: 200px; touch-action: pan-y; }
+@media (min-width: 720px) { .chart canvas { height: 230px; } }
+.chart .empty { font-size: 12px; color: var(--muted); }
+
+/* ---------- controls ---------- */
+.ctl-grid { display: grid; gap: 10px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .ctl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .ctl-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.ctl { padding: 12px 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ctl-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.ctl-name { font-weight: 600; }
+.ctl-name small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
+.ctl-status { font-size: 12px; color: var(--muted); min-height: 18px; }
+.ctl-status.ok { color: var(--green); } .ctl-status.warn { color: var(--amber); } .ctl-status.bad { color: var(--red); }
+.switch {
+  position: relative; width: 52px; height: 30px; flex: none; border-radius: 999px; cursor: pointer;
+  background: var(--bg-2); border: 1px solid var(--line-2); padding: 0; transition: background .2s, border-color .2s;
+}
+.switch::after {
+  content: ""; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%;
+  background: #8a95a5; transition: transform .2s, background .2s;
+}
+.switch[aria-checked="true"] { background: var(--amber-dim); border-color: var(--amber); }
+.switch[aria-checked="true"]::after { transform: translateX(22px); background: var(--amber); }
+.switch.busy::after { animation: pulse 1s infinite; }
+.switch:disabled { opacity: .45; cursor: not-allowed; }
+@keyframes pulse { 50% { opacity: .35; } }
+.seg.full { display: flex; } .seg.full button { flex: 1; padding: 6px 4px; }
+.seg button.busy { animation: pulse 1s infinite; }
+.offline-note {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 14px;
+  margin-bottom: 10px; padding: 10px 14px; border-radius: 10px; font-size: 13px;
+  background: var(--amber-dim); border: 1px solid rgba(245,165,36,.35); color: var(--amber-2);
+}
+
+/* ---------- relay + log ---------- */
+.two { display: grid; gap: 10px; grid-template-columns: 1fr; }
+@media (min-width: 1000px) { .two { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); } }
+.relay { padding: 14px; display: grid; gap: 10px; align-content: start; }
+.relay p { margin: 0; color: var(--text-2); font-size: 13px; }
+.relay .stats { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; }
+.stat { background: var(--bg-2); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; min-width: 0; }
+.stat span { display: block; font-size: 11px; color: var(--muted); }
+.stat b { font-family: var(--mono); font-weight: 600; font-size: 15px; }
+.note { font-size: 12px; color: var(--muted); }
+.log { padding: 4px 0; overflow: hidden; }
+.log ol { list-style: none; margin: 0; padding: 0; max-height: 420px; overflow: auto; }
+.log li { display: grid; grid-template-columns: 44px 1fr auto; gap: 2px 10px; padding: 8px 14px; border-top: 1px solid var(--line); font-size: 13px; align-items: center; }
+.log li:first-child { border-top: 0; }
+.log .id { font-family: var(--mono); color: var(--muted); font-size: 12px; }
+.log .cmd { font-family: var(--mono); font-weight: 600; }
+.log .meta { grid-column: 2 / 4; font-size: 11px; color: var(--muted); font-family: var(--mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.log li.empty { display: block; padding: 18px 14px; color: var(--muted); font-size: 13px; }
+.st { font-size: 11px; padding: 1px 8px; border-radius: 6px; border: 1px solid var(--line-2); color: var(--text-2); white-space: nowrap; }
+.st.pending { color: var(--text-2); }
+.st.sent { color: var(--blue); border-color: rgba(90,169,255,.4); }
+.st.acked { color: var(--green); border-color: rgba(62,207,142,.4); }
+.st.failed { color: var(--red); border-color: rgba(255,107,107,.4); }
+footer.foot { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; color: var(--muted); font-size: 12px; }
+
+/* ---------- dialog ---------- */
+dialog {
+  border: 1px solid var(--line-2); border-radius: 14px; background: var(--panel); color: var(--text);
+  padding: 20px; width: min(420px, calc(100vw - 32px)); box-shadow: 0 30px 80px rgba(0,0,0,.6);
+}
+dialog::backdrop { background: rgba(4,6,9,.7); }
+dialog h2 { margin: 0 0 8px; font-size: 17px; }
+dialog p { margin: 0 0 18px; color: var(--text-2); font-size: 14px; }
+dialog .row { display: flex; gap: 8px; justify-content: flex-end; }
+.toast {
+  position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 50; max-width: calc(100vw - 32px);
+  background: var(--panel-2); border: 1px solid var(--line-2); padding: 10px 16px; border-radius: 10px; font-size: 13px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.5);
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 32 32"><circle cx="16" cy="16" r="6.5" fill="#f5a524"/><g stroke="#f5a524" stroke-width="2.4" stroke-linecap="round"><path d="M16 2.5v4M16 25.5v4M2.5 16h4M25.5 16h4M6.5 6.5l2.8 2.8M22.7 22.7l2.8 2.8M6.5 25.5l2.8-2.8M22.7 9.3l2.8-2.8"/></g></symbol>
+</svg>
+
+<!-- ======================= login ======================= -->
+<main id="login" class="hidden">
+  <form class="login-card" id="login-form" novalidate>
+    <div class="brand"><svg width="26" height="26"><use href="#logo"/></svg>SolarVest <small>Solar vest</small></div>
+    <h1>Sign in to the console</h1>
+    <p>Enter the console password. You stay signed in for 30 days.</p>
+    <div class="field">
+      <label for="pw">Password</label>
+      <input class="input" id="pw" name="password" type="password" autocomplete="current-password" required>
+    </div>
+    <div class="err" id="login-err" role="alert" aria-live="assertive"></div>
+    <button class="btn primary block" type="submit" id="login-btn">Sign in</button>
+  </form>
+</main>
+
+<!-- ======================= app ======================= -->
+<div id="app" class="hidden">
+  <header class="top">
+    <div class="top-in">
+      <div class="brand"><svg width="24" height="24" aria-hidden="true"><use href="#logo"/></svg>SolarVest <small>PMB-H console</small></div>
+      <div class="pills" aria-live="polite">
+        <span class="pill" id="p-dev"><span class="dot"></span><span>Device —</span></span>
+        <span class="pill" id="p-gw"><span class="dot"></span><span>Gateway —</span></span>
+        <span class="pill" id="p-ble"><span class="dot"></span><span>BLE —</span></span>
+        <span class="pill" id="p-age"><span class="dot"></span><span>Data —</span></span>
+        <span class="pill" id="p-live"><span class="dot"></span><span>Live —</span></span>
+      </div>
+      <span class="clock" id="clock" aria-label="Current time">--:--:--</span>
+      <button class="btn ghost" id="logout" type="button">Sign out</button>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <!-- tiles -->
+    <div class="section-h"><h2>Live readings</h2><span class="hint" id="last-ts">No data yet</span></div>
+    <div class="tiles">
+      <section class="card tile" style="--accent: var(--amber)" aria-labelledby="t-pv">
+        <h3><span id="t-pv">Solar panel</span><span class="tag" id="pv-range">—</span></h3>
+        <div class="big"><span id="pv-w">—</span><span class="u">W</span></div>
+        <dl class="kv"><dt>Voltage</dt><dd id="pv-v">— V</dd><dt>Current</dt><dd id="pv-i">— mA</dd></dl>
+        <div class="badges" id="pv-badges"></div>
+      </section>
+      <section class="card tile" style="--accent: var(--green)" aria-labelledby="t-bat">
+        <h3><span id="t-bat">Battery</span><span class="tag" id="bat-soc">≈ —%</span></h3>
+        <div class="big"><span id="bat-v">—</span><span class="u">V</span></div>
+        <dl class="kv"><dt id="bat-dir">Current</dt><dd id="bat-i">— mA</dd><dt>Power</dt><dd id="bat-w">— W</dd></dl>
+        <div class="soc" aria-hidden="true"><i id="bat-socbar"></i></div>
+        <div class="badges" id="bat-badges"></div>
+      </section>
+      <section class="card tile" style="--accent: var(--blue)" aria-labelledby="t-load">
+        <h3><span id="t-load">Load</span><span class="tag">BITalino B</span></h3>
+        <div class="big"><span id="load-w">—</span><span class="u">W</span></div>
+        <dl class="kv"><dt>Voltage</dt><dd id="load-v">— V</dd><dt>Current</dt><dd id="load-i">— mA</dd></dl>
+        <div class="badges" id="load-badges"></div>
+      </section>
+      <section class="card tile" style="--accent: var(--violet)" aria-labelledby="t-light">
+        <h3><span id="t-light">Light reference cells</span><span class="tag">Short-circuit current</span></h3>
+        <div class="big"><span id="ref1">—</span><span class="u">mA</span></div>
+        <dl class="kv"><dt>REF1</dt><dd id="ref1b">— mA</dd><dt>REF2</dt><dd id="ref2">— mA</dd></dl>
+        <div class="badges" id="light-badges"></div>
+      </section>
+      <section class="card tile" style="--accent: var(--cyan)" aria-labelledby="t-temp">
+        <h3><span id="t-temp">Battery temperature</span><span class="tag">NTC</span></h3>
+        <div class="big"><span id="ntc">—</span><span class="u">°C</span></div>
+        <dl class="kv"><dt>Charging allowed</dt><dd>0 – 45 °C</dd></dl>
+        <div class="badges" id="temp-badges"></div>
+      </section>
+      <section class="card tile" style="--accent: var(--line-2)" aria-labelledby="t-sys">
+        <h3><span id="t-sys">System</span><span class="tag" id="fw">Firmware —</span></h3>
+        <div class="big" style="font-size:20px"><span id="uptime">—</span></div>
+        <dl class="kv"><dt>Sample no.</dt><dd id="seq">—</dd><dt>Reset reason</dt><dd id="rst">—</dd><dt>INA226</dt><dd id="ina">—</dd></dl>
+      </section>
+    </div>
+
+    <!-- charts -->
+    <div class="section-h">
+      <h2>Trends</h2>
+      <div class="seg" role="group" aria-label="Time range" id="range">
+        <button type="button" data-s="900" aria-pressed="false">15 min</button>
+        <button type="button" data-s="3600" aria-pressed="true">1 h</button>
+        <button type="button" data-s="21600" aria-pressed="false">6 h</button>
+        <button type="button" data-s="86400" aria-pressed="false">24 h</button>
+      </div>
+    </div>
+    <div class="charts">
+      <section class="card chart">
+        <div class="chart-h"><h3>Power flow</h3><div class="legend" id="lg-power"></div></div>
+        <canvas id="c-power" role="img" aria-label="Solar, load and battery power curves, in watts"></canvas>
+      </section>
+      <section class="card chart">
+        <div class="chart-h"><h3>Battery voltage</h3><div class="legend" id="lg-vbat"></div></div>
+        <canvas id="c-vbat" role="img" aria-label="Battery voltage curve, in volts"></canvas>
+      </section>
+      <section class="card chart">
+        <div class="chart-h"><h3>Light reference</h3><div class="legend" id="lg-ref"></div></div>
+        <canvas id="c-ref" role="img" aria-label="Reference solar cell short-circuit current curves, in milliamps"></canvas>
+      </section>
+    </div>
+
+    <!-- controls -->
+    <div class="section-h"><h2>Controls</h2><span class="hint">Commands go out over BLE via the gateway; the next telemetry frame confirms the state</span></div>
+    <div class="offline-note hidden" id="offline-note" role="status">
+      <span>Gateway offline: commands will be queued and delivered when a gateway comes online</span>
+    </div>
+    <div class="ctl-grid" id="controls">
+      <div class="card ctl" data-ctl="load">
+        <div class="ctl-row">
+          <div class="ctl-name" id="lb-load">Load power<small>BITalino B and Li-ion output</small></div>
+          <button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="lb-load" data-sw="LOAD"></button>
+        </div>
+        <div class="ctl-status" aria-live="polite"></div>
+      </div>
+      <div class="card ctl" data-ctl="autoload">
+        <div class="ctl-row">
+          <div class="ctl-name" id="lb-autoload">Auto power-on<small>Turns the load on automatically when the battery is ≥ 3.70 V and not locked out</small></div>
+          <button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="lb-autoload" data-sw="AUTOLOAD"></button>
+        </div>
+        <div class="ctl-status" aria-live="polite"></div>
+      </div>
+      <div class="card ctl" data-ctl="sync">
+        <div class="ctl-row">
+          <div class="ctl-name" id="lb-sync">Sync output<small>D2 toggles every 500 ms, for time alignment</small></div>
+          <button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="lb-sync" data-sw="SYNC"></button>
+        </div>
+        <div class="ctl-status" aria-live="polite"></div>
+      </div>
+      <div class="card ctl" data-ctl="reboot">
+        <div class="ctl-row">
+          <div class="ctl-name">Reboot XIAO<small>Software reset; all settings return to defaults</small></div>
+          <button class="btn danger" type="button" data-cmd="REBOOT">Reboot</button>
+        </div>
+        <div class="ctl-status" aria-live="polite"></div>
+      </div>
+      <div class="card ctl" data-ctl="pv">
+        <div class="ctl-name" id="lb-pv">Solar panel switch<small>Auto: disconnects after the reference cells see no light for 5 min</small></div>
+        <div class="seg full" role="group" aria-labelledby="lb-pv">
+          <button type="button" data-cmd="PV AUTO" aria-pressed="false">Auto</button>
+          <button type="button" data-cmd="PV ON" aria-pressed="false">On</button>
+          <button type="button" data-cmd="PV OFF" aria-pressed="false">Off</button>
+        </div>
+        <div class="ctl-status" aria-live="polite"></div>
+      </div>
+      <div class="card ctl" data-ctl="chg">
+        <div class="ctl-name" id="lb-chg">Charging<small>Temperature protection (0–45 °C) always takes priority</small></div>
+        <div class="seg full" role="group" aria-labelledby="lb-chg">
+          <button type="button" data-cmd="CHG AUTO" aria-pressed="false">Auto</button>
+          <button type="button" data-cmd="CHG ON" aria-pressed="false">Allow</button>
+          <button type="button" data-cmd="CHG OFF" aria-pressed="false">Inhibit</button>
+        </div>
+        <div class="ctl-status" aria-live="polite"></div>
+      </div>
+      <div class="card ctl" data-ctl="range">
+        <div class="ctl-name" id="lb-range">Solar current range<small>Low range 0.22 Ω, ≤ 372 mA</small></div>
+        <div class="seg full" role="group" aria-labelledby="lb-range">
+          <button type="button" data-cmd="RANGE AUTO" aria-pressed="false">Auto</button>
+          <button type="button" data-cmd="RANGE HIGH" aria-pressed="false">High</button>
+          <button type="button" data-cmd="RANGE LOW" aria-pressed="false">Low</button>
+        </div>
+        <div class="ctl-status" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <!-- relay + log -->
+    <div class="two">
+      <div>
+        <div class="section-h"><h2>Use this device as the gateway</h2><span class="hint">Web Bluetooth relay</span></div>
+        <section class="card relay" id="relay">
+          <p id="relay-intro">Without a computer gateway, Chrome / Edge on a phone or computer can connect to the vest over Bluetooth directly, forward the data to the server and deliver commands.</p>
+          <div class="stats">
+            <div class="stat"><span>Status</span><b id="r-state">Not started</b></div>
+            <div class="stat"><span>Uploaded</span><b id="r-sent">0</b></div>
+            <div class="stat"><span>Pending</span><b id="r-buf">0</b></div>
+          </div>
+          <div class="note" id="r-msg" role="status" aria-live="polite"></div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap">
+            <button class="btn primary" type="button" id="r-start">Connect SolarVest-PMB</button>
+            <button class="btn" type="button" id="r-stop" disabled>Stop relay</button>
+          </div>
+          <p class="note">While relaying, keep the screen on and this page in the foreground (a screen wake lock has been requested). The browser may pause Bluetooth in the background or when the screen locks.</p>
+        </section>
+        <section class="card relay hidden" id="relay-na">
+          <p>This browser does not support Web Bluetooth (neither Safari nor iOS does), so this device cannot act as the gateway. Open this page in Chrome or Edge on an Android phone or a computer, or run the computer gateway program.</p>
+        </section>
+      </div>
+      <div>
+        <div class="section-h"><h2>Command log</h2><span class="hint">Last 30</span></div>
+        <section class="card log"><ol id="cmd-log"><li class="empty">No commands yet</li></ol></section>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <span>All times are gateway receive times (shown in your local time zone). SOC is a rough estimate from the open-circuit voltage and is less accurate while charging or discharging.</span>
+      <a class="btn" href="/api/export.csv?hours=24" download id="export">Export 24 h CSV</a>
+    </footer>
+  </div>
+</div>
+
+<dialog id="confirm" aria-labelledby="cf-title" aria-describedby="cf-msg">
+  <form method="dialog">
+    <h2 id="cf-title">Confirm</h2>
+    <p id="cf-msg"></p>
+    <div class="row">
+      <button class="btn" value="cancel" type="submit" autofocus>Cancel</button>
+      <button class="btn primary" value="ok" type="submit" id="cf-ok">Confirm</button>
+    </div>
+  </form>
+</dialog>
+<div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Protocol decoder. Kept in its own block so test_decoder.mjs can extract and verify it
+     against protocol/vectors.json. Pure function, no DOM access. -->
+<script id="decoder">
+/* SolarVest BLE decoder (SPEC section 2): TELEM_A + TELEM_B (20 bytes each, little-endian)
+   plus the gateway receive time -> decoded sample (SPEC section 4).
+   Scaling is done by dividing integers by powers of ten, which yields the same double
+   as parsing the rounded decimal, so values compare exactly with the vectors. */
+function svDecode(a, b, ts) {
+  var A = new DataView(a.buffer, a.byteOffset, a.byteLength);
+  var B = new DataView(b.buffer, b.byteOffset, b.byteLength);
+  if (A.byteLength < 20 || B.byteLength < 20) throw new Error("telemetry frame shorter than 20 bytes");
+  var ntcRaw = B.getInt16(1, true);
+  var o = B.getUint8(3), inp = B.getUint8(4), m = B.getUint8(5), sf = B.getUint8(6);
+  var bit = function (v, n) { return ((v >> n) & 1) === 1; };
+  return {
+    ts: ts,
+    seq: A.getUint8(0),
+    vpv_v: A.getUint16(1, true) / 1000,
+    ipv_ma: A.getInt16(3, true) / 10,
+    vbat_v: A.getUint16(5, true) / 1000,
+    ibat_ma: A.getInt16(7, true) / 10,
+    vload_v: A.getUint16(9, true) / 1000,
+    iload_ma: A.getInt16(11, true) / 10,
+    iref1_ma: A.getInt16(13, true) / 100,
+    iref2_ma: A.getInt16(15, true) / 100,
+    ina_ok: A.getUint8(17),
+    ntc_c: ntcRaw === -32768 ? null : ntcRaw / 10,
+    outputs: { load: bit(o, 0), pv: bit(o, 1), chg_inh: bit(o, 2), range_lo: bit(o, 3), sync: bit(o, 4) },
+    inputs: { charging: bit(inp, 0), done: bit(inp, 1) },
+    mode: { pv_auto: bit(m, 0), chg_auto: bit(m, 1), range_auto: bit(m, 2), autoload: bit(m, 3), load_manual_on: bit(m, 4) },
+    safety: { batt_lockout: bit(sf, 0), temp_inhibit: bit(sf, 1), night_pv_off: bit(sf, 2), ntc_fault: bit(sf, 3) },
+    uptime_s: B.getUint32(7, true),
+    reset_reason: B.getUint8(11),
+    fw: B.getUint8(12)
+  };
+}
+</script>
+
+<script>
+"use strict";
+/* ============================================================ helpers */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const isNum = (v) => typeof v === "number" && isFinite(v);
+function fmt(v, d) {
+  if (!isNum(v)) return "—";
+  const s = v.toFixed(d);
+  return /^-0(\.0*)?$/.test(s) ? s.slice(1) : s; // no "-0.0"
+}
+const pad = (n) => String(n).padStart(2, "0");
+function hms(t) { const d = new Date(t * 1000); return `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`; }
+function hm(t) { const d = new Date(t * 1000); return `${pad(d.getHours())}:${pad(d.getMinutes())}`; }
+function mdhms(t) { const d = new Date(t * 1000); return `${d.getMonth() + 1}/${d.getDate()} ${hms(t)}`; }
+function ago(sec) {
+  if (!isNum(sec)) return "—";
+  sec = Math.max(0, sec);
+  if (sec < 60) return `${Math.round(sec)} s ago`;
+  if (sec < 3600) return `${Math.round(sec / 60)} min ago`;
+  if (sec < 86400) return `${(sec / 3600).toFixed(1)} h ago`;
+  return `${Math.floor(sec / 86400)} d ago`;
+}
+function dur(s) {
+  if (!isNum(s)) return "—";
+  const d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60);
+  if (d) return `${d}d ${h}h ${m}m`;
+  if (h) return `${h}h ${m}m`;
+  return `${m}m ${Math.floor(s % 60)}s`;
+}
+function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } }
+let toastTimer = 0;
+function toast(msg) {
+  const el = $("#toast"); el.textContent = msg; el.classList.remove("hidden");
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.add("hidden"), 3500);
+}
+function setPill(id, cls, text) {
+  const p = $(id); p.className = "pill " + (cls || ""); p.lastElementChild.textContent = text;
+}
+function badges(el, list) {
+  el.replaceChildren(...list.filter(Boolean).map(([cls, text]) => {
+    const b = document.createElement("span"); b.className = "badge " + cls; b.textContent = text; return b;
+  }));
+}
+
+/* ============================================================ state */
+const S = {
+  latest: null,          // newest sample
+  gateway: null,         // {id,kind,ble,rssi,device,last_seen}
+  offset: 0,             // server_time - local time (s)
+  commands: new Map(),   // id -> row
+  range: Number(lsGet("sv-range")) || 3600,
+  hist: null,            // chart data, see loadHistory()
+  es: null,
+  live: false,
+};
+const now = () => Date.now() / 1000 + S.offset;
+const gatewayOnline = () => !!(S.gateway && now() - S.gateway.last_seen < 10);
+
+class AuthError extends Error {}
+async function api(path, opts = {}) {
+  const init = { credentials: "same-origin", headers: {}, ...opts };
+  if (opts.json !== undefined) {
+    init.method = init.method || "POST";
+    init.headers["Content-Type"] = "application/json";
+    init.body = JSON.stringify(opts.json);
+  }
+  const r = await fetch(path, init);
+  if (r.status === 401 && path !== "/api/login") { showLogin(); throw new AuthError("unauthorized"); }
+  let data = null;
+  try { data = await r.json(); } catch (e) { /* non-JSON */ }
+  if (!r.ok) { const e = new Error((data && data.error) || `HTTP ${r.status}`); e.status = r.status; throw e; }
+  return data;
+}
+
+/* ============================================================ login / boot */
+function showLogin() {
+  stopStream();
+  if (Relay.running) Relay.stop("Session expired");
+  $("#app").classList.add("hidden");
+  $("#login").classList.remove("hidden");
+  setTimeout(() => $("#pw").focus(), 0);
+}
+$("#login-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const err = $("#login-err"), btn = $("#login-btn");
+  err.textContent = ""; btn.disabled = true;
+  try {
+    await api("/api/login", { json: { password: $("#pw").value } });
+    $("#pw").value = "";
+    await boot();
+  } catch (x) {
+    err.textContent = x.status === 429 ? "Too many attempts, try again in 10 minutes" : x.status === 401 ? "Wrong password" : "Sign-in failed: " + x.message;
+  } finally { btn.disabled = false; }
+});
+$("#logout").addEventListener("click", async () => {
+  try { await api("/api/logout", { method: "POST" }); } catch (e) { /* ignore */ }
+  showLogin();
+});
+
+async function refreshState() {
+  const st = await api("/api/state");
+  S.offset = st.server_time - Date.now() / 1000;
+  S.gateway = st.gateway;
+  if (st.latest) S.latest = st.latest;
+  S.commands = new Map(st.commands.map((c) => [c.id, c]));
+  for (const c of st.commands) onCommandUpdate(c); // an ack first seen here (not via SSE) still starts the clock
+  renderAll();
+  return st;
+}
+async function boot() {
+  try { await refreshState(); } catch (e) {
+    if (!(e instanceof AuthError)) { $("#login").classList.remove("hidden"); $("#login-err").textContent = "Cannot reach the server: " + e.message; }
+    return;
+  }
+  $("#login").classList.add("hidden");
+  $("#app").classList.remove("hidden");
+  startStream();
+  loadHistory();
+}
+
+/* ============================================================ SSE */
+function startStream() {
+  stopStream();
+  const es = new EventSource("/api/stream");
+  S.es = es;
+  es.onopen = () => {
+    const wasDown = !S.live; S.live = true; renderHeader();
+    if (wasDown && S.hist) { refreshState().catch(() => {}); loadHistory(); } // fill the gap after a reconnect
+  };
+  es.onerror = () => {
+    S.live = false; renderHeader();
+    if (es.readyState === EventSource.CLOSED) {
+      // Not auto-retried (e.g. 401). Check the session, then retry.
+      setTimeout(() => { if (S.es === es) refreshState().then(startStream).catch(() => {}); }, 3000);
+    }
+  };
+  es.addEventListener("sample", (e) => onSample(JSON.parse(e.data)));
+  es.addEventListener("gateway", (e) => { S.gateway = JSON.parse(e.data); scheduleRender(); });
+  es.addEventListener("command", (e) => { const c = JSON.parse(e.data); S.commands.set(c.id, c); onCommandUpdate(c); scheduleRender(); });
+}
+function stopStream() { if (S.es) { S.es.close(); S.es = null; } S.live = false; }
+
+function onSample(s) {
+  if (!S.latest || s.ts >= S.latest.ts) S.latest = s;
+  appendHistory(s);
+  checkConfirmations();
+  scheduleRender();
+}
+
+let renderQueued = false;
+function scheduleRender() {
+  if (renderQueued) return; renderQueued = true;
+  requestAnimationFrame(() => { renderQueued = false; renderAll(); });
+}
+function renderAll() { renderHeader(); renderTiles(); renderControls(); renderLog(); drawCharts(); }
+
+/* ============================================================ header + tiles */
+function renderHeader() {
+  const t = now();
+  $("#clock").textContent = hms(t);
+  const s = S.latest, age = s ? t - s.ts : null;
+  if (!s) setPill("#p-dev", "", "Device no data");
+  else if (age < 5) setPill("#p-dev", "ok", "Device online");
+  else if (age < 60) setPill("#p-dev", "warn", "Device delayed");
+  else setPill("#p-dev", "bad", "Device offline");
+  setPill("#p-age", !s ? "" : age < 5 ? "ok" : age < 60 ? "warn" : "bad", "Data " + (s ? ago(age) : "—"));
+  const g = S.gateway;
+  if (!g) setPill("#p-gw", "bad", "Gateway never connected");
+  else if (gatewayOnline()) setPill("#p-gw", "ok", `Gateway online · ${({web: "web relay", esp32: "ESP32", python: "computer"})[g.kind] || g.kind}`);
+  else setPill("#p-gw", "bad", `Gateway offline · ${ago(t - g.last_seen)}`);
+  if (!g || !gatewayOnline()) setPill("#p-ble", "", "BLE —");
+  else if (g.ble === "connected") setPill("#p-ble", "ok", "BLE connected" + (isNum(g.rssi) ? ` ${g.rssi} dBm` : ""));
+  else if (g.ble === "scanning") setPill("#p-ble", "warn", "BLE scanning");
+  else setPill("#p-ble", "bad", "BLE disconnected");
+  setPill("#p-live", S.live ? "ok" : "warn", S.live ? "Live connected" : "Live reconnecting");
+  $("#last-ts").textContent = s ? `Last frame ${mdhms(s.ts)}` : "No data yet";
+}
+
+// 1S Li-ion open-circuit voltage -> state of charge (rough, resting cell).
+const OCV = [[3.00, 0], [3.30, 2], [3.45, 5], [3.60, 10], [3.68, 15], [3.72, 20], [3.75, 30], [3.78, 40],
+             [3.82, 50], [3.87, 60], [3.92, 70], [3.98, 80], [4.06, 90], [4.20, 100]];
+function soc(v) {
+  if (!isNum(v) || v < 2.5) return null;
+  if (v <= OCV[0][0]) return 0;
+  for (let i = 1; i < OCV.length; i++) {
+    if (v <= OCV[i][0]) { const [v0, p0] = OCV[i - 1], [v1, p1] = OCV[i]; return p0 + (p1 - p0) * (v - v0) / (v1 - v0); }
+  }
+  return 100;
+}
+// ina_ok bit order: [0x40 PV-high, 0x43 PV-low, 0x41 BAT, 0x42 LOAD, 0x44 REF1, 0x45 REF2]
+const CHIP = { pvh: 0, pvl: 1, bat: 2, load: 3, ref1: 4, ref2: 5 };
+const chipOk = (s, k) => isNum(s.ina_ok) && ((s.ina_ok >> CHIP[k]) & 1) === 1;
+const RESET = [[0, "Pin reset"], [1, "Watchdog"], [2, "Soft reset"], [3, "Lockup"], [16, "GPIO wake"], [17, "LPCOMP"], [18, "Debug"], [19, "NFC"]];
+
+function setText(id, v) { const el = $(id); if (el.textContent !== v) el.textContent = v; }
+function renderTiles() {
+  const s = S.latest;
+  if (!s) return;
+  const pvW = s.vpv_v * s.ipv_ma / 1000, ldW = s.vload_v * s.iload_ma / 1000, btW = s.vbat_v * s.ibat_ma / 1000;
+  setText("#pv-w", fmt(pvW, 2)); setText("#pv-v", fmt(s.vpv_v, 3) + " V"); setText("#pv-i", fmt(s.ipv_ma, 1) + " mA");
+  setText("#pv-range", s.outputs.range_lo ? "Low range" : "High range");
+  badges($("#pv-badges"), [
+    s.outputs.pv ? ["ok", "Connected"] : ["warn", s.safety.night_pv_off ? "Off for night" : "Disconnected"],
+    s.mode.pv_auto ? ["", "Auto"] : ["warn", "Manual"],
+    !chipOk(s, "pvh") && ["bad", "0x40 missing"],
+    s.outputs.range_lo && !chipOk(s, "pvl") && ["bad", "0x43 missing"],
+  ]);
+
+  setText("#bat-v", fmt(s.vbat_v, 3));
+  const i = s.ibat_ma, dir = !isNum(i) ? "Current" : Math.abs(i) < 2 ? "Idle" : i > 0 ? "Charging" : "Discharging";
+  setText("#bat-dir", dir); setText("#bat-i", fmt(isNum(i) ? Math.abs(i) : i, 1) + " mA"); setText("#bat-w", fmt(btW, 2) + " W");
+  const p = chipOk(s, "bat") ? soc(s.vbat_v) : null;
+  setText("#bat-soc", p == null ? "≈ —%" : `≈ ${Math.round(p)}%`);
+  const bar = $("#bat-socbar"); bar.style.width = (p || 0) + "%";
+  bar.style.background = p == null ? "var(--muted)" : p < 15 ? "var(--red)" : p < 35 ? "var(--amber)" : "var(--green)";
+  badges($("#bat-badges"), [
+    s.inputs.done ? ["ok", "Fully charged"] : s.inputs.charging ? ["ok", "Charging"] : ["", "Not charging"],
+    s.outputs.chg_inh && ["warn", s.safety.temp_inhibit ? "Temp. inhibit" : "Charging inhibited"],
+    s.safety.batt_lockout && ["bad", "UV lockout"],
+    !chipOk(s, "bat") && ["bad", "0x41 missing"],
+  ]);
+
+  setText("#load-w", fmt(ldW, 2)); setText("#load-v", fmt(s.vload_v, 3) + " V"); setText("#load-i", fmt(s.iload_ma, 1) + " mA");
+  badges($("#load-badges"), [
+    s.outputs.load ? ["ok", "On"] : ["", "Off"],
+    s.mode.autoload && ["", "Auto power-on"],
+    s.safety.batt_lockout && ["bad", "UV lockout"],
+    !chipOk(s, "load") && ["bad", "0x42 missing"],
+  ]);
+
+  setText("#ref1", fmt(s.iref1_ma, 2)); setText("#ref1b", fmt(s.iref1_ma, 2) + " mA"); setText("#ref2", fmt(s.iref2_ma, 2) + " mA");
+  const dark = Math.abs(s.iref1_ma) < 1 && Math.abs(s.iref2_ma) < 1;
+  badges($("#light-badges"), [
+    chipOk(s, "ref1") && chipOk(s, "ref2") && (dark ? ["", "Dark"] : ["ok", "Light"]),
+    !chipOk(s, "ref1") && ["bad", "0x44 missing"],
+    !chipOk(s, "ref2") && ["bad", "0x45 missing"],
+  ]);
+
+  setText("#ntc", s.ntc_c == null ? "—" : fmt(s.ntc_c, 1));
+  badges($("#temp-badges"), [
+    s.ntc_c == null || s.safety.ntc_fault ? ["bad", "NTC fault"] :
+      s.safety.temp_inhibit ? ["warn", "Outside charging temp."] : ["ok", "Normal"],
+  ]);
+
+  setText("#uptime", dur(s.uptime_s));
+  setText("#fw", `Firmware v${s.fw ?? "—"}`);
+  setText("#seq", String(s.seq));
+  const rr = RESET.filter(([b]) => (s.reset_reason >> b) & 1).map(([, n]) => n);
+  setText("#rst", rr.length ? rr.join(", ") : "Power-on");
+  $("#rst").title = `RESETREAS 0x${(s.reset_reason || 0).toString(16).padStart(2, "0")}`;
+  let n = 0; for (let b = 0; b < 6; b++) n += (s.ina_ok >> b) & 1;
+  setText("#ina", `${n}/6 online`);
+}
+
+/* ============================================================ charts */
+const COL = { amber: "#f5a524", blue: "#5aa9ff", green: "#3ecf8e", violet: "#b48cff", cyan: "#45d4e0" };
+const CHARTS = [
+  { id: "power", unit: "W", digits: 2, zero: true, series: [
+      { key: "pv_w", label: "Solar", color: COL.amber },
+      { key: "load_w", label: "Load", color: COL.blue },
+      { key: "bat_w", label: "Battery (+chg)", color: COL.green }] },
+  { id: "vbat", unit: "V", digits: 3, zero: false, series: [{ key: "vbat_v", label: "Battery", color: COL.green }] },
+  { id: "ref", unit: "mA", digits: 2, zero: true, series: [
+      { key: "iref1_ma", label: "REF1", color: COL.violet },
+      { key: "iref2_ma", label: "REF2", color: COL.cyan }] },
+];
+const KEYS = ["pv_w", "load_w", "bat_w", "vbat_v", "iref1_ma", "iref2_ma"];
+function derive(s) {
+  const m = (a, b) => (isNum(a) && isNum(b) ? a * b / 1000 : null);
+  return { pv_w: m(s.vpv_v, s.ipv_ma), load_w: m(s.vload_v, s.iload_ma), bat_w: m(s.vbat_v, s.ibat_ma),
+           vbat_v: s.vbat_v, iref1_ma: s.iref1_ma, iref2_ma: s.iref2_ma };
+}
+
+let histReq = 0;
+async function loadHistory() {
+  const req = ++histReq, range = S.range;
+  try {
+    const h = await api(`/api/history?seconds=${range}&points=600`);
+    if (req !== histReq) return; // a newer range was selected meanwhile
+    const n = h.t.length, hist = { range, bucket: h.bucket_s || Math.max(1, range / 600), t: h.t.slice(), n: new Array(n).fill(1) };
+    for (const k of KEYS) hist[k] = new Array(n);
+    for (let i = 0; i < n; i++) {
+      const d = derive({ vpv_v: h.vpv_v[i], ipv_ma: h.ipv_ma[i], vload_v: h.vload_v[i], iload_ma: h.iload_ma[i],
+                         vbat_v: h.vbat_v[i], ibat_ma: h.ibat_ma[i], iref1_ma: h.iref1_ma[i], iref2_ma: h.iref2_ma[i] });
+      for (const k of KEYS) hist[k][i] = d[k];
+    }
+    hist.open = 0; // index of the bucket live samples may still average into (none yet)
+    S.hist = hist;
+    drawCharts();
+  } catch (e) { if (!(e instanceof AuthError)) toast("Failed to load history: " + e.message); }
+}
+// Live samples are averaged into buckets of the same width as the history query.
+function appendHistory(s) {
+  const h = S.hist; if (!h) return;
+  const d = derive(s), last = h.t.length - 1;
+  if (last >= 0 && s.ts <= h.t[last]) return; // old or duplicate
+  if (h.open && last >= 0 && s.ts - h.open < h.bucket) {
+    const n = ++h.n[last];
+    for (const k of KEYS) {
+      const v = d[k], o = h[k][last];
+      h[k][last] = isNum(v) && isNum(o) ? o + (v - o) / n : isNum(v) ? v : o;
+    }
+    h.t[last] = s.ts;
+  } else {
+    h.t.push(s.ts); h.n.push(1); h.open = s.ts;
+    for (const k of KEYS) h[k].push(d[k]);
+  }
+  // Drop points that slid out of the window.
+  const cut = now() - h.range; let drop = 0;
+  while (drop < h.t.length && h.t[drop] < cut) drop++;
+  if (drop > 0) { h.t.splice(0, drop); h.n.splice(0, drop); for (const k of KEYS) h[k].splice(0, drop); }
+}
+
+function niceStep(span, target) {
+  const raw = span / target, p = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / p;
+  return (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p;
+}
+const hover = {}; // chart id -> x position (css px) or undefined
+
+function drawChart(cfg) {
+  const cv = $("#c-" + cfg.id), lg = $("#lg-" + cfg.id);
+  const W = cv.clientWidth, H = cv.clientHeight;
+  if (!W || !H) return;
+  const dpr = window.devicePixelRatio || 1;
+  if (cv.width !== Math.round(W * dpr) || cv.height !== Math.round(H * dpr)) { cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); }
+  const g = cv.getContext("2d");
+  g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  g.clearRect(0, 0, W, H);
+  const h = S.hist, t1 = now(), t0 = t1 - S.range;
+  const L = 46, R = 10, T = 18, B = 22, pw = W - L - R, ph = H - T - B;
+
+  // y range over visible points
+  let lo = Infinity, hi = -Infinity;
+  if (h) for (const s of cfg.series) for (let i = 0; i < h.t.length; i++) {
+    const v = h[s.key][i]; if (h.t[i] >= t0 && isNum(v)) { if (v < lo) lo = v; if (v > hi) hi = v; }
+  }
+  const has = lo <= hi;
+  if (!has) { lo = 0; hi = 1; }
+  if (cfg.zero) { lo = Math.min(lo, 0); hi = Math.max(hi, 0); }
+  if (hi - lo < 1e-6) { const c = hi; lo = c - (Math.abs(c) * 0.05 || 0.5); hi = c + (Math.abs(c) * 0.05 || 0.5); }
+  const padY = (hi - lo) * 0.08; lo -= cfg.zero && lo === 0 ? 0 : padY; hi += padY;
+  const step = niceStep(hi - lo, ph < 170 ? 4 : 5);
+  lo = Math.floor(lo / step) * step; hi = Math.ceil(hi / step) * step;
+  const X = (t) => L + (t - t0) / (t1 - t0) * pw, Y = (v) => T + (hi - v) / (hi - lo) * ph;
+  const dec = Math.max(0, -Math.floor(Math.log10(step) + 1e-9));
+
+  g.font = `11px ${getComputedStyle(document.body).getPropertyValue("--mono")}`;
+  g.textBaseline = "middle";
+  // horizontal grid + y labels
+  for (let v = lo; v <= hi + step / 2; v += step) {
+    const y = Math.round(Y(v)) + 0.5;
+    g.strokeStyle = Math.abs(v) < step / 2 && cfg.zero ? "#3a4555" : "#1f2630"; g.lineWidth = 1;
+    g.beginPath(); g.moveTo(L, y); g.lineTo(L + pw, y); g.stroke();
+    g.fillStyle = "#6f7b8c"; g.textAlign = "right"; g.fillText(fmt(v, dec), L - 6, y);
+  }
+  // unit label
+  g.fillStyle = "#a9b3c1"; g.textAlign = "left"; g.textBaseline = "top"; g.fillText(cfg.unit, 4, 2);
+  // x ticks
+  const steps = [60, 120, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200];
+  const xs = steps.find((s) => (t1 - t0) / s <= Math.max(3, Math.floor(pw / 80))) || 86400;
+  const tz = new Date().getTimezoneOffset() * 60;
+  g.textAlign = "center"; g.textBaseline = "alphabetic";
+  for (let t = Math.ceil((t0 - tz) / xs) * xs + tz; t <= t1; t += xs) {
+    const x = Math.round(X(t)) + 0.5;
+    g.strokeStyle = "#1a2029"; g.beginPath(); g.moveTo(x, T); g.lineTo(x, T + ph); g.stroke();
+    g.fillStyle = "#6f7b8c"; g.fillText(hm(t), x, H - 6);
+  }
+  g.strokeStyle = "#323c4b"; g.strokeRect(L + 0.5, T + 0.5, pw - 1, ph - 1);
+
+  // series (break the line across gaps in the data)
+  const gap = h ? Math.max(3 * h.bucket, 10) : 0;
+  g.save(); g.beginPath(); g.rect(L, T, pw, ph); g.clip();
+  if (h) for (const s of cfg.series) {
+    g.strokeStyle = s.color; g.lineWidth = 1.6; g.lineJoin = "round"; g.beginPath();
+    let pen = false, prevT = 0;
+    for (let i = 0; i < h.t.length; i++) {
+      const v = h[s.key][i], t = h.t[i];
+      if (t < t0 - gap || !isNum(v)) { pen = false; continue; }
+      if (pen && t - prevT > gap) pen = false;
+      pen ? g.lineTo(X(t), Y(v)) : g.moveTo(X(t), Y(v));
+      pen = true; prevT = t;
+    }
+    g.stroke();
+  }
+  g.restore();
+  if (!has) { g.fillStyle = "#6f7b8c"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("No data in this time range", L + pw / 2, T + ph / 2); }
+
+  // hover crosshair: nearest point; legend shows its values, otherwise the latest
+  let idx = h && h.t.length ? h.t.length - 1 : -1, hovering = false;
+  const hx = hover[cfg.id];
+  if (h && hx !== undefined && h.t.length) {
+    const tt = t0 + (hx - L) / pw * (t1 - t0);
+    let best = -1, bd = Infinity;
+    for (let i = 0; i < h.t.length; i++) { const d = Math.abs(h.t[i] - tt); if (d < bd) { bd = d; best = i; } }
+    if (best >= 0 && h.t[best] >= t0) {
+      idx = best; hovering = true;
+      const x = Math.round(X(h.t[best])) + 0.5;
+      g.strokeStyle = "rgba(231,235,240,.35)"; g.setLineDash([3, 3]); g.beginPath(); g.moveTo(x, T); g.lineTo(x, T + ph); g.stroke(); g.setLineDash([]);
+      for (const s of cfg.series) { const v = h[s.key][best]; if (isNum(v)) { g.fillStyle = s.color; g.beginPath(); g.arc(x, Y(v), 3, 0, 7); g.fill(); } }
+      g.fillStyle = "#e7ebf0"; g.textAlign = x > L + pw - 60 ? "right" : "left"; g.textBaseline = "top";
+      g.fillText(hms(h.t[best]), x + (g.textAlign === "left" ? 5 : -5), 2);
+    }
+  }
+  const html = cfg.series.map((s) => {
+    const v = idx >= 0 ? h[s.key][idx] : null;
+    return `<span><i style="background:${s.color}"></i>${s.label} <b>${fmt(v, cfg.digits)}</b></span>`;
+  }).join("") + (hovering ? "" : "");
+  if (lg.innerHTML !== html) lg.innerHTML = html;
+}
+function drawCharts() { for (const c of CHARTS) drawChart(c); }
+
+for (const c of CHARTS) {
+  const cv = $("#c-" + c.id);
+  const set = (e) => { const r = cv.getBoundingClientRect(); hover[c.id] = e.clientX - r.left; drawChart(c); };
+  cv.addEventListener("pointermove", set);
+  cv.addEventListener("pointerdown", set);
+  cv.addEventListener("pointerleave", () => { hover[c.id] = undefined; drawChart(c); });
+}
+if ("ResizeObserver" in window) new ResizeObserver(() => drawCharts()).observe($(".charts"));
+else addEventListener("resize", drawCharts);
+
+function setRange(sec) {
+  S.range = sec; lsSet("sv-range", String(sec));
+  for (const b of $$("#range button")) b.setAttribute("aria-pressed", String(Number(b.dataset.s) === sec));
+  S.hist = null; drawCharts(); loadHistory();
+}
+for (const b of $$("#range button")) b.addEventListener("click", () => setRange(Number(b.dataset.s)));
+if (![900, 3600, 21600, 86400].includes(S.range)) S.range = 3600;
+for (const b of $$("#range button")) b.setAttribute("aria-pressed", String(Number(b.dataset.s) === S.range));
+
+/* ============================================================ controls */
+// While the temperature inhibit holds chg_inh HIGH, forced CHG ON and CHG OFF look identical in telemetry.
+const chgUnknown = (s) => !s.mode.chg_auto && s.safety.temp_inhibit;
+// For each command: which control it belongs to and how telemetry confirms it took effect
+// (true = confirmed, false = not yet, null = telemetry cannot tell).
+const EFFECT = {
+  "LOAD ON": ["load", (s) => s.outputs.load], "LOAD OFF": ["load", (s) => !s.outputs.load],
+  "AUTOLOAD ON": ["autoload", (s) => s.mode.autoload], "AUTOLOAD OFF": ["autoload", (s) => !s.mode.autoload],
+  "SYNC ON": ["sync", (s) => s.outputs.sync], "SYNC OFF": ["sync", (s) => !s.outputs.sync],
+  "PV AUTO": ["pv", (s) => s.mode.pv_auto], "PV ON": ["pv", (s) => !s.mode.pv_auto && s.outputs.pv],
+  "PV OFF": ["pv", (s) => !s.mode.pv_auto && !s.outputs.pv],
+  "CHG AUTO": ["chg", (s) => s.mode.chg_auto], "CHG ON": ["chg", (s) => (chgUnknown(s) ? null : !s.mode.chg_auto && !s.outputs.chg_inh)],
+  "CHG OFF": ["chg", (s) => (chgUnknown(s) ? null : !s.mode.chg_auto && s.outputs.chg_inh)],
+  "RANGE AUTO": ["range", (s) => s.mode.range_auto], "RANGE HIGH": ["range", (s) => !s.mode.range_auto && !s.outputs.range_lo],
+  "RANGE LOW": ["range", (s) => !s.mode.range_auto && s.outputs.range_lo],
+  "REBOOT": ["reboot", null],
+};
+const CONFIRM = {
+  "LOAD ON": ["Turn the load on?", "This powers BITalino B and the Li-ion output. The device refuses while the battery undervoltage lockout is active."],
+  "PV OFF": ["Disconnect the solar panel?", "Once forced off it will not reconnect by itself and will not charge even in daylight until you switch back to “Auto” or “On”."],
+  "CHG ON": ["Force charging allowed?", "This cancels the automatic charge management. The device still inhibits charging outside 0–45 °C."],
+  "REBOOT": ["Reboot the XIAO?", "The device will do a software reset; the load switches off and all modes return to defaults (not saved)."],
+};
+const pending = {}; // control -> {id, cmd, uptime, ackedAt, done}
+
+function ctlState(s) {
+  const segOf = (auto, a, b) => (auto ? 0 : a ? 1 : 2);
+  return {
+    load: s.outputs.load, autoload: s.mode.autoload, sync: s.outputs.sync,
+    pv: segOf(s.mode.pv_auto, s.outputs.pv),
+    chg: chgUnknown(s) ? -1 : segOf(s.mode.chg_auto, !s.outputs.chg_inh), // -1: no segment highlighted
+    range: segOf(s.mode.range_auto, !s.outputs.range_lo),
+  };
+}
+// SPEC §5: controls are disabled while no gateway is online.
+function canSend() { return gatewayOnline(); }
+
+function renderControls() {
+  const s = S.latest, online = gatewayOnline();
+  $("#offline-note").classList.toggle("hidden", online);
+  const dis = !canSend();
+  const st = s ? ctlState(s) : null;
+  for (const box of $$("#controls .ctl")) {
+    const ctl = box.dataset.ctl, p = pending[ctl], busy = p && !p.done;
+    const sw = $(".switch", box);
+    if (sw) {
+      sw.disabled = dis;
+      if (st) sw.setAttribute("aria-checked", String(!!st[ctl]));
+      sw.classList.toggle("busy", !!busy);
+    }
+    const segs = $$(".seg button", box);
+    segs.forEach((b, i) => {
+      b.disabled = dis;
+      if (st) b.setAttribute("aria-pressed", String(st[ctl] === i));
+      b.classList.toggle("busy", !!busy && p.cmd === b.dataset.cmd);
+    });
+    const rb = $(".btn[data-cmd]", box); if (rb) rb.disabled = dis;
+    renderCtlStatus(box, ctl, s);
+  }
+}
+function renderCtlStatus(box, ctl, s) {
+  const el = $(".ctl-status", box), p = pending[ctl];
+  let cls = "", text = "";
+  if (p) {
+    const row = S.commands.get(p.id), status = row ? row.status : "pending";
+    if (p.done && p.unverifiable) { cls = "warn"; text = `${p.cmd} received by the device; temperature protection active, telemetry cannot confirm the forced setting`; }
+    else if (p.done) { cls = "ok"; text = `${p.cmd} in effect (confirmed by telemetry)`; }
+    else if (status === "failed") { cls = "bad"; text = `${p.cmd} failed: ${(row && row.error) || "unknown error"}`; }
+    else if (status === "acked") {
+      const waited = now() - (p.ackedAt || now());
+      if (waited > 60) { delete pending[ctl]; return renderCtlStatus(box, ctl, s); } // stop nagging
+      cls = waited > 6 ? "bad" : "warn";
+      text = waited > 6 ? `${p.cmd} received by the device, but telemetry has not changed (possibly rejected by a safety rule)` : `${p.cmd} received by the device, waiting for telemetry confirmation…`;
+    } else if (status === "sent") { cls = "warn"; text = `${p.cmd} sent to the gateway, waiting for the device to acknowledge…`; }
+    else { cls = "warn"; text = `${p.cmd} queued, waiting for a gateway to pick it up…`; }
+  } else if (s) {
+    if (ctl === "load" && s.safety.batt_lockout) { cls = "bad"; text = "Battery undervoltage lockout: cannot turn on until the voltage recovers to 3.55 V"; }
+    else if (ctl === "chg" && chgUnknown(s)) { cls = "warn"; text = "Temperature protection: charging paused; the forced setting (Allow/Inhibit) cannot be read from telemetry"; }
+    else if (ctl === "chg" && s.safety.temp_inhibit) { cls = "warn"; text = "Temperature protection: charging paused"; }
+    else if (ctl === "pv" && s.safety.night_pv_off) { text = "Disconnected automatically for the night"; }
+    else if (ctl === "range") text = `Current: ${s.outputs.range_lo ? "low range" : "high range"}`;
+  }
+  if (el.textContent !== text) el.textContent = text;
+  el.className = "ctl-status " + cls;
+}
+// Called for every command row we learn about (SSE or a full state refresh); records when the ack happened.
+function onCommandUpdate(c) {
+  for (const p of Object.values(pending)) {
+    if (p.id === c.id && c.status === "acked" && !p.ackedAt) p.ackedAt = isNum(c.ack_ts) ? c.ack_ts : now();
+  }
+}
+function checkConfirmations() {
+  const s = S.latest; if (!s) return;
+  for (const [ctl, p] of Object.entries(pending)) {
+    if (p.done) continue;
+    const row = S.commands.get(p.id);
+    if (ctl === "reboot") {
+      if (isNum(p.uptime) && s.uptime_s < p.uptime) { p.done = true; p.cmd = "REBOOT"; }
+    } else if (row && row.status === "acked") {
+      const ok = EFFECT[p.cmd][1](s);
+      if (ok === null) { p.done = true; p.unverifiable = true; } else if (ok) p.done = true;
+    }
+    if (p.done) setTimeout(() => { if (pending[ctl] === p) { delete pending[ctl]; scheduleRender(); } }, 8000);
+  }
+}
+
+const dlg = $("#confirm");
+function ask(title, msg) {
+  return new Promise((resolve) => {
+    $("#cf-title").textContent = title; $("#cf-msg").textContent = msg;
+    dlg.returnValue = "";
+    dlg.addEventListener("close", () => resolve(dlg.returnValue === "ok"), { once: true });
+    dlg.showModal();
+  });
+}
+async function send(cmd) {
+  if (!canSend()) return;
+  if (CONFIRM[cmd] && !(await ask(...CONFIRM[cmd]))) return;
+  const ctl = EFFECT[cmd][0];
+  try {
+    const row = await api("/api/command", { json: { cmd } });
+    S.commands.set(row.id, row);
+    pending[ctl] = { id: row.id, cmd, uptime: S.latest ? S.latest.uptime_s : null, done: false };
+    renderAll();
+  } catch (e) { if (!(e instanceof AuthError)) toast("Failed to send command: " + e.message); }
+}
+for (const sw of $$(".switch[data-sw]")) {
+  sw.addEventListener("click", () => send(`${sw.dataset.sw} ${sw.getAttribute("aria-checked") === "true" ? "OFF" : "ON"}`));
+}
+for (const b of $$("#controls [data-cmd]")) b.addEventListener("click", () => send(b.dataset.cmd));
+
+/* ============================================================ command log */
+const ST_TEXT = { pending: "queued", sent: "sent", acked: "acked", failed: "failed" };
+const BY_TEXT = { console: "console" };
+let logSig = "";
+function renderLog() {
+  const rows = Array.from(S.commands.values()).sort((a, b) => b.id - a.id).slice(0, 30);
+  const sig = rows.map((r) => `${r.id}:${r.status}:${r.ack_ts}`).join("|");
+  if (sig === logSig) return; logSig = sig;
+  const ol = $("#cmd-log");
+  if (!rows.length) { ol.innerHTML = '<li class="empty">No commands yet</li>'; return; }
+  ol.replaceChildren(...rows.map((r) => {
+    const li = document.createElement("li");
+    const id = document.createElement("span"); id.className = "id"; id.textContent = "#" + r.id;
+    const cmd = document.createElement("span"); cmd.className = "cmd"; cmd.textContent = r.cmd;
+    const st = document.createElement("span"); st.className = "st " + r.status; st.textContent = ST_TEXT[r.status] || r.status;
+    const meta = document.createElement("span"); meta.className = "meta";
+    const parts = [mdhms(r.ts), BY_TEXT[r.by] || r.by];
+    if (r.sent_to) parts.push("→ " + r.sent_to);
+    if (r.ack_ts) parts.push("acked " + hms(r.ack_ts));
+    if (r.error) parts.push("error: " + r.error);
+    meta.textContent = parts.join(" · "); meta.title = meta.textContent;
+    li.append(id, cmd, st, meta);
+    return li;
+  }));
+}
+
+/* ============================================================ Web Bluetooth relay */
+const SVC = "5f1e0001-6a2b-4c3d-9e8f-50a1b2c3d4e5";
+const CH_A = "5f1e0002-6a2b-4c3d-9e8f-50a1b2c3d4e5";
+const CH_B = "5f1e0003-6a2b-4c3d-9e8f-50a1b2c3d4e5";
+const CH_CMD = "5f1e0004-6a2b-4c3d-9e8f-50a1b2c3d4e5";
+const MAX_BUF = 6 * 3600;     // keep at most 6 h of samples while the server is unreachable
+const BATCH = 600;            // samples per ingest request (well under the 1 MB limit)
+const PING_MS = 60000;        // keepalive: firmware drops a central silent on COMMAND for 180 s (SPEC §2)
+
+const Relay = {
+  running: false, device: null, chCmd: null, ble: "disconnected",
+  pendA: new Map(),           // seq -> {a, ts, timer}
+  lastB: null, buf: [], acks: [], sent: 0,
+  timer: 0, inflight: false, backoff: 0, nextTry: 0, reconnectTimer: 0, reconnectDelay: 2000,
+  wakeLock: null, gwId: null,
+  pingTimer: 0, pings: 0,
+  wq: Promise.resolve(),      // GATT write queue: Chrome allows one GATT operation at a time
+
+  id() {
+    if (!this.gwId) {
+      let id = lsGet("sv-relay-id");
+      if (!id) { id = "web-relay-" + Array.from(crypto.getRandomValues(new Uint8Array(3)), (b) => b.toString(16).padStart(2, "0")).join(""); lsSet("sv-relay-id", id); }
+      this.gwId = id;
+    }
+    return this.gwId;
+  },
+  status(state, msg) {
+    $("#r-state").textContent = state;
+    if (msg !== undefined) $("#r-msg").textContent = msg;
+    $("#r-sent").textContent = String(this.sent);
+    $("#r-buf").textContent = String(this.buf.length);
+    $("#r-start").disabled = this.running; $("#r-stop").disabled = !this.running;
+  },
+  async start() {
+    let device;
+    try {
+      device = await navigator.bluetooth.requestDevice({ filters: [{ name: "SolarVest-PMB" }], optionalServices: [SVC] });
+    } catch (e) {
+      this.status("Not started", e.name === "NotFoundError" ? "No device selected." : "Cannot open the Bluetooth chooser: " + e.message);
+      return;
+    }
+    this.device = device; this.running = true;
+    device.addEventListener("gattserverdisconnected", () => this.onDisconnect());
+    this.timer = setInterval(() => this.flush(), 1000);
+    this.keepAwake();
+    await this.connect();
+  },
+  async connect() {
+    if (!this.running) return;
+    this.ble = "scanning"; this.stopPing(); this.status("Connecting", "Connecting to SolarVest-PMB…");
+    try {
+      const server = await this.device.gatt.connect();
+      const svc = await server.getPrimaryService(SVC);
+      const [a, b, c] = await Promise.all([svc.getCharacteristic(CH_A), svc.getCharacteristic(CH_B), svc.getCharacteristic(CH_CMD)]);
+      a.addEventListener("characteristicvaluechanged", (e) => this.onA(e.target.value));
+      b.addEventListener("characteristicvaluechanged", (e) => this.onB(e.target.value));
+      await a.startNotifications();
+      await b.startNotifications();
+      this.chCmd = c;         // only now: command writes must not overlap the CCCD writes above
+      this.ble = "connected"; this.reconnectDelay = 2000;
+      this.startPing();       // only after both subscriptions succeeded
+      this.status("Connected", "Forwarding telemetry to the server.");
+    } catch (e) {
+      this.ble = "scanning"; this.chCmd = null; this.stopPing();
+      this.status("Reconnecting", `Connection failed (${e.message}), retrying in ${Math.round(this.reconnectDelay / 1000)} s…`);
+      this.scheduleReconnect();
+    }
+  },
+  scheduleReconnect() {
+    clearTimeout(this.reconnectTimer);
+    if (!this.running) return;
+    this.reconnectTimer = setTimeout(() => this.connect(), this.reconnectDelay);
+    this.reconnectDelay = Math.min(this.reconnectDelay * 2, 30000);
+  },
+  onDisconnect() {
+    this.chCmd = null; this.stopPing();
+    if (!this.running) return;
+    this.ble = "scanning"; this.status("Reconnecting", "Bluetooth disconnected, reconnecting in 2 s…");
+    this.reconnectDelay = 2000; this.scheduleReconnect();
+  },
+  copy(dv) { return new Uint8Array(dv.buffer.slice(dv.byteOffset, dv.byteOffset + dv.byteLength)); },
+  onA(dv) {
+    const a = this.copy(dv); if (a.length < 20) return;
+    const seq = a[0], ts = Date.now() / 1000, old = this.pendA.get(seq);
+    if (old) clearTimeout(old.timer);
+    // If B with this seq never arrives, emit with the last known B after 1.5 s (as gateway.py does).
+    const timer = setTimeout(() => { const p = this.pendA.get(seq); if (p === entry) { this.pendA.delete(seq); if (this.lastB) this.emit(a, this.lastB, ts); } }, 1500);
+    const entry = { a, ts, timer };
+    this.pendA.set(seq, entry);
+  },
+  onB(dv) {
+    const b = this.copy(dv); if (b.length < 20) return;
+    this.lastB = b;
+    const p = this.pendA.get(b[0]);
+    if (p) { clearTimeout(p.timer); this.pendA.delete(b[0]); this.emit(p.a, b, p.ts); }
+  },
+  emit(a, b, ts) {
+    try { this.buf.push(svDecode(a, b, ts)); } catch (e) { return; }
+    if (this.buf.length > MAX_BUF) this.buf.splice(0, this.buf.length - MAX_BUF);
+    $("#r-buf").textContent = String(this.buf.length);
+  },
+  async flush() {
+    if (this.inflight || Date.now() < this.nextTry) return;
+    this.inflight = true;
+    const samples = this.buf.slice(0, BATCH), acks = this.acks.slice();
+    const body = { gateway: { id: this.id(), kind: "web", ble: this.running ? this.ble : "disconnected", rssi: null,
+                              device: this.ble === "connected" ? "SolarVest-PMB" : null }, samples, acks };
+    try {
+      const r = await api("/api/ingest", { json: body });
+      this.buf.splice(0, samples.length); this.acks.splice(0, acks.length);
+      this.sent += samples.length; this.backoff = 0;
+      if (this.running) this.status(this.ble === "connected" ? "Connected" : "Reconnecting");
+      for (const c of r.commands || []) await this.runCommand(c);
+    } catch (e) {
+      if (e instanceof AuthError) { this.stop("Session expired, relay stopped"); return; }
+      this.backoff = Math.min(this.backoff ? this.backoff * 2 : 2000, 30000);
+      this.nextTry = Date.now() + this.backoff;
+      this.status(this.running ? "Upload blocked" : "Not started", `Upload failed (${e.message}), retrying in ${Math.round(this.backoff / 1000)} s; data is buffered.`);
+    } finally { this.inflight = false; }
+  },
+  // Every write to COMMAND goes through here so two GATT writes are never in flight
+  // at once (Chrome: "GATT operation already in progress").
+  gattWrite(text) {
+    const run = this.wq.then(async () => {
+      const ch = this.chCmd;
+      if (!ch) throw new Error("Relay is not connected to the device");
+      const data = new TextEncoder().encode(text);
+      const write = ch.writeValueWithResponse ? ch.writeValueWithResponse(data)
+        : ch.writeValue ? ch.writeValue(data) : ch.writeValueWithoutResponse(data);
+      let timer;
+      const timeout = new Promise((_, rej) => { timer = setTimeout(() => rej(new Error("Write timed out")), 5000); });
+      try { await Promise.race([write, timeout]); } finally { clearTimeout(timer); }
+    });
+    this.wq = run.catch(() => {});
+    return run;
+  },
+  async runCommand(c) {
+    if (!this.chCmd) { this.acks.push({ id: c.id, ok: false, error: "Relay is not connected to the device" }); return; }
+    try {
+      await this.gattWrite(c.cmd);
+      this.acks.push({ id: c.id, ok: true, error: null });
+    } catch (e) { this.acks.push({ id: c.id, ok: false, error: "BLE write failed: " + e.message }); }
+  },
+  startPing() {
+    this.stopPing();
+    this.pingTimer = setInterval(() => { this.ping(); }, PING_MS);
+  },
+  stopPing() { clearInterval(this.pingTimer); this.pingTimer = 0; },
+  async ping() {
+    const ch = this.chCmd;
+    if (!this.running || !ch || this.ble !== "connected") return;
+    try {
+      await this.gattWrite("PING");
+      this.pings++;
+    } catch (e) {
+      console.warn("SolarVest relay: PING failed", e);
+      if (!this.running || this.chCmd !== ch) return;   // link already went away; reconnect is under way
+      // Treat like any BLE error: drop the link and let the normal reconnect path run.
+      this.stopPing(); this.chCmd = null;
+      this.status("Reconnecting", `Keepalive PING write failed (${e.message}), reconnecting…`);
+      try { if (this.device && this.device.gatt.connected) { this.device.gatt.disconnect(); return; } } catch (_) { /* fall through */ }
+      this.onDisconnect();
+    }
+  },
+  async keepAwake() {
+    if (!("wakeLock" in navigator) || document.visibilityState !== "visible") return;
+    try { this.wakeLock = await navigator.wakeLock.request("screen"); } catch (e) { $("#r-msg").textContent += " Could not get a screen wake lock; turn off auto-lock manually."; }
+  },
+  async stop(msg) {
+    this.running = false;
+    clearTimeout(this.reconnectTimer); clearInterval(this.timer); this.stopPing();
+    for (const p of this.pendA.values()) clearTimeout(p.timer);
+    this.pendA.clear();
+    try { if (this.device && this.device.gatt.connected) this.device.gatt.disconnect(); } catch (e) { /* ignore */ }
+    this.ble = "disconnected"; this.chCmd = null;
+    if (this.wakeLock) { try { await this.wakeLock.release(); } catch (e) { /* ignore */ } this.wakeLock = null; }
+    this.status("Not started", msg || "Relay stopped.");
+    if (msg === undefined) { this.nextTry = 0; await this.flush(); } // final heartbeat: ble disconnected + leftover samples
+  },
+};
+
+if (navigator.bluetooth) {
+  $("#r-start").addEventListener("click", () => Relay.start());
+  $("#r-stop").addEventListener("click", () => Relay.stop());
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible" && Relay.running && !Relay.wakeLock) Relay.keepAwake();
+    if (document.visibilityState === "visible" && Relay.wakeLock && Relay.wakeLock.released) { Relay.wakeLock = null; if (Relay.running) Relay.keepAwake(); }
+  });
+  addEventListener("beforeunload", (e) => { if (Relay.running) { e.preventDefault(); e.returnValue = ""; } });
+} else {
+  $("#relay").classList.add("hidden");
+  $("#relay-na").classList.remove("hidden");
+}
+
+/* ============================================================ timers + start */
+setInterval(() => {
+  if ($("#app").classList.contains("hidden")) return;
+  renderHeader(); renderControls(); drawCharts();
+}, 1000);
+// Periodic resync in case an SSE event was missed.
+setInterval(() => { if (!$("#app").classList.contains("hidden")) refreshState().catch(() => {}); }, 30000);
+boot();
+</script>
+</body>
+</html>

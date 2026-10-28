@@ -9,20 +9,20 @@
 
   <figure>
     <div class="figframe">@@sw-ingest|740@@</div>
-    <div class="figcap"><span class="fignum">Fig. 9</span>　Ingest &amp; alignment (write path).
+    <div class="figcap"><span class="fignum">Fig. 9</span> Ingest &amp; alignment (write path).
       Host timestamps on the three sources suffer tens to hundreds of ms of Bluetooth buffering jitter, so alignment
       <strong>does not rely on host clocks</strong> — it relies on hardware sync markers embedded in the data stream.</div>
   </figure>
   <figure>
     <div class="figframe">@@sw-serve|760@@</div>
-    <div class="figcap"><span class="fignum">Fig. 10</span>　Storage &amp; analysis (read path).
+    <div class="figcap"><span class="fignum">Fig. 10</span> Storage &amp; analysis (read path).
       Raw signals land in Parquet and are <strong>made read-only after writing</strong>; telemetry goes to TimescaleDB
       hypertables; all processing is re-runnable and never overwrites raw data.</div>
   </figure>
 
   <div class="row">
     <div class="col w50">
-      <h3 style="margin-top:0">5.1　Stack choices</h3>
+      <h3 style="margin-top:0">5.1 Stack choices</h3>
       <table class="t">
         <tr><th style="width:24%">Stage</th><th style="width:30%">Choice</th><th style="width:46%">Rationale / constraints</th></tr>
         <tr><td>BLE ingest</td><td class="mono">bleak (asyncio)</td><td>cross-platform; needs back-pressure and auto-reconnect</td></tr>
@@ -40,7 +40,7 @@
         what changed".</div>
     </div>
     <div class="col w50">
-      <h3 style="margin-top:0">5.2　Data model (core table)</h3>
+      <h3 style="margin-top:0">5.2 Data model (core table)</h3>
       <table class="t">
         <tr><th style="width:34%">Field</th><th style="width:20%">Type</th><th style="width:46%">Notes</th></tr>
         <tr><td class="mono">run_id</td><td class="mono">TEXT</td><td>primary-key prefix, maps to the manifest</td></tr>
@@ -49,16 +49,16 @@
         <tr class="alt"><td class="mono">v_pv_mv / i_pv_ua</td><td class="mono">INT</td><td>INA226 #1</td></tr>
         <tr><td class="mono">v_bat_mv / i_bat_ua</td><td class="mono">INT</td><td>INA226 #2, signed bidirectional</td></tr>
         <tr class="alt"><td class="mono">soc_pct</td><td class="mono">SMALLINT</td><td>coulomb-integration result</td></tr>
-        <tr><td class="mono">active_discharge_battery</td><td class="mono">CHAR(1)</td><td>'A' / 'B'　<span class="pill pill-solar">new in v2</span></td></tr>
-        <tr class="alt"><td class="mono">t_panel / t_skin / t_bat / t_chgr</td><td class="mono">SMALLINT</td><td>4-point thermometry　<span class="pill pill-solar">new in v2</span></td></tr>
-        <tr><td class="mono">irradiance_wm2</td><td class="mono">REAL</td><td>reference-cell measurement　<span class="pill pill-solar">new in v2</span></td></tr>
+        <tr><td class="mono">active_discharge_battery</td><td class="mono">CHAR(1)</td><td>'A' / 'B' <span class="pill pill-solar">new in v2</span></td></tr>
+        <tr class="alt"><td class="mono">t_panel / t_skin / t_bat / t_chgr</td><td class="mono">SMALLINT</td><td>4-point thermometry <span class="pill pill-solar">new in v2</span></td></tr>
+        <tr><td class="mono">irradiance_wm2</td><td class="mono">REAL</td><td>reference-cell measurement <span class="pill pill-solar">new in v2</span></td></tr>
         <tr class="alt"><td class="mono">fsm_state</td><td class="mono">SMALLINT</td><td>FSM state, for segmented statistics</td></tr>
       </table>
       <div class="co ok"><span class="co-t">Run Manifest required fields (CI rejects otherwise)</span>
-        <code>firmware_git_sha</code>　<code>pmb_h.build_hash</code>　<code>lib.build_hash</code>
-        　<code>battery_[ab].capacity_calibrated_mah</code>　<code>battery_[ab].cycles_before_run</code>
-        　<code>pv.attenuation</code>　<code>environment.irradiance_ref_wm2</code>
-        　<code>config.emc_strategy</code>（which of ADR-004 / 006 / 007 were active this run）
+        <code>firmware_git_sha</code> <code>pmb_h.build_hash</code> <code>lib.build_hash</code>
+         <code>battery_[ab].capacity_calibrated_mah</code> <code>battery_[ab].cycles_before_run</code>
+         <code>pv.attenuation</code> <code>environment.irradiance_ref_wm2</code>
+         <code>config.emc_strategy</code> (which of ADR-004 / 006 / 007 were active this run)
         <br/>Even perfboard has versions: <strong>move one jumper wire → build_hash +1</strong>.</div>
     </div>
   </div>

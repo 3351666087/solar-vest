@@ -1,0 +1,236 @@
+{
+ "back_pod_base": {
+  "watertight": true,
+  "material": "PETG white/light grey (reflects sunlight, runs cooler)",
+  "note": "PMB-H (M2×6 ×4) + 104050 battery (40.6 mm wide battery pocket + crush ribs; double-sided foam tape on the floor)",
+  "volume_cm3": 54.11,
+  "mass_g_100pct": 68.7,
+  "bbox_mm": [
+   101.0,
+   131.6,
+   26.5
+  ],
+  "transform": null
+ },
+ "back_pod_lid": {
+  "watertight": true,
+  "material": "PETG white/light grey",
+  "note": "M2×8 self-tapping ×4; a strip of 2 mm foam under each of the two hold-down ribs clamps the battery",
+  "volume_cm3": 29.68,
+  "mass_g_100pct": 37.7,
+  "bbox_mm": [
+   101.0,
+   131.6,
+   18.5
+  ],
+  "transform": null
+ },
+ "webbing_hook": {
+  "watertight": true,
+  "material": "PETG",
+  "note": "×2 on the back of the back pod; M2×6 self-tapping screws driven from inside the pod",
+  "volume_cm3": 4.74,
+  "mass_g_100pct": 6.0,
+  "bbox_mm": [
+   24.0,
+   34.0,
+   7.7
+  ],
+  "transform": null
+ },
+ "chest_pod_base": {
+  "watertight": true,
+  "material": "PETG",
+  "note": "LIB (bottom, M2×6 ×2) + BITalino Core B (top, four corner standoffs + two end stops)",
+  "volume_cm3": 27.43,
+  "mass_g_100pct": 34.8,
+  "bbox_mm": [
+   82.8,
+   123.5,
+   17.6
+  ],
+  "transform": null
+ },
+ "chest_pod_lid": {
+  "watertight": true,
+  "material": "PETG",
+  "note": "M2×8 self-tapping ×4; 2 mm foam under the two hold-down ribs presses on Core B's header row",
+  "volume_cm3": 18.77,
+  "mass_g_100pct": 23.8,
+  "bbox_mm": [
+   82.8,
+   123.5,
+   9.5
+  ],
+  "transform": null
+ },
+ "panel_shoe_TR": {
+  "watertight": true,
+  "material": "ASA (UV-resistant) or PETG",
+  "note": "Panel shoe, top right (wearer's left/right); webbing face to panel back 42.0 mm; hangs on webbing A",
+  "volume_cm3": 25.96,
+  "mass_g_100pct": 33.0,
+  "bbox_mm": [
+   34.8,
+   40.7,
+   64.4
+  ],
+  "transform": null
+ },
+ "panel_shoe_TL": {
+  "watertight": true,
+  "material": "ASA (UV-resistant) or PETG",
+  "note": "Panel shoe, top left (wearer's left/right); webbing face to panel back 42.0 mm; hangs on webbing A",
+  "volume_cm3": 25.96,
+  "mass_g_100pct": 33.0,
+  "bbox_mm": [
+   34.8,
+   40.7,
+   64.4
+  ],
+  "transform": null
+ },
+ "panel_shoe_BR": {
+  "watertight": true,
+  "material": "ASA (UV-resistant) or PETG",
+  "note": "Panel shoe, bottom right (wearer's left/right); webbing face to panel back 42.6 mm; hangs on webbing B",
+  "volume_cm3": 26.37,
+  "mass_g_100pct": 33.5,
+  "bbox_mm": [
+   33.1,
+   44.2,
+   66.4
+  ],
+  "transform": null
+ },
+ "panel_shoe_BL": {
+  "watertight": true,
+  "material": "ASA (UV-resistant) or PETG",
+  "note": "Panel shoe, bottom left (wearer's left/right); webbing face to panel back 42.6 mm; hangs on webbing B",
+  "volume_cm3": 26.37,
+  "mass_g_100pct": 33.5,
+  "bbox_mm": [
+   33.1,
+   44.2,
+   66.4
+  ],
+  "transform": null
+ },
+ "panel_shoe_TM": {
+  "watertight": true,
+  "material": "ASA (UV-resistant) or PETG",
+  "note": "Panel shoe, top middle (wearer's left/right); webbing face to panel back 27.4 mm; hangs on webbing A",
+  "volume_cm3": 17.18,
+  "mass_g_100pct": 21.8,
+  "bbox_mm": [
+   36.0,
+   40.7,
+   47.2
+  ],
+  "transform": null
+ },
+ "panel_shoe_BM": {
+  "watertight": true,
+  "material": "ASA (UV-resistant) or PETG",
+  "note": "Panel shoe, bottom middle (wearer's left/right); webbing face to panel back 20.2 mm; hangs on webbing B",
+  "volume_cm3": 14.21,
+  "mass_g_100pct": 18.1,
+  "bbox_mm": [
+   36.0,
+   43.2,
+   40.6
+  ],
+  "transform": null
+ },
+ "ref1_holder": {
+  "watertight": true,
+  "material": "ASA/PETG",
+  "note": "Clips onto the middle of the panel's left short edge; 40.6 × 28.6 pocket for the AK 40×28 reference cell, foam tape underneath brings it flush with the glass",
+  "volume_cm3": 10.1,
+  "mass_g_100pct": 12.8,
+  "bbox_mm": [
+   56.0,
+   40.0,
+   20.0
+  ],
+  "transform": null
+ },
+ "ref2_holder": {
+  "watertight": true,
+  "material": "ASA/PETG",
+  "note": "Left shoulder; 24.1° wedge levels the reference cell; 40.6 × 28.6 pocket; hook-side Velcro on the base",
+  "volume_cm3": 26.32,
+  "mass_g_100pct": 33.4,
+  "bbox_mm": [
+   50.0,
+   40.0,
+   24.8
+  ],
+  "transform": null
+ },
+ "c_case_base": {
+  "watertight": true,
+  "material": "PETG",
+  "note": "C: BITalino Board (official 108 × 65) + 523450; board-edge stops + battery end stops; ECG lead plugs in through the left-side window",
+  "volume_cm3": 31.11,
+  "mass_g_100pct": 39.5,
+  "bbox_mm": [
+   126.5,
+   85.8,
+   16.0
+  ],
+  "transform": null
+ },
+ "c_case_lid": {
+  "watertight": true,
+  "material": "PETG",
+  "note": "M2×8 ×4; 4 press posts (2 mm foam on each) hold down the board's two side rails; a flexure button actuates BTN",
+  "volume_cm3": 17.69,
+  "mass_g_100pct": 22.5,
+  "bbox_mm": [
+   126.5,
+   85.8,
+   6.2
+  ],
+  "transform": null
+ },
+ "ear_clip_pulsesensor": {
+  "watertight": true,
+  "material": "PETG or TPU",
+  "note": "PulseSensor ear clip for A (left earlobe); 0.5 mm foam inside the jaws",
+  "volume_cm3": 3.71,
+  "mass_g_100pct": 4.7,
+  "bbox_mm": [
+   31.5,
+   22.0,
+   11.0
+  ],
+  "transform": null
+ },
+ "stand_base": {
+  "watertight": true,
+  "material": "PETG (bench rig, print 2)",
+  "note": "Panel test stand base, 0–90° in 15° steps, M4×25 + wing nut ×2",
+  "volume_cm3": 79.58,
+  "mass_g_100pct": 101.1,
+  "bbox_mm": [
+   140.0,
+   50.0,
+   112.0
+  ],
+  "transform": null
+ },
+ "stand_cradle": {
+  "watertight": true,
+  "material": "PETG (print 2)",
+  "note": "U-channel gripping the panel's short edge; on the bench REF1 clips to the middle of the panel's top long edge",
+  "volume_cm3": 28.66,
+  "mass_g_100pct": 36.4,
+  "bbox_mm": [
+   120.0,
+   26.0,
+   61.6
+  ],
+  "transform": null
+ }
+}

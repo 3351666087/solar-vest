@@ -1,0 +1,497 @@
+[
+ {
+  "id": "W01",
+  "name": "panel_lead",
+  "length_mm": 221,
+  "cut_mm": 350,
+  "od_mm": 5.0,
+  "ends": [
+   null,
+   "ferrule"
+  ],
+  "conductors": [
+   [
+    "+ red",
+    "Panel junction box +",
+    "PMB-H J1-1 PV_IN+"
+   ],
+   [
+    "− blue",
+    "Panel junction box −",
+    "PMB-H J1-2 PV_IN−"
+   ]
+  ],
+  "source": "Original panel lead (measured from photo: junction box → waterproof connector ≈ 4.2 m, of which the coil ≈ 3.8 m; connector → stripped end 0.41 m + 7–8 cm of bare cores; OD 4.1 mm). Cut the panel side at 200 mm and solder it to the 100 mm tail left on the connector side (2 joints + heat-shrink); cut the other side of the connector to 200 mm, strip and clamp into the terminal",
+  "route": "Panel back → channel T1 → back pod PANEL port (secured with a cable-tie bridge)"
+ },
+ {
+  "id": "W02",
+  "name": "battery",
+  "length_mm": 50,
+  "cut_mm": 150,
+  "od_mm": 2.4,
+  "ends": [
+   null,
+   "PHR-2"
+  ],
+  "conductors": [
+   [
+    "red",
+    "Battery + (after PCM)",
+    "J2-1 BAT+"
+   ],
+   [
+    "black",
+    "Battery −",
+    "J2-2 GND"
+   ]
+  ],
+  "source": "Battery's own PH2.0 plug (⚠ red wire to J2 silkscreen +)",
+  "route": "Inside pod: battery left end → over the divider → J2"
+ },
+ {
+  "id": "W03",
+  "name": "ntc",
+  "length_mm": 36,
+  "cut_mm": 150,
+  "od_mm": 1.8,
+  "ends": [
+   null,
+   "PHR-2"
+  ],
+  "conductors": [
+   [
+    "—",
+    "NTC 10 kΩ (non-polarised)",
+    "J3-1 NTC_ADC"
+   ],
+   [
+    "—",
+    "NTC",
+    "J3-2 GND"
+   ]
+  ],
+  "source": "Ready-made NTC 10k B3950 with PH2.0 lead (purchased)",
+  "route": "NTC taped to the middle of the battery with high-temperature tape"
+ },
+ {
+  "id": "W04",
+  "name": "ref1",
+  "length_mm": 344,
+  "cut_mm": 450,
+  "od_mm": 2.4,
+  "ends": [
+   null,
+   "PHR-2"
+  ],
+  "conductors": [
+   [
+    "red",
+    "REF1 cell +",
+    "J7-1 REF1+"
+   ],
+   [
+    "black",
+    "REF1 cell −",
+    "J7-2 GND"
+   ]
+  ],
+  "source": "Panel-lead offcut (2-core Ø4.1) 0.45 m + 1 × BOM \"PH2mm straight-pin pre-wired\" plug, 2 solder joints + heat-shrink",
+  "route": "REF1 clip → panel left edge → channel T2 → REF1 port"
+ },
+ {
+  "id": "W05",
+  "name": "ref2",
+  "length_mm": 482,
+  "cut_mm": 600,
+  "od_mm": 2.4,
+  "ends": [
+   null,
+   "PHR-2"
+  ],
+  "conductors": [
+   [
+    "red",
+    "REF2 cell +",
+    "J8-1 REF2+"
+   ],
+   [
+    "black",
+    "REF2 cell −",
+    "J8-2 GND"
+   ]
+  ],
+  "source": "Panel-lead offcut 0.6 m + 1 × PH2 plug, 2 solder joints + heat-shrink",
+  "route": "Left-shoulder REF2 → back yoke → channel T3 → REF2 port"
+ },
+ {
+  "id": "W06",
+  "name": "J6_back_to_chest",
+  "length_mm": 531,
+  "cut_mm": 650,
+  "od_mm": 4.6,
+  "ends": [
+   "PHR-5",
+   "PHR-5"
+  ],
+  "conductors": [
+   [
+    "red",
+    "PMB-H J6-1 VLOAD",
+    "LIB J1-1 VLOAD"
+   ],
+   [
+    "black",
+    "J6-2 GND",
+    "J1-2 GND"
+   ],
+   [
+    "yellow",
+    "J6-3 SYNC",
+    "J1-3 SYNC_IN"
+   ],
+   [
+    "green",
+    "J6-4 unused (NC)",
+    "J1-4 spare (to TP5 only)"
+   ],
+   [
+    "black/blue",
+    "J6-5 GND",
+    "J1-5 GND"
+   ]
+  ],
+  "source": "PH2.0 5P double-ended straight-through (pin 1 to pin 1) cable 0.7 m (purchased; route 531 mm, 0.6 m leaves no slack for bending); a 5P magnetic connector can be inserted in-line",
+  "route": "Back pod CHEST port → channel T4 (right waistline) → chest pod BACK UNIT port"
+ },
+ {
+  "id": "W07",
+  "name": "lib_to_core_bat",
+  "length_mm": 59,
+  "cut_mm": 150,
+  "od_mm": 2.0,
+  "ends": [
+   "PHR-2",
+   "PHR-2"
+  ],
+  "conductors": [
+   [
+    "red",
+    "LIB J2-1 VBIT",
+    "Core B battery socket +"
+   ],
+   [
+    "black",
+    "LIB J2-2 GND",
+    "Core B battery socket −"
+   ]
+  ],
+  "source": "BOM \"PH2.0 jumper cable\", double-ended 10 cm (⚠ red wire in the same position as on the original Core battery plug)",
+  "route": "Inside pod, passing over the Core"
+ },
+ {
+  "id": "W08",
+  "name": "sync_to_I1",
+  "length_mm": 53,
+  "cut_mm": 150,
+  "od_mm": 2.4,
+  "ends": [
+   "PHR-2",
+   "UC-E6"
+  ],
+  "conductors": [
+   [
+    "—",
+    "LIB J3-1 SYNC_OUT",
+    "UC-E6 SIGNAL → Core B port I1"
+   ],
+   [
+    "—",
+    "LIB J3-2 GND",
+    "UC-E6 GND"
+   ],
+   [
+    "—",
+    "(not connected)",
+    "UC-E6 VCC / REF cut short and insulated"
+   ]
+  ],
+  "source": "PLUX \"UC-E6 to open-end\" sensor cable with one end cut off (purchased) + PH2 pre-wired lead, crimped/soldered",
+  "route": "Inside pod → out through the right window → into I1"
+ },
+ {
+  "id": "W09",
+  "name": "ecg_B_uce6",
+  "length_mm": 147,
+  "cut_mm": 250,
+  "od_mm": 3.0,
+  "ends": [
+   null,
+   "UC-E6"
+  ],
+  "conductors": [
+   [
+    "—",
+    "HeartBIT ECG sensor UC-E6",
+    "Core B port A2 (original PLUX cable, pin-to-pin)"
+   ]
+  ],
+  "source": "30 cm UC-E6 sensor cable supplied with the HeartBIT kit ECG sensor (there is also a 10 cm one — too short)",
+  "route": "Inner pocket → cable hole B (brass eyelet) → pocket → into A2"
+ },
+ {
+  "id": "W10a",
+  "name": "lead_B_IN+",
+  "length_mm": 185,
+  "cut_mm": 300,
+  "od_mm": 2.0,
+  "ends": [
+   null,
+   "snap"
+  ],
+  "conductors": [
+   [
+    "red",
+    "HeartBIT ECG sensor IN+",
+    "Electrode B_IN+"
+   ]
+  ],
+  "source": "Leads supplied with the HeartBIT kit ECG sensor",
+  "route": "Between skin and lining, held by elastic loops"
+ },
+ {
+  "id": "W10b",
+  "name": "lead_B_IN−",
+  "length_mm": 142,
+  "cut_mm": 250,
+  "od_mm": 2.0,
+  "ends": [
+   null,
+   "snap"
+  ],
+  "conductors": [
+   [
+    "black",
+    "HeartBIT ECG sensor IN−",
+    "Electrode B_IN-"
+   ]
+  ],
+  "source": "Leads supplied with the HeartBIT kit ECG sensor",
+  "route": "Between skin and lining, held by elastic loops"
+ },
+ {
+  "id": "W10c",
+  "name": "lead_B_REF",
+  "length_mm": 172,
+  "cut_mm": 300,
+  "od_mm": 2.0,
+  "ends": [
+   null,
+   "snap"
+  ],
+  "conductors": [
+   [
+    "white",
+    "HeartBIT ECG sensor REF",
+    "Electrode B_REF"
+   ]
+  ],
+  "source": "Leads supplied with the HeartBIT kit ECG sensor",
+  "route": "Between skin and lining, held by elastic loops"
+ },
+ {
+  "id": "W12",
+  "name": "C_battery",
+  "length_mm": 118,
+  "cut_mm": 200,
+  "od_mm": 2.0,
+  "ends": [
+   null,
+   "PHR-2"
+  ],
+  "conductors": [
+   [
+    "red",
+    "523450 +",
+    "Board power block PWR +"
+   ],
+   [
+    "black",
+    "523450 −",
+    "PWR −"
+   ]
+  ],
+  "source": "Lead supplied with BOM \"523450 1000 mAh\"; if the plug differs, re-terminate with a \"PH2mm straight-pin pre-wired\" lead",
+  "route": "Inside case, routed around the top edge of the board"
+ },
+ {
+  "id": "W11",
+  "name": "C_electrode_cable",
+  "length_mm": 83,
+  "cut_mm": 200,
+  "od_mm": 3.0,
+  "ends": [
+   "UC-E6",
+   "Y"
+  ],
+  "conductors": [
+   [
+    "red",
+    "UC-E6 → C's ECG module",
+    "Electrode C_IN+ (below left clavicle)"
+   ],
+   [
+    "black",
+    "—",
+    "Electrode C_IN− (below right clavicle)"
+   ],
+   [
+    "white",
+    "—",
+    "Electrode C_REF (left lower ribs)"
+   ]
+  ],
+  "source": "PLUX 3-lead electrode cable (supplied with the Board kit, or taken from the HeartBIT kit)",
+  "route": "C case left window → cable hole C → splits inside the vest → skin"
+ },
+ {
+  "id": "W11a",
+  "name": "lead_C_IN+",
+  "length_mm": 124,
+  "cut_mm": 250,
+  "od_mm": 2.0,
+  "ends": [
+   null,
+   "snap"
+  ],
+  "conductors": [
+   [
+    "red",
+    "3-lead split",
+    "Electrode C_IN+"
+   ]
+  ],
+  "source": "Same as W11",
+  "route": "Between skin and lining"
+ },
+ {
+  "id": "W11b",
+  "name": "lead_C_IN-",
+  "length_mm": 148,
+  "cut_mm": 250,
+  "od_mm": 2.0,
+  "ends": [
+   null,
+   "snap"
+  ],
+  "conductors": [
+   [
+    "black",
+    "3-lead split",
+    "Electrode C_IN-"
+   ]
+  ],
+  "source": "Same as W11",
+  "route": "Between skin and lining"
+ },
+ {
+  "id": "W11c",
+  "name": "lead_C_REF",
+  "length_mm": 163,
+  "cut_mm": 250,
+  "od_mm": 2.0,
+  "ends": [
+   null,
+   "snap"
+  ],
+  "conductors": [
+   [
+    "white",
+    "3-lead split",
+    "Electrode C_REF"
+   ]
+  ],
+  "source": "Same as W11",
+  "route": "Between skin and lining"
+ },
+ {
+  "id": "W13",
+  "name": "pulsesensor",
+  "length_mm": 512,
+  "cut_mm": 600,
+  "od_mm": 2.6,
+  "ends": [
+   "UC-E6",
+   null
+  ],
+  "conductors": [
+   [
+    "red",
+    "PulseSensor +",
+    "A port A3 VCC"
+   ],
+   [
+    "black",
+    "PulseSensor −",
+    "A3 GND"
+   ],
+   [
+    "purple",
+    "PulseSensor signal",
+    "A3 SIGNAL"
+   ]
+  ],
+  "source": "Original HeartBIT kit PulseSensor cable (≈ 60 cm)",
+  "route": "Top edge of A pocket → left-front yoke elastic loop → side of neck → left earlobe clip"
+ },
+ {
+  "id": "W14",
+  "name": "TC1_panel",
+  "length_mm": 592,
+  "cut_mm": 700,
+  "od_mm": 1.8,
+  "ends": [
+   null,
+   "K-mini"
+  ],
+  "conductors": [
+   [
+    "yellow/red",
+    "Type-K thermocouple +",
+    "Thermometer K plug +"
+   ],
+   [
+    "red/blue",
+    "Type-K thermocouple −",
+    "Thermometer K plug −"
+   ]
+  ],
+  "source": "BOM \"Type-K surface thermocouple\", supplied with plug",
+  "route": "Centre of panel backsheet (high-temperature aluminium-foil tape) → channel → left-front plug pouch"
+ },
+ {
+  "id": "W15",
+  "name": "TC2_airgap",
+  "length_mm": 597,
+  "cut_mm": 700,
+  "od_mm": 1.8,
+  "ends": [
+   null,
+   "K-mini"
+  ],
+  "conductors": [
+   [
+    "yellow/red",
+    "Type-K thermocouple +",
+    "Thermometer K plug +"
+   ],
+   [
+    "red/blue",
+    "Type-K thermocouple −",
+    "Thermometer K plug −"
+   ]
+  ],
+  "source": "BOM \"Type-K surface thermocouple\", supplied with plug",
+  "route": "Vest surface under the panel (heat reaching the body) → channel → plug pouch"
+ }
+]

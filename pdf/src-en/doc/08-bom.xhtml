@@ -17,25 +17,25 @@
       <div class="bl-d">plus P1 ×10 (data quality) and P2 ×6 (scope-dependent)</div></div>
   </div>
 
-  <h3>6.1　<span class="tag tag-have">A</span>　In-stock materials and confirmed roles</h3>
+  <h3>6.1 <span class="tag tag-have">A</span> In-stock materials and confirmed roles</h3>
   <table class="t">
     <tr><th style="width:30%">Item</th><th style="width:9%">Qty</th><th style="width:22%">Role in this architecture</th><th style="width:39%">Status &amp; notes</th></tr>
     <tr><td>395×460 mm 18 V 30 W solar panel</td><td class="c">1</td><td>sole energy source</td>
-        <td><span class="pill pill-solar">role set</span>　backpack/rack mounted, not skin-tight; <strong>never connect directly to EVK10941</strong></td></tr>
+        <td><span class="pill pill-solar">role set</span> backpack/rack mounted, not skin-tight; <strong>never connect directly to EVK10941</strong></td></tr>
     <tr class="alt"><td>EVK10941 (AEM10941)</td><td class="c">1</td><td>low-voltage comparison branch</td>
-        <td><span class="pill pill-muted">off main chain</span>　~5 V input limit, incompatible with the 18 V panel; pair with a small flex panel for comparison work</td></tr>
+        <td><span class="pill pill-muted">off main chain</span> ~5 V input limit, incompatible with the 18 V panel; pair with a small flex panel for comparison work</td></tr>
     <tr><td>523450 1000 mAh Li battery pack</td><td class="c">1</td><td>control Unit A supply</td>
         <td>only 0.64 d autonomy — insufficient for the DUT; ⚠ confirm whether it has a PCM protection board</td></tr>
     <tr class="alt"><td>BITalino (bare boards)</td><td class="c">2</td><td>DUT + control pair</td>
-        <td><span class="pill pill-risk">to verify</span>　⚠ model / BT or BLE / measured power draw (TC-01)</td></tr>
+        <td><span class="pill pill-risk">to verify</span> ⚠ model / BT or BLE / measured power draw (TC-01)</td></tr>
     <tr><td>BITalino HeartBIT kit</td><td class="c">1 kit</td><td>primary ECG acquisition</td>
-        <td><span class="pill pill-risk">to verify</span>　⚠ check packing list item by item; does it include an extra main board (2 or 3 boards total)</td></tr>
+        <td><span class="pill pill-risk">to verify</span> ⚠ check packing list item by item; does it include an extra main board (2 or 3 boards total)</td></tr>
     <tr class="alt"><td>2.7 V 10 F supercapacitors</td><td class="c">3</td><td>battery-switch hold-up</td>
-        <td><span class="pill pill-solar">role changed</span>　2 in series → 5.4 V/5 F; 3rd is a spare. v1.0's leakage worry is irrelevant at the new power level</td></tr>
+        <td><span class="pill pill-solar">role changed</span> 2 in series → 5.4 V/5 F; 3rd is a spare. v1.0's leakage worry is irrelevant at the new power level</td></tr>
     <tr><td>YJL3404A</td><td class="c">1</td><td>load-switch prototyping</td>
-        <td><span class="pill pill-ok">identified</span>　MOSFET. A single unit isn't reproducible — production part is P0-7</td></tr>
+        <td><span class="pill pill-ok">identified</span> MOSFET. A single unit isn't reproducible — production part is P0-7</td></tr>
     <tr class="alt"><td>TEUCER HP600</td><td class="c">1</td><td>component → enclosure conduction</td>
-        <td><span class="pill pill-risk">role must be corrected</span>　it is a <strong>heat-conducting</strong> pad;
+        <td><span class="pill pill-risk">role must be corrected</span> it is a <strong>heat-conducting</strong> pad;
           between panel and body it would pump 60–70 °C into skin. The body side needs insulation (P0-10)</td></tr>
     <tr><td>K-type surface thermocouples</td><td class="c">2</td><td>thermal-safety sensing</td>
         <td>measurement points grew from 2 to 4 — 2 more needed (P1-14)</td></tr>
@@ -44,7 +44,7 @@
     <tr><td>Digital temp-controlled iron / wire strippers / solder / heat-shrink / PH2.0 wire / Dupont wires</td><td class="c">—</td><td>assembly tools &amp; consumables</td>
         <td>sufficient; ⚠ confirm solder is leaded (300–330 °C) or lead-free (340–370 °C)</td></tr>
     <tr class="alt"><td>Disposable ECG electrodes</td><td class="c">1 pack</td><td>consumable</td>
-        <td><span class="pill pill-risk">severely short</span>　a long-term study needs ~500 pcs (P0-8)</td></tr>
+        <td><span class="pill pill-risk">severely short</span> a long-term study needs ~500 pcs (P0-8)</td></tr>
     <tr><td>Breadboard / board shears / thermal grease</td><td class="c">—</td><td>bench aids</td>
         <td>⚠ breadboards <strong>must not be used in the charge path</strong> (contact resistance heats; readings untrustworthy)</td></tr>
   </table>
@@ -57,7 +57,7 @@
 </div>
 
 <div class="cont">
-  <h3 style="margin-top:0">6.2　<span class="tag tag-make">B</span>　The three parts to fabricate</h3>
+  <h3 style="margin-top:0">6.2 <span class="tag tag-make">B</span> The three parts to fabricate</h3>
   <table class="t">
     <tr><th style="width:16%">Part no.</th><th style="width:20%">Name</th><th style="width:14%">Process</th><th style="width:50%">Content &amp; effort</th></tr>
     <tr><td class="mono">PMB-H</td><td>power main board (backpack unit)</td><td>2-layer in-house PCB</td>
@@ -71,17 +71,17 @@
           (single-ended, avoids ground loops); pinout labeled on both ends</td></tr>
   </table>
 
-  <h3>6.3　Three scenarios for the lab's PCB capability</h3>
+  <h3>6.3 Three scenarios for the lab's PCB capability</h3>
   <p>The lab has PCB fabrication equipment, compressing the iteration loop from "5–7 day fab" to <strong>same day</strong>.
     Its capability must be characterized first (Q7, §8):</p>
   <table class="t">
     <tr><th style="width:20%">Scenario</th><th style="width:26%">Capability</th><th style="width:30%">How PMB-H gets built</th><th style="width:24%">Verdict</th></tr>
-    <tr><td><strong>A</strong>　mill only</td><td>1/2-sided copper, rivet vias, no solder mask</td>
+    <tr><td><strong>A</strong> mill only</td><td>1/2-sided copper, rivet vias, no solder mask</td>
         <td>in-house 2-layer; <strong>INA226 (VSSOP-10, 0.5 mm pitch) replaced by a soldered-in module</strong></td>
-        <td><span class="pill pill-ok">viable</span>　conformal coat required</td></tr>
-    <tr class="alt"><td><strong>B</strong>　etch + via metallization + solder mask</td><td>near-industrial 2-layer</td>
+        <td><span class="pill pill-ok">viable</span> conformal coat required</td></tr>
+    <tr class="alt"><td><strong>B</strong> etch + via metallization + solder mask</td><td>near-industrial 2-layer</td>
         <td>in-house, VSSOP-10 directly placeable</td><td><span class="pill pill-ok">recommended</span></td></tr>
-    <tr><td><strong>C</strong>　B + reflow / hot air / stencil</td><td>full prototype line</td>
+    <tr><td><strong>C</strong> B + reflow / hot air / stencil</td><td>full prototype line</td>
         <td>all in-house, any package</td><td><span class="pill pill-ok">best</span></td></tr>
   </table>
   <div class="co ok"><span class="co-t">Good news: the QFN problem is gone</span>
@@ -89,20 +89,20 @@
     After the change, AEM10941 is off the main chain; the hardest remaining package is the INA226's VSSOP-10,
     worked around with a ready-made module in scenario A. <strong>In all three scenarios, Rev B needs no outsourced PCBA.</strong></div>
 
-  <h3>6.4　Hand-soldering work list</h3>
+  <h3>6.4 Hand-soldering work list</h3>
   <p>Once the PCBs exist, the iron work (~1 h total, all easy through-hole):</p>
   <div class="row">
     <div class="col w50"><ul class="cl">
-      <li><span class="box"></span>J1 screw terminal / XT30 (PV input)　★☆☆</li>
-      <li><span class="box"></span>J2 / J3 JST-PH 2.0 vertical (batteries A/B)　★☆☆</li>
-      <li><span class="box"></span>J4 / J5 2-pin headers (NTC ×2)　★☆☆</li>
-      <li><span class="box"></span>J6 5-core connector (umbilical)　★☆☆</li>
+      <li><span class="box"></span>J1 screw terminal / XT30 (PV input) ★☆☆</li>
+      <li><span class="box"></span>J2 / J3 JST-PH 2.0 vertical (batteries A/B) ★☆☆</li>
+      <li><span class="box"></span>J4 / J5 2-pin headers (NTC ×2) ★☆☆</li>
+      <li><span class="box"></span>J6 5-core connector (umbilical) ★☆☆</li>
     </ul></div>
     <div class="col w50"><ul class="cl">
-      <li><span class="box"></span>C10 / C11 supercaps ×2 (through-hole, <strong>mind polarity</strong>)　★★☆</li>
-      <li><span class="box"></span>XIAO nRF52840 module (castellated)　★★☆</li>
-      <li><span class="box"></span>test-point headers ×6　★☆☆</li>
-      <li><span class="box"></span>J7 JST-PH (→ BITalino, <strong>measure polarity first</strong>)　★☆☆</li>
+      <li><span class="box"></span>C10 / C11 supercaps ×2 (through-hole, <strong>mind polarity</strong>) ★★☆</li>
+      <li><span class="box"></span>XIAO nRF52840 module (castellated) ★★☆</li>
+      <li><span class="box"></span>test-point headers ×6 ★☆☆</li>
+      <li><span class="box"></span>J7 JST-PH (→ BITalino, <strong>measure polarity first</strong>) ★☆☆</li>
     </ul></div>
   </div>
   <div class="co risk"><span class="co-t">The two jobs most likely to cause irreversible damage</span>

@@ -31,9 +31,9 @@ public class Audit {
                 float bodyTop = land ? 15f : 17f, bodyBot = ph - (land ? 14f : 16f);
                 float lastMm = last * ph / H;
                 float fill = Math.max(0, (lastMm - bodyTop)) / (bodyBot - bodyTop) * 100;
-                String flag = fill < 55 ? "  <-- 半空" : "";
-                System.out.printf("p%-3d %s  内容到 %.0f mm / %.0f mm   填充 %3.0f%%%s%n",
-                    i+1, land ? "横" : "纵", lastMm, bodyBot, fill, flag);
+                String flag = fill < 55 ? "  <-- half empty" : "";
+                System.out.printf("p%-3d %s  content to %.0f mm / %.0f mm   fill %3.0f%%%s%n",
+                    i+1, land ? "L" : "P", lastMm, bodyBot, fill, flag);
             }
         }
     }
