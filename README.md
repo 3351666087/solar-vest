@@ -13,6 +13,11 @@
 
 <img src="docs/renders/1_rear-three-quarter.jpg" alt="Solar Vest: rear three-quarter render of the full assembly" width="640">
 
+**Also in this repo: [SolarBand V3-F](wristband/README.md), a light-harvesting health wristband (design complete, simulation-verified)**<br>
+**本仓库还包含 [SolarBand V3-F](wristband/README.md) 太阳能健康手环（设计完成，仿真验证）**
+
+<img src="wristband/cad/img/pod_iso.png" alt="SolarBand pod" height="200"> <img src="wristband/cad/img/board_iso.png" alt="SolarBand 8-layer board" height="200">
+
 **[English](#english) | [中文](#中文)**
 
 </div>
@@ -84,6 +89,15 @@ flowchart LR
 | ESP32 gateway | MicroPython 1.28 port of the same gateway (uses `aioble`) | [`software/gateway-esp32/`](software/gateway-esp32/) |
 | Protocol | Interface spec (GATT layout, HTTP API, console UI) and shared decode test vectors | [`software/SPEC.md`](software/SPEC.md), [`software/protocol/vectors.json`](software/protocol/vectors.json) |
 | CAD / EDA generators | build123d enclosures, SKiDL / pcbnew board scripts, JLCPCB rotation check, vest patterns, harness, fit checks, ngspice testbenches | [`tools/cad/`](tools/cad/) |
+
+### SolarBand wristband (sister project)
+
+A wrist-worn pod on the same principle as the vest, in [`wristband/`](wristband/README.md): PV strips on the lid and on a strap wing charge a 70 mAh cell while it is worn; ECG, PPG, skin temperature and motion; a 1.08" reflective display, BLE, a vibration motor, an isolated magnetic USB-C head. **Status: design complete and verified by simulation only; nothing built or ordered.**
+
+- **Board:** 43 × 37 × 5.4 mm pod, 40 × 34 mm 8-layer board, 242 parts, routed with 0 unconnected items and 0 DRC errors.
+- **Production package:** one-command JLCPCB package with a placement gate that proves every part rotation (GREEN 192, PREVIEW 15, RED 0).
+- **Simulations:** power and energy, thermal, 5-bar water pressure and drop, ECG noise and patient current, ESD, and an FDTD antenna model (12 % efficiency on the body).
+- **Routing:** an in-house routing environment, a negotiated-congestion router in C plus an evolutionary search run on a rented 128-core machine. It took the board from 130 unconnected items (Freerouting) to 0; the steps are in [`wristband/README.md`](wristband/README.md#how-the-board-was-routed-130--0).
 
 ### Repository map
 
@@ -221,6 +235,11 @@ Some scripts expect tool locations from the original workstation (KiCad app path
 - [ ] ECG comparison: B (solar) vs C (battery control), same subject, same time
 - [ ] Sew the vest and move from bench to body
 
+**SolarBand wristband (2026-11-17):**
+
+- [x] Design, routed 8-layer board, JLCPCB production package, CAD and simulation sign-off
+- [ ] Supervisor decisions listed in [`wristband/docs/FINAL_REPORT_EN.md`](wristband/docs/FINAL_REPORT_EN.md); first build, antenna bench tune and the maker's bench tests
+
 ### Safety
 
 > [!WARNING]
@@ -317,6 +336,15 @@ flowchart LR
 | ESP32 网关 | 同一网关的 MicroPython 1.28 移植版（基于 `aioble`） | [`software/gateway-esp32/`](software/gateway-esp32/) |
 | 协议 | 接口规范（GATT 布局、HTTP API、控制台界面）和共用的解码测试向量 | [`software/SPEC.md`](software/SPEC.md)、[`software/protocol/vectors.json`](software/protocol/vectors.json) |
 | CAD / EDA 生成脚本 | build123d 外壳、SKiDL / pcbnew 电路板脚本、嘉立创旋转角核对、背心版型、线束、装配干涉检查、ngspice 仿真 | [`tools/cad/`](tools/cad/) |
+
+### SolarBand 手环（姊妹项目）
+
+在 [`wristband/`](wristband/README.md) 里，原理和背心相同，戴在手腕上：表盖和表带翼片上的光伏条在佩戴时给 70 mAh 电池充电；测心电、PPG、皮温和运动；带 1.08 英寸反射屏、蓝牙、振动马达和隔离的磁吸 C 口充电头。**状态：设计完成，只做了仿真验证，还没有制作或下单。**
+
+- **主板：** 表体 43 × 37 × 5.4 mm，8 层板 40 × 34 mm，242 个元件，已全部走通：0 断线、0 规则错误。
+- **生产包：** 一条命令生成嘉立创生产文件，贴片方向逐个证明（通过 192，预览确认 15，失败 0）。
+- **仿真：** 电源与续航、发热、5 bar 水压与跌落、心电噪声与病人电流、静电，以及天线电磁仿真（戴在手上效率 12 %）。
+- **布线：** 自己搭的布线环境，用 C 写的协商式布线器加上在租用的 128 核机器上跑的进化搜索，把断线从 130 处（Freerouting）压到 0，过程见 [`wristband/README.md`](wristband/README.md#how-the-board-was-routed-130--0)。
 
 ### 目录结构
 
@@ -452,6 +480,11 @@ python3 software/gateway-mac/gateway.py --dry-run    # 不用蓝牙，回放测�
 - [ ] 晴天户外充电验证（MPPT 工作点、能量收支）
 - [ ] 心电对比：B（太阳能）对 C（电池对照），同一人、同一时间
 - [ ] 缝制背心，从桌面走上身体
+
+**SolarBand 手环（2026-11-17）：**
+
+- [x] 设计、8 层板走线、嘉立创生产包、CAD 与仿真验收
+- [ ] 导师需要决定的事项（见 [`wristband/docs/FINAL_REPORT_EN.md`](wristband/docs/FINAL_REPORT_EN.md)）；首次打样、天线实测调谐、生产厂台架测试
 
 ### 安全须知
 

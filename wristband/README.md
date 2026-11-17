@@ -27,6 +27,26 @@ Start with [docs/FINAL_REPORT_EN.md](docs/FINAL_REPORT_EN.md).
 
 Open risks (antenna tune, ESD residual, drop bumpers, 8-layer 1.0 mm stack availability, stock of U15 / U4 / U5) are listed in section 6 of the report.
 
+## How the board was routed (130 → 0)
+
+Every step kept 0 DRC errors; only the unconnected count changed.
+
+| Step | Unconnected |
+|---|---|
+| Freerouting on the first 41 × 34 mm board | 130 |
+| Motor cut-out moved off the strip between the ECG plates, pod 2 mm longer | 88 |
+| Own negotiated-congestion router (PathFinder-style, C core): all nets negotiate together instead of first-come routing | 58 |
+| Six more nets forbidden over the ECG plates (noise), 6 layers | 75 |
+| 8 layers | 55 |
+| Neck-down to 0.09 mm within 1.5 mm of pads; forbidden nets allowed on the two shielded inner layers; fan-out may not close a neighbour's pad exit; router weights | 33 |
+| Pod widened to 43 × 37 mm (board 40 × 34) | 16 |
+| Two comparators moved from X2SON to SC70, whose centre pad could not escape | 16, all congestion, no dead ends |
+| Evolutionary search (placement moves + router weights) on a rented 128-core machine | 7 |
+| Local rip-up and reroute of the blocking segments, no part moved | 1 |
+| One I2C via over plate E1, allowed as a named exception (I2C is silent during ECG by firmware) | **0** |
+
+The first half came from diagnosis (why each connection could not route); the second half from search and finishing.
+
 ## Folder map
 
 | Folder | What it holds | Private source (`v3/...` in the reports) |
