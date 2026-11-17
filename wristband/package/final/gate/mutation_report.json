@@ -1,0 +1,82 @@
+{
+ "M1_cpl_mutations": {
+  "parts": 207,
+  "not_tested_single_land": [
+   "J11",
+   "J15",
+   "J18",
+   "J19",
+   "J40"
+  ],
+  "mutations": 1212,
+  "caught": 1212,
+  "escaped": [],
+  "verdict": "PASS",
+  "g7_baseline_failures": []
+ },
+ "M2_pad_number_permutation": {
+  "mutated": 57,
+  "exempt_mod180": [
+   "D13",
+   "D15",
+   "D18",
+   "D5",
+   "D6",
+   "D7",
+   "D8",
+   "X2"
+  ],
+  "caught": 49,
+  "escaped": [],
+  "verdict": "PASS"
+ },
+ "M3_wrong_package": {
+  "mutated": 56,
+  "caught": 56,
+  "caught_by_geometry": 47,
+  "geometry_blind": [
+   "D13 given C105226_C0402.kicad_mod: only the G2 binding check fires; geometry alone passes",
+   "D15 given C105226_C0402.kicad_mod: only the G2 binding check fires; geometry alone passes",
+   "D16 given C105226_C0402.kicad_mod: only the G2 binding check fires; geometry alone passes",
+   "D18 given C105226_C0402.kicad_mod: only the G2 binding check fires; geometry alone passes",
+   "D5 given C105226_C0402.kicad_mod: only the G2 binding check fires; geometry alone passes",
+   "D6 given C105226_C0402.kicad_mod: only the G2 binding check fires; geometry alone passes",
+   "D7 given C105226_C0402.kicad_mod: only the G2 binding check fires; geometry alone passes",
+   "D8 given C105226_C0402.kicad_mod: only the G2 binding check fires; geometry alone passes",
+   "X2 given C105226_C0402.kicad_mod: only the G2 binding check fires; geometry alone passes"
+  ],
+  "verdict": "PASS"
+ },
+ "M4_board_copy_turned": {
+  "turned": [
+   "U1+90",
+   "U7+180",
+   "D9+180",
+   "Q20+90",
+   "U21+270",
+   "C101+180",
+   "J13+180"
+  ],
+  "old_cpl_fails_g7": [
+   "C101",
+   "D9",
+   "J13",
+   "Q20",
+   "U1",
+   "U21",
+   "U7"
+  ],
+  "new_cpl_fails_g7": [],
+  "new_rotations": {
+   "C101": "270.00 -> 90.00",
+   "D9": "90.00 -> 270.00",
+   "J13": "90.00 -> 270.00",
+   "Q20": "180.00 -> 270.00",
+   "U1": "270.00 -> 0.00",
+   "U21": "180.00 -> 90.00",
+   "U7": "270.00 -> 90.00"
+  },
+  "verdict": "PASS"
+ },
+ "verdict": "PASS"
+}

@@ -1,0 +1,29 @@
+{
+ "ANT_FEED w0.17": {
+  "n": 3,
+  "gap_other_cu_med": 0.153,
+  "gap_gnd_med": 0.153,
+  "Z_gnd_gap": 48.8,
+  "eeff_gnd_gap": 3.04,
+  "Z_other_gap": 48.8,
+  "eeff_other_gap": 3.04
+ },
+ "RF_50R w0.09": {
+  "n": 18,
+  "gap_other_cu_med": 0.151,
+  "gap_gnd_med": 1.948,
+  "Z_gnd_gap": 78.6,
+  "eeff_gnd_gap": 3.25,
+  "Z_other_gap": 70.1,
+  "eeff_other_gap": 2.89
+ },
+ "RF_50R w0.15": {
+  "n": 3,
+  "gap_other_cu_med": 0.229,
+  "gap_gnd_med": 0.672,
+  "Z_gnd_gap": 56.6,
+  "eeff_gnd_gap": 3.24,
+  "Z_other_gap": 54.0,
+  "eeff_other_gap": 3.08
+ }
+}

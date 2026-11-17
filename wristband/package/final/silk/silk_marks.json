@@ -1,0 +1,720 @@
+{
+ "input": "/path/to/SolarVest_work/wristband/v3/final/board/solarband_v3f_final_rf.kicad_pcb",
+ "output": "/path/to/SolarVest_work/wristband/v3/package/final/board/solarband_v3f_final_rf_silk.kicad_pcb",
+ "input_sha256": "372e27f2ff56c12c8790340e98dce140be7d77c304ee478e1f0f2862973fe833",
+ "output_sha256": "0c095cb6f60dc2e5984bea5de2bf75589dc978fe1ac557118ae0398948bb0478",
+ "rules": {
+  "width": 0.15,
+  "dot_outer_diameter": 0.25,
+  "pad": 0.15,
+  "silk": 0.15,
+  "via": 0.1,
+  "edge": 0.3,
+  "near": 1.5
+ },
+ "targets": 57,
+ "placed": 57,
+ "unplaced": [],
+ "marks": [
+  {
+   "ref": "D10",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    120.25,
+    128.28
+   ],
+   "gap_to_ref_pad": 0.158,
+   "note": "cathode bar did not fit; dot instead"
+  },
+  {
+   "ref": "D11",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "bar",
+   "width": 0.15,
+   "at": [
+    123.2,
+    100.25
+   ],
+   "gap_to_ref_pad": 0.2
+  },
+  {
+   "ref": "D12",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    126.825,
+    123.195
+   ],
+   "gap_to_ref_pad": 0.175
+  },
+  {
+   "ref": "D13",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    101.125,
+    111.8
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "D14",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "bar",
+   "width": 0.15,
+   "at": [
+    103.75,
+    99.375
+   ],
+   "gap_to_ref_pad": 0.2
+  },
+  {
+   "ref": "D15",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    102.56,
+    109.05
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "D16",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "bar",
+   "width": 0.15,
+   "at": [
+    105.65,
+    100.12
+   ],
+   "gap_to_ref_pad": 0.2
+  },
+  {
+   "ref": "D17",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    132.975,
+    98.22
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "D18",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    129.925,
+    127.875
+   ],
+   "gap_to_ref_pad": 0.167
+  },
+  {
+   "ref": "D19",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    119.95,
+    121.47
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "D3",
+   "side": "bottom",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    115.915,
+    115.005
+   ],
+   "gap_to_ref_pad": 0.175
+  },
+  {
+   "ref": "D4",
+   "side": "bottom",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    122.665,
+    115.105
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "D5",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    104.375,
+    112.125
+   ],
+   "gap_to_ref_pad": 0.167
+  },
+  {
+   "ref": "D6",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    139.45,
+    119.125
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "D7",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    133.85,
+    112.575
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "D8",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    125.9,
+    110.425
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "D9",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    128.47,
+    126.925
+   ],
+   "gap_to_ref_pad": 0.151,
+   "note": "cathode bar did not fit; dot instead"
+  },
+  {
+   "ref": "J13",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    124.021,
+    116.2
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "PD1",
+   "side": "bottom",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    120.165,
+    113.525
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "Q1",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    107.4,
+    124.67
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "Q10",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    123.95,
+    112.02
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "Q11",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    132.495,
+    128.625
+   ],
+   "gap_to_ref_pad": 0.175
+  },
+  {
+   "ref": "Q12",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    130.975,
+    100.195
+   ],
+   "gap_to_ref_pad": 0.175
+  },
+  {
+   "ref": "Q13",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    133.975,
+    127.33
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "Q14",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    128.325,
+    98.555
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "Q16",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    123.645,
+    103.45
+   ],
+   "gap_to_ref_pad": 1.233
+  },
+  {
+   "ref": "Q17",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    123.37,
+    100.75
+   ],
+   "gap_to_ref_pad": 0.445
+  },
+  {
+   "ref": "Q18",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    121.005,
+    120.1
+   ],
+   "gap_to_ref_pad": 0.175
+  },
+  {
+   "ref": "Q19",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    129.35,
+    98.82
+   ],
+   "gap_to_ref_pad": 0.167
+  },
+  {
+   "ref": "Q20",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    106.425,
+    108.045
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "Q4",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    122.95,
+    121.655
+   ],
+   "gap_to_ref_pad": 0.546
+  },
+  {
+   "ref": "Q5",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    123.2,
+    99.53
+   ],
+   "gap_to_ref_pad": 0.175,
+   "note": "in a neighbour's courtyard margin, >= 0.05 mm from its body (Fab outline)"
+  },
+  {
+   "ref": "Q6",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    122.025,
+    129.43
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "Q7",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    124.53,
+    97.175
+   ],
+   "gap_to_ref_pad": 0.175
+  },
+  {
+   "ref": "Q8",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    128.125,
+    99.98
+   ],
+   "gap_to_ref_pad": 0.179
+  },
+  {
+   "ref": "Q9",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    120.525,
+    119.355
+   ],
+   "gap_to_ref_pad": 0.167
+  },
+  {
+   "ref": "SW1",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    139.55,
+    112.35
+   ],
+   "gap_to_ref_pad": 1.025
+  },
+  {
+   "ref": "U1",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    115.55,
+    106.435
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "U10",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    105.955,
+    107.0
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "U11",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    111.0,
+    118.3
+   ],
+   "gap_to_ref_pad": 0.236
+  },
+  {
+   "ref": "U12",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    118.18,
+    121.325
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "U13",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    103.42,
+    122.8
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "U15",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    112.4,
+    99.614
+   ],
+   "gap_to_ref_pad": 0.154
+  },
+  {
+   "ref": "U16",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    121.14,
+    116.47
+   ],
+   "gap_to_ref_pad": 0.161
+  },
+  {
+   "ref": "U17",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    121.005,
+    123.55
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "U19",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    126.375,
+    106.275
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "U20",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    129.625,
+    100.675
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "U21",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    125.555,
+    125.025
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "U3",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    118.62,
+    115.425
+   ],
+   "gap_to_ref_pad": 0.161
+  },
+  {
+   "ref": "U4",
+   "side": "top",
+   "ref_pad": "A1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    117.3,
+    123.7
+   ],
+   "gap_to_ref_pad": 0.156
+  },
+  {
+   "ref": "U5",
+   "side": "top",
+   "ref_pad": "A1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    109.425,
+    100.0
+   ],
+   "gap_to_ref_pad": 0.156
+  },
+  {
+   "ref": "U6",
+   "side": "top",
+   "ref_pad": "A1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    114.139,
+    125.255
+   ],
+   "gap_to_ref_pad": 0.156
+  },
+  {
+   "ref": "U7",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    109.45,
+    105.3
+   ],
+   "gap_to_ref_pad": 0.158
+  },
+  {
+   "ref": "U8",
+   "side": "top",
+   "ref_pad": "A1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    123.95,
+    107.9
+   ],
+   "gap_to_ref_pad": 0.156
+  },
+  {
+   "ref": "U9",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    113.705,
+    117.36
+   ],
+   "gap_to_ref_pad": 0.195
+  },
+  {
+   "ref": "X1",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    119.05,
+    127.1
+   ],
+   "gap_to_ref_pad": 0.175
+  },
+  {
+   "ref": "X2",
+   "side": "top",
+   "ref_pad": "1",
+   "mark": "dot",
+   "width": 0.15,
+   "at": [
+    117.325,
+    119.225
+   ],
+   "gap_to_ref_pad": 0.158
+  }
+ ],
+ "drc": {
+  "before": {
+   "warning:track_dangling": 61,
+   "warning:via_dangling": 1,
+   "unconnected": 0
+  },
+  "after": {
+   "warning:track_dangling": 61,
+   "warning:via_dangling": 1,
+   "unconnected": 0
+  },
+  "worse": {}
+ }
+}

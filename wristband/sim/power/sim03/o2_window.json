@@ -1,0 +1,417 @@
+{
+ "window": {
+  "600 lx (V_O2 near the POR edge) | nominal": {
+   "V_O2": 1.191,
+   "edges": [
+    [
+     2.83,
+     "approve",
+     "rising T"
+    ],
+    [
+     2.87,
+     "stop",
+     "rising T"
+    ],
+    [
+     4.38,
+     "approve",
+     "rising T"
+    ],
+    [
+     4.39,
+     "stop",
+     "rising T"
+    ],
+    [
+     6.64,
+     "approve",
+     "rising T"
+    ],
+    [
+     6.65,
+     "stop",
+     "rising T"
+    ],
+    [
+     6.87,
+     "approve",
+     "rising T"
+    ],
+    [
+     38.36,
+     "stop",
+     "rising T"
+    ],
+    [
+     36.81,
+     "approve",
+     "falling T"
+    ],
+    [
+     2.45,
+     "stop",
+     "falling T"
+    ]
+   ],
+   "hot_stop_C": [
+    2.87
+   ],
+   "cold_stop_C": [
+    2.45
+   ],
+   "python_corner_C": null,
+   "n_edges": 10
+  },
+  "600 lx (V_O2 near the POR edge) | worst hot corner": {
+   "V_O2": 1.191,
+   "edges": [
+    [
+     3.98,
+     "approve",
+     "rising T"
+    ],
+    [
+     4.02,
+     "stop",
+     "rising T"
+    ],
+    [
+     5.54,
+     "approve",
+     "rising T"
+    ],
+    [
+     5.55,
+     "stop",
+     "rising T"
+    ],
+    [
+     7.81,
+     "approve",
+     "rising T"
+    ],
+    [
+     7.83,
+     "stop",
+     "rising T"
+    ],
+    [
+     8.03,
+     "approve",
+     "rising T"
+    ],
+    [
+     43.75,
+     "stop",
+     "rising T"
+    ],
+    [
+     38.8,
+     "approve",
+     "falling T"
+    ],
+    [
+     2.93,
+     "stop",
+     "falling T"
+    ]
+   ],
+   "hot_stop_C": [
+    4.02
+   ],
+   "cold_stop_C": [
+    2.93
+   ],
+   "python_corner_C": 44.98,
+   "n_edges": 10
+  },
+  "600 lx (V_O2 near the POR edge) | worst cold corner": {
+   "V_O2": 1.191,
+   "edges": [
+    [
+     1.64,
+     "approve",
+     "rising T"
+    ],
+    [
+     1.69,
+     "stop",
+     "rising T"
+    ],
+    [
+     3.18,
+     "approve",
+     "rising T"
+    ],
+    [
+     3.19,
+     "stop",
+     "rising T"
+    ],
+    [
+     5.43,
+     "approve",
+     "rising T"
+    ],
+    [
+     5.44,
+     "stop",
+     "rising T"
+    ],
+    [
+     5.68,
+     "approve",
+     "rising T"
+    ],
+    [
+     41.62,
+     "stop",
+     "rising T"
+    ],
+    [
+     36.91,
+     "approve",
+     "falling T"
+    ],
+    [
+     0.66,
+     "stop",
+     "falling T"
+    ]
+   ],
+   "hot_stop_C": [
+    1.69
+   ],
+   "cold_stop_C": [
+    0.66
+   ],
+   "python_corner_C": 0.44,
+   "n_edges": 10
+  },
+  "0.1 sun | nominal": {
+   "V_O2": 2.233,
+   "edges": [
+    [
+     2.78,
+     "approve",
+     "rising T"
+    ],
+    [
+     38.16,
+     "stop",
+     "rising T"
+    ],
+    [
+     37.0,
+     "approve",
+     "falling T"
+    ],
+    [
+     2.51,
+     "stop",
+     "falling T"
+    ]
+   ],
+   "hot_stop_C": [
+    38.16
+   ],
+   "cold_stop_C": [
+    2.51
+   ],
+   "python_corner_C": null,
+   "n_edges": 4
+  },
+  "0.1 sun | worst hot corner": {
+   "V_O2": 2.233,
+   "edges": [
+    [
+     3.71,
+     "approve",
+     "rising T"
+    ],
+    [
+     42.36,
+     "stop",
+     "rising T"
+    ],
+    [
+     38.77,
+     "approve",
+     "falling T"
+    ],
+    [
+     2.93,
+     "stop",
+     "falling T"
+    ]
+   ],
+   "hot_stop_C": [
+    42.36
+   ],
+   "cold_stop_C": [
+    2.93
+   ],
+   "python_corner_C": 42.58,
+   "n_edges": 4
+  },
+  "0.1 sun | worst cold corner": {
+   "V_O2": 2.233,
+   "edges": [
+    [
+     1.65,
+     "approve",
+     "rising T"
+    ],
+    [
+     40.31,
+     "stop",
+     "rising T"
+    ],
+    [
+     36.88,
+     "approve",
+     "falling T"
+    ],
+    [
+     0.91,
+     "stop",
+     "falling T"
+    ]
+   ],
+   "hot_stop_C": [
+    40.31
+   ],
+   "cold_stop_C": [
+    0.91
+   ],
+   "python_corner_C": 0.86,
+   "n_edges": 4
+  },
+  "1.2 sun | nominal": {
+   "V_O2": 2.558,
+   "edges": [
+    [
+     2.77,
+     "approve",
+     "rising T"
+    ],
+    [
+     38.08,
+     "stop",
+     "rising T"
+    ],
+    [
+     37.07,
+     "approve",
+     "falling T"
+    ],
+    [
+     2.53,
+     "stop",
+     "falling T"
+    ]
+   ],
+   "hot_stop_C": [
+    38.08
+   ],
+   "cold_stop_C": [
+    2.53
+   ],
+   "python_corner_C": null,
+   "n_edges": 4
+  },
+  "1.2 sun | worst hot corner": {
+   "V_O2": 2.558,
+   "edges": [
+    [
+     3.61,
+     "approve",
+     "rising T"
+    ],
+    [
+     41.87,
+     "stop",
+     "rising T"
+    ],
+    [
+     38.76,
+     "approve",
+     "falling T"
+    ],
+    [
+     2.93,
+     "stop",
+     "falling T"
+    ]
+   ],
+   "hot_stop_C": [
+    41.87
+   ],
+   "cold_stop_C": [
+    2.93
+   ],
+   "python_corner_C": 42.05,
+   "n_edges": 4
+  },
+  "1.2 sun | worst cold corner": {
+   "V_O2": 2.558,
+   "edges": [
+    [
+     1.65,
+     "approve",
+     "rising T"
+    ],
+    [
+     39.83,
+     "stop",
+     "rising T"
+    ],
+    [
+     36.87,
+     "approve",
+     "falling T"
+    ],
+    [
+     1.0,
+     "stop",
+     "falling T"
+    ]
+   ],
+   "hot_stop_C": [
+    39.83
+   ],
+   "cold_stop_C": [
+    1.0
+   ],
+   "python_corner_C": 0.96,
+   "n_edges": 4
+  },
+  "python corners vs V_O2 (every corner: NTC R25, B, 4 resistors +-1 %, VOS +-8 mV, hysteresis 2-17 mV)": {
+   "1.40 V": {
+    "hot_stop_max_C": 45.23,
+    "cold_stop_min_C": 0.4
+   },
+   "1.50 V": {
+    "hot_stop_max_C": 44.74,
+    "cold_stop_min_C": 0.48
+   },
+   "1.60 V": {
+    "hot_stop_max_C": 44.31,
+    "cold_stop_min_C": 0.55
+   },
+   "1.75 V": {
+    "hot_stop_max_C": 43.78,
+    "cold_stop_min_C": 0.65
+   },
+   "2.00 V": {
+    "hot_stop_max_C": 43.08,
+    "cold_stop_min_C": 0.77
+   },
+   "2.60 V": {
+    "hot_stop_max_C": 41.99,
+    "cold_stop_min_C": 0.97
+   }
+  }
+ }
+}

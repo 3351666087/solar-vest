@@ -1,0 +1,14 @@
+{
+ "date": "2026-11-16",
+ "board": "v3/finish/solarband_v3f_final.kicad_pcb (read-only, not modified)",
+ "measured": {"l_b_mm": 0.648, "stub_mm_cc": 1.162, "stub_mm_edge": 0.501, "L204_to_feed_mm": 1.81, "C213_to_C215_line_mm": 6.094,
+              "neckdown_w009_mm": {"C213_C215": 3.037, "chip_side": 0.375}, "J40": [3.68, 1.43, 340], "J40_shift_mm": 0.398,
+              "land_to_inner_gnd_mm": 0.077, "stitch_gap_Y3_mm": 2.65},
+ "fdtd": {"runs": 1, "tag": "M_body_c", "verdict": "invalid (0.25 mm grid shorts the moved land to the X 5.0 ground edge)"},
+ "proposed": {"C213": "DNP", "C215": "7.6 nH LQW15AN7N6G80D C2048575 stock 6846", "L204": "4.3 nH LQW15AN4N3B80D C471381 stock 21380"},
+ "alternative": {"C213": "8.4 nH LQW15AN8N4G80D C5788422", "C215": "7.2 nH LQW15AN7N2G80D C2044544", "L204": "4.1 nH LQW15AN4N1G80D C412281"},
+ "proposed_results": {"body_eta_pct": 12.29, "body_S11_dB": -10.44, "free_S11_dB": -11.04, "hand_eta_pct": 1.43, "corner_D_eta_pct": 4.59,
+                      "link_dB": 24.4, "link_hand_dB": 15.1, "mc_yield_ge1": 1.0, "mc_yield_ge5": 1.0, "mc_yield_S11": 0.19, "mc_p5_eta_pct": 7.7},
+ "in_force_on_real_board": {"body_eta_pct": 5.07, "body_S11_dB": -1.66},
+ "verdicts": {"gate3a": "PASS", "arch9_eff": "PASS", "arch9_S11_body": "PARTIAL", "arch9_free_S11": "PASS", "sim11_link": "PASS", "A2_layout": "PARTIAL"}
+}

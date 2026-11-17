@@ -1,0 +1,1611 @@
+{
+ "generated_by": "design/tools/review_footprints.py",
+ "rule": "copper pads unchanged except the land diameter of C509405 and C4371025 (review R-12); see module docstring",
+ "footprints": {
+  "C10488_SOT-23_L2.9-W1.3-P1.90-LS2.4-BR.kicad_mod": {
+   "lcsc": "C10488",
+   "source_sha256": "453d81c34f35424e2538b6f4edeeeed4c02b928b346b130a2a19f884d3eaa4fb",
+   "reviewed_sha256": "708774d4ad3a826df2b38c5a2d8a5a26341fcd03de19765e96e6b0fb9dec4b46",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.30 x 2.90 (body only) -> 3.80 x 3.40 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C105226_C0402.kicad_mod": {
+   "lcsc": "C105226",
+   "source_sha256": "5a3eb2a92f3e607e15d63b9d9a59d6a58277c30dd56b1807d17a16f16d13718e",
+   "reviewed_sha256": "efa455584b13d101235091635096d7f52b0aa268df56d37e447e3eb488cc46a6",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C11660_R0402.kicad_mod": {
+   "lcsc": "C11660",
+   "source_sha256": "2c394b9e16ec52956f6328d1678d83aab25cd0815fe22be689e3d87c96cb5d42",
+   "reviewed_sha256": "537592b5792329b8d66dc3e8fc729053b296687b8f05ea7a3c92da22296183a1",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C11702_R0402.kicad_mod": {
+   "lcsc": "C11702",
+   "source_sha256": "d98f3d9b378eedd92c1ad9521cb630a7e5fa45c1a25ee94553d18db9685eed46",
+   "reviewed_sha256": "b54fb4490b7ebf1259a56e84e3e56adb2b438cae5c0463120eddfcf82e4df5c7",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C125114_LED-SMD_L1.7-W0.6-RD.kicad_mod": {
+   "lcsc": "C125114",
+   "source_sha256": "1b1cf2a22cd166b3473aacf4ef17d0b9772639718c0fe4c1407e02339d7e895a",
+   "reviewed_sha256": "ede4679417576471db99b96b46891a2c93c11c636524a7fd2519d09c946eb06f",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.70 x 1.10 (body only) -> 3.10 x 1.62 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C130414_SOD-523_L1.2-W0.8-LS1.6-RD.kicad_mod": {
+   "lcsc": "C130414",
+   "source_sha256": "325306650614b38b4b32b74c8b7d563f03c3b43a098c923ec3e705dbc336c6a5",
+   "reviewed_sha256": "90a4c66e623f055a605fab0a69bb264075fba3167f788a05afde5bb516617ede",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.20 x 0.80 (body only) -> 2.40 x 1.30 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C139059_QFN-32_L4.0-W4.0-P0.40-BL-EP2.9.kicad_mod": {
+   "lcsc": "C139059",
+   "source_sha256": "7bfcc4c74e03bd757beccdfe913b2c112e3f45293c378525ae3c1ab9b8063fab",
+   "reviewed_sha256": "1a7f0b57d072d8e016077d010392dc84f677d48cbb6c40d06ac34a4d23f1ba13",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "EP pad 33 2.90 x 2.90: full paste -> 2 x 2 window(s) 1.272 x 1.272 mm with 0.20 mm webs, coverage 77 %; TI SBAS502C p.82 example stencil: 77 % printed solder coverage",
+    "F.CrtYd 4.00 x 4.00 (body only) -> 5.30 x 5.30 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C141606_SOT-363_L2.0-W1.3-P0.65-LS2.1-BR.kicad_mod": {
+   "lcsc": "C141606",
+   "source_sha256": "86da9aa2ba323e0916e100cc6d624a6d99a55e5360f34f473d7b86ed16261022",
+   "reviewed_sha256": "627980979f2c9c0990abb2ce87050fb0ce8cc5129c4192f7d41dd09f16b6d4fd",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.30 x 2.00 (body only) -> 3.20 x 2.50 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C144806_R0402.kicad_mod": {
+   "lcsc": "C144806",
+   "source_sha256": "72155e0eb0dc7147eae54f92b68b0bfe86eaa2c8811d911ba0cc52084feca872",
+   "reviewed_sha256": "ebae61b90b9aba83d15d7a084b596eb514a523a406222d7c1ff6d7fbadcbe7e2",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C1518204_C0402.kicad_mod": {
+   "lcsc": "C1518204",
+   "source_sha256": "759020ad8183f63eed0065e022a742e12f56108e70d84c2d273ddb97b11a22f9",
+   "reviewed_sha256": "eb4ac7a24780faa3b7ab8959f00310e5cd68902b772a2a5036873012d9ffada4",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C15195_C0402.kicad_mod": {
+   "lcsc": "C15195",
+   "source_sha256": "5022395fb2018b45e6930a514e7ade6f92a58c209bad7c29d1294515555c7c96",
+   "reviewed_sha256": "2904a3ecc660e6ac92d7a6276ee5e01453e9aa720e894dba7c82db8ffb48454f",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C1525_C0402.kicad_mod": {
+   "lcsc": "C1525",
+   "source_sha256": "75e8a0624ed37eaa36c33bf50700bad4c66f3b73eee5d9cb88fe69739058a078",
+   "reviewed_sha256": "58deeef87856e9bd8c349c604c7ade77e572d3829152ccb5def6acfc90042176",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C1538_C0402.kicad_mod": {
+   "lcsc": "C1538",
+   "source_sha256": "55651797eb478e32079f1a725fba7fa23477869e5ecfbc8d8fef4fb8e5a2622b",
+   "reviewed_sha256": "b75b594781ef0198bce618b380f2bd2ff733cbb4c96aeb09f618244b5258b249",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C1546_C0402.kicad_mod": {
+   "lcsc": "C1546",
+   "source_sha256": "4f84b1af676c4b94ebc328af23b88407c96c7f87d49f4639429409bdc1171713",
+   "reviewed_sha256": "bb438cb9b53917f9610bceafbc067facc18994c402a044adb811bcf6a405bf37",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C1547_C0402.kicad_mod": {
+   "lcsc": "C1547",
+   "source_sha256": "abe6ba20b3b3791f795470dbad9a95ff2b422b1843f28ca595a66f99c36fefb2",
+   "reviewed_sha256": "fb6a0f45a8403dbe06be09bd33db024d72399c3b489a34d2ed04712af3599a9e",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C15525_C0402.kicad_mod": {
+   "lcsc": "C15525",
+   "source_sha256": "92ba955f0a0f46eadb7cd2182278c11894fc445dda7004edb3535ff711462d74",
+   "reviewed_sha256": "5d4976854b78bfac0560c1f092d22eff0e383a3815d5eeadcb6f1e8d5a07b60e",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C1554_C0402.kicad_mod": {
+   "lcsc": "C1554",
+   "source_sha256": "6b36ff08a6fcf7ab1d1794e8f5be5b115084cb93fb715de4a85dffb49989360b",
+   "reviewed_sha256": "64842b81d37843c5e7b65b1597d57dace468c09d1a452c089b6fb8c273536a93",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C1555_C0402.kicad_mod": {
+   "lcsc": "C1555",
+   "source_sha256": "1dd76bb3fc0d512276f6447aa4090a54a4233db92a921bea226f42aa5200fe01",
+   "reviewed_sha256": "19c9260984217a4080ff9c1f7de42268e8b32e75a452d5afe95793ff0e5eeb89",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C15849_C0603.kicad_mod": {
+   "lcsc": "C15849",
+   "source_sha256": "1a202e018a75ff1a0724f5785b53fa0d304b9e77528633e4876c405a74c93752",
+   "reviewed_sha256": "da62e66f6fbcfc6a5d711964fa7035a4664d71c51d088d3aafa65914b79097e4",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 0.80 (body only) -> 2.50 x 1.20 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C159047_R0402.kicad_mod": {
+   "lcsc": "C159047",
+   "source_sha256": "979b86a84d13f74e71db374167484fbb4e5d5bc86663c08f9a0b487a8c9476aa",
+   "reviewed_sha256": "62f9544cdc08ab40d5350cb842a2191a89b45def9a49089b5a7d97afc56227e3",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C161371_C0201.kicad_mod": {
+   "lcsc": "C161371",
+   "source_sha256": "e33f27327ee66ae1dcaaede522400276c2a56650a3bd54eb99dce9d0e58f0c5b",
+   "reviewed_sha256": "edbf9e676086d93aedd23b0979469110c2e61181d8e21bbf3f81ae4dbc384d87",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.22 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C161408_C0201.kicad_mod": {
+   "lcsc": "C161408",
+   "source_sha256": "84528ce21672cad3c6e5b0ce1ed67dcbdcdeaa2c6551a429b726358d3b55a62f",
+   "reviewed_sha256": "b81120bca71c882313515795cce315bdd743d5303bdfd0e7e53d7e5d6efdc490",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.22 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C161418_C0201.kicad_mod": {
+   "lcsc": "C161418",
+   "source_sha256": "e4dc57dd4228411912fd9f400d561be06632ab7b72f8656a183d03b6a9437321",
+   "reviewed_sha256": "dfabc8287bde37447144d8058aafa3e01f3c30822d9db7749020abaafbfb5a8e",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.22 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C161527_C0402.kicad_mod": {
+   "lcsc": "C161527",
+   "source_sha256": "e85fec26c4c0653b11ee6af2080ef4631cfea8ba2035fa01ece615e7b172e2fb",
+   "reviewed_sha256": "e436b9a058802fc3d731f81c55c591eae908a00d55320bc6c63269ee0c3500b1",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C166160_R0201.kicad_mod": {
+   "lcsc": "C166160",
+   "source_sha256": "f73699497a8fa49bf003731112d6fe68e1cc4f8225f5132572920040986fdd22",
+   "reviewed_sha256": "6917bfd05d1f82816a228ccc066c4fda4e45f2d77d24dd25826aa11fdd2b7d21",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C17168_R0402.kicad_mod": {
+   "lcsc": "C17168",
+   "source_sha256": "a438f00ec8453122d616c9e72dd28ea6fb8dcb13b65db96b48946348c68c8c2f",
+   "reviewed_sha256": "2c98e2b55d6151f3a9beb5c3f697cadd9bb5fe114f0655f99d1c3ef1475f59c3",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C172111_R0402.kicad_mod": {
+   "lcsc": "C172111",
+   "source_sha256": "ac0a36bc2c81e86895b54c4f7f02b41ebab3cff991921d8a852a003cdbfee3ff",
+   "reviewed_sha256": "ef6e80075926d472e90b326f30ea1fa83d0ea451168bd6bf78a1618f61890ad7",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C17445_R0805.kicad_mod": {
+   "lcsc": "C17445",
+   "source_sha256": "d6378c35d1d4d71947e25c7206ac173b4c4b7a5ae471b6a4ecf75e7acf00106d",
+   "reviewed_sha256": "e74ee0ff5a28192c36ae2f9b1a2381836ffad83fc79af880f0226ef96367e0b0",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 2.00 x 1.28 (body only) -> 3.64 x 1.88 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C17913_R1206.kicad_mod": {
+   "lcsc": "C17913",
+   "source_sha256": "6809c8d9b826e122a1240307c97dfe693b3e8d6b407852101168a78a822f40b3",
+   "reviewed_sha256": "05301d7d7c7f8c582f1fdcef994f9dfe47d0a08d4d2d520886bb00b240c2c295",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 3.10 x 1.58 (body only) -> 4.68 x 2.22 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C189624_LGA-12_L2.0-W2.0-P0.50-BL.kicad_mod": {
+   "lcsc": "C189624",
+   "source_sha256": "6f755366c09762900379233980d0aeef611cda4009a28c9fcd0a70b486d8ab3a",
+   "reviewed_sha256": "855988de057a4e9a7e20cf3918f0055fae5e38326cd65cbf8bf852356414b980",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 2.00 x 2.00 (body only) -> 2.76 x 2.76 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C19666_C0603.kicad_mod": {
+   "lcsc": "C19666",
+   "source_sha256": "d19e8df9d01d794ca7713dfd324f48474caef7e162d37cba4c0c0a73d041a227",
+   "reviewed_sha256": "8a2b3db0fe7fdc03a066ab4f128774eb09e1e2903209dbf5281adc5a10fb2ee1",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 0.80 (body only) -> 2.50 x 1.20 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C19702_C0603.kicad_mod": {
+   "lcsc": "C19702",
+   "source_sha256": "609e589ec4b81974554e76d0972c8e02ce7a82c9e3677da7e8c204773ed3ea3f",
+   "reviewed_sha256": "8d9cadf99b9e7c869b7bd748b2f7f6109d3e62b352068804ef48095c8a29c2d7",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 0.80 (body only) -> 2.50 x 1.20 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C20345399_X1SON-2_L1.0-W0.6-P0.65-BI.kicad_mod": {
+   "lcsc": "C20345399",
+   "source_sha256": "0a06dc2f7170b5b8e7fea7ade980d3728c9fda8ea63b2a15719d946d8e11a566",
+   "reviewed_sha256": "c4a5829872875b12233588c169cc3c05476cbe154454ebb7eddf33d655695f97",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.60 (body only) -> 2.10 x 1.12 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C2041554_IND-SMD_L2.0-W1.6.kicad_mod": {
+   "lcsc": "C2041554",
+   "source_sha256": "adccb7ac133d000a6b07a3ae3d78410b4078388786f9517ac49e60be52166664",
+   "reviewed_sha256": "a4888645b9749c109ae19e73798dde32bfc7a549493df83a3d74e8958c7d6048",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 2.00 x 1.60 (body only) -> 3.16 x 2.22 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C2048575_IND-SMD_L1.0-W0.6.kicad_mod": {
+   "lcsc": "C2048575",
+   "source_sha256": "836f164b6891298a44ef2add07df144f2f181d44e5799408e7d5c7d14eac28d8",
+   "reviewed_sha256": "380c944cc46e4c10780f7bdadae23bab3442258257527c7ef2c5d47dcfbad336",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "COPPER: pad 1 (-0.43, 0.00) 0.50 x 0.65 -> (-0.505, 0.000) 0.41 x 0.66; Murata LQW15AN spec JELF243A 12.1 land (same series): 2 pads 0.41 x 0.66 at +-0.505; numbers, origin, 0 deg unchanged [F]",
+    "COPPER: pad 2 (0.43, 0.00) 0.50 x 0.65 -> (0.505, 0.000) 0.41 x 0.66; Murata LQW15AN spec JELF243A 12.1 land (same series): 2 pads 0.41 x 0.66 at +-0.505; numbers, origin, 0 deg unchanged [F]",
+    "F.CrtYd 1.00 x 0.60 (body only) -> 1.92 x 1.18 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C2050114_IND-SMD_L2.0-W1.6.kicad_mod": {
+   "lcsc": "C2050114",
+   "source_sha256": "84fcfc77c52ba0827d3fce3a33b707a3487d79a3043764b49c42ae3e0341a43a",
+   "reviewed_sha256": "1d275a1a2fcd2605f2c395d6f5b4dc00036df8f3683b7d30c646d0ca04effb0f",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 2.00 x 1.60 (body only) -> 3.16 x 2.22 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C20526_SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR.kicad_mod": {
+   "lcsc": "C20526",
+   "source_sha256": "95f22632056d1f9079fe8fba7c767c0ba4491b9cd17d1200b708c042f7f27746",
+   "reviewed_sha256": "bcef4e4bbbf5e692b237f1febf0e03852a9e82cf6b42dad725cd209cc6487094",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.30 x 2.90 (body only) -> 3.50 x 3.40 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C221907_SW-SMD_4P-L3.5-W3.5_PTS840GKSMTRLFS.kicad_mod": {
+   "lcsc": "C221907",
+   "source_sha256": "890d0669079e87a27b44ca9385fd1ede416af1983f356d5a99726f78b7011114",
+   "reviewed_sha256": "58ab91065282b97321a73c43d512bcb288917bfeb04de93f37ea5302acbd6710",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "COPPER: pad 5 deleted at (1.22, 0.00) 0.50 x 1.10; C&K PTS840 B-40/B-41: GK has no ground pin; EasyEDA pad 5 (ESD-pin land, F.Paste) deleted, review D-9",
+    "COPPER: pad 2 (-1.22, -2.12) 0.84 x 1.78 -> (-1.195, -1.800) 1.05 x 1.40; C&K PTS840 B-41 recommended PCB layout: 4 pads 1.05 x 1.40 at lead-line +-0.725 / +-1.80 (was EasyEDA 0.84 x 1.785 at +-0.75 / +-2.12); numbers, origin, 0 deg unchanged",
+    "COPPER: pad 4 (0.28, -2.12) 0.84 x 1.78 -> (0.255, -1.800) 1.05 x 1.40; C&K PTS840 B-41 recommended PCB layout: 4 pads 1.05 x 1.40 at lead-line +-0.725 / +-1.80 (was EasyEDA 0.84 x 1.785 at +-0.75 / +-2.12); numbers, origin, 0 deg unchanged",
+    "COPPER: pad 3 (0.28, 2.12) 0.84 x 1.78 -> (0.255, 1.800) 1.05 x 1.40; C&K PTS840 B-41 recommended PCB layout: 4 pads 1.05 x 1.40 at lead-line +-0.725 / +-1.80 (was EasyEDA 0.84 x 1.785 at +-0.75 / +-2.12); numbers, origin, 0 deg unchanged",
+    "COPPER: pad 1 (-1.22, 2.12) 0.84 x 1.78 -> (-1.195, 1.800) 1.05 x 1.40; C&K PTS840 B-41 recommended PCB layout: 4 pads 1.05 x 1.40 at lead-line +-0.725 / +-1.80 (was EasyEDA 0.84 x 1.785 at +-0.75 / +-2.12); numbers, origin, 0 deg unchanged",
+    "courtyard body box C&K PTS840 B-41: body 2.9 x 3.5 mm + actuator 0.65 mm at -x (EasyEDA silk -2.56 .. 0.98)",
+    "F.CrtYd 3.54 x 3.50 (body only) -> 4.04 x 5.50 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C2220990_C0402.kicad_mod": {
+   "lcsc": "C2220990",
+   "source_sha256": "eca21c6dbbfadbf5d73e7ad3442fc49930ec9b91ecf616a4dbefc256f00fd101",
+   "reviewed_sha256": "0eb3a646d27c8890b5383ff43837ff3a513d569a86c3d2ed7bfec52d10be6564",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C22775_R0603.kicad_mod": {
+   "lcsc": "C22775",
+   "source_sha256": "ea63ac3d3c6b8e23a6ddb80cf39508cf07272955a00d567b03352c983cc5f788",
+   "reviewed_sha256": "09366ae89f327a0e064c5a178938945a232b7e9d2cf4780fd580135c02359d9c",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 0.80 (body only) -> 2.62 x 1.18 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C22830_R0603.kicad_mod": {
+   "lcsc": "C22830",
+   "source_sha256": "5e0a99f9785974db258fea25d1a66729c3410ec4eacd82e5af2d8467c0909b2d",
+   "reviewed_sha256": "ecaf8ebbaede31cf8eb042bd632a93e1926a2486f09c7b021df84635fb42f030",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 0.80 (body only) -> 2.62 x 1.18 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C23345_R0603.kicad_mod": {
+   "lcsc": "C23345",
+   "source_sha256": "afe2da421156f6e7fe3e0893c81b5de035f6555ebe0f58d918842f9b921959a3",
+   "reviewed_sha256": "1cf6c0595055677b523a2cface871e1f759936045f67309f91e1a014323eff26",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 0.80 (body only) -> 2.62 x 1.18 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C23733_C0402.kicad_mod": {
+   "lcsc": "C23733",
+   "source_sha256": "3e38061ccbb56dd0cf94ddedf00aff65067cfcc79b8af2a19c49dd97ad3c4879",
+   "reviewed_sha256": "1d2a86580a5361ee950101001eb5978ae1bb427ffba98509ab7e126e0d23d8e6",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C237514_C0201.kicad_mod": {
+   "lcsc": "C237514",
+   "source_sha256": "7bcb41cca345aa037de2b7241d7aa6ea3eada9928f9493830c430ec3b78baeb8",
+   "reviewed_sha256": "cf1e8c07917626cfe7058b221449789e4179b62fd2e53d067981b6f285260615",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.22 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C240197_DFN1006-2L-RD.kicad_mod": {
+   "lcsc": "C240197",
+   "source_sha256": "a309dc8a43d19b4e6a63d0a4923d7760424773c4bca4162bc0c3bfa5c8794d0c",
+   "reviewed_sha256": "e4d5a92a4bf8bc26984a0a4fbcdb6270183889936e0d873aa063b231f8763f3e",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.60 (body only) -> 1.80 x 1.12 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C242493_R0402.kicad_mod": {
+   "lcsc": "C242493",
+   "source_sha256": "fd199bae8d4315d057303827ef80832ac9e692a8871c4959be0f090a6c8823a3",
+   "reviewed_sha256": "c9ccbdc70f0f9fadc4dc298f81e9d1922217473fe254d9ab9d0f9380bd30f97a",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C25076_R0402.kicad_mod": {
+   "lcsc": "C25076",
+   "source_sha256": "13b7a4a6a9d6398efad82ed12c2dcb28312309a311063ecb17efa828c12b66c8",
+   "reviewed_sha256": "f9935d876df68e30fdc282d3ccf83d2918e0a7201379cbd411d8d2bd0bd9d38d",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C25084_R0402.kicad_mod": {
+   "lcsc": "C25084",
+   "source_sha256": "ff976d4fa3c2e89627325c1ea983ce45656321087db4648b4e241659edde8440",
+   "reviewed_sha256": "ae8b49699e11b93d7e8f99c18523dcc84d10eeef92ffafd86268f1716b0d1a83",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C25091_R0402.kicad_mod": {
+   "lcsc": "C25091",
+   "source_sha256": "d45d30288711f26c0185f40bc2da36c01260e21b30f4f8c49538cf8af16050b1",
+   "reviewed_sha256": "c0544180064b59ab2a8488416285a30181974e92c8e74aaaa8054bd88a6f6c33",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C253326_SC-89-6_L1.6-W1.2-P0.50-LS1.6-BL.kicad_mod": {
+   "lcsc": "C253326",
+   "source_sha256": "f19bccbba24adf7a6d8abe855eee1ec67f0d7e466f30da4523b2a1b4c5431f10",
+   "reviewed_sha256": "03288003b8a70f22849ceaac4b4938d13cd33275788d5d22e283b66e3dca1035",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 1.20 (body only) -> 2.10 x 2.60 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C25741_R0402.kicad_mod": {
+   "lcsc": "C25741",
+   "source_sha256": "739d2ea8a1ee7db23efe1c63fcad5ddfae5870c1968d3453b3e7d7229fffc54d",
+   "reviewed_sha256": "a356c91a298a7123d2a6dbb53c87b5fb21363a0a7be08368d238d2966203f58c",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C25744_R0402.kicad_mod": {
+   "lcsc": "C25744",
+   "source_sha256": "ef3b54e0830b6750f538bbbe843de3a5150931e49541d5c67e6e84a48aba3c17",
+   "reviewed_sha256": "4be5746d21907cb00240fd71767a9d45003b065cc4a4c4ad65de3dc5c15aed3e",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C25767_R0402.kicad_mod": {
+   "lcsc": "C25767",
+   "source_sha256": "08d2fb44ea86db7516d69eaf537f8e5110d7c019ac48b047019604a055ea4dc2",
+   "reviewed_sha256": "d651d3418ae8707b2d8fd240b715c4c4ffba293be279f19bbe4d55a343ae2e8f",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C25768_R0402.kicad_mod": {
+   "lcsc": "C25768",
+   "source_sha256": "6e5a496c26c78f97cbc16573db5584c482a6845c7d6f7e3456b1dec54ae79e09",
+   "reviewed_sha256": "59ba9e619d89383e898f088080e4ac7d1ea3902462105f1bc158a09bf26bde91",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C25790_R0402.kicad_mod": {
+   "lcsc": "C25790",
+   "source_sha256": "93879e920e4669be77ad500d0158e3a372f55c3df0fa0a2cfcdd281ff67820a1",
+   "reviewed_sha256": "9e178d6a73b524a2f5b30a58bc2ea26e36ddfc24febfac3c2d7d4735e55cf3b4",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C25792_R0402.kicad_mod": {
+   "lcsc": "C25792",
+   "source_sha256": "6b84995b5f777c384678e7919eeb35d11816aa6261cbdaaf42ba2677f70cb664",
+   "reviewed_sha256": "e8873f7faba987b5a754bbfcfede1897f9fa0c2a0a8ac3305a71d255ca5ad76a",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C25822_R0603.kicad_mod": {
+   "lcsc": "C25822",
+   "source_sha256": "a42b555e2726b48714100de9300021dccbda63bcaad5ec8f1d305e43bd9b0717",
+   "reviewed_sha256": "44aa08f41fc1b3befd692e0e9d031d0486747d8d35a07dbb9b7a276dd388b424",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 0.80 (body only) -> 2.62 x 1.18 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C25900_R0402.kicad_mod": {
+   "lcsc": "C25900",
+   "source_sha256": "27992388fda737446eaaca855c877781e916a646de06a281796de40b467ce8b3",
+   "reviewed_sha256": "e8f92d24fe1b5f3a2dae0749762a895ee7d453796d8a8869fe17fbd17563aa0a",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C26082_R0402.kicad_mod": {
+   "lcsc": "C26082",
+   "source_sha256": "a4b031da385f2be66f50c925efd981a39298ebd8043784ef5104fcbbfbb973f8",
+   "reviewed_sha256": "a0557180b386cdb7b9793c26a384fa9f32915e8898ebe9929ddb2de38b01e535",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C26083_R0402.kicad_mod": {
+   "lcsc": "C26083",
+   "source_sha256": "28198eee3172468ffa02a2094daf70ac4cc40b6c82b043b364e1609d7cfa1d6f",
+   "reviewed_sha256": "8eb7c670209124b838fddb83ae98bc9b4ae3a130d853c1bcc0245f6aa8e0a9a7",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C2691509_R0201.kicad_mod": {
+   "lcsc": "C2691509",
+   "source_sha256": "0a21ce108218126ee1e104f2f0a986191a79d756980a9195cefc67e428599c00",
+   "reviewed_sha256": "db741be8f2bf4ca3aba03e84f55eff748a299879f506f6c6a39c84cd2c218969",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C270345_R0201.kicad_mod": {
+   "lcsc": "C270345",
+   "source_sha256": "e19f6945ef972e99cc94f450da9928cddefac12dcb7d211f9a1cfc7d2ee8cc4f",
+   "reviewed_sha256": "7ef31dee088c89daad5d1fa30bb3404d44d48f6cc9ae25361daf7839002c6eaa",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C270346_R0201.kicad_mod": {
+   "lcsc": "C270346",
+   "source_sha256": "8894ba0355c29066365b38b4d733c490e87feb8fc97e9b585ed4d3becf77f340",
+   "reviewed_sha256": "f9746c75e7b36be9f601a2b230fff48e4c227b5f0086d97ca180ec48e166ce2a",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C270356_R0201.kicad_mod": {
+   "lcsc": "C270356",
+   "source_sha256": "d9af97b9591045a1fe5c069cdeef5c3204252e666c77da478c4284cf9280175e",
+   "reviewed_sha256": "9bf681303b9b1e49c12b9796b2cce1d5128e51b482a88f617bbc85eb02cd11e2",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C270358_R0201.kicad_mod": {
+   "lcsc": "C270358",
+   "source_sha256": "e08ecadfcede9863398842225142c3061b0747af37ddfa013dd9c479c6754073",
+   "reviewed_sha256": "a9c6d5fb4d6bf814343fe46956ffe030258e2f5564ec8a4eba77766956433be0",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C270364_R0201.kicad_mod": {
+   "lcsc": "C270364",
+   "source_sha256": "3fd5fa66aa2d52aa3f5baeef91231a086a634542fd7624ee7d43a1f22c0d0397",
+   "reviewed_sha256": "3f372ae2a754c90e6afb3c9a87a35878a85b2f83e1f1474ed088e4e891664e94",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C270365_R0201.kicad_mod": {
+   "lcsc": "C270365",
+   "source_sha256": "3f095bdfd724fc4f436c205a3b69ab9fa0187a34ba955a861e8334295be427ef",
+   "reviewed_sha256": "3ae36b2b09de387f3cbaeacaa804b50a981063795e5cd08f1a80797bf5b40897",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C270366_R0201.kicad_mod": {
+   "lcsc": "C270366",
+   "source_sha256": "303ff2900a69a2b5f5c708d937cc85d304994d07242be8204ddab676cbd3adf3",
+   "reviewed_sha256": "1d2ea7b433e11a54708ac27956db0c92c7e732668958147d40ab76aa53fcf2b3",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C270612_R0402.kicad_mod": {
+   "lcsc": "C270612",
+   "source_sha256": "5a9310ab2fe361d015bc29e1583e2d3470943500d70fd3afe8c9fe47f754d404",
+   "reviewed_sha256": "f791e586945d823899349639fcd897877c7814921a2d0091179d84f9a12d9fab",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C270613_R0402.kicad_mod": {
+   "lcsc": "C270613",
+   "source_sha256": "c6ae4b3d25c1382b42b53122d31e9fb6f2bb35ba18cea3ee16efb904037a490f",
+   "reviewed_sha256": "0d48b6fc5d005dce2a12a2915965336eba373f0f10a18369781e05fa85d3a2ff",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C2760012_SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BR.kicad_mod": {
+   "lcsc": "C2760012",
+   "source_sha256": "9793b99c4f6d2a2a59e25df260bfd8ffa0d45956b8b17b7dd363cc3f3ece6617",
+   "reviewed_sha256": "00baf95dd905934fa118f6c336dd90087030dc1ddfc08364d45e39e4848e8e59",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 2.90 (body only) -> 4.20 x 3.40 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C2766851_R0402.kicad_mod": {
+   "lcsc": "C2766851",
+   "source_sha256": "39cef2f25b6d93b3a2d38a99383daad306477231c0e8ea2ab87b6145336af59e",
+   "reviewed_sha256": "1d964cf69a8c5116171d9fb31fdf79d3fb35c44b169aaddc4ce9c799f27c5906",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C2803242_WSON-6_L2.0-W2.0-P0.65-BL-EP.kicad_mod": {
+   "lcsc": "C2803242",
+   "source_sha256": "f655c56f78c05f83976d2e5f225b29e448e81ae6505540e5f2623b5ea09c4d20",
+   "reviewed_sha256": "ae7948bd3d6229a8ac6e27dc6a85ed4dd53c31028ca4dddc4e1ba2f441f41fc5",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "pad 7: paste removed; TI TMP117 SNOSD82 p.35: thermal pad best left unsoldered (floating copper island to E1)",
+    "F.CrtYd 2.00 x 2.00 (body only) -> 2.50 x 2.92 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C2826516_ANT-SMD_L3.5-W1.5-H3.8.kicad_mod": {
+   "lcsc": "C2826516",
+   "source_sha256": "6a8999c863c3cade75cfe2424acb69cc2e4a36572bc48cab0026c46ecd9ceb9a",
+   "reviewed_sha256": "54d617c1c50d291bbfb7d6f1a15d5b52141eb9c1b13e0f2fc5bb936959bd3dd9",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 3.50 x 1.50 (body only) -> 4.00 x 2.00 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C2826518_ANT-SMD_L3.5-W1.5.kicad_mod": {
+   "lcsc": "C2826518",
+   "source_sha256": "22fbc7292981f2fcc8f76f8353ebf4583912a3f863a35f08212423af64c7dc52",
+   "reviewed_sha256": "8ccb3489c81242c954714236979e57179d75c330ba544fb65c621335bfc99396",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 3.50 x 1.50 (body only) -> 4.00 x 2.00 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C2826523_BAT-SMD_BW0025BG-L2.8W1.55H1.35.kicad_mod": {
+   "lcsc": "C2826523",
+   "source_sha256": "b1aaf229250bff08d2a717e896b156cc468ce4f280436a3f27d2f36a7a950fca",
+   "reviewed_sha256": "1d373fd7dd9311a04a1bcd110a93bed930f3112a959e69af4a63b03808f7d89a",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 2.80 x 1.56 (body only) -> 3.31 x 2.06 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C2826525_CONN-SMD_BW0026BG-L2.8W1.55H1.1.kicad_mod": {
+   "lcsc": "C2826525",
+   "source_sha256": "fea12ddc4a2ad7b277dc57fa6f8428b23d10be24713235c54bf0295dabaa21d6",
+   "reviewed_sha256": "685487b8e25b0c285e0bd701449a0a9616c5287196a0503eb26055691828fe77",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 2.80 x 1.60 (body only) -> 3.31 x 2.10 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C2826535_SMD_L2.9-W1.0-2108613-5.kicad_mod": {
+   "lcsc": "C2826535",
+   "source_sha256": "9750a4bc1923abd6ea8fba714e6578dac730cca9de3d3e76fe4b3d6590b13be7",
+   "reviewed_sha256": "4211a0c5af67424a05d28ec241137ae3ab5ee94bd6912c99f8cb60153c2f77d3",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 2.90 x 1.00 (body only) -> 3.66 x 1.72 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C2842395_WSON-6_L2.0-W2.0-P0.65-TL-EP.kicad_mod": {
+   "lcsc": "C2842395",
+   "source_sha256": "305cbc8e106af59d081143a7b9991a7d0916b33752a98cb8c88bf497e0c75994",
+   "reviewed_sha256": "ee77b53aa2031ff073987a737d1521f505695888ec7b0cfc533063c7667c2263",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "EP pad 7 1.00 x 1.60: full paste -> 1 x 1 window(s) 0.938 x 1.501 mm, coverage 88 %; TI SLVSD88M p.30 example stencil: 88 % printed solder coverage",
+    "F.CrtYd 2.00 x 2.00 (body only) -> 3.18 x 2.50 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C285010_C0201.kicad_mod": {
+   "lcsc": "C285010",
+   "source_sha256": "3eb5042b3b8b32c62bebefd5ea4a4ddfa3db9d2f1b8fe4c5e8677b635ef05f7b",
+   "reviewed_sha256": "b913426a9156cfea0af57a1ce631b7fff553028314c3a5eccc888d6d8f35d741",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.22 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C2863637_SC-70-5_L2.1-W1.3-P0.65-LS2.2-BR.kicad_mod": {
+   "lcsc": "C2863637",
+   "source_sha256": "6dc0a0bb38b85579918d0dca643de71786a2d6a74e045e90fe0f4b47418ff3bd",
+   "reviewed_sha256": "dffca1a068e0e175bef4cf58def3a068a57800e2da90c7fedf680d8586b02d89",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.30 x 2.10 (body only) -> 3.60 x 2.60 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C2867950_UDFN-4_L1.0-W1.0-P0.65-TL.kicad_mod": {
+   "lcsc": "C2867950",
+   "source_sha256": "ce8f989e37f013572a9c5690db956fae01755c76b698d66379f52c174a6f5baa",
+   "reviewed_sha256": "70cdc9c0d1ef7f94dc7383f350d18233cfb779631565aac699fb6b85632e2e1a",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 1.00 (body only) -> 1.78 x 1.56 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C2876045_X2SON-4_L0.8-W0.8-P0.48-TL-A.kicad_mod": {
+   "lcsc": "C2876045",
+   "source_sha256": "e447471937a2f73e387230f118b0ba6a600bc5d40da84602fa1ce6b989a9369e",
+   "reviewed_sha256": "24f08663bb499d96c21581f079b5ac348965ee29733be1240e11630b16fcfeaf",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.80 x 0.80 (body only) -> 1.81 x 1.32 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C295786_R0201.kicad_mod": {
+   "lcsc": "C295786",
+   "source_sha256": "447504ed5ae18411461a5490ab923c9a6697ae6b383b2c2caf58cca573278308",
+   "reviewed_sha256": "e8f272810bdfbb5c95cac270bd26ead73b2369f7479fe858f3795814b83ebe45",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C29936_C0603.kicad_mod": {
+   "lcsc": "C29936",
+   "source_sha256": "fdb267fdaac59ea00252c987c33dff2d01c49133fa6489c19a650be4b238b805",
+   "reviewed_sha256": "ba81af3578614d71f444cb80c6430a4b6fb4a09c6fa7b8c388084ebfdad1e87d",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 0.80 (body only) -> 2.50 x 1.20 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C309454_C0201.kicad_mod": {
+   "lcsc": "C309454",
+   "source_sha256": "9ab0402aade56c37a874a41280602dbfd2092baa68b91191892827713c5e4c87",
+   "reviewed_sha256": "d932a9fcc16a2259a12579b832e1e46d82659b992cf1e5c3c0d420e933430080",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.22 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C324723_FFC-SMD_10P-P0.50_FH34SRJ-10S-0.5SH.kicad_mod": {
+   "lcsc": "C324723",
+   "source_sha256": "cd0e8b39528bed0af29199b73786d3c1a9ec451cf621567331a1cd2ba07e6461",
+   "reviewed_sha256": "1bd78491f0712b9693934a39451976e7cb06999ca14ac00438b0fb748f2e5673",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "courtyard body box Hirose FH34 p.6: body 7.15 (A max) x 3.8 mm, lead / actuator side at -y [S2a]",
+    "F.CrtYd 7.15 x 3.80 (body only) -> 7.66 x 4.30 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C325459_C0402.kicad_mod": {
+   "lcsc": "C325459",
+   "source_sha256": "2315b0d44c1f74c73696b6395c3c0a940da62a03b31785d496bde585c41e8e15",
+   "reviewed_sha256": "86d2dc3aa49a4cf19de7fae208081937fd3546a7739a1ea68379b5c3018bfb40",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C32949_C0402.kicad_mod": {
+   "lcsc": "C32949",
+   "source_sha256": "a9da67d2e38f074a3455ecce8b9a3ec00367f2a481652fb6c9f0c628a376c659",
+   "reviewed_sha256": "df603368b65723aaf8d7158eff39957a8beaec0e8941c1e9e287d5dc65d9f745",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C364549_LED0402-R-RD_GREEN.kicad_mod": {
+   "lcsc": "C364549",
+   "source_sha256": "26170ca04a2d4527ec4b3da6ff589f0821459417779b16857fd0f4b3f2320bad",
+   "reviewed_sha256": "2f28acfab1d6dd67dc7f8b02d612cb9e79552467c44af92d2cd694a4f99e64ee",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 2.50 x 1.12 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C3747031_SOT-23-5_L2.9-W1.6-P0.95-LS2.8-BR.kicad_mod": {
+   "lcsc": "C3747031",
+   "source_sha256": "2e17bd5f8e73f4b3711aeec688469e90665f4035cbf3bf5b3e60c0def25696d5",
+   "reviewed_sha256": "16b5f0608b84675fe14971f6f1fe2c2f2484638a08bd7e3c5f3b6d194c7f67c1",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 2.90 (body only) -> 3.70 x 3.40 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C384960_C0201.kicad_mod": {
+   "lcsc": "C384960",
+   "source_sha256": "98b1c09232182720c316f44743a02b20c0ea9572eb52453b75528a26aa868c53",
+   "reviewed_sha256": "023bf35bc2f88b9073e65fa11fb5f9444958742a4dcd523d588e3921caabc349",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.22 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C3855387_C0402.kicad_mod": {
+   "lcsc": "C3855387",
+   "source_sha256": "1c58941b2f8502d0cbb97ec82f45457d7515899d05e64c35bfec94b8be3e2a65",
+   "reviewed_sha256": "8bb1c68ec5683d1bd811f5b32a10ee2ab883c6f40e714d19286e03505f40bdb4",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C398713_CRYSTAL-SMD_L1.6-W1.0.kicad_mod": {
+   "lcsc": "C398713",
+   "source_sha256": "89ddc1c25856dcc03582fff71beca5742a12b2cec1f1307599837059d3d240ab",
+   "reviewed_sha256": "7df740d4b21fcb7fdc687f1cd7ac0a3318f9b8e4b8575e4c151e5ef8203ef494",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 1.00 (body only) -> 2.22 x 1.50 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C407659_R0402.kicad_mod": {
+   "lcsc": "C407659",
+   "source_sha256": "c7520196215b5c6b4f2997f3cfa2407f767c700c183531d3da5cbbcac5a214d3",
+   "reviewed_sha256": "c5074d7e76b1d3eb6b751565a72741adf38a02ac0731c03da2255add2b0917c7",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C4109_R0402.kicad_mod": {
+   "lcsc": "C4109",
+   "source_sha256": "a281e1d2e161b481c09eddd0f3acc27bf2e23414c8717c2fd0be93d57b97435b",
+   "reviewed_sha256": "0da0be73698227b70500aaec5b31b6e45718ce1a0834309872411bc50a665683",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C413063_R0402.kicad_mod": {
+   "lcsc": "C413063",
+   "source_sha256": "54d767c0c7a8f864414b4df383069f61de991c87d5faa897f92365b7f6baa87f",
+   "reviewed_sha256": "b3891256bef677ff855471eacf0a64a6873c9366e78a9c13380b33b9694f30b5",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C423135_R0402.kicad_mod": {
+   "lcsc": "C423135",
+   "source_sha256": "2506a70190b2ddb3445e34deb4fa7a193c689dd491fe4a3fa0fa7febd3be117d",
+   "reviewed_sha256": "3d6082670ef0cbdadfd28445cdb6594f12fad84a8aa068bd949b62209718b7c1",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C423137_R0402.kicad_mod": {
+   "lcsc": "C423137",
+   "source_sha256": "a30ae331c2cdeca24c12c16d4d77bdbf99986a0650198cd27740355350062f22",
+   "reviewed_sha256": "cc476091b0683ef53ca9dbc7189b6a5e7f2b6ddcb6f99b19ea0573695dadcaff",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C423169_R0402.kicad_mod": {
+   "lcsc": "C423169",
+   "source_sha256": "ccc366f9eb9c6fa0059e8ed5a22312b46a71128a32ba6ed608fe6bfd730aeaae",
+   "reviewed_sha256": "2047866466096835843c542de485103fbbff6c8a79d2dee5623e1f8f6b358bb6",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C423173_R0402.kicad_mod": {
+   "lcsc": "C423173",
+   "source_sha256": "2c53a37660b1333c201b65045f4492f7659e27422786758f66833ea190b44a50",
+   "reviewed_sha256": "11cab307bf45f6cae70af9b4b1891a8a37d203150cc8c2c3f99191d5de070c77",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C423177_R0402.kicad_mod": {
+   "lcsc": "C423177",
+   "source_sha256": "db1089804f6d0de2658bf817ad635b8d171c6057d482879e7274c39e6032ce25",
+   "reviewed_sha256": "283d6c6c59bcf536fc6096c365618e72f4f31297bbe069e2051301629f51ad8e",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C423179_R0402.kicad_mod": {
+   "lcsc": "C423179",
+   "source_sha256": "83b97c73ce7bd340ae204666df0f550130b79a2b2e7b1fb2979d4e5d12f94ced",
+   "reviewed_sha256": "cb992750466a582c1e1102734a20ba5b03f2082c5d16f098bade8281c48c6258",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C423258_R0402.kicad_mod": {
+   "lcsc": "C423258",
+   "source_sha256": "6a85338d168f8e9fb97728ecb853cbfe6e7933a864afcd3e211315fbbc1efd21",
+   "reviewed_sha256": "538bef1b4933adeba5a6b90b8b9723b671099d7fb23da7518fdb0d414e4c37e7",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C423439_R0201.kicad_mod": {
+   "lcsc": "C423439",
+   "source_sha256": "b6c539805d2a8a07a4d347f1cbe75e909889e2dfb299557716e323440993c75a",
+   "reviewed_sha256": "f087af6b59f640eb1c8208f27439bfe9c791c0d2ef19f5d1f45c88a339d53059",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C423488_R0201.kicad_mod": {
+   "lcsc": "C423488",
+   "source_sha256": "4b2cb7324410c563e2cb8cb32ec9e3c21738d9e6b2538723867fdcbb6132bfef",
+   "reviewed_sha256": "480022f66109f71c320e95353dbcbcf9ba988529a59b9fe17e79a95b0dc7ee93",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C423582_R0201.kicad_mod": {
+   "lcsc": "C423582",
+   "source_sha256": "dbbe74dd9c96d5f26aac6e4362d68c5ca883fc0c3dacd7564ee1246aa7802364",
+   "reviewed_sha256": "f84b5df602e5e918d653c18f6420375723ce7e45b182d2b44dafdbd166345b24",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C423797_R0201.kicad_mod": {
+   "lcsc": "C423797",
+   "source_sha256": "dc42e77bb32333c01a3a2fd7b7f79102cfc81b8ae783c0b2c4e4ea662e967ba0",
+   "reviewed_sha256": "c0b453551547b0f9e13e08d59b4d6bd225b4947dbcadcd6ccdd69fca1f913726",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C434843_IND-SMD_L2.0-W1.6.kicad_mod": {
+   "lcsc": "C434843",
+   "source_sha256": "2e46ed0ad138529295bd16b4f69d6406026ea01dc3251872d2f9185aa02aa78c",
+   "reviewed_sha256": "6ac4687f81101ec12f7fa160f43d9c97b128d450e574d592e6a616cffe277953",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 2.00 x 1.60 (body only) -> 3.16 x 2.22 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C43675_R0402.kicad_mod": {
+   "lcsc": "C43675",
+   "source_sha256": "bfde0d0c7d5335042965639f56424000461eedfbeba5171f6fa9efc394954b14",
+   "reviewed_sha256": "479616a6237647cadc4aca47cc44b1ce84718e59ced10d377118e3b8395521d8",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C43676_R0402.kicad_mod": {
+   "lcsc": "C43676",
+   "source_sha256": "df7debe4312ce2281a8fdda5d4beb543721e0b37699e8490951391d7f703baa4",
+   "reviewed_sha256": "235739a688bd9eda716fc8b7a80531da90a134ffad5cb09a5ac8b2a50bb58d69",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C4371025_DSBGA-8_L1.5-W0.7-R2-C4-P0.40-BL.kicad_mod": {
+   "lcsc": "C4371025",
+   "source_sha256": "0e2eba9e92f61117264a78889c9b63d2d9980540435cdc25ced6a9420230fb45",
+   "reviewed_sha256": "c4facfd75acd9fcea3a62b084a708c7917256f7204d84f3a58fbc6855a8332d2",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "COPPER: every round land 0.149 -> 0.20 mm diameter (centres, numbers and count unchanged; paste and mask follow the pad); JLC capability page (BGA pad 0.2 mm minimum); TI YBJ0006 drawing 4226653/A of the same YBJ family (cache/v2/ds_review/ti_mxbg457.pdf, as read by the review): land 0.20 mm NSMD. The YBJ0008 drawing itself was not found",
+    "F.CrtYd 1.50 x 0.70 (body only) -> 2.00 x 1.20 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C441935_R0603.kicad_mod": {
+   "lcsc": "C441935",
+   "source_sha256": "664398e3ddf65a99234e9b39d564d6523976453be6ed71fa2fb76a761d87dada",
+   "reviewed_sha256": "474f356f21ec27116e33db561fd39e3db1aceded22385373cbc18cba7f85d0a4",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 0.80 (body only) -> 2.62 x 1.18 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C45993_R0402.kicad_mod": {
+   "lcsc": "C45993",
+   "source_sha256": "1e84edf033b9fabdf88a82f28b9bce2da4a0262dedf31a5e7d81b39f3c1c8ee1",
+   "reviewed_sha256": "8de87df0c9e551db85a4dec6bd8de791e23c346af4e5770d834df716dd950948",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C471381_IND-SMD_L1.0-W0.6.kicad_mod": {
+   "lcsc": "C471381",
+   "source_sha256": "558872c8031157e9507e79b6cfbc763c7aa40210ab8cfc160816d93bb6f59c33",
+   "reviewed_sha256": "779ca6c1608072a5779af322c6156259f2b3c55a5314f464baa890ea9bd9e1a6",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "COPPER: pad 1 (-0.43, 0.00) 0.50 x 0.65 -> (-0.505, 0.000) 0.41 x 0.66; Murata LQW15AN spec JELF243A 12.1 land (same series): 2 pads 0.41 x 0.66 at +-0.505; numbers, origin, 0 deg unchanged [F]",
+    "COPPER: pad 2 (0.43, 0.00) 0.50 x 0.65 -> (0.505, 0.000) 0.41 x 0.66; Murata LQW15AN spec JELF243A 12.1 land (same series): 2 pads 0.41 x 0.66 at +-0.505; numbers, origin, 0 deg unchanged [F]",
+    "F.CrtYd 1.00 x 0.60 (body only) -> 1.92 x 1.18 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C473048_R0201.kicad_mod": {
+   "lcsc": "C473048",
+   "source_sha256": "8d66091942dfe5bccb53d00ad1b3f3764fa4726ac70e74acd96143781d15c7b2",
+   "reviewed_sha256": "b5d60c7f5e46783bf3b511a51af34caefbd4304004d312b259cf19469dee77af",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C473458_R0201.kicad_mod": {
+   "lcsc": "C473458",
+   "source_sha256": "32f9b7690997182cdf09bc98c5f75524d5fba4d2f315791a2d32dd7352a88c66",
+   "reviewed_sha256": "78774d489365b0543b61aa70a0d21b38fdb1e1b1e5dd178be30432cbd1b9159b",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C473473_R0201.kicad_mod": {
+   "lcsc": "C473473",
+   "source_sha256": "fd31654dfab33702b546a5a905b0a3c06180477b92edd91a0ac2967fb88a5398",
+   "reviewed_sha256": "ad0361b70af1b80dfdf3e079889cd6f8dd83f42a0e5871c31094527d6c7fcd24",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C473560_R0201.kicad_mod": {
+   "lcsc": "C473560",
+   "source_sha256": "20e804f2bbcfca51bf6a1bf2dc05521da9360fe8022d5fc5be3efb72ffe2820c",
+   "reviewed_sha256": "d0a4d481fc3c6732fe57a50d508cbc50c68d809607cc4d70a0a71e181d440465",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C473632_R0201.kicad_mod": {
+   "lcsc": "C473632",
+   "source_sha256": "d1db3c061a2d2316ec2264a8d7d75157e04933bb90a615598126bf6d515d3542",
+   "reviewed_sha256": "f92b4f2c5cb44daa2719a48517b90298e5d7ca61fcc32d49adae5f1fd82afbe2",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C477696_R0402.kicad_mod": {
+   "lcsc": "C477696",
+   "source_sha256": "1e9a0e40508f1200a005394e318f23868706983188610a41e2c3b618b9d097e8",
+   "reviewed_sha256": "ec266bd515585332ce304fdfe4fb8318afeb6975d95518d9097ff1e39e296698",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C477700_R0402.kicad_mod": {
+   "lcsc": "C477700",
+   "source_sha256": "62ba9c251a9eff005b96aa635ab0938d9fb61568bac448c61c43f1747e623d23",
+   "reviewed_sha256": "68cab4ddf4ec9ca675c043e86c88608547023a1b79f92e9b177068f5b40e7577",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C477705_R0402.kicad_mod": {
+   "lcsc": "C477705",
+   "source_sha256": "09be1aee97c6cf477c76addd32a09f34042ca9175c55c8ada63289dc728903c0",
+   "reviewed_sha256": "b5c0b13d5309aa5d305026d05947ebf1eba6d5784793987fbcd0b0a548928358",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C477775_R0402.kicad_mod": {
+   "lcsc": "C477775",
+   "source_sha256": "c026a7b8d41ef438b2f29eaebc49396f4a78a9b40e981b7ca734de0b2091ea90",
+   "reviewed_sha256": "8d0fc0cb594cd644714f9e7916eb25e43bd456ca590d3a0251de2bf34362480b",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.74 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR.kicad_mod": {
+   "lcsc": "C478155",
+   "source_sha256": "474e2026d8a4470ee72713125eed8afa25ecec0063bb73ec2bd13f3e2b5e2c09",
+   "reviewed_sha256": "85a20112ee594267cf81e1d4684f1b7ad14c75b184e8e883566f190bfdf846b7",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.60 (body only) -> 1.66 x 1.22 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C478207_X1-DFN1006-3_L1.0-W0.6-P0.35-BR.kicad_mod": {
+   "lcsc": "C478207",
+   "source_sha256": "bc24fe0e76e9787a8ffdf524fcf0caee0be7c5f82c34ea0463016f788d3fb23a",
+   "reviewed_sha256": "2a7306e3325db0f766f516cb47cae5ef0c5763d7731f252a5f5a53cef88bc041",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.60 (body only) -> 1.60 x 1.22 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C48260_X1SON-2_L1.0-W0.6-P0.65-BI-1.kicad_mod": {
+   "lcsc": "C48260",
+   "source_sha256": "9aa7c4fc31d04cb05e8ed2afd3d3b33a1547807ec971e298664717869908f4a0",
+   "reviewed_sha256": "4527e16be1cac34506fccff0b9b4378a4e7f344983ceae0d331b6139a0627d33",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.60 (body only) -> 2.10 x 1.12 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C48502_SOT-23_L2.9-W1.3-P1.90-LS2.4-BR.kicad_mod": {
+   "lcsc": "C48502",
+   "source_sha256": "85438634c6fc95d1cd68fe11678bd9ae7aa8421070a096579b48b5dd352d833d",
+   "reviewed_sha256": "4076a7d068da3dda3c77c725706ca895e8b3f583ad754dbb75df63f890dee0a4",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.30 x 2.90 (body only) -> 3.80 x 3.40 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C504101_DFN1006-3L_L1.0-W0.6-BL.kicad_mod": {
+   "lcsc": "C504101",
+   "source_sha256": "1c882893ccc11c1bf29a677ac3568f2f96b72e28749adef5408aabfdf2e3d14e",
+   "reviewed_sha256": "18158ba5eba9346c73aa093a593c9a21794ccc3addadb846764cfe3da693d9f6",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.60 (body only) -> 1.66 x 1.22 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C506250_VQFN-20_L3.5-W3.5-P0.50-BL-EP2.0.kicad_mod": {
+   "lcsc": "C506250",
+   "source_sha256": "2718540849bd48935c202d0a0d6a6ad6e38e75bb6ca377af5d25624a1893be1c",
+   "reviewed_sha256": "f5d5dea5c392ec66258118b5a7dada2642218007a568dac737d7c5924eeddd13",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "EP pad 21 2.05 x 2.05: full paste -> 2 x 2 window(s) 0.922 x 0.922 mm with 0.20 mm webs, coverage 81 %; TI SLUSBH2G p.45 example stencil: 81 % printed solder coverage",
+    "F.CrtYd 3.50 x 3.50 (body only) -> 4.80 x 4.80 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C509405_WLCSP-50_L3.2-W3.0-TL_NRF52832.kicad_mod": {
+   "lcsc": "C509405",
+   "source_sha256": "f381ef8d1731100db522a89e7cb48d64e23fd0b852d5d10bc1dc7068b655a009",
+   "reviewed_sha256": "13ed22cf9606c69b6713d1b528a469223045f022b5ff4aea69640bd524f675fe",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "COPPER: every round land 0.170 -> 0.20 mm diameter (centres, numbers and count unchanged; paste and mask follow the pad); JLC capability page (BGA pad 0.2 mm minimum, 0.2-0.25 mm needs ENIG; read 2026-11-12, cache/v2/jlc_review/pages/pcb-capabilities.html); nRF52832 PS v1.4 Table 132 p.541: ball b = 0.20 mm nominal. Gap between lands at 0.40 mm pitch: 0.20 mm (JLC SMD pad-to-pad >= 0.15 mm)",
+    "F.CrtYd 3.00 x 3.20 (body only) -> 3.50 x 3.70 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C511402_SENSOR-SMD_8P-L4.8-W2.5-P1.31.kicad_mod": {
+   "lcsc": "C511402",
+   "source_sha256": "ed2b36a674d1a873b8e1e76f113c4bd8aa78569be076fd1c0506556d0cd0cc28",
+   "reviewed_sha256": "3092cfda4dc9cc9cb21e3c8523d342da21f7e6e7ee82eb0ca0f5ff8ff14ea1b7",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 4.80 x 2.50 (body only) -> 5.30 x 3.44 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C5187176_XQFN-12_L2.0-W1.7-P0.40-BL.kicad_mod": {
+   "lcsc": "C5187176",
+   "source_sha256": "32ba72e9639c612d4e78483b4b59ed6bd23c907a57802801b856a06112d82c97",
+   "reviewed_sha256": "0bd0d42d4f4e1802cb6a22511dc2953d4ad68edaf4beb4c1aac095b6504b9bf3",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 2.00 x 1.70 (body only) -> 2.80 x 2.60 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C5208201_WSON-8_L2.0-W2.0-P0.50-TL-EP.kicad_mod": {
+   "lcsc": "C5208201",
+   "source_sha256": "d3d5c8a042f67794523bdcbc90656bc3a34259efb095472b10206c430bfed820",
+   "reviewed_sha256": "10a949384726aac472120a61df10e382ec15632f5c7bcf3dc5b7eefc66cc28d3",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "EP pad 9 0.90 x 1.60: full paste -> 1 x 1 window(s) 0.839 x 1.492 mm, coverage 87 %; [V3F] TI SLUSDJ8A p.34 example stencil (DSG0008A): 87 % printed solder coverage under the package",
+    "F.CrtYd 2.00 x 2.00 (body only) -> 2.94 x 2.50 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C521065_L0402.kicad_mod": {
+   "lcsc": "C521065",
+   "source_sha256": "0e81ca97b4b67062ab716321c1c0525fdc17f2171d7ebcced2b5f959c30dce2d",
+   "reviewed_sha256": "b39f30013f48d59e9b40151a859bd78b9f2b0370546270158b537f9b340fbe5f",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.68 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C5217869_SON-6_L1.5-W1.0-P0.50-TL.kicad_mod": {
+   "lcsc": "C5217869",
+   "source_sha256": "186ce4ae5bc22712732201e5dd0b1541ff339e1b4ca48a10049283aadd5cc4b2",
+   "reviewed_sha256": "bf214d91297b2b04cc5ff3f4b66f901340e867ae9b3eef1e0dfd0bb14a62b14a",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 1.45 (body only) -> 1.50 x 1.95 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C5220164_X2SON-4_L1.0-W1.0-P0.65-TL-EP.kicad_mod": {
+   "lcsc": "C5220164",
+   "source_sha256": "0c2d15c3800d0dfaa9c970cb5ee81dbd258d5114fee984de3cd5d30296cb05ca",
+   "reviewed_sha256": "7126c96f083386ab4eb6ed13fa26c8beaf35a4b0949d7704723f3bc237e1d148",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 1.00 (body only) -> 1.83 x 1.50 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C52923_C0402.kicad_mod": {
+   "lcsc": "C52923",
+   "source_sha256": "c196cdce5491a308751da7a69d8bae6441481a919620c8a71da11c16ec60d9d4",
+   "reviewed_sha256": "eddc43000b2577bd2b2ceebc3cd92d62eafc47139e2de5629a9ce9ff4e755072",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C5328762_BGA-20_L2.0-W1.8-R4-C5-P0.40-TL.kicad_mod": {
+   "lcsc": "C5328762",
+   "source_sha256": "6ee6c7a771addd764f286fa396d4ad44d53a586aad95e1e45d27ba1566856394",
+   "reviewed_sha256": "82259d2059d5665f45beee062c5ee8e22da64d833daeac25a5a1625a4dc53cc5",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 2.00 x 1.80 (body only) -> 2.50 x 2.30 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C5443912_SOT-23-8_L2.9-W1.6-P0.65-LS2.8-BR.kicad_mod": {
+   "lcsc": "C5443912",
+   "source_sha256": "ea940dbf94dad663377b2f823de57e613c6cc5907c728447e4314abf3295208d",
+   "reviewed_sha256": "9d2306369d6b9e990b22987a41015c8be0a6f12956cedc357a3968d552c0d7d7",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.62 x 2.90 (body only) -> 4.22 x 3.40 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C5452416_L0402.kicad_mod": {
+   "lcsc": "C5452416",
+   "source_sha256": "44e25fb883d53fd63282533c281d2acc5c806694416da2dfc629130a761fc63f",
+   "reviewed_sha256": "037ecc6bcf093b833a37218ffb35d562e5543d4582dc570dc045aa7bd1d1a8ea",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.68 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C549275_DFN1006-3_L1.0-W0.6-P0.35-BR_BAT54CM.kicad_mod": {
+   "lcsc": "C549275",
+   "source_sha256": "227bc24026cafb4a4dc68eb07bb9450f60c691b2c0bb616d01ae51f2f510f274",
+   "reviewed_sha256": "0911862b745ddd4c72ae8a4a3aa79c26d3f95d1aa9d11ed7492ffed99206616a",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.98 x 0.58 (body only) -> 1.54 x 1.12 mm (pads + body + 0.25 mm)",
+    "COPPER: small lands 0.40 x 0.16 -> 0.45 x 0.25 mm and large land 0.40 x 0.60 -> 0.45 x 0.70 mm, centres x +-0.32 -> +-0.35, y +-0.18 -> +-0.23 (pad set of C478155, same Nexperia SOT883; EasyEDA's 0.16 mm lands are narrower than the 0.22-0.30 mm terminals, BAT54CM p.6); numbers and orientation unchanged"
+   ]
+  },
+  "C549313_PROXY-C549275_DFN1006-3_L1.0-W0.6-P0.35-BR_BAT54CM.kicad_mod": {
+   "lcsc": "C549313",
+   "source_sha256": "c22410215d40fbcb4398194712289cb920d778d153b57db2b0f96ff9979dc587",
+   "reviewed_sha256": "c23d8845abf18d45303b0b46ef061f8809ccd80c13a62546cd01c37d94b0a1d9",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.98 x 0.58 (body only) -> 1.54 x 1.12 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C5603826_LED-SMD_3P-L2.2-W1.8_C5D-56-J6U6-20-R18.kicad_mod": {
+   "lcsc": "C5603826",
+   "source_sha256": "c125d0ce292385af2a54390fb5fb7a6739ecb9cea949c38a5ddee5ccfe4d614e",
+   "reviewed_sha256": "71066e6eb62f247ee3df959fabf7334d47c13fd25a350f9f7a16024e4ef589bc",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.80 x 2.20 (body only) -> 2.30 x 2.70 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C5687033_USON-8_L3.0-W2.0-P0.50-BL-EP1.6_MX25R1635FZUIH0.kicad_mod": {
+   "lcsc": "C5687033",
+   "source_sha256": "ae91cff0d82a1fb2557eb36f75d4233c7066f710965d04cb6f949b995170221d",
+   "reviewed_sha256": "c5b6b030ce72c12426ca47ad2242d511b3944ee060f137e0ab786aa2ff75f9b0",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 2.00 x 3.00 (body only) -> 2.50 x 3.50 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C59461_C0603.kicad_mod": {
+   "lcsc": "C59461",
+   "source_sha256": "e609828e7981ce8f5cff5493643d1da76b6308b23f97b359b29bd955a1d8db24",
+   "reviewed_sha256": "1dc828a7f07a1e86d4e7382c26d22a3dc2875545132441559bab8cbdae648e30",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 0.80 (body only) -> 2.50 x 1.20 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C598214_LED-SMD_L2.5-W1.2_KA-2810AVBS-D.kicad_mod": {
+   "lcsc": "C598214",
+   "source_sha256": "6d723c0336da7585a452ab8cbc0ca860cb89213410779763e53e46c6e16b7c89",
+   "reviewed_sha256": "6f1630cd353e95ed1310d48f2880c35b8ddbafc257223b1a7bd447f1a8954436",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 2.50 x 1.20 (body only) -> 4.30 x 1.77 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C601689_LED-SMD_L3.8-W1.0-R-RD_RED.kicad_mod": {
+   "lcsc": "C601689",
+   "source_sha256": "a924a7768c635ae1564393aa006704286565e1b003b91404defabb5cd9c46cbb",
+   "reviewed_sha256": "8ef45d2bc8e2ed77f6fbd2ad7831af9bbe204b5fbb82b3bf9f521d26c3481783",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 3.60 x 1.00 (body only) -> 4.70 x 1.70 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C6652901_IND-SMD_L1.0-W0.6.kicad_mod": {
+   "lcsc": "C6652901",
+   "source_sha256": "c7757c08bb5c5308d201da7c15526f1e68436a174d7ec8435eac67067c46fd95",
+   "reviewed_sha256": "0aad4d4eed87296cc6f7fef5645abb83cc0936740af1ab7cacd257447cc1590b",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "COPPER: pad 1 (-0.43, 0.00) 0.50 x 0.65 -> (-0.505, 0.000) 0.41 x 0.66; Murata LQW15AN spec JELF243A 12.1 land: 2 pads 0.41 x 0.66 at +-0.505 (gap 0.60, outer 1.42) (was EasyEDA 0.50 x 0.648 at +-0.43); numbers, origin, 0 deg unchanged [S2c]",
+    "COPPER: pad 2 (0.43, 0.00) 0.50 x 0.65 -> (0.505, 0.000) 0.41 x 0.66; Murata LQW15AN spec JELF243A 12.1 land: 2 pads 0.41 x 0.66 at +-0.505 (gap 0.60, outer 1.42) (was EasyEDA 0.50 x 0.648 at +-0.43); numbers, origin, 0 deg unchanged [S2c]",
+    "F.CrtYd 1.00 x 0.60 (body only) -> 1.92 x 1.18 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C668348_C0402.kicad_mod": {
+   "lcsc": "C668348",
+   "source_sha256": "48d564d4be74c81cf3656646439ebb0d0ae859522851e07c10b4927e37fd32d6",
+   "reviewed_sha256": "707ef609c15d60e1080693256f0ad029f6e392227eb3225d681e016c4b4f3c86",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C668465_L0402.kicad_mod": {
+   "lcsc": "C668465",
+   "source_sha256": "0bd0f612a1a2d65f3e8b5dfe187491af2842fd78b3923b4d4370834b93cb68e4",
+   "reviewed_sha256": "fc8ab5135fcf2f9412aabd6f428da53e381571658a40676fbd5728120a22fbf6",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "COPPER: pad 2 (0.42, 0.00) 0.54 x 0.54 -> (0.505, 0.000) 0.41 x 0.66; Murata LQW15AN spec JELF243A 12.1 land: 2 pads 0.41 x 0.66 at +-0.505 (gap 0.60, outer 1.42) (was EasyEDA 0.54 x 0.54 at +-0.42); numbers, origin, 0 deg unchanged [S2c]",
+    "COPPER: pad 1 (-0.42, 0.00) 0.54 x 0.54 -> (-0.505, 0.000) 0.41 x 0.66; Murata LQW15AN spec JELF243A 12.1 land: 2 pads 0.41 x 0.66 at +-0.505 (gap 0.60, outer 1.42) (was EasyEDA 0.54 x 0.54 at +-0.42); numbers, origin, 0 deg unchanged [S2c]",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.72 x 0.96 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C6736531_SOD-123F_L2.8-W1.8-LS3.7-RD.kicad_mod": {
+   "lcsc": "C6736531",
+   "source_sha256": "68677af64ea5f5e674cadab852d44a3f6225803bc729374cc25872e38655c575",
+   "reviewed_sha256": "e5e07e411b4ed22f0d0d133bf35f02afd47ac3603c4704b70d1bf665420b1cf2",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "COPPER: pad 2 (1.65, 0.00) 1.00 x 1.20 -> (1.400, 0.000) 1.20 x 1.20; Nexperia PMEG10020AELR Fig. 17 reflow land: 2 pads 1.2 x 1.2 at +-1.40 (was EasyEDA 1.00 x 1.20 at +-1.65); numbers, origin, 0 deg unchanged [S2b]",
+    "COPPER: pad 1 (-1.65, 0.00) 1.00 x 1.20 -> (-1.400, 0.000) 1.20 x 1.20; Nexperia PMEG10020AELR Fig. 17 reflow land: 2 pads 1.2 x 1.2 at +-1.40 (was EasyEDA 1.00 x 1.20 at +-1.65); numbers, origin, 0 deg unchanged [S2b]",
+    "courtyard body box Nexperia PMEG10020AELR Fig. 16: 3.3-3.7 x 1.5-1.9 mm (max kept) [S2b]",
+    "F.CrtYd 3.70 x 1.90 (body only) -> 4.50 x 2.40 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C6807729_L0603.kicad_mod": {
+   "lcsc": "C6807729",
+   "source_sha256": "52d230d0d60fdab4f358f8f19450ece6970b887b46fb0344c1a67d0d5a9f2b67",
+   "reviewed_sha256": "884dba675a85dd642b8484817716a9971f146de84029d663b84853048c41b506",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 0.80 (body only) -> 2.50 x 1.18 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C718072_CRYSTAL-SMD_4P-L2.0-W1.6-BL.kicad_mod": {
+   "lcsc": "C718072",
+   "source_sha256": "2cc65bdaa4031f0e6b5fe98ca260a4dd240f5918ce0d149114de8b53e139d403",
+   "reviewed_sha256": "956a0474004ad6273eeb79fe03a2ea0c9a349ca512f61bfa20e2471b0fd9648b",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 2.00 x 1.60 (body only) -> 2.80 x 2.42 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C727398_TDFN-4_L1.2-W1.6-P0.50-BL-EP.kicad_mod": {
+   "lcsc": "C727398",
+   "source_sha256": "2d341709644ea17a8b60b1d9ba161002b359835b0fb8e8ecb6e83c5e2c6c9b13",
+   "reviewed_sha256": "9c3b683fe9f0d38d192923a6b7d36732e6d265e41d39ae078b69b87d8175524b",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.20 x 1.60 (body only) -> 1.70 x 2.52 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C7393837_C0201.kicad_mod": {
+   "lcsc": "C7393837",
+   "source_sha256": "9b54bf456a415945f4529eeba0acc7c5c518b939647c39bb038436f13570a0b5",
+   "reviewed_sha256": "96abae2a8329b8d56a58a6f03ea6e31e8dfe964bc5f50c90016b5d9e6a1aa051",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.22 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C76886_L0402.kicad_mod": {
+   "lcsc": "C76886",
+   "source_sha256": "031ef45633f7591260ae92f518ea1729c034a844d45d0916d0ae660c2bdd3eef",
+   "reviewed_sha256": "cd52b5ace01808cd1355359d3940c66e7611a049734f48ed0d35e2978495aafe",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.68 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C76922_C0201.kicad_mod": {
+   "lcsc": "C76922",
+   "source_sha256": "d5effc404453931159260cc9d21820a2336d5217c8ceadb4d97c7c11cc732967",
+   "reviewed_sha256": "f2bea4681b06a19e5337e6707eac3694ca0b2d6cd6c8d3670099e34d0798b343",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.22 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C76923_C0201.kicad_mod": {
+   "lcsc": "C76923",
+   "source_sha256": "cfa7d3d62fc53bedb209aaabe802b30dd07bf4c0c147ed2f75c3dfefc8ff0592",
+   "reviewed_sha256": "69e8e4179c0c145c95fb49d75f3be0e2d784c3aed845ce13d27f525094afa2cc",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.22 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C76924_C0201.kicad_mod": {
+   "lcsc": "C76924",
+   "source_sha256": "fc2ee8242acc79a7b442eed207773a25319d1cc873f61a5edeb5cc2ae0d6a134",
+   "reviewed_sha256": "265f02f93aec28bd8092cfe1bcf5ee39e6ccc77a60a9f52d01b97fd083bf043e",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.22 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C76935_C0201.kicad_mod": {
+   "lcsc": "C76935",
+   "source_sha256": "3bd0039e225fbebadacf81f847de8b43f704e865044d4330bedecde7e2e6a774",
+   "reviewed_sha256": "a40d013e1709666ce7da7688c9e0b921ac450b236cc2d4381de87157ff367c4e",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.22 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C76951_C0402.kicad_mod": {
+   "lcsc": "C76951",
+   "source_sha256": "f2a60fa90bbfa40b265ebf9846b884721dedb2e6931e3e6558d4350a51e73d35",
+   "reviewed_sha256": "907abb838669e0790b68db50d1efa88a5082d75066d0403d709c18ff00671c57",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C77540_QFN-48_L6.0-W6.0-P0.40-BL-EP3.8.kicad_mod": {
+   "lcsc": "C77540",
+   "source_sha256": "e0bf2bc82e1f6dfb0e3ab72ddb092f7aa540d51eb02b8d4330e3d42c571fdbc9",
+   "reviewed_sha256": "97841b7796b07bd5b2dc7bfdfb28cd93f2acced81a6dec0be6cf66a20aa5b6cd",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "EP pad 49 3.80 x 3.80: full paste -> 3 x 3 window(s) 1.013 x 1.013 mm with 0.20 mm webs, coverage 64 %; EasyEDA C77540 paste region 3.04 mm square on the 3.80 mm land = 64 %, split 3 x 3",
+    "removed unnumbered PTH pad at (-0.50, -0.50) with *.Paste/*.Mask (EasyEDA via, tented in the source)",
+    "removed unnumbered PTH pad at (0.50, -0.50) with *.Paste/*.Mask (EasyEDA via, tented in the source)",
+    "removed unnumbered PTH pad at (-0.50, 0.50) with *.Paste/*.Mask (EasyEDA via, tented in the source)",
+    "removed unnumbered PTH pad at (0.50, 0.50) with *.Paste/*.Mask (EasyEDA via, tented in the source)",
+    "F.CrtYd 6.00 x 6.00 (body only) -> 7.00 x 7.00 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C851635_R0201.kicad_mod": {
+   "lcsc": "C851635",
+   "source_sha256": "2426b92e6ae8eab71adcb0a1f5845c0220ffdd27fe9fd59ad7928465a2cd7edc",
+   "reviewed_sha256": "44e7187d0b1a3c9338ca75a8d2d7374fca7415d254eba2f8b729d56bce670bbe",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.10 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C85973_C0603.kicad_mod": {
+   "lcsc": "C85973",
+   "source_sha256": "2ddf4b48fab48e344f7842dc45e5e86503a967d09e3080a826ac3c221ea0b66a",
+   "reviewed_sha256": "e39128bb72502fbd7cab1509069236f3208a2215c896e138ccfec6847cdd6811",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 0.80 (body only) -> 2.50 x 1.20 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C85980_C0603.kicad_mod": {
+   "lcsc": "C85980",
+   "source_sha256": "dd0222bfdd636411ba78fd1f4a9973642e4be41ee12aed1263278b3eacf37bba",
+   "reviewed_sha256": "857c303fafb6648ce68f63b6a80f4630784900004824e2a63a11016dc03394c1",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 0.80 (body only) -> 2.50 x 1.20 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C86059_L0402.kicad_mod": {
+   "lcsc": "C86059",
+   "source_sha256": "387007c15964cff0c38d2c160307acf37a824d390d7e1e7638cf391a2abf9d1d",
+   "reviewed_sha256": "a20ebc031569c35ff950cde21465daf003a36df827d1862cd4dc41ca52c1d931",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.68 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C861215_R0603.kicad_mod": {
+   "lcsc": "C861215",
+   "source_sha256": "db3400f47be488bc5c9ff1d13e301c0d5ab878a9eef8b058e572b4d438b12875",
+   "reviewed_sha256": "9ff9cc4a8cc648ff58de74cdeafac622b44a4850a264c8759916aa869c549ca0",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 0.80 (body only) -> 2.62 x 1.18 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C8661_SOT-23-3_L2.9-W1.6-P1.90-LS2.8-BR.kicad_mod": {
+   "lcsc": "C8661",
+   "source_sha256": "2803b1b375615f06aee816c4f73092ebc0eaec08ed5ad878c4cb80e819ce5857",
+   "reviewed_sha256": "1bee4c494f27940472662e988ec9b1dd27b5589c4cb6b1bae0a787a5c9d01df5",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.60 x 2.92 (body only) -> 4.06 x 3.42 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C88902_C0402.kicad_mod": {
+   "lcsc": "C88902",
+   "source_sha256": "750ed6e4372354c7c36c42b2436e2ab2fab0fa3aef88288abcc2d7604d62d948",
+   "reviewed_sha256": "9a6a9cbc71d25f96bebe781c5e8737da7a688b6a7248ecbb0355f7dd1387c270",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.64 x 0.86 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C896422_X2DFN-2_L1.0-W0.6-RD.kicad_mod": {
+   "lcsc": "C896422",
+   "source_sha256": "1b9e72eb0d2203871084b6d34f768c0d2100520be64c5e865d3819fb5617abae",
+   "reviewed_sha256": "efe8b53e3e2f4bfc056c3d6c82b0a71d5007137b0397178811233031735726e7",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.60 (body only) -> 1.50 x 1.12 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C965793_LED0402-RD_GREEN.kicad_mod": {
+   "lcsc": "C965793",
+   "source_sha256": "3d886fc04a361e0dcca9c629bfe0de4943f3a3c3de3553a08af6769024872e10",
+   "reviewed_sha256": "709ef49cf28d9d80523311530aff5f8b7044e4bbc90508f025a5872f708108c0",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 1.00 x 0.50 (body only) -> 1.84 x 1.04 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C97604_OSC-SMD_L3.2-W1.5.kicad_mod": {
+   "lcsc": "C97604",
+   "source_sha256": "d215d64c581bfa2d96516b242be404cf50e9e6d198b5926ea70414bfdb9a0bd4",
+   "reviewed_sha256": "f07e3c1c73fc308351ec1e56f27021a0c2ac45b6ccfc6e4978f263ea281943eb",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 3.20 x 1.50 (body only) -> 3.70 x 2.22 mm (pads + body + 0.25 mm)"
+   ]
+  },
+  "C98045_L0201-RD.kicad_mod": {
+   "lcsc": "C98045",
+   "source_sha256": "63daedbc526343d9d31c6b80f5e608220ebe1efd0a4f3623d409313a3cf55074",
+   "reviewed_sha256": "29c423be183412ca8b0f7fb2389411ca61c8c7ea7f76f15053dac0e29c284486",
+   "changes": [
+    "stripped footprint property 'LCSC Part' (symbol LCSC field is the single source, rule R1)",
+    "F.CrtYd 0.60 x 0.30 (body only) -> 1.22 x 0.64 mm (pads + body + 0.15 mm)"
+   ]
+  },
+  "C549313_SOT883_BAV70M_land_of_C549275.kicad_mod": {
+   "lcsc": "C549313",
+   "source_sha256": "0911862b745ddd4c72ae8a4a3aa79c26d3f95d1aa9d11ed7492ffed99206616a",
+   "reviewed_sha256": "117b3b2c43d72905eb07fcd5aa2ffbed556716b81a0014cb798904c7096bd967",
+   "changes": [
+    "DERIVED from C549275_DFN1006-3_L1.0-W0.6-P0.35-BR_BAT54CM.kicad_mod: BAV70M,315 (C549313): EasyEDA API 404 'Component not found' (2026-11-13 20:41 UTC). Land = the reviewed C549275 copy (Nexperia SOT883 pad set of C478155), same pin positions (1, 2 small lands, 3 large land; BAV70M p.2, BAT54CM p.3). JLC's own 0 deg for C549313 is unknown: preview mandatory"
+   ]
+  }
+ }
+}

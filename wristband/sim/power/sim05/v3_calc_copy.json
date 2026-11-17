@@ -1,0 +1,7047 @@
+{
+ "stacks": {
+  "columns": {
+   "PV lid over the board (V3-R, V3-N)": {
+    "layers": [
+     {
+      "name": "PV lid: laminated IBC module (glass 0.50 / 0.20 / cells 0.165 / 0.15 / flex 0.12)",
+      "t": 1.2,
+      "tag": "E RFQ acceptance maximum, not a supplier figure (REDESIGN 5.2)"
+     },
+     {
+      "name": "clearance to the lid / cover",
+      "t": 0.15,
+      "tag": "E REDESIGN 5.2"
+     },
+     {
+      "name": "parts + solder (BQ25570, ADS1291 package-locked at 1.00 mm)",
+      "t": 1.05,
+      "tag": "V parts.json heights + 0.05 solder"
+     },
+     {
+      "name": "main PCB 6-layer 1.0 mm + tolerance",
+      "t": 1.1,
+      "tag": "V JLC thickness list (REDESIGN 11)"
+     },
+     {
+      "name": "carrier film, polyimide-carrier double-sided",
+      "t": 0.1,
+      "tag": "E REDESIGN 5.2"
+     },
+     {
+      "name": "floor: 0.25 PC film flush with 0.25 Ti Gr2 plates",
+      "t": 0.25,
+      "tag": "E REDESIGN 5.2"
+     },
+     {
+      "name": "optical cap proud of the floor (PPG mesa)",
+      "t": 0.8,
+      "tag": "E REDESIGN 5.2 (LED 0.6+-0.1 V OSRAM p.11)"
+     }
+    ],
+    "total": 4.65
+   },
+   "display window over the low-part zone (V3-R)": {
+    "layers": [
+     {
+      "name": "window glass of the lid (chemically strengthened, AR both faces, UV-cut)",
+      "t": 0.5,
+      "tag": "E display lane 4.2-4.3"
+     },
+     {
+      "name": "air gap (no adhesive allowed on the panel)",
+      "t": 0.1,
+      "tag": "V LS013B7DH03 p.2 (11); E 0.10 mm"
+     },
+     {
+      "name": "Sharp LS011B7DH03 panel 0.745 + 0.055 allowance",
+      "t": 0.8,
+      "tag": "V LD-29Y03 p.13 (0.745); E allowance"
+     },
+     {
+      "name": "panel support (frame on the lid posts)",
+      "t": 0.1,
+      "tag": "E display lane"
+     },
+     {
+      "name": "clearance panel to parts",
+      "t": 0.15,
+      "tag": "E display lane"
+     },
+     {
+      "name": "low parts only under the display: body <= 0.70 mm + 0.05 solder",
+      "t": 0.75,
+      "tag": "E V3 placement rule (gate 1 must prove it)"
+     },
+     {
+      "name": "main PCB 6-layer 1.0 mm + tolerance",
+      "t": 1.1,
+      "tag": "V JLC thickness list (REDESIGN 11)"
+     },
+     {
+      "name": "carrier film, polyimide-carrier double-sided",
+      "t": 0.1,
+      "tag": "E REDESIGN 5.2"
+     },
+     {
+      "name": "floor: 0.25 PC film flush with 0.25 Ti Gr2 plates",
+      "t": 0.25,
+      "tag": "E REDESIGN 5.2"
+     },
+     {
+      "name": "optical cap proud of the floor (PPG mesa)",
+      "t": 0.8,
+      "tag": "E REDESIGN 5.2 (LED 0.6+-0.1 V OSRAM p.11)"
+     }
+    ],
+    "total": 4.65
+   },
+   "display window over full-height parts (V3-R fallback if gate 1 cannot keep the low zone)": {
+    "layers": [
+     {
+      "name": "window glass of the lid (chemically strengthened, AR both faces, UV-cut)",
+      "t": 0.5,
+      "tag": "E display lane 4.2-4.3"
+     },
+     {
+      "name": "air gap (no adhesive allowed on the panel)",
+      "t": 0.1,
+      "tag": "V LS013B7DH03 p.2 (11); E 0.10 mm"
+     },
+     {
+      "name": "Sharp LS011B7DH03 panel 0.745 + 0.055 allowance",
+      "t": 0.8,
+      "tag": "V LD-29Y03 p.13 (0.745); E allowance"
+     },
+     {
+      "name": "panel support (frame on the lid posts)",
+      "t": 0.1,
+      "tag": "E display lane"
+     },
+     {
+      "name": "clearance panel to parts",
+      "t": 0.15,
+      "tag": "E display lane"
+     },
+     {
+      "name": "parts + solder (BQ25570, ADS1291 package-locked at 1.00 mm)",
+      "t": 1.05,
+      "tag": "V parts.json heights + 0.05 solder"
+     },
+     {
+      "name": "main PCB 6-layer 1.0 mm + tolerance",
+      "t": 1.1,
+      "tag": "V JLC thickness list (REDESIGN 11)"
+     },
+     {
+      "name": "carrier film, polyimide-carrier double-sided",
+      "t": 0.1,
+      "tag": "E REDESIGN 5.2"
+     },
+     {
+      "name": "floor: 0.25 PC film flush with 0.25 Ti Gr2 plates",
+      "t": 0.25,
+      "tag": "E REDESIGN 5.2"
+     },
+     {
+      "name": "optical cap proud of the floor (PPG mesa)",
+      "t": 0.8,
+      "tag": "E REDESIGN 5.2 (LED 0.6+-0.1 V OSRAM p.11)"
+     }
+    ],
+    "total": 4.95
+   },
+   "cell column (V2-B, V3-P)": {
+    "layers": [
+     {
+      "name": "PV lid: laminated IBC module (glass 0.50 / 0.20 / cells 0.165 / 0.15 / flex 0.12)",
+      "t": 1.2,
+      "tag": "E RFQ acceptance maximum, not a supplier figure (REDESIGN 5.2)"
+     },
+     {
+      "name": "gap lid to cell",
+      "t": 0.2,
+      "tag": "E REDESIGN 5.2"
+     },
+     {
+      "name": "cell GMB201030 bare, maximum incl. adhesive",
+      "t": 2.5,
+      "tag": "V sister spec p.4 (REDESIGN 5.2)"
+     },
+     {
+      "name": "PSA under the cell",
+      "t": 0.1,
+      "tag": "E"
+     },
+     {
+      "name": "support shim 0.15 glass-epoxy",
+      "t": 0.15,
+      "tag": "E"
+     },
+     {
+      "name": "carrier film, polyimide-carrier double-sided",
+      "t": 0.1,
+      "tag": "E REDESIGN 5.2"
+     },
+     {
+      "name": "floor: 0.25 PC film flush with 0.25 Ti Gr2 plates",
+      "t": 0.25,
+      "tag": "E REDESIGN 5.2"
+     },
+     {
+      "name": "optical cap proud of the floor (PPG mesa)",
+      "t": 0.8,
+      "tag": "E REDESIGN 5.2 (LED 0.6+-0.1 V OSRAM p.11)"
+     }
+    ],
+    "total": 5.3
+   },
+   "display window over the board strip, cell in the pod (V3-P)": {
+    "layers": [
+     {
+      "name": "window glass of the lid (chemically strengthened, AR both faces, UV-cut)",
+      "t": 0.5,
+      "tag": "E display lane 4.2-4.3"
+     },
+     {
+      "name": "air gap (no adhesive allowed on the panel)",
+      "t": 0.1,
+      "tag": "V LS013B7DH03 p.2 (11); E 0.10 mm"
+     },
+     {
+      "name": "Sharp LS011B7DH03 panel 0.745 + 0.055 allowance",
+      "t": 0.8,
+      "tag": "V LD-29Y03 p.13 (0.745); E allowance"
+     },
+     {
+      "name": "panel support (frame on the lid posts)",
+      "t": 0.1,
+      "tag": "E display lane"
+     },
+     {
+      "name": "clearance panel to parts",
+      "t": 0.15,
+      "tag": "E display lane"
+     },
+     {
+      "name": "parts + solder (BQ25570, ADS1291 package-locked at 1.00 mm)",
+      "t": 1.05,
+      "tag": "V parts.json heights + 0.05 solder"
+     },
+     {
+      "name": "main PCB 6-layer 1.0 mm + tolerance",
+      "t": 1.1,
+      "tag": "V JLC thickness list (REDESIGN 11)"
+     },
+     {
+      "name": "carrier film, polyimide-carrier double-sided",
+      "t": 0.1,
+      "tag": "E REDESIGN 5.2"
+     },
+     {
+      "name": "floor: 0.25 PC film flush with 0.25 Ti Gr2 plates",
+      "t": 0.25,
+      "tag": "E REDESIGN 5.2"
+     },
+     {
+      "name": "optical cap proud of the floor (PPG mesa)",
+      "t": 0.8,
+      "tag": "E REDESIGN 5.2 (LED 0.6+-0.1 V OSRAM p.11)"
+     }
+    ],
+    "total": 4.95
+   }
+  },
+  "configs": {
+   "V2-B": {
+    "governs": "cell column",
+    "total": 5.3,
+    "lid_at_P121_buildup": 5.77,
+    "lid_at_P121_upper_tolerance": 6.07,
+    "catalogue_lid_2p40": 6.5,
+    "worst_case_all_tolerances": 5.69,
+    "rss": 5.43,
+    "ring_floor_top_to_lid_seat_mm": 2.85
+   },
+   "V3-R": {
+    "governs": "PV lid column = display window column over the low-part zone",
+    "total": 4.65,
+    "fallback_no_low_zone": 4.95,
+    "lid_at_P121_buildup": 5.12,
+    "lid_at_P121_upper_tolerance": 5.42,
+    "catalogue_lid_2p40": 5.85,
+    "worst_case_all_tolerances": 5.04,
+    "rss": 4.78,
+    "ring_floor_top_to_lid_seat_mm": 2.2,
+    "display_fpc": "soldered FPC land (default, fix stage B-01/B-02): no connector height",
+    "zif_option_total_mm": 4.75,
+    "zif_option_P121_upper_tolerance_mm": 5.52
+   },
+   "V3-N": {
+    "governs": "PV lid column",
+    "total": 4.65,
+    "lid_at_P121_buildup": 5.12,
+    "lid_at_P121_upper_tolerance": 5.42,
+    "catalogue_lid_2p40": 5.85,
+    "worst_case_all_tolerances": 5.04,
+    "rss": 4.78
+   },
+   "V3-P": {
+    "governs": "cell column",
+    "total": 5.3,
+    "window_free_below_glass_mm": 1.5,
+    "window_needs_mm": 1.15,
+    "lid_at_P121_buildup": 5.77,
+    "lid_at_P121_upper_tolerance": 6.07,
+    "catalogue_lid_2p40": 6.5,
+    "worst_case_all_tolerances": 5.69,
+    "rss": 5.43
+   }
+  },
+  "root_items": {
+   "cell capsule on root A (free span)": {
+    "layers": [
+     [
+      "top wall, PC with white print (alpha <= 0.15)",
+      0.4
+     ],
+     [
+      "swelling gap",
+      0.2
+     ],
+     [
+      "cell GMB201030 max incl. adhesive",
+      2.5
+     ],
+     [
+      "bottom wall, PC",
+      0.4
+     ]
+    ],
+    "outline_mm": [
+     38.4,
+     11.9
+    ],
+    "tag": "V cell 2.5 x 10.5 x 33 mm max incl. tabs (REDESIGN 8.2 gate 4); E walls; fix stage (build B-05): +4 mm PCM end along X for XB5358D0 (4.2 x 3.4 mm, 1.25 mm), R132, C123, the over-current element F1 and the welded tab joints (protector group 18.8 mm2 + F1); 0.40 mm walls are a thin-wall target below a mainstream moulder range (1.02-3.81 mm, REDESIGN 5.5): RFQ or film shell",
+    "thickness_mm": 3.5
+   },
+   "cell capsule with the 70 mAh option (LP301230, 3.5 mm max, PCM)": {
+    "layers": [
+     [
+      "top wall",
+      0.4
+     ],
+     [
+      "swelling gap",
+      0.2
+     ],
+     [
+      "LP301230 max",
+      3.5
+     ],
+     [
+      "bottom wall",
+      0.4
+     ]
+    ],
+    "outline_mm": [
+     33.4,
+     13.9
+    ],
+    "tag": "V ARCH 6.2 / v2_calc (3.50 mm, 12 x 30 mm); E walls",
+    "thickness_mm": 4.5
+   },
+   "wing on root B (free span)": {
+    "layers": [
+     [
+      "wing laminate on the documented route: FR-4 0.60 + ETFE/encapsulant/IBC build-up 1.10 (P121 1.1 +- 0.3) + PSA 0.05",
+      1.75
+     ],
+     [
+      "root core TPU or FKM",
+      1.2
+     ]
+    ],
+    "outline_mm": [
+     35.0,
+     16.0
+    ],
+    "tag": "E fix stage (build B-06): planning value until a quote shows a flex-backed laminate; the strap lane target (flex 0.11, 0.87 mm) is the RFQ goal (2.07 mm root)",
+    "thickness_mm": 2.95
+   },
+   "wing on root B, RFQ target (flex-backed laminate, strap lane 5.1)": {
+    "layers": [
+     [
+      "W1 laminate (ETFE / POE / IBC 0.205 / POE / flex 0.11 / PI 0.20 / PSA)",
+      0.87
+     ],
+     [
+      "root core TPU or FKM",
+      1.2
+     ]
+    ],
+    "outline_mm": [
+     35.0,
+     16.0
+    ],
+    "tag": "E strap lane 5.1; no supplier documents it (B-06)",
+    "thickness_mm": 2.07
+   },
+   "USB-C tab on root A beyond the flex hinge (s 23.5-35.5 mm)": {
+    "layers": [
+     [
+      "tab housing, potted, receptacle 3.16-3.46 mm shell",
+      4.6
+     ]
+    ],
+    "outline_mm": [
+     13.0,
+     12.0
+    ],
+    "tag": "E usbc lane 8 (tab 4.4-4.8 mm); fix stage (B-04): starts at s 23.5 so that the flex crossing the hinge between capsule and tab has >= 9.6 mm of free length",
+    "thickness_mm": 4.6
+   }
+  },
+  "tolerance": {
+   "worst_case_add": 0.39,
+   "rss_add": 0.134
+  },
+  "capsule_on_free_span": {
+   "C140_q0.68": {
+    "wrist_mm": 140.0,
+    "free_span_mm": 14.0,
+    "tilt_deg": 61.0,
+    "capsule_outer_top_below_pod_top_mm": 3.27,
+    "capsule_inner_face_to_skin_at_far_end_mm": 0.0,
+    "extra_bulk_over_a_1p5mm_strap_mm": 2.0
+   },
+   "C165_q0.68": {
+    "wrist_mm": 165.0,
+    "free_span_mm": 14.7,
+    "tilt_deg": 51.1,
+    "capsule_outer_top_below_pod_top_mm": 2.68,
+    "capsule_inner_face_to_skin_at_far_end_mm": 0.03,
+    "extra_bulk_over_a_1p5mm_strap_mm": 2.0
+   },
+   "C200_q0.68": {
+    "wrist_mm": 200.0,
+    "free_span_mm": 15.7,
+    "tilt_deg": 41.5,
+    "capsule_outer_top_below_pod_top_mm": 2.12,
+    "capsule_inner_face_to_skin_at_far_end_mm": 0.07,
+    "extra_bulk_over_a_1p5mm_strap_mm": 2.0
+   }
+  },
+  "wing_root_on_free_span": {
+   "C140_q0.68": {
+    "wrist_mm": 140.0,
+    "free_span_mm": 14.0,
+    "tilt_deg": 61.0,
+    "capsule_outer_top_below_pod_top_mm": 3.54,
+    "capsule_inner_face_to_skin_at_far_end_mm": 0.0,
+    "extra_bulk_over_a_1p5mm_strap_mm": 1.45
+   },
+   "C165_q0.68": {
+    "wrist_mm": 165.0,
+    "free_span_mm": 14.7,
+    "tilt_deg": 51.1,
+    "capsule_outer_top_below_pod_top_mm": 3.03,
+    "capsule_inner_face_to_skin_at_far_end_mm": 0.04,
+    "extra_bulk_over_a_1p5mm_strap_mm": 1.45
+   },
+   "C200_q0.68": {
+    "wrist_mm": 200.0,
+    "free_span_mm": 15.7,
+    "tilt_deg": 41.5,
+    "capsule_outer_top_below_pod_top_mm": 2.53,
+    "capsule_inner_face_to_skin_at_far_end_mm": 0.08,
+    "extra_bulk_over_a_1p5mm_strap_mm": 1.45
+   }
+  },
+  "worn_profile_mm": {
+   "pod top, mesa pressed into the skin (body 4.65 - 0.80)": 3.85,
+   "pod top, mesa not pressed": 4.65,
+   "USB-C tab on the skin-contact strap (V3-R/V3-N/V3-P)": 4.6,
+   "capsule outer top below the pod top, 140 / 165 / 200 mm wrists": [
+    3.27,
+    2.68,
+    2.12
+   ],
+   "wing root (documented route 2.95 mm) outer top below the pod top": [
+    3.54,
+    3.03,
+    2.53
+   ],
+   "textile band": 1.5,
+   "V2-B pod top for comparison (mesa pressed in)": 4.5,
+   "USB-C plug overmould (5.5-6.5 mm, usbc lane 2.4) on a receptacle axis 1.98-2.30 mm above the skin: reaches below the skin plane by": "0.45-1.27 mm (RQ-05)",
+   "tab thickness that clears a 6.5 mm overmould with the shell centred": 6.5
+  },
+  "note": "max-material sums, PPG mesa included (REDESIGN 5.2 convention); E unless a layer says V"
+ },
+ "board_area": {
+  "baseline_sky_courtyard_mm2": 360.7,
+  "gate1_limit": 0.62,
+  "configs": {
+   "V2-B": {
+    "placement_area_mm2": 486.5,
+    "courtyard_mm2": 360.7,
+    "utilisation": 0.741,
+    "strap_conductors": {
+     "root_A": [],
+     "root_B": []
+    },
+    "removed": [],
+    "added": [],
+    "fixed_features_mm2": 97.7,
+    "board_mm": [
+     37.0,
+     29.0
+    ],
+    "cut_out_mm2": 374.0,
+    "gate1_pass": false,
+    "utilisation_on_v1_bbox_measure": 0.821
+   },
+   "V3-R": {
+    "placement_area_mm2": 872.5,
+    "courtyard_mm2": 423.8,
+    "utilisation": 0.486,
+    "strap_conductors": {
+     "root_A": [
+      "VBUS",
+      "GND",
+      "NTC",
+      "GND",
+      "BATT_P"
+     ],
+     "root_B": [
+      "PV_W+",
+      "GND"
+     ]
+    },
+    "removed": [
+     {
+      "ref": "U14",
+      "part": "XB5358D0",
+      "lcsc": "C2760012",
+      "courtyard_mm2": 14.28
+     },
+     {
+      "ref": "R132",
+      "part": "100R 1% 0603 100mW",
+      "lcsc": "C22775",
+      "courtyard_mm2": 3.092
+     },
+     {
+      "ref": "C123",
+      "part": "100nF 16V X7R 0402",
+      "lcsc": "C1525",
+      "courtyard_mm2": 1.41
+     },
+     {
+      "ref": "R130",
+      "part": "22R 1% 0603 100mW",
+      "lcsc": "C23345",
+      "courtyard_mm2": 3.092
+     }
+    ],
+    "added": [
+     {
+      "ref": "R130",
+      "part": "22 ohm 1 % 1206 250 mW R_LIM (UNI-ROYAL 1206W4F220JT5E, Basic, 549,459 in stock, JLC API 2026-11-13 14:11 UTC)",
+      "lcsc": "C17958",
+      "courtyard_mm2": 10.35,
+      "height_max_mm": 0.65
+     },
+     {
+      "ref": "U15",
+      "part": "TI BQ25170DSGR linear charger, WSON-8",
+      "lcsc": "C5208201",
+      "courtyard_mm2": 6.76,
+      "height_max_mm": 0.8
+     },
+     {
+      "ref": "C130",
+      "part": "1 uF 25 V X5R 0402 (IN)",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C131",
+      "part": "1 uF 25 V X5R 0402 (OUT at VBAT_IC)",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "R140",
+      "part": "18 k 1 % 0402 ISET",
+      "lcsc": "C25762",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R141",
+      "part": "2 kOhm 1 % 0402 ISET RC, in series with C132, the pair across R140 (TI SLUAAG9 Sep 2021: R 2 kOhm, C 4.7 nF in parallel with R-ISET for ICHG < 50 mA, read 2026-11-13)",
+      "lcsc": "C4109",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "C132",
+      "part": "4.7 nF 50 V X7R 0402 ISET RC",
+      "lcsc": "C1538",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R142",
+      "part": "36 k 1 % 0402 VSET = 4.10 V",
+      "lcsc": "C43676",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R143",
+      "part": "220 k 0402 /PG pull-up",
+      "lcsc": "C25767",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R144",
+      "part": "1 M 0402 VBUS divider top",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R145",
+      "part": "1 M 0402 VBUS divider bottom",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "Q8",
+      "part": "PMZ290UNE2YL: PV short while VBUS",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "Q9",
+      "part": "PMZ290UNE2YL: AVDD_EN low (ECG interlock)",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "Q10",
+      "part": "PMZ290UNE2YL: CHG_DIS pulls TS low",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "R146",
+      "part": "1 M 0402 Q10 gate pull-down",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "D12",
+      "part": "BAS521 SOD-523: VBUS wakes ship mode",
+      "lcsc": "C130414",
+      "courtyard_mm2": 3.12,
+      "height_max_mm": 0.7
+     },
+     {
+      "ref": "D13",
+      "part": "TI ESD761DPYR on VBUS at the pod entry",
+      "lcsc": "C20345399",
+      "courtyard_mm2": 2.35,
+      "height_max_mm": 0.45
+     },
+     {
+      "ref": "R149",
+      "part": "100 k 0402 AIN protection on the shared NTC node",
+      "lcsc": "C25741",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "U16",
+      "part": "TI TPS7A0230PDQNR 3.0 V LDO, X2SON-4",
+      "lcsc": "C2867950",
+      "courtyard_mm2": 2.75,
+      "height_max_mm": 0.4
+     },
+     {
+      "ref": "C1501",
+      "part": "1 uF 25 V 0402 LDO in",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C1502",
+      "part": "1 uF 25 V 0402 LDO out = panel VDD",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C1503",
+      "part": "100 nF 0201 panel VDDA",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "C1504",
+      "part": "100 nF 0201 DISP delay",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "R1501",
+      "part": "100 k 1 % 0201 DISP delay",
+      "lcsc": "C270364",
+      "courtyard_mm2": 0.7,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "U17",
+      "part": "TI TXU0104RUTR translator, UQFN-12",
+      "lcsc": "C5187176",
+      "courtyard_mm2": 5.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "C1601",
+      "part": "100 nF 0201 VCCA",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "C1602",
+      "part": "100 nF 0201 VCCB",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "J13",
+      "part": "soldered FPC land: 10 pads 0.3 x 1.6 mm at 0.5 mm pitch plus an asymmetric key pad, display FPC soldered at final assembly (fix stage B-01/B-02; not a JLC-placed part)",
+      "lcsc": null,
+      "courtyard_mm2": 15.1,
+      "height_max_mm": 0.0
+     },
+     {
+      "ref": "FB1",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB2",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB3",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB4",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB5",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB6",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB7",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     }
+    ],
+    "fixed_features_mm2": 102.5,
+    "board_mm": [
+     37.0,
+     29.0
+    ],
+    "cut_out_mm2": 0.0,
+    "gate1_pass": true,
+    "utilisation_on_v1_bbox_measure": 0.538
+   },
+   "V3-N": {
+    "placement_area_mm2": 872.5,
+    "courtyard_mm2": 393.8,
+    "utilisation": 0.451,
+    "strap_conductors": {
+     "root_A": [
+      "VBUS",
+      "GND",
+      "NTC",
+      "GND",
+      "BATT_P"
+     ],
+     "root_B": [
+      "PV_W+",
+      "GND"
+     ]
+    },
+    "removed": [
+     {
+      "ref": "U14",
+      "part": "XB5358D0",
+      "lcsc": "C2760012",
+      "courtyard_mm2": 14.28
+     },
+     {
+      "ref": "R132",
+      "part": "100R 1% 0603 100mW",
+      "lcsc": "C22775",
+      "courtyard_mm2": 3.092
+     },
+     {
+      "ref": "C123",
+      "part": "100nF 16V X7R 0402",
+      "lcsc": "C1525",
+      "courtyard_mm2": 1.41
+     },
+     {
+      "ref": "R130",
+      "part": "22R 1% 0603 100mW",
+      "lcsc": "C23345",
+      "courtyard_mm2": 3.092
+     }
+    ],
+    "added": [
+     {
+      "ref": "R130",
+      "part": "22 ohm 1 % 1206 250 mW R_LIM (UNI-ROYAL 1206W4F220JT5E, Basic, 549,459 in stock, JLC API 2026-11-13 14:11 UTC)",
+      "lcsc": "C17958",
+      "courtyard_mm2": 10.35,
+      "height_max_mm": 0.65
+     },
+     {
+      "ref": "U15",
+      "part": "TI BQ25170DSGR linear charger, WSON-8",
+      "lcsc": "C5208201",
+      "courtyard_mm2": 6.76,
+      "height_max_mm": 0.8
+     },
+     {
+      "ref": "C130",
+      "part": "1 uF 25 V X5R 0402 (IN)",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C131",
+      "part": "1 uF 25 V X5R 0402 (OUT at VBAT_IC)",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "R140",
+      "part": "18 k 1 % 0402 ISET",
+      "lcsc": "C25762",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R141",
+      "part": "2 kOhm 1 % 0402 ISET RC, in series with C132, the pair across R140 (TI SLUAAG9 Sep 2021: R 2 kOhm, C 4.7 nF in parallel with R-ISET for ICHG < 50 mA, read 2026-11-13)",
+      "lcsc": "C4109",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "C132",
+      "part": "4.7 nF 50 V X7R 0402 ISET RC",
+      "lcsc": "C1538",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R142",
+      "part": "36 k 1 % 0402 VSET = 4.10 V",
+      "lcsc": "C43676",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R143",
+      "part": "220 k 0402 /PG pull-up",
+      "lcsc": "C25767",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R144",
+      "part": "1 M 0402 VBUS divider top",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R145",
+      "part": "1 M 0402 VBUS divider bottom",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "Q8",
+      "part": "PMZ290UNE2YL: PV short while VBUS",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "Q9",
+      "part": "PMZ290UNE2YL: AVDD_EN low (ECG interlock)",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "Q10",
+      "part": "PMZ290UNE2YL: CHG_DIS pulls TS low",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "R146",
+      "part": "1 M 0402 Q10 gate pull-down",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "D12",
+      "part": "BAS521 SOD-523: VBUS wakes ship mode",
+      "lcsc": "C130414",
+      "courtyard_mm2": 3.12,
+      "height_max_mm": 0.7
+     },
+     {
+      "ref": "D13",
+      "part": "TI ESD761DPYR on VBUS at the pod entry",
+      "lcsc": "C20345399",
+      "courtyard_mm2": 2.35,
+      "height_max_mm": 0.45
+     },
+     {
+      "ref": "R149",
+      "part": "100 k 0402 AIN protection on the shared NTC node",
+      "lcsc": "C25741",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB1",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB2",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB3",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB4",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB5",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB6",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB7",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     }
+    ],
+    "fixed_features_mm2": 102.5,
+    "board_mm": [
+     37.0,
+     29.0
+    ],
+    "cut_out_mm2": 0.0,
+    "gate1_pass": true,
+    "utilisation_on_v1_bbox_measure": 0.5
+   },
+   "V3-R with the ZIF option (J13 AYF531035 instead of the soldered FPC)": {
+    "placement_area_mm2": 872.5,
+    "courtyard_mm2": 445.5,
+    "utilisation": 0.511,
+    "strap_conductors": {
+     "root_A": [
+      "VBUS",
+      "GND",
+      "NTC",
+      "GND",
+      "BATT_P"
+     ],
+     "root_B": [
+      "PV_W+",
+      "GND"
+     ]
+    },
+    "removed": [
+     {
+      "ref": "U14",
+      "part": "XB5358D0",
+      "lcsc": "C2760012",
+      "courtyard_mm2": 14.28
+     },
+     {
+      "ref": "R132",
+      "part": "100R 1% 0603 100mW",
+      "lcsc": "C22775",
+      "courtyard_mm2": 3.092
+     },
+     {
+      "ref": "C123",
+      "part": "100nF 16V X7R 0402",
+      "lcsc": "C1525",
+      "courtyard_mm2": 1.41
+     },
+     {
+      "ref": "R130",
+      "part": "22R 1% 0603 100mW",
+      "lcsc": "C23345",
+      "courtyard_mm2": 3.092
+     }
+    ],
+    "added": [
+     {
+      "ref": "R130",
+      "part": "22 ohm 1 % 1206 250 mW R_LIM (UNI-ROYAL 1206W4F220JT5E, Basic, 549,459 in stock, JLC API 2026-11-13 14:11 UTC)",
+      "lcsc": "C17958",
+      "courtyard_mm2": 10.35,
+      "height_max_mm": 0.65
+     },
+     {
+      "ref": "U15",
+      "part": "TI BQ25170DSGR linear charger, WSON-8",
+      "lcsc": "C5208201",
+      "courtyard_mm2": 6.76,
+      "height_max_mm": 0.8
+     },
+     {
+      "ref": "C130",
+      "part": "1 uF 25 V X5R 0402 (IN)",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C131",
+      "part": "1 uF 25 V X5R 0402 (OUT at VBAT_IC)",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "R140",
+      "part": "18 k 1 % 0402 ISET",
+      "lcsc": "C25762",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R141",
+      "part": "2 kOhm 1 % 0402 ISET RC, in series with C132, the pair across R140 (TI SLUAAG9 Sep 2021: R 2 kOhm, C 4.7 nF in parallel with R-ISET for ICHG < 50 mA, read 2026-11-13)",
+      "lcsc": "C4109",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "C132",
+      "part": "4.7 nF 50 V X7R 0402 ISET RC",
+      "lcsc": "C1538",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R142",
+      "part": "36 k 1 % 0402 VSET = 4.10 V",
+      "lcsc": "C43676",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R143",
+      "part": "220 k 0402 /PG pull-up",
+      "lcsc": "C25767",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R144",
+      "part": "1 M 0402 VBUS divider top",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R145",
+      "part": "1 M 0402 VBUS divider bottom",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "Q8",
+      "part": "PMZ290UNE2YL: PV short while VBUS",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "Q9",
+      "part": "PMZ290UNE2YL: AVDD_EN low (ECG interlock)",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "Q10",
+      "part": "PMZ290UNE2YL: CHG_DIS pulls TS low",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "R146",
+      "part": "1 M 0402 Q10 gate pull-down",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "D12",
+      "part": "BAS521 SOD-523: VBUS wakes ship mode",
+      "lcsc": "C130414",
+      "courtyard_mm2": 3.12,
+      "height_max_mm": 0.7
+     },
+     {
+      "ref": "D13",
+      "part": "TI ESD761DPYR on VBUS at the pod entry",
+      "lcsc": "C20345399",
+      "courtyard_mm2": 2.35,
+      "height_max_mm": 0.45
+     },
+     {
+      "ref": "R149",
+      "part": "100 k 0402 AIN protection on the shared NTC node",
+      "lcsc": "C25741",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "U16",
+      "part": "TI TPS7A0230PDQNR 3.0 V LDO, X2SON-4",
+      "lcsc": "C2867950",
+      "courtyard_mm2": 2.75,
+      "height_max_mm": 0.4
+     },
+     {
+      "ref": "C1501",
+      "part": "1 uF 25 V 0402 LDO in",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C1502",
+      "part": "1 uF 25 V 0402 LDO out = panel VDD",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C1503",
+      "part": "100 nF 0201 panel VDDA",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "C1504",
+      "part": "100 nF 0201 DISP delay",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "R1501",
+      "part": "100 k 1 % 0201 DISP delay",
+      "lcsc": "C270364",
+      "courtyard_mm2": 0.7,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "U17",
+      "part": "TI TXU0104RUTR translator, UQFN-12",
+      "lcsc": "C5187176",
+      "courtyard_mm2": 5.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "C1601",
+      "part": "100 nF 0201 VCCA",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "C1602",
+      "part": "100 nF 0201 VCCB",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "J13",
+      "part": "ZIF option: Panasonic AYF531035 (C425133) is top-and-bottom contact (Panasonic product page, read 2026-11-13), so a flipped FPC still mates: needs a lid-frame key and the EOL test; 1.00 +- 0.10 mm",
+      "lcsc": "C425133",
+      "courtyard_mm2": 36.75,
+      "height_max_mm": 1.1
+     },
+     {
+      "ref": "FB1",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB2",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB3",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB4",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB5",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB6",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB7",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     }
+    ],
+    "fixed_features_mm2": 102.5,
+    "board_mm": [
+     37.0,
+     29.0
+    ],
+    "cut_out_mm2": 0.0,
+    "gate1_pass": true,
+    "utilisation_on_v1_bbox_measure": 0.566
+   },
+   "V3-R without the skin-hot LED chain (only with REDESIGN decision 5 (c) in writing)": {
+    "placement_area_mm2": 872.5,
+    "courtyard_mm2": 409.6,
+    "utilisation": 0.469,
+    "strap_conductors": {
+     "root_A": [
+      "VBUS",
+      "GND",
+      "NTC",
+      "GND",
+      "BATT_P"
+     ],
+     "root_B": [
+      "PV_W+",
+      "GND"
+     ]
+    },
+    "removed": [
+     {
+      "ref": "U14",
+      "part": "XB5358D0",
+      "lcsc": "C2760012",
+      "courtyard_mm2": 14.28
+     },
+     {
+      "ref": "R132",
+      "part": "100R 1% 0603 100mW",
+      "lcsc": "C22775",
+      "courtyard_mm2": 3.092
+     },
+     {
+      "ref": "C123",
+      "part": "100nF 16V X7R 0402",
+      "lcsc": "C1525",
+      "courtyard_mm2": 1.41
+     },
+     {
+      "ref": "D10",
+      "part": "KA-2810ASURSK hyper-red right-angle",
+      "lcsc": "C598214",
+      "courtyard_mm2": 7.611
+     },
+     {
+      "ref": "R507",
+      "part": "100R 1% 0603 100mW",
+      "lcsc": "C22775",
+      "courtyard_mm2": 3.092
+     },
+     {
+      "ref": "Q6",
+      "part": "PMZ290UNE2YL",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.025
+     },
+     {
+      "ref": "R508",
+      "part": "1M 1% 0402",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.496
+     },
+     {
+      "ref": "R130",
+      "part": "22R 1% 0603 100mW",
+      "lcsc": "C23345",
+      "courtyard_mm2": 3.092
+     }
+    ],
+    "added": [
+     {
+      "ref": "R130",
+      "part": "22 ohm 1 % 1206 250 mW R_LIM (UNI-ROYAL 1206W4F220JT5E, Basic, 549,459 in stock, JLC API 2026-11-13 14:11 UTC)",
+      "lcsc": "C17958",
+      "courtyard_mm2": 10.35,
+      "height_max_mm": 0.65
+     },
+     {
+      "ref": "U15",
+      "part": "TI BQ25170DSGR linear charger, WSON-8",
+      "lcsc": "C5208201",
+      "courtyard_mm2": 6.76,
+      "height_max_mm": 0.8
+     },
+     {
+      "ref": "C130",
+      "part": "1 uF 25 V X5R 0402 (IN)",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C131",
+      "part": "1 uF 25 V X5R 0402 (OUT at VBAT_IC)",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "R140",
+      "part": "18 k 1 % 0402 ISET",
+      "lcsc": "C25762",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R141",
+      "part": "2 kOhm 1 % 0402 ISET RC, in series with C132, the pair across R140 (TI SLUAAG9 Sep 2021: R 2 kOhm, C 4.7 nF in parallel with R-ISET for ICHG < 50 mA, read 2026-11-13)",
+      "lcsc": "C4109",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "C132",
+      "part": "4.7 nF 50 V X7R 0402 ISET RC",
+      "lcsc": "C1538",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R142",
+      "part": "36 k 1 % 0402 VSET = 4.10 V",
+      "lcsc": "C43676",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R143",
+      "part": "220 k 0402 /PG pull-up",
+      "lcsc": "C25767",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R144",
+      "part": "1 M 0402 VBUS divider top",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R145",
+      "part": "1 M 0402 VBUS divider bottom",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "Q8",
+      "part": "PMZ290UNE2YL: PV short while VBUS",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "Q9",
+      "part": "PMZ290UNE2YL: AVDD_EN low (ECG interlock)",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "Q10",
+      "part": "PMZ290UNE2YL: CHG_DIS pulls TS low",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "R146",
+      "part": "1 M 0402 Q10 gate pull-down",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "D12",
+      "part": "BAS521 SOD-523: VBUS wakes ship mode",
+      "lcsc": "C130414",
+      "courtyard_mm2": 3.12,
+      "height_max_mm": 0.7
+     },
+     {
+      "ref": "D13",
+      "part": "TI ESD761DPYR on VBUS at the pod entry",
+      "lcsc": "C20345399",
+      "courtyard_mm2": 2.35,
+      "height_max_mm": 0.45
+     },
+     {
+      "ref": "R149",
+      "part": "100 k 0402 AIN protection on the shared NTC node",
+      "lcsc": "C25741",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "U16",
+      "part": "TI TPS7A0230PDQNR 3.0 V LDO, X2SON-4",
+      "lcsc": "C2867950",
+      "courtyard_mm2": 2.75,
+      "height_max_mm": 0.4
+     },
+     {
+      "ref": "C1501",
+      "part": "1 uF 25 V 0402 LDO in",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C1502",
+      "part": "1 uF 25 V 0402 LDO out = panel VDD",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C1503",
+      "part": "100 nF 0201 panel VDDA",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "C1504",
+      "part": "100 nF 0201 DISP delay",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "R1501",
+      "part": "100 k 1 % 0201 DISP delay",
+      "lcsc": "C270364",
+      "courtyard_mm2": 0.7,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "U17",
+      "part": "TI TXU0104RUTR translator, UQFN-12",
+      "lcsc": "C5187176",
+      "courtyard_mm2": 5.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "C1601",
+      "part": "100 nF 0201 VCCA",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "C1602",
+      "part": "100 nF 0201 VCCB",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "J13",
+      "part": "soldered FPC land: 10 pads 0.3 x 1.6 mm at 0.5 mm pitch plus an asymmetric key pad, display FPC soldered at final assembly (fix stage B-01/B-02; not a JLC-placed part)",
+      "lcsc": null,
+      "courtyard_mm2": 15.1,
+      "height_max_mm": 0.0
+     },
+     {
+      "ref": "FB1",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB2",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB3",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB4",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB5",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB6",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB7",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     }
+    ],
+    "fixed_features_mm2": 102.5,
+    "board_mm": [
+     37.0,
+     29.0
+    ],
+    "cut_out_mm2": 0.0,
+    "gate1_pass": true,
+    "utilisation_on_v1_bbox_measure": 0.519
+   },
+   "V3-R with USB on pod-top pads (D-4 b, no tab)": {
+    "placement_area_mm2": 878.5,
+    "courtyard_mm2": 435.0,
+    "utilisation": 0.495,
+    "strap_conductors": {
+     "root_A": [
+      "BATT_P",
+      "GND",
+      "NTC",
+      "GND"
+     ],
+     "root_B": [
+      "PV_W+",
+      "GND"
+     ]
+    },
+    "removed": [
+     {
+      "ref": "U14",
+      "part": "XB5358D0",
+      "lcsc": "C2760012",
+      "courtyard_mm2": 14.28
+     },
+     {
+      "ref": "R132",
+      "part": "100R 1% 0603 100mW",
+      "lcsc": "C22775",
+      "courtyard_mm2": 3.092
+     },
+     {
+      "ref": "C123",
+      "part": "100nF 16V X7R 0402",
+      "lcsc": "C1525",
+      "courtyard_mm2": 1.41
+     },
+     {
+      "ref": "R130",
+      "part": "22R 1% 0603 100mW",
+      "lcsc": "C23345",
+      "courtyard_mm2": 3.092
+     }
+    ],
+    "added": [
+     {
+      "ref": "R130",
+      "part": "22 ohm 1 % 1206 250 mW R_LIM (UNI-ROYAL 1206W4F220JT5E, Basic, 549,459 in stock, JLC API 2026-11-13 14:11 UTC)",
+      "lcsc": "C17958",
+      "courtyard_mm2": 10.35,
+      "height_max_mm": 0.65
+     },
+     {
+      "ref": "U15",
+      "part": "TI BQ25170DSGR linear charger, WSON-8",
+      "lcsc": "C5208201",
+      "courtyard_mm2": 6.76,
+      "height_max_mm": 0.8
+     },
+     {
+      "ref": "C130",
+      "part": "1 uF 25 V X5R 0402 (IN)",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C131",
+      "part": "1 uF 25 V X5R 0402 (OUT at VBAT_IC)",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "R140",
+      "part": "18 k 1 % 0402 ISET",
+      "lcsc": "C25762",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R141",
+      "part": "2 kOhm 1 % 0402 ISET RC, in series with C132, the pair across R140 (TI SLUAAG9 Sep 2021: R 2 kOhm, C 4.7 nF in parallel with R-ISET for ICHG < 50 mA, read 2026-11-13)",
+      "lcsc": "C4109",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "C132",
+      "part": "4.7 nF 50 V X7R 0402 ISET RC",
+      "lcsc": "C1538",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R142",
+      "part": "36 k 1 % 0402 VSET = 4.10 V",
+      "lcsc": "C43676",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R143",
+      "part": "220 k 0402 /PG pull-up",
+      "lcsc": "C25767",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R144",
+      "part": "1 M 0402 VBUS divider top",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R145",
+      "part": "1 M 0402 VBUS divider bottom",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "Q8",
+      "part": "PMZ290UNE2YL: PV short while VBUS",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "Q9",
+      "part": "PMZ290UNE2YL: AVDD_EN low (ECG interlock)",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "Q10",
+      "part": "PMZ290UNE2YL: CHG_DIS pulls TS low",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "R146",
+      "part": "1 M 0402 Q10 gate pull-down",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "D12",
+      "part": "BAS521 SOD-523: VBUS wakes ship mode",
+      "lcsc": "C130414",
+      "courtyard_mm2": 3.12,
+      "height_max_mm": 0.7
+     },
+     {
+      "ref": "D13",
+      "part": "TI ESD761DPYR on VBUS at the pod entry",
+      "lcsc": "C20345399",
+      "courtyard_mm2": 2.35,
+      "height_max_mm": 0.45
+     },
+     {
+      "ref": "R149",
+      "part": "100 k 0402 AIN protection on the shared NTC node",
+      "lcsc": "C25741",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "J15",
+      "part": "D-4 (b): two flush magnetic pads on the pod top, spring fingers (usbc lane: +12.6 mm2, parts.json class)",
+      "lcsc": null,
+      "courtyard_mm2": 12.6,
+      "height_max_mm": 1.0
+     },
+     {
+      "ref": "U16",
+      "part": "TI TPS7A0230PDQNR 3.0 V LDO, X2SON-4",
+      "lcsc": "C2867950",
+      "courtyard_mm2": 2.75,
+      "height_max_mm": 0.4
+     },
+     {
+      "ref": "C1501",
+      "part": "1 uF 25 V 0402 LDO in",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C1502",
+      "part": "1 uF 25 V 0402 LDO out = panel VDD",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C1503",
+      "part": "100 nF 0201 panel VDDA",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "C1504",
+      "part": "100 nF 0201 DISP delay",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "R1501",
+      "part": "100 k 1 % 0201 DISP delay",
+      "lcsc": "C270364",
+      "courtyard_mm2": 0.7,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "U17",
+      "part": "TI TXU0104RUTR translator, UQFN-12",
+      "lcsc": "C5187176",
+      "courtyard_mm2": 5.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "C1601",
+      "part": "100 nF 0201 VCCA",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "C1602",
+      "part": "100 nF 0201 VCCB",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "J13",
+      "part": "soldered FPC land: 10 pads 0.3 x 1.6 mm at 0.5 mm pitch plus an asymmetric key pad, display FPC soldered at final assembly (fix stage B-01/B-02; not a JLC-placed part)",
+      "lcsc": null,
+      "courtyard_mm2": 15.1,
+      "height_max_mm": 0.0
+     },
+     {
+      "ref": "FB1",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB2",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB3",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB4",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB5",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB6",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     }
+    ],
+    "fixed_features_mm2": 96.5,
+    "board_mm": [
+     37.0,
+     29.0
+    ],
+    "cut_out_mm2": 0.0,
+    "gate1_pass": true,
+    "utilisation_on_v1_bbox_measure": 0.548
+   },
+   "V3-P": {
+    "placement_area_mm2": 711.3,
+    "courtyard_mm2": 439.7,
+    "utilisation": 0.618,
+    "strap_conductors": {
+     "root_A": [
+      "PV_W+",
+      "GND",
+      "VBUS"
+     ],
+     "root_B": [
+      "PV_W+",
+      "GND"
+     ]
+    },
+    "removed": [
+     {
+      "ref": "R130",
+      "part": "22R 1% 0603 100mW",
+      "lcsc": "C23345",
+      "courtyard_mm2": 3.092
+     }
+    ],
+    "added": [
+     {
+      "ref": "R130",
+      "part": "22 ohm 1 % 1206 250 mW R_LIM (UNI-ROYAL 1206W4F220JT5E, Basic, 549,459 in stock, JLC API 2026-11-13 14:11 UTC)",
+      "lcsc": "C17958",
+      "courtyard_mm2": 10.35,
+      "height_max_mm": 0.65
+     },
+     {
+      "ref": "U15",
+      "part": "TI BQ25170DSGR linear charger, WSON-8",
+      "lcsc": "C5208201",
+      "courtyard_mm2": 6.76,
+      "height_max_mm": 0.8
+     },
+     {
+      "ref": "C130",
+      "part": "1 uF 25 V X5R 0402 (IN)",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C131",
+      "part": "1 uF 25 V X5R 0402 (OUT at VBAT_IC)",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "R140",
+      "part": "18 k 1 % 0402 ISET",
+      "lcsc": "C25762",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R141",
+      "part": "2 kOhm 1 % 0402 ISET RC, in series with C132, the pair across R140 (TI SLUAAG9 Sep 2021: R 2 kOhm, C 4.7 nF in parallel with R-ISET for ICHG < 50 mA, read 2026-11-13)",
+      "lcsc": "C4109",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "C132",
+      "part": "4.7 nF 50 V X7R 0402 ISET RC",
+      "lcsc": "C1538",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R142",
+      "part": "36 k 1 % 0402 VSET = 4.10 V",
+      "lcsc": "C43676",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R143",
+      "part": "220 k 0402 /PG pull-up",
+      "lcsc": "C25767",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R144",
+      "part": "1 M 0402 VBUS divider top",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R145",
+      "part": "1 M 0402 VBUS divider bottom",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "Q8",
+      "part": "PMZ290UNE2YL: PV short while VBUS",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "Q9",
+      "part": "PMZ290UNE2YL: AVDD_EN low (ECG interlock)",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "Q10",
+      "part": "PMZ290UNE2YL: CHG_DIS pulls TS low",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "R146",
+      "part": "1 M 0402 Q10 gate pull-down",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "D12",
+      "part": "BAS521 SOD-523: VBUS wakes ship mode",
+      "lcsc": "C130414",
+      "courtyard_mm2": 3.12,
+      "height_max_mm": 0.7
+     },
+     {
+      "ref": "D13",
+      "part": "TI ESD761DPYR on VBUS at the pod entry",
+      "lcsc": "C20345399",
+      "courtyard_mm2": 2.35,
+      "height_max_mm": 0.45
+     },
+     {
+      "ref": "R149",
+      "part": "100 k 0402 AIN protection on the shared NTC node",
+      "lcsc": "C25741",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "U16",
+      "part": "TI TPS7A0230PDQNR 3.0 V LDO, X2SON-4",
+      "lcsc": "C2867950",
+      "courtyard_mm2": 2.75,
+      "height_max_mm": 0.4
+     },
+     {
+      "ref": "C1501",
+      "part": "1 uF 25 V 0402 LDO in",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C1502",
+      "part": "1 uF 25 V 0402 LDO out = panel VDD",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C1503",
+      "part": "100 nF 0201 panel VDDA",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "C1504",
+      "part": "100 nF 0201 DISP delay",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "R1501",
+      "part": "100 k 1 % 0201 DISP delay",
+      "lcsc": "C270364",
+      "courtyard_mm2": 0.7,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "U17",
+      "part": "TI TXU0104RUTR translator, UQFN-12",
+      "lcsc": "C5187176",
+      "courtyard_mm2": 5.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "C1601",
+      "part": "100 nF 0201 VCCA",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "C1602",
+      "part": "100 nF 0201 VCCB",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "J13",
+      "part": "soldered FPC land: 10 pads 0.3 x 1.6 mm at 0.5 mm pitch plus an asymmetric key pad, display FPC soldered at final assembly (fix stage B-01/B-02; not a JLC-placed part)",
+      "lcsc": null,
+      "courtyard_mm2": 15.1,
+      "height_max_mm": 0.0
+     },
+     {
+      "ref": "FB1",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB2",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB3",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB4",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB5",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     }
+    ],
+    "fixed_features_mm2": 127.7,
+    "board_mm": [
+     46.1,
+     29.0
+    ],
+    "cut_out_mm2": 374.0,
+    "gate1_pass": true,
+    "utilisation_on_v1_bbox_measure": 0.684,
+    "pod_length_needed_mm": 49.1,
+    "pod_length_with_0201_passives_mm": 47.8
+   },
+   "V3-P at 40 mm (for comparison)": {
+    "placement_area_mm2": 456.5,
+    "courtyard_mm2": 439.7,
+    "utilisation": 0.963,
+    "strap_conductors": {
+     "root_A": [
+      "PV_W+",
+      "GND",
+      "VBUS"
+     ],
+     "root_B": [
+      "PV_W+",
+      "GND"
+     ]
+    },
+    "removed": [
+     {
+      "ref": "R130",
+      "part": "22R 1% 0603 100mW",
+      "lcsc": "C23345",
+      "courtyard_mm2": 3.092
+     }
+    ],
+    "added": [
+     {
+      "ref": "R130",
+      "part": "22 ohm 1 % 1206 250 mW R_LIM (UNI-ROYAL 1206W4F220JT5E, Basic, 549,459 in stock, JLC API 2026-11-13 14:11 UTC)",
+      "lcsc": "C17958",
+      "courtyard_mm2": 10.35,
+      "height_max_mm": 0.65
+     },
+     {
+      "ref": "U15",
+      "part": "TI BQ25170DSGR linear charger, WSON-8",
+      "lcsc": "C5208201",
+      "courtyard_mm2": 6.76,
+      "height_max_mm": 0.8
+     },
+     {
+      "ref": "C130",
+      "part": "1 uF 25 V X5R 0402 (IN)",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C131",
+      "part": "1 uF 25 V X5R 0402 (OUT at VBAT_IC)",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "R140",
+      "part": "18 k 1 % 0402 ISET",
+      "lcsc": "C25762",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R141",
+      "part": "2 kOhm 1 % 0402 ISET RC, in series with C132, the pair across R140 (TI SLUAAG9 Sep 2021: R 2 kOhm, C 4.7 nF in parallel with R-ISET for ICHG < 50 mA, read 2026-11-13)",
+      "lcsc": "C4109",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "C132",
+      "part": "4.7 nF 50 V X7R 0402 ISET RC",
+      "lcsc": "C1538",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R142",
+      "part": "36 k 1 % 0402 VSET = 4.10 V",
+      "lcsc": "C43676",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R143",
+      "part": "220 k 0402 /PG pull-up",
+      "lcsc": "C25767",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R144",
+      "part": "1 M 0402 VBUS divider top",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "R145",
+      "part": "1 M 0402 VBUS divider bottom",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "Q8",
+      "part": "PMZ290UNE2YL: PV short while VBUS",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "Q9",
+      "part": "PMZ290UNE2YL: AVDD_EN low (ECG interlock)",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "Q10",
+      "part": "PMZ290UNE2YL: CHG_DIS pulls TS low",
+      "lcsc": "C478155",
+      "courtyard_mm2": 2.02,
+      "height_max_mm": 0.5
+     },
+     {
+      "ref": "R146",
+      "part": "1 M 0402 Q10 gate pull-down",
+      "lcsc": "C26083",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "D12",
+      "part": "BAS521 SOD-523: VBUS wakes ship mode",
+      "lcsc": "C130414",
+      "courtyard_mm2": 3.12,
+      "height_max_mm": 0.7
+     },
+     {
+      "ref": "D13",
+      "part": "TI ESD761DPYR on VBUS at the pod entry",
+      "lcsc": "C20345399",
+      "courtyard_mm2": 2.35,
+      "height_max_mm": 0.45
+     },
+     {
+      "ref": "R149",
+      "part": "100 k 0402 AIN protection on the shared NTC node",
+      "lcsc": "C25741",
+      "courtyard_mm2": 1.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "U16",
+      "part": "TI TPS7A0230PDQNR 3.0 V LDO, X2SON-4",
+      "lcsc": "C2867950",
+      "courtyard_mm2": 2.75,
+      "height_max_mm": 0.4
+     },
+     {
+      "ref": "C1501",
+      "part": "1 uF 25 V 0402 LDO in",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C1502",
+      "part": "1 uF 25 V 0402 LDO out = panel VDD",
+      "lcsc": "C52923",
+      "courtyard_mm2": 1.41,
+      "height_max_mm": 0.6
+     },
+     {
+      "ref": "C1503",
+      "part": "100 nF 0201 panel VDDA",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "C1504",
+      "part": "100 nF 0201 DISP delay",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "R1501",
+      "part": "100 k 1 % 0201 DISP delay",
+      "lcsc": "C270364",
+      "courtyard_mm2": 0.7,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "U17",
+      "part": "TI TXU0104RUTR translator, UQFN-12",
+      "lcsc": "C5187176",
+      "courtyard_mm2": 5.5,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "C1601",
+      "part": "100 nF 0201 VCCA",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "C1602",
+      "part": "100 nF 0201 VCCB",
+      "lcsc": "C7393837",
+      "courtyard_mm2": 0.78,
+      "height_max_mm": 0.33
+     },
+     {
+      "ref": "J13",
+      "part": "soldered FPC land: 10 pads 0.3 x 1.6 mm at 0.5 mm pitch plus an asymmetric key pad, display FPC soldered at final assembly (fix stage B-01/B-02; not a JLC-placed part)",
+      "lcsc": null,
+      "courtyard_mm2": 15.1,
+      "height_max_mm": 0.0
+     },
+     {
+      "ref": "FB1",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB2",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB3",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB4",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     },
+     {
+      "ref": "FB5",
+      "part": "0402 series link on a strap conductor, GND included (P-7): 0 ohm C17168 (UNI-ROYAL 0402WGF0000TCE, Basic, 15,711,350 in stock, JLC API 2026-11-13 10:26 UTC) by default; a ferrite bead or a common-mode choke if SIM-10/11 asks (part U)",
+      "lcsc": "C17168",
+      "courtyard_mm2": 1.45,
+      "height_max_mm": 0.55
+     }
+    ],
+    "fixed_features_mm2": 127.7,
+    "board_mm": [
+     37.0,
+     29.0
+    ],
+    "cut_out_mm2": 374.0,
+    "gate1_pass": false,
+    "utilisation_on_v1_bbox_measure": 1.067
+   },
+   "V3-R low-part zone": {
+    "display_footprint_mm2": 495.0,
+    "tall_courtyard_mm2": 117.1,
+    "tall_zone_area_mm2": 377.5,
+    "tall_zone_utilisation": 0.31,
+    "low_courtyard_mm2": 306.7,
+    "low_zone_utilisation": 0.62,
+    "tall_parts": [
+     {
+      "ref": "U7",
+      "part": "ADS1291IRSMR",
+      "height_max_mm": 1.0,
+      "courtyard_mm2": 28.09
+     },
+     {
+      "ref": "U1",
+      "part": "BQ25570RGRR",
+      "height_max_mm": 1.0,
+      "courtyard_mm2": 23.04
+     },
+     {
+      "ref": "D10",
+      "part": "KA-2810ASURSK hyper-red righ",
+      "height_max_mm": 0.9,
+      "courtyard_mm2": 7.611
+     },
+     {
+      "ref": "U10",
+      "part": "TMP117MAIDRVR",
+      "height_max_mm": 0.8,
+      "courtyard_mm2": 7.3
+     },
+     {
+      "ref": "L1",
+      "part": "22uH 420mA VLS201610CX-220M-",
+      "height_max_mm": 1.0,
+      "courtyard_mm2": 7.015
+     },
+     {
+      "ref": "L2",
+      "part": "10uH 550mA VLS201610CX-100M-",
+      "height_max_mm": 1.0,
+      "courtyard_mm2": 7.015
+     },
+     {
+      "ref": "J11",
+      "part": "BW0036BG spring finger 3.0x1",
+      "height_max_mm": 1.5,
+      "courtyard_mm2": 6.295
+     },
+     {
+      "ref": "C101",
+      "part": "4.7uF 16V X5R 0603",
+      "height_max_mm": 0.9,
+      "courtyard_mm2": 3.0
+     },
+     {
+      "ref": "C102",
+      "part": "10uF 10V X5R 0603",
+      "height_max_mm": 0.9,
+      "courtyard_mm2": 3.0
+     },
+     {
+      "ref": "C104",
+      "part": "10nF 50V C0G 0603",
+      "height_max_mm": 0.9,
+      "courtyard_mm2": 3.0
+     },
+     {
+      "ref": "C106",
+      "part": "22uF 6.3V X5R 0603",
+      "height_max_mm": 1.0,
+      "courtyard_mm2": 3.0
+     },
+     {
+      "ref": "C305",
+      "part": "4.7nF 50V C0G 0603",
+      "height_max_mm": 0.9,
+      "courtyard_mm2": 3.0
+     },
+     {
+      "ref": "C306",
+      "part": "4.7nF 50V C0G 0603",
+      "height_max_mm": 0.9,
+      "courtyard_mm2": 3.0
+     },
+     {
+      "ref": "C404",
+      "part": "10uF 10V X5R 0603",
+      "height_max_mm": 0.9,
+      "courtyard_mm2": 3.0
+     },
+     {
+      "ref": "L202",
+      "part": "10uH 0603 MPH160809S100MT",
+      "height_max_mm": 0.95,
+      "courtyard_mm2": 2.95
+     },
+     {
+      "ref": "U15",
+      "part": "TI BQ25170DSGR linear charger, WSON-8",
+      "height_max_mm": 0.8,
+      "courtyard_mm2": 6.76
+     }
+    ],
+    "rule": "under the 32 x 14 mm panel only parts <= 0.70 mm body height; decoupling capacitors of ICs placed under the panel must be <= 0.70 mm (0402 1-22 uF are 0.60-0.70 mm in parts.json); 0603 MLCCs (0.90 mm), QFNs, inductors, TMP117, BQ25170 and the ZIF go outside the panel footprint"
+   }
+  },
+  "remedies_for_a_pod_cell_layout": {
+   "generic passives in 0201 (CALC.md 12)": -22.1,
+   "display FPC soldered instead of the ZIF (display lane 3.4; V3-R default since the fix stage)": -21.7,
+   "skin-hot LED chain removed (display lane 3.5; needs REDESIGN decision 5 (c) in writing)": -14.2,
+   "USB charger block moved into the USB tab (E)": -19.0
+  },
+  "value_changes_same_land": [
+   {
+    "ref": "R131",
+    "change": "1 MOhm C26083 -> 10 MOhm C144806 (YAGEO AC0402FR-0710ML, 255,833 in stock, JLC API 2026-11-13 10:26 UTC)",
+    "why": "1.86 uA flows through the 1 MOhm pull-down whenever INA_EN is high (MON, RAW, ECO): 4.1 uW battery-referred"
+   },
+   {
+    "ref": "R108",
+    "change": "1 MOhm C26083 -> 10 MOhm C144806",
+    "why": "same while PV_INH is high: continuous in the W-C band"
+   }
+  ],
+  "root_a_flex_pcba": [
+   {
+    "ref": "U14",
+    "part": "XySemi XB5358D0 protector (moved from the main board)",
+    "lcsc": "C2760012"
+   },
+   {
+    "ref": "R132",
+    "part": "100 ohm 0603 (protector R1)",
+    "lcsc": "C22775"
+   },
+   {
+    "ref": "F1",
+    "part": "over-current element in series with the cell, inside the capsule (RQ-02): fuse or fusing resistor, hold >= 0.4 A (U12 inrush 0.28-0.37 A), opens <= 1 A; part not selected (U), datasheet to be read",
+    "lcsc": null
+   },
+   {
+    "ref": "C123",
+    "part": "100 nF 0402 (protector C1)",
+    "lcsc": "C1525"
+   },
+   {
+    "ref": "J14",
+    "part": "USB-C 6P receptacle, sealed (candidate SHOU HAN 6PFS 2JCB0.8-H6.7 IPX8, drawing U)",
+    "lcsc": "C3020039"
+   },
+   {
+    "ref": "R150",
+    "part": "5.1 k 1 % 0402 Rd CC1",
+    "lcsc": "C25905"
+   },
+   {
+    "ref": "R151",
+    "part": "5.1 k 1 % 0402 Rd CC2",
+    "lcsc": "C25905"
+   },
+   {
+    "ref": "D14",
+    "part": "ESD761DPYR VBUS at the receptacle",
+    "lcsc": "C20345399"
+   },
+   {
+    "ref": "D15",
+    "part": "ESD761DPYR CC1",
+    "lcsc": "C20345399"
+   },
+   {
+    "ref": "D16",
+    "part": "ESD761DPYR CC2",
+    "lcsc": "C20345399"
+   }
+  ],
+  "note": "metric of redesign/v2_calc.py: courtyard / (board - cut-out - edge bands - keep-out 15 mm2 - fixed sky-side features); courtyards are the parts.json F.CrtYd boxes; on v1 bbox measure every value is x1.108 (gate-1 lane note)"
+ },
+ "mass_g": {
+  "V2-B": {
+   "pod": {
+    "top (lid or C1 lid + display)": 2.43,
+    "cell in the pod (GMB201030, 0.9-1.4 g)": 1.2,
+    "PCBA (6L 1.0 mm at 2.63 mg/mm2 + parts)": 2.244,
+    "ring walls 1.0 mm + strap bars": 0.936,
+    "floor: PC film, Ti plates, carrier film, shim": 1.074,
+    "E3 strip and tab": 0.15,
+    "optical cap": 0.08,
+    "adhesives, vent, posts, tails": 0.25,
+    "TOTAL": 8.36
+   },
+   "strap": {
+    "textile hook-and-loop band (5-6 g, REDESIGN decision 4)": 5.5,
+    "TOTAL": 5.5
+   },
+   "pod_g": 8.36,
+   "strap_g": 5.5,
+   "worn_g": 13.9,
+   "pod_g_max_material": 8.69,
+   "strap_g_max_material": 6.0,
+   "worn_g_max_material": 14.7,
+   "max_material_note": "board 1.10 mm, band 6.0 g, cell 1.40 g, USB tab 1.50 g (top of each range; build B-08)"
+  },
+  "V3-R": {
+   "pod": {
+    "top (lid or C1 lid + display)": 2.83,
+    "cell in the pod (GMB201030, 0.9-1.4 g)": 0.0,
+    "PCBA (6L 1.0 mm at 2.63 mg/mm2 + parts)": 3.317,
+    "ring walls 1.0 mm + strap bars": 0.831,
+    "floor: PC film, Ti plates, carrier film, shim": 0.971,
+    "E3 strip and tab": 0.15,
+    "optical cap": 0.08,
+    "adhesives, vent, posts, tails": 0.28,
+    "TOTAL": 8.46
+   },
+   "strap": {
+    "textile hook-and-loop band (5-6 g, REDESIGN decision 4)": 5.5,
+    "root A: textile replaced (35.5 x 20 x 1.5 mm)": -0.586,
+    "root A: capsule shell PC (outer 38.4 x 11.9 x 3.5, inner 37.4 x 10.9 x 2.7 mm, PCM end)": 0.598,
+    "root A: cell GMB201030 (0.9-1.4 g)": 1.2,
+    "root A: flex PCBA (protector, F1, Rd, ESD, receptacle excluded), NTC bead, welded tabs": 0.11,
+    "root A: TPU in the bar hinge and the flex hinge (35 x (2.0 + 9.6) x 1.2 mm)": 0.585,
+    "root A: USB-C tab (receptacle, potting, housing; usbc lane 1.0-1.5 g)": 1.25,
+    "root B: textile replaced (16 x 20 x 1.5 mm)": -0.264,
+    "root B: TPU root core 35 x 16 x 1.2 mm (needed only because of the wing)": 0.806,
+    "root B: wing laminate 35 x 16 mm, documented route (flex-backed target 0.745 g)": 1.408,
+    "TOTAL": 10.61
+   },
+   "pod_g": 8.46,
+   "strap_g": 10.61,
+   "worn_g": 19.1,
+   "pod_g_max_material": 8.66,
+   "strap_g_max_material": 11.56,
+   "worn_g_max_material": 20.2,
+   "max_material_note": "board 1.10 mm, band 6.0 g, cell 1.40 g, USB tab 1.50 g (top of each range; build B-08)"
+  },
+  "V3-N": {
+   "pod": {
+    "top (lid or C1 lid + display)": 2.43,
+    "cell in the pod (GMB201030, 0.9-1.4 g)": 0.0,
+    "PCBA (6L 1.0 mm at 2.63 mg/mm2 + parts)": 3.267,
+    "ring walls 1.0 mm + strap bars": 0.831,
+    "floor: PC film, Ti plates, carrier film, shim": 0.971,
+    "E3 strip and tab": 0.15,
+    "optical cap": 0.08,
+    "adhesives, vent, posts, tails": 0.28,
+    "TOTAL": 8.01
+   },
+   "strap": {
+    "textile hook-and-loop band (5-6 g, REDESIGN decision 4)": 5.5,
+    "root A: textile replaced (35.5 x 20 x 1.5 mm)": -0.586,
+    "root A: capsule shell PC (outer 38.4 x 11.9 x 3.5, inner 37.4 x 10.9 x 2.7 mm, PCM end)": 0.598,
+    "root A: cell GMB201030 (0.9-1.4 g)": 1.2,
+    "root A: flex PCBA (protector, F1, Rd, ESD, receptacle excluded), NTC bead, welded tabs": 0.11,
+    "root A: TPU in the bar hinge and the flex hinge (35 x (2.0 + 9.6) x 1.2 mm)": 0.585,
+    "root A: USB-C tab (receptacle, potting, housing; usbc lane 1.0-1.5 g)": 1.25,
+    "root B: textile replaced (16 x 20 x 1.5 mm)": -0.264,
+    "root B: TPU root core 35 x 16 x 1.2 mm (needed only because of the wing)": 0.806,
+    "root B: wing laminate 35 x 16 mm, documented route (flex-backed target 0.745 g)": 1.408,
+    "TOTAL": 10.61
+   },
+   "pod_g": 8.01,
+   "strap_g": 10.61,
+   "worn_g": 18.6,
+   "pod_g_max_material": 8.21,
+   "strap_g_max_material": 11.56,
+   "worn_g_max_material": 19.8,
+   "max_material_note": "board 1.10 mm, band 6.0 g, cell 1.40 g, USB tab 1.50 g (top of each range; build B-08)"
+  },
+  "V3-P": {
+   "pod": {
+    "top (lid or C1 lid + display)": 3.524,
+    "cell in the pod (GMB201030, 0.9-1.4 g)": 1.2,
+    "PCBA (6L 1.0 mm at 2.63 mg/mm2 + parts)": 3.048,
+    "ring walls 1.0 mm + strap bars": 1.002,
+    "floor: PC film, Ti plates, carrier film, shim": 1.2,
+    "E3 strip and tab": 0.15,
+    "optical cap": 0.08,
+    "adhesives, vent, posts, tails": 0.29,
+    "TOTAL": 10.49
+   },
+   "strap": {
+    "textile hook-and-loop band (5-6 g, REDESIGN decision 4)": 5.5,
+    "root A: textile replaced (35.5 x 20 x 1.5 mm)": -0.586,
+    "root A: TPU core under the W1 wing and in the hinge (20 x (16 + 9.6) x 1.2 mm)": 0.737,
+    "root A: USB-C tab (receptacle, potting, housing; usbc lane 1.0-1.5 g)": 1.25,
+    "root B: textile replaced (16 x 20 x 1.5 mm)": -0.264,
+    "root B: TPU core 20 x 16 x 1.2 mm": 0.461,
+    "W1 wing laminates, both roots, documented route (strap lane 0.85 g target)": 1.605,
+    "TOTAL": 8.7
+   },
+   "pod_g": 10.49,
+   "strap_g": 8.7,
+   "worn_g": 19.2,
+   "pod_g_max_material": 10.86,
+   "strap_g_max_material": 9.45,
+   "worn_g_max_material": 20.3,
+   "max_material_note": "board 1.10 mm, band 6.0 g, cell 1.40 g, USB tab 1.50 g (top of each range; build B-08)"
+  },
+  "V3-R with USB on pod-top pads (D-4 b, no tab)": {
+   "pod": {
+    "top (lid or C1 lid + display)": 2.83,
+    "cell in the pod (GMB201030, 0.9-1.4 g)": 0.0,
+    "PCBA (6L 1.0 mm at 2.63 mg/mm2 + parts)": 3.317,
+    "ring walls 1.0 mm + strap bars": 0.831,
+    "floor: PC film, Ti plates, carrier film, shim": 0.971,
+    "E3 strip and tab": 0.15,
+    "optical cap": 0.08,
+    "USB pads on the pod top (2 spring fingers + magnets, usbc lane: +0.1 g)": 0.1,
+    "adhesives, vent, posts, tails": 0.28,
+    "TOTAL": 8.56
+   },
+   "strap": {
+    "textile hook-and-loop band (5-6 g, REDESIGN decision 4)": 5.5,
+    "root A: textile replaced (16 x 20 x 1.5 mm)": -0.264,
+    "root A: capsule shell PC (outer 38.4 x 11.9 x 3.5, inner 37.4 x 10.9 x 2.7 mm, PCM end)": 0.598,
+    "root A: cell GMB201030 (0.9-1.4 g)": 1.2,
+    "root A: flex PCBA (protector, F1, Rd, ESD, receptacle excluded), NTC bead, welded tabs": 0.11,
+    "root A: TPU in the bar hinge and the flex hinge (35 x (2.0 + 2.1) x 1.2 mm)": 0.207,
+    "root B: textile replaced (16 x 20 x 1.5 mm)": -0.264,
+    "root B: TPU root core 35 x 16 x 1.2 mm (needed only because of the wing)": 0.806,
+    "root B: wing laminate 35 x 16 mm, documented route (flex-backed target 0.745 g)": 1.408,
+    "TOTAL": 9.3
+   },
+   "pod_g": 8.56,
+   "strap_g": 9.3,
+   "worn_g": 17.9,
+   "pod_g_max_material": 8.76,
+   "worn_g_max_material": 18.8
+  }
+ },
+ "volume": {
+  "V2-B": {
+   "pod_body_cm3": 5.62,
+   "case_outline_mm": [
+    40.0,
+    32.0
+   ],
+   "worn_plan_pod_and_bars_mm": [
+    40.0,
+    37.0
+   ],
+   "total_rigid_cm3": 5.62
+  },
+  "V3-R": {
+   "pod_body_cm3": 4.81,
+   "case_outline_mm": [
+    40.0,
+    32.0
+   ],
+   "worn_plan_pod_and_bars_mm": [
+    40.0,
+    37.0
+   ],
+   "root A capsule cm3": 1.6,
+   "USB tab cm3": 0.72,
+   "wing laminate cm3": 0.98,
+   "total_rigid_cm3": 8.11
+  },
+  "V3-N": {
+   "pod_body_cm3": 4.81,
+   "case_outline_mm": [
+    40.0,
+    32.0
+   ],
+   "worn_plan_pod_and_bars_mm": [
+    40.0,
+    37.0
+   ],
+   "root A capsule cm3": 1.6,
+   "USB tab cm3": 0.72,
+   "wing laminate cm3": 0.98,
+   "total_rigid_cm3": 8.11
+  },
+  "V3-P": {
+   "pod_body_cm3": 6.93,
+   "case_outline_mm": [
+    49.1,
+    32.0
+   ],
+   "worn_plan_pod_and_bars_mm": [
+    49.1,
+    37.0
+   ],
+   "USB tab cm3": 0.72,
+   "wing laminate cm3": 1.12,
+   "total_rigid_cm3": 8.77
+  }
+ },
+ "energy": {
+  "r_lim_ohm": 22.0,
+  "si_area_cm2": {
+   "LID4": 5.762,
+   "LID4+W1x2": 9.434,
+   "LID2": 2.77,
+   "LID2+W1x2": 6.442,
+   "LID2+WR31": 6.118,
+   "LID2+WU31": 6.118,
+   "LID2+WR17": 4.606,
+   "LID4+WR31": 9.11,
+   "LID4+WU31": 9.11,
+   "WR31": 3.348
+  },
+  "check_lid_alone": {
+   "desk_1000lx_uW": 206.819,
+   "walk_1sun_mW": 34.634
+  },
+  "harvest_uW_into_battery": {
+   "LID4@R22": {
+    "desk 200 lx": 21.18,
+    "desk 300 lx": 41.63,
+    "desk 500 lx": 86.27,
+    "desk 1000 lx": 206.82,
+    "lap 150 lx": 11.95,
+    "walking overcast 0.03 sun": 2123.41,
+    "walking overcast 0.1 sun": 7517.95,
+    "walking 0.2 sun": 14674.23,
+    "walking sun 30 deg 0.45 sun": 26135.77,
+    "walking 1 sun": 34633.53
+   },
+   "LID4+W1x2@R22": {
+    "desk 200 lx": 34.27,
+    "desk 300 lx": 66.78,
+    "desk 500 lx": 137.21,
+    "desk 1000 lx": 325.31,
+    "lap 150 lx": 18.19,
+    "walking overcast 0.03 sun": 3442.43,
+    "walking overcast 0.1 sun": 11777.51,
+    "walking 0.2 sun": 21108.15,
+    "walking sun 30 deg 0.45 sun": 31581.99,
+    "walking 1 sun": 38163.55
+   },
+   "LID2@R22": {
+    "desk 200 lx": 9.07,
+    "desk 300 lx": 18.43,
+    "desk 500 lx": 39.28,
+    "desk 1000 lx": 96.61,
+    "lap 150 lx": 5.43,
+    "walking overcast 0.03 sun": 1025.16,
+    "walking overcast 0.1 sun": 3698.03,
+    "walking 0.2 sun": 7587.15,
+    "walking sun 30 deg 0.45 sun": 16236.39,
+    "walking 1 sun": 26939.13
+   },
+   "LID2+W1x2@R22": {
+    "desk 200 lx": 21.57,
+    "desk 300 lx": 42.94,
+    "desk 500 lx": 89.7,
+    "desk 1000 lx": 216.13,
+    "lap 150 lx": 10.77,
+    "walking overcast 0.03 sun": 2364.98,
+    "walking overcast 0.1 sun": 8332.62,
+    "walking 0.2 sun": 16043.51,
+    "walking sun 30 deg 0.45 sun": 27720.73,
+    "walking 1 sun": 35750.46
+   },
+   "LID2+WR31@R22": {
+    "desk 200 lx": 19.72,
+    "desk 300 lx": 39.56,
+    "desk 500 lx": 83.06,
+    "desk 1000 lx": 200.87,
+    "lap 150 lx": 11.24,
+    "walking overcast 0.03 sun": 2247.46,
+    "walking overcast 0.1 sun": 7938.07,
+    "walking 0.2 sun": 15390.28,
+    "walking sun 30 deg 0.45 sun": 27079.39,
+    "walking 1 sun": 35314.97
+   },
+   "LID2+WU31@R22": {
+    "desk 200 lx": 21.17,
+    "desk 300 lx": 41.95,
+    "desk 500 lx": 87.41,
+    "desk 1000 lx": 210.28,
+    "lap 150 lx": 9.26,
+    "walking overcast 0.03 sun": 2247.73,
+    "walking overcast 0.1 sun": 7938.95,
+    "walking 0.2 sun": 15391.74,
+    "walking sun 30 deg 0.45 sun": 27079.39,
+    "walking 1 sun": 35314.97
+   },
+   "LID2+WR17@R22": {
+    "desk 200 lx": 14.82,
+    "desk 300 lx": 29.91,
+    "desk 500 lx": 63.23,
+    "desk 1000 lx": 153.91,
+    "lap 150 lx": 8.33,
+    "walking overcast 0.03 sun": 1697.9,
+    "walking overcast 0.1 sun": 6062.32,
+    "walking 0.2 sun": 12106.08,
+    "walking sun 30 deg 0.45 sun": 23357.16,
+    "walking 1 sun": 32819.05
+   },
+   "LID4+WR31@R22": {
+    "desk 200 lx": 32.39,
+    "desk 300 lx": 63.35,
+    "desk 500 lx": 130.58,
+    "desk 1000 lx": 310.24,
+    "lap 150 lx": 18.68,
+    "walking overcast 0.03 sun": 3327.11,
+    "walking overcast 0.1 sun": 11423.09,
+    "walking 0.2 sun": 20637.59,
+    "walking sun 30 deg 0.45 sun": 31248.22,
+    "walking 1 sun": 37941.53
+   },
+   "LID4+WU31@R22": {
+    "desk 200 lx": 33.87,
+    "desk 300 lx": 65.8,
+    "desk 500 lx": 134.94,
+    "desk 1000 lx": 319.55,
+    "lap 150 lx": 16.6,
+    "walking overcast 0.03 sun": 3327.37,
+    "walking overcast 0.1 sun": 11423.89,
+    "walking 0.2 sun": 20638.67,
+    "walking sun 30 deg 0.45 sun": 31248.22,
+    "walking 1 sun": 37941.53
+   },
+   "WR31@R22": {
+    "desk 200 lx": 8.57,
+    "desk 300 lx": 18.12,
+    "desk 500 lx": 39.6,
+    "desk 1000 lx": 98.91,
+    "lap 150 lx": 5.27,
+    "walking overcast 0.03 sun": 1232.52,
+    "walking overcast 0.1 sun": 4433.86,
+    "walking 0.2 sun": 9035.49,
+    "walking sun 30 deg 0.45 sun": 19071.4,
+    "walking 1 sun": 29467.09
+   },
+   "LID4+WR31@R24": {
+    "desk 200 lx": 32.38,
+    "desk 300 lx": 63.35,
+    "desk 500 lx": 130.56,
+    "desk 1000 lx": 310.17,
+    "lap 150 lx": 18.68,
+    "walking overcast 0.03 sun": 3321.7,
+    "walking overcast 0.1 sun": 11317.15,
+    "walking 0.2 sun": 20029.47,
+    "walking sun 30 deg 0.45 sun": 29462.81,
+    "walking 1 sun": 35408.85
+   }
+  },
+  "targets": {
+   "V2-B planning (REDESIGN convention, R_LIM 22)": {
+    "loads_uW": {
+     "MON": 201.7,
+     "RAW": 290.3,
+     "ECO": 66.5,
+     "SHELF": 25.5,
+     "SHIP": 16.9
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 25.1,
+    "RAW_WC_d": 17.5,
+    "T2_ECO_d": 76.0,
+    "T3_min_day_045sun": 11.1,
+    "T3_overcast_min_day_01sun": 39.0,
+    "T4_ECO_1000lx_10h": 1.3,
+    "T5_indoor_300lx_10h_days_from_full": 27.5,
+    "T5_fraction_of_MON_covered_pct": 8.6,
+    "pv_set": "LID4@R22",
+    "T6_SHELF_d": 199.0,
+    "T6_SHIP_d": 300.0
+   },
+   "V2-B as built (G-4, R131, R108 items added; R_LIM 22)": {
+    "loads_uW": {
+     "MON": 208.1,
+     "RAW": 300.8,
+     "ECO": 72.9,
+     "SHELF": 27.8,
+     "SHIP": 16.9
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 24.4,
+    "RAW_WC_d": 16.9,
+    "T2_ECO_d": 70.0,
+    "T3_min_day_045sun": 11.5,
+    "T3_overcast_min_day_01sun": 40.0,
+    "T4_ECO_1000lx_10h": 1.18,
+    "T5_indoor_300lx_10h_days_from_full": 26.6,
+    "T5_fraction_of_MON_covered_pct": 8.3,
+    "pv_set": "LID4@R22",
+    "T6_SHELF_d": 182.0,
+    "T6_SHIP_d": 300.0
+   },
+   "V2-B as built with R131, R108 at 10 MOhm": {
+    "loads_uW": {
+     "MON": 204.5,
+     "RAW": 293.4,
+     "ECO": 69.2,
+     "SHELF": 27.8,
+     "SHIP": 16.9
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 24.8,
+    "RAW_WC_d": 17.3,
+    "T2_ECO_d": 73.0,
+    "T3_min_day_045sun": 11.3,
+    "T3_overcast_min_day_01sun": 39.0,
+    "T4_ECO_1000lx_10h": 1.25,
+    "T5_indoor_300lx_10h_days_from_full": 27.1,
+    "T5_fraction_of_MON_covered_pct": 8.5,
+    "pv_set": "LID4@R22",
+    "T6_SHELF_d": 182.0,
+    "T6_SHIP_d": 300.0
+   },
+   "V3-R": {
+    "loads_uW": {
+     "MON": 234.6,
+     "RAW": 323.6,
+     "ECO": 70.9,
+     "SHELF": 29.1,
+     "SHIP": 18.2
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 21.6,
+    "T1_with_dark_policy_d": 24.5,
+    "RAW_WC_d": 15.7,
+    "T2_ECO_d": 72.0,
+    "T3_min_day_045sun": 12.5,
+    "T3_overcast_min_day_01sun": 43.0,
+    "T4_ECO_1000lx_10h": 1.18,
+    "T5_indoor_300lx_10h_days_from_full": 23.2,
+    "T5_fraction_of_MON_covered_pct": 7.0,
+    "pv_set": "LID2+WR31@R22",
+    "T6_SHELF_d": 174.0,
+    "T6_SHIP_d": 279.0
+   },
+   "V3-R | maximum currents (protector 6 uA, USB 0.6 + 1 uA, display at panel maximum)": {
+    "loads_uW": {
+     "MON": 293.4,
+     "RAW": 382.4,
+     "ECO": 86.4,
+     "SHELF": 44.1,
+     "SHIP": 31.0
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 17.3,
+    "T1_with_dark_policy_d": 22.6,
+    "RAW_WC_d": 13.3,
+    "T2_ECO_d": 59.0,
+    "T3_min_day_045sun": 15.6,
+    "T3_overcast_min_day_01sun": 53.0,
+    "T4_ECO_1000lx_10h": 0.97,
+    "T5_indoor_300lx_10h_days_from_full": 18.3,
+    "T5_fraction_of_MON_covered_pct": 5.6,
+    "pv_set": "LID2+WR31@R22",
+    "T6_SHELF_d": 115.0,
+    "T6_SHIP_d": 164.0
+   },
+   "V3-R | worst stack (LED gain 1, maximum currents, retention limit)": {
+    "loads_uW": {
+     "MON": 441.3,
+     "RAW": 530.3,
+     "ECO": 124.8,
+     "SHELF": 70.2,
+     "SHIP": 57.1
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 11.5,
+    "T1_with_dark_policy_d": 13.5,
+    "RAW_WC_d": 9.6,
+    "T2_ECO_d": 41.0,
+    "T3_min_day_045sun": 23.5,
+    "T3_overcast_min_day_01sun": 80.0,
+    "T4_ECO_1000lx_10h": 0.67,
+    "T5_indoor_300lx_10h_days_from_full": 11.9,
+    "T5_fraction_of_MON_covered_pct": 3.7,
+    "pv_set": "LID2+WR31@R22",
+    "T6_SHELF_d": 72.0,
+    "T6_SHIP_d": 89.0
+   },
+   "V3-R | worn on the other wrist (wing on the ulnar side)": {
+    "loads_uW": {
+     "MON": 234.6,
+     "RAW": 323.6,
+     "ECO": 70.9,
+     "SHELF": 29.1,
+     "SHIP": 18.2
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 21.6,
+    "T1_with_dark_policy_d": 24.5,
+    "RAW_WC_d": 15.7,
+    "T2_ECO_d": 72.0,
+    "T3_min_day_045sun": 12.5,
+    "T3_overcast_min_day_01sun": 43.0,
+    "T4_ECO_1000lx_10h": 1.24,
+    "T5_indoor_300lx_10h_days_from_full": 23.4,
+    "T5_fraction_of_MON_covered_pct": 7.4,
+    "pv_set": "LID2+WU31@R22",
+    "T6_SHELF_d": 174.0,
+    "T6_SHIP_d": 279.0
+   },
+   "V3-N": {
+    "loads_uW": {
+     "MON": 205.7,
+     "RAW": 294.7,
+     "ECO": 70.5,
+     "SHELF": 29.1,
+     "SHIP": 18.2
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 24.6,
+    "RAW_WC_d": 17.2,
+    "T2_ECO_d": 72.0,
+    "T3_min_day_045sun": 9.5,
+    "T3_overcast_min_day_01sun": 26.0,
+    "T4_ECO_1000lx_10h": 1.83,
+    "T5_indoor_300lx_10h_days_from_full": 28.3,
+    "T5_fraction_of_MON_covered_pct": 12.8,
+    "pv_set": "LID4+WR31@R22",
+    "T6_SHELF_d": 174.0,
+    "T6_SHIP_d": 279.0
+   },
+   "V3-N | maximum currents (protector 6 uA, USB 0.6 + 1 uA, display at panel maximum)": {
+    "loads_uW": {
+     "MON": 220.7,
+     "RAW": 309.7,
+     "ECO": 85.4,
+     "SHELF": 44.1,
+     "SHIP": 31.0
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 23.0,
+    "RAW_WC_d": 16.4,
+    "T2_ECO_d": 59.0,
+    "T3_min_day_045sun": 10.2,
+    "T3_overcast_min_day_01sun": 28.0,
+    "T4_ECO_1000lx_10h": 1.51,
+    "T5_indoor_300lx_10h_days_from_full": 26.1,
+    "T5_fraction_of_MON_covered_pct": 12.0,
+    "pv_set": "LID4+WR31@R22",
+    "T6_SHELF_d": 115.0,
+    "T6_SHIP_d": 164.0
+   },
+   "V3-N | worst stack (LED gain 1, maximum currents, retention limit)": {
+    "loads_uW": {
+     "MON": 368.6,
+     "RAW": 457.6,
+     "ECO": 123.8,
+     "SHELF": 70.2,
+     "SHIP": 57.1
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 13.8,
+    "RAW_WC_d": 11.1,
+    "T2_ECO_d": 41.0,
+    "T3_min_day_045sun": 17.0,
+    "T3_overcast_min_day_01sun": 46.0,
+    "T4_ECO_1000lx_10h": 1.04,
+    "T5_indoor_300lx_10h_days_from_full": 14.8,
+    "T5_fraction_of_MON_covered_pct": 7.2,
+    "pv_set": "LID4+WR31@R22",
+    "T6_SHELF_d": 72.0,
+    "T6_SHIP_d": 89.0
+   },
+   "V3-N | worn on the other wrist (wing on the ulnar side)": {
+    "loads_uW": {
+     "MON": 205.7,
+     "RAW": 294.7,
+     "ECO": 70.5,
+     "SHELF": 29.1,
+     "SHIP": 18.2
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 24.6,
+    "RAW_WC_d": 17.2,
+    "T2_ECO_d": 72.0,
+    "T3_min_day_045sun": 9.5,
+    "T3_overcast_min_day_01sun": 26.0,
+    "T4_ECO_1000lx_10h": 1.89,
+    "T5_indoor_300lx_10h_days_from_full": 28.4,
+    "T5_fraction_of_MON_covered_pct": 13.3,
+    "pv_set": "LID4+WU31@R22",
+    "T6_SHELF_d": 174.0,
+    "T6_SHIP_d": 279.0
+   },
+   "V3-P": {
+    "loads_uW": {
+     "MON": 234.6,
+     "RAW": 323.6,
+     "ECO": 70.9,
+     "SHELF": 29.1,
+     "SHIP": 18.2
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 21.6,
+    "T1_with_dark_policy_d": 24.5,
+    "RAW_WC_d": 15.7,
+    "T2_ECO_d": 72.0,
+    "T3_min_day_045sun": 12.2,
+    "T3_overcast_min_day_01sun": 41.0,
+    "T4_ECO_1000lx_10h": 1.27,
+    "T5_indoor_300lx_10h_days_from_full": 23.4,
+    "T5_fraction_of_MON_covered_pct": 7.6,
+    "pv_set": "LID2+W1x2@R22",
+    "T6_SHELF_d": 174.0,
+    "T6_SHIP_d": 279.0
+   },
+   "V3-P | maximum currents (protector 6 uA, USB 0.6 + 1 uA, display at panel maximum)": {
+    "loads_uW": {
+     "MON": 293.4,
+     "RAW": 382.4,
+     "ECO": 86.4,
+     "SHELF": 44.1,
+     "SHIP": 31.0
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 17.3,
+    "T1_with_dark_policy_d": 22.6,
+    "RAW_WC_d": 13.3,
+    "T2_ECO_d": 59.0,
+    "T3_min_day_045sun": 15.2,
+    "T3_overcast_min_day_01sun": 51.0,
+    "T4_ECO_1000lx_10h": 1.04,
+    "T5_indoor_300lx_10h_days_from_full": 18.4,
+    "T5_fraction_of_MON_covered_pct": 6.1,
+    "pv_set": "LID2+W1x2@R22",
+    "T6_SHELF_d": 115.0,
+    "T6_SHIP_d": 164.0
+   },
+   "V3-P | worst stack (LED gain 1, maximum currents, retention limit)": {
+    "loads_uW": {
+     "MON": 441.3,
+     "RAW": 530.3,
+     "ECO": 124.8,
+     "SHELF": 70.2,
+     "SHIP": 57.1
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 11.5,
+    "T1_with_dark_policy_d": 13.5,
+    "RAW_WC_d": 9.6,
+    "T2_ECO_d": 41.0,
+    "T3_min_day_045sun": 22.9,
+    "T3_overcast_min_day_01sun": 76.0,
+    "T4_ECO_1000lx_10h": 0.72,
+    "T5_indoor_300lx_10h_days_from_full": 12.0,
+    "T5_fraction_of_MON_covered_pct": 4.1,
+    "pv_set": "LID2+W1x2@R22",
+    "T6_SHELF_d": 72.0,
+    "T6_SHIP_d": 89.0
+   },
+   "V3-R | wing shortened or narrowed to about 55 % area (17 mm wide; thermal mitigation of P-5/RQ-07)": {
+    "loads_uW": {
+     "MON": 234.6,
+     "RAW": 323.6,
+     "ECO": 70.9,
+     "SHELF": 29.1,
+     "SHIP": 18.2
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 21.6,
+    "T1_with_dark_policy_d": 24.5,
+    "RAW_WC_d": 15.7,
+    "T2_ECO_d": 72.0,
+    "T3_min_day_045sun": 14.5,
+    "T3_overcast_min_day_01sun": 56.0,
+    "T4_ECO_1000lx_10h": 0.9,
+    "T5_indoor_300lx_10h_days_from_full": 22.8,
+    "T5_fraction_of_MON_covered_pct": 5.3,
+    "pv_set": "LID2+WR17@R22",
+    "T6_SHELF_d": 174.0,
+    "T6_SHIP_d": 279.0
+   },
+   "V3-N | R_LIM 24 ohm option (only if -20 C at 1.2 sun on every string must hold with 5 % margin)": {
+    "loads_uW": {
+     "MON": 205.7,
+     "RAW": 294.7,
+     "ECO": 70.5,
+     "SHELF": 29.1,
+     "SHIP": 18.2
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 24.6,
+    "RAW_WC_d": 17.2,
+    "T2_ECO_d": 72.0,
+    "T3_min_day_045sun": 10.1,
+    "T3_overcast_min_day_01sun": 26.0,
+    "T4_ECO_1000lx_10h": 1.83,
+    "T5_indoor_300lx_10h_days_from_full": 28.3,
+    "T5_fraction_of_MON_covered_pct": 12.8,
+    "pv_set": "LID4+WR31@R24",
+    "T6_SHELF_d": 174.0,
+    "T6_SHIP_d": 279.0
+   },
+   "V3-R | without the display load (same PV set)": {
+    "loads_uW": {
+     "MON": 205.7,
+     "RAW": 294.7,
+     "ECO": 70.5,
+     "SHELF": 29.1,
+     "SHIP": 18.2
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 24.6,
+    "RAW_WC_d": 17.2,
+    "T2_ECO_d": 72.0,
+    "T3_min_day_045sun": 10.9,
+    "T3_overcast_min_day_01sun": 37.0,
+    "T4_ECO_1000lx_10h": 1.19,
+    "T5_indoor_300lx_10h_days_from_full": 26.8,
+    "T5_fraction_of_MON_covered_pct": 8.0,
+    "pv_set": "LID2+WR31@R22",
+    "T6_SHELF_d": 174.0,
+    "T6_SHIP_d": 279.0
+   },
+   "V3-R | 70 mAh LP301230 option (R_LIM 22)": {
+    "loads_uW": {
+     "MON": 239.5,
+     "RAW": 328.5,
+     "ECO": 75.8,
+     "SHELF": 34.0,
+     "SHIP": 23.0
+    },
+    "usable_mWh": 188.7,
+    "T1_MON_dark_d": 32.8,
+    "T1_with_dark_policy_d": 37.1,
+    "RAW_WC_d": 23.9,
+    "T2_ECO_d": 104.0,
+    "T3_min_day_045sun": 12.7,
+    "T3_overcast_min_day_01sun": 43.0,
+    "T4_ECO_1000lx_10h": 1.1,
+    "T5_indoor_300lx_10h_days_from_full": 35.3,
+    "T5_fraction_of_MON_covered_pct": 6.9,
+    "pv_set": "LID2+WR31@R22",
+    "T6_SHELF_d": 231.0,
+    "T6_SHIP_d": 341.0
+   },
+   "V3-R | 70 mAh LP301230 option with R_LIM lowered for the larger cell": {
+    "loads_uW": {
+     "MON": 239.5,
+     "RAW": 328.5,
+     "ECO": 75.8,
+     "SHELF": 34.0,
+     "SHIP": 23.0
+    },
+    "usable_mWh": 188.7,
+    "T1_MON_dark_d": 32.8,
+    "T1_with_dark_policy_d": 37.1,
+    "RAW_WC_d": 23.9,
+    "T2_ECO_d": 104.0,
+    "T3_min_day_045sun": 10.1,
+    "T3_overcast_min_day_01sun": 43.0,
+    "T4_ECO_1000lx_10h": 1.1,
+    "T5_indoor_300lx_10h_days_from_full": 35.3,
+    "T5_fraction_of_MON_covered_pct": 6.9,
+    "pv_set": "LID2+WR31@R12 (T3 only; other harvest values at R22)",
+    "T6_SHELF_d": 231.0,
+    "T6_SHIP_d": 341.0,
+    "harvest_045sun_mW": 34.0,
+    "r_lim_ohm": 12.0,
+    "charge_bound_minus20C_k072": 0.404
+   },
+   "glass-top option: display, no PV on the pod, one wing (R_LIM 22)": {
+    "loads_uW": {
+     "MON": 234.6,
+     "RAW": 323.6,
+     "ECO": 70.9,
+     "SHELF": 29.1,
+     "SHIP": 18.2
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 21.6,
+    "T1_with_dark_policy_d": 24.5,
+    "RAW_WC_d": 15.7,
+    "T2_ECO_d": 72.0,
+    "T3_min_day_045sun": 17.7,
+    "T3_overcast_min_day_01sun": 76.0,
+    "T4_ECO_1000lx_10h": 0.58,
+    "T5_indoor_300lx_10h_days_from_full": 22.3,
+    "T5_fraction_of_MON_covered_pct": 3.2,
+    "pv_set": "WR31@R22",
+    "T6_SHELF_d": 174.0,
+    "T6_SHIP_d": 279.0
+   },
+   "V2-B lid + lane W1 wings (strap lane check, R_LIM 22)": {
+    "loads_uW": {
+     "MON": 201.7,
+     "RAW": 290.3,
+     "ECO": 66.5,
+     "SHELF": 25.5,
+     "SHIP": 16.9
+    },
+    "usable_mWh": 121.7,
+    "T1_MON_dark_d": 25.1,
+    "RAW_WC_d": 17.5,
+    "T2_ECO_d": 76.0,
+    "T3_min_day_045sun": 9.2,
+    "T3_overcast_min_day_01sun": 25.0,
+    "T4_ECO_1000lx_10h": 2.04,
+    "T5_indoor_300lx_10h_days_from_full": 29.2,
+    "T5_fraction_of_MON_covered_pct": 13.8,
+    "pv_set": "LID4+W1x2@R22",
+    "T6_SHELF_d": 199.0,
+    "T6_SHIP_d": 300.0
+   }
+  },
+  "loads_breakdown_uW_V3R": {
+   "MON": {
+    "base": 201.72,
+    "G-4 EN hold": 2.33,
+    "R131 1 MOhm pull-down on INA_EN, conducts while the INA rail is on (netlist; not in CALC.md) (10 MOhm)": 0.41,
+    "R108 1 MOhm pull-down on PV_INH, conducts while Q1 is on (10 MOhm)": 0.0,
+    "USB charger block idle": 1.3,
+    "display LS011B7DH03": 28.9
+   },
+   "RAW": {
+    "base": 290.29,
+    "G-4 EN hold": 2.33,
+    "R131 1 MOhm pull-down on INA_EN, conducts while the INA rail is on (netlist; not in CALC.md) (10 MOhm)": 0.41,
+    "R108 1 MOhm pull-down on PV_INH, conducts while Q1 is on (10 MOhm)": 0.41,
+    "USB charger block idle": 1.3,
+    "display LS011B7DH03": 28.9
+   },
+   "ECO": {
+    "base": 66.46,
+    "G-4 EN hold": 2.33,
+    "R131 1 MOhm pull-down on INA_EN, conducts while the INA rail is on (netlist; not in CALC.md) (10 MOhm)": 0.41,
+    "R108 1 MOhm pull-down on PV_INH, conducts while Q1 is on (10 MOhm)": 0.0,
+    "USB charger block idle": 1.3,
+    "display LS011B7DH03": 0.42
+   },
+   "SHELF": {
+    "base": 25.5,
+    "G-4 EN hold": 2.33,
+    "R131 1 MOhm pull-down on INA_EN, conducts while the INA rail is on (netlist; not in CALC.md) (10 MOhm)": 0.0,
+    "R108 1 MOhm pull-down on PV_INH, conducts while Q1 is on (10 MOhm)": 0.0,
+    "USB charger block idle": 1.3,
+    "display LS011B7DH03": 0.01
+   },
+   "SHIP": {
+    "base": 16.9,
+    "G-4 EN hold": 0.0,
+    "R131 1 MOhm pull-down on INA_EN, conducts while the INA rail is on (netlist; not in CALC.md) (10 MOhm)": 0.0,
+    "R108 1 MOhm pull-down on PV_INH, conducts while Q1 is on (10 MOhm)": 0.0,
+    "USB charger block idle": 1.3,
+    "display LS011B7DH03": 0.0
+   }
+  },
+  "usb_t7_h_43mAh": {
+   "constant-current phase only (integrate stage)": {
+    "18.52 mA": 1.97,
+    "16.67 mA": 2.19,
+    "14.85 mA": 2.46
+   },
+   "CC + CV, fresh cell 25 C, VREG 4.10 V": {
+    "18.52 mA": 2.0,
+    "16.67 mA": 2.21,
+    "14.85 mA": 2.47
+   },
+   "CC + CV, 14.85 mA, VREG 4.067 V (-0.8 %)": 2.75,
+   "CC + CV, aged / 15 C cell (ohmic 1.0, RC x1.5), 14.85 mA, VREG 4.067 V": 2.84,
+   "CC + CV, cold 5-10 C cell (ohmic 1.5, RC x2.5), 14.85 mA, VREG 4.067 V": 3.04,
+   "note": "E: equivalent-circuit model ported from the physics lens (usb_t7.py: 2.00 / 2.21 / 2.47 h fresh, 2.75 h at VREG -0.8 %, 3.04 h cold)"
+  },
+  "usb_t7_h_70mAh_riset_11k": {
+   "24.5 mA": 2.42,
+   "27.3 mA": 2.18,
+   "30.0 mA": 1.98
+  },
+  "usb_10min_topup_days_of_MON_V3R": 1.83,
+  "weeks_from_50pct": {
+   "V2-B | W1_office": {
+    "harvest_mWh_day": 12.99,
+    "load_mWh_day": 4.841,
+    "min_soc": 0.488,
+    "end_soc": 0.969,
+    "minutes_off": 0,
+    "balance_mWh_day": 8.149,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.5,
+     0.544,
+     0.535,
+     0.525,
+     0.527,
+     0.534,
+     0.525,
+     0.515,
+     0.526,
+     0.546,
+     0.537,
+     0.527,
+     0.529,
+     0.553,
+     0.543,
+     0.533,
+     0.562,
+     0.597,
+     0.587,
+     0.577,
+     0.715,
+     0.706,
+     0.697,
+     0.687,
+     0.987,
+     0.978,
+     0.969
+    ]
+   },
+   "V2-B | W2_indoor_300lx": {
+    "harvest_mWh_day": 0.416,
+    "load_mWh_day": 4.841,
+    "min_soc": 0.246,
+    "end_soc": 0.246,
+    "minutes_off": 0,
+    "balance_mWh_day": -4.425,
+    "days_to_empty_from_50pct": 13.8,
+    "days_from_full_if_negative": 27.5,
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.481,
+     0.474,
+     0.464,
+     0.454,
+     0.445,
+     0.437,
+     0.427,
+     0.417,
+     0.409,
+     0.401,
+     0.391,
+     0.381,
+     0.372,
+     0.365,
+     0.355,
+     0.345,
+     0.336,
+     0.328,
+     0.318,
+     0.308,
+     0.3,
+     0.292,
+     0.282,
+     0.272,
+     0.263,
+     0.255,
+     0.246
+    ]
+   },
+   "V2-B | W3_bright_1000lx": {
+    "harvest_mWh_day": 2.068,
+    "load_mWh_day": 4.841,
+    "min_soc": 0.341,
+    "end_soc": 0.341,
+    "minutes_off": 0,
+    "balance_mWh_day": -2.773,
+    "days_to_empty_from_50pct": 21.9,
+    "days_from_full_if_negative": 43.9,
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.487,
+     0.487,
+     0.477,
+     0.467,
+     0.464,
+     0.464,
+     0.454,
+     0.444,
+     0.441,
+     0.442,
+     0.432,
+     0.422,
+     0.419,
+     0.419,
+     0.409,
+     0.399,
+     0.396,
+     0.396,
+     0.386,
+     0.376,
+     0.373,
+     0.373,
+     0.363,
+     0.353,
+     0.35,
+     0.35,
+     0.341
+    ]
+   },
+   "V2-B | W4_sun_20min": {
+    "harvest_mWh_day": 8.712,
+    "load_mWh_day": 4.841,
+    "min_soc": 0.48,
+    "end_soc": 0.723,
+    "minutes_off": 0,
+    "balance_mWh_day": 3.871,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.48,
+     0.542,
+     0.532,
+     0.522,
+     0.512,
+     0.574,
+     0.564,
+     0.554,
+     0.544,
+     0.605,
+     0.595,
+     0.585,
+     0.576,
+     0.637,
+     0.627,
+     0.617,
+     0.607,
+     0.669,
+     0.659,
+     0.649,
+     0.639,
+     0.701,
+     0.691,
+     0.681,
+     0.671,
+     0.733,
+     0.723
+    ]
+   },
+   "V2-B | W5_dark": {
+    "harvest_mWh_day": 0.0,
+    "load_mWh_day": 4.841,
+    "min_soc": 0.222,
+    "end_soc": 0.222,
+    "minutes_off": 0,
+    "balance_mWh_day": -4.841,
+    "days_to_empty_from_50pct": 12.6,
+    "days_from_full_if_negative": 25.1,
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.48,
+     0.47,
+     0.46,
+     0.45,
+     0.44,
+     0.43,
+     0.42,
+     0.411,
+     0.401,
+     0.391,
+     0.381,
+     0.371,
+     0.361,
+     0.351,
+     0.341,
+     0.331,
+     0.321,
+     0.311,
+     0.301,
+     0.291,
+     0.281,
+     0.271,
+     0.261,
+     0.251,
+     0.241,
+     0.232,
+     0.222
+    ]
+   },
+   "V2-B | W6_campus": {
+    "harvest_mWh_day": 10.822,
+    "load_mWh_day": 4.841,
+    "min_soc": 0.481,
+    "end_soc": 0.844,
+    "minutes_off": 0,
+    "balance_mWh_day": 5.981,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.481,
+     0.594,
+     0.584,
+     0.574,
+     0.565,
+     0.678,
+     0.668,
+     0.658,
+     0.649,
+     0.762,
+     0.752,
+     0.742,
+     0.733,
+     0.845,
+     0.835,
+     0.826,
+     0.817,
+     0.929,
+     0.919,
+     0.909,
+     0.9,
+     0.891,
+     0.882,
+     0.872,
+     0.862,
+     0.853,
+     0.844
+    ]
+   },
+   "V2-B | W7_low_outdoor_office": {
+    "harvest_mWh_day": 1.09,
+    "load_mWh_day": 4.841,
+    "min_soc": 0.284,
+    "end_soc": 0.284,
+    "minutes_off": 0,
+    "balance_mWh_day": -3.751,
+    "days_to_empty_from_50pct": 16.2,
+    "days_from_full_if_negative": 32.4,
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.482,
+     0.48,
+     0.471,
+     0.461,
+     0.452,
+     0.448,
+     0.438,
+     0.428,
+     0.421,
+     0.416,
+     0.407,
+     0.397,
+     0.39,
+     0.386,
+     0.376,
+     0.366,
+     0.358,
+     0.352,
+     0.342,
+     0.332,
+     0.323,
+     0.323,
+     0.313,
+     0.303,
+     0.294,
+     0.294,
+     0.284
+    ]
+   },
+   "V3-R | W1_office": {
+    "harvest_mWh_day": 13.645,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.486,
+    "end_soc": 0.961,
+    "minutes_off": 0,
+    "balance_mWh_day": 8.014,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.498,
+     0.543,
+     0.532,
+     0.521,
+     0.521,
+     0.528,
+     0.517,
+     0.505,
+     0.515,
+     0.535,
+     0.524,
+     0.513,
+     0.513,
+     0.537,
+     0.526,
+     0.515,
+     0.544,
+     0.579,
+     0.568,
+     0.556,
+     0.701,
+     0.69,
+     0.679,
+     0.668,
+     0.982,
+     0.972,
+     0.961
+    ]
+   },
+   "V3-R | W2_indoor_300lx": {
+    "harvest_mWh_day": 0.396,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.199,
+    "end_soc": 0.199,
+    "minutes_off": 0,
+    "balance_mWh_day": -5.236,
+    "days_to_empty_from_50pct": 11.6,
+    "days_from_full_if_negative": 23.2,
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.478,
+     0.469,
+     0.457,
+     0.445,
+     0.435,
+     0.426,
+     0.414,
+     0.402,
+     0.392,
+     0.383,
+     0.371,
+     0.359,
+     0.349,
+     0.339,
+     0.328,
+     0.316,
+     0.306,
+     0.296,
+     0.285,
+     0.273,
+     0.263,
+     0.253,
+     0.242,
+     0.23,
+     0.22,
+     0.21,
+     0.199
+    ]
+   },
+   "V3-R | W3_bright_1000lx": {
+    "harvest_mWh_day": 2.009,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.292,
+    "end_soc": 0.292,
+    "minutes_off": 0,
+    "balance_mWh_day": -3.623,
+    "days_to_empty_from_50pct": 16.8,
+    "days_from_full_if_negative": 33.6,
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.483,
+     0.482,
+     0.47,
+     0.459,
+     0.454,
+     0.452,
+     0.44,
+     0.429,
+     0.424,
+     0.422,
+     0.411,
+     0.399,
+     0.394,
+     0.393,
+     0.381,
+     0.369,
+     0.364,
+     0.363,
+     0.351,
+     0.34,
+     0.335,
+     0.333,
+     0.321,
+     0.31,
+     0.305,
+     0.303,
+     0.292
+    ]
+   },
+   "V3-R | W4_sun_20min": {
+    "harvest_mWh_day": 9.026,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.477,
+    "end_soc": 0.695,
+    "minutes_off": 0,
+    "balance_mWh_day": 3.395,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.477,
+     0.539,
+     0.528,
+     0.516,
+     0.505,
+     0.567,
+     0.556,
+     0.544,
+     0.533,
+     0.595,
+     0.584,
+     0.572,
+     0.561,
+     0.623,
+     0.612,
+     0.6,
+     0.588,
+     0.651,
+     0.639,
+     0.628,
+     0.616,
+     0.679,
+     0.667,
+     0.656,
+     0.644,
+     0.707,
+     0.695
+    ]
+   },
+   "V3-R | W5_dark": {
+    "harvest_mWh_day": 0.0,
+    "load_mWh_day": 5.046,
+    "min_soc": 0.21,
+    "end_soc": 0.21,
+    "minutes_off": 0,
+    "balance_mWh_day": -5.046,
+    "days_to_empty_from_50pct": 12.1,
+    "days_from_full_if_negative": 24.1,
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.477,
+     0.465,
+     0.454,
+     0.444,
+     0.433,
+     0.423,
+     0.413,
+     0.403,
+     0.393,
+     0.383,
+     0.372,
+     0.362,
+     0.352,
+     0.342,
+     0.332,
+     0.322,
+     0.311,
+     0.301,
+     0.291,
+     0.281,
+     0.271,
+     0.261,
+     0.25,
+     0.24,
+     0.23,
+     0.22,
+     0.21
+    ]
+   },
+   "V3-R | W6_campus": {
+    "harvest_mWh_day": 11.448,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.478,
+    "end_soc": 0.834,
+    "minutes_off": 0,
+    "balance_mWh_day": 5.816,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.478,
+     0.596,
+     0.585,
+     0.573,
+     0.563,
+     0.681,
+     0.669,
+     0.658,
+     0.647,
+     0.765,
+     0.754,
+     0.742,
+     0.732,
+     0.85,
+     0.838,
+     0.827,
+     0.817,
+     0.935,
+     0.923,
+     0.911,
+     0.9,
+     0.89,
+     0.879,
+     0.867,
+     0.856,
+     0.846,
+     0.834
+    ]
+   },
+   "V3-R | W7_low_outdoor_office": {
+    "harvest_mWh_day": 1.103,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.24,
+    "end_soc": 0.24,
+    "minutes_off": 0,
+    "balance_mWh_day": -4.528,
+    "days_to_empty_from_50pct": 13.4,
+    "days_from_full_if_negative": 26.9,
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.479,
+     0.475,
+     0.464,
+     0.453,
+     0.442,
+     0.437,
+     0.425,
+     0.414,
+     0.404,
+     0.399,
+     0.387,
+     0.376,
+     0.367,
+     0.361,
+     0.35,
+     0.338,
+     0.329,
+     0.321,
+     0.31,
+     0.298,
+     0.287,
+     0.286,
+     0.275,
+     0.263,
+     0.252,
+     0.25,
+     0.24
+    ]
+   },
+   "V3-R (other wrist) | W1_office": {
+    "harvest_mWh_day": 13.649,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.486,
+    "end_soc": 0.961,
+    "minutes_off": 0,
+    "balance_mWh_day": 8.018,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.498,
+     0.543,
+     0.532,
+     0.521,
+     0.521,
+     0.528,
+     0.517,
+     0.505,
+     0.516,
+     0.536,
+     0.525,
+     0.513,
+     0.514,
+     0.538,
+     0.527,
+     0.515,
+     0.545,
+     0.58,
+     0.569,
+     0.557,
+     0.702,
+     0.691,
+     0.68,
+     0.668,
+     0.983,
+     0.972,
+     0.961
+    ]
+   },
+   "V3-R (other wrist) | W2_indoor_300lx": {
+    "harvest_mWh_day": 0.42,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.2,
+    "end_soc": 0.2,
+    "minutes_off": 0,
+    "balance_mWh_day": -5.212,
+    "days_to_empty_from_50pct": 11.7,
+    "days_from_full_if_negative": 23.4,
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.478,
+     0.469,
+     0.457,
+     0.446,
+     0.435,
+     0.426,
+     0.414,
+     0.403,
+     0.393,
+     0.383,
+     0.372,
+     0.36,
+     0.35,
+     0.34,
+     0.329,
+     0.317,
+     0.307,
+     0.297,
+     0.286,
+     0.274,
+     0.264,
+     0.255,
+     0.243,
+     0.231,
+     0.221,
+     0.212,
+     0.2
+    ]
+   },
+   "V3-R (other wrist) | W6_campus": {
+    "harvest_mWh_day": 11.453,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.478,
+    "end_soc": 0.835,
+    "minutes_off": 0,
+    "balance_mWh_day": 5.821,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.478,
+     0.596,
+     0.585,
+     0.573,
+     0.563,
+     0.681,
+     0.67,
+     0.658,
+     0.648,
+     0.766,
+     0.754,
+     0.743,
+     0.733,
+     0.851,
+     0.839,
+     0.828,
+     0.817,
+     0.935,
+     0.924,
+     0.912,
+     0.901,
+     0.89,
+     0.879,
+     0.868,
+     0.857,
+     0.846,
+     0.835
+    ]
+   },
+   "V3-R (other wrist) | W7_low_outdoor_office": {
+    "harvest_mWh_day": 1.101,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.239,
+    "end_soc": 0.239,
+    "minutes_off": 0,
+    "balance_mWh_day": -4.53,
+    "days_to_empty_from_50pct": 13.4,
+    "days_from_full_if_negative": 26.9,
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.479,
+     0.475,
+     0.464,
+     0.453,
+     0.442,
+     0.437,
+     0.426,
+     0.414,
+     0.404,
+     0.399,
+     0.388,
+     0.376,
+     0.367,
+     0.362,
+     0.351,
+     0.339,
+     0.329,
+     0.321,
+     0.31,
+     0.299,
+     0.287,
+     0.286,
+     0.275,
+     0.263,
+     0.252,
+     0.25,
+     0.239
+    ]
+   },
+   "V3-N | W1_office": {
+    "harvest_mWh_day": 18.521,
+    "load_mWh_day": 4.938,
+    "min_soc": 0.487,
+    "end_soc": 0.982,
+    "minutes_off": 0,
+    "balance_mWh_day": 13.583,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.511,
+     0.574,
+     0.565,
+     0.554,
+     0.562,
+     0.579,
+     0.57,
+     0.56,
+     0.582,
+     0.617,
+     0.608,
+     0.598,
+     0.606,
+     0.647,
+     0.638,
+     0.628,
+     0.676,
+     0.733,
+     0.724,
+     0.714,
+     0.925,
+     0.916,
+     0.907,
+     0.897,
+     1.0,
+     0.991,
+     0.982
+    ]
+   },
+   "V3-N | W2_indoor_300lx": {
+    "harvest_mWh_day": 0.634,
+    "load_mWh_day": 4.938,
+    "min_soc": 0.252,
+    "end_soc": 0.252,
+    "minutes_off": 0,
+    "balance_mWh_day": -4.304,
+    "days_to_empty_from_50pct": 14.1,
+    "days_from_full_if_negative": 28.3,
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.482,
+     0.475,
+     0.465,
+     0.454,
+     0.446,
+     0.439,
+     0.429,
+     0.419,
+     0.411,
+     0.404,
+     0.394,
+     0.384,
+     0.376,
+     0.369,
+     0.359,
+     0.348,
+     0.34,
+     0.333,
+     0.323,
+     0.313,
+     0.305,
+     0.298,
+     0.288,
+     0.278,
+     0.27,
+     0.263,
+     0.252
+    ]
+   },
+   "V3-N | W3_bright_1000lx": {
+    "harvest_mWh_day": 3.102,
+    "load_mWh_day": 4.938,
+    "min_soc": 0.394,
+    "end_soc": 0.394,
+    "minutes_off": 0,
+    "balance_mWh_day": -1.836,
+    "days_to_empty_from_50pct": 33.2,
+    "days_from_full_if_negative": 66.3,
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.49,
+     0.495,
+     0.485,
+     0.475,
+     0.475,
+     0.48,
+     0.47,
+     0.46,
+     0.46,
+     0.465,
+     0.455,
+     0.445,
+     0.445,
+     0.45,
+     0.44,
+     0.43,
+     0.43,
+     0.435,
+     0.425,
+     0.414,
+     0.415,
+     0.42,
+     0.41,
+     0.399,
+     0.399,
+     0.405,
+     0.394
+    ]
+   },
+   "V3-N | W4_sun_20min": {
+    "harvest_mWh_day": 10.416,
+    "load_mWh_day": 4.938,
+    "min_soc": 0.48,
+    "end_soc": 0.815,
+    "minutes_off": 0,
+    "balance_mWh_day": 5.478,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.48,
+     0.555,
+     0.545,
+     0.535,
+     0.525,
+     0.6,
+     0.59,
+     0.58,
+     0.57,
+     0.645,
+     0.635,
+     0.625,
+     0.615,
+     0.69,
+     0.68,
+     0.67,
+     0.66,
+     0.735,
+     0.725,
+     0.715,
+     0.705,
+     0.78,
+     0.77,
+     0.76,
+     0.75,
+     0.825,
+     0.815
+    ]
+   },
+   "V3-N | W5_dark": {
+    "harvest_mWh_day": 0.0,
+    "load_mWh_day": 4.938,
+    "min_soc": 0.216,
+    "end_soc": 0.216,
+    "minutes_off": 0,
+    "balance_mWh_day": -4.938,
+    "days_to_empty_from_50pct": 12.3,
+    "days_from_full_if_negative": 24.6,
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.48,
+     0.47,
+     0.459,
+     0.449,
+     0.439,
+     0.429,
+     0.419,
+     0.409,
+     0.399,
+     0.388,
+     0.378,
+     0.368,
+     0.358,
+     0.348,
+     0.338,
+     0.328,
+     0.317,
+     0.307,
+     0.297,
+     0.287,
+     0.277,
+     0.267,
+     0.257,
+     0.246,
+     0.236,
+     0.226,
+     0.216
+    ]
+   },
+   "V3-N | W6_campus": {
+    "harvest_mWh_day": 15.358,
+    "load_mWh_day": 4.938,
+    "min_soc": 0.482,
+    "end_soc": 0.909,
+    "minutes_off": 0,
+    "balance_mWh_day": 10.42,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.482,
+     0.645,
+     0.635,
+     0.625,
+     0.617,
+     0.78,
+     0.77,
+     0.759,
+     0.751,
+     0.914,
+     0.904,
+     0.894,
+     0.886,
+     0.994,
+     0.984,
+     0.974,
+     0.966,
+     0.994,
+     0.984,
+     0.974,
+     0.965,
+     0.956,
+     0.947,
+     0.937,
+     0.927,
+     0.919,
+     0.909
+    ]
+   },
+   "V3-N | W7_low_outdoor_office": {
+    "harvest_mWh_day": 1.686,
+    "load_mWh_day": 4.938,
+    "min_soc": 0.313,
+    "end_soc": 0.313,
+    "minutes_off": 0,
+    "balance_mWh_day": -3.252,
+    "days_to_empty_from_50pct": 18.7,
+    "days_from_full_if_negative": 37.4,
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.483,
+     0.485,
+     0.475,
+     0.465,
+     0.457,
+     0.456,
+     0.446,
+     0.436,
+     0.429,
+     0.428,
+     0.418,
+     0.408,
+     0.402,
+     0.401,
+     0.392,
+     0.382,
+     0.375,
+     0.37,
+     0.361,
+     0.35,
+     0.341,
+     0.346,
+     0.337,
+     0.327,
+     0.317,
+     0.322,
+     0.313
+    ]
+   },
+   "V3-N (other wrist) | W1_office": {
+    "harvest_mWh_day": 18.524,
+    "load_mWh_day": 4.938,
+    "min_soc": 0.487,
+    "end_soc": 0.982,
+    "minutes_off": 0,
+    "balance_mWh_day": 13.586,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.511,
+     0.574,
+     0.565,
+     0.554,
+     0.562,
+     0.579,
+     0.57,
+     0.56,
+     0.582,
+     0.618,
+     0.609,
+     0.598,
+     0.606,
+     0.648,
+     0.638,
+     0.628,
+     0.677,
+     0.734,
+     0.724,
+     0.714,
+     0.925,
+     0.917,
+     0.908,
+     0.897,
+     1.0,
+     0.991,
+     0.982
+    ]
+   },
+   "V3-N (other wrist) | W2_indoor_300lx": {
+    "harvest_mWh_day": 0.658,
+    "load_mWh_day": 4.938,
+    "min_soc": 0.254,
+    "end_soc": 0.254,
+    "minutes_off": 0,
+    "balance_mWh_day": -4.28,
+    "days_to_empty_from_50pct": 14.2,
+    "days_from_full_if_negative": 28.4,
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.482,
+     0.475,
+     0.465,
+     0.455,
+     0.447,
+     0.44,
+     0.43,
+     0.42,
+     0.412,
+     0.405,
+     0.395,
+     0.384,
+     0.376,
+     0.369,
+     0.359,
+     0.349,
+     0.341,
+     0.334,
+     0.324,
+     0.314,
+     0.306,
+     0.299,
+     0.289,
+     0.279,
+     0.271,
+     0.264,
+     0.254
+    ]
+   },
+   "V3-N (other wrist) | W6_campus": {
+    "harvest_mWh_day": 15.363,
+    "load_mWh_day": 4.938,
+    "min_soc": 0.482,
+    "end_soc": 0.909,
+    "minutes_off": 0,
+    "balance_mWh_day": 10.425,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.482,
+     0.645,
+     0.635,
+     0.625,
+     0.617,
+     0.78,
+     0.77,
+     0.76,
+     0.752,
+     0.915,
+     0.905,
+     0.895,
+     0.887,
+     0.994,
+     0.984,
+     0.974,
+     0.966,
+     0.994,
+     0.984,
+     0.974,
+     0.965,
+     0.956,
+     0.946,
+     0.936,
+     0.927,
+     0.918,
+     0.909
+    ]
+   },
+   "V3-N (other wrist) | W7_low_outdoor_office": {
+    "harvest_mWh_day": 1.683,
+    "load_mWh_day": 4.938,
+    "min_soc": 0.313,
+    "end_soc": 0.313,
+    "minutes_off": 0,
+    "balance_mWh_day": -3.255,
+    "days_to_empty_from_50pct": 18.7,
+    "days_from_full_if_negative": 37.4,
+    "traj_6h": [
+     0.5,
+     0.49,
+     0.483,
+     0.485,
+     0.475,
+     0.465,
+     0.457,
+     0.456,
+     0.446,
+     0.436,
+     0.429,
+     0.428,
+     0.419,
+     0.409,
+     0.403,
+     0.402,
+     0.392,
+     0.382,
+     0.375,
+     0.37,
+     0.361,
+     0.351,
+     0.341,
+     0.346,
+     0.337,
+     0.327,
+     0.317,
+     0.322,
+     0.313
+    ]
+   },
+   "V3-P | W1_office": {
+    "harvest_mWh_day": 14.236,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.486,
+    "end_soc": 0.978,
+    "minutes_off": 0,
+    "balance_mWh_day": 8.604,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.499,
+     0.547,
+     0.535,
+     0.524,
+     0.525,
+     0.533,
+     0.521,
+     0.51,
+     0.522,
+     0.543,
+     0.532,
+     0.521,
+     0.522,
+     0.548,
+     0.536,
+     0.525,
+     0.556,
+     0.594,
+     0.583,
+     0.571,
+     0.723,
+     0.713,
+     0.702,
+     0.69,
+     1.0,
+     0.989,
+     0.978
+    ]
+   },
+   "V3-P | W2_indoor_300lx": {
+    "harvest_mWh_day": 0.429,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.201,
+    "end_soc": 0.201,
+    "minutes_off": 0,
+    "balance_mWh_day": -5.202,
+    "days_to_empty_from_50pct": 11.7,
+    "days_from_full_if_negative": 23.4,
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.478,
+     0.469,
+     0.457,
+     0.446,
+     0.436,
+     0.426,
+     0.415,
+     0.403,
+     0.393,
+     0.383,
+     0.372,
+     0.36,
+     0.35,
+     0.341,
+     0.329,
+     0.317,
+     0.307,
+     0.298,
+     0.286,
+     0.275,
+     0.265,
+     0.255,
+     0.244,
+     0.232,
+     0.222,
+     0.212,
+     0.201
+    ]
+   },
+   "V3-P | W3_bright_1000lx": {
+    "harvest_mWh_day": 2.161,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.3,
+    "end_soc": 0.3,
+    "minutes_off": 0,
+    "balance_mWh_day": -3.47,
+    "days_to_empty_from_50pct": 17.5,
+    "days_from_full_if_negative": 35.1,
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.484,
+     0.483,
+     0.471,
+     0.46,
+     0.455,
+     0.455,
+     0.443,
+     0.431,
+     0.427,
+     0.426,
+     0.414,
+     0.403,
+     0.398,
+     0.398,
+     0.386,
+     0.374,
+     0.37,
+     0.369,
+     0.357,
+     0.346,
+     0.341,
+     0.34,
+     0.329,
+     0.317,
+     0.313,
+     0.312,
+     0.3
+    ]
+   },
+   "V3-P | W4_sun_20min": {
+    "harvest_mWh_day": 9.24,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.477,
+    "end_soc": 0.708,
+    "minutes_off": 0,
+    "balance_mWh_day": 3.609,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.477,
+     0.541,
+     0.53,
+     0.518,
+     0.507,
+     0.571,
+     0.559,
+     0.548,
+     0.536,
+     0.601,
+     0.589,
+     0.577,
+     0.566,
+     0.63,
+     0.619,
+     0.607,
+     0.595,
+     0.66,
+     0.648,
+     0.637,
+     0.625,
+     0.689,
+     0.678,
+     0.666,
+     0.655,
+     0.719,
+     0.708
+    ]
+   },
+   "V3-P | W5_dark": {
+    "harvest_mWh_day": 0.0,
+    "load_mWh_day": 5.046,
+    "min_soc": 0.21,
+    "end_soc": 0.21,
+    "minutes_off": 0,
+    "balance_mWh_day": -5.046,
+    "days_to_empty_from_50pct": 12.1,
+    "days_from_full_if_negative": 24.1,
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.477,
+     0.465,
+     0.454,
+     0.444,
+     0.433,
+     0.423,
+     0.413,
+     0.403,
+     0.393,
+     0.383,
+     0.372,
+     0.362,
+     0.352,
+     0.342,
+     0.332,
+     0.322,
+     0.311,
+     0.301,
+     0.291,
+     0.281,
+     0.271,
+     0.261,
+     0.25,
+     0.24,
+     0.23,
+     0.22,
+     0.21
+    ]
+   },
+   "V3-P | W6_campus": {
+    "harvest_mWh_day": 11.942,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.478,
+    "end_soc": 0.863,
+    "minutes_off": 0,
+    "balance_mWh_day": 6.311,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive",
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.478,
+     0.602,
+     0.59,
+     0.579,
+     0.569,
+     0.692,
+     0.681,
+     0.669,
+     0.659,
+     0.783,
+     0.771,
+     0.759,
+     0.749,
+     0.873,
+     0.861,
+     0.85,
+     0.84,
+     0.963,
+     0.952,
+     0.94,
+     0.929,
+     0.918,
+     0.907,
+     0.896,
+     0.885,
+     0.874,
+     0.863
+    ]
+   },
+   "V3-P | W7_low_outdoor_office": {
+    "harvest_mWh_day": 1.16,
+    "load_mWh_day": 5.632,
+    "min_soc": 0.243,
+    "end_soc": 0.243,
+    "minutes_off": 0,
+    "balance_mWh_day": -4.472,
+    "days_to_empty_from_50pct": 13.6,
+    "days_from_full_if_negative": 27.2,
+    "traj_6h": [
+     0.5,
+     0.488,
+     0.479,
+     0.476,
+     0.465,
+     0.453,
+     0.443,
+     0.438,
+     0.426,
+     0.415,
+     0.405,
+     0.4,
+     0.389,
+     0.377,
+     0.369,
+     0.363,
+     0.352,
+     0.341,
+     0.331,
+     0.323,
+     0.312,
+     0.301,
+     0.289,
+     0.288,
+     0.277,
+     0.266,
+     0.255,
+     0.254,
+     0.243
+    ]
+   }
+  },
+  "charge_bound": {
+   "LID4": {
+    "R22 | -10 C": {
+     "case": "R22 | 1.2 sun, strings at -10 C | k 0.72",
+     "c_rate": 0.422,
+     "i_bat_mA": 18.14,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 18.7
+    },
+    "R22 | -20 C": {
+     "case": "R22 | 1.2 sun, strings at -20 C | k 0.72",
+     "c_rate": 0.442,
+     "i_bat_mA": 19.0,
+     "node_voc_V": 3.078,
+     "p_rlim_mW": 19.5
+    },
+    "R22 nominal k 0.80": {
+     "case": "R22 | 1.2 sun, strings at -10 C | k 0.8",
+     "c_rate": 0.347,
+     "i_bat_mA": 14.91,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 9.7
+    },
+    "R24 | -10 C": {
+     "case": "R24 | 1.2 sun, strings at -10 C | k 0.72",
+     "c_rate": 0.396,
+     "i_bat_mA": 17.04,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 17.9
+    },
+    "R24 | -20 C": {
+     "case": "R24 | 1.2 sun, strings at -20 C | k 0.72",
+     "c_rate": 0.415,
+     "i_bat_mA": 17.85,
+     "node_voc_V": 3.078,
+     "p_rlim_mW": 18.7
+    },
+    "R24 nominal k 0.80": {
+     "case": "R24 | 1.2 sun, strings at -10 C | k 0.8",
+     "c_rate": 0.325,
+     "i_bat_mA": 13.98,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 9.3
+    }
+   },
+   "LID4+W1x2": {
+    "R22 | -10 C": {
+     "case": "R22 | 1.2 sun, strings at -10 C | k 0.72",
+     "c_rate": 0.461,
+     "i_bat_mA": 19.81,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 22.4
+    },
+    "R22 | -20 C": {
+     "case": "R22 | 1.2 sun, strings at -20 C | k 0.72",
+     "c_rate": 0.483,
+     "i_bat_mA": 20.77,
+     "node_voc_V": 3.078,
+     "p_rlim_mW": 23.5
+    },
+    "R22 nominal k 0.80": {
+     "case": "R22 | 1.2 sun, strings at -10 C | k 0.8",
+     "c_rate": 0.377,
+     "i_bat_mA": 16.21,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 11.5
+    },
+    "R24 | -10 C": {
+     "case": "R24 | 1.2 sun, strings at -10 C | k 0.72",
+     "c_rate": 0.43,
+     "i_bat_mA": 18.48,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 21.2
+    },
+    "R24 | -20 C": {
+     "case": "R24 | 1.2 sun, strings at -20 C | k 0.72",
+     "c_rate": 0.451,
+     "i_bat_mA": 19.37,
+     "node_voc_V": 3.078,
+     "p_rlim_mW": 22.2
+    },
+    "R24 nominal k 0.80": {
+     "case": "R24 | 1.2 sun, strings at -10 C | k 0.8",
+     "c_rate": 0.351,
+     "i_bat_mA": 15.1,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 10.9
+    }
+   },
+   "LID2+W1x2": {
+    "R22 | -10 C": {
+     "case": "R22 | 1.2 sun, strings at -10 C | k 0.72",
+     "c_rate": 0.434,
+     "i_bat_mA": 18.64,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 19.8
+    },
+    "R22 | -20 C": {
+     "case": "R22 | 1.2 sun, strings at -20 C | k 0.72",
+     "c_rate": 0.454,
+     "i_bat_mA": 19.54,
+     "node_voc_V": 3.078,
+     "p_rlim_mW": 20.7
+    },
+    "R22 nominal k 0.80": {
+     "case": "R22 | 1.2 sun, strings at -10 C | k 0.8",
+     "c_rate": 0.356,
+     "i_bat_mA": 15.3,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 10.2
+    },
+    "R24 | -10 C": {
+     "case": "R24 | 1.2 sun, strings at -10 C | k 0.72",
+     "c_rate": 0.406,
+     "i_bat_mA": 17.47,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 18.9
+    },
+    "R24 | -20 C": {
+     "case": "R24 | 1.2 sun, strings at -20 C | k 0.72",
+     "c_rate": 0.426,
+     "i_bat_mA": 18.31,
+     "node_voc_V": 3.078,
+     "p_rlim_mW": 19.7
+    },
+    "R24 nominal k 0.80": {
+     "case": "R24 | 1.2 sun, strings at -10 C | k 0.8",
+     "c_rate": 0.333,
+     "i_bat_mA": 14.32,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 9.8
+    }
+   },
+   "LID2+WR31": {
+    "R22 | -10 C": {
+     "case": "R22 | 1.2 sun, strings at -10 C | k 0.72",
+     "c_rate": 0.429,
+     "i_bat_mA": 18.43,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 19.3
+    },
+    "R22 | -20 C": {
+     "case": "R22 | 1.2 sun, strings at -20 C | k 0.72",
+     "c_rate": 0.449,
+     "i_bat_mA": 19.31,
+     "node_voc_V": 3.078,
+     "p_rlim_mW": 20.2
+    },
+    "R22 nominal k 0.80": {
+     "case": "R22 | 1.2 sun, strings at -10 C | k 0.8",
+     "c_rate": 0.352,
+     "i_bat_mA": 15.14,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 10.0
+    },
+    "R24 | -10 C": {
+     "case": "R24 | 1.2 sun, strings at -10 C | k 0.72",
+     "c_rate": 0.402,
+     "i_bat_mA": 17.29,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 18.5
+    },
+    "R24 | -20 C": {
+     "case": "R24 | 1.2 sun, strings at -20 C | k 0.72",
+     "c_rate": 0.421,
+     "i_bat_mA": 18.12,
+     "node_voc_V": 3.078,
+     "p_rlim_mW": 19.3
+    },
+    "R24 nominal k 0.80": {
+     "case": "R24 | 1.2 sun, strings at -10 C | k 0.8",
+     "c_rate": 0.33,
+     "i_bat_mA": 14.18,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 9.6
+    }
+   },
+   "LID4+WR31": {
+    "R22 | -10 C": {
+     "case": "R22 | 1.2 sun, strings at -10 C | k 0.72",
+     "c_rate": 0.458,
+     "i_bat_mA": 19.71,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 22.2
+    },
+    "R22 | -20 C": {
+     "case": "R22 | 1.2 sun, strings at -20 C | k 0.72",
+     "c_rate": 0.48,
+     "i_bat_mA": 20.66,
+     "node_voc_V": 3.078,
+     "p_rlim_mW": 23.2
+    },
+    "R22 nominal k 0.80": {
+     "case": "R22 | 1.2 sun, strings at -10 C | k 0.8",
+     "c_rate": 0.375,
+     "i_bat_mA": 16.12,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 11.4
+    },
+    "R24 | -10 C": {
+     "case": "R24 | 1.2 sun, strings at -10 C | k 0.72",
+     "c_rate": 0.428,
+     "i_bat_mA": 18.39,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 21.0
+    },
+    "R24 | -20 C": {
+     "case": "R24 | 1.2 sun, strings at -20 C | k 0.72",
+     "c_rate": 0.448,
+     "i_bat_mA": 19.28,
+     "node_voc_V": 3.078,
+     "p_rlim_mW": 21.9
+    },
+    "R24 nominal k 0.80": {
+     "case": "R24 | 1.2 sun, strings at -10 C | k 0.8",
+     "c_rate": 0.349,
+     "i_bat_mA": 15.02,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 10.8
+    }
+   },
+   "LID2+WR31 with the 70 mAh cell, R_LIM 12/13/15": {
+    "R12 | -10 C": {
+     "case": "R12 | 1.2 sun, strings at -10 C | k 0.72",
+     "c_rate": 0.385,
+     "i_bat_mA": 26.98,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 23.4
+    },
+    "R12 | -20 C": {
+     "case": "R12 | 1.2 sun, strings at -20 C | k 0.72",
+     "c_rate": 0.404,
+     "i_bat_mA": 28.26,
+     "node_voc_V": 3.078,
+     "p_rlim_mW": 24.3
+    },
+    "R12 nominal k 0.80": {
+     "case": "R12 | 1.2 sun, strings at -10 C | k 0.8",
+     "c_rate": 0.326,
+     "i_bat_mA": 22.8,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 12.7
+    },
+    "R13 | -10 C": {
+     "case": "R13 | 1.2 sun, strings at -10 C | k 0.72",
+     "c_rate": 0.369,
+     "i_bat_mA": 25.84,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 23.2
+    },
+    "R13 | -20 C": {
+     "case": "R13 | 1.2 sun, strings at -20 C | k 0.72",
+     "c_rate": 0.387,
+     "i_bat_mA": 27.07,
+     "node_voc_V": 3.078,
+     "p_rlim_mW": 24.1
+    },
+    "R13 nominal k 0.80": {
+     "case": "R13 | 1.2 sun, strings at -10 C | k 0.8",
+     "c_rate": 0.31,
+     "i_bat_mA": 21.72,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 12.4
+    },
+    "R15 | -10 C": {
+     "case": "R15 | 1.2 sun, strings at -10 C | k 0.72",
+     "c_rate": 0.34,
+     "i_bat_mA": 23.78,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 22.4
+    },
+    "R15 | -20 C": {
+     "case": "R15 | 1.2 sun, strings at -20 C | k 0.72",
+     "c_rate": 0.356,
+     "i_bat_mA": 24.92,
+     "node_voc_V": 3.078,
+     "p_rlim_mW": 23.4
+    },
+    "R15 nominal k 0.80": {
+     "case": "R15 | 1.2 sun, strings at -10 C | k 0.8",
+     "c_rate": 0.283,
+     "i_bat_mA": 19.83,
+     "node_voc_V": 3.009,
+     "p_rlim_mW": 11.9
+    }
+   }
+  },
+  "cold_start_uA_at_0V70_200lx": {
+   "LID4": 28.9,
+   "LID4+W1x2": 45.1,
+   "LID2": 13.9,
+   "LID2+W1x2": 30.1,
+   "LID2+WR31": 28.0,
+   "LID2+WU31": 29.3,
+   "LID2+WR17": 21.6,
+   "LID4+WR31": 43.0,
+   "LID4+WU31": 44.3,
+   "WR31": 14.1
+  },
+  "dock": {
+   "LID4": {
+    "pod_only": {
+     "p_bat_mW": 35.31,
+     "hours_0_85": 3.88
+    },
+    "pod_and_wing": {
+     "p_bat_mW": 35.31,
+     "hours_0_85": 3.88
+    }
+   },
+   "LID2": {
+    "pod_only": {
+     "p_bat_mW": 27.88,
+     "hours_0_85": 4.92
+    },
+    "pod_and_wing": {
+     "p_bat_mW": 27.88,
+     "hours_0_85": 4.92
+    }
+   },
+   "LID2+WR31": {
+    "pod_only": {
+     "p_bat_mW": 27.88,
+     "hours_0_85": 4.92
+    },
+    "pod_and_wing": {
+     "p_bat_mW": 35.89,
+     "hours_0_85": 3.82
+    }
+   },
+   "LID2+W1x2": {
+    "pod_only": {
+     "p_bat_mW": 27.88,
+     "hours_0_85": 4.92
+    },
+    "pod_and_wing": {
+     "p_bat_mW": 36.31,
+     "hours_0_85": 3.77
+    }
+   },
+   "LID4+WR31": {
+    "pod_only": {
+     "p_bat_mW": 35.31,
+     "hours_0_85": 3.88
+    },
+    "pod_and_wing": {
+     "p_bat_mW": 38.46,
+     "hours_0_85": 3.56
+    }
+   }
+  },
+  "cold_start_dissipation_in_R_LIM": {
+   "LID4": {
+    "R22 | 1 sun, 25 C": {
+     "i_mA": 51.6,
+     "p_mW": 58.7
+    },
+    "R22 | 1.2 sun, -10 C": {
+     "i_mA": 62.0,
+     "p_mW": 84.5
+    },
+    "R24 | 1 sun, 25 C": {
+     "i_mA": 51.5,
+     "p_mW": 63.7
+    },
+    "R24 | 1.2 sun, -10 C": {
+     "i_mA": 61.8,
+     "p_mW": 91.6
+    }
+   },
+   "LID2+WR31": {
+    "R22 | 1 sun, 25 C": {
+     "i_mA": 54.8,
+     "p_mW": 66.0
+    },
+    "R22 | 1.2 sun, -10 C": {
+     "i_mA": 65.7,
+     "p_mW": 94.9
+    },
+    "R24 | 1 sun, 25 C": {
+     "i_mA": 54.5,
+     "p_mW": 71.3
+    },
+    "R24 | 1.2 sun, -10 C": {
+     "i_mA": 65.3,
+     "p_mW": 102.2
+    }
+   },
+   "LID4+WR31": {
+    "R22 | 1 sun, 25 C": {
+     "i_mA": 73.8,
+     "p_mW": 119.7
+    },
+    "R22 | 1.2 sun, -10 C": {
+     "i_mA": 85.8,
+     "p_mW": 161.9
+    },
+    "R24 | 1 sun, 25 C": {
+     "i_mA": 70.1,
+     "p_mW": 117.9
+    },
+    "R24 | 1.2 sun, -10 C": {
+     "i_mA": 81.0,
+     "p_mW": 157.5
+    }
+   },
+   "LID2+W1x2": {
+    "R22 | 1 sun, 25 C": {
+     "i_mA": 57.5,
+     "p_mW": 72.8
+    },
+    "R22 | 1.2 sun, -10 C": {
+     "i_mA": 68.9,
+     "p_mW": 104.5
+    },
+    "R24 | 1 sun, 25 C": {
+     "i_mA": 57.1,
+     "p_mW": 78.2
+    },
+    "R24 | 1.2 sun, -10 C": {
+     "i_mA": 68.2,
+     "p_mW": 111.6
+    }
+   }
+  },
+  "wing_light_study": {
+   "LID2+WR31": {
+    "no diode | wing 1 x lid": {
+     "cold_start_uA_200lx": 30.7,
+     "desk_300lx_uW": 44.4,
+     "desk_1000lx_uW": 220.0,
+     "sun_045_uW": 26934.0
+    },
+    "no diode | wing 0.867 x lid": {
+     "cold_start_uA_200lx": 28.0,
+     "desk_300lx_uW": 39.5,
+     "desk_1000lx_uW": 200.8,
+     "sun_045_uW": 25933.0
+    },
+    "no diode | wing 0.5 x lid": {
+     "cold_start_uA_200lx": 20.5,
+     "desk_300lx_uW": 26.4,
+     "desk_1000lx_uW": 148.9,
+     "sun_045_uW": 22476.0
+    },
+    "no diode | wing 0.25 x lid": {
+     "cold_start_uA_200lx": 15.3,
+     "desk_300lx_uW": 18.0,
+     "desk_1000lx_uW": 114.2,
+     "sun_045_uW": 19391.0
+    },
+    "no diode | wing 0.1 x lid": {
+     "cold_start_uA_200lx": 12.3,
+     "desk_300lx_uW": 13.2,
+     "desk_1000lx_uW": 93.7,
+     "sun_045_uW": 17216.0
+    },
+    "no diode | wing 0 x lid": {
+     "cold_start_uA_200lx": 10.2,
+     "desk_300lx_uW": 10.2,
+     "desk_1000lx_uW": 79.8,
+     "sun_045_uW": 15591.0
+    },
+    "no diode | wing 0.867 x lid | lux for 21.4 uA": 162.0,
+    "no diode | wing 0.25 x lid | lux for 21.4 uA": 255.0,
+    "no diode | wing 0 x lid | lux for 21.4 uA": 332.0,
+    "RB751 diode on PV_W+ | wing 1 x lid": {
+     "cold_start_uA_200lx": 29.8,
+     "desk_300lx_uW": 38.8,
+     "desk_1000lx_uW": 193.5,
+     "sun_045_uW": 17795.0
+    },
+    "RB751 diode on PV_W+ | wing 0.867 x lid": {
+     "cold_start_uA_200lx": 27.1,
+     "desk_300lx_uW": 34.3,
+     "desk_1000lx_uW": 176.1,
+     "sun_045_uW": 17349.0
+    },
+    "RB751 diode on PV_W+ | wing 0.5 x lid": {
+     "cold_start_uA_200lx": 19.7,
+     "desk_300lx_uW": 22.5,
+     "desk_1000lx_uW": 129.8,
+     "sun_045_uW": 16412.0
+    },
+    "RB751 diode on PV_W+ | wing 0.25 x lid": {
+     "cold_start_uA_200lx": 14.8,
+     "desk_300lx_uW": 18.4,
+     "desk_1000lx_uW": 102.2,
+     "sun_045_uW": 16244.0
+    },
+    "RB751 diode on PV_W+ | wing 0.1 x lid": {
+     "cold_start_uA_200lx": 13.9,
+     "desk_300lx_uW": 18.4,
+     "desk_1000lx_uW": 96.6,
+     "sun_045_uW": 16236.0
+    },
+    "RB751 diode on PV_W+ | wing 0 x lid": {
+     "cold_start_uA_200lx": 13.9,
+     "desk_300lx_uW": 18.4,
+     "desk_1000lx_uW": 96.6,
+     "sun_045_uW": 16236.0
+    },
+    "RB751 diode on PV_W+ | wing 0.867 x lid | lux for 21.4 uA": 167.0,
+    "RB751 diode on PV_W+ | wing 0.25 x lid | lux for 21.4 uA": 261.0,
+    "RB751 diode on PV_W+ | wing 0 x lid | lux for 21.4 uA": 289.0,
+    "lid alone | cold start uA 200 lx": 13.9,
+    "lid alone | lux for 21.4 uA": 289.0,
+    "lid alone | desk 300 lx uW": 18.4,
+    "lid alone | sun 0.45 uW": 16236.0
+   },
+   "LID4+WR31": {
+    "no diode | wing 1 x lid": {
+     "cold_start_uA_200lx": 45.7,
+     "desk_300lx_uW": 68.3,
+     "desk_1000lx_uW": 329.1,
+     "sun_045_uW": 31169.0
+    },
+    "no diode | wing 0.867 x lid": {
+     "cold_start_uA_200lx": 43.0,
+     "desk_300lx_uW": 63.3,
+     "desk_1000lx_uW": 310.2,
+     "sun_045_uW": 30633.0
+    },
+    "no diode | wing 0.5 x lid": {
+     "cold_start_uA_200lx": 35.5,
+     "desk_300lx_uW": 49.7,
+     "desk_1000lx_uW": 258.4,
+     "sun_045_uW": 28882.0
+    },
+    "no diode | wing 0.25 x lid": {
+     "cold_start_uA_200lx": 30.3,
+     "desk_300lx_uW": 40.8,
+     "desk_1000lx_uW": 223.4,
+     "sun_045_uW": 27398.0
+    },
+    "no diode | wing 0.1 x lid": {
+     "cold_start_uA_200lx": 27.3,
+     "desk_300lx_uW": 35.6,
+     "desk_1000lx_uW": 202.0,
+     "sun_045_uW": 26362.0
+    },
+    "no diode | wing 0 x lid": {
+     "cold_start_uA_200lx": 25.2,
+     "desk_300lx_uW": 32.2,
+     "desk_1000lx_uW": 188.4,
+     "sun_045_uW": 25597.0
+    },
+    "no diode | wing 0.867 x lid | lux for 21.4 uA": 119.0,
+    "no diode | wing 0.25 x lid | lux for 21.4 uA": 156.0,
+    "no diode | wing 0 x lid | lux for 21.4 uA": 178.0,
+    "RB751 diode on PV_W+ | wing 1 x lid": {
+     "cold_start_uA_200lx": 44.8,
+     "desk_300lx_uW": 62.6,
+     "desk_1000lx_uW": 302.7,
+     "sun_045_uW": 26168.0
+    },
+    "RB751 diode on PV_W+ | wing 0.867 x lid": {
+     "cold_start_uA_200lx": 42.1,
+     "desk_300lx_uW": 57.9,
+     "desk_1000lx_uW": 285.5,
+     "sun_045_uW": 26152.0
+    },
+    "RB751 diode on PV_W+ | wing 0.5 x lid": {
+     "cold_start_uA_200lx": 34.7,
+     "desk_300lx_uW": 45.8,
+     "desk_1000lx_uW": 239.6,
+     "sun_045_uW": 26137.0
+    },
+    "RB751 diode on PV_W+ | wing 0.25 x lid": {
+     "cold_start_uA_200lx": 29.9,
+     "desk_300lx_uW": 41.6,
+     "desk_1000lx_uW": 212.3,
+     "sun_045_uW": 26136.0
+    },
+    "RB751 diode on PV_W+ | wing 0.1 x lid": {
+     "cold_start_uA_200lx": 28.9,
+     "desk_300lx_uW": 41.6,
+     "desk_1000lx_uW": 206.8,
+     "sun_045_uW": 26136.0
+    },
+    "RB751 diode on PV_W+ | wing 0 x lid": {
+     "cold_start_uA_200lx": 28.9,
+     "desk_300lx_uW": 41.6,
+     "desk_1000lx_uW": 206.8,
+     "sun_045_uW": 26136.0
+    },
+    "RB751 diode on PV_W+ | wing 0.867 x lid | lux for 21.4 uA": 121.0,
+    "RB751 diode on PV_W+ | wing 0.25 x lid | lux for 21.4 uA": 157.0,
+    "RB751 diode on PV_W+ | wing 0 x lid | lux for 21.4 uA": 158.0,
+    "lid alone | cold start uA 200 lx": 28.9,
+    "lid alone | lux for 21.4 uA": 157.0,
+    "lid alone | desk 300 lx uW": 41.6,
+    "lid alone | sun 0.45 uW": 26136.0
+   },
+   "LID2+W1x2": {
+    "no diode | wing 1 x lid": {
+     "cold_start_uA_200lx": 32.3,
+     "desk_300lx_uW": 47.0,
+     "desk_1000lx_uW": 231.9,
+     "sun_045_uW": 27573.0
+    },
+    "no diode | wing 0.867 x lid": {
+     "cold_start_uA_200lx": 29.3,
+     "desk_300lx_uW": 41.6,
+     "desk_1000lx_uW": 210.9,
+     "sun_045_uW": 26549.0
+    },
+    "no diode | wing 0.5 x lid": {
+     "cold_start_uA_200lx": 21.1,
+     "desk_300lx_uW": 27.2,
+     "desk_1000lx_uW": 153.9,
+     "sun_045_uW": 22953.0
+    },
+    "no diode | wing 0.25 x lid": {
+     "cold_start_uA_200lx": 15.5,
+     "desk_300lx_uW": 18.0,
+     "desk_1000lx_uW": 116.0,
+     "sun_045_uW": 19669.0
+    },
+    "no diode | wing 0.1 x lid": {
+     "cold_start_uA_200lx": 12.1,
+     "desk_300lx_uW": 12.8,
+     "desk_1000lx_uW": 93.7,
+     "sun_045_uW": 17315.0
+    },
+    "no diode | wing 0 x lid": {
+     "cold_start_uA_200lx": 9.9,
+     "desk_300lx_uW": 9.5,
+     "desk_1000lx_uW": 78.6,
+     "sun_045_uW": 15454.0
+    },
+    "no diode | wing 0.867 x lid | lux for 21.4 uA": 156.0,
+    "no diode | wing 0.25 x lid | lux for 21.4 uA": 253.0,
+    "no diode | wing 0 x lid | lux for 21.4 uA": 336.0,
+    "RB751 diode on PV_W+ | wing 1 x lid": {
+     "cold_start_uA_200lx": 31.4,
+     "desk_300lx_uW": 41.7,
+     "desk_1000lx_uW": 206.7,
+     "sun_045_uW": 18321.0
+    },
+    "RB751 diode on PV_W+ | wing 0.867 x lid": {
+     "cold_start_uA_200lx": 28.5,
+     "desk_300lx_uW": 36.6,
+     "desk_1000lx_uW": 187.4,
+     "sun_045_uW": 17791.0
+    },
+    "RB751 diode on PV_W+ | wing 0.5 x lid": {
+     "cold_start_uA_200lx": 20.4,
+     "desk_300lx_uW": 23.4,
+     "desk_1000lx_uW": 135.9,
+     "sun_045_uW": 16544.0
+    },
+    "RB751 diode on PV_W+ | wing 0.25 x lid": {
+     "cold_start_uA_200lx": 15.0,
+     "desk_300lx_uW": 18.4,
+     "desk_1000lx_uW": 104.3,
+     "sun_045_uW": 16251.0
+    },
+    "RB751 diode on PV_W+ | wing 0.1 x lid": {
+     "cold_start_uA_200lx": 13.9,
+     "desk_300lx_uW": 18.4,
+     "desk_1000lx_uW": 96.6,
+     "sun_045_uW": 16236.0
+    },
+    "RB751 diode on PV_W+ | wing 0 x lid": {
+     "cold_start_uA_200lx": 13.9,
+     "desk_300lx_uW": 18.4,
+     "desk_1000lx_uW": 96.6,
+     "sun_045_uW": 16236.0
+    },
+    "RB751 diode on PV_W+ | wing 0.867 x lid | lux for 21.4 uA": 161.0,
+    "RB751 diode on PV_W+ | wing 0.25 x lid | lux for 21.4 uA": 258.0,
+    "RB751 diode on PV_W+ | wing 0 x lid | lux for 21.4 uA": 289.0,
+    "lid alone | cold start uA 200 lx": 13.9,
+    "lid alone | lux for 21.4 uA": 289.0,
+    "lid alone | desk 300 lx uW": 18.4,
+    "lid alone | sun 0.45 uW": 16236.0
+   }
+  },
+  "deep_discharge": {
+   "LID4": {
+    "1 sun, strings 25 C | cell 0 V": {
+     "i_mA": 35.9,
+     "c_rate": 0.84
+    },
+    "1 sun, strings 25 C | cell 0.5 V": {
+     "i_mA": 20.2,
+     "c_rate": 0.47
+    },
+    "1 sun, strings 25 C | cell 1 V": {
+     "i_mA": 3.2,
+     "c_rate": 0.07
+    },
+    "1.2 sun, strings -10 C | cell 0 V": {
+     "i_mA": 45.5,
+     "c_rate": 1.06
+    },
+    "1.2 sun, strings -10 C | cell 0.5 V": {
+     "i_mA": 29.7,
+     "c_rate": 0.69
+    },
+    "1.2 sun, strings -10 C | cell 1 V": {
+     "i_mA": 12.6,
+     "c_rate": 0.29
+    }
+   },
+   "LID2+WR31": {
+    "1 sun, strings 25 C | cell 0 V": {
+     "i_mA": 36.7,
+     "c_rate": 0.85
+    },
+    "1 sun, strings 25 C | cell 0.5 V": {
+     "i_mA": 20.5,
+     "c_rate": 0.48
+    },
+    "1 sun, strings 25 C | cell 1 V": {
+     "i_mA": 3.2,
+     "c_rate": 0.08
+    },
+    "1.2 sun, strings -10 C | cell 0 V": {
+     "i_mA": 46.5,
+     "c_rate": 1.08
+    },
+    "1.2 sun, strings -10 C | cell 0.5 V": {
+     "i_mA": 30.2,
+     "c_rate": 0.7
+    },
+    "1.2 sun, strings -10 C | cell 1 V": {
+     "i_mA": 12.8,
+     "c_rate": 0.3
+    }
+   },
+   "LID4+WR31": {
+    "1 sun, strings 25 C | cell 0 V": {
+     "i_mA": 40.2,
+     "c_rate": 0.94
+    },
+    "1 sun, strings 25 C | cell 0.5 V": {
+     "i_mA": 22.1,
+     "c_rate": 0.51
+    },
+    "1 sun, strings 25 C | cell 1 V": {
+     "i_mA": 3.4,
+     "c_rate": 0.08
+    },
+    "1.2 sun, strings -10 C | cell 0 V": {
+     "i_mA": 50.7,
+     "c_rate": 1.18
+    },
+    "1.2 sun, strings -10 C | cell 0.5 V": {
+     "i_mA": 32.4,
+     "c_rate": 0.75
+    },
+    "1.2 sun, strings -10 C | cell 1 V": {
+     "i_mA": 13.6,
+     "c_rate": 0.32
+    }
+   },
+   "LID2+W1x2": {
+    "1 sun, strings 25 C | cell 0 V": {
+     "i_mA": 37.3,
+     "c_rate": 0.87
+    },
+    "1 sun, strings 25 C | cell 0.5 V": {
+     "i_mA": 20.8,
+     "c_rate": 0.48
+    },
+    "1 sun, strings 25 C | cell 1 V": {
+     "i_mA": 3.3,
+     "c_rate": 0.08
+    },
+    "1.2 sun, strings -10 C | cell 0 V": {
+     "i_mA": 47.2,
+     "c_rate": 1.1
+    },
+    "1.2 sun, strings -10 C | cell 0.5 V": {
+     "i_mA": 30.6,
+     "c_rate": 0.71
+    },
+    "1.2 sun, strings -10 C | cell 1 V": {
+     "i_mA": 13.0,
+     "c_rate": 0.3
+    }
+   }
+  },
+  "hot_lid_045sun_uW": {
+   "LID4": {
+    "convention (G x 0.92, 25 C Voc)": 26136.0,
+    "lid at 35 C (G x 1.0)": 25891.0,
+    "lid at 45 C (G x 1.0)": 24582.0
+   },
+   "LID2+WR31": {
+    "convention (G x 0.92, 25 C Voc)": 27079.0,
+    "lid at 35 C (G x 1.0)": 26748.0,
+    "lid at 45 C (G x 1.0)": 25386.0
+   },
+   "LID4+WR31": {
+    "convention (G x 0.92, 25 C Voc)": 31248.0,
+    "lid at 35 C (G x 1.0)": 30455.0,
+    "lid at 45 C (G x 1.0)": 28848.0
+   },
+   "LID2+W1x2": {
+    "convention (G x 0.92, 25 C Voc)": 27721.0,
+    "lid at 35 C (G x 1.0)": 27325.0,
+    "lid at 45 C (G x 1.0)": 25925.0
+   },
+   "LID2+WR17": {
+    "convention (G x 0.92, 25 C Voc)": 23357.0,
+    "lid at 35 C (G x 1.0)": 23384.0,
+    "lid at 45 C (G x 1.0)": 22247.0
+   }
+  },
+  "sensitivity_points": {
+   "LID2+WR31": {
+    "rsh_scale_lid": 0.524,
+    "rsh_scale_wing": 0.567,
+    "base": {
+     "desk_300lx_uW": 39.6,
+     "desk_1000lx_uW": 200.9,
+     "lap_150lx_uW": 11.2,
+     "cold_start_uA_200lx": 28.0
+    },
+    "edge-dominated shunt": {
+     "desk_300lx_uW": 26.9,
+     "desk_1000lx_uW": 183.4,
+     "lap_150lx_uW": 4.4,
+     "cold_start_uA_200lx": 22.4
+    },
+    "office downlights": {
+     "desk_300lx_uW": 35.5,
+     "desk_1000lx_uW": 184.6
+    }
+   },
+   "LID4+WR31": {
+    "rsh_scale_lid": 1.0,
+    "rsh_scale_wing": 0.567,
+    "base": {
+     "desk_300lx_uW": 63.4,
+     "desk_1000lx_uW": 310.2,
+     "lap_150lx_uW": 18.7,
+     "cold_start_uA_200lx": 43.0
+    },
+    "edge-dominated shunt": {
+     "desk_300lx_uW": 56.5,
+     "desk_1000lx_uW": 301.4,
+     "lap_150lx_uW": 13.9,
+     "cold_start_uA_200lx": 40.2
+    },
+    "office downlights": {
+     "desk_300lx_uW": 59.1,
+     "desk_1000lx_uW": 294.1
+    }
+   },
+   "LID2+W1x2": {
+    "rsh_scale_lid": 0.524,
+    "rsh_scale_wing": 0.532,
+    "base": {
+     "desk_300lx_uW": 42.9,
+     "desk_1000lx_uW": 216.1,
+     "lap_150lx_uW": 10.8,
+     "cold_start_uA_200lx": 30.1
+    },
+    "edge-dominated shunt": {
+     "desk_300lx_uW": 28.6,
+     "desk_1000lx_uW": 196.3,
+     "lap_150lx_uW": 3.7,
+     "cold_start_uA_200lx": 23.8
+    },
+    "office downlights": {
+     "desk_300lx_uW": 37.9,
+     "desk_1000lx_uW": 196.1
+    }
+   }
+  },
+  "sensitivities_T3_T5_cold_start": {
+   "V3-R": {
+    "T3_min": {
+     "base": 12.5,
+     "lid_35C": 12.6,
+     "lid_45C": 13.3,
+     "wing_dark_no_diode": 21.7,
+     "wing_dark_with_diode": 20.8
+    },
+    "T5_days": {
+     "base": 23.2,
+     "wing_dark_no_diode": 22.0,
+     "wing_dark_with_diode": 22.3,
+     "edge_dominated_shunt": 22.7,
+     "office_downlights": 23.1
+    },
+    "cold_start": {
+     "need_uA": 21.4,
+     "wing_lit_desk": 28.0,
+     "wing_dark_no_diode": 10.2,
+     "wing_dark_with_diode": 13.9,
+     "lux_needed_wing_dark_no_diode": 332.0,
+     "lux_needed_wing_dark_with_diode": 289.0,
+     "lux_needed_wing_lit": 162.0,
+     "edge_dominated_shunt_uA": 22.4
+    }
+   },
+   "V3-N": {
+    "T3_min": {
+     "base": 9.5,
+     "lid_35C": 9.7,
+     "lid_45C": 10.3,
+     "wing_dark_no_diode": 11.6,
+     "wing_dark_with_diode": 11.3
+    },
+    "T5_days": {
+     "base": 28.3,
+     "wing_dark_no_diode": 26.4,
+     "wing_dark_with_diode": 26.9,
+     "edge_dominated_shunt": 27.8,
+     "office_downlights": 28.0
+    },
+    "cold_start": {
+     "need_uA": 21.4,
+     "wing_lit_desk": 43.0,
+     "wing_dark_no_diode": 25.2,
+     "wing_dark_with_diode": 28.9,
+     "lux_needed_wing_dark_no_diode": 178.0,
+     "lux_needed_wing_dark_with_diode": 158.0,
+     "lux_needed_wing_lit": 119.0,
+     "edge_dominated_shunt_uA": 40.2
+    }
+   },
+   "V3-P": {
+    "T3_min": {
+     "base": 12.2,
+     "lid_35C": 12.4,
+     "lid_45C": 13.0,
+     "wing_dark_no_diode": 21.9,
+     "wing_dark_with_diode": 20.8
+    },
+    "T5_days": {
+     "base": 23.4,
+     "wing_dark_no_diode": 22.0,
+     "wing_dark_with_diode": 22.3,
+     "edge_dominated_shunt": 22.8,
+     "office_downlights": 23.2
+    },
+    "cold_start": {
+     "need_uA": 21.4,
+     "wing_lit_desk": 30.1,
+     "wing_dark_no_diode": 9.9,
+     "wing_dark_with_diode": 13.9,
+     "lux_needed_wing_dark_no_diode": 336.0,
+     "lux_needed_wing_dark_with_diode": 289.0,
+     "lux_needed_wing_lit": 156.0,
+     "edge_dominated_shunt_uA": 23.8
+    }
+   }
+  },
+  "voc_convention": "fix stage (P-1): Voc shift = -6.96 mV/K x (T - 25 C) per 4-cell string on the 25 C base fit (KXOB25-03X4TF data sheet p.1): 0 C +0.174 V, -10 C +0.244 V, -20 C +0.313 V (was +0.37 / +0.44 V on the same base)",
+  "r_lim_by_config": {
+   "V2-B": 22.0,
+   "V3-R": 22.0,
+   "V3-N": 22.0,
+   "V3-P": 22.0
+  },
+  "r_lim_parts": {
+   "R22_0603": "C23345 22 ohm 0603 100 mW (netlist R130; V2-B only)",
+   "R22_1206": "C17958 UNI-ROYAL 1206W4F220JT5E 22 ohm 1 % 250 mW, Basic, 549,459 in stock (JLC API 2026-11-13 14:11 UTC)",
+   "R24_1206": "C17963 UNI-ROYAL 1206W4F240JT5E 24 ohm 1 % 250 mW (V3-N option), 20,141 in stock (JLC API 2026-11-13 10:18 UTC)",
+   "courtyard_1206_mm2": "10.35 E (4.5 x 2.3 mm: land + 0.25 mm, parts.json rule)"
+  },
+  "cell_rating": {
+   "c_rate_max": 0.5,
+   "note": "GMB201030 0.5 C rapid = 21.5 mA, 0.2 C standard (REDESIGN 5.6, sister spec p.3)"
+  },
+  "usb_charge_c_rate": {
+   "typ": 0.388,
+   "max": 0.431
+  },
+  "usb_deep_cell_c_rate": "below 2.2 V on OUT the BQ25170 charges at 12 / 16 / 20 mA = 0.28-0.47 C (SLUSDJ8A p.7 via usbc lane)"
+ },
+ "feature_waterfall": [
+  {
+   "step": "0 V2-B as designed (REDESIGN planning loads, R_LIM 22)",
+   "pod_thickness_mm": 5.3,
+   "pod_g": 8.36,
+   "strap_g": 5.5,
+   "worn_g": 13.9,
+   "worn_g_max_material": 14.7,
+   "utilisation": 0.741,
+   "T1_d": 25.1,
+   "T1_policy_d": null,
+   "T3_min": 11.1,
+   "T5_d": 27.5,
+   "T6_ship_d": 300.0,
+   "T6_shelf_d": 199.0,
+   "T2_d": 76.0,
+   "pv_set": "LID4@R22",
+   "cold_start_uA": 28.9
+  },
+  {
+   "step": "1 V2-B with the as-built loads of v2/design (G-4 EN hold, R131, R108)",
+   "pod_thickness_mm": 5.3,
+   "pod_g": 8.36,
+   "strap_g": 5.5,
+   "worn_g": 13.9,
+   "worn_g_max_material": 14.7,
+   "utilisation": 0.741,
+   "T1_d": 24.4,
+   "T1_policy_d": null,
+   "T3_min": 11.5,
+   "T5_d": 26.6,
+   "T6_ship_d": 300.0,
+   "T6_shelf_d": 182.0,
+   "T2_d": 70.0,
+   "pv_set": "LID4@R22",
+   "cold_start_uA": 28.9
+  },
+  {
+   "step": "2 + R131 and R108 changed to 10 MOhm (V3 fix, C144806)",
+   "pod_thickness_mm": 5.3,
+   "pod_g": 8.36,
+   "strap_g": 5.5,
+   "worn_g": 13.9,
+   "worn_g_max_material": 14.7,
+   "utilisation": 0.741,
+   "T1_d": 24.8,
+   "T1_policy_d": null,
+   "T3_min": 11.3,
+   "T5_d": 27.1,
+   "T6_ship_d": 300.0,
+   "T6_shelf_d": 182.0,
+   "T2_d": 73.0,
+   "pv_set": "LID4@R22",
+   "cold_start_uA": 28.9
+  },
+  {
+   "step": "3 cell moved to a white capsule on strap root A (V2-B lid kept)",
+   "pod_thickness_mm": 4.65,
+   "pod_g": 7.95,
+   "strap_g": 7.35,
+   "worn_g": 15.3,
+   "worn_g_max_material": 16.2,
+   "utilisation": 0.39,
+   "T1_d": 24.8,
+   "T1_policy_d": null,
+   "T3_min": 11.3,
+   "T5_d": 27.1,
+   "T6_ship_d": 300.0,
+   "T6_shelf_d": 182.0,
+   "T2_d": 73.0,
+   "pv_set": "LID4@R22",
+   "cold_start_uA": 28.9
+  },
+  {
+   "step": "4 + one c-Si wing on root B (root B core and textile booked here; R130 22 ohm in 1206)",
+   "pod_thickness_mm": 4.65,
+   "pod_g": 7.96,
+   "strap_g": 9.3,
+   "worn_g": 17.3,
+   "worn_g_max_material": 18.2,
+   "utilisation": 0.407,
+   "T1_d": 24.8,
+   "T1_policy_d": null,
+   "T3_min": 9.4,
+   "T5_d": 28.5,
+   "T6_ship_d": 300.0,
+   "T6_shelf_d": 182.0,
+   "T2_d": 73.0,
+   "pv_set": "LID4+WR31@R22",
+   "cold_start_uA": 43.0
+  },
+  {
+   "step": "5 + USB-C tab on root A and BQ25170 in the pod = V3-N",
+   "pod_thickness_mm": 4.65,
+   "pod_g": 8.01,
+   "strap_g": 10.61,
+   "worn_g": 18.6,
+   "worn_g_max_material": 19.8,
+   "utilisation": 0.451,
+   "T1_d": 24.6,
+   "T1_policy_d": null,
+   "T3_min": 9.5,
+   "T5_d": 28.3,
+   "T6_ship_d": 279.0,
+   "T6_shelf_d": 174.0,
+   "T2_d": 72.0,
+   "pv_set": "LID4+WR31@R22",
+   "cold_start_uA": 43.0
+  },
+  {
+   "step": "6 + display LS011B7DH03 (C1 lid: 4 stacked strips, 48 % of the V2-B silicon; soldered FPC; skin-hot LED kept) = V3-R",
+   "pod_thickness_mm": 4.65,
+   "pod_g": 8.46,
+   "strap_g": 10.61,
+   "worn_g": 19.1,
+   "worn_g_max_material": 20.2,
+   "utilisation": 0.486,
+   "T1_d": 21.6,
+   "T1_policy_d": 24.5,
+   "T3_min": 12.5,
+   "T5_d": 23.2,
+   "T6_ship_d": 279.0,
+   "T6_shelf_d": 174.0,
+   "T2_d": 72.0,
+   "pv_set": "LID2+WR31@R22",
+   "cold_start_uA": 28.0
+  }
+ ],
+ "thermal": {
+  "pod_top_linearised_on_V2B_geometry": {
+   "C1 top, display alpha 0.45": 39.95,
+   "C1 top, display alpha 0.6": 40.32,
+   "C1 top, display alpha 0.75": 40.7,
+   "V2-B lid": 41.17
+  },
+  "lumped_3node": {
+   "method": "air - lid - skin - core network; G_up from SIM-13 v1 (v2_calc.py), G_down and tissue conductance fitted to the review 3-D numbers for V2-B (lid 48.53 C, skin 41.17 C, 0.604 W absorbed); lid-to-board gap as still air + radiation over 1040 mm2",
+   "G_up_W_per_K": 0.0277,
+   "G_down_V2B_W_per_K": 0.0312,
+   "G_tissue_W_per_K": 0.0551,
+   "check_V2B_calibration": [
+    48.53,
+    41.17
+   ],
+   "check_V2B_lid_gap_plus_0p5mm": {
+    "model": [
+     49.88,
+     40.49
+    ],
+    "review_3d_skin": 40.23
+   },
+   "V3N_full_lid_on_4p65mm_pod": [
+    47.72,
+    41.58
+   ],
+   "V3R_C1_top_alpha_0p60_on_4p65mm_pod": [
+    45.98,
+    40.84
+   ],
+   "V3R_C1_top_alpha_0p75": [
+    46.74,
+    41.16
+   ],
+   "V3P_C1_top_alpha_0p60_cell_in_pod": [
+    46.66,
+    40.49
+   ],
+   "note": "(lid C, skin C); a trend estimate only: SIM-13 must run each geometry"
+  },
+  "free_span_1D": {
+   "black c-Si wing, W-C (no harvest), wedge 1.5 mm": [
+    58.3,
+    520.0
+   ],
+   "black c-Si wing, wind h 20": [
+    53.6,
+    411.0
+   ],
+   "black c-Si wing, wedge 3.0 mm (bar end)": [
+    64.5,
+    419.0
+   ],
+   "white capsule alpha 0.15": [
+    39.4,
+    79.0
+   ],
+   "white capsule alpha 0.30 (aged / dirty)": [
+    43.2,
+    167.0
+   ],
+   "cell under a black wing (rejected)": [
+    58.3,
+    520.0
+   ],
+   "columns": "(element temperature C, heat into the skin under the wedge W/m2); bare skin in sun with sweating suppressed is 43.9 C (strap lane 6)"
+  },
+  "skin_under_strap_PV_1D_bound_strap_lane": {
+   "model": "1-D bound, sun normal, 1000 W/m2, air 35 C, h 10, no sweating, no lateral spreading",
+   "skin_C_perfusion_1e3_3e3_6e3": {
+    "strap_pv": [
+     51.4,
+     46.4,
+     44.0
+    ],
+    "black_strap": [
+     51.4,
+     46.4,
+     44.0
+    ],
+    "grey_strap": [
+     46.4,
+     43.1,
+     41.6
+    ],
+    "light_strap": [
+     41.5,
+     39.9,
+     39.2
+    ]
+   },
+   "conclusion": "strap PV = black strap; the bound cannot show 43 C compliance for any dark strap; 3-D needed"
+  },
+  "usb_charging_usbc_lane_3D": {
+   "charger_mW": {
+    "typ": 21.7,
+    "worst_fast": 50.0,
+    "worst_trickle": 70.0
+   },
+   "skin_rise_K_indoors": {
+    "typ": "0.19-0.27",
+    "worst_50mW": "0.44-0.61",
+    "trickle_70mW": "0.63-0.86"
+   },
+   "skin_rise_K_sunny_window_WC": "0.21-0.79",
+   "junction_rise_K_at_50mW": 3.8,
+   "note": "in V3-R the cell is in the root-A capsule, away from the charger (the charger heat no longer reaches the cell)"
+  },
+  "wing_skin_per_sub_cell_1D": {
+   "model": "port of verify/physics/scripts/wing_thermal.py; alpha 0.90, 1000 W/m2 normal, 35 C air, h 10 + 6.3, root 1.75 mm laminate + 1.20 mm core; E",
+   "wrists": {
+    "140 mm wrist": {
+     "free_span_mm": 13.96,
+     "tilt_deg": 61.0,
+     "gap_mm_at_s": {
+      "s 0": 4.57,
+      "s 2": 3.51,
+      "s 5": 2.11,
+      "s 8": 1.01,
+      "s 10": 0.46,
+      "s 11": 0.27,
+      "s 13.7": 0.0
+     },
+     "sub_cells": {
+      "sub-cell 1 (s 2-4.7)": {
+       "gap_mean_mm": 2.86,
+       "skin_C_w0.001": 45.3,
+       "skin_C_w0.003": 42.1,
+       "skin_C_w0.006": 40.7
+      },
+      "sub-cell 2 (s 5-7.7)": {
+       "gap_mean_mm": 1.59,
+       "skin_C_w0.001": 46.5,
+       "skin_C_w0.003": 43.0,
+       "skin_C_w0.006": 41.4
+      },
+      "sub-cell 3 (s 8-10.7)": {
+       "gap_mean_mm": 0.64,
+       "skin_C_w0.001": 48.3,
+       "skin_C_w0.003": 44.2,
+       "skin_C_w0.006": 42.3
+      },
+      "sub-cell 4 (s 11-13.7)": {
+       "gap_mean_mm": 0.1,
+       "skin_C_w0.001": 50.2,
+       "skin_C_w0.003": 45.5,
+       "skin_C_w0.006": 43.3
+      }
+     }
+    },
+    "165 mm wrist": {
+     "free_span_mm": 14.73,
+     "tilt_deg": 51.1,
+     "gap_mm_at_s": {
+      "s 0": 3.93,
+      "s 2": 3.04,
+      "s 5": 1.88,
+      "s 8": 0.95,
+      "s 10": 0.49,
+      "s 11": 0.31,
+      "s 13.7": 0.02
+     },
+     "sub_cells": {
+      "sub-cell 1 (s 2-4.7)": {
+       "gap_mean_mm": 2.5,
+       "skin_C_w0.001": 45.6,
+       "skin_C_w0.003": 42.3,
+       "skin_C_w0.006": 40.9
+      },
+      "sub-cell 2 (s 5-7.7)": {
+       "gap_mean_mm": 1.44,
+       "skin_C_w0.001": 46.8,
+       "skin_C_w0.003": 43.1,
+       "skin_C_w0.006": 41.5
+      },
+      "sub-cell 3 (s 8-10.7)": {
+       "gap_mean_mm": 0.64,
+       "skin_C_w0.001": 48.3,
+       "skin_C_w0.003": 44.2,
+       "skin_C_w0.006": 42.3
+      },
+      "sub-cell 4 (s 11-13.7)": {
+       "gap_mean_mm": 0.15,
+       "skin_C_w0.001": 50.0,
+       "skin_C_w0.003": 45.4,
+       "skin_C_w0.006": 43.2
+      }
+     }
+    },
+    "200 mm wrist": {
+     "free_span_mm": 15.71,
+     "tilt_deg": 41.5,
+     "gap_mm_at_s": {
+      "s 0": 3.3,
+      "s 2": 2.58,
+      "s 5": 1.64,
+      "s 8": 0.88,
+      "s 10": 0.5,
+      "s 11": 0.34,
+      "s 13.7": 0.06
+     },
+     "sub_cells": {
+      "sub-cell 1 (s 2-4.7)": {
+       "gap_mean_mm": 2.14,
+       "skin_C_w0.001": 45.9,
+       "skin_C_w0.003": 42.5,
+       "skin_C_w0.006": 41.0
+      },
+      "sub-cell 2 (s 5-7.7)": {
+       "gap_mean_mm": 1.28,
+       "skin_C_w0.001": 47.0,
+       "skin_C_w0.003": 43.3,
+       "skin_C_w0.006": 41.6
+      },
+      "sub-cell 3 (s 8-10.7)": {
+       "gap_mean_mm": 0.62,
+       "skin_C_w0.001": 48.4,
+       "skin_C_w0.003": 44.2,
+       "skin_C_w0.006": 42.3
+      },
+      "sub-cell 4 (s 11-13.7)": {
+       "gap_mean_mm": 0.19,
+       "skin_C_w0.001": 49.8,
+       "skin_C_w0.003": 45.2,
+       "skin_C_w0.006": 43.1
+      }
+     }
+    }
+   },
+   "bare_skin_alpha0p6_no_sweat_C": {
+    "w0.001": 47.4,
+    "w0.003": 43.8,
+    "w0.006": 42.1
+   },
+   "limit_C": 43.0,
+   "reading": "the outer two sub-cells sit within 1 mm of the skin on every wrist: SIM-13 case; mitigation: active wing only to s about 8-10 mm, or a light outer zone (alpha <= 0.3)"
+  },
+  "usb_tab_on_skin_1D": {
+   "alpha 0.9": {
+    "skin_C_w0.001": 49.9,
+    "skin_C_w0.003": 45.3,
+    "skin_C_w0.006": 43.1
+   },
+   "alpha 0.3": {
+    "skin_C_w0.001": 41.0,
+    "skin_C_w0.003": 39.5,
+    "skin_C_w0.006": 38.9
+   },
+   "alpha 0.15": {
+    "skin_C_w0.001": 38.7,
+    "skin_C_w0.003": 38.1,
+    "skin_C_w0.006": 37.8
+   }
+  },
+  "capsule_grid_C": {
+   "alpha 0.15 | h_conv 5.0 | gap 0.5 mm": 38.0,
+   "alpha 0.15 | h_conv 5.0 | gap 1.5 mm": 40.0,
+   "alpha 0.15 | h_conv 5.0 | gap 3.0 mm": 41.3,
+   "alpha 0.15 | h_conv 10.0 | gap 0.5 mm": 37.8,
+   "alpha 0.15 | h_conv 10.0 | gap 1.5 mm": 39.4,
+   "alpha 0.15 | h_conv 10.0 | gap 3.0 mm": 40.3,
+   "alpha 0.15 | h_conv 20.0 | gap 0.5 mm": 37.5,
+   "alpha 0.15 | h_conv 20.0 | gap 1.5 mm": 38.5,
+   "alpha 0.15 | h_conv 20.0 | gap 3.0 mm": 39.0,
+   "alpha 0.3 | h_conv 5.0 | gap 0.5 mm": 40.2,
+   "alpha 0.3 | h_conv 5.0 | gap 1.5 mm": 44.3,
+   "alpha 0.3 | h_conv 5.0 | gap 3.0 mm": 47.1,
+   "alpha 0.3 | h_conv 10.0 | gap 0.5 mm": 39.8,
+   "alpha 0.3 | h_conv 10.0 | gap 1.5 mm": 43.2,
+   "alpha 0.3 | h_conv 10.0 | gap 3.0 mm": 45.2,
+   "alpha 0.3 | h_conv 20.0 | gap 0.5 mm": 39.2,
+   "alpha 0.3 | h_conv 20.0 | gap 1.5 mm": 41.5,
+   "alpha 0.3 | h_conv 20.0 | gap 3.0 mm": 42.7
+  },
+  "winter_capsule_physics_lens": {
+   "-10 C air, wind h 30, no sun, wedge 1.5 / 3.0 mm": "2.1 / -0.2 C",
+   "-20 C air, wind h 40, no sun, wedge 3.0 mm": "-10.3 C",
+   "-10 C air, h 30, 600 W/m2 sun, alpha 0.15, wedge 1.5 mm": "3.9 C",
+   "time constant": "about 80 s (E)",
+   "cell limits (Markyn 201021 p.4)": "charge 0-45 C, < 0 C prohibited; discharge -10 to 60 C",
+   "consequence": "the 0 C PV inhibit (ARCH 4.4 rule 5) stops PV charging in cold outdoor time; with the MCU off nothing stops the BQ25570 charging a sub-zero cell (O-2)"
+  }
+ },
+ "rf": {
+  "lambda0_mm": 122.9,
+  "half_wave_mm": {
+   "eps_eff 1": 61.4,
+   "eps_eff 3": 35.5,
+   "eps_eff 10": 19.4,
+   "eps_eff 20": 13.7
+  },
+  "quarter_wave_mm": {
+   "eps_eff 1": 30.7,
+   "eps_eff 3": 17.7,
+   "eps_eff 10": 9.7,
+   "eps_eff 20": 6.9
+  },
+  "strap_conductor_lengths_mm": {
+   "root A capsule tail (bar to capsule far end)": 14,
+   "root A USB tab feed (bar to receptacle)": 36,
+   "root B wing tail and string (bar to s 14)": 14,
+   "wing string across the root (31 mm active)": 31,
+   "display FPC (panel to land, fold)": 10,
+   "display panel long side": 32,
+   "cell foil (capsule)": 30
+  },
+  "eps_eff_for_quarter_wave_resonance": {
+   "root A capsule tail 14 mm": 4.81,
+   "root B wing tail 14 mm": 4.81,
+   "USB feed 36 mm": 0.73,
+   "wing string 31 mm": 0.98,
+   "cell foil 30 mm": 1.05
+  },
+  "distances_mm": {
+   "display glass edge to the 5 x 3 mm antenna keep-out, in plan (fix stage: window Y 6.0-20.0; was 0.5 mm at Y 5.0, not the 2.5 mm the display lane assumed with the keep-out top at Y 3.0)": 1.5,
+   "PV strips to the keep-out (REDESIGN 5.3)": 1.5,
+   "wing -X end to the keep-out corner (root B on the antenna side, wing X 6-34)": 4.5,
+   "root A capsule (cell foil) to the antenna corner: root A on the far long wall": 30.0
+  },
+  "note": "E (fix stage, physics P-7): every tail is tied to the board ground at the entry, so it acts as a monopole on the pod ground and resonates first at a QUARTER wave (30.7 mm in air at 2.44 GHz): the 14 mm tails at eps_eff about 4.8, the USB feed, the wing string and the cell foil already near eps_eff 1. SIM-10/11 must model each tail with its GND conductor. One 0402 RF link per conductor, GND included, is reserved at the entry lands (FB1-FB7 in V3-R); a common-mode choke if SIM-10/11 asks; SIM-08 checks the ESD return"
+ },
+ "plan_views": {
+  "legend": "Legend (top view): P / p = PV strips (alternating letters show the strips), D = display window (panel 32 x 14 mm), E = E3 titanium strip on the top rim, A = antenna keep-out (board, seen through the lid), . = lid or cover glass outside the PV and the window. Y = 0 at the bottom (the antenna long wall, strap root B); Y = 32 at the top (strap root A). Board view: see its own title.",
+  "configs": {
+   "V2-B": {
+    "top": [
+     "V2-B top face (40 x 32 mm case; lid set back 2.5 mm at the E3 end)",
+     "+----------------------------------------+",
+     "|......................................  |",
+     "|......................................  |",
+     "|......................................  |",
+     "|....................................EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....................................EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....................................EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....................................EEEE|",
+     "|.AAAAAA.............................EEEE|",
+     "|.AAAAAA.............................EEEE|",
+     "|.AAAAAA...............................  |",
+     "|.AAAAAA...............................  |",
+     "|......................................  |",
+     "+----------------------------------------+"
+    ],
+    "board": [
+     "V2-B main board zones (37 x 29 mm board): . = parts up to 1.05 mm, l = low-part zone under the display (<= 0.70 mm), C = cell cut-out, A = antenna keep-out, c = PPG cap / optics (skin face), a/b = root A / root B entry lands",
+     "+----------------------------------------+",
+     "|                                        |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCaaaaaa... |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCaaaaaa... |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC... |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC... |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC... |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC... |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC... |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC... |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC... |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC... |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC... |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC... |",
+     "| .............cccccccccccc............. |",
+     "| .............cccccccccccc............. |",
+     "| .............cccccccccccc............. |",
+     "| .............cccccccccccc............. |",
+     "| .............cccccccccccc............. |",
+     "| .............cccccccccccc............. |",
+     "| .............cccccccccccc............. |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| AAAAAA................................ |",
+     "| AAAAAA................................ |",
+     "| AAAAAA.......bbbbbb................... |",
+     "| AAAAAA.......bbbbbb................... |",
+     "|                                        |",
+     "+----------------------------------------+"
+    ]
+   },
+   "V3-R": {
+    "top": [
+     "V3-R top face (40 x 32 mm case; lid set back 2.5 mm at the E3 end)",
+     "+----------------------------------------+",
+     "|......................................  |",
+     "|....ppppppppppppppppppppppppppp.......  |",
+     "|....ppppppppppppppppppppppppppp.......  |",
+     "|....................................EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....................................EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD...EEEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD...EEEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD...EEEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD...EEEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD...EEEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD...EEEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD...EEEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD...EEEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD...EEEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD...EEEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD...EEEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD...EEEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD...EEEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD...EEEE|",
+     "|....................................EEEE|",
+     "|.AAAAAA.............................EEEE|",
+     "|.AAAAAA.............................EEEE|",
+     "|.AAAAAA...............................  |",
+     "|.AAAAAA...............................  |",
+     "|......................................  |",
+     "+----------------------------------------+"
+    ],
+    "board": [
+     "V3-R main board zones (37 x 29 mm board): . = parts up to 1.05 mm, l = low-part zone under the display (<= 0.70 mm), C = cell cut-out, A = antenna keep-out, c = PPG cap / optics (skin face), a/b = root A / root B entry lands",
+     "+----------------------------------------+",
+     "|                                        |",
+     "| .........aaaaaaaa..................... |",
+     "| .........aaaaaaaa..................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| lllllllllllllllllllllllllllllllll..... |",
+     "| lllllllllllllllllllllllllllllllll..... |",
+     "| lllllllllllllccccccccccccllllllll..... |",
+     "| lllllllllllllccccccccccccllllllll..... |",
+     "| lllllllllllllccccccccccccllllllll..... |",
+     "| lllllllllllllccccccccccccllllllll..... |",
+     "| lllllllllllllccccccccccccllllllll..... |",
+     "| lllllllllllllccccccccccccllllllll..... |",
+     "| lllllllllllllccccccccccccllllllll..... |",
+     "| lllllllllllllllllllllllllllllllll..... |",
+     "| lllllllllllllllllllllllllllllllll..... |",
+     "| lllllllllllllllllllllllllllllllll..... |",
+     "| lllllllllllllllllllllllllllllllll..... |",
+     "| lllllllllllllllllllllllllllllllll..... |",
+     "| lllllllllllllllllllllllllllllllll..... |",
+     "| lllllllllllllllllllllllllllllllll..... |",
+     "| AAAAAA................................ |",
+     "| AAAAAA................................ |",
+     "| AAAAAA.......bbbbbb................... |",
+     "| AAAAAA.......bbbbbb................... |",
+     "|                                        |",
+     "+----------------------------------------+"
+    ]
+   },
+   "V3-N": {
+    "top": [
+     "V3-N top face (40 x 32 mm case; lid set back 2.5 mm at the E3 end)",
+     "+----------------------------------------+",
+     "|......................................  |",
+     "|......................................  |",
+     "|......................................  |",
+     "|....................................EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....................................EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....ppppppppppppppppppppppppppp.....EEEE|",
+     "|....................................EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP.....EEEE|",
+     "|....................................EEEE|",
+     "|.AAAAAA.............................EEEE|",
+     "|.AAAAAA.............................EEEE|",
+     "|.AAAAAA...............................  |",
+     "|.AAAAAA...............................  |",
+     "|......................................  |",
+     "+----------------------------------------+"
+    ],
+    "board": [
+     "V3-N main board zones (37 x 29 mm board): . = parts up to 1.05 mm, l = low-part zone under the display (<= 0.70 mm), C = cell cut-out, A = antenna keep-out, c = PPG cap / optics (skin face), a/b = root A / root B entry lands",
+     "+----------------------------------------+",
+     "|                                        |",
+     "| .........aaaaaaaa..................... |",
+     "| .........aaaaaaaa..................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| .............cccccccccccc............. |",
+     "| .............cccccccccccc............. |",
+     "| .............cccccccccccc............. |",
+     "| .............cccccccccccc............. |",
+     "| .............cccccccccccc............. |",
+     "| .............cccccccccccc............. |",
+     "| .............cccccccccccc............. |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| ...................................... |",
+     "| AAAAAA................................ |",
+     "| AAAAAA................................ |",
+     "| AAAAAA.......bbbbbb................... |",
+     "| AAAAAA.......bbbbbb................... |",
+     "|                                        |",
+     "+----------------------------------------+"
+    ]
+   },
+   "V3-P": {
+    "top": [
+     "V3-P top face (49 x 32 mm case; lid set back 2.5 mm at the E3 end)",
+     "+-------------------------------------------------+",
+     "|...............................................  |",
+     "|....ppppppppppppppppppppppppppp................  |",
+     "|....ppppppppppppppppppppppppppp................  |",
+     "|..............................................EEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP...............EEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP...............EEE|",
+     "|..............................................EEE|",
+     "|....ppppppppppppppppppppppppppp...............EEE|",
+     "|....ppppppppppppppppppppppppppp...............EEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP...............EEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP...............EEE|",
+     "|....PPPPPPPPPPPPPPPPPPPPPPPPPPP...............EEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD.............EEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD.............EEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD.............EEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD.............EEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD.............EEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD.............EEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD.............EEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD.............EEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD.............EEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD.............EEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD.............EEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD.............EEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD.............EEE|",
+     "|.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD.............EEE|",
+     "|..............................................EEE|",
+     "|.AAAAAA.......................................EEE|",
+     "|.AAAAAA.......................................EEE|",
+     "|.AAAAAA........................................  |",
+     "|.AAAAAA........................................  |",
+     "|...............................................  |",
+     "+-------------------------------------------------+"
+    ],
+    "board": [
+     "V3-P main board zones (46 x 29 mm board): . = parts up to 1.05 mm, l = low-part zone under the display (<= 0.70 mm), C = cell cut-out, A = antenna keep-out, c = PPG cap / optics (skin face), a/b = root A / root B entry lands",
+     "+-------------------------------------------------+",
+     "|                                                 |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC...aaaaaa... |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC...aaaaaa... |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC............ |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC............ |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC............ |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC............ |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC............ |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC............ |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC............ |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC............ |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC............ |",
+     "| CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC............ |",
+     "| .............cccccccccccc...................... |",
+     "| .............cccccccccccc...................... |",
+     "| .............cccccccccccc...................... |",
+     "| .............cccccccccccc...................... |",
+     "| .............cccccccccccc...................... |",
+     "| .............cccccccccccc...................... |",
+     "| .............cccccccccccc...................... |",
+     "| ............................................... |",
+     "| ............................................... |",
+     "| ............................................... |",
+     "| ............................................... |",
+     "| ............................................... |",
+     "| ............................................... |",
+     "| ............................................... |",
+     "| AAAAAA......................................... |",
+     "| AAAAAA......................................... |",
+     "| AAAAAA.......bbbbbb............................ |",
+     "| AAAAAA.......bbbbbb............................ |",
+     "|                                                 |",
+     "+-------------------------------------------------+"
+    ]
+   }
+  },
+  "strap_v3r": [
+   "Strap roots of V3-R, unrolled along s (distance from the strap bar, 1 char = 1 mm); widths along the forearm in brackets",
+   "root A (far long wall, Y = 32):  bar|hinge|[ capsule: cell 43 mAh + PCM end (protector, F1) + NTC, white top ]|~ flex hinge ~|[ USB-C tab, mouth to -X ]|~~ textile band ~~",
+   "                                 s: 0  2 ............................................... 13.9 ............. 23.5 .................... 35.5  (capsule 38.4 x 11.9 x 3.5 mm, tab 13 x 12 x 4.6 mm)",
+   "root B (antenna long wall, Y = 0): bar|hinge|[ c-Si wing: 4 sub-cells 2.7 mm along s, 31 mm across ]|~~~~ textile band ~~~~",
+   "                                 s: 0  2 ........................................ 13.7 16  (root 35 mm wide, active X 4.5-35.5 mm; laminate 1.75 mm planning, 0.87 mm RFQ target)",
+   "Free span (flat when worn): 14.0 / 14.7 / 15.7 mm on 140 / 165 / 200 mm wrists, tilt 61 / 51 / 42 deg (strap lane 3.1)."
+  ],
+  "scale": "1 character = 1 mm in X (along the forearm, elbow at the left), 1 line = 1 mm in Y"
+ },
+ "summary": {
+  "V2-B": {
+   "name": "V2-B as designed (reference)",
+   "pod_thickness_mm": 5.3,
+   "pod_thickness_if_no_low_zone_mm": null,
+   "pod_thickness_zif_option_mm": null,
+   "pod_thickness_lid_at_P121_mm": 5.77,
+   "pod_thickness_lid_at_P121_upper_tol_mm": 6.07,
+   "worst_case_all_tol_mm": 5.69,
+   "case_mm": "40.0 x 32",
+   "pod_g": 8.36,
+   "strap_g": 5.5,
+   "worn_g": 13.9,
+   "pod_g_max_material": 8.69,
+   "worn_g_max_material": 14.7,
+   "pod_body_cm3": 5.62,
+   "rigid_total_cm3": 5.62,
+   "utilisation": 0.741,
+   "utilisation_v1_bbox": 0.821,
+   "gate1": "FAIL",
+   "si_area_cm2": 5.762,
+   "r_lim_ohm": 22.0,
+   "T1_d": 25.1,
+   "T1_policy_d": null,
+   "RAW_d": 17.5,
+   "T2_d": 76.0,
+   "T3_min": 11.1,
+   "T4": 1.3,
+   "T5_d": 27.5,
+   "T6_shelf_d": 199.0,
+   "T6_ship_d": 300.0,
+   "T7_h": "dock 3.38 (CALC.md 3)",
+   "charge_bound_C_minus10": 0.422,
+   "charge_bound_C_minus20": 0.442,
+   "cold_start_uA": 28.9,
+   "office_week_W1": "energy-positive",
+   "campus_week_W6": "energy-positive",
+   "indoor_only_W2_days_from_full": 27.5,
+   "winter_office_W7_days_from_full": 32.4,
+   "worst_stack_T1_d": 14.0,
+   "max_currents_T2_d": null
+  },
+  "V3-R": {
+   "name": "V3-R recommended: cell capsule on strap root A, wing on root B, PV strips + display window on the pod, USB-C tab",
+   "pod_thickness_mm": 4.65,
+   "pod_thickness_if_no_low_zone_mm": 4.95,
+   "pod_thickness_zif_option_mm": 4.75,
+   "pod_thickness_lid_at_P121_mm": 5.12,
+   "pod_thickness_lid_at_P121_upper_tol_mm": 5.42,
+   "worst_case_all_tol_mm": 5.04,
+   "case_mm": "40.0 x 32",
+   "pod_g": 8.46,
+   "strap_g": 10.61,
+   "worn_g": 19.1,
+   "pod_g_max_material": 8.66,
+   "worn_g_max_material": 20.2,
+   "pod_body_cm3": 4.81,
+   "rigid_total_cm3": 8.11,
+   "utilisation": 0.486,
+   "utilisation_v1_bbox": 0.538,
+   "gate1": "pass",
+   "si_area_cm2": 6.118,
+   "r_lim_ohm": 22.0,
+   "T1_d": 21.6,
+   "T1_policy_d": 24.5,
+   "RAW_d": 15.7,
+   "T2_d": 72.0,
+   "T3_min": 12.5,
+   "T4": 1.18,
+   "T5_d": 23.2,
+   "T6_shelf_d": 174.0,
+   "T6_ship_d": 279.0,
+   "T7_h": "USB-C CC+CV 2.00-2.47 (fresh, 25 C); 2.75 at VREG -0.8 %; 3.04 cold cell",
+   "charge_bound_C_minus10": 0.429,
+   "charge_bound_C_minus20": 0.449,
+   "cold_start_uA": 28.0,
+   "office_week_W1": "energy-positive",
+   "campus_week_W6": "energy-positive",
+   "indoor_only_W2_days_from_full": 23.2,
+   "winter_office_W7_days_from_full": 26.9,
+   "worst_stack_T1_d": 11.5,
+   "max_currents_T2_d": 59.0
+  },
+  "V3-N": {
+   "name": "V3-N no display: as V3-R with the full 4-strip PV lid",
+   "pod_thickness_mm": 4.65,
+   "pod_thickness_if_no_low_zone_mm": null,
+   "pod_thickness_zif_option_mm": null,
+   "pod_thickness_lid_at_P121_mm": 5.12,
+   "pod_thickness_lid_at_P121_upper_tol_mm": 5.42,
+   "worst_case_all_tol_mm": 5.04,
+   "case_mm": "40.0 x 32",
+   "pod_g": 8.01,
+   "strap_g": 10.61,
+   "worn_g": 18.6,
+   "pod_g_max_material": 8.21,
+   "worn_g_max_material": 19.8,
+   "pod_body_cm3": 4.81,
+   "rigid_total_cm3": 8.11,
+   "utilisation": 0.451,
+   "utilisation_v1_bbox": 0.5,
+   "gate1": "pass",
+   "si_area_cm2": 9.11,
+   "r_lim_ohm": 22.0,
+   "T1_d": 24.6,
+   "T1_policy_d": null,
+   "RAW_d": 17.2,
+   "T2_d": 72.0,
+   "T3_min": 9.5,
+   "T4": 1.83,
+   "T5_d": 28.3,
+   "T6_shelf_d": 174.0,
+   "T6_ship_d": 279.0,
+   "T7_h": "USB-C CC+CV 2.00-2.47 (fresh, 25 C); 2.75 at VREG -0.8 %; 3.04 cold cell",
+   "charge_bound_C_minus10": 0.458,
+   "charge_bound_C_minus20": 0.48,
+   "cold_start_uA": 43.0,
+   "office_week_W1": "energy-positive",
+   "campus_week_W6": "energy-positive",
+   "indoor_only_W2_days_from_full": 28.3,
+   "winter_office_W7_days_from_full": 37.4,
+   "worst_stack_T1_d": 13.8,
+   "max_currents_T2_d": 59.0
+  },
+  "V3-P": {
+   "name": "V3-P cell stays in the pod: V2-B pod lengthened for gate 1, wings on both roots, display, USB-C tab",
+   "pod_thickness_mm": 5.3,
+   "pod_thickness_if_no_low_zone_mm": null,
+   "pod_thickness_zif_option_mm": null,
+   "pod_thickness_lid_at_P121_mm": 5.77,
+   "pod_thickness_lid_at_P121_upper_tol_mm": 6.07,
+   "worst_case_all_tol_mm": 5.69,
+   "case_mm": "49.1 x 32",
+   "pod_g": 10.49,
+   "strap_g": 8.7,
+   "worn_g": 19.2,
+   "pod_g_max_material": 10.86,
+   "worn_g_max_material": 20.3,
+   "pod_body_cm3": 6.93,
+   "rigid_total_cm3": 8.77,
+   "utilisation": 0.618,
+   "utilisation_v1_bbox": 0.684,
+   "gate1": "pass",
+   "si_area_cm2": 6.442,
+   "r_lim_ohm": 22.0,
+   "T1_d": 21.6,
+   "T1_policy_d": 24.5,
+   "RAW_d": 15.7,
+   "T2_d": 72.0,
+   "T3_min": 12.2,
+   "T4": 1.27,
+   "T5_d": 23.4,
+   "T6_shelf_d": 174.0,
+   "T6_ship_d": 279.0,
+   "T7_h": "USB-C CC+CV 2.00-2.47 (fresh, 25 C); 2.75 at VREG -0.8 %; 3.04 cold cell",
+   "charge_bound_C_minus10": 0.434,
+   "charge_bound_C_minus20": 0.454,
+   "cold_start_uA": 30.1,
+   "office_week_W1": "energy-positive",
+   "campus_week_W6": "energy-positive",
+   "indoor_only_W2_days_from_full": 23.4,
+   "winter_office_W7_days_from_full": 27.2,
+   "worst_stack_T1_d": 11.5,
+   "max_currents_T2_d": 59.0
+  }
+ },
+ "meta": {
+  "date": "2026-11-13",
+  "stage": "V3 integrate + fix stage (v3/fix/CHANGELOG.md)",
+  "configs": {
+   "V2-B": {
+    "name": "V2-B as designed (reference)",
+    "cell_where": "pod",
+    "cell": "GMB201030",
+    "top": "LID4",
+    "pvset": "LID4",
+    "display": false,
+    "usb": false,
+    "alert_led": true,
+    "pod_len": 40.0,
+    "r_lim": 22.0,
+    "wing": null,
+    "asbuilt": false
+   },
+   "V3-R": {
+    "name": "V3-R recommended: cell capsule on strap root A, wing on root B, PV strips + display window on the pod, USB-C tab",
+    "cell_where": "strap",
+    "cell": "GMB201030",
+    "top": "C1",
+    "pvset": "LID2+WR31",
+    "pvset_other_wrist": "LID2+WU31",
+    "display": true,
+    "usb": true,
+    "alert_led": true,
+    "pod_len": 40.0,
+    "low_zone": true,
+    "r_lim": 22.0,
+    "r130_1206": true,
+    "wing": "one wide (root B)",
+    "pulldown_fix": true,
+    "strap_conductors": {
+     "root_A": [
+      "VBUS",
+      "GND",
+      "NTC",
+      "GND",
+      "BATT_P"
+     ],
+     "root_B": [
+      "PV_W+",
+      "GND"
+     ]
+    }
+   },
+   "V3-N": {
+    "name": "V3-N no display: as V3-R with the full 4-strip PV lid",
+    "cell_where": "strap",
+    "cell": "GMB201030",
+    "top": "LID4",
+    "pvset": "LID4+WR31",
+    "pvset_other_wrist": "LID4+WU31",
+    "display": false,
+    "usb": true,
+    "alert_led": true,
+    "pod_len": 40.0,
+    "r_lim": 22.0,
+    "r130_1206": true,
+    "wing": "one wide (root B)",
+    "pulldown_fix": true,
+    "strap_conductors": {
+     "root_A": [
+      "VBUS",
+      "GND",
+      "NTC",
+      "GND",
+      "BATT_P"
+     ],
+     "root_B": [
+      "PV_W+",
+      "GND"
+     ]
+    }
+   },
+   "V3-P": {
+    "name": "V3-P cell stays in the pod: V2-B pod lengthened for gate 1, wings on both roots, display, USB-C tab",
+    "cell_where": "pod",
+    "cell": "GMB201030",
+    "top": "C1",
+    "pvset": "LID2+W1x2",
+    "display": true,
+    "usb": true,
+    "alert_led": true,
+    "pod_len": 49.1,
+    "r_lim": 22.0,
+    "r130_1206": true,
+    "wing": "W1 both roots",
+    "pulldown_fix": true,
+    "strap_conductors": {
+     "root_A": [
+      "PV_W+",
+      "GND",
+      "VBUS"
+     ],
+     "root_B": [
+      "PV_W+",
+      "GND"
+     ]
+    }
+   }
+  },
+  "configs_note": "fix stage 2026-11-13: R_LIM 22 ohm 1206 (C17958) in every V3 configuration; LED chain kept; display FPC soldered (J13 ZIF only as an option)",
+  "markers": "V = read in a source or project file; E = estimate / model output; U = unknown",
+  "reproduce": "python3 -B v3/integrate/v3_calc.py [--force]",
+  "energy_model": "v3/integrate/energy/v3_energy.py on copies of sim/energy_budget.py, sim/power/common, redesign/energy_calc, redesign/v2_calc.py and the strap-lane models; R_LIM 22 ohm; harvest into the battery at 3.8 V"
+ }
+}

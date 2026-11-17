@@ -1,0 +1,1061 @@
+{
+ "tag": "D",
+ "case": "body",
+ "level": "f",
+ "var": {
+  "phantom": true,
+  "wrist_a": 28.0,
+  "wrist_b": 22.4,
+  "skin_t": 1.5,
+  "fat_t": 2.5,
+  "wrist_x0": -20.0,
+  "wrist_x1": 61.0,
+  "frame_gnd": true,
+  "wing": true,
+  "rail_ss": true
+ },
+ "mesh": [
+  [
+   {
+    "x0": -56,
+    "x1": -24,
+    "h": 2.0,
+    "n": 16,
+    "s": 0.125
+   },
+   {
+    "x0": -24,
+    "x1": -4.0,
+    "h": 1.0,
+    "n": 20,
+    "s": 0.25
+   },
+   {
+    "x0": -4.0,
+    "x1": -1.0,
+    "h": 0.5,
+    "n": 6,
+    "s": 0.5
+   },
+   {
+    "x0": -1.0,
+    "x1": 0.0,
+    "h": 0.25,
+    "n": 4,
+    "s": 1.0
+   },
+   {
+    "x0": 0.0,
+    "x1": 13.5,
+    "h": 0.125,
+    "n": 108,
+    "s": 2.0
+   },
+   {
+    "x0": 13.5,
+    "x1": 14.5,
+    "h": 0.25,
+    "n": 4,
+    "s": 1.0
+   },
+   {
+    "x0": 14.5,
+    "x1": 45.0,
+    "h": 0.5,
+    "n": 61,
+    "s": 0.5
+   },
+   {
+    "x0": 45.0,
+    "x1": 65,
+    "h": 1.0,
+    "n": 20,
+    "s": 0.25
+   },
+   {
+    "x0": 65,
+    "x1": 99.0,
+    "h": 2.0,
+    "n": 17,
+    "s": 0.125
+   }
+  ],
+  [
+   {
+    "x0": -57,
+    "x1": -25,
+    "h": 2.0,
+    "n": 16,
+    "s": 0.125
+   },
+   {
+    "x0": -25,
+    "x1": -13.0,
+    "h": 1.0,
+    "n": 12,
+    "s": 0.25
+   },
+   {
+    "x0": -13.0,
+    "x1": -1.0,
+    "h": 0.5,
+    "n": 24,
+    "s": 0.5
+   },
+   {
+    "x0": -1.0,
+    "x1": 0.0,
+    "h": 0.25,
+    "n": 4,
+    "s": 1.0
+   },
+   {
+    "x0": 0.0,
+    "x1": 6.0,
+    "h": 0.125,
+    "n": 48,
+    "s": 2.0
+   },
+   {
+    "x0": 6.0,
+    "x1": 7.0,
+    "h": 0.25,
+    "n": 4,
+    "s": 1.0
+   },
+   {
+    "x0": 7.0,
+    "x1": 47.0,
+    "h": 0.5,
+    "n": 80,
+    "s": 0.5
+   },
+   {
+    "x0": 47.0,
+    "x1": 59,
+    "h": 1.0,
+    "n": 12,
+    "s": 0.25
+   },
+   {
+    "x0": 59,
+    "x1": 91,
+    "h": 2.0,
+    "n": 16,
+    "s": 0.125
+   }
+  ],
+  [
+   {
+    "x0": -52.35,
+    "x1": -20.35,
+    "h": 2.0,
+    "n": 16,
+    "s": 0.125
+   },
+   {
+    "x0": -20.35,
+    "x1": -8.35,
+    "h": 1.0,
+    "n": 12,
+    "s": 0.25
+   },
+   {
+    "x0": -8.35,
+    "x1": -2.35,
+    "h": 0.5,
+    "n": 12,
+    "s": 0.5
+   },
+   {
+    "x0": -2.35,
+    "x1": -0.35,
+    "h": 0.25,
+    "n": 8,
+    "s": 1.0
+   },
+   {
+    "x0": -0.35,
+    "x1": 0.0,
+    "h": 0.0875,
+    "n": 4,
+    "s": 2.857142857142857
+   },
+   {
+    "x0": 0.0,
+    "x1": 2.0,
+    "h": 0.125,
+    "n": 16,
+    "s": 2.0
+   },
+   {
+    "x0": 2.0,
+    "x1": 4.5,
+    "h": 0.25,
+    "n": 10,
+    "s": 1.0
+   },
+   {
+    "x0": 4.5,
+    "x1": 6.0,
+    "h": 0.5,
+    "n": 3,
+    "s": 0.5
+   },
+   {
+    "x0": 6.0,
+    "x1": 18.0,
+    "h": 1.0,
+    "n": 12,
+    "s": 0.25
+   },
+   {
+    "x0": 18.0,
+    "x1": 52.0,
+    "h": 2.0,
+    "n": 17,
+    "s": 0.125
+   }
+  ]
+ ],
+ "ncells": 6082560,
+ "courant": 0.23629746062746823,
+ "port": {
+  "x0": 4.0,
+  "x1": 4.5,
+  "y_gap0": 4.375,
+  "y_gap1": 4.5,
+  "z": 1.0
+ },
+ "lid_info": {
+  "opts": {
+   "x_end": 12.375,
+   "frame_x": 12.75,
+   "dz_lid": -0.25,
+   "hand": false,
+   "pins": false
+  },
+  "z_lid": 3.25,
+  "lid_area_mm2": 5.312,
+  "lid_bounds": [
+   3.75,
+   1.5,
+   12.375,
+   3.25
+  ],
+  "lid_wkt": "POLYGON ((12.375 2, 12.375 1.5, 4 1.5, 4 2.25, 3.75 2.25, 3.75 3.25, 4.75 3.25, 4.75 2.25, 4.5 2.25, 4.5 2, 12.375 2))",
+  "leg_wkt": "POLYGON ((4.5 2.5, 4.5 4.375, 4 4.375, 4 2.5, 4.5 2.5))",
+  "frame_cut": [
+   -1.0,
+   -1.0,
+   12.75,
+   5.65
+  ],
+  "gap_end_to_frame_mm": 0.375
+ },
+ "prims": [
+  [
+   "EllCylX",
+   "skin",
+   "skin_dry"
+  ],
+  [
+   "EllCylX",
+   "fat",
+   "fat"
+  ],
+  [
+   "EllCylX",
+   "muscle",
+   "muscle"
+  ],
+  [
+   "PolyX",
+   "root_A",
+   "tpu_root"
+  ],
+  [
+   "PolyX",
+   "root_B",
+   "tpu_root"
+  ],
+  [
+   "PolyX",
+   "capsule",
+   "capsule"
+  ],
+  [
+   "PolyX",
+   "wing_lam",
+   "wing_lam"
+  ],
+  [
+   "Box",
+   "pod_interior",
+   "air"
+  ],
+  [
+   "PolyZ",
+   "ring",
+   "pc"
+  ],
+  [
+   "PolyZ",
+   "floor_films",
+   "pc"
+  ],
+  [
+   "Box",
+   "lug_B",
+   "pc"
+  ],
+  [
+   "Box",
+   "lug_A",
+   "pc"
+  ],
+  [
+   "Box",
+   "K_block",
+   "pc"
+  ],
+  [
+   "Box",
+   "E3_block",
+   "pc"
+  ],
+  [
+   "PolyZ",
+   "ppg_mesa",
+   "pc"
+  ],
+  [
+   "PolyZ",
+   "film_oca",
+   "film_oca"
+  ],
+  [
+   "PolyZ",
+   "window_glass",
+   "glass_cs"
+  ],
+  [
+   "PolyZ",
+   "lam_encap",
+   "encapsulant"
+  ],
+  [
+   "PolyZ",
+   "lam_glass",
+   "glass_cs"
+  ],
+  [
+   "Box",
+   "rail_lcp",
+   "gf_lcp"
+  ],
+  [
+   "Box",
+   "rail_post",
+   "gf_lcp"
+  ],
+  [
+   "Box",
+   "rail_post",
+   "gf_lcp"
+  ],
+  [
+   "Box",
+   "rail_post",
+   "gf_lcp"
+  ],
+  [
+   "Box",
+   "rail_post",
+   "gf_lcp"
+  ],
+  [
+   "Box",
+   "rail_post",
+   "gf_lcp"
+  ],
+  [
+   "Box",
+   "rail_post",
+   "gf_lcp"
+  ],
+  [
+   "Box",
+   "rail_post",
+   "gf_lcp"
+  ],
+  [
+   "Box",
+   "rail_post",
+   "gf_lcp"
+  ],
+  [
+   "Box",
+   "rail_post",
+   "gf_lcp"
+  ],
+  [
+   "Box",
+   "rail_post",
+   "gf_lcp"
+  ],
+  [
+   "Box",
+   "rail_post",
+   "gf_lcp"
+  ],
+  [
+   "Box",
+   "rail_post",
+   "gf_lcp"
+  ],
+  [
+   "Box",
+   "panel_glass",
+   "panel_glass"
+  ],
+  [
+   "PolyZ",
+   "fr4_pocket",
+   "fr4_1p0"
+  ],
+  [
+   "IfacePlane",
+   "fr4_top_iface",
+   "iface"
+  ],
+  [
+   "IfacePlane",
+   "fr4_bot_iface",
+   "iface"
+  ],
+  [
+   "PolyZ",
+   "board_gnd",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "board_gnd",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "board_gnd",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "board_gnd",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "board_gnd",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "board_gnd",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "board_gnd",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "board_gnd",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "board_gnd",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "plate_E1",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "plate_E1",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "plate_E2",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "plate_E2",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "motor",
+   "pec"
+  ],
+  [
+   "Box",
+   "panel_sheet",
+   "pec"
+  ],
+  [
+   "Box",
+   "fpc_top",
+   "pec"
+  ],
+  [
+   "Box",
+   "fpc_fold",
+   "pec"
+  ],
+  [
+   "Box",
+   "fpc_return_wide",
+   "pec"
+  ],
+  [
+   "Box",
+   "fpc_tail",
+   "pec"
+  ],
+  [
+   "Box",
+   "J13_tie",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "window_frame",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "window_frame",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "window_frame",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "window_frame",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "window_frame",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "window_frame",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "window_frame",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "window_frame",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "window_frame",
+   "pec"
+  ],
+  [
+   "Box",
+   "frame_gnd_finger",
+   "pec"
+  ],
+  [
+   "Box",
+   "rib_insert",
+   "pec"
+  ],
+  [
+   "Box",
+   "rib_post",
+   "pec"
+  ],
+  [
+   "Box",
+   "rib_post",
+   "pec"
+  ],
+  [
+   "Box",
+   "rib_post",
+   "pec"
+  ],
+  [
+   "Box",
+   "rib_post",
+   "pec"
+  ],
+  [
+   "Box",
+   "rib_post",
+   "pec"
+  ],
+  [
+   "Box",
+   "rib_post",
+   "pec"
+  ],
+  [
+   "Box",
+   "rail_ss",
+   "pec"
+  ],
+  [
+   "Box",
+   "pin_VBUS",
+   "pec"
+  ],
+  [
+   "Box",
+   "pin_VBUS_finger",
+   "pec"
+  ],
+  [
+   "Box",
+   "pin_GND",
+   "pec"
+  ],
+  [
+   "Box",
+   "pin_GND_finger",
+   "pec"
+  ],
+  [
+   "Box",
+   "E3_strip",
+   "pec"
+  ],
+  [
+   "Box",
+   "E3_wrap",
+   "pec"
+  ],
+  [
+   "Box",
+   "J11_finger",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "pv_strip1",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "pv_strip1",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "pv_strip1",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "pv_strip2",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "pv_strip2",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "pv_strip2",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "pv_strip3",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "pv_strip3",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "pv_strip3",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "pv_strip4",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "pv_strip4",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "pv_strip4",
+   "pec"
+  ],
+  [
+   "Box",
+   "lid_tail_top",
+   "pec"
+  ],
+  [
+   "Box",
+   "lid_tail_drop",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_B",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_B",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_B",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_B",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_B",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_B",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_B",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_B_in",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_B_tie",
+   "pec"
+  ],
+  [
+   "Box",
+   "wing_si",
+   "pec"
+  ],
+  [
+   "Box",
+   "wing_si",
+   "pec"
+  ],
+  [
+   "Box",
+   "wing_si",
+   "pec"
+  ],
+  [
+   "Box",
+   "wing_si",
+   "pec"
+  ],
+  [
+   "Box",
+   "wing_si",
+   "pec"
+  ],
+  [
+   "Box",
+   "wing_si",
+   "pec"
+  ],
+  [
+   "Box",
+   "wing_si",
+   "pec"
+  ],
+  [
+   "Box",
+   "wing_si",
+   "pec"
+  ],
+  [
+   "Box",
+   "wing_si",
+   "pec"
+  ],
+  [
+   "Box",
+   "wing_si",
+   "pec"
+  ],
+  [
+   "Box",
+   "wing_si",
+   "pec"
+  ],
+  [
+   "Box",
+   "wing_si",
+   "pec"
+  ],
+  [
+   "Box",
+   "wing_si",
+   "pec"
+  ],
+  [
+   "Box",
+   "wing_si",
+   "pec"
+  ],
+  [
+   "Box",
+   "wing_link",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_A",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_A",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_A",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_A",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_A",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_A",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_A",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_A",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_A",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_A",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_A_in",
+   "pec"
+  ],
+  [
+   "Box",
+   "tail_A_tie",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_foil",
+   "pec"
+  ],
+  [
+   "Box",
+   "cell_tab",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "feed_leg_F",
+   "pec"
+  ],
+  [
+   "Box",
+   "spring_feed",
+   "pec"
+  ],
+  [
+   "PolyZ",
+   "lid_strip",
+   "pec"
+  ]
+ ],
+ "started": "2026-11-15 16:04:48",
+ "decay": 0.0001,
+ "tmax_ns": 12.0
+}

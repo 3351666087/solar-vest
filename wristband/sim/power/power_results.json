@@ -1,0 +1,2715 @@
+{
+ "meta": {
+  "date": "2026-11-15",
+  "variant": "v3f",
+  "gates": [
+   "V3-G4 (SIM-03)",
+   "V3-G5 (SIM-05)"
+  ],
+  "markers": "every value is a model result (E) unless a datasheet line is quoted",
+  "tools": "ngspice (KiCad libngspice) testbenches sim03/o2_tb.py, sim03/sim03_misc.py; project energy model v3_energy via sim05/baseline_calc_v3f.py"
+ },
+ "table": [
+  {
+   "id": "G4-a",
+   "case": "cold start, dead band off the wrist, wing 1/0.5/0.25/0.1/0 x lid, through the O-2 (MCU off)",
+   "criterion": "BASELINE 11.5: >= 21.4 uA at 200 lx; \"off the wrist about 360 lx or the head\"",
+   "result": "200 lx: 0 uA at every ratio (V_O2 below the comparator POR). Light for 21.4 uA (2.30 / 2.80 mm): wing 1: 350/330; wing 0.5: 480/450; wing 0.25: 600/540; wing 0.1: 710/620; wing 0: 800/690 lx (POR 1.50 V); POR 1.60 V: 460 / 1080 lx (wing 1 / 0). Without the O-2: 155-358 lx",
+   "status": "FAIL"
+  },
+  {
+   "id": "G4-c",
+   "case": "VBAT_OK chatter",
+   "criterion": "no VBAT_OK chatter (SIM-03c)",
+   "result": "hysteresis 91 mV against the VSTOR step when PV charge stops: 45-101 mV; >= 91 mV only at 1.2 sun with a 0 C cell (5.25 ohm path), and only if the heartbeat is not running within the C174 hold after VBAT_OK rises ⚠",
+   "status": "PARTIAL"
+  },
+  {
+   "id": "G4-e",
+   "case": "PV_INH probe (MCU on, heartbeat, 1 sun)",
+   "criterion": "probe as V3 4.3: INA_PV = Isc, no PV current to the cell, MPPT back",
+   "result": "INA_PV/Isc 1.0; PV_SW 26 mV; Q14 <= 15 uA (C101 back-flow); back to 90 % in 30 ms (next heartbeat)",
+   "status": "PASS"
+  },
+  {
+   "id": "G4-g",
+   "case": "EN, ship mode, wake pair (D12: VBUS and button)",
+   "criterion": "ship wake by the button and the head",
+   "result": "head 5.0 / 4.75 V: EN_HOLD 1.0 V after 1.71 / 1.89 s; button 0.30 s press at VBAT 4.1-2.8 V: 0.16-0.293 s; light wake 200 lx 13.9 s; D12 unbiased in ship mode",
+   "status": "PASS"
+  },
+  {
+   "id": "G4-q8",
+   "case": "Q8 interlock at plug-in, 1.2 sun",
+   "criterion": "PV and USB never at once (BASELINE 11.5, 13.3)",
+   "result": "Q14 current < 1 % 0.29 ms after VBUS (MCU on and off); Q8 carries the 59 mA PV short",
+   "status": "PASS"
+  },
+  {
+   "id": "G4-q8f",
+   "case": "Q8 single fault",
+   "criterion": "no state above 0.5 C for a cell above the protector trip",
+   "result": "Q8 short: PV always shorted (no harvest, safe). Q8 open, MCU on: Q1 backup in 5 ms. Q8 open, MCU off (cell 3.0-3.40 V, VBAT_OK low): the O-2 approves and the PV (16.8-21.8 mA) adds to USB 32.7 mA = 0.71-0.78 C (70 mAh), up to 0.83 C (66 mAh), until VBAT_OK rises",
+   "status": "FAIL"
+  },
+  {
+   "id": "G4-rlim",
+   "case": "R_LIM 12 ohm + Q14 bound, 1.2 sun, strings -10 / -20 C, k 0.72, cell 3.0 V",
+   "criterion": "<= 0.5 C",
+   "result": "2.30 mm 0.377/0.394 C; 2.80 mm 0.389/0.408 C (66 mAh: 0.433); MCU off the O-2 blocks < 0 C anyway",
+   "status": "PASS"
+  },
+  {
+   "id": "G4-dd",
+   "case": "deep-discharge currents (three-diode path), inside the O-2 window",
+   "criterion": "within the cell maker's written limit",
+   "result": "cell 0 / 0.5 / 1.0 V: 2.30 mm 0.84/0.58/0.22 C, 2.80 mm 0.89/0.6/0.23 C (1.2 sun, 0 C strings); SPICE 0 V / 1.2 sun / 25 C: 0.72 C. Below 1.0 C (cell maximum); the written deep-discharge limit (RQ-03) is not in hand",
+   "status": "PARTIAL"
+  },
+  {
+   "id": "G4-o2w",
+   "case": "O-2 comparator window, every tolerance corner",
+   "criterion": "no PV current outside 0-45 C, MCU off",
+   "result": "SPICE worst corners (600 lx / 0.1 / 1.2 sun): hot stop <= 43.75 C, cold stop >= 0.66 C. Every corner (python, same formulas): inside 0-45 C for V_O2 >= 1.45 V; 1.40 V: hot stop 45.23 C. In SPICE the O-2 decides at V_O2 1.50-1.56 V near its threshold light; the TLV7031 POR level is not published (1.6 V = minimum supply)",
+   "status": "PARTIAL"
+  },
+  {
+   "id": "G4-o2s",
+   "case": "O-2 supply from the PV node; cell 0 / 0.5 / 1.2 / 2.0 V and PCM tripped; -10 and +50 C; MCU off; 0.1 sun-1.2 sun and 1000 lx",
+   "criterion": "no PV current into the cell outside 0-45 C in any battery state, MCU off",
+   "result": "36 cases: Q14 current <= 3.8 nA (sub-threshold at VGSth 0.45 V). At 25 C the O-2 approves (e.g. 0.72 C into a 0 V cell)",
+   "status": "PASS"
+  },
+  {
+   "id": "G4-q1",
+   "case": "no oscillation when Q1 shorts the PV",
+   "criterion": "no oscillation",
+   "result": "Q1 static on: 0 O2_OK edges, Q14 -0.061 uA; Q1 at 10 Hz: the O-2 follows (2 edges per cycle), no self-oscillation",
+   "status": "PASS"
+  },
+  {
+   "id": "G4-hb",
+   "case": "heartbeat override (stage 1 D-1)",
+   "criterion": "MCU in reset, halted and off at a healthy cell: no PV current",
+   "result": "no heartbeat: 0 A; release after the last pulse 0.87-1.57 s (Q14 VGSth 0.95-0.45 V); first pulse: O2_HB 1.464 V, Q14 VGS only 0.87-1.35 V (C101 inrush), >= 2.3 V from the 2nd pulse; static CHG_DIS high: one hold, off at 1.62 s",
+   "status": "PASS"
+  },
+  {
+   "id": "G4-q14",
+   "case": "Q14 at VGSth max (0.95 V) during a cold start, 200-1000 lx, wing lit",
+   "criterion": "cold start passes through Q14 where the O-2 approves",
+   "result": "200 lx: 0 (no approval, see G4-a); 500 / 711 / 1000 lx: 56 / 95 / 147 uA average (VGSth 0.45 V: 75 / 115 / 168) >= 21.4 uA; ms relaxation cycles at the POR edge",
+   "status": "PASS"
+  },
+  {
+   "id": "G4-1v6",
+   "case": "V_O2 down to 1.6 V (stage 1 D-15)",
+   "criterion": "window inside 0-45 C down to 1.6 V",
+   "result": "1.6 V: cold stop 0.55-4.10 C, hot stop 34.58-44.31 C (re-run of calc). SPICE shows decisions below 1.6 V (1.50-1.56 V): see G4-o2w",
+   "status": "PARTIAL"
+  },
+  {
+   "id": "G4-vbus",
+   "case": "VBUS present with NTC_EN high (stage 1 D-4)",
+   "criterion": "hot stop <= 45 C or the firmware rule",
+   "result": "BQ25170 hot stop 46.34-53.58 C in hardware (calc ⚠); met only by the firmware rule (BASELINE 14 item 10); TS window with the O-2 path 0.84-5.19 / 38.56-44.64 C",
+   "status": "PASS"
+  },
+  {
+   "id": "G4-dark",
+   "case": "O-2 dark load",
+   "criterion": "<= 2.5 uW",
+   "result": "dark: V_O2 0 V, comparators unpowered; battery-side nets only drive gates (Q18 from VBAT_OK, D19B off): model 0 nW + NTC readings 0.023 uW. Gate leakage at 3.3 V is not published ⚠",
+   "status": "PASS"
+  },
+  {
+   "id": "G4-hap",
+   "case": "haptic droop at VBAT 3.60 V (paths 1.40 / 2.25 / 3.75 ohm), with PV support 0 / 0.1 / 0.45 sun",
+   "criterion": "no brown-out at a motor start at VBAT >= 3.60 V (VBAT_OK falling max 3.441 V)",
+   "result": "firmware rule of CALC_V3F 4.3: margin 66-89 mV, motor >= 2.66 V average (starts ⚠). A plain 30 ms ramp: -64 mV at the 0 C path (PV support +9-37 mV)",
+   "status": "PASS"
+  },
+  {
+   "id": "G4-rev",
+   "case": "reversed head: -5 V and -5.5 V on the contacts (D14)",
+   "criterion": "-5 V harms nothing",
+   "result": "VBUS >= -6 mV (U15 IN min -0.3 V); contact current 0.34 uA; D13 does not conduct",
+   "status": "PASS"
+  },
+  {
+   "id": "G4-att",
+   "case": "head attach transient (inrush into C130)",
+   "criterion": "not named in this task (head parked, LEAD_NOTES 2g)",
+   "result": "band side only: 3.0 A peak from a stiff 0.5 ohm source (the head limits it); no criterion run",
+   "status": "NOT_RUN"
+  },
+  {
+   "id": "G5-T1",
+   "case": "T1 MON dark, worst stack, night blank / face always on",
+   "criterion": ">= 14 d on both conventions",
+   "result": "41x32 strips 2.30 mm: 21.9 / 18.4 d; 41x34 strips 2.80 mm: 21.9 / 18.4 d (typical stack 38.5 / 33.2 d)",
+   "status": "PASS"
+  },
+  {
+   "id": "G5-T2",
+   "case": "T2 ECO dark, conservative / V3 convention",
+   "criterion": ">= 60 d",
+   "result": "98 / 119 d (typ 100 / 122)",
+   "status": "PASS"
+  },
+  {
+   "id": "G5-T3",
+   "case": "T3 50 klx MON-neutral",
+   "criterion": "<= 20 min/day (range reported)",
+   "result": "2.30 / 2.80 mm: 11.6 / 10.9 min; hot lid [11.4, 11.9] / [10.8, 11.3]; sleeve (wing 0.25) 18.9 / 16.5; dark wing 25.4 / 20.9; overcast 49 / 45",
+   "status": "PASS"
+  },
+  {
+   "id": "G5-T6",
+   "case": "T6 SHELF (ship mode)",
+   "criterion": ">= 182.6 d",
+   "result": "259 d (353 d); typ 276 (411) d",
+   "status": "PASS"
+  },
+  {
+   "id": "G5-T7",
+   "case": "T7 head charge 0 -> 85 %",
+   "criterion": "<= 3 h with the cold corner stated",
+   "result": "1.98-2.34 h; VREG -0.8 % 2.71 h; cold corner (5-10 C cell) 3.15 h (stated, > 3 h)",
+   "status": "PASS"
+  },
+  {
+   "id": "G5-W",
+   "case": "W2 / W7 days from full (BASELINE 11.4: 40.6 / 45.4 d)",
+   "criterion": "within +-10 %",
+   "result": "2.30 mm 39.9 / 44.2 d (-1.7 / -2.6 %); 2.80 mm 40.3 / 45.2 d; typ 2.30 mm 41.1 / 45.9 d",
+   "status": "PASS"
+  },
+  {
+   "id": "G5-W17",
+   "case": "weeks W1-W7 (days from full; + = energy-positive)",
+   "criterion": "reported",
+   "result": "W1 +/+ W2 39.9/40.3 W3 55.6/58.6 W4 +/+ W5 40.1/40.1 W6 +/+ W7 44.2/45.2",
+   "status": "PASS"
+  },
+  {
+   "id": "G5-sl",
+   "case": "sleeve (wing 0.25 x lid) and dark wing (0), weeks",
+   "criterion": "reported",
+   "result": "sleeve W2/W7 38.4/39.9 d; dark wing W2/W7 37.9/38.7 d, W1/W4/W6 turn slightly negative at 2.30 mm (645.4/452.1/190.3 d), W4 stays positive at 2.80 mm",
+   "status": "PASS"
+  },
+  {
+   "id": "G5-dl",
+   "case": "office downlights (desk 300 / 1000 lx)",
+   "criterion": "reported",
+   "result": "33.7 / 176.6 uW against 37.8 / 192.8 (2.30 mm); 2.80 mm 38.0 / 197.0",
+   "status": "PASS"
+  },
+  {
+   "id": "G5-edge",
+   "case": "edge-dominated shunt (lid Rsh x 0.485 at 2.30 mm, x 0.581 at 2.80 mm; wing x 0.567)",
+   "criterion": "reported; W2 / W7 within +-10 %",
+   "result": "300 lx 37.8 -> 24.8 uW; lap 150 lx 10.7 -> 3.9; cold start 200 lx 26.9 -> 21.1 uA (< 21.4); W2/W7 39.0/42.8 d (2.80 mm 39.4/43.8)",
+   "status": "PASS"
+  },
+  {
+   "id": "G5-log",
+   "case": "night-light counts replaced by logged wakes",
+   "criterion": "when logs exist",
+   "result": "no logged wakes exist yet",
+   "status": "NOT_RUN"
+  }
+ ],
+ "counts": {
+  "PASS": 22,
+  "PARTIAL": 4,
+  "FAIL": 2,
+  "NOT_RUN": 2
+ },
+ "sim05": {
+  "bounds": {
+   "41x32 strips 2.30 mm": {
+    "energy": {
+     "usable_mWh": 220.1,
+     "loads_uW": {
+      "MON_lit": 266.6,
+      "MON_dark": 238.5,
+      "MON_dark_always_on": 276.2,
+      "MON_max": 254.0,
+      "MON_max_always_on": 334.9,
+      "MON_worst": 418.3,
+      "MON_worst_always_on": 499.3,
+      "RAW_WC": 355.5,
+      "RAW_WC_worst": 588.3,
+      "ECO": 93.6,
+      "ECO_V3_convention": 77.2,
+      "SHELF": 35.5,
+      "SHIP": 26.0
+     },
+     "T1_dark_d": 38.5,
+     "T1_dark_always_on_face_d": 33.2,
+     "T1_max_currents_d": 36.1,
+     "T1_max_currents_always_on_face_d": 27.4,
+     "T1_worst_stack_d": 21.9,
+     "T1_worst_stack_always_on_face_d": 18.4,
+     "RAW_WC_d": 25.8,
+     "RAW_WC_worst_stack_d": 15.6,
+     "T2_ECO_d": 98.0,
+     "T3_min_day_045sun": 11.6,
+     "T3_overcast_min_day_01sun": 49.0,
+     "T4_ECO_1000lx_10h": 0.86,
+     "T2_ECO_V3_convention_d": 119.0,
+     "T4_ECO_V3_convention": 1.04,
+     "T6_SHELF_d": 259.0,
+     "T6_SHIP_d": 353.0,
+     "pv_table": "LID2+WR31@R12 strips 2.30 mm",
+     "T5_indoor_300lx_10h_days_from_full": 36.6,
+     "T5_fraction_of_MON_covered_pct": 5.9,
+     "T7_h": {
+      "KISET 270: 26.5 mA, VREG 4.10 V": 2.34,
+      "KISET 300: 29.4 mA, VREG 4.10 V": 2.14,
+      "KISET 330: 32.4 mA, VREG 4.10 V": 1.98,
+      "KISET 270, VREG 4.067 V (-0.8 %)": 2.71,
+      "KISET 270, VREG -0.8 %, cold 5-10 C cell (ohmic 1.5, RC x2.5)": 3.15
+     },
+     "usb_c_rate_typ_max": [
+      0.42,
+      0.462
+     ],
+     "ten_min_topup_days_of_MON": 2.84,
+     "weeks_from_50pct": {
+      "W1_office": {
+       "harvest_mWh_day": 14.04,
+       "load_mWh_day": 6.06,
+       "min_soc": 0.492,
+       "end_soc": 0.754,
+       "days_to_empty_from_50pct": "energy-positive",
+       "days_from_full_if_negative": "energy-positive"
+      },
+      "W2_indoor_300lx": {
+       "harvest_mWh_day": 0.378,
+       "load_mWh_day": 5.89,
+       "min_soc": 0.325,
+       "end_soc": 0.325,
+       "days_to_empty_from_50pct": 20.0,
+       "days_from_full_if_negative": 39.9
+      },
+      "W3_bright_1000lx": {
+       "harvest_mWh_day": 1.928,
+       "load_mWh_day": 5.89,
+       "min_soc": 0.374,
+       "end_soc": 0.374,
+       "days_to_empty_from_50pct": 27.8,
+       "days_from_full_if_negative": 55.6
+      },
+      "W4_sun_20min": {
+       "harvest_mWh_day": 11.043,
+       "load_mWh_day": 5.525,
+       "min_soc": 0.487,
+       "end_soc": 0.675,
+       "days_to_empty_from_50pct": "energy-positive",
+       "days_from_full_if_negative": "energy-positive"
+      },
+      "W5_dark": {
+       "harvest_mWh_day": 0.0,
+       "load_mWh_day": 5.494,
+       "min_soc": 0.325,
+       "end_soc": 0.325,
+       "days_to_empty_from_50pct": 20.0,
+       "days_from_full_if_negative": 40.1
+      },
+      "W6_campus": {
+       "harvest_mWh_day": 11.754,
+       "load_mWh_day": 5.912,
+       "min_soc": 0.487,
+       "end_soc": 0.686,
+       "days_to_empty_from_50pct": "energy-positive",
+       "days_from_full_if_negative": "energy-positive"
+      },
+      "W7_low_outdoor_office": {
+       "harvest_mWh_day": 1.063,
+       "load_mWh_day": 6.046,
+       "min_soc": 0.342,
+       "end_soc": 0.342,
+       "days_to_empty_from_50pct": 22.1,
+       "days_from_full_if_negative": 44.2
+      }
+     },
+     "off_wrist_hours_per_30d_indoor_only": [
+      1.49,
+      1.76
+     ],
+     "harvest_uW": {
+      "sun045": 33129.8,
+      "ovc01": 7807.9,
+      "lux300": 37.8,
+      "lux1000": 192.8,
+      "lux200": 18.8,
+      "lap150": 10.7,
+      "sun1": 51236.8,
+      "sun02": 15801.6,
+      "ovc003": 2176.3
+     }
+    },
+    "sun_cases": {
+     "wing lit (convention)": {
+      "h045_uW": 33130.0,
+      "T3_min": 11.6,
+      "overcast_min": 49.0
+     },
+     "sleeve: wing 0.25 x lid": {
+      "h045_uW": 20266.0,
+      "T3_min": 18.9,
+      "overcast_min": 88.0
+     },
+     "dark wing: 0 x lid": {
+      "h045_uW": 15115.0,
+      "T3_min": 25.4,
+      "overcast_min": 122.0
+     },
+     "hot lid 35 / 45 C (T3 range)": {
+      "T3_min": [
+       11.4,
+       11.9
+      ]
+     }
+    },
+    "edge_shunt": {
+     "rsh_scale_lid": 0.485,
+     "rsh_scale_wing": 0.567,
+     "base": {
+      "desk_300lx_uW": 37.8,
+      "desk_1000lx_uW": 192.8,
+      "lap_150lx_uW": 10.7,
+      "sun045_uW": 33130.0,
+      "cold_start_uA_200lx": 26.9
+     },
+     "edge-dominated shunt": {
+      "desk_300lx_uW": 24.8,
+      "desk_1000lx_uW": 174.8,
+      "lap_150lx_uW": 3.9,
+      "sun045_uW": 33109.0,
+      "cold_start_uA_200lx": 21.1
+     }
+    },
+    "office_downlights": {
+     "desk_300lx_uW": 33.7,
+     "desk_1000lx_uW": 176.6
+    },
+    "weeks_sleeve_wing_0p25": {
+     "W1_office": {
+      "harvest_mWh_day": 7.906,
+      "load_mWh_day": 6.06,
+      "min_soc": 0.442,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W2_indoor_300lx": {
+      "harvest_mWh_day": 0.164,
+      "load_mWh_day": 5.89,
+      "min_soc": 0.318,
+      "days_to_empty_from_50pct": 19.2,
+      "days_from_full_if_negative": 38.4
+     },
+     "W3_bright_1000lx": {
+      "harvest_mWh_day": 1.062,
+      "load_mWh_day": 5.89,
+      "min_soc": 0.346,
+      "days_to_empty_from_50pct": 22.8,
+      "days_from_full_if_negative": 45.6
+     },
+     "W4_sun_20min": {
+      "harvest_mWh_day": 6.755,
+      "load_mWh_day": 5.525,
+      "min_soc": 0.487,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W5_dark": {
+      "harvest_mWh_day": 0.0,
+      "load_mWh_day": 5.494,
+      "min_soc": 0.325,
+      "days_to_empty_from_50pct": 20.0,
+      "days_from_full_if_negative": 40.1
+     },
+     "W6_campus": {
+      "harvest_mWh_day": 6.586,
+      "load_mWh_day": 5.912,
+      "min_soc": 0.487,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W7_low_outdoor_office": {
+      "harvest_mWh_day": 0.534,
+      "load_mWh_day": 6.046,
+      "min_soc": 0.325,
+      "days_to_empty_from_50pct": 20.0,
+      "days_from_full_if_negative": 39.9
+     }
+    },
+    "weeks_dark_wing": {
+     "W1_office": {
+      "harvest_mWh_day": 5.719,
+      "load_mWh_day": 6.06,
+      "min_soc": 0.416,
+      "days_to_empty_from_50pct": 322.7,
+      "days_from_full_if_negative": 645.4
+     },
+     "W2_indoor_300lx": {
+      "harvest_mWh_day": 0.088,
+      "load_mWh_day": 5.89,
+      "min_soc": 0.316,
+      "days_to_empty_from_50pct": 19.0,
+      "days_from_full_if_negative": 37.9
+     },
+     "W3_bright_1000lx": {
+      "harvest_mWh_day": 0.72,
+      "load_mWh_day": 5.89,
+      "min_soc": 0.336,
+      "days_to_empty_from_50pct": 21.3,
+      "days_from_full_if_negative": 42.6
+     },
+     "W4_sun_20min": {
+      "harvest_mWh_day": 5.038,
+      "load_mWh_day": 5.525,
+      "min_soc": 0.474,
+      "days_to_empty_from_50pct": 226.0,
+      "days_from_full_if_negative": 452.1
+     },
+     "W5_dark": {
+      "harvest_mWh_day": 0.0,
+      "load_mWh_day": 5.494,
+      "min_soc": 0.325,
+      "days_to_empty_from_50pct": 20.0,
+      "days_from_full_if_negative": 40.1
+     },
+     "W6_campus": {
+      "harvest_mWh_day": 4.755,
+      "load_mWh_day": 5.912,
+      "min_soc": 0.463,
+      "days_to_empty_from_50pct": 95.2,
+      "days_from_full_if_negative": 190.3
+     },
+     "W7_low_outdoor_office": {
+      "harvest_mWh_day": 0.355,
+      "load_mWh_day": 6.046,
+      "min_soc": 0.319,
+      "days_to_empty_from_50pct": 19.3,
+      "days_from_full_if_negative": 38.7
+     }
+    },
+    "weeks_edge_shunt": {
+     "W1_office": {
+      "harvest_mWh_day": 13.851,
+      "load_mWh_day": 6.06,
+      "min_soc": 0.492,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W2_indoor_300lx": {
+      "harvest_mWh_day": 0.248,
+      "load_mWh_day": 5.89,
+      "min_soc": 0.321,
+      "days_to_empty_from_50pct": 19.5,
+      "days_from_full_if_negative": 39.0
+     },
+     "W3_bright_1000lx": {
+      "harvest_mWh_day": 1.748,
+      "load_mWh_day": 5.89,
+      "min_soc": 0.368,
+      "days_to_empty_from_50pct": 26.6,
+      "days_from_full_if_negative": 53.2
+     },
+     "W4_sun_20min": {
+      "harvest_mWh_day": 11.036,
+      "load_mWh_day": 5.525,
+      "min_soc": 0.487,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W5_dark": {
+      "harvest_mWh_day": 0.0,
+      "load_mWh_day": 5.494,
+      "min_soc": 0.325,
+      "days_to_empty_from_50pct": 20.0,
+      "days_from_full_if_negative": 40.1
+     },
+     "W6_campus": {
+      "harvest_mWh_day": 11.616,
+      "load_mWh_day": 5.912,
+      "min_soc": 0.487,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W7_low_outdoor_office": {
+      "harvest_mWh_day": 0.906,
+      "load_mWh_day": 6.046,
+      "min_soc": 0.337,
+      "days_to_empty_from_50pct": 21.4,
+      "days_from_full_if_negative": 42.8
+     }
+    }
+   },
+   "41x34 strips 2.80 mm": {
+    "energy": {
+     "usable_mWh": 220.1,
+     "loads_uW": {
+      "MON_lit": 266.6,
+      "MON_dark": 238.5,
+      "MON_dark_always_on": 276.2,
+      "MON_max": 254.0,
+      "MON_max_always_on": 334.9,
+      "MON_worst": 418.3,
+      "MON_worst_always_on": 499.3,
+      "RAW_WC": 355.5,
+      "RAW_WC_worst": 588.3,
+      "ECO": 93.6,
+      "ECO_V3_convention": 77.2,
+      "SHELF": 35.5,
+      "SHIP": 26.0
+     },
+     "T1_dark_d": 38.5,
+     "T1_dark_always_on_face_d": 33.2,
+     "T1_max_currents_d": 36.1,
+     "T1_max_currents_always_on_face_d": 27.4,
+     "T1_worst_stack_d": 21.9,
+     "T1_worst_stack_always_on_face_d": 18.4,
+     "RAW_WC_d": 25.8,
+     "RAW_WC_worst_stack_d": 15.6,
+     "T2_ECO_d": 98.0,
+     "T3_min_day_045sun": 10.9,
+     "T3_overcast_min_day_01sun": 45.0,
+     "T4_ECO_1000lx_10h": 0.95,
+     "T2_ECO_V3_convention_d": 119.0,
+     "T4_ECO_V3_convention": 1.15,
+     "T6_SHELF_d": 259.0,
+     "T6_SHIP_d": 353.0,
+     "pv_table": "LID2+WR31@R12 strips 2.80 mm",
+     "T5_indoor_300lx_10h_days_from_full": 36.8,
+     "T5_fraction_of_MON_covered_pct": 6.6,
+     "T7_h": {
+      "KISET 270: 26.5 mA, VREG 4.10 V": 2.34,
+      "KISET 300: 29.4 mA, VREG 4.10 V": 2.14,
+      "KISET 330: 32.4 mA, VREG 4.10 V": 1.98,
+      "KISET 270, VREG 4.067 V (-0.8 %)": 2.71,
+      "KISET 270, VREG -0.8 %, cold 5-10 C cell (ohmic 1.5, RC x2.5)": 3.15
+     },
+     "usb_c_rate_typ_max": [
+      0.42,
+      0.462
+     ],
+     "ten_min_topup_days_of_MON": 2.84,
+     "weeks_from_50pct": {
+      "W1_office": {
+       "harvest_mWh_day": 15.256,
+       "load_mWh_day": 6.06,
+       "min_soc": 0.492,
+       "end_soc": 0.792,
+       "days_to_empty_from_50pct": "energy-positive",
+       "days_from_full_if_negative": "energy-positive"
+      },
+      "W2_indoor_300lx": {
+       "harvest_mWh_day": 0.422,
+       "load_mWh_day": 5.89,
+       "min_soc": 0.326,
+       "end_soc": 0.326,
+       "days_to_empty_from_50pct": 20.1,
+       "days_from_full_if_negative": 40.3
+      },
+      "W3_bright_1000lx": {
+       "harvest_mWh_day": 2.133,
+       "load_mWh_day": 5.89,
+       "min_soc": 0.381,
+       "end_soc": 0.381,
+       "days_to_empty_from_50pct": 29.3,
+       "days_from_full_if_negative": 58.6
+      },
+      "W4_sun_20min": {
+       "harvest_mWh_day": 11.754,
+       "load_mWh_day": 5.525,
+       "min_soc": 0.487,
+       "end_soc": 0.698,
+       "days_to_empty_from_50pct": "energy-positive",
+       "days_from_full_if_negative": "energy-positive"
+      },
+      "W5_dark": {
+       "harvest_mWh_day": 0.0,
+       "load_mWh_day": 5.494,
+       "min_soc": 0.325,
+       "end_soc": 0.325,
+       "days_to_empty_from_50pct": 20.0,
+       "days_from_full_if_negative": 40.1
+      },
+      "W6_campus": {
+       "harvest_mWh_day": 12.761,
+       "load_mWh_day": 5.912,
+       "min_soc": 0.488,
+       "end_soc": 0.718,
+       "days_to_empty_from_50pct": "energy-positive",
+       "days_from_full_if_negative": "energy-positive"
+      },
+      "W7_low_outdoor_office": {
+       "harvest_mWh_day": 1.172,
+       "load_mWh_day": 6.046,
+       "min_soc": 0.345,
+       "end_soc": 0.345,
+       "days_to_empty_from_50pct": 22.6,
+       "days_from_full_if_negative": 45.2
+      }
+     },
+     "off_wrist_hours_per_30d_indoor_only": [
+      1.47,
+      1.74
+     ],
+     "harvest_uW": {
+      "sun045": 35262.6,
+      "ovc01": 8521.8,
+      "lux300": 42.2,
+      "lux1000": 213.3,
+      "lux200": 21.1,
+      "lap150": 12.1,
+      "sun1": 52988.6,
+      "sun02": 17165.2,
+      "ovc003": 2380.0
+     }
+    },
+    "sun_cases": {
+     "wing lit (convention)": {
+      "h045_uW": 35263.0,
+      "T3_min": 10.9,
+      "overcast_min": 45.0
+     },
+     "sleeve: wing 0.25 x lid": {
+      "h045_uW": 23231.0,
+      "T3_min": 16.5,
+      "overcast_min": 75.0
+     },
+     "dark wing: 0 x lid": {
+      "h045_uW": 18390.0,
+      "T3_min": 20.9,
+      "overcast_min": 99.0
+     },
+     "hot lid 35 / 45 C (T3 range)": {
+      "T3_min": [
+       10.8,
+       11.3
+      ]
+     }
+    },
+    "edge_shunt": {
+     "rsh_scale_lid": 0.581,
+     "rsh_scale_wing": 0.567,
+     "base": {
+      "desk_300lx_uW": 42.2,
+      "desk_1000lx_uW": 213.3,
+      "lap_150lx_uW": 12.1,
+      "sun045_uW": 35263.0,
+      "cold_start_uA_200lx": 29.6
+     },
+     "edge-dominated shunt": {
+      "desk_300lx_uW": 30.1,
+      "desk_1000lx_uW": 196.7,
+      "lap_150lx_uW": 5.1,
+      "sun045_uW": 35245.0,
+      "cold_start_uA_200lx": 24.4
+     }
+    },
+    "office_downlights": {
+     "desk_300lx_uW": 38.0,
+     "desk_1000lx_uW": 197.0
+    },
+    "weeks_sleeve_wing_0p25": {
+     "W1_office": {
+      "harvest_mWh_day": 9.2,
+      "load_mWh_day": 6.06,
+      "min_soc": 0.457,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W2_indoor_300lx": {
+      "harvest_mWh_day": 0.204,
+      "load_mWh_day": 5.89,
+      "min_soc": 0.319,
+      "days_to_empty_from_50pct": 19.4,
+      "days_from_full_if_negative": 38.7
+     },
+     "W3_bright_1000lx": {
+      "harvest_mWh_day": 1.265,
+      "load_mWh_day": 5.89,
+      "min_soc": 0.353,
+      "days_to_empty_from_50pct": 23.8,
+      "days_from_full_if_negative": 47.6
+     },
+     "W4_sun_20min": {
+      "harvest_mWh_day": 7.744,
+      "load_mWh_day": 5.525,
+      "min_soc": 0.487,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W5_dark": {
+      "harvest_mWh_day": 0.0,
+      "load_mWh_day": 5.494,
+      "min_soc": 0.325,
+      "days_to_empty_from_50pct": 20.0,
+      "days_from_full_if_negative": 40.1
+     },
+     "W6_campus": {
+      "harvest_mWh_day": 7.66,
+      "load_mWh_day": 5.912,
+      "min_soc": 0.487,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W7_low_outdoor_office": {
+      "harvest_mWh_day": 0.638,
+      "load_mWh_day": 6.046,
+      "min_soc": 0.328,
+      "days_to_empty_from_50pct": 20.4,
+      "days_from_full_if_negative": 40.7
+     }
+    },
+    "weeks_dark_wing": {
+     "W1_office": {
+      "harvest_mWh_day": 7.044,
+      "load_mWh_day": 6.06,
+      "min_soc": 0.432,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W2_indoor_300lx": {
+      "harvest_mWh_day": 0.125,
+      "load_mWh_day": 5.89,
+      "min_soc": 0.317,
+      "days_to_empty_from_50pct": 19.1,
+      "days_from_full_if_negative": 38.2
+     },
+     "W3_bright_1000lx": {
+      "harvest_mWh_day": 0.917,
+      "load_mWh_day": 5.89,
+      "min_soc": 0.342,
+      "days_to_empty_from_50pct": 22.1,
+      "days_from_full_if_negative": 44.3
+     },
+     "W4_sun_20min": {
+      "harvest_mWh_day": 6.13,
+      "load_mWh_day": 5.525,
+      "min_soc": 0.487,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W5_dark": {
+      "harvest_mWh_day": 0.0,
+      "load_mWh_day": 5.494,
+      "min_soc": 0.325,
+      "days_to_empty_from_50pct": 20.0,
+      "days_from_full_if_negative": 40.1
+     },
+     "W6_campus": {
+      "harvest_mWh_day": 5.859,
+      "load_mWh_day": 5.912,
+      "min_soc": 0.487,
+      "days_to_empty_from_50pct": 2091.7,
+      "days_from_full_if_negative": 4183.5
+     },
+     "W7_low_outdoor_office": {
+      "harvest_mWh_day": 0.455,
+      "load_mWh_day": 6.046,
+      "min_soc": 0.322,
+      "days_to_empty_from_50pct": 19.7,
+      "days_from_full_if_negative": 39.4
+     }
+    },
+    "weeks_edge_shunt": {
+     "W1_office": {
+      "harvest_mWh_day": 15.081,
+      "load_mWh_day": 6.06,
+      "min_soc": 0.492,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W2_indoor_300lx": {
+      "harvest_mWh_day": 0.301,
+      "load_mWh_day": 5.89,
+      "min_soc": 0.322,
+      "days_to_empty_from_50pct": 19.7,
+      "days_from_full_if_negative": 39.4
+     },
+     "W3_bright_1000lx": {
+      "harvest_mWh_day": 1.967,
+      "load_mWh_day": 5.89,
+      "min_soc": 0.375,
+      "days_to_empty_from_50pct": 28.1,
+      "days_from_full_if_negative": 56.1
+     },
+     "W4_sun_20min": {
+      "harvest_mWh_day": 11.748,
+      "load_mWh_day": 5.525,
+      "min_soc": 0.487,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W5_dark": {
+      "harvest_mWh_day": 0.0,
+      "load_mWh_day": 5.494,
+      "min_soc": 0.325,
+      "days_to_empty_from_50pct": 20.0,
+      "days_from_full_if_negative": 40.1
+     },
+     "W6_campus": {
+      "harvest_mWh_day": 12.632,
+      "load_mWh_day": 5.912,
+      "min_soc": 0.487,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W7_low_outdoor_office": {
+      "harvest_mWh_day": 1.024,
+      "load_mWh_day": 6.046,
+      "min_soc": 0.34,
+      "days_to_empty_from_50pct": 21.9,
+      "days_from_full_if_negative": 43.8
+     }
+    }
+   }
+  },
+  "typ": {
+   "41x32 strips 2.30 mm": {
+    "usable_mWh": 220.1,
+    "loads_uW": {
+     "MON_lit": 255.1,
+     "MON_dark": 236.3,
+     "MON_dark_always_on": 264.8,
+     "MON_max": 251.8,
+     "MON_max_always_on": 323.5,
+     "MON_worst": 416.2,
+     "MON_worst_always_on": 487.8,
+     "RAW_WC": 344.1,
+     "RAW_WC_worst": 576.8,
+     "ECO": 91.4,
+     "ECO_V3_convention": 75.1,
+     "SHELF": 33.3,
+     "SHIP": 22.3
+    },
+    "T1_dark_d": 38.8,
+    "T1_dark_always_on_face_d": 34.6,
+    "T1_max_currents_d": 36.4,
+    "T1_max_currents_always_on_face_d": 28.4,
+    "T1_worst_stack_d": 22.0,
+    "T1_worst_stack_always_on_face_d": 18.8,
+    "RAW_WC_d": 26.7,
+    "RAW_WC_worst_stack_d": 15.9,
+    "T2_ECO_d": 100.0,
+    "T3_min_day_045sun": 11.1,
+    "T3_overcast_min_day_01sun": 47.0,
+    "T4_ECO_1000lx_10h": 0.88,
+    "T2_ECO_V3_convention_d": 122.0,
+    "T4_ECO_V3_convention": 1.07,
+    "T6_SHELF_d": 276.0,
+    "T6_SHIP_d": 411.0,
+    "pv_table": "LID2+WR31@R12 strips 2.30 mm",
+    "T5_indoor_300lx_10h_days_from_full": 38.3,
+    "T5_fraction_of_MON_covered_pct": 6.2,
+    "T7_h": {
+     "KISET 270: 26.5 mA, VREG 4.10 V": 2.34,
+     "KISET 300: 29.4 mA, VREG 4.10 V": 2.14,
+     "KISET 330: 32.4 mA, VREG 4.10 V": 1.98,
+     "KISET 270, VREG 4.067 V (-0.8 %)": 2.71,
+     "KISET 270, VREG -0.8 %, cold 5-10 C cell (ohmic 1.5, RC x2.5)": 3.15
+    },
+    "usb_c_rate_typ_max": [
+     0.42,
+     0.462
+    ],
+    "ten_min_topup_days_of_MON": 2.96,
+    "weeks_from_50pct": {
+     "W1_office": {
+      "harvest_mWh_day": 14.04,
+      "load_mWh_day": 5.868,
+      "min_soc": 0.492,
+      "end_soc": 0.76,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W2_indoor_300lx": {
+      "harvest_mWh_day": 0.378,
+      "load_mWh_day": 5.74,
+      "min_soc": 0.33,
+      "end_soc": 0.33,
+      "days_to_empty_from_50pct": 20.5,
+      "days_from_full_if_negative": 41.1
+     },
+     "W3_bright_1000lx": {
+      "harvest_mWh_day": 1.928,
+      "load_mWh_day": 5.74,
+      "min_soc": 0.379,
+      "end_soc": 0.379,
+      "days_to_empty_from_50pct": 28.9,
+      "days_from_full_if_negative": 57.8
+     },
+     "W4_sun_20min": {
+      "harvest_mWh_day": 11.043,
+      "load_mWh_day": 5.465,
+      "min_soc": 0.488,
+      "end_soc": 0.677,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W5_dark": {
+      "harvest_mWh_day": 0.0,
+      "load_mWh_day": 5.441,
+      "min_soc": 0.327,
+      "end_soc": 0.327,
+      "days_to_empty_from_50pct": 20.2,
+      "days_from_full_if_negative": 40.5
+     },
+     "W6_campus": {
+      "harvest_mWh_day": 11.754,
+      "load_mWh_day": 5.756,
+      "min_soc": 0.488,
+      "end_soc": 0.691,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W7_low_outdoor_office": {
+      "harvest_mWh_day": 1.063,
+      "load_mWh_day": 5.858,
+      "min_soc": 0.348,
+      "end_soc": 0.348,
+      "days_to_empty_from_50pct": 23.0,
+      "days_from_full_if_negative": 45.9
+     }
+    },
+    "off_wrist_hours_per_30d_indoor_only": [
+     1.45,
+     1.71
+    ],
+    "harvest_uW": {
+     "sun045": 33129.8,
+     "ovc01": 7807.9,
+     "lux300": 37.8,
+     "lux1000": 192.8,
+     "lux200": 18.8,
+     "lap150": 10.7,
+     "sun1": 51236.8,
+     "sun02": 15801.6,
+     "ovc003": 2176.3
+    }
+   },
+   "41x34 strips 2.80 mm": {
+    "usable_mWh": 220.1,
+    "loads_uW": {
+     "MON_lit": 255.1,
+     "MON_dark": 236.3,
+     "MON_dark_always_on": 264.8,
+     "MON_max": 251.8,
+     "MON_max_always_on": 323.5,
+     "MON_worst": 416.2,
+     "MON_worst_always_on": 487.8,
+     "RAW_WC": 344.1,
+     "RAW_WC_worst": 576.8,
+     "ECO": 91.4,
+     "ECO_V3_convention": 75.1,
+     "SHELF": 33.3,
+     "SHIP": 22.3
+    },
+    "T1_dark_d": 38.8,
+    "T1_dark_always_on_face_d": 34.6,
+    "T1_max_currents_d": 36.4,
+    "T1_max_currents_always_on_face_d": 28.4,
+    "T1_worst_stack_d": 22.0,
+    "T1_worst_stack_always_on_face_d": 18.8,
+    "RAW_WC_d": 26.7,
+    "RAW_WC_worst_stack_d": 15.9,
+    "T2_ECO_d": 100.0,
+    "T3_min_day_045sun": 10.4,
+    "T3_overcast_min_day_01sun": 43.0,
+    "T4_ECO_1000lx_10h": 0.97,
+    "T2_ECO_V3_convention_d": 122.0,
+    "T4_ECO_V3_convention": 1.18,
+    "T6_SHELF_d": 276.0,
+    "T6_SHIP_d": 411.0,
+    "pv_table": "LID2+WR31@R12 strips 2.80 mm",
+    "T5_indoor_300lx_10h_days_from_full": 38.6,
+    "T5_fraction_of_MON_covered_pct": 6.9,
+    "T7_h": {
+     "KISET 270: 26.5 mA, VREG 4.10 V": 2.34,
+     "KISET 300: 29.4 mA, VREG 4.10 V": 2.14,
+     "KISET 330: 32.4 mA, VREG 4.10 V": 1.98,
+     "KISET 270, VREG 4.067 V (-0.8 %)": 2.71,
+     "KISET 270, VREG -0.8 %, cold 5-10 C cell (ohmic 1.5, RC x2.5)": 3.15
+    },
+    "usb_c_rate_typ_max": [
+     0.42,
+     0.462
+    ],
+    "ten_min_topup_days_of_MON": 2.96,
+    "weeks_from_50pct": {
+     "W1_office": {
+      "harvest_mWh_day": 15.256,
+      "load_mWh_day": 5.868,
+      "min_soc": 0.492,
+      "end_soc": 0.799,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W2_indoor_300lx": {
+      "harvest_mWh_day": 0.422,
+      "load_mWh_day": 5.74,
+      "min_soc": 0.331,
+      "end_soc": 0.331,
+      "days_to_empty_from_50pct": 20.7,
+      "days_from_full_if_negative": 41.4
+     },
+     "W3_bright_1000lx": {
+      "harvest_mWh_day": 2.133,
+      "load_mWh_day": 5.74,
+      "min_soc": 0.385,
+      "end_soc": 0.385,
+      "days_to_empty_from_50pct": 30.5,
+      "days_from_full_if_negative": 61.0
+     },
+     "W4_sun_20min": {
+      "harvest_mWh_day": 11.754,
+      "load_mWh_day": 5.465,
+      "min_soc": 0.488,
+      "end_soc": 0.7,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W5_dark": {
+      "harvest_mWh_day": 0.0,
+      "load_mWh_day": 5.441,
+      "min_soc": 0.327,
+      "end_soc": 0.327,
+      "days_to_empty_from_50pct": 20.2,
+      "days_from_full_if_negative": 40.5
+     },
+     "W6_campus": {
+      "harvest_mWh_day": 12.761,
+      "load_mWh_day": 5.756,
+      "min_soc": 0.488,
+      "end_soc": 0.723,
+      "days_to_empty_from_50pct": "energy-positive",
+      "days_from_full_if_negative": "energy-positive"
+     },
+     "W7_low_outdoor_office": {
+      "harvest_mWh_day": 1.172,
+      "load_mWh_day": 5.858,
+      "min_soc": 0.351,
+      "end_soc": 0.351,
+      "days_to_empty_from_50pct": 23.5,
+      "days_from_full_if_negative": 47.0
+     }
+    },
+    "off_wrist_hours_per_30d_indoor_only": [
+     1.43,
+     1.7
+    ],
+    "harvest_uW": {
+     "sun045": 35262.6,
+     "ovc01": 8521.8,
+     "lux300": 42.2,
+     "lux1000": 213.3,
+     "lux200": 21.1,
+     "lap150": 12.1,
+     "sun1": 52988.6,
+     "sun02": 17165.2,
+     "ovc003": 2380.0
+    }
+   }
+  }
+ },
+ "sim03": {
+  "o2": {
+   "window": {
+    "600 lx (V_O2 near the POR edge) | nominal": {
+     "V_O2": 1.191,
+     "edges": [
+      [
+       2.83,
+       "approve",
+       "rising T"
+      ],
+      [
+       2.87,
+       "stop",
+       "rising T"
+      ],
+      [
+       4.38,
+       "approve",
+       "rising T"
+      ],
+      [
+       4.39,
+       "stop",
+       "rising T"
+      ],
+      [
+       6.64,
+       "approve",
+       "rising T"
+      ],
+      [
+       6.65,
+       "stop",
+       "rising T"
+      ],
+      [
+       6.87,
+       "approve",
+       "rising T"
+      ],
+      [
+       38.36,
+       "stop",
+       "rising T"
+      ],
+      [
+       36.81,
+       "approve",
+       "falling T"
+      ],
+      [
+       2.45,
+       "stop",
+       "falling T"
+      ]
+     ],
+     "hot_stop_C": [
+      2.87
+     ],
+     "cold_stop_C": [
+      2.45
+     ],
+     "python_corner_C": null,
+     "n_edges": 10
+    },
+    "600 lx (V_O2 near the POR edge) | worst hot corner": {
+     "V_O2": 1.191,
+     "edges": [
+      [
+       3.98,
+       "approve",
+       "rising T"
+      ],
+      [
+       4.02,
+       "stop",
+       "rising T"
+      ],
+      [
+       5.54,
+       "approve",
+       "rising T"
+      ],
+      [
+       5.55,
+       "stop",
+       "rising T"
+      ],
+      [
+       7.81,
+       "approve",
+       "rising T"
+      ],
+      [
+       7.83,
+       "stop",
+       "rising T"
+      ],
+      [
+       8.03,
+       "approve",
+       "rising T"
+      ],
+      [
+       43.75,
+       "stop",
+       "rising T"
+      ],
+      [
+       38.8,
+       "approve",
+       "falling T"
+      ],
+      [
+       2.93,
+       "stop",
+       "falling T"
+      ]
+     ],
+     "hot_stop_C": [
+      4.02
+     ],
+     "cold_stop_C": [
+      2.93
+     ],
+     "python_corner_C": 44.98,
+     "n_edges": 10
+    },
+    "600 lx (V_O2 near the POR edge) | worst cold corner": {
+     "V_O2": 1.191,
+     "edges": [
+      [
+       1.64,
+       "approve",
+       "rising T"
+      ],
+      [
+       1.69,
+       "stop",
+       "rising T"
+      ],
+      [
+       3.18,
+       "approve",
+       "rising T"
+      ],
+      [
+       3.19,
+       "stop",
+       "rising T"
+      ],
+      [
+       5.43,
+       "approve",
+       "rising T"
+      ],
+      [
+       5.44,
+       "stop",
+       "rising T"
+      ],
+      [
+       5.68,
+       "approve",
+       "rising T"
+      ],
+      [
+       41.62,
+       "stop",
+       "rising T"
+      ],
+      [
+       36.91,
+       "approve",
+       "falling T"
+      ],
+      [
+       0.66,
+       "stop",
+       "falling T"
+      ]
+     ],
+     "hot_stop_C": [
+      1.69
+     ],
+     "cold_stop_C": [
+      0.66
+     ],
+     "python_corner_C": 0.44,
+     "n_edges": 10
+    },
+    "0.1 sun | nominal": {
+     "V_O2": 2.233,
+     "edges": [
+      [
+       2.78,
+       "approve",
+       "rising T"
+      ],
+      [
+       38.16,
+       "stop",
+       "rising T"
+      ],
+      [
+       37.0,
+       "approve",
+       "falling T"
+      ],
+      [
+       2.51,
+       "stop",
+       "falling T"
+      ]
+     ],
+     "hot_stop_C": [
+      38.16
+     ],
+     "cold_stop_C": [
+      2.51
+     ],
+     "python_corner_C": null,
+     "n_edges": 4
+    },
+    "0.1 sun | worst hot corner": {
+     "V_O2": 2.233,
+     "edges": [
+      [
+       3.71,
+       "approve",
+       "rising T"
+      ],
+      [
+       42.36,
+       "stop",
+       "rising T"
+      ],
+      [
+       38.77,
+       "approve",
+       "falling T"
+      ],
+      [
+       2.93,
+       "stop",
+       "falling T"
+      ]
+     ],
+     "hot_stop_C": [
+      42.36
+     ],
+     "cold_stop_C": [
+      2.93
+     ],
+     "python_corner_C": 42.58,
+     "n_edges": 4
+    },
+    "0.1 sun | worst cold corner": {
+     "V_O2": 2.233,
+     "edges": [
+      [
+       1.65,
+       "approve",
+       "rising T"
+      ],
+      [
+       40.31,
+       "stop",
+       "rising T"
+      ],
+      [
+       36.88,
+       "approve",
+       "falling T"
+      ],
+      [
+       0.91,
+       "stop",
+       "falling T"
+      ]
+     ],
+     "hot_stop_C": [
+      40.31
+     ],
+     "cold_stop_C": [
+      0.91
+     ],
+     "python_corner_C": 0.86,
+     "n_edges": 4
+    },
+    "1.2 sun | nominal": {
+     "V_O2": 2.558,
+     "edges": [
+      [
+       2.77,
+       "approve",
+       "rising T"
+      ],
+      [
+       38.08,
+       "stop",
+       "rising T"
+      ],
+      [
+       37.07,
+       "approve",
+       "falling T"
+      ],
+      [
+       2.53,
+       "stop",
+       "falling T"
+      ]
+     ],
+     "hot_stop_C": [
+      38.08
+     ],
+     "cold_stop_C": [
+      2.53
+     ],
+     "python_corner_C": null,
+     "n_edges": 4
+    },
+    "1.2 sun | worst hot corner": {
+     "V_O2": 2.558,
+     "edges": [
+      [
+       3.61,
+       "approve",
+       "rising T"
+      ],
+      [
+       41.87,
+       "stop",
+       "rising T"
+      ],
+      [
+       38.76,
+       "approve",
+       "falling T"
+      ],
+      [
+       2.93,
+       "stop",
+       "falling T"
+      ]
+     ],
+     "hot_stop_C": [
+      41.87
+     ],
+     "cold_stop_C": [
+      2.93
+     ],
+     "python_corner_C": 42.05,
+     "n_edges": 4
+    },
+    "1.2 sun | worst cold corner": {
+     "V_O2": 2.558,
+     "edges": [
+      [
+       1.65,
+       "approve",
+       "rising T"
+      ],
+      [
+       39.83,
+       "stop",
+       "rising T"
+      ],
+      [
+       36.87,
+       "approve",
+       "falling T"
+      ],
+      [
+       1.0,
+       "stop",
+       "falling T"
+      ]
+     ],
+     "hot_stop_C": [
+      39.83
+     ],
+     "cold_stop_C": [
+      1.0
+     ],
+     "python_corner_C": 0.96,
+     "n_edges": 4
+    },
+    "python corners vs V_O2 (every corner: NTC R25, B, 4 resistors +-1 %, VOS +-8 mV, hysteresis 2-17 mV)": {
+     "1.40 V": {
+      "hot_stop_max_C": 45.23,
+      "cold_stop_min_C": 0.4
+     },
+     "1.50 V": {
+      "hot_stop_max_C": 44.74,
+      "cold_stop_min_C": 0.48
+     },
+     "1.60 V": {
+      "hot_stop_max_C": 44.31,
+      "cold_stop_min_C": 0.55
+     },
+     "1.75 V": {
+      "hot_stop_max_C": 43.78,
+      "cold_stop_min_C": 0.65
+     },
+     "2.00 V": {
+      "hot_stop_max_C": 43.08,
+      "cold_stop_min_C": 0.77
+     },
+     "2.60 V": {
+      "hot_stop_max_C": 41.99,
+      "cold_stop_min_C": 0.97
+     }
+    }
+   },
+   "matrix": {
+    "-10 C | 0.1 sun | cold start (cell 0-1.6 V, VSTOR < 1.73 V)": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0037,
+     "V_O2_max": 2.486,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 0.1 sun | deep-discharged cell 0 V (three diodes)": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0037,
+     "V_O2_max": 2.486,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 0.1 sun | deep-discharged cell 0.5 V (three diodes)": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0037,
+     "V_O2_max": 2.486,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 0.1 sun | deep-discharged cell 1.2 V (three diodes)": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0037,
+     "V_O2_max": 2.486,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 0.1 sun | deep-discharged cell 2 V (three diodes)": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0037,
+     "V_O2_max": 2.486,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 0.1 sun | PCM tripped, cell 2.5 V + body diode": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0037,
+     "V_O2_max": 2.486,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 1.2 sun | cold start (cell 0-1.6 V, VSTOR < 1.73 V)": {
+     "iq14_max_uA": 0.0038,
+     "iq14_mean_uA": 0.0037,
+     "V_O2_max": 2.811,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 1.2 sun | deep-discharged cell 0 V (three diodes)": {
+     "iq14_max_uA": 0.0038,
+     "iq14_mean_uA": 0.0037,
+     "V_O2_max": 2.811,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 1.2 sun | deep-discharged cell 0.5 V (three diodes)": {
+     "iq14_max_uA": 0.0038,
+     "iq14_mean_uA": 0.0037,
+     "V_O2_max": 2.811,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 1.2 sun | deep-discharged cell 1.2 V (three diodes)": {
+     "iq14_max_uA": 0.0038,
+     "iq14_mean_uA": 0.0037,
+     "V_O2_max": 2.811,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 1.2 sun | deep-discharged cell 2 V (three diodes)": {
+     "iq14_max_uA": 0.0038,
+     "iq14_mean_uA": 0.0037,
+     "V_O2_max": 2.811,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 1.2 sun | PCM tripped, cell 2.5 V + body diode": {
+     "iq14_max_uA": 0.0038,
+     "iq14_mean_uA": 0.0037,
+     "V_O2_max": 2.811,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 1000 lx | cold start (cell 0-1.6 V, VSTOR < 1.73 V)": {
+     "iq14_max_uA": 0.0036,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.016,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 1000 lx | deep-discharged cell 0 V (three diodes)": {
+     "iq14_max_uA": 0.0036,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.016,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 1000 lx | deep-discharged cell 0.5 V (three diodes)": {
+     "iq14_max_uA": 0.0036,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.016,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 1000 lx | deep-discharged cell 1.2 V (three diodes)": {
+     "iq14_max_uA": 0.0036,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.016,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 1000 lx | deep-discharged cell 2 V (three diodes)": {
+     "iq14_max_uA": 0.0036,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.016,
+     "c_rate_70mAh": 0.0
+    },
+    "-10 C | 1000 lx | PCM tripped, cell 2.5 V + body diode": {
+     "iq14_max_uA": 0.0036,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.016,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 0.1 sun | cold start (cell 0-1.6 V, VSTOR < 1.73 V)": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.064,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 0.1 sun | deep-discharged cell 0 V (three diodes)": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.064,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 0.1 sun | deep-discharged cell 0.5 V (three diodes)": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.064,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 0.1 sun | deep-discharged cell 1.2 V (three diodes)": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.064,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 0.1 sun | deep-discharged cell 2 V (three diodes)": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.064,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 0.1 sun | PCM tripped, cell 2.5 V + body diode": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.064,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 1.2 sun | cold start (cell 0-1.6 V, VSTOR < 1.73 V)": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.387,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 1.2 sun | deep-discharged cell 0 V (three diodes)": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.387,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 1.2 sun | deep-discharged cell 0.5 V (three diodes)": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.387,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 1.2 sun | deep-discharged cell 1.2 V (three diodes)": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.387,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 1.2 sun | deep-discharged cell 2 V (three diodes)": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.387,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 1.2 sun | PCM tripped, cell 2.5 V + body diode": {
+     "iq14_max_uA": 0.0037,
+     "iq14_mean_uA": 0.0036,
+     "V_O2_max": 2.387,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 1000 lx | cold start (cell 0-1.6 V, VSTOR < 1.73 V)": {
+     "iq14_max_uA": 0.0036,
+     "iq14_mean_uA": 0.0035,
+     "V_O2_max": 1.595,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 1000 lx | deep-discharged cell 0 V (three diodes)": {
+     "iq14_max_uA": 0.0036,
+     "iq14_mean_uA": 0.0035,
+     "V_O2_max": 1.595,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 1000 lx | deep-discharged cell 0.5 V (three diodes)": {
+     "iq14_max_uA": 0.0036,
+     "iq14_mean_uA": 0.0035,
+     "V_O2_max": 1.595,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 1000 lx | deep-discharged cell 1.2 V (three diodes)": {
+     "iq14_max_uA": 0.0036,
+     "iq14_mean_uA": 0.0035,
+     "V_O2_max": 1.595,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 1000 lx | deep-discharged cell 2 V (three diodes)": {
+     "iq14_max_uA": 0.0036,
+     "iq14_mean_uA": 0.0035,
+     "V_O2_max": 1.595,
+     "c_rate_70mAh": 0.0
+    },
+    "50 C | 1000 lx | PCM tripped, cell 2.5 V + body diode": {
+     "iq14_max_uA": 0.0036,
+     "iq14_mean_uA": 0.0035,
+     "V_O2_max": 1.595,
+     "c_rate_70mAh": 0.0
+    },
+    "25 C | 1.2 sun | cold start (cell 0-1.6 V, VSTOR < 1.73 V)": {
+     "iq14_max_uA": 51804.0386,
+     "iq14_mean_uA": 51804.0386,
+     "V_O2_max": 2.497,
+     "c_rate_70mAh": 0.74
+    },
+    "25 C | 1.2 sun | deep-discharged cell 0 V (three diodes)": {
+     "iq14_max_uA": 50279.9653,
+     "iq14_mean_uA": 50279.9603,
+     "V_O2_max": 2.497,
+     "c_rate_70mAh": 0.718
+    },
+    "25 C | 1.2 sun | deep-discharged cell 0.5 V (three diodes)": {
+     "iq14_max_uA": 31207.9227,
+     "iq14_mean_uA": 31207.9227,
+     "V_O2_max": 2.497,
+     "c_rate_70mAh": 0.446
+    },
+    "25 C | 1.2 sun | deep-discharged cell 1.2 V (three diodes)": {
+     "iq14_max_uA": 3763.8462,
+     "iq14_mean_uA": 3763.8462,
+     "V_O2_max": 2.536,
+     "c_rate_70mAh": 0.054
+    },
+    "25 C | 1.2 sun | deep-discharged cell 2 V (three diodes)": {
+     "iq14_max_uA": 0.3083,
+     "iq14_mean_uA": 0.3072,
+     "V_O2_max": 2.56,
+     "c_rate_70mAh": 0.0
+    },
+    "25 C | 1.2 sun | PCM tripped, cell 2.5 V + body diode": {
+     "iq14_max_uA": 0.0011,
+     "iq14_mean_uA": -0.0,
+     "V_O2_max": 2.56,
+     "c_rate_70mAh": -0.0
+    }
+   },
+   "dyn": {
+    "heartbeat | Q14 Vth 0.45 | Q16 Vth 0.45": {
+     "o2hb_first_pulse_peak_V": 1.464,
+     "vgs14_first_pulse_V": 0.867,
+     "vgs14_min_between_pulses_V": 0.789,
+     "iq14_on_mA": 24.838,
+     "release_after_last_pulse_s": 1.574,
+     "iq14_before_first_pulse_uA": 0.0037
+    },
+    "heartbeat | Q14 Vth 0.45 | Q16 Vth 0.95": {
+     "o2hb_first_pulse_peak_V": 1.464,
+     "vgs14_first_pulse_V": 0.865,
+     "vgs14_min_between_pulses_V": 0.783,
+     "iq14_on_mA": 24.837,
+     "release_after_last_pulse_s": 1.51,
+     "iq14_before_first_pulse_uA": 0.0035
+    },
+    "heartbeat | Q14 Vth 0.95 | Q16 Vth 0.45": {
+     "o2hb_first_pulse_peak_V": 1.464,
+     "vgs14_first_pulse_V": 1.354,
+     "vgs14_min_between_pulses_V": 1.23,
+     "iq14_on_mA": 24.686,
+     "release_after_last_pulse_s": 0.898,
+     "iq14_before_first_pulse_uA": 0.0003
+    },
+    "heartbeat | Q14 Vth 0.95 | Q16 Vth 0.95": {
+     "o2hb_first_pulse_peak_V": 1.464,
+     "vgs14_first_pulse_V": 1.354,
+     "vgs14_min_between_pulses_V": 1.225,
+     "iq14_on_mA": 24.685,
+     "release_after_last_pulse_s": 0.873,
+     "iq14_before_first_pulse_uA": 0.0003
+    },
+    "static CHG_DIS high from 0.05 s (MCU halted with the pin high)": {
+     "iq14_max_mA": 49.383,
+     "on_from_s": 0.05,
+     "on_until_s": 1.617
+    },
+    "no heartbeat, VBAT_OK high (MCU in reset / off at a healthy cell)": {
+     "iq14_max_mA": 0.0,
+     "on_from_s": null,
+     "on_until_s": null
+    },
+    "PV_INH probe (MCU on, 1 sun, Q14 Vth 0.95)": {
+     "iq14_during_probe_uA": 15.08,
+     "pvsw_during_probe_mV": 25.961,
+     "INA_PV_over_Isc": 1.0,
+     "recovery_to_90pct_ms": 30.0,
+     "o2g_min_during_probe_V": -0.271
+    },
+    "MCU off, 1.2 sun | Q1 static on from 0.5 s": {
+     "o2ok_edges_after_short": 0,
+     "iq14_max_after_0p6s_uA": -0.061,
+     "edges_per_Q1_cycle": null
+    },
+    "MCU off, 1.2 sun | Q1 toggled 10 Hz from 0.5 s": {
+     "o2ok_edges_after_short": 28,
+     "iq14_max_after_0p6s_uA": null,
+     "edges_per_Q1_cycle": 2.0
+    },
+    "Q8 | MCU on (heartbeat), 1.2 sun": {
+     "iq14_before_mA": 25.972,
+     "iq14_after_mean_mA": -0.0,
+     "t_to_1pct_ms": 0.29,
+     "i_shorted_PV_mA": 59.19
+    },
+    "Q8 | MCU off, flat cell 3.0 V (VBAT_OK low), 1.2 sun": {
+     "iq14_before_mA": 26.019,
+     "iq14_after_mean_mA": -0.0001,
+     "t_to_1pct_ms": 0.29,
+     "i_shorted_PV_mA": 59.19
+    },
+    "Q8 | Q8 OPEN (single fault), MCU off, flat cell, 1.2 sun": {
+     "iq14_before_mA": 26.019,
+     "iq14_after_mean_mA": 26.0189,
+     "t_to_1pct_ms": null,
+     "i_shorted_PV_mA": 26.05
+    },
+    "Q8 | Q8 OPEN (single fault), MCU on, Q1 backup 5 ms after VBUS, 1.2 sun": {
+     "iq14_before_mA": 25.972,
+     "iq14_after_mean_mA": -0.0,
+     "t_to_1pct_ms": 5.06,
+     "i_shorted_PV_mA": 59.19
+    },
+    "dark | VBAT_OK 0.0 V": {
+     "vo2_V": 0.0,
+     "pvsw_V": 0.0
+    },
+    "dark | VBAT_OK 3.3 V": {
+     "vo2_V": 0.0,
+     "pvsw_V": 4e-06
+    }
+   },
+   "coldstart": {
+    "wing 1 x lid | strips 2.30 mm": {
+     "i_cold_start_200lx_uA": 0.0,
+     "lux_for_21p4uA_through_O2": 350.0
+    },
+    "wing 1 x lid | strips 2.80 mm": {
+     "i_cold_start_200lx_uA": 0.0,
+     "lux_for_21p4uA_through_O2": 330.0
+    },
+    "wing 0.5 x lid | strips 2.30 mm": {
+     "i_cold_start_200lx_uA": 0.0,
+     "lux_for_21p4uA_through_O2": 480.0
+    },
+    "wing 0.5 x lid | strips 2.80 mm": {
+     "i_cold_start_200lx_uA": 0.0,
+     "lux_for_21p4uA_through_O2": 450.0
+    },
+    "wing 0.25 x lid | strips 2.30 mm": {
+     "i_cold_start_200lx_uA": 0.0,
+     "lux_for_21p4uA_through_O2": 600.0
+    },
+    "wing 0.25 x lid | strips 2.80 mm": {
+     "i_cold_start_200lx_uA": 0.0,
+     "lux_for_21p4uA_through_O2": 540.0
+    },
+    "wing 0.1 x lid | strips 2.30 mm": {
+     "i_cold_start_200lx_uA": 0.0,
+     "lux_for_21p4uA_through_O2": 710.0
+    },
+    "wing 0.1 x lid | strips 2.80 mm": {
+     "i_cold_start_200lx_uA": 0.0,
+     "lux_for_21p4uA_through_O2": 620.0
+    },
+    "wing 0 x lid | strips 2.30 mm": {
+     "i_cold_start_200lx_uA": 0.0,
+     "lux_for_21p4uA_through_O2": 800.0
+    },
+    "wing 0 x lid | strips 2.80 mm": {
+     "i_cold_start_200lx_uA": 0.0,
+     "lux_for_21p4uA_through_O2": 690.0
+    },
+    "Q14 Vth 0.45 | 200 lx | wing 1": {
+     "i_avg_uA": 0.0
+    },
+    "Q14 Vth 0.95 | 200 lx | wing 1": {
+     "i_avg_uA": 0.0
+    },
+    "Q14 Vth 0.45 | 500 lx | wing 1": {
+     "i_avg_uA": 75.18
+    },
+    "Q14 Vth 0.95 | 500 lx | wing 1": {
+     "i_avg_uA": 55.87
+    },
+    "Q14 Vth 0.45 | 711 lx | wing 1": {
+     "i_avg_uA": 115.13
+    },
+    "Q14 Vth 0.95 | 711 lx | wing 1": {
+     "i_avg_uA": 95.17
+    },
+    "Q14 Vth 0.45 | 1000 lx | wing 1": {
+     "i_avg_uA": 167.5
+    },
+    "Q14 Vth 0.95 | 1000 lx | wing 1": {
+     "i_avg_uA": 147.23
+    },
+    "reference without the O-2 (v3_energy cs_at at 0.70 V)": {
+     "wing 1 | strips 2.30 mm": {
+      "i_200lx_uA": 29.6,
+      "lux_needed": 155.0
+     },
+     "wing 0.5 | strips 2.30 mm": {
+      "i_200lx_uA": 19.3,
+      "lux_needed": 216.0
+     },
+     "wing 0.25 | strips 2.30 mm": {
+      "i_200lx_uA": 14.2,
+      "lux_needed": 269.0
+     },
+     "wing 0.1 | strips 2.30 mm": {
+      "i_200lx_uA": 11.2,
+      "lux_needed": 316.0
+     },
+     "wing 0 | strips 2.30 mm": {
+      "i_200lx_uA": 9.1,
+      "lux_needed": 358.0
+     },
+     "wing 1 | strips 2.80 mm": {
+      "i_200lx_uA": 32.4,
+      "lux_needed": 144.0
+     },
+     "wing 0.5 | strips 2.80 mm": {
+      "i_200lx_uA": 22.1,
+      "lux_needed": 195.0
+     },
+     "wing 0.25 | strips 2.80 mm": {
+      "i_200lx_uA": 17.0,
+      "lux_needed": 237.0
+     },
+     "wing 0.1 | strips 2.80 mm": {
+      "i_200lx_uA": 13.9,
+      "lux_needed": 271.0
+     },
+     "wing 0 | strips 2.80 mm": {
+      "i_200lx_uA": 11.9,
+      "lux_needed": 300.0
+     }
+    }
+   },
+   "vpor16": {
+    "VPOR 1.60 V | wing 1 | strips 2.30 mm": {
+     "lux_for_21p4uA_through_O2": 460.0
+    },
+    "VPOR 1.60 V | wing 0 | strips 2.30 mm": {
+     "lux_for_21p4uA_through_O2": 1080.0
+    }
+   }
+  },
+  "misc": {
+   "EN_ship_wake": {
+    "head VBUS 5.0 V": {
+     "t_to_EN_HOLD_1V_s": 1.709,
+     "EN_HOLD_final_V": 1.758
+    },
+    "head VBUS 4.75 V (minimum at the band)": {
+     "t_to_EN_HOLD_1V_s": 1.885,
+     "EN_HOLD_final_V": 1.653
+    },
+    "button at VBAT 2.8 V (press 0.30 s)": {
+     "t_to_1V_s": 0.293,
+     "EN_HOLD_at_release_V": 1.017,
+     "wakes_within_0p3s": true
+    },
+    "button at VBAT 3.0 V (press 0.30 s)": {
+     "t_to_1V_s": 0.261,
+     "EN_HOLD_at_release_V": 1.107,
+     "wakes_within_0p3s": true
+    },
+    "button at VBAT 3.3 V (press 0.30 s)": {
+     "t_to_1V_s": 0.223,
+     "EN_HOLD_at_release_V": 1.242,
+     "wakes_within_0p3s": true
+    },
+    "button at VBAT 3.7 V (press 0.30 s)": {
+     "t_to_1V_s": 0.187,
+     "EN_HOLD_at_release_V": 1.422,
+     "wakes_within_0p3s": true
+    },
+    "button at VBAT 4.1 V (press 0.30 s)": {
+     "t_to_1V_s": 0.161,
+     "EN_HOLD_at_release_V": 1.603,
+     "wakes_within_0p3s": true
+    },
+    "light wake 100 lx (PV node 1.46 V through R126 3.3 M)": {
+     "t_to_1V_s": 17.9
+    },
+    "light wake 200 lx (PV node 1.69 V through R126 3.3 M)": {
+     "t_to_1V_s": 13.9
+    },
+    "light wake 300 lx (PV node 1.77 V through R126 3.3 M)": {
+     "t_to_1V_s": 12.9
+    },
+    "ship mode leakage": "D12 unbiased (both anodes at 0 V through R145 / R167, cathode at EN_HOLD 0 V): 0 A; Q12 IDSS bound 3.7 uW counted in SIM-05 (CALC_V3F 7, 9)"
+   },
+   "haptic": {
+    "typical path 1.40 ohm | step to 3.0 V average (no soft start) | no PV": {
+     "VBAT_IC_min_incl_ripple_V": 3.489,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 48.0,
+     "battery_peak_mA": 69.9,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "typical path 1.40 ohm | step to 3.0 V average (no soft start) | PV 0.1 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.492,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 51.0,
+     "battery_peak_mA": 67.7,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "typical path 1.40 ohm | step to 3.0 V average (no soft start) | PV 0.45 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.502,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 61.0,
+     "battery_peak_mA": 60.5,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "typical path 1.40 ohm | 30 ms PWM soft start | no PV": {
+     "VBAT_IC_min_incl_ripple_V": 3.511,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 70.0,
+     "battery_peak_mA": 53.6,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "typical path 1.40 ohm | 30 ms PWM soft start | PV 0.1 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.514,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 73.0,
+     "battery_peak_mA": 51.3,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "typical path 1.40 ohm | 30 ms PWM soft start | PV 0.45 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.524,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 83.0,
+     "battery_peak_mA": 44.2,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "typical path 1.40 ohm | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | no PV": {
+     "VBAT_IC_min_incl_ripple_V": 3.53,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 89.0,
+     "battery_peak_mA": 40.1,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "typical path 1.40 ohm | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | PV 0.1 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.53,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 89.0,
+     "battery_peak_mA": 40.1,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "typical path 1.40 ohm | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | PV 0.45 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.53,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 89.0,
+     "battery_peak_mA": 40.1,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "maximum path 2.25 ohm (25 C) | step to 3.0 V average (no soft start) | no PV": {
+     "VBAT_IC_min_incl_ripple_V": 3.427,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": -14.0,
+     "battery_peak_mA": 70.6,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "maximum path 2.25 ohm (25 C) | step to 3.0 V average (no soft start) | PV 0.1 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.432,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": -9.0,
+     "battery_peak_mA": 68.2,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "maximum path 2.25 ohm (25 C) | step to 3.0 V average (no soft start) | PV 0.45 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.449,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 8.0,
+     "battery_peak_mA": 60.9,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "maximum path 2.25 ohm (25 C) | 30 ms PWM soft start | no PV": {
+     "VBAT_IC_min_incl_ripple_V": 3.464,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 23.0,
+     "battery_peak_mA": 54.3,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "maximum path 2.25 ohm (25 C) | 30 ms PWM soft start | PV 0.1 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.469,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 28.0,
+     "battery_peak_mA": 52.0,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "maximum path 2.25 ohm (25 C) | 30 ms PWM soft start | PV 0.45 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.485,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 44.0,
+     "battery_peak_mA": 44.7,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "maximum path 2.25 ohm (25 C) | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | no PV": {
+     "VBAT_IC_min_incl_ripple_V": 3.517,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 76.0,
+     "battery_peak_mA": 30.8,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "maximum path 2.25 ohm (25 C) | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | PV 0.1 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.517,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 76.0,
+     "battery_peak_mA": 30.8,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "maximum path 2.25 ohm (25 C) | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | PV 0.45 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.517,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 76.0,
+     "battery_peak_mA": 30.8,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "0 C cell 3.75 ohm | step to 3.0 V average (no soft start) | no PV": {
+     "VBAT_IC_min_incl_ripple_V": 3.313,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": -128.0,
+     "battery_peak_mA": 72.8,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "0 C cell 3.75 ohm | step to 3.0 V average (no soft start) | PV 0.1 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.322,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": -119.0,
+     "battery_peak_mA": 70.4,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "0 C cell 3.75 ohm | step to 3.0 V average (no soft start) | PV 0.45 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.351,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": -90.0,
+     "battery_peak_mA": 62.8,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "0 C cell 3.75 ohm | 30 ms PWM soft start | no PV": {
+     "VBAT_IC_min_incl_ripple_V": 3.377,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": -64.0,
+     "battery_peak_mA": 55.6,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "0 C cell 3.75 ohm | 30 ms PWM soft start | PV 0.1 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.386,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": -55.0,
+     "battery_peak_mA": 53.3,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "0 C cell 3.75 ohm | 30 ms PWM soft start | PV 0.45 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.414,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": -27.0,
+     "battery_peak_mA": 45.8,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    },
+    "0 C cell 3.75 ohm | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | no PV": {
+     "VBAT_IC_min_incl_ripple_V": 3.507,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 66.0,
+     "battery_peak_mA": 21.1,
+     "motor_avg_V_max": 2.66,
+     "starts_E": true,
+     "back_emf_end_V": 1.66
+    },
+    "0 C cell 3.75 ohm | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | PV 0.1 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.507,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 66.0,
+     "battery_peak_mA": 21.1,
+     "motor_avg_V_max": 2.8,
+     "starts_E": true,
+     "back_emf_end_V": 1.75
+    },
+    "0 C cell 3.75 ohm | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | PV 0.45 sun": {
+     "VBAT_IC_min_incl_ripple_V": 3.507,
+     "margin_to_VBAT_OK_fall_max_3p441_mV": 66.0,
+     "battery_peak_mA": 21.1,
+     "motor_avg_V_max": 3.0,
+     "starts_E": true,
+     "back_emf_end_V": 1.87
+    }
+   },
+   "reversed_head": {
+    "reversed head -5 V (stiff, 0.5 ohm)": {
+     "VBUS_min_V": -0.0061,
+     "VBUS_end_V": -0.0061,
+     "contact_current_end_uA": -0.344,
+     "contact_current_peak_mA": 0.2
+    },
+    "correct head +5 V (reference)": {
+     "VBUS_min_V": 0.0,
+     "VBUS_end_V": 4.9256,
+     "contact_current_end_uA": 4.918,
+     "contact_current_peak_mA": 2995.167
+    },
+    "reversed head -5.5 V": {
+     "VBUS_min_V": -0.0061,
+     "VBUS_end_V": -0.0061,
+     "contact_current_end_uA": -0.187,
+     "contact_current_peak_mA": 0.22
+    },
+    "note": "U15 IN absolute minimum -0.3 V (SLUSDJ8A p.4); D14 NSR0240 VR 40 V, IR <= 0.55 uA at 25 V (p.2); ESD761 VRWM +-24 V (SLVSH10C)"
+   },
+   "charge_bound_R12_plus_Q14": {
+    "strips 2.30 mm | 1.2 sun strings -10 C | k 0.8": {
+     "i_bat_mA": 22.3,
+     "C_70": 0.319,
+     "C_66": 0.338
+    },
+    "strips 2.30 mm | 1.2 sun strings -10 C | k 0.72": {
+     "i_bat_mA": 26.36,
+     "C_70": 0.377,
+     "C_66": 0.399
+    },
+    "strips 2.30 mm | 1.2 sun strings -20 C | k 0.8": {
+     "i_bat_mA": 23.41,
+     "C_70": 0.334,
+     "C_66": 0.355
+    },
+    "strips 2.30 mm | 1.2 sun strings -20 C | k 0.72": {
+     "i_bat_mA": 27.6,
+     "C_70": 0.394,
+     "C_66": 0.418
+    },
+    "strips 2.30 mm | 1.2 sun strings 0 C | k 0.8": {
+     "i_bat_mA": 21.21,
+     "C_70": 0.303,
+     "C_66": 0.321
+    },
+    "strips 2.30 mm | 1.2 sun strings 0 C | k 0.72": {
+     "i_bat_mA": 25.14,
+     "C_70": 0.359,
+     "C_66": 0.381
+    },
+    "strips 2.30 mm | 1 sun strings 25 C | k 0.8": {
+     "i_bat_mA": 17.65,
+     "C_70": 0.252,
+     "C_66": 0.267
+    },
+    "strips 2.30 mm | 1 sun strings 25 C | k 0.72": {
+     "i_bat_mA": 20.77,
+     "C_70": 0.297,
+     "C_66": 0.315
+    },
+    "strips 2.50 mm | 1.2 sun strings -10 C | k 0.8": {
+     "i_bat_mA": 22.57,
+     "C_70": 0.322,
+     "C_66": 0.342
+    },
+    "strips 2.50 mm | 1.2 sun strings -10 C | k 0.72": {
+     "i_bat_mA": 26.73,
+     "C_70": 0.382,
+     "C_66": 0.405
+    },
+    "strips 2.50 mm | 1.2 sun strings -20 C | k 0.8": {
+     "i_bat_mA": 23.7,
+     "C_70": 0.339,
+     "C_66": 0.359
+    },
+    "strips 2.50 mm | 1.2 sun strings -20 C | k 0.72": {
+     "i_bat_mA": 28.0,
+     "C_70": 0.4,
+     "C_66": 0.424
+    },
+    "strips 2.50 mm | 1.2 sun strings 0 C | k 0.8": {
+     "i_bat_mA": 21.47,
+     "C_70": 0.307,
+     "C_66": 0.325
+    },
+    "strips 2.50 mm | 1.2 sun strings 0 C | k 0.72": {
+     "i_bat_mA": 25.49,
+     "C_70": 0.364,
+     "C_66": 0.386
+    },
+    "strips 2.50 mm | 1 sun strings 25 C | k 0.8": {
+     "i_bat_mA": 17.88,
+     "C_70": 0.255,
+     "C_66": 0.271
+    },
+    "strips 2.50 mm | 1 sun strings 25 C | k 0.72": {
+     "i_bat_mA": 21.1,
+     "C_70": 0.301,
+     "C_66": 0.32
+    },
+    "strips 2.80 mm | 1.2 sun strings -10 C | k 0.8": {
+     "i_bat_mA": 22.95,
+     "C_70": 0.328,
+     "C_66": 0.348
+    },
+    "strips 2.80 mm | 1.2 sun strings -10 C | k 0.72": {
+     "i_bat_mA": 27.25,
+     "C_70": 0.389,
+     "C_66": 0.413
+    },
+    "strips 2.80 mm | 1.2 sun strings -20 C | k 0.8": {
+     "i_bat_mA": 24.1,
+     "C_70": 0.344,
+     "C_66": 0.365
+    },
+    "strips 2.80 mm | 1.2 sun strings -20 C | k 0.72": {
+     "i_bat_mA": 28.56,
+     "C_70": 0.408,
+     "C_66": 0.433
+    },
+    "strips 2.80 mm | 1.2 sun strings 0 C | k 0.8": {
+     "i_bat_mA": 21.83,
+     "C_70": 0.312,
+     "C_66": 0.331
+    },
+    "strips 2.80 mm | 1.2 sun strings 0 C | k 0.72": {
+     "i_bat_mA": 25.98,
+     "C_70": 0.371,
+     "C_66": 0.394
+    },
+    "strips 2.80 mm | 1 sun strings 25 C | k 0.8": {
+     "i_bat_mA": 18.21,
+     "C_70": 0.26,
+     "C_66": 0.276
+    },
+    "strips 2.80 mm | 1 sun strings 25 C | k 0.72": {
+     "i_bat_mA": 21.55,
+     "C_70": 0.308,
+     "C_66": 0.327
+    }
+   },
+   "deep_discharge": {
+    "strips 2.30 mm | 1 sun 25 C | cell 0 V": {
+     "i_mA": 48.2,
+     "C_70": 0.69
+    },
+    "strips 2.30 mm | 1 sun 25 C | cell 0.5 V": {
+     "i_mA": 29.9,
+     "C_70": 0.43
+    },
+    "strips 2.30 mm | 1 sun 25 C | cell 1 V": {
+     "i_mA": 4.9,
+     "C_70": 0.07
+    },
+    "strips 2.30 mm | 1 sun 25 C | cell 1.2 V": {
+     "i_mA": 0.0,
+     "C_70": 0.0
+    },
+    "strips 2.30 mm | 1.2 sun 0 C (O-2 window edge) | cell 0 V": {
+     "i_mA": 58.9,
+     "C_70": 0.84
+    },
+    "strips 2.30 mm | 1.2 sun 0 C (O-2 window edge) | cell 0.5 V": {
+     "i_mA": 40.7,
+     "C_70": 0.58
+    },
+    "strips 2.30 mm | 1.2 sun 0 C (O-2 window edge) | cell 1 V": {
+     "i_mA": 15.7,
+     "C_70": 0.22
+    },
+    "strips 2.30 mm | 1.2 sun 0 C (O-2 window edge) | cell 1.2 V": {
+     "i_mA": 4.9,
+     "C_70": 0.07
+    },
+    "strips 2.30 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 0 V": {
+     "i_mA": 60.3,
+     "C_70": 0.86
+    },
+    "strips 2.30 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 0.5 V": {
+     "i_mA": 43.8,
+     "C_70": 0.63
+    },
+    "strips 2.30 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 1 V": {
+     "i_mA": 19.3,
+     "C_70": 0.28
+    },
+    "strips 2.30 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 1.2 V": {
+     "i_mA": 8.7,
+     "C_70": 0.12
+    },
+    "strips 2.80 mm | 1 sun 25 C | cell 0 V": {
+     "i_mA": 51.1,
+     "C_70": 0.73
+    },
+    "strips 2.80 mm | 1 sun 25 C | cell 0.5 V": {
+     "i_mA": 31.0,
+     "C_70": 0.44
+    },
+    "strips 2.80 mm | 1 sun 25 C | cell 1 V": {
+     "i_mA": 5.0,
+     "C_70": 0.07
+    },
+    "strips 2.80 mm | 1 sun 25 C | cell 1.2 V": {
+     "i_mA": 0.0,
+     "C_70": 0.0
+    },
+    "strips 2.80 mm | 1.2 sun 0 C (O-2 window edge) | cell 0 V": {
+     "i_mA": 62.4,
+     "C_70": 0.89
+    },
+    "strips 2.80 mm | 1.2 sun 0 C (O-2 window edge) | cell 0.5 V": {
+     "i_mA": 42.1,
+     "C_70": 0.6
+    },
+    "strips 2.80 mm | 1.2 sun 0 C (O-2 window edge) | cell 1 V": {
+     "i_mA": 16.1,
+     "C_70": 0.23
+    },
+    "strips 2.80 mm | 1.2 sun 0 C (O-2 window edge) | cell 1.2 V": {
+     "i_mA": 5.0,
+     "C_70": 0.07
+    },
+    "strips 2.80 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 0 V": {
+     "i_mA": 64.3,
+     "C_70": 0.92
+    },
+    "strips 2.80 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 0.5 V": {
+     "i_mA": 45.4,
+     "C_70": 0.65
+    },
+    "strips 2.80 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 1 V": {
+     "i_mA": 19.9,
+     "C_70": 0.28
+    },
+    "strips 2.80 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 1.2 V": {
+     "i_mA": 8.9,
+     "C_70": 0.13
+    }
+   },
+   "q8_single_fault": {
+    "strips 2.30 mm | 1.2 sun strings 0 C | Q8 open, MCU off (cell 3.0-3.40 V, VBAT_OK low): PV + USB": {
+     "pv_mA": 21.21,
+     "usb_mA": 32.74,
+     "C_70": 0.771,
+     "C_66": 0.818
+    },
+    "strips 2.30 mm | 1.2 sun strings 25 C | Q8 open, MCU off (cell 3.0-3.40 V, VBAT_OK low): PV + USB": {
+     "pv_mA": 18.67,
+     "usb_mA": 32.74,
+     "C_70": 0.734,
+     "C_66": 0.779
+    },
+    "strips 2.30 mm | 1.2 sun strings 45 C | Q8 open, MCU off (cell 3.0-3.40 V, VBAT_OK low): PV + USB": {
+     "pv_mA": 16.81,
+     "usb_mA": 32.74,
+     "C_70": 0.708,
+     "C_66": 0.751
+    },
+    "strips 2.80 mm | 1.2 sun strings 0 C | Q8 open, MCU off (cell 3.0-3.40 V, VBAT_OK low): PV + USB": {
+     "pv_mA": 21.83,
+     "usb_mA": 32.74,
+     "C_70": 0.78,
+     "C_66": 0.827
+    },
+    "strips 2.80 mm | 1.2 sun strings 25 C | Q8 open, MCU off (cell 3.0-3.40 V, VBAT_OK low): PV + USB": {
+     "pv_mA": 19.19,
+     "usb_mA": 32.74,
+     "C_70": 0.742,
+     "C_66": 0.787
+    },
+    "strips 2.80 mm | 1.2 sun strings 45 C | Q8 open, MCU off (cell 3.0-3.40 V, VBAT_OK low): PV + USB": {
+     "pv_mA": 17.27,
+     "usb_mA": 32.74,
+     "C_70": 0.715,
+     "C_66": 0.758
+    }
+   },
+   "vbat_ok_chatter": {
+    "strips 2.30 | 1 sun 25 C | VSTOR path typical 2.90 ohm": {
+     "i_mA": 15.6,
+     "step_mV": 45.0,
+     "hysteresis_mV": 91,
+     "chatter_possible": false
+    },
+    "strips 2.30 | 1 sun 25 C | VSTOR path max 25 C 3.75 ohm": {
+     "i_mA": 15.6,
+     "step_mV": 58.0,
+     "hysteresis_mV": 91,
+     "chatter_possible": false
+    },
+    "strips 2.30 | 1 sun 25 C | VSTOR path 0 C cell 5.25 ohm": {
+     "i_mA": 15.6,
+     "step_mV": 82.0,
+     "hysteresis_mV": 91,
+     "chatter_possible": false
+    },
+    "strips 2.30 | 1.2 sun 0 C | VSTOR path typical 2.90 ohm": {
+     "i_mA": 18.7,
+     "step_mV": 54.0,
+     "hysteresis_mV": 91,
+     "chatter_possible": false
+    },
+    "strips 2.30 | 1.2 sun 0 C | VSTOR path max 25 C 3.75 ohm": {
+     "i_mA": 18.7,
+     "step_mV": 70.0,
+     "hysteresis_mV": 91,
+     "chatter_possible": false
+    },
+    "strips 2.30 | 1.2 sun 0 C | VSTOR path 0 C cell 5.25 ohm": {
+     "i_mA": 18.7,
+     "step_mV": 98.0,
+     "hysteresis_mV": 91,
+     "chatter_possible": true
+    },
+    "strips 2.80 | 1 sun 25 C | VSTOR path typical 2.90 ohm": {
+     "i_mA": 16.1,
+     "step_mV": 47.0,
+     "hysteresis_mV": 91,
+     "chatter_possible": false
+    },
+    "strips 2.80 | 1 sun 25 C | VSTOR path max 25 C 3.75 ohm": {
+     "i_mA": 16.1,
+     "step_mV": 60.0,
+     "hysteresis_mV": 91,
+     "chatter_possible": false
+    },
+    "strips 2.80 | 1 sun 25 C | VSTOR path 0 C cell 5.25 ohm": {
+     "i_mA": 16.1,
+     "step_mV": 84.0,
+     "hysteresis_mV": 91,
+     "chatter_possible": false
+    },
+    "strips 2.80 | 1.2 sun 0 C | VSTOR path typical 2.90 ohm": {
+     "i_mA": 19.2,
+     "step_mV": 56.0,
+     "hysteresis_mV": 91,
+     "chatter_possible": false
+    },
+    "strips 2.80 | 1.2 sun 0 C | VSTOR path max 25 C 3.75 ohm": {
+     "i_mA": 19.2,
+     "step_mV": 72.0,
+     "hysteresis_mV": 91,
+     "chatter_possible": false
+    },
+    "strips 2.80 | 1.2 sun 0 C | VSTOR path 0 C cell 5.25 ohm": {
+     "i_mA": 19.2,
+     "step_mV": 101.0,
+     "hysteresis_mV": 91,
+     "chatter_possible": true
+    }
+   }
+  },
+  "o2_calc_stage1": {
+   "D15_corners_V_O2_1p6_to_max": {
+    "cold_stop": [
+     0.55,
+     4.1
+    ],
+    "cold_release": [
+     1.18,
+     4.78
+    ],
+    "hot_stop": [
+     34.58,
+     44.31
+    ],
+    "hot_release": [
+     32.23,
+     40.92
+    ]
+   },
+   "D15_margin_K": {
+    "cold": 0.55,
+    "hot": 0.69,
+    "rule": "no PV current outside 0-45 C: cold stop >= 0 C, hot stop <= 45 C at every corner (the lane's 0.5 K design margin is not met at 1.6 V)"
+   },
+   "D1_heartbeat": {
+    "circuit": "CHG_DIS (P0.09) -> C175 220 pF C0G -> O2_HB = Q16 gate; R176 1 MOhm to GND; Q16 drain on O2_G (C174 100 nF / R174 10 MOhm hold of Q14)",
+    "gate_peak_V_first_edge": [
+     1.113,
+     1.162,
+     1.195
+    ],
+    "gate_peak_V_next_edges": [
+     1.489,
+     1.538,
+     1.571
+    ],
+    "gate_tau_us": 266.0,
+    "time_above_1V_us": [
+     105.9,
+     114.5,
+     120.2
+    ],
+    "Q16_needs": ">= 1.0 V for a few us: PMZ290UNE2 VGSth 0.45-0.95 V at 250 uA (p.6); C174 needs only 30-300 nC per pulse (Q16 sinks mA)",
+    "static_level": "a static CHG_DIS level decays through R176 in 5 tau = 1.3 ms: no override from a stuck pin",
+    "pulse_rate_Hz": 10,
+    "pulse_width_us": 10,
+    "VGS_Q14_between_pulses_fraction": 0.881,
+    "release_after_last_pulse_s": {
+     "Vth_max": 0.639,
+     "Vth_min": 1.67,
+     "note": "Q14 opens when |VGS| decays below its threshold: the stage-0 'fault response' of the O-2 hold"
+    },
+    "cost_uW_E": {
+     "mcu_wake": 1.02,
+     "c174_topup_from_pv": 0.74,
+     "note": "E: one 15 us CPU wake per pulse (about 55 nC at 3.7 mA) and the C174 top-up at PV_SW 2.5 V; only while the firmware wants PV charging"
+    },
+    "states": {
+     "mcu_running_heartbeat": "Q16 refreshes the hold: Q14 on, the firmware governor (Q1 PV_INH + NTC reading + heartbeat stop) keeps 0-45 C",
+     "vbat_ok_high_no_heartbeat": "Q16 off and Q18 off (O-2 unpowered): Q14 off within the hold: no PV charging (reset, boot loop, halt, System OFF, power cycle)",
+     "vbat_ok_low": "buck and MCU off (VOUT_EN = VBAT_OK through R129): Q18 feeds the O-2 from the PV; the window comparators decide (stage 0 behaviour)"
+    },
+    "firmware_rules": [
+     "pulse CHG_DIS only in software (never PPI, a timer or PWM), 10 us at 10 Hz",
+     "only while CHG_PG_N is high (no head) and the last NTC reading is inside 0-45 C (0.5 K margin); stop on any out-of-window reading",
+     "never during an NTC reading (Q10 pulls the NTC node low for 10 us)",
+     "SHELF in System OFF does not harvest with a healthy cell; below VBAT_OK falling (3.31 V) the O-2 takes over (>= 711 lx)"
+    ]
+   },
+   "D4_hot_stop_with_NTC_EN_high_C": {
+    "range": [
+     46.34,
+     53.58
+    ],
+    "criterion": "hot stop <= 45 C",
+    "rule": "firmware: never drive NTC_EN while CHG_PG_N is low; ignore NTC_ADC while /PG is low (BASELINE 14 item 10, S1 D-4)"
+   },
+   "D11_cold_start_Q14_Vth_max": {
+    "VGS_needed_V_E": 0.854,
+    "I_cold_start_uA": 21.4,
+    "I_O2_uA": 19.1,
+    "PV_node_V_at_cold_start_plus_O2_load": {
+     "200": 0.0,
+     "500": 1.743,
+     "711": 1.851,
+     "1000": 1.927,
+     "2000": 2.049
+    },
+    "note": "Q14's gate sits at GND after an approval, so |VGS| = PV_SW: Q14 passes the cold-start current while PV_SW >= the value above. With the MCU off nothing harvests below the approval light anyway (711 lx); above it the PV node holds >= 1.4 V at the combined load, so a max-threshold Q14 does not throttle the cold start further (E; SIM-03 (a) to confirm)"
+   }
+  }
+ }
+}

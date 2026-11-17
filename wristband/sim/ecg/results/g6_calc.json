@@ -1,0 +1,185 @@
+{
+ "ac_leakage": {
+  "rows": [
+   {
+    "head": "UCC12050 reinforced",
+    "source": "Class II charger 0.25 mA class",
+    "NC_uA_10pF": 0.4966397084767584,
+    "NC_uA_typ": 0.24062027016688647,
+    "SFC_barrier_shorted_uA": 249.99955162540275,
+    "NC_pass": true,
+    "SFC_pass_as_written": true,
+    "SFC_margin_pct": 50.00008967491946
+   },
+   {
+    "head": "UCC12050 reinforced",
+    "source": "Class II charger 0.5 mA class",
+    "NC_uA_10pF": 0.4971335009507273,
+    "NC_uA_typ": 0.24073612214838677,
+    "SFC_barrier_shorted_uA": 499.99641303217146,
+    "NC_pass": true,
+    "SFC_pass_as_written": true,
+    "SFC_margin_pct": 0.000717393565711176
+   },
+   {
+    "head": "UCC12050 reinforced",
+    "source": "pass-through power bank on a 0.5 mA charger",
+    "NC_uA_10pF": 0.4971335009507273,
+    "NC_uA_typ": 0.24073612214838677,
+    "SFC_barrier_shorted_uA": 499.99641303217146,
+    "NC_pass": true,
+    "SFC_pass_as_written": true,
+    "SFC_margin_pct": 0.000717393565711176
+   },
+   {
+    "head": "UCC12050 reinforced",
+    "source": "mains on the applied part (IEC test, 264 V through the barrier)",
+    "NC_uA_10pF": 0.9952565526572463
+   },
+   {
+    "head": "UCC12040 basic",
+    "source": "Class II charger 0.25 mA class",
+    "NC_uA_10pF": 0.4966397084767584,
+    "NC_uA_typ": 0.24062027016688647,
+    "SFC_barrier_shorted_uA": 249.99955162540275,
+    "NC_pass": true,
+    "SFC_pass_as_written": true,
+    "SFC_margin_pct": 50.00008967491946
+   },
+   {
+    "head": "UCC12040 basic",
+    "source": "Class II charger 0.5 mA class",
+    "NC_uA_10pF": 0.4971335009507273,
+    "NC_uA_typ": 0.24073612214838677,
+    "SFC_barrier_shorted_uA": 499.99641303217146,
+    "NC_pass": true,
+    "SFC_pass_as_written": true,
+    "SFC_margin_pct": 0.000717393565711176
+   },
+   {
+    "head": "UCC12040 basic",
+    "source": "pass-through power bank on a 0.5 mA charger",
+    "NC_uA_10pF": 0.4971335009507273,
+    "NC_uA_typ": 0.24073612214838677,
+    "SFC_barrier_shorted_uA": 499.99641303217146,
+    "NC_pass": true,
+    "SFC_pass_as_written": true,
+    "SFC_margin_pct": 0.000717393565711176
+   },
+   {
+    "head": "UCC12040 basic",
+    "source": "mains on the applied part (IEC test, 264 V through the barrier)",
+    "NC_uA_10pF": 0.9952565526572463
+   }
+  ],
+  "misuse_non_isolated_cable_uA": [
+   249.99955162540275,
+   499.99641303217146
+  ],
+  "note": "band side adds nothing in series: the TVS D5-D7 clamp the electrode pads to GND ahead of the 330 k chains; AVDD off (Q9) does not open that path"
+ },
+ "vbus_lockout": {
+  "vb_det_at_head_min_V": 2.55,
+  "vbus_needed_for_lockout_V": 1.9,
+  "q9_overdrive_V": 1.5999999999999999,
+  "avdd_en_when_locked_uV": 4.090909090909091,
+  "gaps": [
+   "no lock-out while a head is on but not driving (pin check pending / failed) or reversed: VBUS = 0; leakage then = intact-barrier NC value"
+  ]
+ },
+ "reversed_head": {
+  "d13_conducts": false,
+  "d14_blocks": true,
+  "i_rev_uA": {
+   "25 C, 25 V spec max": 0.55,
+   "45 C (x2 per 10 K, estimate)": 2.2
+  },
+  "vbus_unclamped_V": {
+   "25 C, 25 V spec max": -1.1,
+   "45 C (x2 per 10 K, estimate)": -4.4
+  },
+  "vbus_typ_20nA_V": -0.04,
+  "u15_in_absmax_V": -0.3,
+  "note": "with max IR, -IR x 2 MOhm (R144 + R145) goes below -0.3 V until U15's IN diode conducts the uA (about -0.4 V): rating violated at uA level"
+ },
+ "root_short": {
+  "model": "point source in moulding (k 0.20 W/m K, rho c 1.8 MJ/m3K) 1.0 mm from the skin face, skin 34 -> 43 C; heat spreading in the copper ignored (conservative)",
+  "cases": [
+   {
+    "r_cell": 0.3,
+    "r_f1": 0.1,
+    "v_cell": 4.2,
+    "i_A": 2.8885832187070153,
+    "p_bridge_W": 8.343913011395781,
+    "pcm_trips": true,
+    "t_skin43_s": 0.5004168493598202
+   },
+   {
+    "r_cell": 0.3,
+    "r_f1": 0.1,
+    "v_cell": 3.7,
+    "i_A": 2.544704264099037,
+    "p_bridge_W": 6.475519791723822,
+    "pcm_trips": true,
+    "t_skin43_s": 0.5275394028493581
+   },
+   {
+    "r_cell": 0.3,
+    "r_f1": 0.5,
+    "v_cell": 4.2,
+    "i_A": 2.26537216828479,
+    "p_bridge_W": 5.13191106083933,
+    "pcm_trips": false,
+    "t_skin43_s": 0.5550236879952833
+   },
+   {
+    "r_cell": 0.3,
+    "r_f1": 0.5,
+    "v_cell": 3.7,
+    "i_A": 1.9956850053937432,
+    "p_bridge_W": 3.9827586407534246,
+    "pcm_trips": false,
+    "t_skin43_s": 0.5882869548803219
+   },
+   {
+    "r_cell": 1.0,
+    "r_f1": 0.1,
+    "v_cell": 4.2,
+    "i_A": 1.9498607242339834,
+    "p_bridge_W": 3.801956843910274,
+    "pcm_trips": false,
+    "t_skin43_s": 0.5948009126355367
+   },
+   {
+    "r_cell": 1.0,
+    "r_f1": 0.1,
+    "v_cell": 3.7,
+    "i_A": 1.7177344475394616,
+    "p_bridge_W": 2.9506116322636995,
+    "pcm_trips": false,
+    "t_skin43_s": 0.632922124978931
+   },
+   {
+    "r_cell": 1.0,
+    "r_f1": 0.5,
+    "v_cell": 4.2,
+    "i_A": 1.644479248238058,
+    "p_bridge_W": 2.704311997885608,
+    "pcm_trips": false,
+    "t_skin43_s": 0.6471298652483031
+   },
+   {
+    "r_cell": 1.0,
+    "r_f1": 0.5,
+    "v_cell": 3.7,
+    "i_A": 1.4487079091620987,
+    "p_bridge_W": 2.0987546060688196,
+    "pcm_trips": false,
+    "t_skin43_s": 0.6921341651149167
+   }
+  ],
+  "i_min_A": 1.4487079091620987,
+  "t_min_s": 0.5004168493598202,
+  "requirement": "F1 must clear 1.45-2.89 A within 0.50 s; PCM IOV1 2.5 A min trips only in part of the cases"
+ }
+}

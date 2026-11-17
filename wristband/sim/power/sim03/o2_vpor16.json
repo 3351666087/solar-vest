@@ -1,0 +1,8 @@
+{
+ "VPOR 1.60 V | wing 1 | strips 2.30 mm": {
+  "lux_for_21p4uA_through_O2": 460.0
+ },
+ "VPOR 1.60 V | wing 0 | strips 2.30 mm": {
+  "lux_for_21p4uA_through_O2": 1080.0
+ }
+}

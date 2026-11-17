@@ -1,0 +1,37 @@
+{
+ "pinet": "A:DNP | S:7.6 nH (LQW15AN7N6G80D, C2048575) | B:4.3 nH (LQW15AN4N3B80D, C471381)",
+ "cases": {
+  "body as built": [
+   12.29,
+   -10.44
+  ],
+  "body as modelled (E)": [
+   9.78,
+   -6.97
+  ],
+  "corner D": [
+   4.59,
+   -2.7
+  ],
+  "hand": [
+   1.43,
+   -1.22
+  ],
+  "free (est.)": [
+   39.5,
+   -11.04
+  ]
+ },
+ "mc": {
+  "n": 600,
+  "s_mech": 0.6,
+  "eta_min_median": 0.10358529681172804,
+  "p5": 0.0768857565510685,
+  "yield_ge_1pct": 1.0,
+  "yield_ge_5pct": 1.0,
+  "RL_body_median": 7.835512440898091,
+  "RL_body_p5": 4.7980669725419824,
+  "yield_S11_le_m10": 0.19,
+  "yield_free_S11_le_m6": 1.0
+ }
+}

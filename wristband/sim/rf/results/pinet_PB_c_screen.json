@@ -1,0 +1,16 @@
+{
+ "shuntA": [
+  "C",
+  1e-12,
+  "GJM1555C1H1R0WB01.s2p"
+ ],
+ "ser": [
+  "L",
+  8.199999999999999e-09,
+  "LQG15HS8N2G02.s2p"
+ ],
+ "shuntB": null,
+ "desc": "A:1 pF (GJM1555C1H1R0WB01) | S:8.2 nH (LQG15HS8N2G02) | B:DNP",
+ "l_b_mm": 12.0,
+ "from_tag": "PB_c_screen"
+}

@@ -1,0 +1,5 @@
+# Python packages for the grow8 engine (pip, into tree/venv). Python 3.11 or newer (Ubuntu 24.04: 3.12, as tested on the laptop)
+numpy==2.5.4
+scipy==1.18.1
+shapely==2.2.0
+matplotlib==3.11.2

@@ -1,0 +1,6 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "easyeda") (type "KiCad") (uri "${KIPRJMOD}/../../lib/easyeda.pretty") (options "") (descr "EasyEDA-derived footprints, one per LCSC C-number (raw easyeda2kicad conversion, cplgate G4 reference)"))
+  (lib (name "easyeda_rev") (type "KiCad") (uri "${KIPRJMOD}/../../lib/easyeda_rev.pretty") (options "") (descr "reviewed copy used by the board: same copper, fixed paste/courtyard/holes/fields (tools/review_footprints.py)"))
+  (lib (name "solarband") (type "KiCad") (uri "${KIPRJMOD}/../../lib/solarband.pretty") (options "") (descr "copper-only pads, net ties, fiducials, printed-radiator placeholder"))
+)

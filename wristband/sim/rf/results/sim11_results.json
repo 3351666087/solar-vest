@@ -1,0 +1,112 @@
+{
+ "sim10_source": "results/eta_search_PA_f.json",
+ "directivity_source": "results/eta_search_PA_f.json",
+ "inputs": {
+  "P_tx_band_dBm": {
+   "value": 4.0,
+   "source": "nRF52832 max TX power, PS v1.x [BLE lane, datasheet]"
+  },
+  "sens_band_dBm": {
+   "value": -96.0,
+   "source": "nRF52832 BLE 1 Msps sensitivity, PS v1.x [BLE lane, datasheet]"
+  },
+  "P_tx_phone_dBm": {
+   "value": 4.0,
+   "source": "assumed equal to the band (typical phones 0..+10 dBm) [E]"
+  },
+  "sens_phone_dBm": {
+   "value": -96.0,
+   "source": "assumed equal to the band (typical phones -90..-97 dBm) [E]"
+  },
+  "G_phone_dBi": {
+   "value": -5.0,
+   "source": "ARCHITECTURE \u00a79 SIM-11 criterion"
+  },
+  "body_shadow_dB": {
+   "value": 15.0,
+   "source": "ARCHITECTURE \u00a79 SIM-11 criterion"
+  },
+  "distance_m": {
+   "value": 2.0,
+   "source": "ARCHITECTURE \u00a79 SIM-11 criterion"
+  },
+  "IL_nordic_match_dB": {
+   "value": 0.24436937848360593,
+   "source": "SIM-09, Murata S2P + lands, worst in 2.402-2.480 GHz"
+  }
+ },
+ "rows": [
+  {
+   "f_GHz": 2.4,
+   "direction": "band->phone",
+   "eta_tot_body": 0.012980698148509204,
+   "G_mean_dBi": -18.86701948992406,
+   "D_max_dBi": null,
+   "G_peak_dBi": null,
+   "FSPL_dB": 46.07260796939512,
+   "P_rx_dBm": -81.1839968378028,
+   "margin_dB": 14.816003162197205
+  },
+  {
+   "f_GHz": 2.4,
+   "direction": "phone->band",
+   "eta_tot_body": 0.012980698148509204,
+   "G_mean_dBi": -18.86701948992406,
+   "D_max_dBi": null,
+   "G_peak_dBi": null,
+   "FSPL_dB": 46.07260796939512,
+   "P_rx_dBm": -81.1839968378028,
+   "margin_dB": 14.816003162197205
+  },
+  {
+   "f_GHz": 2.44,
+   "direction": "band->phone",
+   "eta_tot_body": 0.014304000172141992,
+   "G_mean_dBi": -18.445424933216252,
+   "D_max_dBi": null,
+   "G_peak_dBi": null,
+   "FSPL_dB": 46.21617966193759,
+   "P_rx_dBm": -80.90597397363744,
+   "margin_dB": 15.094026026362556
+  },
+  {
+   "f_GHz": 2.44,
+   "direction": "phone->band",
+   "eta_tot_body": 0.014304000172141992,
+   "G_mean_dBi": -18.445424933216252,
+   "D_max_dBi": null,
+   "G_peak_dBi": null,
+   "FSPL_dB": 46.21617966193759,
+   "P_rx_dBm": -80.90597397363744,
+   "margin_dB": 15.094026026362556
+  },
+  {
+   "f_GHz": 2.48,
+   "direction": "band->phone",
+   "eta_tot_body": 0.01293555833867536,
+   "G_mean_dBi": -18.882148210508394,
+   "D_max_dBi": null,
+   "G_peak_dBi": null,
+   "FSPL_dB": 46.35741675168732,
+   "P_rx_dBm": -81.48393434067933,
+   "margin_dB": 14.516065659320674
+  },
+  {
+   "f_GHz": 2.48,
+   "direction": "phone->band",
+   "eta_tot_body": 0.01293555833867536,
+   "G_mean_dBi": -18.882148210508394,
+   "D_max_dBi": null,
+   "G_peak_dBi": null,
+   "FSPL_dB": 46.35741675168732,
+   "P_rx_dBm": -81.48393434067933,
+   "margin_dB": 14.516065659320674
+  }
+ ],
+ "worst_margin_dB": 14.516065659320674,
+ "pass_ge_10dB": true,
+ "with_3dB_polarization_loss_margin_dB": 11.516065659320674,
+ "range_for_10dB_margin_m": 3.3638241069456227,
+ "range_for_0dB_margin_m_free_space_slope": 10.637345826129991,
+ "note": "free-space path loss; indoor multipath can add or remove ~10 dB; the 15 dB body shadow is the ARCHITECTURE allowance, not a simulated value (the phantom in SIM-10 covers only the wrist)."
+}

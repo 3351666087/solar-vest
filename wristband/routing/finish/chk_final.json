@@ -1,0 +1,483 @@
+{
+ "variant": "v3f",
+ "zones": "L41W34_fold1p9_fpcdwg_jointzif_raise0p15",
+ "opts": [
+  "gap=dru",
+  "jlc=full",
+  "ufpc"
+ ],
+ "gap_rule": "dru",
+ "placement": "placement.json",
+ "board_mm": [
+  40.0,
+  34.0
+ ],
+ "J2_J3": {
+  "Q20_drain_pad": [
+   5.3,
+   21.4
+  ],
+  "Q20_drain_vs_J18_direction_deg": 36.3,
+  "D15_J18_courtyard_gap_mm": 0.693
+ },
+ "hard": {
+  "courtyard_overlaps": [],
+  "zone_violations": {},
+  "plate_violations": {},
+  "bshadow_violations": {},
+  "ecg_violations": {},
+  "anchor_violations": {},
+  "pad_gap_violations": [],
+  "critical_pair_violations": [],
+  "no_legal_spot": [],
+  "j2_j3_violations": {}
+ },
+ "legal": true,
+ "legal_and_critical_pairs_within_limits": true,
+ "jlc_spacing_table": {
+  "source": "jlcpcb.com/help/article/minimum-spacing-for-smd-components (updated 2026-09-09; read 2026-11-12 and 2026-11-15)",
+  "mode_enforced": "full",
+  "pairs_below_the_recommended_table": 0,
+  "by_class_pair": {},
+  "pairs": []
+ },
+ "info": {
+  "centre_line_courtyard_overlaps": [],
+  "ecg_min_distance_movable_mm": 8.0,
+  "ecg_fixed_feature_conflicts": {
+   "J16-D6": 7.09,
+   "J16-R303": 4.95,
+   "J16-J11": 6.1,
+   "J16-TP5": 4.7,
+   "J13-E21": 7.74
+  },
+  "min_pad_gap_mm": 0.16,
+  "min_pad_gap_pair": [
+   "AE1",
+   "L204"
+  ],
+  "anchors": {
+   "AE1": {
+    "courtyard": [
+     0.214,
+     -0.045,
+     5.045,
+     3.045
+    ],
+    "cad_zone": null,
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 3.799
+   },
+   "C215": {
+    "courtyard": [
+     2.45,
+     3.1,
+     3.63,
+     5.02
+    ],
+    "cad_zone": null,
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "D10": {
+    "courtyard": [
+     16.0,
+     0.0,
+     20.3,
+     1.77
+    ],
+    "cad_zone": "D10",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "J10": {
+    "courtyard": [
+     8.1,
+     30.9,
+     9.6,
+     33.9
+    ],
+    "cad_zone": "land_A",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "J11": {
+    "courtyard": [
+     38.34,
+     5.79,
+     40.06,
+     9.45
+    ],
+    "cad_zone": "J11_land",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.22
+   },
+   "J13": {
+    "courtyard": [
+     23.521,
+     7.37,
+     27.821,
+     15.03
+    ],
+    "cad_zone": "J13_land",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "J15": {
+    "courtyard": [
+     0.14,
+     18.44,
+     1.86,
+     22.1
+    ],
+    "cad_zone": "J15_land",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "J16": {
+    "courtyard": [
+     32.4,
+     3.95,
+     35.2,
+     5.85
+    ],
+    "cad_zone": "J16_land",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "J17": {
+    "courtyard": [
+     32.8,
+     28.7,
+     35.7,
+     30.5
+    ],
+    "cad_zone": "J17_zone",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "J18": {
+    "courtyard": [
+     0.29,
+     22.49,
+     2.01,
+     26.15
+    ],
+    "cad_zone": "J18_land",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "J19": {
+    "courtyard": [
+     36.54,
+     1.09,
+     38.26,
+     4.75
+    ],
+    "cad_zone": "frame_gnd_land",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "J3": {
+    "courtyard": [
+     3.6,
+     30.9,
+     5.1,
+     33.9
+    ],
+    "cad_zone": "land_A",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "J4": {
+    "courtyard": [
+     5.1,
+     30.9,
+     6.6,
+     33.9
+    ],
+    "cad_zone": "land_A",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "J40": {
+    "courtyard": [
+     0.98,
+     0.43,
+     4.98,
+     2.43
+    ],
+    "cad_zone": null,
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.124
+   },
+   "J5": {
+    "courtyard": [
+     6.6,
+     30.9,
+     8.1,
+     33.9
+    ],
+    "cad_zone": "land_A",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "J6": {
+    "courtyard": [
+     26.6,
+     21.1,
+     29.1,
+     25.6
+    ],
+    "cad_zone": "J6_land",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "J7": {
+    "courtyard": [
+     12.5,
+     0.1,
+     14.0,
+     3.1
+    ],
+    "cad_zone": "land_B",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "J9": {
+    "courtyard": [
+     14.0,
+     0.1,
+     15.5,
+     3.1
+    ],
+    "cad_zone": "land_B",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "L204": {
+    "courtyard": [
+     3.72,
+     3.26,
+     4.68,
+     4.98
+    ],
+    "cad_zone": null,
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   },
+   "SW1": {
+    "courtyard": [
+     36.75,
+     11.25,
+     40.79,
+     16.75
+    ],
+    "cad_zone": "SW1",
+    "outside_own_zone_mm2": 4.345,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 4.345
+   },
+   "U10": {
+    "courtyard": [
+     3.09,
+     22.8,
+     6.01,
+     25.3
+    ],
+    "cad_zone": "U10_island",
+    "outside_own_zone_mm2": 0.0,
+    "on_other_zero_zone_mm2": 0.0,
+    "beyond_board_edge_mm2": 0.0
+   }
+  }
+ },
+ "gate1_metric": {
+  "convention": "placement = board - 0.5 mm edge band - antenna 15 - fixed features - motor cut-out - 6 post feet - CAD-only no-part features (v3/cad/src/options_table.py areas(), v3/design/tools/area_check.py); utilisation = courtyard / placement; v1 = x 399.5 / 360.7; limit 0.62",
+  "placement_mm2": 1026.0,
+  "fixed_features_mm2": 66.8,
+  "cad": {
+   "inner_mm2": 1273.2,
+   "cad_fixed_zones_mm2": 151.2,
+   "dead_zones_mm2": 183.7,
+   "free_mm2": 938.4,
+   "free_by_h_max_mm2": {
+    "0.55": 57.8,
+    "0.7": 4.7,
+    "0.9": 395.1,
+    "1.2": 356.9,
+    "1.05": 123.9
+   },
+   "cad_only_mm2": 88.7,
+   "motor_cut_mm2": 66.2,
+   "fixed_features_mm2": 66.8,
+   "placement_stage1_convention_mm2": 1026.0
+  },
+  "under_fpc_refs": [
+   "FID1",
+   "FID2",
+   "J12"
+  ],
+  "project_count": {
+   "courtyard_mm2": 557.5,
+   "utilisation_project": 0.543,
+   "utilisation_v1": 0.602,
+   "pass_project": true,
+   "pass_v1": true,
+   "courtyard_that_fits_at_0p62_project_mm2": 636.1,
+   "courtyard_that_fits_at_0p62_v1_mm2": 574.3,
+   "slack_to_0p62_project_mm2": 78.6,
+   "slack_to_0p62_v1_mm2": 16.8
+  },
+  "pcb_count_with_dnp_lands_and_fiducials": {
+   "courtyard_mm2": 564.8,
+   "utilisation_project": 0.55,
+   "utilisation_v1": 0.61,
+   "pass_project": true,
+   "pass_v1": true,
+   "courtyard_that_fits_at_0p62_project_mm2": 636.1,
+   "courtyard_that_fits_at_0p62_v1_mm2": 574.3,
+   "slack_to_0p62_project_mm2": 71.3,
+   "slack_to_0p62_v1_mm2": 9.6
+  },
+  "v1_measured_directly": {
+   "note": "sum of pcbnew courtyard bounding boxes / placement (this part mix: x 1.101 instead of x 1.108)",
+   "project_count": 0.598,
+   "pcb_count": 0.607
+  },
+  "tall_zone_baseline_convention": {
+   "tall_courtyard_mm2": 220.2,
+   "tall_zone_mm2": 619.7,
+   "utilisation_project": 0.355,
+   "utilisation_v1": 0.394
+  },
+  "pass_both_project_count": true,
+  "pass_both_pcb_count": true
+ },
+ "zones_geometric": {
+  "note": "free = zone inside the edge band minus keep-outs, no-part zones and anchor courtyards; movable = every sky-side courtyard the annealer places (JLC parts, DNP lands, test pads, SWD group, fiducials)",
+  "by_h_max": {
+   "0.55": {
+    "region_mm2": 57.8,
+    "anchors_mm2": 0.0,
+    "free_for_movable_mm2": 57.8,
+    "movable_courtyard_mm2": 17.3,
+    "movable_bbox_mm2": 19.8,
+    "utilisation_project": 0.299,
+    "utilisation_v1_bbox": 0.343,
+    "remaining_mm2": 40.5,
+    "parts": 13
+   },
+   "0.70": {
+    "region_mm2": 4.7,
+    "anchors_mm2": 1.7,
+    "free_for_movable_mm2": 3.0,
+    "movable_courtyard_mm2": 0.4,
+    "movable_bbox_mm2": 0.5,
+    "utilisation_project": 0.125,
+    "utilisation_v1_bbox": 0.157,
+    "remaining_mm2": 2.6,
+    "parts": 0
+   },
+   "0.90": {
+    "region_mm2": 432.2,
+    "anchors_mm2": 35.1,
+    "free_for_movable_mm2": 397.1,
+    "movable_courtyard_mm2": 176.8,
+    "movable_bbox_mm2": 198.5,
+    "utilisation_project": 0.445,
+    "utilisation_v1_bbox": 0.5,
+    "remaining_mm2": 220.3,
+    "parts": 89
+   },
+   "1.20": {
+    "region_mm2": 406.6,
+    "anchors_mm2": 32.0,
+    "free_for_movable_mm2": 374.6,
+    "movable_courtyard_mm2": 209.1,
+    "movable_bbox_mm2": 230.3,
+    "utilisation_project": 0.558,
+    "utilisation_v1_bbox": 0.615,
+    "remaining_mm2": 165.5,
+    "parts": 80
+   },
+   "1.05": {
+    "region_mm2": 160.9,
+    "anchors_mm2": 33.9,
+    "free_for_movable_mm2": 127.0,
+    "movable_courtyard_mm2": 47.2,
+    "movable_bbox_mm2": 53.8,
+    "utilisation_project": 0.372,
+    "utilisation_v1_bbox": 0.424,
+    "remaining_mm2": 79.8,
+    "parts": 28
+   },
+   "under_fpc_run": {
+    "region_mm2": 42.2,
+    "anchors_mm2": 0.0,
+    "free_for_movable_mm2": 42.2,
+    "movable_courtyard_mm2": 6.2,
+    "movable_bbox_mm2": 6.7,
+    "utilisation_project": 0.148,
+    "utilisation_v1_bbox": 0.159,
+    "remaining_mm2": 36.0,
+    "parts": 1
+   }
+  },
+  "total": {
+   "free_for_movable_mm2": 1001.7,
+   "movable_courtyard_mm2": 457.0,
+   "utilisation_project": 0.456,
+   "utilisation_v1_bbox": 0.509
+  }
+ },
+ "over_plates": {
+  "n": 34,
+  "not_in_plate_ok": [
+   "C204",
+   "C205",
+   "C209",
+   "C305",
+   "C306",
+   "C307",
+   "C308",
+   "D15",
+   "Q20",
+   "R160",
+   "R165",
+   "R176",
+   "R302",
+   "R501",
+   "R503",
+   "R509",
+   "R510",
+   "U7"
+  ]
+ },
+ "counts": {
+  "sky": 232,
+  "movable": 211,
+  "anchors_sky": 21,
+  "jlc_placed_sky": 204
+ },
+ "wl_hpwl_mm": 1792.0
+}

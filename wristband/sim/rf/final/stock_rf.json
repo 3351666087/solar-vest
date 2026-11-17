@@ -1,0 +1,45 @@
+{
+ "queried_utc": "2026-11-16T19:12:14+00:00",
+ "rows": [
+  {
+   "lcsc": "C2048575",
+   "mpn": "LQW15AN7N6G80D",
+   "stock": 6846,
+   "can_presale": 6810,
+   "library": "Extended",
+   "not_smt": false
+  },
+  {
+   "lcsc": "C471381",
+   "mpn": "LQW15AN4N3B80D",
+   "stock": 21380,
+   "can_presale": 21321,
+   "library": "Extended",
+   "not_smt": false
+  },
+  {
+   "lcsc": "C5788422",
+   "mpn": "LQW15AN8N4G80D",
+   "stock": 8457,
+   "can_presale": 8457,
+   "library": "Extended",
+   "not_smt": false
+  },
+  {
+   "lcsc": "C2044544",
+   "mpn": "LQW15AN7N2G80D",
+   "stock": 6627,
+   "can_presale": 6615,
+   "library": "Extended",
+   "not_smt": false
+  },
+  {
+   "lcsc": "C412281",
+   "mpn": "LQW15AN4N1G80D",
+   "stock": 10346,
+   "can_presale": 10319,
+   "library": "Extended",
+   "not_smt": false
+  }
+ ]
+}

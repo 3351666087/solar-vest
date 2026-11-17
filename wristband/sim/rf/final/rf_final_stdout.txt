@@ -1,0 +1,104 @@
+parts_in_force_9n0_6n2 {'body as built': (5.07, -1.66), 'body as modelled (E)': (6.79, -2.28), 'corner D': (7.1, -4.1), 'hand': (1.2, -1.06), 'free (est.)': (11.97, -1.76)}
+prechecks_retune_7n2_7n2_5n2 {'body as built': (9.62, -3.25), 'body as modelled (E)': (12.09, -4.96), 'corner D': (8.98, -6.69), 'hand': (1.55, -1.39), 'free (est.)': (22.28, -3.46)}
+nets 2388148 meeting S11 rule 897
+chosen: A:8.4 nH (LQW15AN8N4G80D, C5788422) | S:7.2 nH (LQW15AN7N2G80D, C2044544) | B:4.1 nH (LQW15AN4N1G80D, C412281)
+{'body as built': (12.28, -10.01), 'body as modelled (E)': (9.81, -7.38), 'corner D': (4.64, -2.93), 'hand': (1.48, -1.34), 'free (est.)': (39.3, -10.69)}
+mc {"n": 600, "s_mech": 0.6, "eta_min_median": 0.10313566881216138, "p5": 0.07825418738048817, "yield_ge_1pct": 1.0, "yield_ge_5pct": 1.0, "RL_body_median": 8.065695603691108, "RL_body_p5": 5.093067035864757, "yield_S11_le_m10": 0.20166666666666666, "yield_free_S11_le_m6": 1.0} 
+mc full {"n": 600, "s_mech": 1.0, "eta_min_median": 0.0857082515653664, "p5": 0.0495472196386868, "yield_ge_1pct": 1.0, "yield_ge_5pct": 0.945, "RL_body_median": 5.98514398063222, "RL_body_p5": 3.0548335545498375, "yield_S11_le_m10": 0.11666666666666667, "yield_free_S11_le_m6": 1.0} 
+inforce mc {"n": 600, "s_mech": 0.6, "eta_min_median": 0.0546960027653426, "p5": 0.04284009074353724, "yield_ge_1pct": 1.0, "yield_ge_5pct": 0.745, "RL_body_median": 2.064533497476179, "RL_body_p5": 1.5615297849151852, "yield_S11_le_m10": 0.0, "yield_free_S11_le_m6": 0.0} 
+pre mc {"n": 600, "s_mech": 0.6, "eta_min_median": 0.10389976401269238, "p5": 0.08153737807261525, "yield_ge_1pct": 1.0, "yield_ge_5pct": 1.0, "RL_body_median": 4.5678063428359925, "RL_body_p5": 3.007941365313534, "yield_S11_le_m10": 0.0, "yield_free_S11_le_m6": 0.0}
+sens {'stub edge-to-edge 0.50': (10.55, -7.76), 'l_b +0.1': (12.44, -8.96), 'line Z x0.9': (12.24, -9.89), 'line Z x1.1': (12.3, -9.92)} 
+link {"IL_nordic_dB": 0.24436937848360593, "check_model_in_force_12p6pct": 24.55, "chosen": {"body as built": 24.58, "body as modelled (E)": 23.6, "corner D": 20.35, "hand": 15.11, "free (est.)": 29.34}, "parts_in_force": {"body as built": 20.45, "body as modelled (E)": 21.72, "corner D": 21.91, "hand": 14.21, "free (est.)": 24.18}, "prechecks_retune": {"body as built": 23.23, "body as modelled (E)": 24.38, "corner D": 23.15, "hand": 15.32, "free (est.)": 26.88}, "chosen_mc_p5_eta": 22.47}
+{
+"n": 2388148,
+"n_meeting_rule": 897,
+"rule": "S11 body <= -10 dB and free <= -6 dB in 2.40-2.48 GHz (as-built body / free), then highest S11 tolerance yield among the 25 best by body eta",
+"top_eta": {
+"pinet": "A:0.6 pF (GJM1555C1HR60WB01) | S:6.2 nH (LQW15AN6N2B80D, C668465) | B:5.2 nH (LQW15AN5N2B80D, C2048612)",
+"eta_b": 0.12388727553665653,
+"RLb": 10.130450887518762,
+"RLf": 10.899271268383718
+},
+"candidates": [
+{
+"pinet": "A:0.3 pF (GJM1555C1HR30WB01) | S:7.3 nH (LQW15AN7N3G80D, C2042200) | B:4.6 nH (LQW15AN4N6G80D, C412336)",
+"eta_b": 0.1234,
+"RLb": 10.18,
+"RLf": 10.65,
+"y_S11": 0.225,
+"y5": 1.0
+},
+{
+"pinet": "A:0.4 pF (GJM1555C1HR40WB01) | S:7.2 nH (LQW15AN7N2G80D, C2044544) | B:4.7 nH (LQW15AN4N7G80D, C412337)",
+"eta_b": 0.1232,
+"RLb": 10.15,
+"RLf": 10.54,
+"y_S11": 0.22,
+"y5": 1.0
+},
+{
+"pinet": "A:0.3 pF (GJM1555C1HR30WB01) | S:7.2 nH (LQW15AN7N2G80D, C2044544) | B:4.6 nH (LQW15AN4N6G80D, C412336)",
+"eta_b": 0.1231,
+"RLb": 10.47,
+"RLf": 11.05,
+"y_S11": 0.22,
+"y5": 1.0
+},
+{
+"pinet": "A:0.4 pF (GJM1555C1HR40WB01) | S:7.1 nH (LQW15AN7N1G80D, C2043904) | B:4.7 nH (LQW15AN4N7G80D, C412337)",
+"eta_b": 0.1229,
+"RLb": 10.51,
+"RLf": 11.01,
+"y_S11": 0.22,
+"y5": 1.0
+},
+{
+"pinet": "A:8.9 nH (LQW15AN8N9G80D, C3224011) | S:7.3 nH (LQW15AN7N3G80D, C2042200) | B:4.1 nH (LQW15AN4N1G80D, C412281)",
+"eta_b": 0.1227,
+"RLb": 10.1,
+"RLf": 10.76,
+"y_S11": 0.215,
+"y5": 1.0
+},
+{
+"pinet": "A:9.0 nH (LQW15AN9N0G80D, C6652901) | S:7.3 nH (LQW15AN7N3G80D, C2042200) | B:4.1 nH (LQW15AN4N1G80D, C412281)",
+"eta_b": 0.1227,
+"RLb": 10.13,
+"RLf": 10.81,
+"y_S11": 0.21,
+"y5": 1.0
+},
+{
+"pinet": "A:9.9 nH (LQW15AN9N9G80D, C2044471) | S:7.6 nH (LQW15AN7N6G80D, C2048575) | B:4.1 nH (LQW15AN4N1G80D, C412281)",
+"eta_b": 0.1225,
+"RLb": 10.1,
+"RLf": 10.64,
+"y_S11": 0.215,
+"y5": 1.0
+},
+{
+"pinet": "A:8.4 nH (LQW15AN8N4G80D, C5788422) | S:7.2 nH (LQW15AN7N2G80D, C2044544) | B:4.1 nH (LQW15AN4N1G80D, C412281)",
+"eta_b": 0.1228,
+"RLb": 10.01,
+"RLf": 10.69,
+"y_S11": 0.205,
+"y5": 1.0
+},
+{
+"pinet": "A:8.2 nH (LQW15AN8N2G80D, C307610) | S:7.1 nH (LQW15AN7N1G80D, C2043904) | B:4.1 nH (LQW15AN4N1G80D, C412281)",
+"eta_b": 0.1228,
+"RLb": 10.01,
+"RLf": 10.73,
+"y_S11": 0.195,
+"y5": 1.0
+},
+{
+"pinet": "A:0.3 pF (GJM1555C1HR30WB01) | S:7.1 nH (LQW15AN7N1G80D, C2043904) | B:4.6 nH (LQW15AN4N6G80D, C412336)",
+"eta_b": 0.1228,
+"RLb": 10.73,
+"RLf": 11.43,
+"y_S11": 0.205,
+"y5": 1.0
+}
+]
+}

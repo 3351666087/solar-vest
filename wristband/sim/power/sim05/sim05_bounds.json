@@ -1,0 +1,651 @@
+{
+ "meta": {
+  "mode": "bounds",
+  "date": "2026-11-15",
+  "model": "v3_energy (SIM-05 conventions) via baseline_calc_v3f.py; all values E (model estimates)"
+ },
+ "41x32 strips 2.30 mm": {
+  "energy": {
+   "usable_mWh": 220.1,
+   "loads_uW": {
+    "MON_lit": 266.6,
+    "MON_dark": 238.5,
+    "MON_dark_always_on": 276.2,
+    "MON_max": 254.0,
+    "MON_max_always_on": 334.9,
+    "MON_worst": 418.3,
+    "MON_worst_always_on": 499.3,
+    "RAW_WC": 355.5,
+    "RAW_WC_worst": 588.3,
+    "ECO": 93.6,
+    "ECO_V3_convention": 77.2,
+    "SHELF": 35.5,
+    "SHIP": 26.0
+   },
+   "T1_dark_d": 38.5,
+   "T1_dark_always_on_face_d": 33.2,
+   "T1_max_currents_d": 36.1,
+   "T1_max_currents_always_on_face_d": 27.4,
+   "T1_worst_stack_d": 21.9,
+   "T1_worst_stack_always_on_face_d": 18.4,
+   "RAW_WC_d": 25.8,
+   "RAW_WC_worst_stack_d": 15.6,
+   "T2_ECO_d": 98.0,
+   "T3_min_day_045sun": 11.6,
+   "T3_overcast_min_day_01sun": 49.0,
+   "T4_ECO_1000lx_10h": 0.86,
+   "T2_ECO_V3_convention_d": 119.0,
+   "T4_ECO_V3_convention": 1.04,
+   "T6_SHELF_d": 259.0,
+   "T6_SHIP_d": 353.0,
+   "pv_table": "LID2+WR31@R12 strips 2.30 mm",
+   "T5_indoor_300lx_10h_days_from_full": 36.6,
+   "T5_fraction_of_MON_covered_pct": 5.9,
+   "T7_h": {
+    "KISET 270: 26.5 mA, VREG 4.10 V": 2.34,
+    "KISET 300: 29.4 mA, VREG 4.10 V": 2.14,
+    "KISET 330: 32.4 mA, VREG 4.10 V": 1.98,
+    "KISET 270, VREG 4.067 V (-0.8 %)": 2.71,
+    "KISET 270, VREG -0.8 %, cold 5-10 C cell (ohmic 1.5, RC x2.5)": 3.15
+   },
+   "usb_c_rate_typ_max": [
+    0.42,
+    0.462
+   ],
+   "ten_min_topup_days_of_MON": 2.84,
+   "weeks_from_50pct": {
+    "W1_office": {
+     "harvest_mWh_day": 14.04,
+     "load_mWh_day": 6.06,
+     "min_soc": 0.492,
+     "end_soc": 0.754,
+     "days_to_empty_from_50pct": "energy-positive",
+     "days_from_full_if_negative": "energy-positive"
+    },
+    "W2_indoor_300lx": {
+     "harvest_mWh_day": 0.378,
+     "load_mWh_day": 5.89,
+     "min_soc": 0.325,
+     "end_soc": 0.325,
+     "days_to_empty_from_50pct": 20.0,
+     "days_from_full_if_negative": 39.9
+    },
+    "W3_bright_1000lx": {
+     "harvest_mWh_day": 1.928,
+     "load_mWh_day": 5.89,
+     "min_soc": 0.374,
+     "end_soc": 0.374,
+     "days_to_empty_from_50pct": 27.8,
+     "days_from_full_if_negative": 55.6
+    },
+    "W4_sun_20min": {
+     "harvest_mWh_day": 11.043,
+     "load_mWh_day": 5.525,
+     "min_soc": 0.487,
+     "end_soc": 0.675,
+     "days_to_empty_from_50pct": "energy-positive",
+     "days_from_full_if_negative": "energy-positive"
+    },
+    "W5_dark": {
+     "harvest_mWh_day": 0.0,
+     "load_mWh_day": 5.494,
+     "min_soc": 0.325,
+     "end_soc": 0.325,
+     "days_to_empty_from_50pct": 20.0,
+     "days_from_full_if_negative": 40.1
+    },
+    "W6_campus": {
+     "harvest_mWh_day": 11.754,
+     "load_mWh_day": 5.912,
+     "min_soc": 0.487,
+     "end_soc": 0.686,
+     "days_to_empty_from_50pct": "energy-positive",
+     "days_from_full_if_negative": "energy-positive"
+    },
+    "W7_low_outdoor_office": {
+     "harvest_mWh_day": 1.063,
+     "load_mWh_day": 6.046,
+     "min_soc": 0.342,
+     "end_soc": 0.342,
+     "days_to_empty_from_50pct": 22.1,
+     "days_from_full_if_negative": 44.2
+    }
+   },
+   "off_wrist_hours_per_30d_indoor_only": [
+    1.49,
+    1.76
+   ],
+   "harvest_uW": {
+    "sun045": 33129.8,
+    "ovc01": 7807.9,
+    "lux300": 37.8,
+    "lux1000": 192.8,
+    "lux200": 18.8,
+    "lap150": 10.7,
+    "sun1": 51236.8,
+    "sun02": 15801.6,
+    "ovc003": 2176.3
+   }
+  },
+  "sun_cases": {
+   "wing lit (convention)": {
+    "h045_uW": 33130.0,
+    "T3_min": 11.6,
+    "overcast_min": 49.0
+   },
+   "sleeve: wing 0.25 x lid": {
+    "h045_uW": 20266.0,
+    "T3_min": 18.9,
+    "overcast_min": 88.0
+   },
+   "dark wing: 0 x lid": {
+    "h045_uW": 15115.0,
+    "T3_min": 25.4,
+    "overcast_min": 122.0
+   },
+   "hot lid 35 / 45 C (T3 range)": {
+    "T3_min": [
+     11.4,
+     11.9
+    ]
+   }
+  },
+  "edge_shunt": {
+   "rsh_scale_lid": 0.485,
+   "rsh_scale_wing": 0.567,
+   "base": {
+    "desk_300lx_uW": 37.8,
+    "desk_1000lx_uW": 192.8,
+    "lap_150lx_uW": 10.7,
+    "sun045_uW": 33130.0,
+    "cold_start_uA_200lx": 26.9
+   },
+   "edge-dominated shunt": {
+    "desk_300lx_uW": 24.8,
+    "desk_1000lx_uW": 174.8,
+    "lap_150lx_uW": 3.9,
+    "sun045_uW": 33109.0,
+    "cold_start_uA_200lx": 21.1
+   }
+  },
+  "office_downlights": {
+   "desk_300lx_uW": 33.7,
+   "desk_1000lx_uW": 176.6
+  },
+  "weeks_sleeve_wing_0p25": {
+   "W1_office": {
+    "harvest_mWh_day": 7.906,
+    "load_mWh_day": 6.06,
+    "min_soc": 0.442,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive"
+   },
+   "W2_indoor_300lx": {
+    "harvest_mWh_day": 0.164,
+    "load_mWh_day": 5.89,
+    "min_soc": 0.318,
+    "days_to_empty_from_50pct": 19.2,
+    "days_from_full_if_negative": 38.4
+   },
+   "W3_bright_1000lx": {
+    "harvest_mWh_day": 1.062,
+    "load_mWh_day": 5.89,
+    "min_soc": 0.346,
+    "days_to_empty_from_50pct": 22.8,
+    "days_from_full_if_negative": 45.6
+   },
+   "W4_sun_20min": {
+    "harvest_mWh_day": 6.755,
+    "load_mWh_day": 5.525,
+    "min_soc": 0.487,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive"
+   },
+   "W5_dark": {
+    "harvest_mWh_day": 0.0,
+    "load_mWh_day": 5.494,
+    "min_soc": 0.325,
+    "days_to_empty_from_50pct": 20.0,
+    "days_from_full_if_negative": 40.1
+   },
+   "W6_campus": {
+    "harvest_mWh_day": 6.586,
+    "load_mWh_day": 5.912,
+    "min_soc": 0.487,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive"
+   },
+   "W7_low_outdoor_office": {
+    "harvest_mWh_day": 0.534,
+    "load_mWh_day": 6.046,
+    "min_soc": 0.325,
+    "days_to_empty_from_50pct": 20.0,
+    "days_from_full_if_negative": 39.9
+   }
+  },
+  "weeks_dark_wing": {
+   "W1_office": {
+    "harvest_mWh_day": 5.719,
+    "load_mWh_day": 6.06,
+    "min_soc": 0.416,
+    "days_to_empty_from_50pct": 322.7,
+    "days_from_full_if_negative": 645.4
+   },
+   "W2_indoor_300lx": {
+    "harvest_mWh_day": 0.088,
+    "load_mWh_day": 5.89,
+    "min_soc": 0.316,
+    "days_to_empty_from_50pct": 19.0,
+    "days_from_full_if_negative": 37.9
+   },
+   "W3_bright_1000lx": {
+    "harvest_mWh_day": 0.72,
+    "load_mWh_day": 5.89,
+    "min_soc": 0.336,
+    "days_to_empty_from_50pct": 21.3,
+    "days_from_full_if_negative": 42.6
+   },
+   "W4_sun_20min": {
+    "harvest_mWh_day": 5.038,
+    "load_mWh_day": 5.525,
+    "min_soc": 0.474,
+    "days_to_empty_from_50pct": 226.0,
+    "days_from_full_if_negative": 452.1
+   },
+   "W5_dark": {
+    "harvest_mWh_day": 0.0,
+    "load_mWh_day": 5.494,
+    "min_soc": 0.325,
+    "days_to_empty_from_50pct": 20.0,
+    "days_from_full_if_negative": 40.1
+   },
+   "W6_campus": {
+    "harvest_mWh_day": 4.755,
+    "load_mWh_day": 5.912,
+    "min_soc": 0.463,
+    "days_to_empty_from_50pct": 95.2,
+    "days_from_full_if_negative": 190.3
+   },
+   "W7_low_outdoor_office": {
+    "harvest_mWh_day": 0.355,
+    "load_mWh_day": 6.046,
+    "min_soc": 0.319,
+    "days_to_empty_from_50pct": 19.3,
+    "days_from_full_if_negative": 38.7
+   }
+  },
+  "weeks_edge_shunt": {
+   "W1_office": {
+    "harvest_mWh_day": 13.851,
+    "load_mWh_day": 6.06,
+    "min_soc": 0.492,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive"
+   },
+   "W2_indoor_300lx": {
+    "harvest_mWh_day": 0.248,
+    "load_mWh_day": 5.89,
+    "min_soc": 0.321,
+    "days_to_empty_from_50pct": 19.5,
+    "days_from_full_if_negative": 39.0
+   },
+   "W3_bright_1000lx": {
+    "harvest_mWh_day": 1.748,
+    "load_mWh_day": 5.89,
+    "min_soc": 0.368,
+    "days_to_empty_from_50pct": 26.6,
+    "days_from_full_if_negative": 53.2
+   },
+   "W4_sun_20min": {
+    "harvest_mWh_day": 11.036,
+    "load_mWh_day": 5.525,
+    "min_soc": 0.487,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive"
+   },
+   "W5_dark": {
+    "harvest_mWh_day": 0.0,
+    "load_mWh_day": 5.494,
+    "min_soc": 0.325,
+    "days_to_empty_from_50pct": 20.0,
+    "days_from_full_if_negative": 40.1
+   },
+   "W6_campus": {
+    "harvest_mWh_day": 11.616,
+    "load_mWh_day": 5.912,
+    "min_soc": 0.487,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive"
+   },
+   "W7_low_outdoor_office": {
+    "harvest_mWh_day": 0.906,
+    "load_mWh_day": 6.046,
+    "min_soc": 0.337,
+    "days_to_empty_from_50pct": 21.4,
+    "days_from_full_if_negative": 42.8
+   }
+  }
+ },
+ "41x34 strips 2.80 mm": {
+  "energy": {
+   "usable_mWh": 220.1,
+   "loads_uW": {
+    "MON_lit": 266.6,
+    "MON_dark": 238.5,
+    "MON_dark_always_on": 276.2,
+    "MON_max": 254.0,
+    "MON_max_always_on": 334.9,
+    "MON_worst": 418.3,
+    "MON_worst_always_on": 499.3,
+    "RAW_WC": 355.5,
+    "RAW_WC_worst": 588.3,
+    "ECO": 93.6,
+    "ECO_V3_convention": 77.2,
+    "SHELF": 35.5,
+    "SHIP": 26.0
+   },
+   "T1_dark_d": 38.5,
+   "T1_dark_always_on_face_d": 33.2,
+   "T1_max_currents_d": 36.1,
+   "T1_max_currents_always_on_face_d": 27.4,
+   "T1_worst_stack_d": 21.9,
+   "T1_worst_stack_always_on_face_d": 18.4,
+   "RAW_WC_d": 25.8,
+   "RAW_WC_worst_stack_d": 15.6,
+   "T2_ECO_d": 98.0,
+   "T3_min_day_045sun": 10.9,
+   "T3_overcast_min_day_01sun": 45.0,
+   "T4_ECO_1000lx_10h": 0.95,
+   "T2_ECO_V3_convention_d": 119.0,
+   "T4_ECO_V3_convention": 1.15,
+   "T6_SHELF_d": 259.0,
+   "T6_SHIP_d": 353.0,
+   "pv_table": "LID2+WR31@R12 strips 2.80 mm",
+   "T5_indoor_300lx_10h_days_from_full": 36.8,
+   "T5_fraction_of_MON_covered_pct": 6.6,
+   "T7_h": {
+    "KISET 270: 26.5 mA, VREG 4.10 V": 2.34,
+    "KISET 300: 29.4 mA, VREG 4.10 V": 2.14,
+    "KISET 330: 32.4 mA, VREG 4.10 V": 1.98,
+    "KISET 270, VREG 4.067 V (-0.8 %)": 2.71,
+    "KISET 270, VREG -0.8 %, cold 5-10 C cell (ohmic 1.5, RC x2.5)": 3.15
+   },
+   "usb_c_rate_typ_max": [
+    0.42,
+    0.462
+   ],
+   "ten_min_topup_days_of_MON": 2.84,
+   "weeks_from_50pct": {
+    "W1_office": {
+     "harvest_mWh_day": 15.256,
+     "load_mWh_day": 6.06,
+     "min_soc": 0.492,
+     "end_soc": 0.792,
+     "days_to_empty_from_50pct": "energy-positive",
+     "days_from_full_if_negative": "energy-positive"
+    },
+    "W2_indoor_300lx": {
+     "harvest_mWh_day": 0.422,
+     "load_mWh_day": 5.89,
+     "min_soc": 0.326,
+     "end_soc": 0.326,
+     "days_to_empty_from_50pct": 20.1,
+     "days_from_full_if_negative": 40.3
+    },
+    "W3_bright_1000lx": {
+     "harvest_mWh_day": 2.133,
+     "load_mWh_day": 5.89,
+     "min_soc": 0.381,
+     "end_soc": 0.381,
+     "days_to_empty_from_50pct": 29.3,
+     "days_from_full_if_negative": 58.6
+    },
+    "W4_sun_20min": {
+     "harvest_mWh_day": 11.754,
+     "load_mWh_day": 5.525,
+     "min_soc": 0.487,
+     "end_soc": 0.698,
+     "days_to_empty_from_50pct": "energy-positive",
+     "days_from_full_if_negative": "energy-positive"
+    },
+    "W5_dark": {
+     "harvest_mWh_day": 0.0,
+     "load_mWh_day": 5.494,
+     "min_soc": 0.325,
+     "end_soc": 0.325,
+     "days_to_empty_from_50pct": 20.0,
+     "days_from_full_if_negative": 40.1
+    },
+    "W6_campus": {
+     "harvest_mWh_day": 12.761,
+     "load_mWh_day": 5.912,
+     "min_soc": 0.488,
+     "end_soc": 0.718,
+     "days_to_empty_from_50pct": "energy-positive",
+     "days_from_full_if_negative": "energy-positive"
+    },
+    "W7_low_outdoor_office": {
+     "harvest_mWh_day": 1.172,
+     "load_mWh_day": 6.046,
+     "min_soc": 0.345,
+     "end_soc": 0.345,
+     "days_to_empty_from_50pct": 22.6,
+     "days_from_full_if_negative": 45.2
+    }
+   },
+   "off_wrist_hours_per_30d_indoor_only": [
+    1.47,
+    1.74
+   ],
+   "harvest_uW": {
+    "sun045": 35262.6,
+    "ovc01": 8521.8,
+    "lux300": 42.2,
+    "lux1000": 213.3,
+    "lux200": 21.1,
+    "lap150": 12.1,
+    "sun1": 52988.6,
+    "sun02": 17165.2,
+    "ovc003": 2380.0
+   }
+  },
+  "sun_cases": {
+   "wing lit (convention)": {
+    "h045_uW": 35263.0,
+    "T3_min": 10.9,
+    "overcast_min": 45.0
+   },
+   "sleeve: wing 0.25 x lid": {
+    "h045_uW": 23231.0,
+    "T3_min": 16.5,
+    "overcast_min": 75.0
+   },
+   "dark wing: 0 x lid": {
+    "h045_uW": 18390.0,
+    "T3_min": 20.9,
+    "overcast_min": 99.0
+   },
+   "hot lid 35 / 45 C (T3 range)": {
+    "T3_min": [
+     10.8,
+     11.3
+    ]
+   }
+  },
+  "edge_shunt": {
+   "rsh_scale_lid": 0.581,
+   "rsh_scale_wing": 0.567,
+   "base": {
+    "desk_300lx_uW": 42.2,
+    "desk_1000lx_uW": 213.3,
+    "lap_150lx_uW": 12.1,
+    "sun045_uW": 35263.0,
+    "cold_start_uA_200lx": 29.6
+   },
+   "edge-dominated shunt": {
+    "desk_300lx_uW": 30.1,
+    "desk_1000lx_uW": 196.7,
+    "lap_150lx_uW": 5.1,
+    "sun045_uW": 35245.0,
+    "cold_start_uA_200lx": 24.4
+   }
+  },
+  "office_downlights": {
+   "desk_300lx_uW": 38.0,
+   "desk_1000lx_uW": 197.0
+  },
+  "weeks_sleeve_wing_0p25": {
+   "W1_office": {
+    "harvest_mWh_day": 9.2,
+    "load_mWh_day": 6.06,
+    "min_soc": 0.457,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive"
+   },
+   "W2_indoor_300lx": {
+    "harvest_mWh_day": 0.204,
+    "load_mWh_day": 5.89,
+    "min_soc": 0.319,
+    "days_to_empty_from_50pct": 19.4,
+    "days_from_full_if_negative": 38.7
+   },
+   "W3_bright_1000lx": {
+    "harvest_mWh_day": 1.265,
+    "load_mWh_day": 5.89,
+    "min_soc": 0.353,
+    "days_to_empty_from_50pct": 23.8,
+    "days_from_full_if_negative": 47.6
+   },
+   "W4_sun_20min": {
+    "harvest_mWh_day": 7.744,
+    "load_mWh_day": 5.525,
+    "min_soc": 0.487,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive"
+   },
+   "W5_dark": {
+    "harvest_mWh_day": 0.0,
+    "load_mWh_day": 5.494,
+    "min_soc": 0.325,
+    "days_to_empty_from_50pct": 20.0,
+    "days_from_full_if_negative": 40.1
+   },
+   "W6_campus": {
+    "harvest_mWh_day": 7.66,
+    "load_mWh_day": 5.912,
+    "min_soc": 0.487,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive"
+   },
+   "W7_low_outdoor_office": {
+    "harvest_mWh_day": 0.638,
+    "load_mWh_day": 6.046,
+    "min_soc": 0.328,
+    "days_to_empty_from_50pct": 20.4,
+    "days_from_full_if_negative": 40.7
+   }
+  },
+  "weeks_dark_wing": {
+   "W1_office": {
+    "harvest_mWh_day": 7.044,
+    "load_mWh_day": 6.06,
+    "min_soc": 0.432,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive"
+   },
+   "W2_indoor_300lx": {
+    "harvest_mWh_day": 0.125,
+    "load_mWh_day": 5.89,
+    "min_soc": 0.317,
+    "days_to_empty_from_50pct": 19.1,
+    "days_from_full_if_negative": 38.2
+   },
+   "W3_bright_1000lx": {
+    "harvest_mWh_day": 0.917,
+    "load_mWh_day": 5.89,
+    "min_soc": 0.342,
+    "days_to_empty_from_50pct": 22.1,
+    "days_from_full_if_negative": 44.3
+   },
+   "W4_sun_20min": {
+    "harvest_mWh_day": 6.13,
+    "load_mWh_day": 5.525,
+    "min_soc": 0.487,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive"
+   },
+   "W5_dark": {
+    "harvest_mWh_day": 0.0,
+    "load_mWh_day": 5.494,
+    "min_soc": 0.325,
+    "days_to_empty_from_50pct": 20.0,
+    "days_from_full_if_negative": 40.1
+   },
+   "W6_campus": {
+    "harvest_mWh_day": 5.859,
+    "load_mWh_day": 5.912,
+    "min_soc": 0.487,
+    "days_to_empty_from_50pct": 2091.7,
+    "days_from_full_if_negative": 4183.5
+   },
+   "W7_low_outdoor_office": {
+    "harvest_mWh_day": 0.455,
+    "load_mWh_day": 6.046,
+    "min_soc": 0.322,
+    "days_to_empty_from_50pct": 19.7,
+    "days_from_full_if_negative": 39.4
+   }
+  },
+  "weeks_edge_shunt": {
+   "W1_office": {
+    "harvest_mWh_day": 15.081,
+    "load_mWh_day": 6.06,
+    "min_soc": 0.492,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive"
+   },
+   "W2_indoor_300lx": {
+    "harvest_mWh_day": 0.301,
+    "load_mWh_day": 5.89,
+    "min_soc": 0.322,
+    "days_to_empty_from_50pct": 19.7,
+    "days_from_full_if_negative": 39.4
+   },
+   "W3_bright_1000lx": {
+    "harvest_mWh_day": 1.967,
+    "load_mWh_day": 5.89,
+    "min_soc": 0.375,
+    "days_to_empty_from_50pct": 28.1,
+    "days_from_full_if_negative": 56.1
+   },
+   "W4_sun_20min": {
+    "harvest_mWh_day": 11.748,
+    "load_mWh_day": 5.525,
+    "min_soc": 0.487,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive"
+   },
+   "W5_dark": {
+    "harvest_mWh_day": 0.0,
+    "load_mWh_day": 5.494,
+    "min_soc": 0.325,
+    "days_to_empty_from_50pct": 20.0,
+    "days_from_full_if_negative": 40.1
+   },
+   "W6_campus": {
+    "harvest_mWh_day": 12.632,
+    "load_mWh_day": 5.912,
+    "min_soc": 0.487,
+    "days_to_empty_from_50pct": "energy-positive",
+    "days_from_full_if_negative": "energy-positive"
+   },
+   "W7_low_outdoor_office": {
+    "harvest_mWh_day": 1.024,
+    "load_mWh_day": 6.046,
+    "min_soc": 0.34,
+    "days_to_empty_from_50pct": 21.9,
+    "days_from_full_if_negative": 43.8
+   }
+  }
+ }
+}

@@ -1,0 +1,450 @@
+{
+ "pv_model": {
+  "source": "v3/integrate/energy/v3_energy.py (read-only import), set LID2+WR31 with the lid strips at 2.30 mm; Voc slope -6.96 mV/K per string (KXOB25-03X4TF p.1 via V3)",
+  "import_s": 34.4
+ },
+ "V_O2_at_check": {
+  "rows": [
+   {
+    "sun": 0.1,
+    "pv_temp_C": -10.0,
+    "node_V_at_20uA": 2.67,
+    "V_O2": 2.43
+   },
+   {
+    "sun": 0.1,
+    "pv_temp_C": 25.0,
+    "node_V_at_20uA": 2.426,
+    "V_O2": 2.186
+   },
+   {
+    "sun": 0.1,
+    "pv_temp_C": 50.0,
+    "node_V_at_20uA": 2.252,
+    "V_O2": 2.012
+   },
+   {
+    "sun": 0.1,
+    "pv_temp_C": 65.0,
+    "node_V_at_20uA": 2.148,
+    "V_O2": 1.908
+   },
+   {
+    "sun": 0.2,
+    "pv_temp_C": -10.0,
+    "node_V_at_20uA": 2.762,
+    "V_O2": 2.522
+   },
+   {
+    "sun": 0.2,
+    "pv_temp_C": 25.0,
+    "node_V_at_20uA": 2.518,
+    "V_O2": 2.278
+   },
+   {
+    "sun": 0.2,
+    "pv_temp_C": 50.0,
+    "node_V_at_20uA": 2.344,
+    "V_O2": 2.104
+   },
+   {
+    "sun": 0.2,
+    "pv_temp_C": 65.0,
+    "node_V_at_20uA": 2.24,
+    "V_O2": 2.0
+   },
+   {
+    "sun": 0.45,
+    "pv_temp_C": -10.0,
+    "node_V_at_20uA": 2.869,
+    "V_O2": 2.629
+   },
+   {
+    "sun": 0.45,
+    "pv_temp_C": 25.0,
+    "node_V_at_20uA": 2.625,
+    "V_O2": 2.385
+   },
+   {
+    "sun": 0.45,
+    "pv_temp_C": 50.0,
+    "node_V_at_20uA": 2.451,
+    "V_O2": 2.211
+   },
+   {
+    "sun": 0.45,
+    "pv_temp_C": 65.0,
+    "node_V_at_20uA": 2.347,
+    "V_O2": 2.107
+   },
+   {
+    "sun": 1.0,
+    "pv_temp_C": -10.0,
+    "node_V_at_20uA": 2.974,
+    "V_O2": 2.734
+   },
+   {
+    "sun": 1.0,
+    "pv_temp_C": 25.0,
+    "node_V_at_20uA": 2.73,
+    "V_O2": 2.49
+   },
+   {
+    "sun": 1.0,
+    "pv_temp_C": 50.0,
+    "node_V_at_20uA": 2.556,
+    "V_O2": 2.316
+   },
+   {
+    "sun": 1.0,
+    "pv_temp_C": 65.0,
+    "node_V_at_20uA": 2.452,
+    "V_O2": 2.212
+   },
+   {
+    "sun": 1.2,
+    "pv_temp_C": -10.0,
+    "node_V_at_20uA": 2.998,
+    "V_O2": 2.758
+   },
+   {
+    "sun": 1.2,
+    "pv_temp_C": 25.0,
+    "node_V_at_20uA": 2.754,
+    "V_O2": 2.514
+   },
+   {
+    "sun": 1.2,
+    "pv_temp_C": 50.0,
+    "node_V_at_20uA": 2.58,
+    "V_O2": 2.34
+   },
+   {
+    "sun": 1.2,
+    "pv_temp_C": 65.0,
+    "node_V_at_20uA": 2.476,
+    "V_O2": 2.236
+   }
+  ],
+  "note": "V_O2 = PV node at a 20 uA load (Q14 off) - 0.24 V (BAT54CM VF max at 0.1 mA, p.4; at 20 uA it is lower) - Q18 at uA (negligible)"
+ },
+ "threshold_design": {
+  "R116_bias": 100000.0,
+  "chain": {
+   "R170": 732000.0,
+   "R171": 162000.0,
+   "R172": 52300.0
+  },
+  "c_numbers": {
+   "R170": "C423439",
+   "R171": "C2691509",
+   "R172": "C473632",
+   "R116": "C270364"
+  },
+  "V_O2_range_used": {
+   "cold_side_min": 2.186,
+   "hot_side_min": 1.908,
+   "max": 2.758
+  },
+  "rule": "every corner: cold stop >= 0.5 C and hot stop <= 44.5 C (0.5 K margin to the cell's 0-45 C charge window, GEB301030 via BASELINE 5.2)",
+  "corners": {
+   "cold_stop": [
+    0.84,
+    3.97
+   ],
+   "cold_release": [
+    1.31,
+    4.46
+   ],
+   "hot_stop": [
+    34.88,
+    43.31
+   ],
+   "hot_release": [
+    32.87,
+    40.55
+   ]
+  },
+  "candidates_checked": 24,
+  "candidates_ok": 8,
+  "nominal_thresholds_C": {
+   "cold": 2.64,
+   "hot": 37.57,
+   "kc": 0.22646,
+   "kh": 0.05527
+  },
+  "sensitivity_mV_per_K_at_2V": {
+   "cold": 18.19,
+   "hot": 4.27
+  },
+  "typical_C": {
+   "cold_stop": 2.45,
+   "cold_release": 2.83,
+   "hot_stop": 38.41,
+   "hot_release": 36.77
+  }
+ },
+ "o2_load_from_pv": {
+  "by_V_O2": {
+   "V_O2 1.6 V": {
+    "ladder_uA_0C": 11.97,
+    "ladder_uA_45C": 15.33,
+    "chain_uA": 1.69,
+    "comparators_uA_typ_max": [
+     0.67,
+     1.8
+    ],
+    "total_uA_max": 18.82
+   },
+   "V_O2 2.0 V": {
+    "ladder_uA_0C": 14.97,
+    "ladder_uA_45C": 19.17,
+    "chain_uA": 2.11,
+    "comparators_uA_typ_max": [
+     0.67,
+     1.8
+    ],
+    "total_uA_max": 23.08
+   },
+   "V_O2 2.6 V": {
+    "ladder_uA_0C": 19.46,
+    "ladder_uA_45C": 24.92,
+    "chain_uA": 2.75,
+    "comparators_uA_typ_max": [
+     0.67,
+     1.8
+    ],
+    "total_uA_max": 29.46
+   }
+  },
+  "when": "only while VBAT_OK is low (MCU off) and the PV is lit: Q18 is off while VBAT_OK is high"
+ },
+ "dark_load_uW": {
+  "value": 0.0,
+  "why": "in the dark PV_SW = 0 V: no O-2 supply; VBAT_OK only drives the gates of Q16 and Q18 (no DC current); NTC_EN is driven only for an MCU reading (15 uA x 1.86 V for about 50 ms per reading = 0.8 nA average at one reading a minute)",
+  "criterion": "<= 2.5 uW (BASELINE 18 V3-G4)",
+  "status": "PASS (computed)"
+ },
+ "normal_operation_cost": {
+  "R174_uA_at_2V": 0.2,
+  "note": "MCU on: Q16 holds O2_G at 0 V, so R174 draws PV_SW / 10 MOhm from the PV (0.2 uA, 0.4 uW of harvest); the O-2 itself is unpowered (Q18 off). Q14 adds its RDSon to R_LIM: 0.42-0.645 Ohm at VGS -2.5 V, 0.52-0.94 Ohm at -1.8 V (PMZ350UPE p.6)"
+ },
+ "approval_light_mcu_off": {
+  "lux": 711.0,
+  "rule": "V_O2 >= 1.65 V (TLV7031 1.6 V minimum + 50 mV) with the O-2's own load drawn from the PV at 25 C",
+  "table": {
+   "200": 1.133,
+   "300": 1.431,
+   "500": 1.578,
+   "700": 1.647,
+   "1000": 1.71,
+   "2000": 1.819
+  },
+  "baseline_cold_start_lux": {
+   "wing_lit": 167,
+   "dark_wing": 358,
+   "source": "BASELINE 11.5"
+  },
+  "consequence": "with the MCU off (dead or flat band) PV charging resumes only above this light; normal operation (MCU on) is not affected (Q16)"
+ },
+ "timing": {
+  "comparator_power_up_us": 200.0,
+  "comparator_delay_us": 3.0,
+  "C170_charge": {
+   "1000 lx": {
+    "i_avail_uA_at_1V": 157.3,
+    "t_to_1V8_us": 1310.9
+   },
+   "0.1 sun 25 C": {
+    "i_avail_uA_at_1V": 4864.9,
+    "t_to_1V8_us": 37.2
+   }
+  },
+  "Q14_turn_on_us": 40.0,
+  "Q14_turn_on_note": "Q17 sinks >= 5 mA at VGS 1.8 V (PMZ290 RDSon <= 0.68 Ohm at 1.8 V), C174 100 nF discharged from 2 V",
+  "hold_tau_s": 1.0,
+  "hold": {
+   "VGS0 -1.8 V": {
+    "hold_s_Vth_min": 1.386,
+    "hold_s_Vth_max": 0.639
+   },
+   "VGS0 -2.4 V": {
+    "hold_s_Vth_min": 1.674,
+    "hold_s_Vth_max": 0.927
+   }
+  },
+  "hold_note": "when the O-2 browns out after approving (V_O2 < 1.6 V at the MPP or at the cold-start clamp), C174 keeps Q14 on for the hold time, then Q14 opens, PV_SW returns to Voc and the O-2 re-checks within about 0.3-1 ms: harvest duty >= 99 %; out of range, Q14 stays off",
+  "gate_leakage_note": "PMZ350UPE IGSS <= 10 uA at +-8 V (ESD diodes, p.6); at 2 V it is not specified: with 20 nA the hold shortens by about 10 % (assumption)",
+  "fault_response_s": 1.67
+ },
+ "cell_states": {
+  "method": "the decision is taken with Q14 OFF, so the O-2 is supplied by the open-circuit PV (rows of V_O2_at_check) and does not depend on the cell: 0 / 0.5 / 1.2 / 2.0 V cells, a tripped PCM and a healthy flat cell give the same decision supply",
+  "V_O2_min_at_0p1_sun": 1.908,
+  "Vmin_comparator": 1.6,
+  "paths_into_cell_with_Q14_off": [
+   "none: PV_SW reaches the cell only through Q14 - R130 - BQ25570; R126 (EN_HOLD), Q18/D19 (V_O2), U4 IN- and D8 end at GND",
+   "Q14 off-state leakage IDSS <= 1 uA at -20 V, 25 C (PMZ350UPE p.6): at VDS 2-3 V and 50 C it is assumed <= 1 uA, i.e. < 0.00002 C"
+  ],
+  "after_approval": "cell 0-1.6 V: VSTOR < 1.73 V so the BQ25570 cold-starts (VIN_DC clamped at 0.6 V, SLUSBH2G p.18) or the three-diode path conducts at high light; V_O2 may fall below 1.6 V, then the hold of section 4 applies (re-check every 0.1-1.0 s); healthy flat cell: MPP at 0.8 Voc",
+  "out_of_range": "Q14 stays off: no PV current into the cell in any state (criterion of V3-G4)"
+ },
+ "ts_window": {
+  "alone": {
+   "cold": [
+    1.85,
+    6.04
+   ],
+   "hot": [
+    38.79,
+    44.84
+   ]
+  },
+  "with_O2_path": {
+   "cold": [
+    0.84,
+    5.19
+   ],
+   "hot": [
+    38.56,
+    44.64
+   ]
+  },
+  "O2_path_ohm": 586205,
+  "note": "while VBUS is present Q8 shorts PV_SW, D19A blocks, so the ladder hangs on the NTC node only through R116 + (chain || U19 supply pin); the MCU is awake (VBUS wakes it through D12A) and NTC_EN is not driven while /PG is low (firmware rule, BASELINE 14 item 10). Q10 off: IDSS <= 1 uA at 20 V (PMZ290), nA at 1 V.",
+  "criterion": "cold stop >= 0 C and hot stop <= 45 C at every corner (BASELINE 12, 13.2)",
+  "v3_arch_reference": "V3_ARCH 7.4: 1.9-6.0 C / 38.8-44.8 C with the TS bias alone"
+ },
+ "mcu_reading": {
+  "path": "NTC_EN (P0.30) high -> D19B -> V_O2 -> R116 -> NTC; P0.28 reads the NTC node through R149 1 MOhm with C113 10 nF at the pin (tau 10 ms)",
+  "error_K_for_30mV_VF_error": {
+   "0": -0.47,
+   "25": -0.46,
+   "45": -0.49
+  },
+  "note": "VF of D19B is the main error (BAT54CM 240-320 mV max at 0.1-1 mA, p.4); firmware corrects VF with the board temperature (TMP117); the hardware O-2 is ratiometric and does not depend on it. While VBUS is present the MCU reads the TS bias instead (38 uA x R_ntc), as V3-R.",
+  "ain_leak_mcu_off_uA": 0.2,
+  "ain_leak_note": "MCU unpowered (the O-2 case): the AIN ESD diode can conduct once the NTC node exceeds about 0.4 V; through R149 1 MOhm that is <= 0.2 uA at 0.6 V (about 0 C at V_O2 2 V) against a ladder current of 15 uA: < 0.5 K, in the 'reads colder' direction below 0 C only beyond -10 C"
+ },
+ "no_oscillation": {
+  "Q1": "Q1 (PV_INH) can only be on while the MCU runs (R108 10 MOhm pull-down): then VBAT_OK is high and Q18 keeps the O-2 unpowered: no loop (S1: Q16 follows the heartbeat)",
+  "Q8": "Q8 shorts PV_SW while VBUS is present: V_O2 collapses, U19/U20 go to POR (outputs low), Q17 releases, Q14 opens after the hold (or stays on via Q16): no PV current either way; when VBUS goes away PV_SW rises with Q14 off and the O-2 decides at Voc",
+  "own_action": "the O-2 opens Q14 (it never shorts the PV), so tripping RAISES its own supply to Voc: the decision state is self-consistent",
+  "hysteresis_K": {
+   "cold": 0.38,
+   "hot": 1.64,
+   "note": "internal hysteresis 2/7/17 mV (typ 7 mV) at V_O2 2.0 V, in kelvin at each threshold"
+  },
+  "supply_ratiometric": "ladder and chain hang on the same V_O2: a supply step (Q14 switching moves PV_SW between Voc and the MPP) does not move the trip ratio; C170 100 nF filters the BQ25570's 16 s Voc-sampling step and the boost ripple"
+ },
+ "parts": [
+  "U19 TLV7031DPWR",
+  "U20 TLV7031DPWR",
+  "Q14 PMZ350UPEYL",
+  "Q18 PMZ350UPEYL",
+  "Q16 PMZ290UNE2YL",
+  "Q17 PMZ290UNE2YL",
+  "D19 BAT54CM,315",
+  "R116 100k",
+  "R170",
+  "R171",
+  "R172",
+  "R174 10M 0402",
+  "R175 1M",
+  "C170 100n",
+  "C174 100n",
+  "C175 220p (S1 D-1)",
+  "R176 1M (S1 D-1)"
+ ],
+ "stage1": {
+  "D15_corners_V_O2_1p6_to_max": {
+   "cold_stop": [
+    0.55,
+    4.1
+   ],
+   "cold_release": [
+    1.18,
+    4.78
+   ],
+   "hot_stop": [
+    34.58,
+    44.31
+   ],
+   "hot_release": [
+    32.23,
+    40.92
+   ]
+  },
+  "D15_margin_K": {
+   "cold": 0.55,
+   "hot": 0.69,
+   "rule": "no PV current outside 0-45 C: cold stop >= 0 C, hot stop <= 45 C at every corner (the lane's 0.5 K design margin is not met at 1.6 V)"
+  },
+  "D1_heartbeat": {
+   "circuit": "CHG_DIS (P0.09) -> C175 220 pF C0G -> O2_HB = Q16 gate; R176 1 MOhm to GND; Q16 drain on O2_G (C174 100 nF / R174 10 MOhm hold of Q14)",
+   "gate_peak_V_first_edge": [
+    1.113,
+    1.162,
+    1.195
+   ],
+   "gate_peak_V_next_edges": [
+    1.489,
+    1.538,
+    1.571
+   ],
+   "gate_tau_us": 266.0,
+   "time_above_1V_us": [
+    105.9,
+    114.5,
+    120.2
+   ],
+   "Q16_needs": ">= 1.0 V for a few us: PMZ290UNE2 VGSth 0.45-0.95 V at 250 uA (p.6); C174 needs only 30-300 nC per pulse (Q16 sinks mA)",
+   "static_level": "a static CHG_DIS level decays through R176 in 5 tau = 1.3 ms: no override from a stuck pin",
+   "pulse_rate_Hz": 10,
+   "pulse_width_us": 10,
+   "VGS_Q14_between_pulses_fraction": 0.881,
+   "release_after_last_pulse_s": {
+    "Vth_max": 0.639,
+    "Vth_min": 1.67,
+    "note": "Q14 opens when |VGS| decays below its threshold: the stage-0 'fault response' of the O-2 hold"
+   },
+   "cost_uW_E": {
+    "mcu_wake": 1.02,
+    "c174_topup_from_pv": 0.74,
+    "note": "E: one 15 us CPU wake per pulse (about 55 nC at 3.7 mA) and the C174 top-up at PV_SW 2.5 V; only while the firmware wants PV charging"
+   },
+   "states": {
+    "mcu_running_heartbeat": "Q16 refreshes the hold: Q14 on, the firmware governor (Q1 PV_INH + NTC reading + heartbeat stop) keeps 0-45 C",
+    "vbat_ok_high_no_heartbeat": "Q16 off and Q18 off (O-2 unpowered): Q14 off within the hold: no PV charging (reset, boot loop, halt, System OFF, power cycle)",
+    "vbat_ok_low": "buck and MCU off (VOUT_EN = VBAT_OK through R129): Q18 feeds the O-2 from the PV; the window comparators decide (stage 0 behaviour)"
+   },
+   "firmware_rules": [
+    "pulse CHG_DIS only in software (never PPI, a timer or PWM), 10 us at 10 Hz",
+    "only while CHG_PG_N is high (no head) and the last NTC reading is inside 0-45 C (0.5 K margin); stop on any out-of-window reading",
+    "never during an NTC reading (Q10 pulls the NTC node low for 10 us)",
+    "SHELF in System OFF does not harvest with a healthy cell; below VBAT_OK falling (3.31 V) the O-2 takes over (>= 711 lx)"
+   ]
+  },
+  "D4_hot_stop_with_NTC_EN_high_C": {
+   "range": [
+    46.34,
+    53.58
+   ],
+   "criterion": "hot stop <= 45 C",
+   "rule": "firmware: never drive NTC_EN while CHG_PG_N is low; ignore NTC_ADC while /PG is low (BASELINE 14 item 10, S1 D-4)"
+  },
+  "D11_cold_start_Q14_Vth_max": {
+   "VGS_needed_V_E": 0.854,
+   "I_cold_start_uA": 21.4,
+   "I_O2_uA": 19.1,
+   "PV_node_V_at_cold_start_plus_O2_load": {
+    "200": 0.0,
+    "500": 1.743,
+    "711": 1.851,
+    "1000": 1.927,
+    "2000": 2.049
+   },
+   "note": "Q14's gate sits at GND after an approval, so |VGS| = PV_SW: Q14 passes the cold-start current while PV_SW >= the value above. With the MCU off nothing harvests below the approval light anyway (711 lx); above it the PV node holds >= 1.4 V at the combined load, so a max-threshold Q14 does not throttle the cold start further (E; SIM-03 (a) to confirm)"
+  }
+ },
+ "generated_utc": "2026-11-15T01:38:30Z"
+}

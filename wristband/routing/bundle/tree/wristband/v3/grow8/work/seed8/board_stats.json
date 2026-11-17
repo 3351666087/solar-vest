@@ -1,0 +1,45 @@
+{
+ "track_mm": {
+  "F.Cu": 651.6,
+  "B.Cu": 183.7,
+  "In2.Cu": 277.2,
+  "In3.Cu": 307.2,
+  "In5.Cu": 240.4,
+  "In6.Cu": 291.8
+ },
+ "track_mm_total": 1951.9,
+ "vias": 467,
+ "vias_over_plates": {
+  "plate_E1": {
+   "E1_LINK": 1,
+   "GND": 15,
+   "E1_PAD": 1,
+   "AVDD_ECG": 2,
+   "TMP117_ISLAND": 4,
+   "INA_VS": 1,
+   "RLD_OUT": 1,
+   "ECG_INP": 2,
+   "GND_K": 2,
+   "DEC1": 1,
+   "XL1": 1,
+   "ECG_DRDY": 1,
+   "SWDCLK": 2,
+   "SWDIO": 1,
+   "CS_FLASH": 1,
+   "NRESET": 1,
+   "ECG_INN": 2
+  },
+  "plate_E2": {
+   "GND": 4,
+   "O2_OK": 1,
+   "E2_MID": 1,
+   "E2_PAD": 1,
+   "E2_LINK": 1,
+   "E3_MID": 1
+  }
+ },
+ "vias_over_plates_total": {
+  "plate_E1": 39,
+  "plate_E2": 9
+ }
+}

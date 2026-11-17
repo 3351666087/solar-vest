@@ -1,0 +1,708 @@
+{
+ "unconnected": 12,
+ "drc_errors": 0,
+ "drc_errors_by_type": {},
+ "placement_violations": 0,
+ "overused_cells_final": 0,
+ "overused_cells_last_iteration": 220,
+ "unconnected_before_strip": 10,
+ "drc_errors_before_strip": 2,
+ "unconnected_fanout": 345,
+ "track_mm": {
+  "F.Cu": 635.8,
+  "In2.Cu": 355.8,
+  "In3.Cu": 314.6,
+  "In6.Cu": 292.8,
+  "In5.Cu": 198.4,
+  "B.Cu": 278.4
+ },
+ "track_mm_total": 2075.8,
+ "vias": 486,
+ "new_vias": 259,
+ "vias_over_plates": {
+  "plate_E1": {
+   "GND": 15,
+   "RLD_OUT": 1,
+   "DEC1": 1,
+   "XL2": 1,
+   "ECG_PWDN": 1,
+   "XL1": 1,
+   "SWDCLK": 1,
+   "SPI_SCK": 1,
+   "SWDIO": 1,
+   "CS_FLASH": 2,
+   "SPI_MISO": 2,
+   "NRESET": 1,
+   "CS_PPG": 1,
+   "GND_K": 2,
+   "INA_VS": 1,
+   "ECG_INN": 1,
+   "AVDD_ECG": 2,
+   "E1_PAD": 1,
+   "E1_LINK": 1,
+   "ECG_CLK": 1,
+   "ECG_INP": 2,
+   "TMP117_ISLAND": 4,
+   "ECG_VCAP1": 1
+  },
+  "plate_E2": {
+   "GND": 4,
+   "O2_OK": 1,
+   "O2_G": 1,
+   "E3_MID": 1,
+   "E2_PAD": 1,
+   "E2_MID": 1,
+   "E2_LINK": 1
+  }
+ },
+ "vias_over_plates_total": {
+  "plate_E1": 45,
+  "plate_E2": 10
+ },
+ "forbidden_vias_over_plates": 0,
+ "router": {
+  "cells": 13359654,
+  "connections": 345,
+  "nets": 145,
+  "routed": 335,
+  "joined_elsewhere": 0,
+  "unrouted": 5,
+  "dropped": 5,
+  "iterations": 60,
+  "final_overused_nodes": 0,
+  "t_prep_s": 125.8,
+  "t_route_s": 1580.1,
+  "per_iteration": [
+   {
+    "overused": 10839,
+    "failed": 9,
+    "t": 56.01,
+    "nets": 145,
+    "exp_M": 109.8,
+    "pres": 1.046
+   },
+   {
+    "overused": 6654,
+    "failed": 10,
+    "t": 112.05,
+    "nets": 123,
+    "exp_M": 107.91,
+    "pres": 1.382
+   },
+   {
+    "overused": 5828,
+    "failed": 8,
+    "t": 163.5,
+    "nets": 112,
+    "exp_M": 100.97,
+    "pres": 1.826
+   },
+   {
+    "overused": 4130,
+    "failed": 10,
+    "t": 216.67,
+    "nets": 108,
+    "exp_M": 106.49,
+    "pres": 2.413
+   },
+   {
+    "overused": 3761,
+    "failed": 9,
+    "t": 270.82,
+    "nets": 96,
+    "exp_M": 106.32,
+    "pres": 3.189
+   },
+   {
+    "overused": 2897,
+    "failed": 8,
+    "t": 317.45,
+    "nets": 87,
+    "exp_M": 92.04,
+    "pres": 4.214
+   },
+   {
+    "overused": 2362,
+    "failed": 8,
+    "t": 369.24,
+    "nets": 81,
+    "exp_M": 98.35,
+    "pres": 5.569
+   },
+   {
+    "overused": 1806,
+    "failed": 8,
+    "t": 415.2,
+    "nets": 69,
+    "exp_M": 87.37,
+    "pres": 7.36
+   },
+   {
+    "overused": 1639,
+    "failed": 7,
+    "t": 458.5,
+    "nets": 65,
+    "exp_M": 78.58,
+    "pres": 9.726
+   },
+   {
+    "overused": 1404,
+    "failed": 7,
+    "t": 503.95,
+    "nets": 62,
+    "exp_M": 82.72,
+    "pres": 12.853
+   },
+   {
+    "overused": 1276,
+    "failed": 9,
+    "t": 552.22,
+    "nets": 54,
+    "exp_M": 90.18,
+    "pres": 16.986
+   },
+   {
+    "overused": 1160,
+    "failed": 9,
+    "t": 598.03,
+    "nets": 52,
+    "exp_M": 89.59,
+    "pres": 22.446
+   },
+   {
+    "overused": 898,
+    "failed": 8,
+    "t": 637.87,
+    "nets": 49,
+    "exp_M": 77.98,
+    "pres": 29.663
+   },
+   {
+    "overused": 927,
+    "failed": 6,
+    "t": 677.18,
+    "nets": 48,
+    "exp_M": 75.84,
+    "pres": 39.199
+   },
+   {
+    "overused": 1080,
+    "failed": 7,
+    "t": 717.75,
+    "nets": 47,
+    "exp_M": 75.39,
+    "pres": 51.802
+   },
+   {
+    "overused": 1083,
+    "failed": 6,
+    "t": 758.22,
+    "nets": 48,
+    "exp_M": 77.0,
+    "pres": 68.456
+   },
+   {
+    "overused": 874,
+    "failed": 5,
+    "t": 793.1,
+    "nets": 47,
+    "exp_M": 65.96,
+    "pres": 90.465
+   },
+   {
+    "overused": 820,
+    "failed": 6,
+    "t": 826.28,
+    "nets": 44,
+    "exp_M": 66.3,
+    "pres": 119.55
+   },
+   {
+    "overused": 620,
+    "failed": 5,
+    "t": 858.68,
+    "nets": 43,
+    "exp_M": 65.63,
+    "pres": 157.985
+   },
+   {
+    "overused": 645,
+    "failed": 5,
+    "t": 879.92,
+    "nets": 36,
+    "exp_M": 56.45,
+    "pres": 208.777
+   },
+   {
+    "overused": 769,
+    "failed": 5,
+    "t": 904.03,
+    "nets": 34,
+    "exp_M": 51.59,
+    "pres": 275.899
+   },
+   {
+    "overused": 706,
+    "failed": 5,
+    "t": 926.34,
+    "nets": 35,
+    "exp_M": 54.39,
+    "pres": 364.6
+   },
+   {
+    "overused": 713,
+    "failed": 6,
+    "t": 952.02,
+    "nets": 33,
+    "exp_M": 58.36,
+    "pres": 481.819
+   },
+   {
+    "overused": 737,
+    "failed": 6,
+    "t": 975.17,
+    "nets": 35,
+    "exp_M": 58.69,
+    "pres": 636.724
+   },
+   {
+    "overused": 840,
+    "failed": 5,
+    "t": 997.6,
+    "nets": 34,
+    "exp_M": 55.13,
+    "pres": 841.431
+   },
+   {
+    "overused": 642,
+    "failed": 5,
+    "t": 1024.36,
+    "nets": 35,
+    "exp_M": 53.68,
+    "pres": 1111.951
+   },
+   {
+    "overused": 677,
+    "failed": 5,
+    "t": 1047.84,
+    "nets": 33,
+    "exp_M": 48.88,
+    "pres": 1469.444
+   },
+   {
+    "overused": 529,
+    "failed": 5,
+    "t": 1070.45,
+    "nets": 31,
+    "exp_M": 47.78,
+    "pres": 1941.87
+   },
+   {
+    "overused": 588,
+    "failed": 5,
+    "t": 1091.57,
+    "nets": 30,
+    "exp_M": 46.87,
+    "pres": 2566.181
+   },
+   {
+    "overused": 559,
+    "failed": 5,
+    "t": 1110.43,
+    "nets": 33,
+    "exp_M": 47.72,
+    "pres": 3391.208
+   },
+   {
+    "overused": 649,
+    "failed": 5,
+    "t": 1130.33,
+    "nets": 29,
+    "exp_M": 45.81,
+    "pres": 4481.481
+   },
+   {
+    "overused": 769,
+    "failed": 5,
+    "t": 1153.6,
+    "nets": 32,
+    "exp_M": 46.14,
+    "pres": 5922.277
+   },
+   {
+    "overused": 588,
+    "failed": 5,
+    "t": 1178.47,
+    "nets": 35,
+    "exp_M": 48.83,
+    "pres": 7826.289
+   },
+   {
+    "overused": 634,
+    "failed": 5,
+    "t": 1197.89,
+    "nets": 34,
+    "exp_M": 50.0,
+    "pres": 10342.44
+   },
+   {
+    "overused": 622,
+    "failed": 5,
+    "t": 1219.71,
+    "nets": 32,
+    "exp_M": 49.05,
+    "pres": 13667.533
+   },
+   {
+    "overused": 644,
+    "failed": 5,
+    "t": 1238.06,
+    "nets": 32,
+    "exp_M": 49.09,
+    "pres": 18061.645
+   },
+   {
+    "overused": 681,
+    "failed": 5,
+    "t": 1255.93,
+    "nets": 32,
+    "exp_M": 48.53,
+    "pres": 23868.463
+   },
+   {
+    "overused": 764,
+    "failed": 5,
+    "t": 1273.25,
+    "nets": 34,
+    "exp_M": 51.28,
+    "pres": 31542.172
+   },
+   {
+    "overused": 690,
+    "failed": 6,
+    "t": 1291.48,
+    "nets": 33,
+    "exp_M": 54.82,
+    "pres": 41682.98
+   },
+   {
+    "overused": 649,
+    "failed": 6,
+    "t": 1310.83,
+    "nets": 32,
+    "exp_M": 56.38,
+    "pres": 55084.055
+   },
+   {
+    "overused": 591,
+    "failed": 6,
+    "t": 1330.13,
+    "nets": 28,
+    "exp_M": 57.31,
+    "pres": 72793.578
+   },
+   {
+    "overused": 617,
+    "failed": 6,
+    "t": 1349.12,
+    "nets": 30,
+    "exp_M": 57.1,
+    "pres": 96196.711
+   },
+   {
+    "overused": 564,
+    "failed": 6,
+    "t": 1369.07,
+    "nets": 30,
+    "exp_M": 56.69,
+    "pres": 127123.938
+   },
+   {
+    "overused": 540,
+    "failed": 6,
+    "t": 1387.14,
+    "nets": 28,
+    "exp_M": 53.96,
+    "pres": 167994.281
+   },
+   {
+    "overused": 498,
+    "failed": 5,
+    "t": 1403.59,
+    "nets": 27,
+    "exp_M": 52.04,
+    "pres": 222004.438
+   },
+   {
+    "overused": 868,
+    "failed": 4,
+    "t": 1418.34,
+    "nets": 28,
+    "exp_M": 47.14,
+    "pres": 293378.844
+   },
+   {
+    "overused": 696,
+    "failed": 4,
+    "t": 1432.67,
+    "nets": 37,
+    "exp_M": 45.87,
+    "pres": 387700.125
+   },
+   {
+    "overused": 466,
+    "failed": 5,
+    "t": 1446.17,
+    "nets": 32,
+    "exp_M": 45.14,
+    "pres": 512345.688
+   },
+   {
+    "overused": 517,
+    "failed": 4,
+    "t": 1457.89,
+    "nets": 25,
+    "exp_M": 39.16,
+    "pres": 677064.75
+   },
+   {
+    "overused": 539,
+    "failed": 4,
+    "t": 1470.16,
+    "nets": 27,
+    "exp_M": 37.71,
+    "pres": 894741.062
+   },
+   {
+    "overused": 340,
+    "failed": 4,
+    "t": 1480.83,
+    "nets": 25,
+    "exp_M": 33.26,
+    "pres": 1182400.25
+   },
+   {
+    "overused": 401,
+    "failed": 4,
+    "t": 1491.79,
+    "nets": 21,
+    "exp_M": 33.9,
+    "pres": 1562542.0
+   },
+   {
+    "overused": 339,
+    "failed": 5,
+    "t": 1503.31,
+    "nets": 21,
+    "exp_M": 35.43,
+    "pres": 2064899.125
+   },
+   {
+    "overused": 308,
+    "failed": 5,
+    "t": 1513.64,
+    "nets": 19,
+    "exp_M": 34.1,
+    "pres": 2728764.0
+   },
+   {
+    "overused": 275,
+    "failed": 5,
+    "t": 1523.16,
+    "nets": 18,
+    "exp_M": 33.31,
+    "pres": 3606061.5
+   },
+   {
+    "overused": 284,
+    "failed": 5,
+    "t": 1533.79,
+    "nets": 17,
+    "exp_M": 37.13,
+    "pres": 4765410.0
+   },
+   {
+    "overused": 235,
+    "failed": 5,
+    "t": 1544.01,
+    "nets": 18,
+    "exp_M": 35.83,
+    "pres": 6297489.0
+   },
+   {
+    "overused": 230,
+    "failed": 5,
+    "t": 1553.37,
+    "nets": 16,
+    "exp_M": 33.21,
+    "pres": 8322131.5
+   },
+   {
+    "overused": 202,
+    "failed": 5,
+    "t": 1562.83,
+    "nets": 14,
+    "exp_M": 33.95,
+    "pres": 10997696.0
+   },
+   {
+    "overused": 220,
+    "failed": 5,
+    "t": 1571.8,
+    "nets": 14,
+    "exp_M": 34.1,
+    "pres": 14533455.0
+   }
+  ]
+ },
+ "runtime_s": {
+  "check": 1.5,
+  "board": 14.0,
+  "fanout": 47.7,
+  "to8l": 1.9,
+  "neck": 1.2,
+  "drc": 13.0,
+  "dump": 1.5,
+  "route": 1706.4,
+  "apply": 2.6,
+  "strip": 2.7,
+  "stats": 0.8,
+  "shield": 3.6,
+  "total": 1797.7
+ },
+ "candidate": {
+  "placement": "/root/t2e/bundle/tree/wristband/v3/grow8/runs/rent_t2e_s5/gen00/g00_c127/placement.json",
+  "router": {
+   "iters": 60,
+   "pres0": 1.0457,
+   "pres_mult": 1.3215,
+   "hist_inc": 3.1581,
+   "hw": 1.2889,
+   "via_cost_mm": 1.3404,
+   "l4_cost": 3.491,
+   "conn_margin": 3.9752,
+   "tlim": 7200
+  },
+  "order": "short",
+  "seed": 3953,
+  "halo": 0.806,
+  "layers": 8,
+  "forbidden_add": [
+   "NTC",
+   "NTC_ADC",
+   "I2C_SDA",
+   "I2C_SCL",
+   "O2_TC",
+   "O2_TH"
+  ],
+  "neck": 1.5,
+  "shield": [
+   "In2.Cu",
+   "In3.Cu"
+  ]
+ },
+ "board": "/root/t2e/bundle/tree/wristband/v3/grow8/runs/rent_t2e_s5/gen00/g00_c127/eval/final.kicad_pcb",
+ "shield": {
+  "over_plate_mm": 31.25,
+  "gap_in4_mm": 0.83,
+  "gap_in1_mm": 0.8
+ },
+ "neck_mm_total": 558.0,
+ "neck_mm": {
+  "AVDD_ECG": 25.26,
+  "BATT_P": 6.5,
+  "BATT_P_A": 0.52,
+  "BQ_EN": 6.1,
+  "BTN": 12.6,
+  "BTN_N": 5.37,
+  "BTN_SUP": 2.72,
+  "CYC_A": 1.02,
+  "CYC_G": 4.84,
+  "DCC": 2.78,
+  "DCDC_MID": 0.45,
+  "DEC1": 2.98,
+  "DEC2": 1.62,
+  "DEC3": 1.36,
+  "DEC4": 13.43,
+  "DISP_EN": 10.33,
+  "E1_LINK": 2.65,
+  "E1_MID": 2.99,
+  "E1_PAD": 2.42,
+  "E2_LINK": 5.45,
+  "E2_MID": 2.87,
+  "E2_PAD": 5.37,
+  "E3_MID": 2.85,
+  "E3_PAD": 2.84,
+  "ECG_INN": 9.31,
+  "ECG_INP": 7.41,
+  "ECG_VCAP1": 3.59,
+  "ECG_VCAP2": 1.62,
+  "ECG_VREFP": 3.71,
+  "EN_HOLD": 6.92,
+  "FL_A": 0.89,
+  "FL_K": 2.7,
+  "GND": 8.55,
+  "GND_A1": 0.53,
+  "GND_A2": 0.53,
+  "GND_B": 0.53,
+  "GND_PMIC": 10.97,
+  "INA_VS": 10.85,
+  "ISET": 3.43,
+  "ISET_RC": 0.45,
+  "LBOOST": 3.04,
+  "LBUCK": 3.03,
+  "LED1_DRV": 3.02,
+  "LED2_DRV": 7.07,
+  "MOTOR_N": 3.88,
+  "NTC": 13.51,
+  "NTC_A": 2.49,
+  "NTC_ADC": 7.45,
+  "O2_G": 10.23,
+  "O2_NC": 3.02,
+  "O2_OK": 7.56,
+  "O2_PV": 0.72,
+  "O2_TC": 3.64,
+  "O2_TH": 6.21,
+  "OK_HYST": 4.42,
+  "OK_PROG": 3.61,
+  "PD1_IN": 9.09,
+  "PD_GND": 8.47,
+  "PGA1N": 2.24,
+  "PGA1P": 1.23,
+  "PGA2N": 1.18,
+  "PGA2P": 2.06,
+  "PPG_VREF": 2.86,
+  "PV_NODE": 12.19,
+  "PV_Q": 1.1,
+  "PV_SW": 22.35,
+  "PV_W": 0.53,
+  "RF_50R": 3.58,
+  "RF_ANT": 10.07,
+  "RLD_INV": 1.65,
+  "RLD_OUT": 12.99,
+  "RLD_Z": 0.45,
+  "VBAT_IC": 22.7,
+  "VBAT_OV": 3.7,
+  "VBUS": 7.99,
+  "VBUS_K": 3.49,
+  "VB_DET": 11.98,
+  "VDD_1V8": 8.08,
+  "VDD_DIS": 3.13,
+  "VDD_DISP": 17.81,
+  "VIN_DC": 8.54,
+  "VLED": 15.92,
+  "VOUT_SET": 0.56,
+  "VRDIV": 5.19,
+  "VREF_SAMP": 3.15,
+  "VSET": 3.15,
+  "VSTOR": 16.02,
+  "VSTOR_SW": 23.9,
+  "V_O2": 12.91,
+  "XC1": 1.89,
+  "XC2": 2.97,
+  "XL1": 8.7,
+  "XL2": 3.97
+ },
+ "peak_rss_mb": 916.7,
+ "fitness": 12
+}

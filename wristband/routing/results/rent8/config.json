@@ -1,0 +1,41 @@
+{
+ "pop": 24,
+ "gens": 14,
+ "workers": 24,
+ "elite": 3,
+ "seed": 1,
+ "base": "/root/bundle/tree/wristband/v3/grow8/work/seed8/placement.json",
+ "iters": 60,
+ "base_router": {
+  "iters": 60,
+  "pres0": 0.6,
+  "pres_mult": 1.2,
+  "hist_inc": 5.0,
+  "hw": 1.2,
+  "via_cost_mm": 1.2,
+  "l4_cost": 3.0,
+  "conn_margin": 3.0,
+  "tlim": 7200
+ },
+ "base_order": "short",
+ "base_ojit": 0.0,
+ "base_eval": "/root/bundle/tree/wristband/v3/grow8/work/seed8",
+ "rules": {
+  "layers": 8,
+  "forbidden_add": [
+   "NTC",
+   "NTC_ADC",
+   "I2C_SDA",
+   "I2C_SCL",
+   "O2_TC",
+   "O2_TH"
+  ],
+  "neck": 1.5,
+  "shield": [
+   "In2.Cu",
+   "In3.Cu"
+  ]
+ },
+ "base_halo": 0.8,
+ "timeout": 7200
+}

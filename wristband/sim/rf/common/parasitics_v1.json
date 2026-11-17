@@ -1,0 +1,37 @@
+{
+ "cpwg": {
+  "w": 0.17,
+  "s": 0.15,
+  "Z0": 50.005309804206526,
+  "eps_eff": 3.0878783755979016,
+  "C_pF_per_mm": 0.11721771951697549,
+  "src": "[SIM12]"
+ },
+ "pad_0402": {
+  "w": 0.5,
+  "len": 0.55,
+  "gap_to_pour": 0.25,
+  "C_total_pF": 0.12238326083854087,
+  "C_excess_pF": 0.057913515104204345,
+  "note": "excess over the 0.17 mm line it replaces; [SIM12] for C', [E] for the land size"
+ },
+ "gnd_via_L1L2": {
+  "L_nH_single": 0.05084329757071335,
+  "L_nH_two_vias": 0.025421648785356674,
+  "src": "[CF] isolated-via formula",
+  "used_nH": 0.1,
+  "note": "0.10 nH used per shunt return: 2 vias + 0.3 mm of pad-to-via copper [E]"
+ },
+ "feed_via": {
+  "length_mm": 0.8,
+  "Zc_ohm": 31.78787343350428,
+  "er": 4.3,
+  "L_nH_isolated": 0.603614195558365,
+  "src": "[CF] coaxial-section model, antipad 0.6 / barrel 0.2 mm [E]"
+ },
+ "zero_ohm_0402": {
+  "ESL_nH": 0.4,
+  "R_ohm": 0.02,
+  "src": "[E] typical"
+ }
+}

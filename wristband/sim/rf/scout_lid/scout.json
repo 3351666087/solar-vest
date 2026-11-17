@@ -1,0 +1,105 @@
+{
+ "task": "scout: lid radiator vs board radiator, coarse body, 2 FDTD runs",
+ "date": "2026-11-15",
+ "mark": "coarse mesh, body only; no free run",
+ "basis": "matchlib LQG15HS/GJM multilayer pi-net, l_b 0.5 mm, body-only ranking by in-band min eta_tot; Q60 = hiq_estimate.py ideal parts",
+ "board": {
+  "Z_244": "(3.7-152j)",
+  "eta_rad_244": 0.0427,
+  "eta_tot_ML": 0.013577941147893721,
+  "eta_tot_ML_fixednet": 0.012605029145030004,
+  "eta_tot_Q60": 0.021642222948913103
+ },
+ "runs": {
+  "L1": {
+   "geometry": "lid glass inner face z 3.5: strip 0.5 x 6.5 mm Y 1.5-2.0 X 4.0-10.5 + jog; spring 0.5x0.5 at X 4.0-4.5 Y 2.5-3.0, 2.5 mm high; F.Cu leg in pocket; open end 0.6 mm from grounded frame",
+   "Z_244": "(7.5-128.6j)",
+   "f_res_GHz": [],
+   "eta_rad": {
+    "2.30": 0.1788,
+    "2.40": 0.1694,
+    "2.44": 0.1685,
+    "2.48": 0.1674,
+    "2.58": 0.1601
+   },
+   "ML": {
+    "pinet": "A:1.5 nH (LQG15HS1N5B02) | S:4.3 nH (LQG15HS4N3B02) | B:DNP",
+    "l_b_mm": 0.5,
+    "eta_tot_body_min": 0.08808513455475168,
+    "RL_body_min_dB": 8.059376952447366,
+    "eta_tot_body": {
+     "2.40": 0.08808513455475168,
+     "2.44": 0.09485553511638982,
+     "2.48": 0.09245269123018222
+    },
+    "f_eta_max_GHz": 2.45,
+    "network_loss_dB_band_max": 2.1027108224202715
+   },
+   "Q60": {
+    "eta_tot_body_min": 0.11850450726116907,
+    "series": [
+     "L",
+     6.920928292257946e-09
+    ],
+    "shunt": [
+     "L",
+     2.0637341878863415e-09
+    ],
+    "shunt_side": "A"
+   },
+   "gain_vs_board_dB": {
+    "multilayer": 8.12,
+    "hiq_Q60": 7.38,
+    "eta_rad_244": 5.96
+   },
+   "log": "logs/L1_body_c.log",
+   "npz": "runs/L1_body_c.npz"
+  },
+  "L2": {
+   "geometry": "L1 + lid bridge to X 2.5 and shorting spring X 2.5-3.0 Y 4.5-5.0 onto the Y 4.5 ground (inverted-F)",
+   "Z_244": "(0.8+65.1j)",
+   "f_res_GHz": [],
+   "eta_rad": {
+    "2.30": 0.1953,
+    "2.40": 0.1721,
+    "2.44": 0.1629,
+    "2.48": 0.1548,
+    "2.58": 0.14
+   },
+   "ML": {
+    "pinet": "A:2.9 pF (GJM1555C1H2R9WB01) | S:0.9 pF (GJM1555C1HR90WB01) | B:DNP",
+    "l_b_mm": 0.5,
+    "eta_tot_body_min": 0.05401658909393334,
+    "RL_body_min_dB": 3.322859261924935,
+    "eta_tot_body": {
+     "2.40": 0.056720127126424845,
+     "2.44": 0.08461075556969831,
+     "2.48": 0.05401658909393334
+    },
+    "f_eta_max_GHz": 2.435,
+    "network_loss_dB_band_max": 2.101596279698844
+   },
+   "Q60": {
+    "eta_tot_body_min": 0.0749627705061355,
+    "series": [
+     "C",
+     1.2371916345321594e-12
+    ],
+    "shunt": [
+     "C",
+     4.9828635146472955e-12
+    ],
+    "shunt_side": "A"
+   },
+   "gain_vs_board_dB": {
+    "multilayer": 6.0,
+    "hiq_Q60": 5.4,
+    "eta_rad_244": 5.81
+   },
+   "log": "logs/L2_body_c.log",
+   "npz": "runs/L2_body_c.npz"
+  }
+ },
+ "detuning": "NOT_RUN (no free-space run)",
+ "recommendation": "full design worth doing, based on L1 (free-space run, fine mesh, spring/frame-gap tolerance, hand-over-lid)"
+}

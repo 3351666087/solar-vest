@@ -1,0 +1,1007 @@
+{
+ "bq25170": {
+  "ichg_mA": [
+   26.21,
+   29.41,
+   32.68
+  ],
+  "c_rate": {
+   "70 mAh": [
+    0.374,
+    0.42,
+    0.467
+   ],
+   "66 mAh": [
+    0.397,
+    0.446,
+    0.495
+   ],
+   "60 mAh": [
+    0.437,
+    0.49,
+    0.545
+   ]
+  },
+  "rule_half_C": "<= 0.5 C at >= 66 mAh nominal with KISET max and R140 at -1 %: 32.68 mA / 66 mAh = 0.495 C (S1 D-8: 10.0 k gave 0.505 C)",
+  "precharge_mA": [
+   5.24,
+   5.88,
+   6.54
+  ],
+  "precharge_note": "20 % of ICHG between VBAT_SHORT and VBAT_LOWV 2.7-3.0 V (p.7)",
+  "trickle_mA": [
+   12,
+   16,
+   20
+  ],
+  "trickle_note": "IBAT_SHORT below VBAT_SHORT 2.1-2.3 V, independent of RISET (p.7): 0.17-0.29 C for 70 mAh",
+  "term_mA_nominal": 2.94,
+  "term_note": "ITERM 10 % (p.7); accuracy given only at 600 Ohm / 3 k / 30 k: at 30 k it is 0.4-1.6 mA for 1 mA nominal (+-60 %), so 3 mA +-60 % (E)",
+  "vreg_V": {
+   "nominal": 4.1,
+   "at_25C": [
+    4.079,
+    4.12
+   ],
+   "over_temp": [
+    4.067,
+    4.133
+   ],
+   "recharge_below_mV": [
+    75,
+    100,
+    125
+   ],
+   "rvset_window_ohm": [
+    35640,
+    36360
+   ],
+   "rvset_ok": "36 k +-1 % stays far from the 27 k and 47 k table entries; latched at power-up (p.15)"
+  },
+  "dropout": {
+   "charge_fet_mV_at_33mA": 47.4,
+   "d14_vf_max_at_33mA_V": 0.434,
+   "head_min_V_for_sleep_exit_at_full_cell": 4.749,
+   "note": "/PG and charging need VIN > VOUT + VSLEEPZ (95-175 mV, p.6, p.17): at the end of charge (VOUT up to 4.133 V) the head must deliver >= 4.75 V at the contacts (D14 0.43 V max at 33 mA, NSR0240 p.2 interpolated; 0.2 Ohm contacts E). A 5.0 V -5 % head (4.75 V) sits exactly at this limit: V3-G10 head requirement >= 4.85 V at the contacts at 40 mA (below it the charger sleeps near the end of charge and /PG goes high: a few % of capacity lost, no hazard)"
+  },
+  "dissipation_mW": 60.5,
+  "dissipation_note": "head 5.25 V, D14 0.40 V, cell 3.0 V at the CC start, 33 mA (E head); RthJA 75.2 C/W JEDEC (p.5): +4.6 K",
+  "iset_rc": {
+   "R141": "2k 1% 0402",
+   "C132": "4.7nF 50V X7R 0402",
+   "tau_us": 9.4,
+   "source": "SLUSDJ8A p.14 7.3.1.1: an extra RC on ISET is recommended below 50 mA; values from SLUAAG9 Figure 5-1 p.4 (2.0 kOhm + 4.7 nF across R-ISET, 45 mA design of the sibling BQ25171-Q1, read as an image in this lane): applicability to the BQ25170 assumed (same ISET detection, E)"
+  },
+  "ts": {
+   "bias_uA": [
+    36.5,
+    38.0,
+    39.5
+   ],
+   "vcold_V": [
+    0.99,
+    1.04,
+    1.09
+   ],
+   "vhot_V": [
+    0.176,
+    0.188,
+    0.2
+   ],
+   "enz_V": [
+    0.04,
+    0.05,
+    0.06
+   ],
+   "clamp_V": [
+    2.3,
+    2.6,
+    2.9
+   ],
+   "duty": "ITS_BIAS duty-cycled 100 ms on / 2 s off (p.8, p.17)",
+   "window_from_o2": {
+    "alone": {
+     "cold": [
+      1.85,
+      6.04
+     ],
+     "hot": [
+      38.79,
+      44.84
+     ]
+    },
+    "with_O2_path": {
+     "cold": [
+      0.84,
+      5.19
+     ],
+     "hot": [
+      38.56,
+      44.64
+     ]
+    },
+    "O2_path_ohm": 586205,
+    "note": "while VBUS is present Q8 shorts PV_SW, D19A blocks, so the ladder hangs on the NTC node only through R116 + (chain || U19 supply pin); the MCU is awake (VBUS wakes it through D12A) and NTC_EN is not driven while /PG is low (firmware rule, BASELINE 14 item 10). Q10 off: IDSS <= 1 uA at 20 V (PMZ290), nA at 1 V.",
+    "criterion": "cold stop >= 0 C and hot stop <= 45 C at every corner (BASELINE 12, 13.2)",
+    "v3_arch_reference": "V3_ARCH 7.4: 1.9-6.0 C / 38.8-44.8 C with the TS bias alone"
+   },
+   "chg_dis": "Q10 on: VTS = 39.5 uA x 0.68 Ohm = 27 uV << VTS_ENZ 40 mV (charge disabled, p.7, PMZ290 p.6)"
+  },
+  "pg": {
+   "pullup": "220k 1% 0402",
+   "low_uA": 8.45,
+   "leak_max_uA": 1.0,
+   "high_level_V_min": 1.639,
+   "note": "open drain, VOL <= 0.4 V at 5 mA, high-level leakage <= 1 uA with a 3.3 V pull-up (p.7); no typical value: 1 uA is a bound. High level >= 1.64 V against VIH 0.7 x VDD = 1.30 V (nRF52832, E). Low only while the head is attached (8.45 uA from VDD_1V8)"
+  },
+  "iq_out_uA": [
+   0.35,
+   0.6,
+   0.8
+  ],
+  "iq_out_note": "IQ_OUT with IN floating or 0-5 V, charge disabled: 0.35 typ / 0.6 max at 25 C, 0.8 below 105 C (p.6); in BASELINE 11.1 base loads",
+  "abs_max_in_V": [
+   -0.3,
+   30.0
+  ],
+  "ovp_V": [
+   6.6,
+   6.75,
+   6.9
+  ]
+ },
+ "r_lim": {
+  "note": "charge_point / series_i of v3_energy (RSH1 1 Ohm + series R), k 0.72, cell 3.0 V, every string lit (BASELINE 11.5 convention). Q14 conducts with VGS = -PV_SW (MCU on, Q16) or with the gate held by C174 at -Voc of the approval (MCU off): -1.8 to -2.5 V at the bound points (E)",
+  "bound_2p50mm_baseline_R12": {
+   "1.2 sun, strings -10 C": {
+    "c_rate_70": 0.385,
+    "i_pv_mA": 44.2
+   },
+   "1.2 sun, strings -20 C": {
+    "c_rate_70": 0.404,
+    "i_pv_mA": 45.0
+   },
+   "1 sun, strings 25 C": {
+    "c_rate_70": 0.304,
+    "i_pv_mA": 38.6
+   }
+  },
+  "bound_2p50mm_lowest_R": {
+   "1.2 sun, strings -10 C": {
+    "c_rate_70": 0.382,
+    "i_pv_mA": 43.7
+   },
+   "1.2 sun, strings -20 C": {
+    "c_rate_70": 0.4,
+    "i_pv_mA": 44.6
+   },
+   "1 sun, strings 25 C": {
+    "c_rate_70": 0.301,
+    "i_pv_mA": 38.2
+   }
+  },
+  "bound_2p50mm_highest_R": {
+   "1.2 sun, strings -10 C": {
+    "c_rate_70": 0.368,
+    "i_pv_mA": 42.1
+   },
+   "1.2 sun, strings -20 C": {
+    "c_rate_70": 0.386,
+    "i_pv_mA": 43.0
+   },
+   "1 sun, strings 25 C": {
+    "c_rate_70": 0.292,
+    "i_pv_mA": 36.9
+   }
+  },
+  "bound_2p30mm_lowest_R": {
+   "1.2 sun, strings -10 C": {
+    "c_rate_70": 0.377,
+    "i_pv_mA": 43.1
+   },
+   "1.2 sun, strings -20 C": {
+    "c_rate_70": 0.394,
+    "i_pv_mA": 44.0
+   },
+   "1 sun, strings 25 C": {
+    "c_rate_70": 0.297,
+    "i_pv_mA": 37.6
+   }
+  },
+  "cold_start_2p50mm_baseline": {
+   "1 sun, 25 C": {
+    "i_mA": 55.0,
+    "p_R130_mW": 36.3,
+    "p_Q14_mW": 0.0
+   },
+   "1.2 sun, -10 C": {
+    "i_mA": 66.0,
+    "p_R130_mW": 52.2,
+    "p_Q14_mW": 0.0
+   }
+  },
+  "cold_start_2p50mm_q14_min": {
+   "1 sun, 25 C": {
+    "i_mA": 55.0,
+    "p_R130_mW": 36.6,
+    "p_Q14_mW": 1.0
+   },
+   "1.2 sun, -10 C": {
+    "i_mA": 66.0,
+    "p_R130_mW": 52.7,
+    "p_Q14_mW": 1.44
+   }
+  },
+  "cold_start_2p50mm_q14_max": {
+   "1 sun, 25 C": {
+    "i_mA": 55.0,
+    "p_R130_mW": 36.6,
+    "p_Q14_mW": 2.84
+   },
+   "1.2 sun, -10 C": {
+    "i_mA": 66.0,
+    "p_R130_mW": 52.7,
+    "p_Q14_mW": 4.09
+   }
+  },
+  "r130_rating_mW": 250,
+  "q14_ptot_note": "PMZ350UPE / SOT883: a few mW against a Ptot of several 100 mW (same package class as PMZ290 350 mW, p.3): no limit (E)",
+  "import_s": 20.0
+ },
+ "o2_summary": {
+  "corners": {
+   "cold_stop": [
+    0.84,
+    3.97
+   ],
+   "cold_release": [
+    1.31,
+    4.46
+   ],
+   "hot_stop": [
+    34.88,
+    43.31
+   ],
+   "hot_release": [
+    32.87,
+    40.55
+   ]
+  },
+  "typical": {
+   "cold_stop": 2.45,
+   "cold_release": 2.83,
+   "hot_stop": 38.41,
+   "hot_release": 36.77
+  },
+  "dark_load_uW": 0.0,
+  "approval_lux_mcu_off": 711.0,
+  "hold_s": {
+   "VGS0 -1.8 V": {
+    "hold_s_Vth_min": 1.386,
+    "hold_s_Vth_max": 0.639
+   },
+   "VGS0 -2.4 V": {
+    "hold_s_Vth_min": 1.674,
+    "hold_s_Vth_max": 0.927
+   }
+  },
+  "hysteresis_K": {
+   "cold": 0.38,
+   "hot": 1.64,
+   "note": "internal hysteresis 2/7/17 mV (typ 7 mV) at V_O2 2.0 V, in kelvin at each threshold"
+  },
+  "ts_window": {
+   "alone": {
+    "cold": [
+     1.85,
+     6.04
+    ],
+    "hot": [
+     38.79,
+     44.84
+    ]
+   },
+   "with_O2_path": {
+    "cold": [
+     0.84,
+     5.19
+    ],
+    "hot": [
+     38.56,
+     44.64
+    ]
+   },
+   "O2_path_ohm": 586205,
+   "note": "while VBUS is present Q8 shorts PV_SW, D19A blocks, so the ladder hangs on the NTC node only through R116 + (chain || U19 supply pin); the MCU is awake (VBUS wakes it through D12A) and NTC_EN is not driven while /PG is low (firmware rule, BASELINE 14 item 10). Q10 off: IDSS <= 1 uA at 20 V (PMZ290), nA at 1 V.",
+   "criterion": "cold stop >= 0 C and hot stop <= 45 C at every corner (BASELINE 12, 13.2)",
+   "v3_arch_reference": "V3_ARCH 7.4: 1.9-6.0 C / 38.8-44.8 C with the TS bias alone"
+  },
+  "mcu_reading_error_K": {
+   "0": -0.47,
+   "25": -0.46,
+   "45": -0.49
+  }
+ },
+ "erm": {
+  "supply_choice": "VBAT_IC (as built): the start current does not cross the BQ25570 PFET; VSTOR (BASELINE 4) compared below",
+  "cases_at_vbat_3p60": {
+   "VBAT_IC | typ": {
+    "path_ohm": 1.4,
+    "i_run_mA": 29.2,
+    "vstor_run_V": 3.559,
+    "i_start_mA": 66.7,
+    "vstor_start_V": 3.507,
+    "duty_start": 0.833,
+    "v_avg_start": 3.0,
+    "margin_start_to_vbok_max_mV": 66,
+    "margin_start_to_vbok_nom_mV": 195,
+    "margin_run_to_vbok_max_mV": 118,
+    "soft_start_limit": {
+     "i_bat_max_mA": 113.6,
+     "duty_max": 1.0,
+     "v_avg_max": 3.6,
+     "starts": true
+    }
+   },
+   "VBAT_IC | max": {
+    "path_ohm": 2.25,
+    "i_run_mA": 29.2,
+    "vstor_run_V": 3.534,
+    "i_start_mA": 66.7,
+    "vstor_start_V": 3.45,
+    "duty_start": 0.833,
+    "v_avg_start": 3.0,
+    "margin_start_to_vbok_max_mV": 9,
+    "margin_start_to_vbok_nom_mV": 138,
+    "margin_run_to_vbok_max_mV": 93,
+    "soft_start_limit": {
+     "i_bat_max_mA": 70.7,
+     "duty_max": 0.858,
+     "v_avg_max": 3.09,
+     "starts": true
+    }
+   },
+   "VBAT_IC | cold": {
+    "path_ohm": 3.75,
+    "i_run_mA": 29.2,
+    "vstor_run_V": 3.491,
+    "i_start_mA": 66.7,
+    "vstor_start_V": 3.35,
+    "duty_start": 0.833,
+    "v_avg_start": 3.0,
+    "margin_start_to_vbok_max_mV": -91,
+    "margin_start_to_vbok_nom_mV": 38,
+    "margin_run_to_vbok_max_mV": 50,
+    "soft_start_limit": {
+     "i_bat_max_mA": 42.4,
+     "duty_max": 0.665,
+     "v_avg_max": 2.39,
+     "starts": true
+    }
+   },
+   "VSTOR | typ": {
+    "path_ohm": 2.35,
+    "i_run_mA": 29.2,
+    "vstor_run_V": 3.531,
+    "i_start_mA": 66.7,
+    "vstor_start_V": 3.443,
+    "duty_start": 0.833,
+    "v_avg_start": 3.0,
+    "margin_start_to_vbok_max_mV": 2,
+    "margin_start_to_vbok_nom_mV": 131,
+    "margin_run_to_vbok_max_mV": 90,
+    "soft_start_limit": {
+     "i_bat_max_mA": 67.7,
+     "duty_max": 0.84,
+     "v_avg_max": 3.02,
+     "starts": true
+    }
+   },
+   "VSTOR | max": {
+    "path_ohm": 3.75,
+    "i_run_mA": 29.2,
+    "vstor_run_V": 3.491,
+    "i_start_mA": 66.7,
+    "vstor_start_V": 3.35,
+    "duty_start": 0.833,
+    "v_avg_start": 3.0,
+    "margin_start_to_vbok_max_mV": -91,
+    "margin_start_to_vbok_nom_mV": 38,
+    "margin_run_to_vbok_max_mV": 50,
+    "soft_start_limit": {
+     "i_bat_max_mA": 42.4,
+     "duty_max": 0.665,
+     "v_avg_max": 2.39,
+     "starts": true
+    }
+   },
+   "VSTOR | cold": {
+    "path_ohm": 5.25,
+    "i_run_mA": 29.2,
+    "vstor_run_V": 3.447,
+    "i_start_mA": 66.7,
+    "vstor_start_V": 3.25,
+    "duty_start": 0.833,
+    "v_avg_start": 3.0,
+    "margin_start_to_vbok_max_mV": -191,
+    "margin_start_to_vbok_nom_mV": -62,
+    "margin_run_to_vbok_max_mV": 6,
+    "soft_start_limit": {
+     "i_bat_max_mA": 30.3,
+     "duty_max": 0.562,
+     "v_avg_max": 2.02,
+     "starts": false
+    }
+   }
+  },
+  "vbok_falling_V": [
+   3.192,
+   3.312,
+   3.441
+  ],
+  "vbok_rising_V": [
+   3.279,
+   3.403,
+   3.536
+  ],
+  "path_ohm_parts": {
+   "cell_pcm": [
+    0.15,
+    1.0,
+    2.5
+   ],
+   "r112": 1.0,
+   "pfet": [
+    0.95,
+    1.5
+   ],
+   "f1_strap_links": 0.25
+  },
+  "motor": {
+   "i_run_mA": [
+    30,
+    35
+   ],
+   "r_coil_ohm_E": 37.5,
+   "start_current_mA_E": 80,
+   "starting_voltage_V_E": 2.3,
+   "rise_ms_max": 90
+  },
+  "flyback": {
+   "diode": "D17 BAT54CM, both halves in parallel to VBAT_IC",
+   "vf_max_V_at_30mA": 0.5,
+   "vds_peak_V": 4.78,
+   "q12_vds_max_V": 20,
+   "diode_avg_mW": 2.9,
+   "ifrm_mA": 300
+  },
+  "gate": {
+   "r162": "1k 1% 0201 0201WMF1001TEE",
+   "r163": "1M 1% 0201",
+   "peak_gpio_mA": 1.86,
+   "edge_10_90_ns": 219,
+   "qg_E_nC": 0.19,
+   "switching_loss_mW_at_40kHz": 1.32,
+   "rdson_mOhm_at_1p8V": [
+    470,
+    680
+   ],
+   "drop_mV_at_80mA": 54.4
+  },
+  "pwm_ripple_mV": 14.0,
+  "ship_mode": "VBAT_IC stays on the cell in ship mode (the BQ25570 opens only the VSTOR-VBAT PFET, SLUSBH2G 7.4.1 p.18): Q12 off-state leakage becomes a ship-mode load: IDSS <= 1 uA at VDS 20 V, 25 C (PMZ290 p.6) is the only published bound; no figure at 4 V (bound 3.7 uW)",
+  "hook": "BASELINE 14 item 6: INA_BAT (U5 INA236, R112, bus = BATT_P) reads VBAT before the start and the battery current during the 30 ms ramp; the firmware ramps the duty while I_bat <= 40 mA and VBAT_IC - I x 1.0 Ohm >= 3.50 V (keeps VSTOR above VBAT_OK falling max 3.441 V at every corner of the table); never during ECG"
+ },
+ "front_light_G10h": {
+  "load_330R_mA": [
+   8.51,
+   8.92
+  ],
+  "window_mA": [
+   8.3,
+   9.1
+  ],
+  "jig_led_2p7V_mA": [
+   8.85,
+   12.06
+  ],
+  "note": "stage 0 wrote 1.5-7.6 mA (derived for R160 = 220 Ohm): a good board would have failed EOL (review D-6)"
+ },
+ "front_light": {
+  "r160": "100R 1% 0201 0201WMF1000TEE",
+  "table": {
+   "100 Ohm": {
+    "i_peak_low_mA": 4.07,
+    "i_peak_high_mA": 16.8,
+    "p_peak_high_mW": 28.2,
+    "dim_room_3mA_possible": true
+   },
+   "120 Ohm": {
+    "i_peak_low_mA": 3.39,
+    "i_peak_high_mA": 14.0,
+    "p_peak_high_mW": 23.5,
+    "dim_room_3mA_possible": true
+   },
+   "150 Ohm": {
+    "i_peak_low_mA": 2.72,
+    "i_peak_high_mA": 11.2,
+    "p_peak_high_mW": 18.8,
+    "dim_room_3mA_possible": false
+   },
+   "220 Ohm": {
+    "i_peak_low_mA": 1.85,
+    "i_peak_high_mA": 7.64,
+    "p_peak_high_mW": 12.8,
+    "dim_room_3mA_possible": false
+   }
+  },
+  "choice": "100 Ohm (C270366): >= 3 mA possible at VSTOR_SW 3.31 V with VF 2.9 V; peak <= 16.8 mA at 4.28 V with VF 2.6 V (the LED's VF rises with current, so the real peak is lower) against 25 mA absolute maximum of the 1.28 in part (AZ11049 p.2); 220 Ohm (the first value) cannot give the 3 mA dim-room level below VSTOR_SW 3.56 V",
+  "energy_uW": {
+   "night_typ": 1.93,
+   "dim_room_typ": 7.71,
+   "typical_total": 9.64,
+   "dark_test": 19.27,
+   "baseline": [
+    9.64,
+    19.27
+   ],
+   "note": "battery-referred: I_avg x 3.7 V (R160, LED and Q11 are all in this product)"
+  },
+  "pwm": "PWM duty = target average / peak, the firmware reads VSTOR on INA_BAT and corrects for it; the VF spread stays (open loop, brightness +-30 % E)",
+  "q11": "PMZ290UNE2 0.68 Ohm max at 1.8 V: 11 mV at the peak",
+  "r160_rating_mW": 50
+ },
+ "display_if": {
+  "a_port": {
+   "vccA": "DISP_EN = GPIO P0.19 high (VDD_1V8)",
+   "vt_plus_max_V": 1.295,
+   "vt_minus_min_V": 0.398,
+   "margin_high_V": 0.455,
+   "margin_low_V": 0.348,
+   "note": "SCES937B p.8: VT+ 0.76-1.13 V at 1.65 V and 1.08-1.56 V at 2.3 V, VT- 0.35-0.69 / 0.56-0.97 V (interpolated to VCCA); nRF outputs at light load within 50 mV of the rails (E)"
+  },
+  "b_port": {
+   "vdd_disp_V": [
+    2.955,
+    3.0,
+    3.045
+   ],
+   "panel_vdd_range_V": [
+    2.7,
+    3.3
+   ],
+   "panel_vih_min": "VDD - 0.1 V",
+   "panel_vil_max": "VSS + 0.1 V",
+   "txu_voh_min": "VCCB - 0.1 V at 0.1 mA",
+   "txu_vol_max": "0.1 V at 0.1 mA",
+   "ok": "VCCB = panel VDD (same rail VDD_DISP), so VOH >= VDD - 0.1 V meets VIH >= VDD - 0.1 V at the panel's uA input current; LD-29Y03 Table 6-1 spec p.18; SCES937B p.9"
+  },
+  "edges": "SCES937B p.10: 100 Mbps for 1.65-1.95 V -> 3.0-3.6 V with 20 % of the pulse above 0.7 VCCO, i.e. edges of a few ns; the panel asks <= 50 ns (LD-29Y03 spec p.22): met with margin (inference from the data-rate row, E)",
+  "supply_currents_uA": {
+   "per_translator_icca_iccb_max": [
+    2.5,
+    3.0,
+    6.0
+   ],
+   "note": "SCES937B p.9 / SCES940A p.7: ICCA + ICCB max 2.5 (25 C) / 3 (85 C) / 6 uA (125 C); no typical value published (V3_ARCH lists the TXU0104 typical as not found)",
+   "u21_bound_uW_face_on": 9.25
+  },
+  "sequence": "on: DISP_EN high (U16 EN, VCCA, OE) -> wait >= 1.2 ms (tSTR 0.75-1.2 ms, SBVS277C p.7) -> panel init with DISP_CTRL low -> DISP_CTRL high. off: DISP_CTRL low -> wait >= 30 us (LD-29Y03 spec p.21) -> DISP_EN low (U16 discharges VDD_DISP through 60 Ohm, p.7; both translators go high-Z once a supply is < 100 mV, SCES937B p.1). Below 100 mV of VCCB the DISP input is undriven for the first part of the VDD ramp (E: check on the bench, V3-G10 (g))",
+  "tps7a0230": {
+   "vout_V": [
+    2.955,
+    3.0,
+    3.045
+   ],
+   "headroom_at_vbok_min_V": 0.147,
+   "dropout_max_mV_at_200mA": 310,
+   "dropout_at_100uA_mV_E": 0.155,
+   "ignd_nA": [
+    25,
+    46,
+    60
+   ],
+   "ishdn_nA": [
+    3,
+    10
+   ],
+   "ignd_uW": [
+    0.092,
+    0.17
+   ],
+   "ishdn_uW": [
+    0.0111,
+    0.037
+   ],
+   "en": "VEN(HI) >= 1.1 V, VEN(LOW) <= 0.3 V, IEN <= 10 nA (p.7): driven by DISP_EN at 1.86 V",
+   "panel_power_uW": {
+    "hold_typ_max": [
+     15,
+     50
+    ],
+    "update_1Hz_typ_max": [
+     25,
+     100
+    ],
+    "source": "LD-29Y03 Table 6-4 spec p.24 at 3.0 V, 60 Hz EXTCOMIN"
+   }
+  }
+ },
+ "wake": {
+  "vbus": {
+   "vb_det_V": 2.5,
+   "final_V": 1.78,
+   "tau_s": 2.041,
+   "t_to_1V_s": 1.683,
+   "note": "VBUS 5.0 V -> R144 / R145 1 M / 1 M -> VB_DET 2.5 V -> D12 half A -> EN_HOLD (C121 4.7 uF, R126 3.3 M to the dark PV node): Q4 on, EN low; VB_DET also turns on Q8 (PV short) and Q9 (AVDD_EN low) at VGS 2.5 V"
+  },
+  "button": {
+   "btn_V_at_vbat": {
+    "3.0": 2.727,
+    "3.7": 3.364,
+    "4.1": 3.727
+   },
+   "vbat_3.0": {
+    "final_V": 2.216,
+    "tau_s": 0.416,
+    "t_to_1V_s": 0.25
+   },
+   "vbat_3.7": {
+    "final_V": 2.836,
+    "tau_s": 0.416,
+    "t_to_1V_s": 0.181
+   },
+   "press_current_uA": 3.73,
+   "btn_n_pullup_uA": 1.86,
+   "note": "SW1 closes BTN_SUP (VBAT_IC through R165 100 k) to BTN (R167 1 M): BTN 0.91 x VBAT -> D12 half B -> EN_HOLD; BTN -> Q13 gate -> BTN_N low. Running: EN_HOLD already 1.27-1.46 V (D9), so BTN starts at EN_HOLD + VF and Q13 switches at once; ship mode: a press of >= 0.3 s wakes (strict 1.0 V), then MCUboot holds PWR_HOLD. C&K contact <= 500 mOhm, bounce <= 10 ms, 50 mA / 12 V max (PTS840 p.1): 4 uA is a dry circuit (E: gold-plated contacts would be the safer finish; the GK finish is not stated in the notes)"
+  },
+  "stuck_button": "water pressure or a stuck key: 3.7 uA in R165 + R167 and 1.9 uA in R164 (when awake) = about 21 uW while held; firmware ignores > 5 s (BASELINE 14 item 5); in ship mode a held key keeps EN_HOLD up, so the band leaves ship mode (E: SHELF then applies)",
+  "leakage": {
+   "d12": "ship mode: anodes at 0 V (R145, R167 to GND) and cathode at EN_HOLD = 0 V: no bias, no current. Running: reverse bias about 1.3 V, IR <= 30 nA at 25 V (BAV70M p.4) per half: < 0.06 uA from the hold node (fed by PWR_HOLD)",
+   "r144_r145": "0 with the head off (VBUS_K floating, D14 blocks)",
+   "sw1": "open contact: no path (insulation, E)"
+  }
+ },
+ "contact_esd": {
+  "parts": "J15 (VBUS_K) -> D13 ESD761 to GND at the land -> D14 NSR0240 -> VBUS -> C130 1 uF at U15 IN; J18 = GND",
+  "positive": {
+   "iec_8kV_contact_charge_uC": 1.2,
+   "dv_on_C130_V": 2.0,
+   "note": "the residual after D13 is charge-limited by C130 through D14: about 2 V on the input capacitor against the 30 V absolute maximum of IN (SLUSDJ8A p.4); ESD761 clamps 36.3 V at 1.8 A 8/20 us, IEC 61000-4-2 +-15 kV (SLVSH10C p.4-5)"
+  },
+  "negative": {
+   "d14_reverse_V": "up to the ESD761 clamp, 36.3 V at 1.8 A plus the dynamic part at the IEC peak (not stated) against NSR0240 VR 40 V (p.1)",
+   "status": "margin small and not specified for ns pulses: V3-G6 ESD test on the contacts with the head off; fallback a 60 V Schottky in the same land"
+  },
+  "reverse_attach": {
+   "d14_ir_uA_max_at_25V": 0.55,
+   "at_minus5V": "D14 blocks: BQ25170 IN stays >= -0.3 V (p.4); ESD761 VRWM +-24 V: no conduction (p.4); current <= 0.55 uA (NSR0240 p.2)"
+  },
+  "standby": "head off: VBUS_K floats, D13 leakage <= 50 nA only with a voltage on the pin (SLVSH10C p.4): 0 in use"
+ },
+ "standby": {
+  "baseline_uW": {
+   "MON_face_on": 257.6,
+   "MON_dark": 238.8,
+   "ECO": 93.9,
+   "SHELF": 35.7,
+   "ship": 22.3
+  },
+  "additions_uW": {
+   "U21 TXU0101 ICCA + ICCB (bound 2.5 uA, all taken at VSTOR; face on only)": {
+    "MON_face_on": 9.25
+   },
+   "BQ25170 /PG high-level leakage from VDD_1V8 (bound 1 uA; VDD_1V8 on)": {
+    "MON_face_on": 2.187,
+    "MON_dark": 2.187,
+    "SHELF": 2.187,
+    "ECO": 2.187
+   },
+   "Q12 off-state leakage on VBAT_IC in ship mode (bound 1 uA at 20 V; new path of the VBAT_IC supply: on VSTOR the PFET opens in ship mode)": {
+    "ship": 3.7
+   },
+   "O-2 not a battery load as built (BASELINE planned 2.5 uW while lit)": {
+    "MON_face_on": -2.5
+   },
+   "U16 shutdown current while the display is off (10 nA max)": {
+    "MON_dark": 0.037,
+    "SHELF": 0.037,
+    "ECO": 0.037
+   },
+   "NTC readings by NTC_EN (15 uA for 50 ms a minute)": {
+    "MON_face_on": 0.023,
+    "MON_dark": 0.023
+   }
+  },
+  "total_with_bounds_uW": {
+   "MON_face_on": 266.6,
+   "MON_dark": 241.0,
+   "ECO": 96.1,
+   "SHELF": 37.9,
+   "ship": 26.0
+  },
+  "total_without_bound_items_uW": {
+   "MON_face_on": 255.1,
+   "MON_dark": 238.9,
+   "ECO": 93.9,
+   "SHELF": 35.7,
+   "ship": 22.3
+  },
+  "t6_shelf_days_with_bounds": 242,
+  "t6_ship_days_with_bounds": 353,
+  "note": "BASELINE 11.1 values (battery-referred, 3.7 V) with the as-built differences; 'bound' items have only a datasheet maximum (no typical): the real values are expected far lower but are not published (unverified - needs samples). T6 >= 182.6 d (BASELINE 11.2)"
+ },
+ "area": {
+  "BASELINE 5.3 rebuilt (plan), 37x29": {
+   "courtyard_mm2": 455.5,
+   "fixed_mm2": 96.5,
+   "placement_mm2": 806.3,
+   "utilisation": 0.565,
+   "utilisation_v1": 0.626,
+   "pass_project": true,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 146.7,
+   "tall_zone_util": 0.471,
+   "tall_zone_util_v1": 0.522
+  },
+  "V3-F as built, project convention, 37x29": {
+   "courtyard_mm2": 490.8,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 800.7,
+   "utilisation": 0.613,
+   "utilisation_v1": 0.679,
+   "pass_project": true,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 156.7,
+   "tall_zone_util": 0.513,
+   "tall_zone_util_v1": 0.568
+  },
+  "V3-F as built, PCB (+ DNP lands + sky fiducials), 37x29": {
+   "courtyard_mm2": 516.4,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 800.7,
+   "utilisation": 0.645,
+   "utilisation_v1": 0.714,
+   "pass_project": false,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 156.7,
+   "tall_zone_util": 0.513,
+   "tall_zone_util_v1": 0.568
+  },
+  "v3f_fldnp (front light DNP) project convention, 37x29": {
+   "courtyard_mm2": 487.4,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 800.7,
+   "utilisation": 0.609,
+   "utilisation_v1": 0.674,
+   "pass_project": true,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 156.7,
+   "tall_zone_util": 0.513,
+   "tall_zone_util_v1": 0.568
+  },
+  "reserve 1 LED chain removed, 37x29": {
+   "courtyard_mm2": 477.4,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 800.7,
+   "utilisation": 0.596,
+   "utilisation_v1": 0.66,
+   "pass_project": true,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 149.1,
+   "tall_zone_util": 0.488,
+   "tall_zone_util_v1": 0.54
+  },
+  "reserve 3 O-2 in the pack PCM, 37x29": {
+   "courtyard_mm2": 470.2,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 800.7,
+   "utilisation": 0.587,
+   "utilisation_v1": 0.65,
+   "pass_project": true,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 156.7,
+   "tall_zone_util": 0.513,
+   "tall_zone_util_v1": 0.568
+  },
+  "SW1 on the C&K land (24.9 mm2 E), 37x29": {
+   "courtyard_mm2": 489.3,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 800.7,
+   "utilisation": 0.611,
+   "utilisation_v1": 0.677,
+   "pass_project": true,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 155.2,
+   "tall_zone_util": 0.508,
+   "tall_zone_util_v1": 0.562
+  },
+  "reserves 1 + 3, 37x29": {
+   "courtyard_mm2": 456.7,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 800.7,
+   "utilisation": 0.57,
+   "utilisation_v1": 0.632,
+   "pass_project": true,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 149.1,
+   "tall_zone_util": 0.488,
+   "tall_zone_util_v1": 0.54
+  },
+  "reserves 1 + 3 + SW1 C&K land, 37x29": {
+   "courtyard_mm2": 455.2,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 800.7,
+   "utilisation": 0.569,
+   "utilisation_v1": 0.63,
+   "pass_project": true,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 147.5,
+   "tall_zone_util": 0.483,
+   "tall_zone_util_v1": 0.535
+  },
+  "reserve 3 + SW1 C&K land (LED kept), 37x29": {
+   "courtyard_mm2": 468.6,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 800.7,
+   "utilisation": 0.585,
+   "utilisation_v1": 0.648,
+   "pass_project": true,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 155.2,
+   "tall_zone_util": 0.508,
+   "tall_zone_util_v1": 0.562
+  },
+  "BASELINE 5.3 rebuilt (plan), 38x29": {
+   "courtyard_mm2": 455.5,
+   "fixed_mm2": 96.5,
+   "placement_mm2": 834.3,
+   "utilisation": 0.546,
+   "utilisation_v1": 0.605,
+   "pass_project": true,
+   "pass_v1": true,
+   "tall_courtyard_mm2": 146.7,
+   "tall_zone_util": 0.432,
+   "tall_zone_util_v1": 0.479
+  },
+  "V3-F as built, project convention, 38x29": {
+   "courtyard_mm2": 490.8,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 828.7,
+   "utilisation": 0.592,
+   "utilisation_v1": 0.656,
+   "pass_project": true,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 156.7,
+   "tall_zone_util": 0.47,
+   "tall_zone_util_v1": 0.52
+  },
+  "V3-F as built, PCB (+ DNP lands + sky fiducials), 38x29": {
+   "courtyard_mm2": 516.4,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 828.7,
+   "utilisation": 0.623,
+   "utilisation_v1": 0.69,
+   "pass_project": false,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 156.7,
+   "tall_zone_util": 0.47,
+   "tall_zone_util_v1": 0.52
+  },
+  "v3f_fldnp (front light DNP) project convention, 38x29": {
+   "courtyard_mm2": 487.4,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 828.7,
+   "utilisation": 0.588,
+   "utilisation_v1": 0.651,
+   "pass_project": true,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 156.7,
+   "tall_zone_util": 0.47,
+   "tall_zone_util_v1": 0.52
+  },
+  "reserve 1 LED chain removed, 38x29": {
+   "courtyard_mm2": 477.4,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 828.7,
+   "utilisation": 0.576,
+   "utilisation_v1": 0.638,
+   "pass_project": true,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 149.1,
+   "tall_zone_util": 0.447,
+   "tall_zone_util_v1": 0.495
+  },
+  "reserve 3 O-2 in the pack PCM, 38x29": {
+   "courtyard_mm2": 470.2,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 828.7,
+   "utilisation": 0.567,
+   "utilisation_v1": 0.628,
+   "pass_project": true,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 156.7,
+   "tall_zone_util": 0.47,
+   "tall_zone_util_v1": 0.52
+  },
+  "SW1 on the C&K land (24.9 mm2 E), 38x29": {
+   "courtyard_mm2": 489.3,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 828.7,
+   "utilisation": 0.59,
+   "utilisation_v1": 0.654,
+   "pass_project": true,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 155.2,
+   "tall_zone_util": 0.465,
+   "tall_zone_util_v1": 0.515
+  },
+  "reserves 1 + 3, 38x29": {
+   "courtyard_mm2": 456.7,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 828.7,
+   "utilisation": 0.551,
+   "utilisation_v1": 0.61,
+   "pass_project": true,
+   "pass_v1": true,
+   "tall_courtyard_mm2": 149.1,
+   "tall_zone_util": 0.447,
+   "tall_zone_util_v1": 0.495
+  },
+  "reserves 1 + 3 + SW1 C&K land, 38x29": {
+   "courtyard_mm2": 455.2,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 828.7,
+   "utilisation": 0.549,
+   "utilisation_v1": 0.608,
+   "pass_project": true,
+   "pass_v1": true,
+   "tall_courtyard_mm2": 147.5,
+   "tall_zone_util": 0.442,
+   "tall_zone_util_v1": 0.49
+  },
+  "reserve 3 + SW1 C&K land (LED kept), 38x29": {
+   "courtyard_mm2": 468.6,
+   "fixed_mm2": 102.1,
+   "placement_mm2": 828.7,
+   "utilisation": 0.566,
+   "utilisation_v1": 0.626,
+   "pass_project": true,
+   "pass_v1": false,
+   "tall_courtyard_mm2": 155.2,
+   "tall_zone_util": 0.465,
+   "tall_zone_util_v1": 0.515
+  }
+ },
+ "area_delta_vs_plan": {
+  "SW1 courtyard (EasyEDA C221907 land vs the 17.0 mm2 assumption, E-13)": 9.42,
+  "O-2 inhibit (14 parts vs the 12.0 mm2 reserve U18)": 8.6,
+  "display: TXU0101 U21 + C1603 for DISP instead of the RC delay C1504 / R1501; J13 land": 2.34,
+  "front-light / ERM hand lands J16, J17 (drawn) vs 3.0 mm2 each": 4.54,
+  "charger block: D14 reverse-attach Schottky, J18 second spring, R167 / Q13 button level shifter, U15 WSON land": 4.98,
+  "all other refs": 5.0,
+  "rounding (refs with |delta| <= 0.05 mm2)": 0.42
+ },
+ "sources": {
+  "BQ25170": "TI SLUSDJ8A (Apr 2020, rev. Apr 2021) https://www.ti.com/lit/ds/symlink/bq25170.pdf",
+  "SLUAAG9": "TI SLUAAG9 BQ25171-Q1 Quick Start Guide (Sep 2021) https://www.ti.com/lit/an/sluaag9/sluaag9.pdf",
+  "TPS7A02": "TI SBVS277C (Jul 2019, rev. Sep 2022) https://www.ti.com/lit/ds/symlink/tps7a02.pdf",
+  "TXU0104": "TI SCES937B (May 2021, rev. Feb 2025) https://www.ti.com/lit/ds/symlink/txu0104.pdf",
+  "TXU0101": "TI SCES940A (Feb 2022, rev. May 2024) https://www.ti.com/lit/ds/symlink/txu0101.pdf",
+  "LS011": "Sharp LD-29Y03 LS011B7DH03 spec (24 Nov 2017) https://d7rh5s3nxmpy4.cloudfront.net/CMP7377/files/LS011B7DH03_24Nov17_Spec_LD-29Y03.pdf",
+  "BAV70M": "Nexperia BAV70M (1 Jul 2022) https://datasheet.lcsc.com/datasheet/pdf/57d454f2d24a7e90ce02c5218e178436.pdf?productCode=C549313",
+  "BAT54CM": "Nexperia BAT54CM (2003) https://datasheet.lcsc.com/datasheet/pdf/857e6e97bc7a4b56c05ca8c91376cec5.pdf?productCode=C549275",
+  "ESD761": "TI SLVSH10C (Nov 2022, rev. Dec 2022) https://www.ti.com/lit/ds/symlink/esd761.pdf",
+  "NSR0240": "onsemi NSR0240MX2/D rev. 3 (Mar 2022) https://datasheet.lcsc.com/datasheet/pdf/4b95626787cd7ec325d86dd9eff135e9.pdf?productCode=C896422",
+  "PMZ290": "Nexperia PMZ290UNE2 (24 Mar 2015) https://datasheet.lcsc.com/datasheet/pdf/bc9c5c1607503fe9b387ba45e37b3765.pdf?productCode=C478155",
+  "PMZ350": "Nexperia PMZ350UPE (14 May 2014) https://datasheet.lcsc.com/datasheet/pdf/61ec9f5ef7c9e0bb0863e45d64cfc884.pdf?productCode=C478207",
+  "PTS840": "C&K PTS 840 catalogue B-40..B-42 https://datasheet.lcsc.com/datasheet/pdf/82b5c1248b369a64727907ed223b233b.pdf?productCode=C221907",
+  "BQ25570": "TI SLUSBH2G https://www.ti.com/lit/ds/symlink/bq25570.pdf",
+  "VCLP0820": "Vybronics VCLP0820B004L product page (v3/decide/research/eng_b/notes_sources.md row VCLP0820)",
+  "CLP1020": "Jinlong CLP1020B002L spec 2019-04-29 p.4/13 (eng_b notes_sources.md row CLP1020): class analogy only",
+  "AZ11049": "Azumo 11049-xx front light data sheet 12367-01_T5 p.2 (eng_b notes_sources.md row AZ_11049): the 1.28 in part, not the custom 1.08 in film",
+  "V2CALC": "v3/design/v2_ref/CALC.md sections 1, 4, 5 and v2_ref/calc/led_supply.py (V2-B values as frozen)",
+  "BASELINE": "v3/decide/BASELINE.md and v3/decide/calc/baseline_calc.json"
+ },
+ "generated_utc": "2026-11-14T21:19:51Z"
+}

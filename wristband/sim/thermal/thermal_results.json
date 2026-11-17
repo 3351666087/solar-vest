@@ -1,0 +1,752 @@
+{
+ "gate": "V3-G2 (SIM-13 thermal), V3-F stage 2a pod 41 x 34",
+ "date": "2026-11-15",
+ "models": {
+  "pod": "pod3d_v3f.py: physics review 3-D FV model (review_fv3d_v2b.py, copy) with the V3-F geometry; reproduces V2-B rev1 41.17 C",
+  "strap": "strap2d_v3f.py: 2-D section along the strap over 2-D Pennes tissue (arterial 37 C at 30 mm), gap profile from geom_v3f worn geometry",
+  "bias": "review model reads 0.4-0.5 K low against SIM-13 (REDESIGN 5.7); absolute values below are model values without the bias"
+ },
+ "reference_V2B_C": {
+  "w3": 41.17,
+  "w1": 41.81,
+  "w6": 40.72,
+  "wind": 41.99,
+  "print025": 41.75
+ },
+ "reproduced_V2B_w3_C": 41.17,
+ "O2_window_C": {
+  "cold_stop": [
+   0.84,
+   3.97
+  ],
+  "hot_stop": [
+   34.88,
+   43.31
+  ],
+  "TS_USB_cold": [
+   1.85,
+   6.04
+  ],
+  "TS_USB_hot": [
+   38.79,
+   44.84
+  ],
+  "source": "v3/design/calc/o2_inhibit.json threshold_design.corners, ts_window.alone"
+ },
+ "cases": [
+  {
+   "id": "1a",
+   "what": "pod full sun, skin <= 43 C (disp 0.45-0.75, print 0.15, perfusion 1e-3..6e-3, wind x0.6)",
+   "as_designed_max_C": 44.9,
+   "as_designed_range_no_wind_C": [
+    41.54,
+    43.81
+   ],
+   "verdict": "FAIL",
+   "with_FIXP_max_C": 42.73,
+   "verdict_with_fix": "PASS"
+  },
+  {
+   "id": "1b",
+   "what": "pod not hotter than V2-B (41.17 at 3e-3; matching conditions)",
+   "as_designed_C": {
+    "0.45": 42.07,
+    "0.60": 42.5,
+    "0.75": 42.92
+   },
+   "verdict": "FAIL",
+   "with_FIXP_C": {
+    "w3 disp 0.75": 41.14,
+    "w1": 41.76,
+    "w6": 40.7,
+    "wind": 41.95,
+    "print 0.25": 41.54
+   },
+   "verdict_with_fix": "PASS (margin 0.02-0.21 K)"
+  },
+  {
+   "id": "1c",
+   "what": "interim build, masked window a 0.6",
+   "as_designed_C": {
+    "w3": 43.27,
+    "w1": 44.21,
+    "wind": 44.3,
+    "w1 wind": 45.47
+   },
+   "verdict": "FAIL",
+   "fix": "PV raise 0.655 + mask a <= 0.35",
+   "with_fix_C": {
+    "w3": 41.03,
+    "w1": 41.63,
+    "wind": 41.89,
+    "w1 wind": 42.67
+   },
+   "verdict_with_fix": "PASS"
+  },
+  {
+   "id": "2",
+   "what": "c-Si wing on root B per sub-cell, skin <= 43 C (hard gate before wear)",
+   "as_designed": {
+    "140 mm w0.001": {
+     "skin_max_C": 48.38,
+     "sub_cells_C": [
+      43.94,
+      45.3,
+      46.93,
+      48.37
+     ],
+     "gap_mm": [
+      3.16,
+      1.87,
+      0.87,
+      0.22
+     ]
+    },
+    "140 mm w0.003": {
+     "skin_max_C": 45.29,
+     "sub_cells_C": [
+      41.29,
+      42.4,
+      43.87,
+      45.28
+     ],
+     "gap_mm": [
+      3.16,
+      1.87,
+      0.87,
+      0.22
+     ]
+    },
+    "140 mm w0.006": {
+     "skin_max_C": 43.64,
+     "sub_cells_C": [
+      40.05,
+      40.96,
+      42.28,
+      43.63
+     ],
+     "gap_mm": [
+      3.16,
+      1.87,
+      0.87,
+      0.22
+     ]
+    },
+    "165 mm w0.001": {
+     "skin_max_C": 48.11,
+     "sub_cells_C": [
+      44.09,
+      45.39,
+      46.85,
+      48.08
+     ],
+     "gap_mm": [
+      2.74,
+      1.66,
+      0.83,
+      0.27
+     ]
+    },
+    "165 mm w0.003": {
+     "skin_max_C": 45.0,
+     "sub_cells_C": [
+      41.43,
+      42.48,
+      43.78,
+      44.97
+     ],
+     "gap_mm": [
+      2.74,
+      1.66,
+      0.83,
+      0.27
+     ]
+    },
+    "165 mm w0.006": {
+     "skin_max_C": 43.36,
+     "sub_cells_C": [
+      40.17,
+      41.04,
+      42.2,
+      43.33
+     ],
+     "gap_mm": [
+      2.74,
+      1.66,
+      0.83,
+      0.27
+     ]
+    },
+    "200 mm w0.001": {
+     "skin_max_C": 47.8,
+     "sub_cells_C": [
+      44.27,
+      45.5,
+      46.77,
+      47.77
+     ],
+     "gap_mm": [
+      2.33,
+      1.47,
+      0.79,
+      0.31
+     ]
+    },
+    "200 mm w0.003": {
+     "skin_max_C": 44.67,
+     "sub_cells_C": [
+      41.59,
+      42.58,
+      43.71,
+      44.64
+     ],
+     "gap_mm": [
+      2.33,
+      1.47,
+      0.79,
+      0.31
+     ]
+    },
+    "200 mm w0.006": {
+     "skin_max_C": 43.03,
+     "sub_cells_C": [
+      40.32,
+      41.13,
+      42.13,
+      43.01
+     ],
+     "gap_mm": [
+      2.33,
+      1.47,
+      0.79,
+      0.31
+     ]
+    },
+    "165 mm w3e-3 wind x0.6 (h 6)": {
+     "skin_max_C": 46.0,
+     "sub_cells_C": [
+      42.02,
+      43.2,
+      44.66,
+      45.98
+     ],
+     "gap_mm": [
+      2.74,
+      1.66,
+      0.83,
+      0.27
+     ]
+    }
+   },
+   "verdict": "FAIL",
+   "mitigations": {
+    "reference: no wing (strap root a 0.6) 165 mm w3e-3": 42.98,
+    "reference: no wing, strap a 0.30, 165 mm w3e-3": 39.86,
+    "mit-a wing to s 10 140 mm w3e-3": 43.78,
+    "mit-b light outer zone from s 10 140 mm w3e-3": 43.37,
+    "mit-a wing to s 10 165 mm w3e-3": 43.61,
+    "mit-b light outer zone from s 10 165 mm w3e-3": 43.19,
+    "mit-a wing to s 10 200 mm w3e-3": 43.41,
+    "mit-b light outer zone from s 10 200 mm w3e-3": 42.98,
+    "mit-a wing to s 9 140 mm w3e-3": 43.59,
+    "mit-b light outer zone from s 9 140 mm w3e-3": 42.97,
+    "mit-a wing to s 9 165 mm w3e-3": 43.43,
+    "mit-b light outer zone from s 9 165 mm w3e-3": 42.81,
+    "mit-a wing to s 9 200 mm w3e-3": 43.24,
+    "mit-b light outer zone from s 9 200 mm w3e-3": 42.61,
+    "mit-a wing to s 8 140 mm w3e-3": 43.45,
+    "mit-b light outer zone from s 8 140 mm w3e-3": 42.64,
+    "mit-a wing to s 8 165 mm w3e-3": 43.3,
+    "mit-b light outer zone from s 8 165 mm w3e-3": 42.49,
+    "mit-a wing to s 8 200 mm w3e-3": 43.11,
+    "mit-b light outer zone from s 8 200 mm w3e-3": 42.31,
+    "mit-a wing to s 10 165 mm w1e-3": 46.53,
+    "mit-b light outer zone from s 10 165 mm w1e-3": 45.93,
+    "mit-a wing to s 8 165 mm w1e-3": 46.13,
+    "mit-b light outer zone from s 8 165 mm w1e-3": 45.04,
+    "mit-a wing to s 10 + strap a 0.30, 165 mm w3e-3": 41.54,
+    "mit-b light zone from s 10 + strap a 0.30, 165 mm w3e-3": 41.72,
+    "mit-a wing to s 8 + strap a 0.30, 165 mm w3e-3": 40.71,
+    "mit-b light zone from s 8 + strap a 0.30, 165 mm w3e-3": 40.95,
+    "mit-b light zone from s 9.5 140 mm w3e-3": 43.21,
+    "mit-b light zone from s 10 + strap a 0.30 140 mm w3e-3": 41.89,
+    "mit-b light zone from s 9.5 165 mm w3e-3": 43.04,
+    "mit-b light zone from s 10 + strap a 0.30 165 mm w3e-3": 41.72,
+    "mit-b light zone from s 9.5 200 mm w3e-3": 42.83,
+    "mit-b light zone from s 10 + strap a 0.30 200 mm w3e-3": 41.59,
+    "mit-b light zone from s 9 165 mm w3e-3 wind x0.6": 43.58,
+    "mit-b light zone from s 9 165 mm w6e-3": 41.47,
+    "reference: no wing, strap a 0.6, 165 mm w3e-3 wind x0.6": 43.67,
+    "reference: no wing, strap a 0.6, 165 mm w1e-3": 45.66,
+    "mit-b light zone from s 10 + strap a 0.30 140 mm w3e-3 wind x0.6": 42.6,
+    "mit-a wing to s 10 + strap a 0.30 140 mm w3e-3 wind x0.6": 42.23,
+    "mit-b light zone from s 10 + strap a 0.30 165 mm w3e-3 wind x0.6": 42.41,
+    "mit-a wing to s 10 + strap a 0.30 165 mm w3e-3 wind x0.6": 42.2,
+    "mit-b light zone from s 10 + strap a 0.30 200 mm w3e-3 wind x0.6": 42.25,
+    "mit-a wing to s 10 + strap a 0.30 200 mm w3e-3 wind x0.6": 42.2,
+    "as designed + strap a 0.30, 165 mm w3e-3": 43.57,
+    "mit-a wing to s 10 + strap a 0.30 165 mm w1e-3": 43.49,
+    "mit-a wing to s 8 + strap a 0.30 165 mm w1e-3": 42.46
+   },
+   "smallest_passing": "(b) light outer zone a <= 0.30 from s 9 mm (active 2.0-9.0, -40 % wing silicon): 42.61-42.97 C on 140/165/200 mm at 3e-3; fails in wind x0.6 (43.58) where a bare a 0.6 strap already gives 43.67. Every case incl. wind and 1e-3: (a) active wing to s 8 mm + light strap root/band a <= 0.30 (42.46 at 1e-3)"
+  },
+  {
+   "id": "3a",
+   "what": "capsule cell in sun (glass top 0.40, a 0.15 / 0.30, h 5-20)",
+   "cell_C": {
+    "a 0.15 h 5 140 mm w3e-3": 44.2,
+    "a 0.15 h 5 165 mm w3e-3": 44.21,
+    "a 0.15 h 5 200 mm w3e-3": 44.2,
+    "a 0.15 h 10 140 mm w3e-3": 42.76,
+    "a 0.15 h 10 165 mm w3e-3": 42.77,
+    "a 0.15 h 10 200 mm w3e-3": 42.76,
+    "a 0.15 h 20 140 mm w3e-3": 40.91,
+    "a 0.15 h 20 165 mm w3e-3": 40.91,
+    "a 0.15 h 20 200 mm w3e-3": 40.91,
+    "a 0.15 h 5 165 mm w1e-3": 45.74,
+    "a 0.15 h 5 165 mm w6e-3": 43.53,
+    "a 0.30 h 5 140 mm w3e-3": 47.63,
+    "a 0.30 h 5 165 mm w3e-3": 47.67,
+    "a 0.30 h 5 200 mm w3e-3": 47.67,
+    "a 0.30 h 10 140 mm w3e-3": 45.75,
+    "a 0.30 h 10 165 mm w3e-3": 45.77,
+    "a 0.30 h 10 200 mm w3e-3": 45.77,
+    "a 0.30 h 20 140 mm w3e-3": 43.28,
+    "a 0.30 h 20 165 mm w3e-3": 43.3,
+    "a 0.30 h 20 200 mm w3e-3": 43.3,
+    "a 0.30 h 5 165 mm w1e-3": 49.42,
+    "a 0.30 h 5 165 mm w6e-3": 46.85,
+    "a 0.15 + strap a 0.30, 165 mm w1e-3 h 5": 43.56,
+    "a 0.30 + strap a 0.30, 165 mm w1e-3 h 5": 47.24
+   },
+   "verdict": "PASS (cell > 45 only with a 0.15 h 5 1e-3 (45.74) and a 0.30 h <= 10; the hot stop (O-2 <= 43.31, firmware 45, TS <= 44.84) inhibits charging there; max 49.42 <= 60)"
+  },
+  {
+   "id": "3b",
+   "what": "skin under the capsule <= 43 C",
+   "skin_C": {
+    "a 0.15 h 5 140 mm w3e-3": 41.8,
+    "a 0.15 h 5 165 mm w3e-3": 41.66,
+    "a 0.15 h 5 200 mm w3e-3": 41.48,
+    "a 0.15 h 10 140 mm w3e-3": 41.09,
+    "a 0.15 h 10 165 mm w3e-3": 40.97,
+    "a 0.15 h 10 200 mm w3e-3": 40.83,
+    "a 0.15 h 20 140 mm w3e-3": 40.12,
+    "a 0.15 h 20 165 mm w3e-3": 40.03,
+    "a 0.15 h 20 200 mm w3e-3": 39.93,
+    "a 0.15 h 5 165 mm w1e-3": 43.98,
+    "a 0.15 h 5 165 mm w6e-3": 40.55,
+    "a 0.30 h 5 140 mm w3e-3": 42.86,
+    "a 0.30 h 5 165 mm w3e-3": 42.67,
+    "a 0.30 h 5 200 mm w3e-3": 42.44,
+    "a 0.30 h 10 140 mm w3e-3": 42.0,
+    "a 0.30 h 10 165 mm w3e-3": 41.84,
+    "a 0.30 h 10 200 mm w3e-3": 41.64,
+    "a 0.30 h 20 140 mm w3e-3": 40.82,
+    "a 0.30 h 20 165 mm w3e-3": 40.71,
+    "a 0.30 h 20 200 mm w3e-3": 40.56,
+    "a 0.30 h 5 165 mm w1e-3": 45.3,
+    "a 0.30 h 5 165 mm w6e-3": 41.39,
+    "a 0.15 + strap a 0.30, 165 mm w1e-3 h 5": 41.27,
+    "a 0.30 + strap a 0.30, 165 mm w1e-3 h 5": 42.59
+   },
+   "verdict": "FAIL",
+   "worst_C": 43.98,
+   "fix": "light strap root/band a <= 0.30",
+   "with_fix_C": 41.27,
+   "verdict_with_fix": "PASS"
+  },
+  {
+   "id": "3c",
+   "what": "cold: -10 / -20 C air, wind, sun 0 / 500 W/m2, worn and off the wrist",
+   "cell_C": {
+    "worn air -10 w0.001 h 20 sun 0": [
+     11.24,
+     13.08
+    ],
+    "worn air -10 w0.001 h 20 sun 500": [
+     13.73,
+     15.52
+    ],
+    "worn air -10 w0.001 h 30 sun 0": [
+     8.01,
+     10.05
+    ],
+    "worn air -10 w0.001 h 30 sun 500": [
+     10.03,
+     12.05
+    ],
+    "worn air -10 w0.0005 h 20 sun 0": [
+     9.34,
+     11.01
+    ],
+    "worn air -10 w0.0005 h 20 sun 500": [
+     12.14,
+     13.79
+    ],
+    "worn air -10 w0.0005 h 30 sun 0": [
+     6.23,
+     8.05
+    ],
+    "worn air -10 w0.0005 h 30 sun 500": [
+     8.46,
+     10.29
+    ],
+    "off-wrist air -10 h 20 sun 0": [
+     -10.0,
+     -10.0
+    ],
+    "off-wrist air -10 h 20 sun 500": [
+     -7.57,
+     -7.5
+    ],
+    "worn air -20 w0.001 h 20 sun 0": [
+     5.97,
+     8.2
+    ],
+    "worn air -20 w0.001 h 20 sun 500": [
+     8.3,
+     10.48
+    ],
+    "worn air -20 w0.001 h 30 sun 0": [
+     1.98,
+     4.45
+    ],
+    "worn air -20 w0.001 h 30 sun 500": [
+     3.89,
+     6.35
+    ],
+    "worn air -20 w0.0005 h 20 sun 0": [
+     3.67,
+     5.69
+    ],
+    "worn air -20 w0.0005 h 20 sun 500": [
+     6.32,
+     8.32
+    ],
+    "worn air -20 w0.0005 h 30 sun 0": [
+     -0.19,
+     2.03
+    ],
+    "worn air -20 w0.0005 h 30 sun 500": [
+     1.95,
+     4.17
+    ],
+    "off-wrist air -20 h 20 sun 0": [
+     -20.0,
+     -20.0
+    ],
+    "off-wrist air -20 h 20 sun 500": [
+     -17.54,
+     -17.48
+    ]
+   },
+   "note": "worn 2-D values are optimistic (37 C held at 30 mm depth); physics-lens lumped worn values 2 C (-10) / -10 C (-20); off the wrist the cell is at air temperature",
+   "verdict": "PASS: the cell goes below 0 C (off the wrist -20 C, worn plausibly -10 C); O-2 cold stop 0.84-3.97 C and USB TS 1.85-6.04 C stop charging above 0 C at every corner"
+  },
+  {
+   "id": "4a",
+   "what": "charging heat in the pod, BQ25170 22/50/70 mW",
+   "indoor_C": {
+    "C4 indoor 25 C still air, no sun, charge 22 mW": 32.12,
+    "C4 indoor 25 C still air, no sun, charge 50 mW": 32.35,
+    "C4 indoor 25 C still air, no sun, charge 70 mW": 32.52,
+    "C4 indoor 25 C still air, no sun, no charge": 31.95
+   },
+   "sunny_window_C": {
+    "C4 sunny window 800 W/m2 30 C still air disp 0.75, charge 0 mW": 41.36,
+    "C4 sunny window 800 W/m2 30 C still air disp 0.75, charge 70 mW": 42.7
+   },
+   "verdict": "PASS"
+  },
+  {
+   "id": "4b",
+   "what": "charging in full sun (70 mW)",
+   "as_designed_C": 44.16,
+   "FIXP_C": 42.59,
+   "verdict": "PASS (CHG_DIS at 41 C skin: the sun alone gives 42.92, so steady charging there is not reached; 44.16 without CHG_DIS; 42.59 with FIXP)"
+  },
+  {
+   "id": "4c",
+   "what": "skin-hot motor event 0.11 W x 257 s",
+   "steady_as_designed_C": 47.23,
+   "transient_factor": {
+    "20 s": 0.377,
+    "60 s": 0.571,
+    "120 s": 0.68,
+    "257 s": 0.775
+   },
+   "est_257s_as_designed_C": 46.26,
+   "steady_FIXP_C": 46.09,
+   "verdict": "FAIL",
+   "fix": "alert at <= 5 % duty (mean <= 5.5 mW)",
+   "with_fix_worst_C": 42.81,
+   "ten_pct_duty_worst_C": 43.09,
+   "verdict_with_fix": "PASS"
+  },
+  {
+   "id": "5",
+   "what": "TMP117 coupling <= 0.5 K (U10 at pod 5.5 / 25.6 over E1, 4 x 4 via island, filled contact)",
+   "err_K": {
+    "C5 TMP indoor charge 70 mW (charger 3 mm from U10)": -0.01,
+    "C5 TMP task BC disp 0.60": 0.25,
+    "C5 TMP task BC disp 0.75 print 0.60": 0.3,
+    "C5 TMP no island, task BC disp 0.60": 1.11,
+    "C5 TMP indoor 25 C no sun": -0.04
+   },
+   "verdict": "PASS (0.16-0.30 K with the island; 1.11 K without it)"
+  }
+ ],
+ "fixes": {
+  "FIXP": "PV laminate raised 0.655 mm (laminate top flush with the window top, air under the laminate 0.15 -> 0.805 mm; pod maximum unchanged at 5.305) + IR-cut (hot-mirror) coating on the window glass removing about 40 % of the display heat [E]",
+  "rules": [
+   "window border and laminate prints a <= 0.25 (a 0.60 gives 45.07 C even with FIXP)",
+   "TMP117 via island 4 x 4 mm with filled contact to E1, no parts on it",
+   "strap roots and band a <= 0.30 (light)",
+   "motor alert <= 5 % duty"
+  ]
+ },
+ "files": [
+  "pod3d_v3f.py",
+  "pod3d_extra.py",
+  "strap2d_v3f.py",
+  "strap2d_extra.py",
+  "out/pod3d.json",
+  "out/pod3d_extra.json",
+  "out/strap2d.json",
+  "out/strap2d_extra.json"
+ ],
+ "after_stage2b": {
+  "design": "stage 2b (LEAD_NOTES 2c/2d): pod top flat 5.395 mm, laminate flush (air 0.895), window seat +0.09, IR-cut 40 % [E], prints 0.15 (<= 0.25 allowed), stainless rail section, U10 island at (6.05, 25.55); wing silicon and laminate to s 8 mm, strap roots / band a 0.30; capsule 4.6 mm, glass top 0.50; motor alert <= 5 % duty; masked interim a <= 0.35",
+  "reproduced": {
+   "pod_C1_075_w3": 42.92,
+   "wing_165_w3": 45.0
+  },
+  "cases": [
+   {
+    "id": "1a",
+    "max_C": 42.67,
+    "verdict": "PASS",
+    "sensitivity_print_025_max_C": 43.18,
+    "print_limit_note": "print 0.25 at 1e-3 + wind x0.6: 43.18 C > 43; print 0.20: 42.92; 0.22: 43.03",
+    "print_060_w3_C": 42.84
+   },
+   {
+    "id": "1b",
+    "C": {
+     "w3": 41.09,
+     "w1": 41.7,
+     "w6": 40.65,
+     "wind": 41.89,
+     "print025": 41.48
+    },
+    "V2B_C": {
+     "w3": 41.17,
+     "w1": 41.81,
+     "w6": 40.72,
+     "wind": 41.99,
+     "print025": 41.75
+    },
+    "margins_K": {
+     "w3": 0.08,
+     "w1": 0.11,
+     "w6": 0.07,
+     "wind": 0.1,
+     "print025": 0.27
+    },
+    "verdict": "PASS"
+   },
+   {
+    "id": "1c",
+    "mask_035_C": {
+     "S2B C1m mask 0.35 w3e-3": 40.16,
+     "S2B C1m mask 0.35 w1e-3": 40.68,
+     "S2B C1m mask 0.35 w3e-3 wind x0.6": 40.87,
+     "S2B C1m mask 0.35 w1e-3 wind x0.6": 41.53
+    },
+    "verdict": "PASS"
+   },
+   {
+    "id": "2",
+    "listed_cases_max_C": 42.56,
+    "all_C": {
+     "S2B C2 wing 140 mm w0.001": 42.4,
+     "S2B C2 wing 140 mm w0.003": 40.66,
+     "S2B C2 wing 140 mm w0.006": 39.77,
+     "S2B C2 wing 140 mm w0.003 wind x0.6 (h 6)": 41.22,
+     "S2B C2 wing 140 mm w0.001 wind x0.6 (h 6)": 43.27,
+     "S2B C2 wing 165 mm w0.001": 42.46,
+     "S2B C2 wing 165 mm w0.003": 40.71,
+     "S2B C2 wing 165 mm w0.006": 39.82,
+     "S2B C2 wing 165 mm w0.003 wind x0.6 (h 6)": 41.28,
+     "S2B C2 wing 165 mm w0.001 wind x0.6 (h 6)": 43.34,
+     "S2B C2 wing 200 mm w0.001": 42.56,
+     "S2B C2 wing 200 mm w0.003": 40.79,
+     "S2B C2 wing 200 mm w0.006": 39.89,
+     "S2B C2 wing 200 mm w0.003 wind x0.6 (h 6)": 41.36,
+     "S2B C2 wing 200 mm w0.001 wind x0.6 (h 6)": 43.43
+    },
+    "extra_corner_1e3_wind_C": {
+     "S2B C2 wing 140 mm w0.001 wind x0.6 (h 6)": 43.27,
+     "S2B C2 wing 165 mm w0.001 wind x0.6 (h 6)": 43.34,
+     "S2B C2 wing 200 mm w0.001 wind x0.6 (h 6)": 43.43
+    },
+    "verdict": "PASS (listed cases); the combined corner 1e-3 + wind x0.6 (not a listed case) reaches 43.27-43.43 C"
+   },
+   {
+    "id": "3a",
+    "cell_C": {
+     "S2B C3 capsule a 0.15 h 5 140 mm w3e-3": 42.61,
+     "S2B C3 capsule a 0.15 h 5 165 mm w3e-3": 42.62,
+     "S2B C3 capsule a 0.15 h 5 200 mm w3e-3": 42.61,
+     "S2B C3 capsule a 0.15 h 10 140 mm w3e-3": 41.45,
+     "S2B C3 capsule a 0.15 h 10 165 mm w3e-3": 41.46,
+     "S2B C3 capsule a 0.15 h 10 200 mm w3e-3": 41.45,
+     "S2B C3 capsule a 0.15 h 20 140 mm w3e-3": 39.95,
+     "S2B C3 capsule a 0.15 h 20 165 mm w3e-3": 39.95,
+     "S2B C3 capsule a 0.15 h 20 200 mm w3e-3": 39.95,
+     "S2B C3 capsule a 0.15 h 5 165 mm w0.001": 43.56,
+     "S2B C3 capsule a 0.15 h 5 165 mm w0.006": 42.18,
+     "S2B C3 capsule a 0.30 h 5 140 mm w3e-3": 46.04,
+     "S2B C3 capsule a 0.30 h 5 165 mm w3e-3": 46.07,
+     "S2B C3 capsule a 0.30 h 5 200 mm w3e-3": 46.07,
+     "S2B C3 capsule a 0.30 h 10 140 mm w3e-3": 44.43,
+     "S2B C3 capsule a 0.30 h 10 165 mm w3e-3": 44.46,
+     "S2B C3 capsule a 0.30 h 10 200 mm w3e-3": 44.46,
+     "S2B C3 capsule a 0.30 h 20 140 mm w3e-3": 42.32,
+     "S2B C3 capsule a 0.30 h 20 165 mm w3e-3": 42.34,
+     "S2B C3 capsule a 0.30 h 20 200 mm w3e-3": 42.35,
+     "S2B C3 capsule a 0.30 h 5 165 mm w0.001": 47.24,
+     "S2B C3 capsule a 0.30 h 5 165 mm w0.006": 45.51
+    },
+    "verdict": "PASS (cell > 45 C only at a 0.30 with h <= 10 or 1e-3: charging stopped by the hot stop; max <= 60)"
+   },
+   {
+    "id": "3b",
+    "skin_C": {
+     "S2B C3 capsule a 0.15 h 5 140 mm w3e-3": 40.0,
+     "S2B C3 capsule a 0.15 h 5 165 mm w3e-3": 39.9,
+     "S2B C3 capsule a 0.15 h 5 200 mm w3e-3": 39.78,
+     "S2B C3 capsule a 0.15 h 10 140 mm w3e-3": 39.48,
+     "S2B C3 capsule a 0.15 h 10 165 mm w3e-3": 39.4,
+     "S2B C3 capsule a 0.15 h 10 200 mm w3e-3": 39.3,
+     "S2B C3 capsule a 0.15 h 20 140 mm w3e-3": 38.78,
+     "S2B C3 capsule a 0.15 h 20 165 mm w3e-3": 38.73,
+     "S2B C3 capsule a 0.15 h 20 200 mm w3e-3": 38.66,
+     "S2B C3 capsule a 0.15 h 5 165 mm w0.001": 41.27,
+     "S2B C3 capsule a 0.15 h 5 165 mm w0.006": 39.24,
+     "S2B C3 capsule a 0.30 h 5 140 mm w3e-3": 41.15,
+     "S2B C3 capsule a 0.30 h 5 165 mm w3e-3": 40.95,
+     "S2B C3 capsule a 0.30 h 5 200 mm w3e-3": 40.75,
+     "S2B C3 capsule a 0.30 h 10 140 mm w3e-3": 40.45,
+     "S2B C3 capsule a 0.30 h 10 165 mm w3e-3": 40.28,
+     "S2B C3 capsule a 0.30 h 10 200 mm w3e-3": 40.12,
+     "S2B C3 capsule a 0.30 h 20 140 mm w3e-3": 39.51,
+     "S2B C3 capsule a 0.30 h 20 165 mm w3e-3": 39.4,
+     "S2B C3 capsule a 0.30 h 20 200 mm w3e-3": 39.3,
+     "S2B C3 capsule a 0.30 h 5 165 mm w0.001": 42.59,
+     "S2B C3 capsule a 0.30 h 5 165 mm w0.006": 40.12
+    },
+    "max_C": 42.59,
+    "verdict": "PASS"
+   },
+   {
+    "id": "3c",
+    "cell_C": {
+     "S2B C3 cold worn air -10 w0.001 h 20 sun 0": [
+      11.25,
+      13.1
+     ],
+     "S2B C3 cold worn air -10 w0.0005 h 30 sun 0": [
+      6.24,
+      8.07
+     ],
+     "S2B C3 cold worn air -10 w0.0005 h 30 sun 500": [
+      7.87,
+      9.64
+     ],
+     "S2B C3 cold off-wrist air -10 h 20 sun 0": [
+      -10.0,
+      -10.0
+     ],
+     "S2B C3 cold off-wrist air -10 h 20 sun 500": [
+      -8.09,
+      -8.0
+     ],
+     "S2B C3 cold worn air -20 w0.001 h 20 sun 0": [
+      5.99,
+      8.21
+     ],
+     "S2B C3 cold worn air -20 w0.0005 h 30 sun 0": [
+      -0.16,
+      2.05
+     ],
+     "S2B C3 cold worn air -20 w0.0005 h 30 sun 500": [
+      1.36,
+      3.52
+     ],
+     "S2B C3 cold off-wrist air -20 h 20 sun 0": [
+      -20.0,
+      -20.0
+     ],
+     "S2B C3 cold off-wrist air -20 h 20 sun 500": [
+      -18.06,
+      -17.98
+     ]
+    },
+    "verdict": "PASS (O-2 / TS stop charging above 0 C)"
+   },
+   {
+    "id": "4a",
+    "C": {
+     "S2B C4 indoor 25 C still air, no sun, charge 22 mW": 32.16,
+     "S2B C4 indoor 25 C still air, no sun, charge 50 mW": 32.39,
+     "S2B C4 indoor 25 C still air, no sun, charge 70 mW": 32.63,
+     "S2B C4 indoor 25 C still air, no sun, no charge": 31.98,
+     "S2B C4 sunny window 800 W/m2 30 C still air disp 0.75, charge 0 mW": 39.79,
+     "S2B C4 sunny window 800 W/m2 30 C still air disp 0.75, charge 70 mW": 41.33
+    },
+    "verdict": "PASS"
+   },
+   {
+    "id": "4b",
+    "C": 42.53,
+    "worst_corner_print025_C": 44.84,
+    "verdict": "PASS (<= 43 without CHG_DIS at the listed condition; at the worst corner CHG_DIS stops charging first)"
+   },
+   {
+    "id": "4c",
+    "duty5_worst_C": 42.75,
+    "duty10_worst_C": 42.99,
+    "duty5_print025_C": 43.26,
+    "duty5_print020_C": 43.0,
+    "continuous_steady_C": 46.03,
+    "verdict": "PASS (5 % duty, print 0.15)"
+   },
+   {
+    "id": "5",
+    "err_K": {
+     "S2B C5 TMP task BC disp 0.60": 0.2,
+     "S2B C5 TMP task BC disp 0.75 print 0.25": 0.21,
+     "S2B C5 TMP w3e-3 disp 0.75": 0.17,
+     "S2B C5 TMP indoor charge 70 mW": -0.0,
+     "S2B C5 TMP indoor 25 C no sun": -0.03
+    },
+    "verdict": "PASS"
+   }
+  ],
+  "open": [
+   "print absorptance: T-2 allows 0.25, but 0.25 gives 43.18 C (pod) / 43.26 C (motor 5 %) at 1e-3 + wind x0.6; 0.20 keeps 42.92 / 43.00 C",
+   "wing at 1e-3 + wind x0.6 combined: 43.27-43.43 C (not a listed case of row 2)",
+   "IR-cut 40 % is an assumed value (vendor figure needed); review-model bias +0.4-0.5 K not included"
+  ],
+  "files": [
+   "s2b_final.py",
+   "out/pod3d_s2b.json",
+   "out/strap2d_s2b.json",
+   "logs/s2b_final.log",
+   "make_thermal_s2b.py"
+  ]
+ },
+ "note_before_after": "'cases' = before (stage 2a, as designed then, with FIXP as fix); 'after_stage2b' = the stage-2b design (fixes adopted)"
+}

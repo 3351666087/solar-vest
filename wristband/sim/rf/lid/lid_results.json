@@ -1,0 +1,305 @@
+{
+ "task": "V3-G3a lid antenna L1 (lead decision 2026-11-15)",
+ "date": "2026-11-15",
+ "verdict": "PARTIAL",
+ "geometry": {
+  "lid_strip_case": "0.5 mm strip Y 1.5-2.0, X 5.125-12.375; jog X 5.125-5.625 Y 2.0-2.375; contact pad X 3.875-5.875 Y 2.375-3.625; glass inner face Z_case 3.895",
+  "frame_cut_back": "stainless window frame removed for X < 13.0 in the border band Y 0.5-5.65 (was the 5 mm buffer edge X 11.38-11.5); open end to frame 0.625 mm",
+  "spring": {
+   "ref": "J40 (new)",
+   "part": "BAT WIRELESS BW0019BG-L3.5W1.5H3.8",
+   "lcsc": "C2826516",
+   "stock_2026_11_15": 17846,
+   "lib": "Extended",
+   "land_mm": [
+    2.1,
+    1.5
+   ],
+   "land_centre_board": [
+    3.3,
+    1.55
+   ],
+   "rot_deg": 340,
+   "contact_board": [
+    3.84,
+    1.36
+   ],
+   "contact_if_turned_180_board": [
+    2.76,
+    1.74
+   ],
+   "board_to_glass_mm": {
+    "max_material_board": 2.445,
+    "nominal_board": 2.545,
+    "source": "v3/cad/src geom_v3f stage 2b: Z.win0 3.895 - Z.pcb1 1.45 (1.10 max board); 1.0 board 2.545"
+   },
+   "free_height_mm": 3.8,
+   "working_height": "NOT READ (drawing not machine-readable); by analogy with BW0036BG (working 71 %, limit 50 % of free) about 2.7 working / 1.9 limit, so 2.45-2.55 sits between them (estimate)",
+   "placement_class": "M (one land; the lid pad covers the contact also after a 180 deg turn; JLC preview check of rot 340)"
+  },
+  "feed_point_board": [
+   2.75,
+   3.0
+  ],
+  "fdtd_model": "spring = 0.5 x 0.5 PEC column at the contact, land on F.Cu; fine mesh 0.125 mm zone X 0-13.5, Y 0-6"
+ },
+ "match": {
+  "topology": "C213 DNP | C215 series | L204 antenna-side shunt; line pi-net -> feed point 0.5 mm",
+  "C215": {
+   "value": "9.0 nH",
+   "mpn": "LQW15AN9N0G80D",
+   "lcsc": "C6652901",
+   "stock_2026_11_15": 5395,
+   "lib": "Extended",
+   "tol": "G +-2 %",
+   "Q": "Q min @250 MHz not read for this value; model uses 32 (neighbours 4.3 nH: 32, 6.2 nH: 33) scaled sqrt(f) x 0.7 (estimate); SRF 6.6 GHz estimate"
+  },
+  "L204": {
+   "value": "6.2 nH",
+   "mpn": "LQW15AN6N2B80D",
+   "lcsc": "C668465",
+   "stock_2026_11_15": 8018,
+   "lib": "Extended",
+   "tol": "B +-0.1 nH",
+   "Q": "Q min 33 @250 MHz (JLC part description), Rdc 56 mOhm; model sqrt(f) x 0.7 -> about 72 at 2.44 GHz (estimate)"
+  },
+  "C213": "DNP (land stays)",
+  "Q_sensitivity": {
+   "KQ_0p5": 0.1214,
+   "KQ_0p7": 0.1263,
+   "KQ_1p0": 0.1301
+  },
+  "alternatives": {
+   "pinet": "A:DNP | S:8.4 nH (LQW15AN8N4G80D, C5788422) | B:7.1 nH (LQW15AN7N1G80D, C2043904)",
+   "eta_b": 0.13234853642991623,
+   "eta_f": 0.3470437282793073,
+   "RLb": 6.184969720981309,
+   "RLf": 6.537172729531372
+  },
+  "multilayer_best": "A:1.3 nH (LQG15HS1N3B02) | S:2.7 nH (LQG15HS2N7B02) | B:DNP -> 0.1278, S11 -6.91 dB"
+ },
+ "results": {
+  "E_body_as_built": {
+   "eta_tot_band_min": 0.12626557504138103,
+   "eta_tot": {
+    "2.40": 0.12626557504138103,
+    "2.44": 0.16705260512290848,
+    "2.48": 0.1871490330666743
+   },
+   "eta_rad": {
+    "2.30": 0.1094,
+    "2.40": 0.1517,
+    "2.44": 0.199,
+    "2.48": 0.2625,
+    "2.58": 0.2382
+   },
+   "S11_band_max_dB": -10.269523136342224,
+   "Z": {
+    "2.40": "(12.7-83.6j)",
+    "2.44": "(9.1-81.5j)",
+    "2.48": "(6.1-77.8j)"
+   },
+   "net_loss_dB_max": 1.0400236287388602
+  },
+  "free_as_built_estimate": {
+   "eta_tot_band_min": 0.41519490132245024,
+   "S11_band_max_dB": -10.695767049596919,
+   "Z": {
+    "2.40": "(11-85j)",
+    "2.44": "(8.2-81j)",
+    "2.48": "(7-77.2j)"
+   },
+   "note": "B_free + (E_body - A_body) shift; free eta_rad noisy (0.56-0.95)"
+  },
+  "detuning_free_to_body_MHz": {
+   "S11_min": 0.0,
+   "eta_max": 75.0,
+   "ideal_feed_runs_A_vs_B_S11_min": 0.0
+  },
+  "hand_on_lid": {
+   "eta_tot_band_min": 0.013542395488492237,
+   "S11_band_max_dB": -1.0058117461439753,
+   "eta_rad": {
+    "2.30": 0.0822,
+    "2.40": 0.0791,
+    "2.44": 0.0795,
+    "2.48": 0.0811,
+    "2.58": 0.0904
+   },
+   "Z": {
+    "2.40": "(26.1-8.3j)",
+    "2.44": "(27.3-5.7j)",
+    "2.48": "(29-3.4j)"
+   },
+   "link_margin_dB": 15.0
+  },
+  "worst_tolerance_corner": {
+   "model": "strip 0.25 mm closer to the board + open-end gap 0.375 mm (real tolerance about 0.12 mm / 0.42 mm)",
+   "eta_tot_band_min": 0.04133505112457037,
+   "S11_band_max_dB": -2.0552963746601947,
+   "Z": {
+    "2.40": "(9.1-108.3j)",
+    "2.44": "(6.8-105.8j)",
+    "2.48": "(4.9-102.4j)"
+   },
+   "link_margin_dB": 19.85
+  },
+  "ideal_feed_runs": {
+   "A_body": {
+    "2.40": "(6.9-104.7j)",
+    "2.44": "(6.5-100.5j)",
+    "2.48": "(5.9-96.7j)"
+   },
+   "B_free": {
+    "2.40": "(5.1-106.1j)",
+    "2.44": "(5.6-100j)",
+    "2.48": "(6.8-96j)"
+   },
+   "note": "spring at X 4.0-4.5 (not buildable); A_body best own net 11.2 %"
+  },
+  "monte_carlo": {
+   "model": {
+    "n": 600,
+    "s_mech": 0.6,
+    "eta_min_median": 0.0990678796469863,
+    "p5": 0.06987182349649804,
+    "p95": 0.1314316068906559,
+    "yield_ge_1pct": 1.0,
+    "yield_ge_5pct": 1.0,
+    "RL_body_median": 6.399177083748359,
+    "RL_body_p5": 3.560173254642686,
+    "yield_S11_le_m10": 0.09833333333333333
+   },
+   "full_offset": {
+    "n": 600,
+    "s_mech": 1.0,
+    "eta_min_median": 0.07882738867825802,
+    "p5": 0.0421899289003067,
+    "p95": 0.12811316660409822,
+    "yield_ge_1pct": 1.0,
+    "yield_ge_5pct": 0.86,
+    "RL_body_median": 4.411176450407461,
+    "RL_body_p5": 2.0330518476319996,
+    "yield_S11_le_m10": 0.051666666666666666
+   },
+   "multilayer_best_net": {
+    "n": 600,
+    "s_mech": 0.6,
+    "eta_min_median": 0.10969711686351352,
+    "p5": 0.08280193696973076,
+    "p95": 0.12981419286278978,
+    "yield_ge_1pct": 1.0,
+    "yield_ge_5pct": 1.0,
+    "RL_body_median": 7.3556980799798986,
+    "RL_body_p5": 5.113416438225718,
+    "yield_S11_le_m10": 0.025
+   },
+   "note": "parts (tol codes), lands +-30 %, shunt return +-50 %, l_b +-0.25 mm, mechanical t in [0, 0.6] of the E->D offset (one-sided, harmful side), strip length +-0.1 mm (frequency scaling)"
+  },
+  "link": {
+   "nominal_margin_dB": 24.695872261598623,
+   "p5_margin_dB": 22.12604342717694,
+   "hand_margin_dB": 15.0,
+   "worst_corner_margin_dB": 19.85,
+   "assumptions": "as v3/sim/rf/RF.md: 2 m, 15 dB body shadow, phone -5 dBi, 4 dBm / -96 dBm both ends, SIM-09 Nordic match loss"
+  }
+ },
+ "fdtd_runs": {
+  "used": 5,
+  "list": [
+   "A_body_f ideal feed",
+   "B_free_f ideal feed",
+   "E_body_f as built + strap pins",
+   "D_body_f as built + pins + tolerance corner",
+   "H_body_f as built + pins + hand"
+  ]
+ },
+ "cases": [
+  {
+   "name": "G3a min eta_tot body (as built, fine)",
+   "criterion": ">= 1 %",
+   "result": "12.6 %",
+   "status": "PASS"
+  },
+  {
+   "name": "G3a min under tolerances (600 MC)",
+   "criterion": ">= 1 %",
+   "result": "P5 7.0 %, yield 100 %",
+   "status": "PASS"
+  },
+  {
+   "name": "G3a min link 2 m",
+   "criterion": ">= 13 dB",
+   "result": "24.7 dB (P5 22.1)",
+   "status": "PASS"
+  },
+  {
+   "name": "ARCH 9 eta_tot body",
+   "criterion": ">= 5 %",
+   "result": "12.6 % (MC yield >= 5 %: 100 %; 86 % at the full modelled offset)",
+   "status": "PASS"
+  },
+  {
+   "name": "ARCH 9 S11 body",
+   "criterion": "<= -10 dB",
+   "result": "-10.27 dB nominal; MC yield 10 %",
+   "status": "PASS"
+  },
+  {
+   "name": "ARCH 9 S11 free",
+   "criterion": "<= -6 dB",
+   "result": "-10.7 dB (estimate)",
+   "status": "PASS"
+  },
+  {
+   "name": "ARCH 9 SIM-11 margin",
+   "criterion": ">= 10 dB",
+   "result": "24.7 dB",
+   "status": "PASS"
+  },
+  {
+   "name": "(c) hand on the lid vs gate min",
+   "criterion": ">= 1 %, >= 13 dB",
+   "result": "1.35 %, 15.0 dB; S11 -1.0 dB",
+   "status": "PASS"
+  },
+  {
+   "name": "(c) hand on the lid vs ARCH 9",
+   "criterion": ">= 5 %",
+   "result": "1.35 %",
+   "status": "FAIL"
+  },
+  {
+   "name": "(d) tolerance corner vs gate min",
+   "criterion": ">= 1 %, >= 13 dB",
+   "result": "4.1 %, 19.9 dB",
+   "status": "PASS"
+  },
+  {
+   "name": "(d) tolerance corner vs ARCH 9",
+   "criterion": ">= 5 %, S11 <= -10 dB",
+   "result": "4.1 %, -2.1 dB",
+   "status": "FAIL"
+  },
+  {
+   "name": "(e) strap-bar pins (in the as-built run)",
+   "criterion": ">= 1 % (gate min)",
+   "result": "12.6 % with pins; isolated pin effect not separated",
+   "status": "PASS"
+  },
+  {
+   "name": "spring drawing read (working height)",
+   "criterion": "read",
+   "result": "not machine-readable; land from JLC/EasyEDA footprint",
+   "status": "PARTIAL"
+  }
+ ],
+ "precheck_2026_11_16": {
+  "check": "match with layout distances C215 0.65 mm, L204 stub 1.02 mm (1.67 mm)",
+  "verdict": "PARTIAL",
+  "parts_in_force": "body 8.98 % / S11 -2.95 dB; corner D 8.47 %; hand 1.38 %",
+  "layout_limit": "C215.2 <= 0.5 mm from the feed and L204 stub <= 0.25 mm (S11 <= -10 dB with 9.0/6.2 nH)",
+  "retune_3_element": "C213 7.2 nH C2044544, C215 7.2 nH C2044544, L204 5.2 nH C2048612: 12.16 % / -10.05 dB at the layout geometry (tolerance yield not run)",
+  "files": "v3/prechecks/rf_match_layout.py, rf_match_layout.json"
+ }
+}

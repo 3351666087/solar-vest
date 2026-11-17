@@ -1,0 +1,256 @@
+{
+ "matrix": {
+  "-10 C | 0.1 sun | cold start (cell 0-1.6 V, VSTOR < 1.73 V)": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0037,
+   "V_O2_max": 2.486,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 0.1 sun | deep-discharged cell 0 V (three diodes)": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0037,
+   "V_O2_max": 2.486,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 0.1 sun | deep-discharged cell 0.5 V (three diodes)": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0037,
+   "V_O2_max": 2.486,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 0.1 sun | deep-discharged cell 1.2 V (three diodes)": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0037,
+   "V_O2_max": 2.486,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 0.1 sun | deep-discharged cell 2 V (three diodes)": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0037,
+   "V_O2_max": 2.486,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 0.1 sun | PCM tripped, cell 2.5 V + body diode": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0037,
+   "V_O2_max": 2.486,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 1.2 sun | cold start (cell 0-1.6 V, VSTOR < 1.73 V)": {
+   "iq14_max_uA": 0.0038,
+   "iq14_mean_uA": 0.0037,
+   "V_O2_max": 2.811,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 1.2 sun | deep-discharged cell 0 V (three diodes)": {
+   "iq14_max_uA": 0.0038,
+   "iq14_mean_uA": 0.0037,
+   "V_O2_max": 2.811,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 1.2 sun | deep-discharged cell 0.5 V (three diodes)": {
+   "iq14_max_uA": 0.0038,
+   "iq14_mean_uA": 0.0037,
+   "V_O2_max": 2.811,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 1.2 sun | deep-discharged cell 1.2 V (three diodes)": {
+   "iq14_max_uA": 0.0038,
+   "iq14_mean_uA": 0.0037,
+   "V_O2_max": 2.811,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 1.2 sun | deep-discharged cell 2 V (three diodes)": {
+   "iq14_max_uA": 0.0038,
+   "iq14_mean_uA": 0.0037,
+   "V_O2_max": 2.811,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 1.2 sun | PCM tripped, cell 2.5 V + body diode": {
+   "iq14_max_uA": 0.0038,
+   "iq14_mean_uA": 0.0037,
+   "V_O2_max": 2.811,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 1000 lx | cold start (cell 0-1.6 V, VSTOR < 1.73 V)": {
+   "iq14_max_uA": 0.0036,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.016,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 1000 lx | deep-discharged cell 0 V (three diodes)": {
+   "iq14_max_uA": 0.0036,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.016,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 1000 lx | deep-discharged cell 0.5 V (three diodes)": {
+   "iq14_max_uA": 0.0036,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.016,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 1000 lx | deep-discharged cell 1.2 V (three diodes)": {
+   "iq14_max_uA": 0.0036,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.016,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 1000 lx | deep-discharged cell 2 V (three diodes)": {
+   "iq14_max_uA": 0.0036,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.016,
+   "c_rate_70mAh": 0.0
+  },
+  "-10 C | 1000 lx | PCM tripped, cell 2.5 V + body diode": {
+   "iq14_max_uA": 0.0036,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.016,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 0.1 sun | cold start (cell 0-1.6 V, VSTOR < 1.73 V)": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.064,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 0.1 sun | deep-discharged cell 0 V (three diodes)": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.064,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 0.1 sun | deep-discharged cell 0.5 V (three diodes)": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.064,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 0.1 sun | deep-discharged cell 1.2 V (three diodes)": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.064,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 0.1 sun | deep-discharged cell 2 V (three diodes)": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.064,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 0.1 sun | PCM tripped, cell 2.5 V + body diode": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.064,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 1.2 sun | cold start (cell 0-1.6 V, VSTOR < 1.73 V)": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.387,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 1.2 sun | deep-discharged cell 0 V (three diodes)": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.387,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 1.2 sun | deep-discharged cell 0.5 V (three diodes)": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.387,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 1.2 sun | deep-discharged cell 1.2 V (three diodes)": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.387,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 1.2 sun | deep-discharged cell 2 V (three diodes)": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.387,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 1.2 sun | PCM tripped, cell 2.5 V + body diode": {
+   "iq14_max_uA": 0.0037,
+   "iq14_mean_uA": 0.0036,
+   "V_O2_max": 2.387,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 1000 lx | cold start (cell 0-1.6 V, VSTOR < 1.73 V)": {
+   "iq14_max_uA": 0.0036,
+   "iq14_mean_uA": 0.0035,
+   "V_O2_max": 1.595,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 1000 lx | deep-discharged cell 0 V (three diodes)": {
+   "iq14_max_uA": 0.0036,
+   "iq14_mean_uA": 0.0035,
+   "V_O2_max": 1.595,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 1000 lx | deep-discharged cell 0.5 V (three diodes)": {
+   "iq14_max_uA": 0.0036,
+   "iq14_mean_uA": 0.0035,
+   "V_O2_max": 1.595,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 1000 lx | deep-discharged cell 1.2 V (three diodes)": {
+   "iq14_max_uA": 0.0036,
+   "iq14_mean_uA": 0.0035,
+   "V_O2_max": 1.595,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 1000 lx | deep-discharged cell 2 V (three diodes)": {
+   "iq14_max_uA": 0.0036,
+   "iq14_mean_uA": 0.0035,
+   "V_O2_max": 1.595,
+   "c_rate_70mAh": 0.0
+  },
+  "50 C | 1000 lx | PCM tripped, cell 2.5 V + body diode": {
+   "iq14_max_uA": 0.0036,
+   "iq14_mean_uA": 0.0035,
+   "V_O2_max": 1.595,
+   "c_rate_70mAh": 0.0
+  },
+  "25 C | 1.2 sun | cold start (cell 0-1.6 V, VSTOR < 1.73 V)": {
+   "iq14_max_uA": 51804.0386,
+   "iq14_mean_uA": 51804.0386,
+   "V_O2_max": 2.497,
+   "c_rate_70mAh": 0.74
+  },
+  "25 C | 1.2 sun | deep-discharged cell 0 V (three diodes)": {
+   "iq14_max_uA": 50279.9653,
+   "iq14_mean_uA": 50279.9603,
+   "V_O2_max": 2.497,
+   "c_rate_70mAh": 0.718
+  },
+  "25 C | 1.2 sun | deep-discharged cell 0.5 V (three diodes)": {
+   "iq14_max_uA": 31207.9227,
+   "iq14_mean_uA": 31207.9227,
+   "V_O2_max": 2.497,
+   "c_rate_70mAh": 0.446
+  },
+  "25 C | 1.2 sun | deep-discharged cell 1.2 V (three diodes)": {
+   "iq14_max_uA": 3763.8462,
+   "iq14_mean_uA": 3763.8462,
+   "V_O2_max": 2.536,
+   "c_rate_70mAh": 0.054
+  },
+  "25 C | 1.2 sun | deep-discharged cell 2 V (three diodes)": {
+   "iq14_max_uA": 0.3083,
+   "iq14_mean_uA": 0.3072,
+   "V_O2_max": 2.56,
+   "c_rate_70mAh": 0.0
+  },
+  "25 C | 1.2 sun | PCM tripped, cell 2.5 V + body diode": {
+   "iq14_max_uA": 0.0011,
+   "iq14_mean_uA": -0.0,
+   "V_O2_max": 2.56,
+   "c_rate_70mAh": -0.0
+  }
+ }
+}

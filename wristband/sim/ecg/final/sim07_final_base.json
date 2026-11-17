@@ -1,0 +1,979 @@
+{
+ "source": {
+  "geometry": "plate_geom_final.json (closed board v3/finish/solarband_v3f_final.kicad_pcb, plate_geom8.py)",
+  "model": "v3/sim/ecg sim07_v2_common (FINAL network, STRUCT 'V2-B rule: B.Cu + L5 void', chains 2 x 330 k)",
+  "c_via_pF": {
+   "0.25": [
+    0.0121,
+    0.0264
+   ],
+   "0.30": [
+    0.0174,
+    0.036
+   ],
+   "0.35": [
+    0.0237,
+    0.0468
+   ],
+   "0.38": [
+    0.0279,
+    0.0538
+   ],
+   "0.40": [
+    0.0309,
+    0.0588
+   ]
+  },
+  "c_track_pF_per_mm": {
+   "In6.Cu": [
+    0.05,
+    0.08
+   ],
+   "In5.Cu": [
+    0.02,
+    0.04
+   ],
+   "B.Cu": [
+    0.1,
+    0.14
+   ],
+   "In2.Cu In4 gap": [
+    0.0045,
+    0.045
+   ],
+   "In3.Cu In4 gap": [
+    0.0045,
+    0.045
+   ]
+  }
+ },
+ "activity": {
+  "I2C_SDA": "P-2: no I2C traffic in a session: idle high 1.8 V (R505), static. (P-2 broken: TMP117 + INA 1 Hz, IMU FIFO 4.8 ms, H3 convention)",
+  "SPI_MISO": "PPG FIFO read 1 Hz 0.3 ms mean 0.9 V; flash status/read traffic about 6 Hz 0.1 ms \u26a0; ADS1291 DOUT data-dependent part 16.2 mV step bound",
+  "SPI_SCK": "clock bursts, mean 0.9 V: PPG read 1 Hz 0.3 ms; flash page programs about 6 Hz 0.5 ms (1.5 kB/s ECG log in 256 B pages) \u26a0; ADS1291 reads 500 Hz 18 us: data-independent, synchronous with sampling, out of band",
+  "CS_FLASH": "flash selected (low) about 0.5 ms per 256 B page at about 6 Hz \u26a0 (ECG log; no SPI display writes)",
+  "ECG_DRDY": "ADS1291 DRDY low about 20 us every 2 ms (500 SPS): line at 500 Hz and harmonics, nothing in 0.5-40 Hz",
+  "PPG_INT": "PPG FIFO interrupt 1 Hz, low until the SPI read (about 1 ms) \u26a0",
+  "IMU_INT1": "IMU FIFO-threshold interrupt on INT1 (CTRL4 INT1_FTH). P-2 stops the IMU reads, so the flag is not cleared: INT1 rises once (1.8 V step) inside the session and stays high. With the fix (INT1 disabled / IMU idle before the recording): static",
+  "DEC1": "nRF DEC1 core rail: radio-event load steps <= 20 mV, 2 ms per 30 ms connection event \u26a0 (as DEC4 in prechecks)",
+  "PV_SW": "PV node: BQ25570 Voc sample 256 ms every 16 s, step 0.39 (indoor nominal) - 0.57 V (worst) (v2/sim/ecg/results/sim07_v2_coupling.json H1_budget); harvesting runs in a session",
+  "INA_VS": "INA rail: INA_EN not switched in a session (P-2: no INA reads); static",
+  "INA_EN": "static in a session (P-2)",
+  "NTC": "P-2: no NTC_EN reading; V_O2 off with a healthy cell (Q18): static 0 V",
+  "PWR_CYC": "hard power-cycle one-shot: static low in a session",
+  "DISP_CTRL": "F-9: display powered down, static",
+  "AVDD_ECG": "DC (SIM-06)",
+  "XL1": "32 kHz, out of band",
+  "XL2": "32 kHz, out of band",
+  "SWDCLK": "no debugger: static",
+  "SWDIO": "static",
+  "NRESET": "static high",
+  "GND_K": "no head in a session (ECG locked while /PG low), Q20 off: static",
+  "TMP117_ISLAND": "floating island; P-2: no I2C, so the H3 path is silent",
+  "VIN_DC": "BQ25570 input: the same Voc sample; plus a bound for low-light hysteretic regulation ripple 20 mV square at 20 Hz \u26a0",
+  "O2_OK": "U20 output: V_O2 off (Q18 off with a healthy cell, no NTC_EN by P-2): static 0 V",
+  "O2_TH": "ladder tap of V_O2: static 0 V in a session"
+ },
+ "caps_E1": {
+  "low": {
+   "GND": {
+    "n_vias": 15,
+    "total_pF": 0.3899819933019564,
+    "vias_pF": 0.2958819933019563,
+    "tracks_pF": 0.0941
+   },
+   "GND_K": {
+    "n_vias": 2,
+    "total_pF": 0.13045903403954648,
+    "vias_pF": 0.055759034039546476,
+    "tracks_pF": 0.0747
+   },
+   "ECG_INP": {
+    "n_vias": 2,
+    "total_pF": 0.051640504638811924,
+    "vias_pF": 0.04730250463881193,
+    "tracks_pF": 0.004338
+   },
+   "ECG_INN": {
+    "n_vias": 3,
+    "total_pF": 0.07521525695821789,
+    "vias_pF": 0.07095375695821789,
+    "tracks_pF": 0.0042615
+   },
+   "E1_PAD": {
+    "n_vias": 1,
+    "total_pF": 0.017376430275481934,
+    "vias_pF": 0.017376430275481934,
+    "tracks_pF": 0.0
+   },
+   "E1_LINK": {
+    "n_vias": 1,
+    "total_pF": 0.017376430275481934,
+    "vias_pF": 0.017376430275481934,
+    "tracks_pF": 0.0
+   },
+   "AVDD_ECG": {
+    "n_vias": 2,
+    "total_pF": 0.051294004638811924,
+    "vias_pF": 0.04730250463881193,
+    "tracks_pF": 0.003991499999999999
+   },
+   "INA_VS": {
+    "n_vias": 1,
+    "total_pF": 0.328451252319406,
+    "vias_pF": 0.023651252319405965,
+    "tracks_pF": 0.3048
+   },
+   "CS_FLASH": {
+    "n_vias": 1,
+    "total_pF": 0.029499517019773238,
+    "vias_pF": 0.027879517019773238,
+    "tracks_pF": 0.00162
+   },
+   "I2C_SDA": {
+    "n_vias": 1,
+    "total_pF": 0.04196001701977324,
+    "vias_pF": 0.027879517019773238,
+    "tracks_pF": 0.0140805
+   },
+   "SPI_SCK": {
+    "n_vias": 3,
+    "total_pF": 0.44786555105931974,
+    "vias_pF": 0.08363855105931972,
+    "tracks_pF": 0.364227
+   },
+   "XL1": {
+    "n_vias": 2,
+    "total_pF": 0.325302504638812,
+    "vias_pF": 0.04730250463881193,
+    "tracks_pF": 0.278
+   },
+   "XL2": {
+    "n_vias": 1,
+    "total_pF": 0.23705125231940596,
+    "vias_pF": 0.023651252319405965,
+    "tracks_pF": 0.21339999999999998
+   },
+   "SPI_MISO": {
+    "n_vias": 1,
+    "total_pF": 0.029153017019773242,
+    "vias_pF": 0.027879517019773238,
+    "tracks_pF": 0.0012735
+   },
+   "ECG_DRDY": {
+    "n_vias": 1,
+    "total_pF": 0.03611451701977324,
+    "vias_pF": 0.027879517019773238,
+    "tracks_pF": 0.008235
+   },
+   "IMU_INT1": {
+    "n_vias": 1,
+    "total_pF": 0.6767570170197733,
+    "vias_pF": 0.027879517019773238,
+    "tracks_pF": 0.6488775
+   },
+   "DEC1": {
+    "n_vias": 1,
+    "total_pF": 0.06740125231940597,
+    "vias_pF": 0.023651252319405965,
+    "tracks_pF": 0.043750000000000004
+   },
+   "SWDCLK": {
+    "n_vias": 2,
+    "total_pF": 0.06250903403954648,
+    "vias_pF": 0.055759034039546476,
+    "tracks_pF": 0.00675
+   },
+   "SWDIO": {
+    "n_vias": 1,
+    "total_pF": 0.39627951701977326,
+    "vias_pF": 0.027879517019773238,
+    "tracks_pF": 0.3684
+   },
+   "NRESET": {
+    "n_vias": 2,
+    "total_pF": 0.11804503403954648,
+    "vias_pF": 0.055759034039546476,
+    "tracks_pF": 0.062285999999999994
+   },
+   "TMP117_ISLAND": {
+    "n_vias": 4,
+    "total_pF": 0.06950572110192774,
+    "vias_pF": 0.06950572110192774,
+    "tracks_pF": 0.0
+   },
+   "PV_SW": {
+    "n_vias": 0,
+    "total_pF": 0.000558,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.000558
+   },
+   "PWR_CYC": {
+    "n_vias": 0,
+    "total_pF": 0.003942,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.003942
+   },
+   "NTC": {
+    "n_vias": 0,
+    "total_pF": 0.0009000000000000001,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.0009000000000000001
+   },
+   "PPG_INT": {
+    "n_vias": 0,
+    "total_pF": 0.09235,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.09235
+   },
+   "INA_EN": {
+    "n_vias": 0,
+    "total_pF": 0.004729499999999999,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.004729499999999999
+   },
+   "DISP_CTRL": {
+    "n_vias": 0,
+    "total_pF": 0.0006389999999999999,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.0006389999999999999
+   }
+  },
+  "high": {
+   "GND": {
+    "n_vias": 15,
+    "total_pF": 0.786572340373686,
+    "vias_pF": 0.5983723403736859,
+    "tracks_pF": 0.1882
+   },
+   "GND_K": {
+    "n_vias": 2,
+    "total_pF": 0.22717430016100082,
+    "vias_pF": 0.10765430016100082,
+    "tracks_pF": 0.11952
+   },
+   "ECG_INP": {
+    "n_vias": 2,
+    "total_pF": 0.13689615471455985,
+    "vias_pF": 0.09351615471455985,
+    "tracks_pF": 0.043379999999999995
+   },
+   "ECG_INN": {
+    "n_vias": 3,
+    "total_pF": 0.18288923207183977,
+    "vias_pF": 0.14027423207183978,
+    "tracks_pF": 0.042615
+   },
+   "E1_PAD": {
+    "n_vias": 1,
+    "total_pF": 0.03596345803484032,
+    "vias_pF": 0.03596345803484032,
+    "tracks_pF": 0.0
+   },
+   "E1_LINK": {
+    "n_vias": 1,
+    "total_pF": 0.03596345803484032,
+    "vias_pF": 0.03596345803484032,
+    "tracks_pF": 0.0
+   },
+   "AVDD_ECG": {
+    "n_vias": 2,
+    "total_pF": 0.13343115471455985,
+    "vias_pF": 0.09351615471455985,
+    "tracks_pF": 0.039915
+   },
+   "INA_VS": {
+    "n_vias": 1,
+    "total_pF": 0.65635807735728,
+    "vias_pF": 0.04675807735727992,
+    "tracks_pF": 0.6096
+   },
+   "CS_FLASH": {
+    "n_vias": 1,
+    "total_pF": 0.07002715008050041,
+    "vias_pF": 0.05382715008050041,
+    "tracks_pF": 0.0162
+   },
+   "I2C_SDA": {
+    "n_vias": 1,
+    "total_pF": 0.1946321500805004,
+    "vias_pF": 0.05382715008050041,
+    "tracks_pF": 0.14080499999999999
+   },
+   "SPI_SCK": {
+    "n_vias": 3,
+    "total_pF": 0.8458514502415013,
+    "vias_pF": 0.1614814502415012,
+    "tracks_pF": 0.68437
+   },
+   "XL1": {
+    "n_vias": 2,
+    "total_pF": 0.5663161547145598,
+    "vias_pF": 0.09351615471455985,
+    "tracks_pF": 0.47279999999999994
+   },
+   "XL2": {
+    "n_vias": 1,
+    "total_pF": 0.4535580773572799,
+    "vias_pF": 0.04675807735727992,
+    "tracks_pF": 0.4068
+   },
+   "SPI_MISO": {
+    "n_vias": 1,
+    "total_pF": 0.0665621500805004,
+    "vias_pF": 0.05382715008050041,
+    "tracks_pF": 0.012734999999999998
+   },
+   "ECG_DRDY": {
+    "n_vias": 1,
+    "total_pF": 0.1361771500805004,
+    "vias_pF": 0.05382715008050041,
+    "tracks_pF": 0.08234999999999999
+   },
+   "IMU_INT1": {
+    "n_vias": 1,
+    "total_pF": 1.1031821500805004,
+    "vias_pF": 0.05382715008050041,
+    "tracks_pF": 1.049355
+   },
+   "DEC1": {
+    "n_vias": 1,
+    "total_pF": 0.11675807735727993,
+    "vias_pF": 0.04675807735727992,
+    "tracks_pF": 0.07
+   },
+   "SWDCLK": {
+    "n_vias": 2,
+    "total_pF": 0.1751543001610008,
+    "vias_pF": 0.10765430016100082,
+    "tracks_pF": 0.06749999999999999
+   },
+   "SWDIO": {
+    "n_vias": 1,
+    "total_pF": 0.6998671500805005,
+    "vias_pF": 0.05382715008050041,
+    "tracks_pF": 0.6460400000000001
+   },
+   "NRESET": {
+    "n_vias": 2,
+    "total_pF": 0.2505143001610008,
+    "vias_pF": 0.10765430016100082,
+    "tracks_pF": 0.14286
+   },
+   "TMP117_ISLAND": {
+    "n_vias": 4,
+    "total_pF": 0.1438538321393613,
+    "vias_pF": 0.1438538321393613,
+    "tracks_pF": 0.0
+   },
+   "PV_SW": {
+    "n_vias": 0,
+    "total_pF": 0.00558,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.00558
+   },
+   "PWR_CYC": {
+    "n_vias": 0,
+    "total_pF": 0.03942,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.03942
+   },
+   "NTC": {
+    "n_vias": 0,
+    "total_pF": 0.009,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.009
+   },
+   "PPG_INT": {
+    "n_vias": 0,
+    "total_pF": 0.14776,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.14776
+   },
+   "INA_EN": {
+    "n_vias": 0,
+    "total_pF": 0.047295,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.047295
+   },
+   "DISP_CTRL": {
+    "n_vias": 0,
+    "total_pF": 0.006389999999999999,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.006389999999999999
+   }
+  }
+ },
+ "caps_E2": {
+  "low": {
+   "GND": {
+    "n_vias": 4,
+    "total_pF": 0.09653572375267744,
+    "vias_pF": 0.09653572375267744,
+    "tracks_pF": 0.0
+   },
+   "E3_MID": {
+    "n_vias": 1,
+    "total_pF": 0.025073252319405964,
+    "vias_pF": 0.023651252319405965,
+    "tracks_pF": 0.001422
+   },
+   "O2_OK": {
+    "n_vias": 2,
+    "total_pF": 0.19462250463881192,
+    "vias_pF": 0.04730250463881193,
+    "tracks_pF": 0.14732
+   },
+   "E2_LINK": {
+    "n_vias": 1,
+    "total_pF": 0.017376430275481934,
+    "vias_pF": 0.017376430275481934,
+    "tracks_pF": 0.0
+   },
+   "E2_PAD": {
+    "n_vias": 1,
+    "total_pF": 0.017376430275481934,
+    "vias_pF": 0.017376430275481934,
+    "tracks_pF": 0.0
+   },
+   "E2_MID": {
+    "n_vias": 1,
+    "total_pF": 0.023651252319405965,
+    "vias_pF": 0.023651252319405965,
+    "tracks_pF": 0.0
+   },
+   "O2_TH": {
+    "n_vias": 0,
+    "total_pF": 0.004576499999999999,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.004576499999999999
+   },
+   "VIN_DC": {
+    "n_vias": 0,
+    "total_pF": 0.0014444999999999998,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.0014444999999999998
+   }
+  },
+  "high": {
+   "GND": {
+    "n_vias": 4,
+    "total_pF": 0.18949577647576385,
+    "vias_pF": 0.18949577647576385,
+    "tracks_pF": 0.0
+   },
+   "E3_MID": {
+    "n_vias": 1,
+    "total_pF": 0.06097807735727992,
+    "vias_pF": 0.04675807735727992,
+    "tracks_pF": 0.014219999999999998
+   },
+   "O2_OK": {
+    "n_vias": 2,
+    "total_pF": 0.38815615471455983,
+    "vias_pF": 0.09351615471455985,
+    "tracks_pF": 0.29464
+   },
+   "E2_LINK": {
+    "n_vias": 1,
+    "total_pF": 0.03596345803484032,
+    "vias_pF": 0.03596345803484032,
+    "tracks_pF": 0.0
+   },
+   "E2_PAD": {
+    "n_vias": 1,
+    "total_pF": 0.03596345803484032,
+    "vias_pF": 0.03596345803484032,
+    "tracks_pF": 0.0
+   },
+   "E2_MID": {
+    "n_vias": 1,
+    "total_pF": 0.04675807735727992,
+    "vias_pF": 0.04675807735727992,
+    "tracks_pF": 0.0
+   },
+   "O2_TH": {
+    "n_vias": 0,
+    "total_pF": 0.04576499999999999,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.04576499999999999
+   },
+   "VIN_DC": {
+    "n_vias": 0,
+    "total_pF": 0.014445,
+    "vias_pF": 0.0,
+    "tracks_pF": 0.014445
+   }
+  }
+ },
+ "aggressor_artefact_uVpp": {
+  "in-vivo nominal": {
+   "I2C_SDA": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "SPI_MISO": {
+    "low": 0.14613745168266773,
+    "high": 0.3336609375518852
+   },
+   "SPI_SCK": {
+    "low": 3.853075474183886,
+    "high": 7.277026487122535
+   },
+   "CS_FLASH": {
+    "low": 0.3173765006731381,
+    "high": 0.7534012109338841
+   },
+   "ECG_DRDY": {
+    "low": 1.0441235485724833e-05,
+    "high": 3.937080734007625e-05
+   },
+   "PPG_INT": {
+    "low": 1.9844401892291526,
+    "high": 3.175104302766644
+   },
+   "IMU_INT1": {
+    "low": 105.47825913716656,
+    "high": 171.94019385880674
+   },
+   "DEC1": {
+    "low": 0.03148337724680151,
+    "high": 0.05453813496863043
+   },
+   "PV_SW": {
+    "low": 0.05128982122017623,
+    "high": 0.5128982122017622
+   },
+   "INA_VS": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "INA_EN": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "NTC": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "PWR_CYC": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "DISP_CTRL": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "AVDD_ECG": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "XL1": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "XL2": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "SWDCLK": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "SWDIO": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "NRESET": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "GND_K": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "TMP117_ISLAND": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "VIN_DC": {
+    "low": 1.0720621776870418e-06,
+    "high": 1.0720621776870418e-05
+   },
+   "O2_OK": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "O2_TH": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "sum_high": 184.0468732357812
+  },
+  "in-vivo dry x2, E3 0.5 cm2": {
+   "I2C_SDA": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "SPI_MISO": {
+    "low": 0.28934246080460463,
+    "high": 0.6606265240978205
+   },
+   "SPI_SCK": {
+    "low": 7.629446643556303,
+    "high": 14.409187071272434
+   },
+   "CS_FLASH": {
+    "low": 0.6284420787530465,
+    "high": 1.4918212978281338
+   },
+   "ECG_DRDY": {
+    "low": 2.0526478064680212e-05,
+    "high": 7.739927083913715e-05
+   },
+   "PPG_INT": {
+    "low": 3.9294101236094243,
+    "high": 6.287056197775079
+   },
+   "IMU_INT1": {
+    "low": 208.6480907497537,
+    "high": 340.11741817932176
+   },
+   "DEC1": {
+    "low": 0.06234313016463291,
+    "high": 0.10799597580120057
+   },
+   "PV_SW": {
+    "low": 0.10146270894978851,
+    "high": 1.014627089497885
+   },
+   "INA_VS": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "INA_EN": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "NTC": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "PWR_CYC": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "DISP_CTRL": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "AVDD_ECG": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "XL1": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "XL2": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "SWDCLK": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "SWDIO": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "NRESET": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "GND_K": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "TMP117_ISLAND": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "VIN_DC": {
+    "low": 5.7802705611176476e-06,
+    "high": 5.780270561117648e-05
+   },
+   "O2_OK": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "O2_TH": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "sum_high": 364.08886753757076
+  },
+  "ARCH 1M|1n (-50/+50 %)": {
+   "I2C_SDA": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "SPI_MISO": {
+    "low": 0.14361183428660595,
+    "high": 0.32789444950543134
+   },
+   "SPI_SCK": {
+    "low": 4.046997579743319,
+    "high": 7.643273218610053
+   },
+   "CS_FLASH": {
+    "low": 0.33322853043505535,
+    "high": 0.7910314021832616
+   },
+   "ECG_DRDY": {
+    "low": 4.3422279255738575e-05,
+    "high": 0.0001637325576251951
+   },
+   "PPG_INT": {
+    "low": 2.079859970382129,
+    "high": 3.327775952611407
+   },
+   "IMU_INT1": {
+    "low": 68.33453439205412,
+    "high": 111.39217869856765
+   },
+   "DEC1": {
+    "low": 0.036850208765664375,
+    "high": 0.06383500866280753
+   },
+   "PV_SW": {
+    "low": 0.029205707501741413,
+    "high": 0.2920570750174141
+   },
+   "INA_VS": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "INA_EN": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "NTC": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "PWR_CYC": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "DISP_CTRL": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "AVDD_ECG": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "XL1": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "XL2": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "SWDCLK": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "SWDIO": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "NRESET": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "GND_K": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "TMP117_ISLAND": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "VIN_DC": {
+    "low": 4.352745280934381e-06,
+    "high": 4.352745280934382e-05
+   },
+   "O2_OK": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "O2_TH": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "sum_high": 123.83825306516846
+  },
+  "ARCH 10M|1n (-50/+50 %)": {
+   "I2C_SDA": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "SPI_MISO": {
+    "low": 0.6131023466973045,
+    "high": 1.3998348914588734
+   },
+   "SPI_SCK": {
+    "low": 16.666028793627234,
+    "high": 31.475929755064083
+   },
+   "CS_FLASH": {
+    "low": 1.3724663021766361,
+    "high": 3.258016178994768
+   },
+   "ECG_DRDY": {
+    "low": 4.959879581630508e-05,
+    "high": 0.00018702237269270516
+   },
+   "PPG_INT": {
+    "low": 8.573141459014607,
+    "high": 13.717026334423371
+   },
+   "IMU_INT1": {
+    "low": 342.31089676908033,
+    "high": 558.0012642597612
+   },
+   "DEC1": {
+    "low": 0.14232337380306584,
+    "high": 0.24654443228294434
+   },
+   "PV_SW": {
+    "low": 0.16919510298493604,
+    "high": 1.69195102984936
+   },
+   "INA_VS": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "INA_EN": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "NTC": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "PWR_CYC": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "DISP_CTRL": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "AVDD_ECG": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "XL1": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "XL2": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "SWDCLK": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "SWDIO": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "NRESET": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "GND_K": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "TMP117_ISLAND": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "VIN_DC": {
+    "low": 1.4035487836658687e-05,
+    "high": 0.00014035487836658688
+   },
+   "O2_OK": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "O2_TH": {
+    "low": 0.0,
+    "high": 0.0
+   },
+   "sum_high": 609.7908942590857
+  }
+ },
+ "front_end_cross_caps": [
+  "Cx_ECG_INN inn e1 1.829e-13",
+  "Cx_ECG_INP inp e1 1.369e-13",
+  "Cx_E3_MID m3 e2 6.098e-14"
+ ],
+ "noise_uVpp": {
+  "in-vivo nominal": {
+   "without": 11.986281492847983,
+   "with_caps": 11.986092296844737
+  },
+  "in-vivo worst of v2 (k2/0.5/2 ph-80 a3 0.5)": {
+   "without": 27.212753552630044,
+   "with_caps": 27.212337147970686
+  },
+  "ARCH 10M|1n": {
+   "without": 26.982817213127998,
+   "with_caps": 26.981358671660573
+  }
+ },
+ "M2": {
+  "floor_uVpp": 3.9865711605740355,
+  "worst_aggressor_sum_uVpp": 609.7908942590857,
+  "total_uVpp": 613.7774654196597,
+  "limit_uVpp": 10.0,
+  "verdict": "FAIL",
+  "rule": "floor (input short, display off F-9) + linear sum of the aggressor artefacts at the high C bound",
+  "flags": []
+ },
+ "allowed_pF_alone_ARCH10M_E1": {
+  "I2C_SDA": null,
+  "SPI_MISO": 0.2859385455745658,
+  "SPI_SCK": 0.16159864202054816,
+  "CS_FLASH": 0.1292514403555906,
+  "ECG_DRDY": 4378.575620524464,
+  "PPG_INT": 0.06477673977221629,
+  "IMU_INT1": 0.011888695924792386,
+  "DEC1": 2.847829022601564,
+  "PV_SW": 0.01983209462450245,
+  "INA_VS": null,
+  "INA_EN": null,
+  "NTC": null,
+  "PWR_CYC": null,
+  "DISP_CTRL": null,
+  "AVDD_ECG": null,
+  "XL1": null,
+  "XL2": null,
+  "SWDCLK": null,
+  "SWDIO": null,
+  "NRESET": null,
+  "GND_K": null,
+  "TMP117_ISLAND": null,
+  "VIN_DC": 0.01972732204310826,
+  "O2_OK": null,
+  "O2_TH": null
+ },
+ "runtime_s": 4.169851064682007
+}

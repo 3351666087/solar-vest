@@ -1,0 +1,3167 @@
+{
+ "criterion": "M2: <= 10 uVpp input-referred over 0.5-40 Hz with the display running; bench floor (input short) 3.99 uVpp (v2/sim/ecg sim07_v2.json F_noise) -> display + supply budget 6.0 uVpp (linear sum)",
+ "cases": {
+  "frame floating | finger edge +5.1 mm | no GND-contact finger": {
+   "frame": "floating",
+   "xf_mm": 5.1,
+   "C_finger_pF": 0.2866107519242451,
+   "C_e3_pF": 0.29959479366177577,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 216.89232370294596,
+      "alias_uVpp": 0.00010912775491231761
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 194.70295018343322,
+      "alias_uVpp": 0.001618828069100181
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 44.42684059574173,
+      "alias_uVpp": 0.007126130133891555
+     },
+     "edge_step_pp_uV": 156.94812859719653
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 644.1520653744551,
+      "alias_uVpp": 0.0003253946138218503
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 578.2690009492336,
+      "alias_uVpp": 0.0048255662500625175
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 131.95946691686447,
+      "alias_uVpp": 0.021246382026719995
+     },
+     "edge_step_pp_uV": 465.65831584861706
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 646.7735836102421,
+      "alias_uVpp": 0.00032874484786873465
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 580.6254609853955,
+      "alias_uVpp": 0.00487284493955271
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 132.50440523348777,
+      "alias_uVpp": 0.021461155133974508
+     },
+     "edge_step_pp_uV": 467.5498655468544
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 81.6466131209584,
+      "alias_uVpp": 4.092857481151329e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 73.2927648448227,
+      "alias_uVpp": 0.0006072958933455495
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 16.72310201346407,
+      "alias_uVpp": 0.0026728528431387857
+     },
+     "edge_step_pp_uV": 59.0999819899378
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 148.13927570394424,
+      "alias_uVpp": 8.327524039531489e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 136.317533653379,
+      "alias_uVpp": 0.0012325224305852946
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 32.59252145868078,
+      "alias_uVpp": 0.005429433037954311
+     },
+     "edge_step_pp_uV": 79.01309719549315
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 1433.8520236311285,
+      "alias_uVpp": 0.0007981390966683861
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1318.2022228837836,
+      "alias_uVpp": 0.011833526401214309
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 314.65070870911427,
+      "alias_uVpp": 0.05210744109492696
+     },
+     "edge_step_pp_uV": 769.2067239048831
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 1433.8520236311285,
+   "worst_any_fcom_uVpp": 1433.852821770225,
+   "pass_budget": false
+  },
+  "frame floating | finger edge +5.1 mm | second finger on the GND contact, dry 100k": {
+   "frame": "floating",
+   "xf_mm": 5.1,
+   "C_finger_pF": 0.2866107519242451,
+   "C_e3_pF": 0.29959479366177577,
+   "gnd_finger": "second finger on the GND contact, dry 100k",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 216.61352070887204,
+      "alias_uVpp": 0.00010846155841498438
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 194.45428146096094,
+      "alias_uVpp": 0.0016095740050892661
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 44.36867540823518,
+      "alias_uVpp": 0.0070836541727396195
+     },
+     "edge_step_pp_uV": 156.67389785392552
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 640.3827604731083,
+      "alias_uVpp": 0.00032067616052417077
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 574.9003402749219,
+      "alias_uVpp": 0.0047588947313040786
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 131.18746873414514,
+      "alias_uVpp": 0.02094355027463498
+     },
+     "edge_step_pp_uV": 462.2831180849773
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 640.3410514702307,
+      "alias_uVpp": 0.00032053751576836164
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 574.8661763433888,
+      "alias_uVpp": 0.004757039254589252
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 131.1808149679219,
+      "alias_uVpp": 0.020934931265253167
+     },
+     "edge_step_pp_uV": 462.24928836020473
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 81.61132539371424,
+      "alias_uVpp": 4.0857938884252156e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 73.26144198852397,
+      "alias_uVpp": 0.0006063387754086491
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 16.715631677835734,
+      "alias_uVpp": 0.0026684545883951124
+     },
+     "edge_step_pp_uV": 59.06482384227657
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 147.8141145190342,
+      "alias_uVpp": 8.272820677223297e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 136.01265161546553,
+      "alias_uVpp": 0.0012261863082173175
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 32.51909646439454,
+      "alias_uVpp": 0.005399910745350217
+     },
+     "edge_step_pp_uV": 78.86078886425295
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 1412.388457726518,
+      "alias_uVpp": 0.000777485726461192
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1298.04780734187,
+      "alias_uVpp": 0.011536611211345426
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 309.6339044557592,
+      "alias_uVpp": 0.05077588558329039
+     },
+     "edge_step_pp_uV": 759.2093313286921
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 1412.388457726518,
+   "worst_any_fcom_uVpp": 1412.3892352122446,
+   "pass_budget": false
+  },
+  "frame floating | finger edge +5.1 mm | second finger on the GND contact, wet 1k": {
+   "frame": "floating",
+   "xf_mm": 5.1,
+   "C_finger_pF": 0.2866107519242451,
+   "C_e3_pF": 0.29959479366177577,
+   "gnd_finger": "second finger on the GND contact, wet 1k",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 216.6579090651795,
+      "alias_uVpp": 0.00010857153831758882
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 194.49454492963125,
+      "alias_uVpp": 0.0016110755419060433
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 44.378561626935785,
+      "alias_uVpp": 0.0070905566945547805
+     },
+     "edge_step_pp_uV": 156.70360385254227
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 640.5636278657988,
+      "alias_uVpp": 0.0003210777747245675
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 575.0665058740495,
+      "alias_uVpp": 0.004764410276982573
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 131.2304078806779,
+      "alias_uVpp": 0.02096882592944107
+     },
+     "edge_step_pp_uV": 462.4013287434625
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 640.5630404181411,
+      "alias_uVpp": 0.00032107691864484574
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 575.065983599389,
+      "alias_uVpp": 0.004764398518614094
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 131.23028713442213,
+      "alias_uVpp": 0.020968772069781007
+     },
+     "edge_step_pp_uV": 462.4009093901509
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 81.62141665345094,
+      "alias_uVpp": 4.0898742210044496e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 73.2706166929747,
+      "alias_uVpp": 0.0006068905635564776
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 16.717815671142535,
+      "alias_uVpp": 0.0026710040348793544
+     },
+     "edge_step_pp_uV": 59.07166172716464
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 147.84720856079423,
+      "alias_uVpp": 8.181712424681284e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 136.04265888804412,
+      "alias_uVpp": 0.0012140678567952627
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 32.522954326712835,
+      "alias_uVpp": 0.005343405604883381
+     },
+     "edge_step_pp_uV": 78.87716283034177
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 1412.7629733918202,
+      "alias_uVpp": 0.000777861904084594
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1298.3959006858854,
+      "alias_uVpp": 0.011542597707851912
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 309.7174363101927,
+      "alias_uVpp": 0.050801556474846084
+     },
+     "edge_step_pp_uV": 759.3939996041719
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 1412.7629733918202,
+   "worst_any_fcom_uVpp": 1412.7637512537242,
+   "pass_budget": false
+  },
+  "frame floating | finger edge +3.0 mm | no GND-contact finger": {
+   "frame": "floating",
+   "xf_mm": 3.0,
+   "C_finger_pF": 0.5482983769670516,
+   "C_e3_pF": 0.19206286545809412,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 139.06172839815105,
+      "alias_uVpp": 7.024299728414209e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 124.83522778665592,
+      "alias_uVpp": 0.0010416983381494325
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 28.485824215306895,
+      "alias_uVpp": 0.004586480600796384
+     },
+     "edge_step_pp_uV": 100.62660814710168
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 412.9854895048296,
+      "alias_uVpp": 0.00021022020918519635
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 370.74831712960594,
+      "alias_uVpp": 0.0031157300447045336
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 84.60985059778854,
+      "alias_uVpp": 0.013723366619182161
+     },
+     "edge_step_pp_uV": 298.54014150345574
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 414.6767824300512,
+      "alias_uVpp": 0.00021365548367543967
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 372.2705744922347,
+      "alias_uVpp": 0.003163562715949041
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 84.96645998699763,
+      "alias_uVpp": 0.01394238889849285
+     },
+     "edge_step_pp_uV": 299.7560315674798
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 52.35635205598855,
+      "alias_uVpp": 2.627296039723726e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 46.99949000850122,
+      "alias_uVpp": 0.0003897870043102598
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 10.724012007693903,
+      "alias_uVpp": 0.0017156403018004996
+     },
+     "edge_step_pp_uV": 37.89766467647024
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 95.0089546089905,
+      "alias_uVpp": 5.4218929072644727e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 87.42805132204806,
+      "alias_uVpp": 0.000800452134303766
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 20.904584452958904,
+      "alias_uVpp": 0.003529112334186807
+     },
+     "edge_step_pp_uV": 50.672948176360435
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 919.3659772786202,
+      "alias_uVpp": 0.0005165512593648347
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 845.2254679739475,
+      "alias_uVpp": 0.007652303215294755
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 201.77276576036328,
+      "alias_uVpp": 0.033711747511538305
+     },
+     "edge_step_pp_uV": 493.17894208465077
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 919.3659772786202,
+   "worst_any_fcom_uVpp": 919.3664938298796,
+   "pass_budget": false
+  },
+  "frame floating | finger edge +3.0 mm | second finger on the GND contact, dry 100k": {
+   "frame": "floating",
+   "xf_mm": 3.0,
+   "C_finger_pF": 0.5482983769670516,
+   "C_e3_pF": 0.19206286545809412,
+   "gnd_finger": "second finger on the GND contact, dry 100k",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 138.84056835103885,
+      "alias_uVpp": 6.946556325240434e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 124.63709588880249,
+      "alias_uVpp": 0.0010309522367496948
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 28.438048854157074,
+      "alias_uVpp": 0.004536987888917309
+     },
+     "edge_step_pp_uV": 100.42253001614908
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 410.4437935643321,
+      "alias_uVpp": 0.00020535634982017003
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 368.4720713649457,
+      "alias_uVpp": 0.003047778973622164
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 84.07910135572986,
+      "alias_uVpp": 0.013412487320374086
+     },
+     "edge_step_pp_uV": 296.2960117370661
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 410.3910357678518,
+      "alias_uVpp": 0.00020522425886633098
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 368.428434992308,
+      "alias_uVpp": 0.003046009198917942
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 84.0705697064459,
+      "alias_uVpp": 0.01340427296369538
+     },
+     "edge_step_pp_uV": 296.2529096110293
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 52.313089571879466,
+      "alias_uVpp": 2.6168001782423395e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 46.96070854032423,
+      "alias_uVpp": 0.0003883706766056948
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 10.714694244181606,
+      "alias_uVpp": 0.0017091175627400486
+     },
+     "edge_step_pp_uV": 37.86091389447016
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 94.7404258897986,
+      "alias_uVpp": 5.36197379706479e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 87.17672055649392,
+      "alias_uVpp": 0.000793850137912288
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 20.845098585443292,
+      "alias_uVpp": 0.0034979891446209844
+     },
+     "edge_step_pp_uV": 50.545801517225414
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 905.3199800954321,
+      "alias_uVpp": 0.0004983466904999827
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 832.0335483165969,
+      "alias_uVpp": 0.007394265182675002
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 198.4741779291327,
+      "alias_uVpp": 0.03254495262138304
+     },
+     "edge_step_pp_uV": 486.6289758410973
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 905.3199800954321,
+   "worst_any_fcom_uVpp": 905.3204784421226,
+   "pass_budget": false
+  },
+  "frame floating | finger edge +3.0 mm | second finger on the GND contact, wet 1k": {
+   "frame": "floating",
+   "xf_mm": 3.0,
+   "C_finger_pF": 0.5482983769670516,
+   "C_e3_pF": 0.19206286545809412,
+   "gnd_finger": "second finger on the GND contact, wet 1k",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 138.89663872438547,
+      "alias_uVpp": 6.960337634756663e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 124.68800288956434,
+      "alias_uVpp": 0.0010328340310296565
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 28.45054191563117,
+      "alias_uVpp": 0.004545637583159516
+     },
+     "edge_step_pp_uV": 100.46012443710102
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 410.67356189946616,
+      "alias_uVpp": 0.00020584622324738538
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 368.68268644054143,
+      "alias_uVpp": 0.003054513703593445
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 84.1336049552595,
+      "alias_uVpp": 0.013443331394961122
+     },
+     "edge_step_pp_uV": 296.4463434910321
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 410.67281376305493,
+      "alias_uVpp": 0.0002058451350006458
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 368.6820212974329,
+      "alias_uVpp": 0.003054498755274094
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 84.13345117864749,
+      "alias_uVpp": 0.013443262926183176
+     },
+     "edge_step_pp_uV": 296.44580911831923
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 52.32581648526937,
+      "alias_uVpp": 2.621904091479108e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 46.97229166366343,
+      "alias_uVpp": 0.0003890610561707054
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 10.717449595800687,
+      "alias_uVpp": 0.0017123070874255186
+     },
+     "edge_step_pp_uV": 37.86955443326605
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 94.78221304108462,
+      "alias_uVpp": 5.245873774868204e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 87.2146044330595,
+      "alias_uVpp": 0.0007784138956704963
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 20.849964089689546,
+      "alias_uVpp": 0.003426011454270218
+     },
+     "edge_step_pp_uV": 50.566493502077925
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 905.7950583321091,
+      "alias_uVpp": 0.0004987471711877475
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 832.4748045692254,
+      "alias_uVpp": 0.0074008413007862215
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 198.580107084595,
+      "alias_uVpp": 0.032572775020674107
+     },
+     "edge_step_pp_uV": 486.86344863532173
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 905.7950583321091,
+   "worst_any_fcom_uVpp": 905.7955570792802,
+   "pass_budget": false
+  },
+  "frame floating | finger edge +1.0 mm | no GND-contact finger": {
+   "frame": "floating",
+   "xf_mm": 1.0,
+   "C_finger_pF": 1.0407779787854334,
+   "C_e3_pF": 0.07821987951566423,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 56.671031651413784,
+      "alias_uVpp": 2.9271037592732012e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 50.87444801377382,
+      "alias_uVpp": 0.0004334131287382779
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 11.611537558135858,
+      "alias_uVpp": 0.0019103352324375002
+     },
+     "edge_step_pp_uV": 41.00470866496904
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 168.24961060358504,
+      "alias_uVpp": 8.922846280700926e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 151.04795877754879,
+      "alias_uVpp": 0.0013183487919562651
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 34.484609323016784,
+      "alias_uVpp": 0.0058182395728098284
+     },
+     "edge_step_pp_uV": 121.61249180347058
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 168.96222958257863,
+      "alias_uVpp": 9.353410968290608e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 151.69379726558492,
+      "alias_uVpp": 0.0013771542523649699
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 34.64609041143862,
+      "alias_uVpp": 0.006090027448176552
+     },
+     "edge_step_pp_uV": 122.11490479378931
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 21.356269302432295,
+      "alias_uVpp": 1.0909462599582028e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 19.171452631287462,
+      "alias_uVpp": 0.00016154322737854782
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 4.374665113038998,
+      "alias_uVpp": 0.0007116910828417235
+     },
+     "edge_step_pp_uV": 15.456759427195486
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 38.78378121865619,
+      "alias_uVpp": 2.4072950357637366e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 35.69104945597675,
+      "alias_uVpp": 0.00035059635041471656
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 8.538440276650075,
+      "alias_uVpp": 0.0015529508457214076
+     },
+     "edge_step_pp_uV": 20.68441726283156
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 374.6759497443384,
+      "alias_uVpp": 0.0002213732077642009
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 344.4830307391702,
+      "alias_uVpp": 0.0032647948375354417
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 82.27763816543725,
+      "alias_uVpp": 0.014418491543180935
+     },
+     "edge_step_pp_uV": 200.95284589326766
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 374.6759497443384,
+   "worst_any_fcom_uVpp": 374.6761711175462,
+   "pass_budget": false
+  },
+  "frame floating | finger edge +1.0 mm | second finger on the GND contact, dry 100k": {
+   "frame": "floating",
+   "xf_mm": 1.0,
+   "C_finger_pF": 1.0407779787854334,
+   "C_e3_pF": 0.07821987951566423,
+   "gnd_finger": "second finger on the GND contact, dry 100k",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 56.48323206082293,
+      "alias_uVpp": 2.8146028885032554e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 50.70418755597815,
+      "alias_uVpp": 0.0004178913290634914
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 11.56804660660247,
+      "alias_uVpp": 0.0018386629189937336
+     },
+     "edge_step_pp_uV": 40.856861326589254
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 166.91276778074896,
+      "alias_uVpp": 8.32575355543682e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 149.83949249997818,
+      "alias_uVpp": 0.001236011355776475
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 34.18346788518395,
+      "alias_uVpp": 0.005438579128708588
+     },
+     "edge_step_pp_uV": 120.50679221956929
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 166.8347299380994,
+      "alias_uVpp": 8.343293267454558e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 149.7753598244787,
+      "alias_uVpp": 0.0012383322792302869
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 34.17040468926975,
+      "alias_uVpp": 0.005449424244686707
+     },
+     "edge_step_pp_uV": 120.44120969728006
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 21.29109499957344,
+      "alias_uVpp": 1.060350262538791e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 19.112549497312646,
+      "alias_uVpp": 0.000157440567360251
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 4.3606466610635595,
+      "alias_uVpp": 0.0006926966878072314
+     },
+     "edge_step_pp_uV": 15.409736568347531
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 38.53860728658664,
+      "alias_uVpp": 2.3200901977214887e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 35.46238964164125,
+      "alias_uVpp": 0.00034141295582344776
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 8.484148419467918,
+      "alias_uVpp": 0.0015090401145897013
+     },
+     "edge_step_pp_uV": 20.56244233283542
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 368.22263716239075,
+      "alias_uVpp": 0.00020321857978440507
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 338.4117870268351,
+      "alias_uVpp": 0.0030135632655113927
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 80.72472508206452,
+      "alias_uVpp": 0.013267307155337603
+     },
+     "edge_step_pp_uV": 197.9379002893714
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 368.22263716239075,
+   "worst_any_fcom_uVpp": 368.2228403809705,
+   "pass_budget": false
+  },
+  "frame floating | finger edge +1.0 mm | second finger on the GND contact, wet 1k": {
+   "frame": "floating",
+   "xf_mm": 1.0,
+   "C_finger_pF": 1.0407779787854334,
+   "C_e3_pF": 0.07821987951566423,
+   "gnd_finger": "second finger on the GND contact, wet 1k",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 56.56785992403763,
+      "alias_uVpp": 2.8345964888896298e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 50.781168839671764,
+      "alias_uVpp": 0.00042062320740346665
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 11.586928373955981,
+      "alias_uVpp": 0.0018512139352640923
+     },
+     "edge_step_pp_uV": 40.913763685271746
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 167.2599926446143,
+      "alias_uVpp": 8.383483367692048e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 150.1579122218403,
+      "alias_uVpp": 0.00124401362826734
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 34.26612042828765,
+      "alias_uVpp": 0.005475064328539142
+     },
+     "edge_step_pp_uV": 120.73516663684397
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 167.25885482942124,
+      "alias_uVpp": 8.383322385366554e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 150.15690061889956,
+      "alias_uVpp": 0.0012439914964935722
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 34.26588655081028,
+      "alias_uVpp": 0.005474963002977961
+     },
+     "edge_step_pp_uV": 120.73435358126395
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 21.31030421943208,
+      "alias_uVpp": 1.0677319447167721e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 19.130017040893122,
+      "alias_uVpp": 0.00015844046159465948
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 4.364805458491898,
+      "alias_uVpp": 0.0006973142258026116
+     },
+     "edge_step_pp_uV": 15.422799773785435
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 38.60123503555234,
+      "alias_uVpp": 2.138038245423818e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 35.51927871558626,
+      "alias_uVpp": 0.0003172306529123644
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 8.491492879462239,
+      "alias_uVpp": 0.0013962724269213826
+     },
+     "edge_step_pp_uV": 20.59373104493594
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 368.93783218178714,
+      "alias_uVpp": 0.00020316022196755905
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 339.0766098565882,
+      "alias_uVpp": 0.003014651026134024
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 80.8853074879546,
+      "alias_uVpp": 0.01326819536342532
+     },
+     "edge_step_pp_uV": 198.29367012896884
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 368.93783218178714,
+   "worst_any_fcom_uVpp": 368.93803534200913,
+   "pass_budget": false
+  },
+  "frame floating | finger edge +0.0 mm | no GND-contact finger": {
+   "frame": "floating",
+   "xf_mm": 0.0,
+   "C_finger_pF": 1.354095257190735,
+   "C_e3_pF": 0.06607884608055736,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 47.89583245423805,
+      "alias_uVpp": 2.5138466648387956e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 42.99750046235494,
+      "alias_uVpp": 0.0003718420990073437
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 9.815174916613847,
+      "alias_uVpp": 0.0016401866010711588
+     },
+     "edge_step_pp_uV": 34.653464121360294
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 142.1644414337794,
+      "alias_uVpp": 7.748252087877443e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 127.63304869231108,
+      "alias_uVpp": 0.0011424255403979728
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 29.146689714690798,
+      "alias_uVpp": 0.005048283176045928
+     },
+     "edge_step_pp_uV": 102.75129017395234
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 142.78026386909914,
+      "alias_uVpp": 8.281977113112856e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 128.19365459809558,
+      "alias_uVpp": 0.001214974107088206
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 29.292539587567976,
+      "alias_uVpp": 0.005384117116437033
+     },
+     "edge_step_pp_uV": 103.17990655971067
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 18.061504348101668,
+      "alias_uVpp": 9.442822181888524e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 16.21407893217971,
+      "alias_uVpp": 0.0001395153637811768
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 3.699806107824625,
+      "alias_uVpp": 0.0006153662823760257
+     },
+     "edge_step_pp_uV": 13.070643067464854
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 32.81642563089779,
+      "alias_uVpp": 2.157688030951774e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 30.200762680184482,
+      "alias_uVpp": 0.0003115751339253228
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 7.2287870977179,
+      "alias_uVpp": 0.0013843363783465955
+     },
+     "edge_step_pp_uV": 17.501602125196428
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 316.65565565220373,
+      "alias_uVpp": 0.00019349862999839005
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 291.14982001694534,
+      "alias_uVpp": 0.0028451561267740675
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 69.56366567530631,
+      "alias_uVpp": 0.012585407000533769
+     },
+     "edge_step_pp_uV": 169.8156621462228
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 316.65565565220373,
+   "worst_any_fcom_uVpp": 316.6558491508337,
+   "pass_budget": false
+  },
+  "frame floating | finger edge +0.0 mm | second finger on the GND contact, dry 100k": {
+   "frame": "floating",
+   "xf_mm": 0.0,
+   "C_finger_pF": 1.354095257190735,
+   "C_e3_pF": 0.06607884608055736,
+   "gnd_finger": "second finger on the GND contact, dry 100k",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 47.67987960911473,
+      "alias_uVpp": 2.369873739500718e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 42.80115693578507,
+      "alias_uVpp": 0.0003519524134735154
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 9.76440771483096,
+      "alias_uVpp": 0.0015483373977485317
+     },
+     "edge_step_pp_uV": 34.49080394784616
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 140.85815740445048,
+      "alias_uVpp": 7.023269156812289e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 126.44714905331986,
+      "alias_uVpp": 0.001042672270973941
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 28.842362784107983,
+      "alias_uVpp": 0.004587813976722875
+     },
+     "edge_step_pp_uV": 101.70447257539654
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 140.7607745538119,
+      "alias_uVpp": 7.078362867043841e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 126.36779922213287,
+      "alias_uVpp": 0.001049999333551207
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 28.825756547819076,
+      "alias_uVpp": 0.004621972882969448
+     },
+     "edge_step_pp_uV": 101.62117077257213
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 17.978112427941785,
+      "alias_uVpp": 8.92865695865002e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 16.138488866996582,
+      "alias_uVpp": 0.00013260889748147598
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 3.6820152128713293,
+      "alias_uVpp": 0.0005833596087787158
+     },
+     "edge_step_pp_uV": 13.012275577154211
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 32.530298774379034,
+      "alias_uVpp": 2.0430396167128507e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 29.934074500956456,
+      "alias_uVpp": 0.00029946110021911485
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 7.16413664209021,
+      "alias_uVpp": 0.0013262900989924873
+     },
+     "edge_step_pp_uV": 17.357392109475544
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 310.76964225755256,
+      "alias_uVpp": 0.00017228575049876984
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 285.6082776730687,
+      "alias_uVpp": 0.0025531918023521624
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 68.12713808461449,
+      "alias_uVpp": 0.011244073302690873
+     },
+     "edge_step_pp_uV": 167.063186738477
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 310.76964225755256,
+   "worst_any_fcom_uVpp": 310.7698145433031,
+   "pass_budget": false
+  },
+  "frame floating | finger edge +0.0 mm | second finger on the GND contact, wet 1k": {
+   "frame": "floating",
+   "xf_mm": 0.0,
+   "C_finger_pF": 1.354095257190735,
+   "C_e3_pF": 0.06607884608055736,
+   "gnd_finger": "second finger on the GND contact, wet 1k",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 47.78726822102309,
+      "alias_uVpp": 2.394538349962659e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 42.89879720673453,
+      "alias_uVpp": 0.0003553243640594311
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 9.788372406689353,
+      "alias_uVpp": 0.0015638235812531597
+     },
+     "edge_step_pp_uV": 34.563034833055035
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 141.29788765812125,
+      "alias_uVpp": 7.082037606938462e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 126.85038461110676,
+      "alias_uVpp": 0.0010508962721838377
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 28.947309567659143,
+      "alias_uVpp": 0.00462512459378695
+     },
+     "edge_step_pp_uV": 101.99449725880442
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 141.29644250024074,
+      "alias_uVpp": 7.081837412122375e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 126.84909975605807,
+      "alias_uVpp": 0.0010508687313190057
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 28.94701251529109,
+      "alias_uVpp": 0.00462499854796332
+     },
+     "edge_step_pp_uV": 101.99346453183071
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 18.0024879990434,
+      "alias_uVpp": 9.019566613368215e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 16.160626821891693,
+      "alias_uVpp": 0.00013384172574170796
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 3.687292480659528,
+      "alias_uVpp": 0.0005890510658425228
+     },
+     "edge_step_pp_uV": 13.028855409330113
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 32.6094354429246,
+      "alias_uVpp": 1.807086511463023e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 30.005881572666883,
+      "alias_uVpp": 0.0002681117743204392
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 7.173457455803637,
+      "alias_uVpp": 0.0011801098649056407
+     },
+     "edge_step_pp_uV": 17.39710469861833
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 311.67352465232324,
+      "alias_uVpp": 0.000171633180260729
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 286.447414381587,
+      "alias_uVpp": 0.0025468187224990647
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 68.33103035451619,
+      "alias_uVpp": 0.011209174697941911
+     },
+     "edge_step_pp_uV": 167.5149124426125
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 311.67352465232324,
+   "worst_any_fcom_uVpp": 311.6736962855035,
+   "pass_budget": false
+  },
+  "frame floating | finger edge -2.0 mm | no GND-contact finger": {
+   "frame": "floating",
+   "xf_mm": -2.0,
+   "C_finger_pF": 2.0123530928762747,
+   "C_e3_pF": 0.06364310591695375,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 46.16224684608333,
+      "alias_uVpp": 2.486199133981653e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 41.442249203889894,
+      "alias_uVpp": 0.00036720035735994235
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 9.462248299043742,
+      "alias_uVpp": 0.0016216072325928661
+     },
+     "edge_step_pp_uV": 33.396074507461364
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 136.96848972477497,
+      "alias_uVpp": 7.777362276174048e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 122.97318406213247,
+      "alias_uVpp": 0.001143175186594502
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 28.094126909520707,
+      "alias_uVpp": 0.0050609741303711585
+     },
+     "edge_step_pp_uV": 98.98615168243224
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 137.58229555794063,
+      "alias_uVpp": 8.546056730840659e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 123.5355067784843,
+      "alias_uVpp": 0.0012471973705837356
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 28.248667171506625,
+      "alias_uVpp": 0.005543096621449386
+     },
+     "edge_step_pp_uV": 99.4052081176342
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 17.426812666097554,
+      "alias_uVpp": 9.577993350716936e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 15.645005769834173,
+      "alias_uVpp": 0.00014093725121227467
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 3.571725788206494,
+      "alias_uVpp": 0.0006231239292331065
+     },
+     "edge_step_pp_uV": 12.608299456296693
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 31.685683796806938,
+      "alias_uVpp": 2.2729980001778484e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 29.16201233267871,
+      "alias_uVpp": 0.0003244641589038682
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 6.985683867252711,
+      "alias_uVpp": 0.001447925541574912
+     },
+     "edge_step_pp_uV": 16.897887086017874
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 305.1837037090418,
+      "alias_uVpp": 0.000196175110750546
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 280.6198077903636,
+      "alias_uVpp": 0.0028717389134816185
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 67.08379614442897,
+      "alias_uVpp": 0.012732728420573743
+     },
+     "edge_step_pp_uV": 163.63616832762526
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 305.1837037090418,
+   "worst_any_fcom_uVpp": 305.1838998841526,
+   "pass_budget": false
+  },
+  "frame floating | finger edge -2.0 mm | second finger on the GND contact, dry 100k": {
+   "frame": "floating",
+   "xf_mm": -2.0,
+   "C_finger_pF": 2.0123530928762747,
+   "C_e3_pF": 0.06364310591695375,
+   "gnd_finger": "second finger on the GND contact, dry 100k",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 45.86833556849909,
+      "alias_uVpp": 2.2717078318505702e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 41.174439397851906,
+      "alias_uVpp": 0.00033749635928349294
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 9.392409843947304,
+      "alias_uVpp": 0.0014844675855380238
+     },
+     "edge_step_pp_uV": 33.183055417026324
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 135.4470012269573,
+      "alias_uVpp": 6.767733817832959e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 121.58588057319344,
+      "alias_uVpp": 0.0010044856599832996
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 27.726393062543885,
+      "alias_uVpp": 0.004420344553419369
+     },
+     "edge_step_pp_uV": 97.80945210214011
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 135.30918485270894,
+      "alias_uVpp": 6.921060657127378e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 121.47480162963673,
+      "alias_uVpp": 0.001024985172378316
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 27.718516915578213,
+      "alias_uVpp": 0.004515798338505555
+     },
+     "edge_step_pp_uV": 97.6876323986004
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 17.303133712453185,
+      "alias_uVpp": 8.559826653798916e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 15.532473812129624,
+      "alias_uVpp": 0.00012717876077677074
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 3.5436311108036485,
+      "alias_uVpp": 0.0005593582150836808
+     },
+     "edge_step_pp_uV": 12.524274433025937
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 31.29214440724352,
+      "alias_uVpp": 2.096544691608637e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 28.795412255362766,
+      "alias_uVpp": 0.00030558726017423856
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 6.895386421340863,
+      "alias_uVpp": 0.001357390891649331
+     },
+     "edge_step_pp_uV": 16.697588142073815
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 298.86985410456697,
+      "alias_uVpp": 0.0001675600639098158
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 274.66967261171055,
+      "alias_uVpp": 0.002479776193553708
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 65.51351776449842,
+      "alias_uVpp": 0.010928354000438057
+     },
+     "edge_step_pp_uV": 160.67773523028376
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 298.86985410456697,
+   "worst_any_fcom_uVpp": 298.8700216646309,
+   "pass_budget": false
+  },
+  "frame floating | finger edge -2.0 mm | second finger on the GND contact, wet 1k": {
+   "frame": "floating",
+   "xf_mm": -2.0,
+   "C_finger_pF": 2.0123530928762747,
+   "C_e3_pF": 0.06364310591695375,
+   "gnd_finger": "second finger on the GND contact, wet 1k",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 46.02525999589786,
+      "alias_uVpp": 2.3061491376870713e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 41.31703046114503,
+      "alias_uVpp": 0.0003422098005746227
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 9.427445739517772,
+      "alias_uVpp": 0.0015061016009508786
+     },
+     "edge_step_pp_uV": 33.288656701227325
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 136.08768193517125,
+      "alias_uVpp": 6.820655400498413e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 122.17289302960475,
+      "alias_uVpp": 0.0010121135782357497
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 27.87987009166932,
+      "alias_uVpp": 0.004454429247285181
+     },
+     "edge_step_pp_uV": 98.23359521980078
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 136.08556834305045,
+      "alias_uVpp": 6.820372371457465e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 122.17101388460559,
+      "alias_uVpp": 0.0010120745994448572
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 27.879435641782784,
+      "alias_uVpp": 0.004454250956416054
+     },
+     "edge_step_pp_uV": 98.23208477265275
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 17.338761968664137,
+      "alias_uVpp": 8.686425871657983e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 15.564805460064303,
+      "alias_uVpp": 0.0001288991524256819
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 3.5513448298469594,
+      "alias_uVpp": 0.0005672962600849281
+     },
+     "edge_step_pp_uV": 12.54851158245536
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 31.40705924003999,
+      "alias_uVpp": 1.741829062958719e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 28.899517919602165,
+      "alias_uVpp": 0.00025840879186825127
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 6.9090141218125405,
+      "alias_uVpp": 0.001137448376785737
+     },
+     "edge_step_pp_uV": 16.755642561370514
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 300.1814984624424,
+      "alias_uVpp": 0.0001653133691501377
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 275.8855511327724,
+      "alias_uVpp": 0.002453026750519364
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 65.81169144959233,
+      "alias_uVpp": 0.010796403990170364
+     },
+     "edge_step_pp_uV": 161.33826663346065
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 300.1814984624424,
+   "worst_any_fcom_uVpp": 300.18166377581156,
+   "pass_budget": false
+  },
+  "frame floating | finger edge -5.0 mm | no GND-contact finger": {
+   "frame": "floating",
+   "xf_mm": -5.0,
+   "C_finger_pF": 2.9412429819350594,
+   "C_e3_pF": 0.06359309023210312,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 46.16855914811619,
+      "alias_uVpp": 2.575944636717302e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 41.44952463247476,
+      "alias_uVpp": 0.00037976706496067165
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 9.46646289427678,
+      "alias_uVpp": 0.0016796485959843298
+     },
+     "edge_step_pp_uV": 33.396051246971524
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 136.91944467938387,
+      "alias_uVpp": 8.185875827706339e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 122.93544946260428,
+      "alias_uVpp": 0.0011986271680720644
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 28.100679050955687,
+      "alias_uVpp": 0.005318336984484549
+     },
+     "edge_step_pp_uV": 98.93766300671054
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 137.5599229359442,
+      "alias_uVpp": 9.289881115480694e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 123.52691428969598,
+      "alias_uVpp": 0.0013474993174473753
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 28.273579797301455,
+      "alias_uVpp": 0.006008937438454318
+     },
+     "edge_step_pp_uV": 99.36458670315683
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 17.455882420391713,
+      "alias_uVpp": 1.0430511130974041e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 15.672481697769514,
+      "alias_uVpp": 0.00015268010314268185
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 3.58209924508441,
+      "alias_uVpp": 0.0006774611029486592
+     },
+     "edge_step_pp_uV": 12.627819661555044
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 31.765206269141007,
+      "alias_uVpp": 2.541118491171845e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 29.23788811783612,
+      "alias_uVpp": 0.0003583051602854414
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 7.01088101143799,
+      "alias_uVpp": 0.0016069498044505438
+     },
+     "edge_step_pp_uV": 16.939011204138158
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 305.20643605572906,
+      "alias_uVpp": 0.00020910959112847217
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 280.6644805965859,
+      "alias_uVpp": 0.0030446258796999175
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 67.14171914203881,
+      "alias_uVpp": 0.013537316246781715
+     },
+     "edge_step_pp_uV": 163.61257230611068
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 305.20643605572906,
+   "worst_any_fcom_uVpp": 305.2066451653202,
+   "pass_budget": false
+  },
+  "frame floating | finger edge -5.0 mm | second finger on the GND contact, dry 100k": {
+   "frame": "floating",
+   "xf_mm": -5.0,
+   "C_finger_pF": 2.9412429819350594,
+   "C_e3_pF": 0.06359309023210312,
+   "gnd_finger": "second finger on the GND contact, dry 100k",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 45.761464781465186,
+      "alias_uVpp": 2.2574340847812293e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 41.07772859688404,
+      "alias_uVpp": 0.00033551061385168315
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 9.369154640192837,
+      "alias_uVpp": 0.0014754313251456614
+     },
+     "edge_step_pp_uV": 33.10914462666527
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 135.05485604552203,
+      "alias_uVpp": 6.800988011811789e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 121.2295105316994,
+      "alias_uVpp": 0.0010085890467405167
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 27.641518688191553,
+      "alias_uVpp": 0.004440284808655417
+     },
+     "edge_step_pp_uV": 97.54047246087752
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 134.86392843953064,
+      "alias_uVpp": 7.153828307492853e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 121.07842285870473,
+      "alias_uVpp": 0.0010561701430533033
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 27.64289028494611,
+      "alias_uVpp": 0.004661525223403683
+     },
+     "edge_step_pp_uV": 97.36409226144399
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 17.27346241214532,
+      "alias_uVpp": 8.507606658829905e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 15.505685690233907,
+      "alias_uVpp": 0.00012645274413608325
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 3.5373476326127804,
+      "alias_uVpp": 0.0005560387381874406
+     },
+     "edge_step_pp_uV": 12.503446356325611
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 31.21700240384046,
+      "alias_uVpp": 2.2716402730493388e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 28.727279295606802,
+      "alias_uVpp": 0.00032899160497217234
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 6.883817581980841,
+      "alias_uVpp": 0.0014664098822483045
+     },
+     "edge_step_pp_uV": 16.658184876578925
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 298.0593113891142,
+      "alias_uVpp": 0.0001708376249373449
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 273.92406224300095,
+      "alias_uVpp": 0.002522543132601062
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 65.32715120494252,
+      "alias_uVpp": 0.0111306288127514
+     },
+     "edge_step_pp_uV": 160.25233515079412
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 298.0593113891142,
+   "worst_any_fcom_uVpp": 298.05948222673914,
+   "pass_budget": false
+  },
+  "frame floating | finger edge -5.0 mm | second finger on the GND contact, wet 1k": {
+   "frame": "floating",
+   "xf_mm": -5.0,
+   "C_finger_pF": 2.9412429819350594,
+   "C_e3_pF": 0.06359309023210312,
+   "gnd_finger": "second finger on the GND contact, wet 1k",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 45.988358712791964,
+      "alias_uVpp": 2.3041715786844888e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 41.2838962225091,
+      "alias_uVpp": 0.00034191827613361654
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 9.419873102548735,
+      "alias_uVpp": 0.0015048142802425945
+     },
+     "edge_step_pp_uV": 33.262008621419426
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 135.97804128096467,
+      "alias_uVpp": 6.814849284007833e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 122.07443257815846,
+      "alias_uVpp": 0.0010112565990536304
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 27.85735591021573,
+      "alias_uVpp": 0.004450647341750654
+     },
+     "edge_step_pp_uV": 98.15454650862378
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 135.97498108720885,
+      "alias_uVpp": 6.814458158499717e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 122.07171183066379,
+      "alias_uVpp": 0.0010112026492966194
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 27.85672688437871,
+      "alias_uVpp": 0.004450400775839212
+     },
+     "edge_step_pp_uV": 98.15235954532625
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 17.324946095879298,
+      "alias_uVpp": 8.678713849187588e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 15.552400293020664,
+      "alias_uVpp": 0.00012878591503036639
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 3.5485118186455966,
+      "alias_uVpp": 0.0005667952183768874
+     },
+     "edge_step_pp_uV": 12.538528547571826
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 31.381880674762833,
+      "alias_uVpp": 1.7422389443210343e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 28.87636761271498,
+      "alias_uVpp": 0.000258442072738204
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 6.903549215710159,
+      "alias_uVpp": 0.001137656334226861
+     },
+     "edge_step_pp_uV": 16.742218190214388
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 299.9399070384,
+      "alias_uVpp": 0.00016519170525398637
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 275.66348547768513,
+      "alias_uVpp": 0.0024512027722298907
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 65.75889771981365,
+      "alias_uVpp": 0.010788417236536514
+     },
+     "edge_step_pp_uV": 161.20859681022495
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 299.9399070384,
+   "worst_any_fcom_uVpp": 299.9400722301053,
+   "pass_budget": false
+  },
+  "frame grounded | finger edge +5.1 mm | no GND-contact finger": {
+   "frame": "grounded",
+   "xf_mm": 5.1,
+   "C_finger_pF": 0.2780634694363386,
+   "C_e3_pF": 0.0015025321537728736,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 1.1013081388278882,
+      "alias_uVpp": 8.688232107402843e-07
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.9893005885767256,
+      "alias_uVpp": 1.2691170372713658e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.2271640467798545,
+      "alias_uVpp": 5.6723391636849225e-05
+     },
+     "edge_step_pp_uV": 0.7956446530102826
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 3.248347868054896,
+      "alias_uVpp": 2.861856107080382e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 2.9180713517648065,
+      "alias_uVpp": 4.087769747054664e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.6703454119166777,
+      "alias_uVpp": 0.00018388918884634632
+     },
+     "edge_step_pp_uV": 2.3442058754022925
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 3.269623680497531,
+      "alias_uVpp": 3.878136752697971e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 2.9387237599325573,
+      "alias_uVpp": 5.448483111962484e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.6785741017594867,
+      "alias_uVpp": 0.000247151381095464
+     },
+     "edge_step_pp_uV": 2.356133049103347
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.4245866679208022,
+      "alias_uVpp": 5.645689536108939e-07
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.38210111521550577,
+      "alias_uVpp": 8.133522437836429e-06
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.08934671815376607,
+      "alias_uVpp": 3.668181910389081e-05
+     },
+     "edge_step_pp_uV": 0.3054112477758833
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.7750000092647595,
+      "alias_uVpp": 1.27896315943299e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.7142003806778728,
+      "alias_uVpp": 1.7247080255550015e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.1731738512705546,
+      "alias_uVpp": 7.895931228794965e-05
+     },
+     "edge_step_pp_uV": 0.41241619884528613
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 7.270737153898849,
+      "alias_uVpp": 7.991949130965005e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 6.691480463954856,
+      "alias_uVpp": 0.00011281735157714056
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.6111289068246961,
+      "alias_uVpp": 0.0005099667526137719
+     },
+     "edge_step_pp_uV": 3.8892335115183028
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 7.270737153898849,
+   "worst_any_fcom_uVpp": 7.27074514584798,
+   "pass_budget": false
+  },
+  "frame grounded | finger edge +3.0 mm | no GND-contact finger": {
+   "frame": "grounded",
+   "xf_mm": 3.0,
+   "C_finger_pF": 0.5318225027837786,
+   "C_e3_pF": 0.0010232771736511234,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.7718313614456819,
+      "alias_uVpp": 1.1274648458628552e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.6952935924129283,
+      "alias_uVpp": 1.6400017836487e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.1640802927674334,
+      "alias_uVpp": 7.38504584651787e-05
+     },
+     "edge_step_pp_uV": 0.5537706900871854
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 2.2350382200082026,
+      "alias_uVpp": 3.478752839725632e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 2.010454891559839,
+      "alias_uVpp": 4.8487519268893826e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.4680630807484242,
+      "alias_uVpp": 0.0002209824518167333
+     },
+     "edge_step_pp_uV": 1.6081153515911248
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 2.2598756517613245,
+      "alias_uVpp": 5.414058363642622e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 2.035763887577232,
+      "alias_uVpp": 7.436877062572446e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.4806867583919486,
+      "alias_uVpp": 0.0003414291590029301
+     },
+     "edge_step_pp_uV": 1.6196408013029857
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.3208990506157568,
+      "alias_uVpp": 1.008673633160491e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.29290243667022425,
+      "alias_uVpp": 1.4498183333862686e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.07643390478539618,
+      "alias_uVpp": 6.5611372100305e-05
+     },
+     "edge_step_pp_uV": 0.22298008993383303
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.5727972843448078,
+      "alias_uVpp": 2.0609164408121957e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.5305321626954878,
+      "alias_uVpp": 2.731292933458299e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.1341239178401515,
+      "alias_uVpp": 0.00012604936080208855
+     },
+     "edge_step_pp_uV": 0.3021523271897477
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 5.052295813442191,
+      "alias_uVpp": 1.065459221322712e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 4.659257804745463,
+      "alias_uVpp": 0.0001469093439502132
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.1409325738000844,
+      "alias_uVpp": 0.000672753156222172
+     },
+     "edge_step_pp_uV": 2.687233983620534
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 5.052295813442191,
+   "worst_any_fcom_uVpp": 5.052306468034404,
+   "pass_budget": true
+  },
+  "frame grounded | finger edge +1.0 mm | no GND-contact finger": {
+   "frame": "grounded",
+   "xf_mm": 1.0,
+   "C_finger_pF": 1.032635402251369,
+   "C_e3_pF": 0.000850820887938284,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.6950576362427634,
+      "alias_uVpp": 1.9323669550985633e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.633000038304083,
+      "alias_uVpp": 2.8083415023459168e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.1626786795484037,
+      "alias_uVpp": 0.000126739663626463
+     },
+     "edge_step_pp_uV": 0.48559584973236697
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 1.9012814837603662,
+      "alias_uVpp": 5.532165599650767e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1.7156055796535292,
+      "alias_uVpp": 7.592345228593345e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.41129224410287757,
+      "alias_uVpp": 0.000348851418744057
+     },
+     "edge_step_pp_uV": 1.3582105111959981
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 1.940617253894551,
+      "alias_uVpp": 9.285901334574478e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1.7569601589802568,
+      "alias_uVpp": 0.00012611604618329732
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.43421231626829393,
+      "alias_uVpp": 0.0005825419129635134
+     },
+     "edge_step_pp_uV": 1.3734335368838833
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.35127091542738503,
+      "alias_uVpp": 1.9396559260761985e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.3340199319009846,
+      "alias_uVpp": 2.7870718623709333e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.10391043041701709,
+      "alias_uVpp": 0.00012619272748389904
+     },
+     "edge_step_pp_uV": 0.22153163585248103
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.5671095923143054,
+      "alias_uVpp": 3.792064924763761e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.5335630265267183,
+      "alias_uVpp": 4.994855806139912e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.14819736666319128,
+      "alias_uVpp": 0.00023109558982173484
+     },
+     "edge_step_pp_uV": 0.29240351632476286
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 4.3852489320522325,
+      "alias_uVpp": 1.796628619867444e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 4.062495097609916,
+      "alias_uVpp": 0.00024477579978927027
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.033237261973096,
+      "alias_uVpp": 0.0011283176821921723
+     },
+     "edge_step_pp_uV": 2.302120934748421
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 4.3852489320522325,
+   "worst_any_fcom_uVpp": 4.385266898338431,
+   "pass_budget": true
+  },
+  "frame grounded | finger edge +0.0 mm | no GND-contact finger": {
+   "frame": "grounded",
+   "xf_mm": 0.0,
+   "C_finger_pF": 1.3471934726105432,
+   "C_e3_pF": 0.0008175555115115586,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.7086534551880077,
+      "alias_uVpp": 2.463770516707768e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.6512149521508106,
+      "alias_uVpp": 3.5802988755778235e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.17672431425530757,
+      "alias_uVpp": 0.0001616259307229959
+     },
+     "edge_step_pp_uV": 0.48462939342678757
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 1.8550362173825306,
+      "alias_uVpp": 6.903183056783463e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1.6775396062884866,
+      "alias_uVpp": 9.436314519040139e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.41019339903182717,
+      "alias_uVpp": 0.00043448131343664374
+     },
+     "edge_step_pp_uV": 1.3180704265892416
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 1.9045200120634864,
+      "alias_uVpp": 1.1799683082344278e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1.7299905391046693,
+      "alias_uVpp": 0.00015983492615155644
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.43969154127240445,
+      "alias_uVpp": 0.000739340433483804
+     },
+     "edge_step_pp_uV": 1.3369712845866955
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.3987840989470289,
+      "alias_uVpp": 2.5277115775826e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.38721231489495583,
+      "alias_uVpp": 3.631877581622292e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.12722824176896597,
+      "alias_uVpp": 0.00016445368832788694
+     },
+     "edge_step_pp_uV": 0.23862371727711904
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.6053939818935522,
+      "alias_uVpp": 4.896050268789221e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.5755935639939568,
+      "alias_uVpp": 6.440960936257571e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.16761056951242786,
+      "alias_uVpp": 0.00029814434128463713
+     },
+     "edge_step_pp_uV": 0.3077683929976963
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 4.331090028807066,
+      "alias_uVpp": 2.2755276133008543e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 4.024263345543275,
+      "alias_uVpp": 0.00030916160140806806
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.0486283598567159,
+      "alias_uVpp": 0.001427248134840734
+     },
+     "edge_step_pp_uV": 2.256628182654116
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 4.331090028807066,
+   "worst_any_fcom_uVpp": 4.331112784083198,
+   "pass_budget": true
+  },
+  "frame grounded | finger edge -2.0 mm | no GND-contact finger": {
+   "frame": "grounded",
+   "xf_mm": -2.0,
+   "C_finger_pF": 2.005702559414042,
+   "C_e3_pF": 0.0008102108871521874,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.7930885111532788,
+      "alias_uVpp": 3.59336013857083e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.7424893990149638,
+      "alias_uVpp": 5.221438346016073e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.21923800257113596,
+      "alias_uVpp": 0.00023576329422675478
+     },
+     "edge_step_pp_uV": 0.5190267631582779
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 1.8959348320612242,
+      "alias_uVpp": 9.841392423254004e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1.7223619745093168,
+      "alias_uVpp": 0.00013397490464146585
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.43707322099621476,
+      "alias_uVpp": 0.0006181901967741605
+     },
+     "edge_step_pp_uV": 1.333127795413576
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 1.9677600893682035,
+      "alias_uVpp": 1.713125406264497e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1.7991695455985168,
+      "alias_uVpp": 0.00023144502421635347
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.48048997382814795,
+      "alias_uVpp": 0.0010720909261092363
+     },
+     "edge_step_pp_uV": 1.3587171476249764
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.52073481342904,
+      "alias_uVpp": 3.7606255270879834e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.5193466054610474,
+      "alias_uVpp": 5.403084379643624e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.17984115409680618,
+      "alias_uVpp": 0.0002446667167078249
+     },
+     "edge_step_pp_uV": 0.28948282474831777
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.7215410218691786,
+      "alias_uVpp": 7.220141493337655e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.698357797156565,
+      "alias_uVpp": 9.486972108011664e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.21668274468643017,
+      "alias_uVpp": 0.00043933381174078784
+     },
+     "edge_step_pp_uV": 0.35826401875491004
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 4.5254148235516745,
+      "alias_uVpp": 3.2938475515098673e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 4.229145068527667,
+      "alias_uVpp": 0.00044627986699367504
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.1529793094860228,
+      "alias_uVpp": 0.0020632852888636116
+     },
+     "edge_step_pp_uV": 2.3204629308684503
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 4.5254148235516745,
+   "worst_any_fcom_uVpp": 4.52544776202719,
+   "pass_budget": true
+  },
+  "frame grounded | finger edge -5.0 mm | no GND-contact finger": {
+   "frame": "grounded",
+   "xf_mm": -5.0,
+   "C_finger_pF": 2.934597614527728,
+   "C_e3_pF": 0.0008100585695700064,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.9390780040515013,
+      "alias_uVpp": 5.192834801767035e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.9002026143936588,
+      "alias_uVpp": 7.545270480849753e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.28646184715303735,
+      "alias_uVpp": 0.00034072716476824715
+     },
+     "edge_step_pp_uV": 0.5809890081394508
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 1.9841595112682369,
+      "alias_uVpp": 1.399906642043678e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1.8150920961194892,
+      "alias_uVpp": 0.00019003481559951428
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.4841125822504024,
+      "alias_uVpp": 0.0008781473017506426
+     },
+     "edge_step_pp_uV": 1.3726675146786287
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 2.088489540030556,
+      "alias_uVpp": 2.466673234887003e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1.927460831834596,
+      "alias_uVpp": 0.0003326594545749059
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.5467013614350005,
+      "alias_uVpp": 0.001542372684203944
+     },
+     "edge_step_pp_uV": 1.409475259162273
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.704113701857806,
+      "alias_uVpp": 5.5012240057593545e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.7169116732765756,
+      "alias_uVpp": 7.903488101049594e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.2561692713841413,
+      "alias_uVpp": 0.00035790256328160984
+     },
+     "edge_step_pp_uV": 0.36663347570713856
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 0.8990188955635376,
+      "alias_uVpp": 1.050279877760343e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 0.886571349910403,
+      "alias_uVpp": 0.00013789125611951802
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.2898168203501831,
+      "alias_uVpp": 0.0006387403302388728
+     },
+     "edge_step_pp_uV": 0.4354277831467161
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 4.868684016384953,
+      "alias_uVpp": 4.733987752263227e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 4.585842438383847,
+      "alias_uVpp": 0.0006402166527688745
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.3231932770571857,
+      "alias_uVpp": 0.0029627677957436297
+     },
+     "edge_step_pp_uV": 2.4439187791755645
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 4.868684016384953,
+   "worst_any_fcom_uVpp": 4.868731356262476,
+   "pass_budget": true
+  },
+  "frame none | finger edge +5.1 mm | no GND-contact finger": {
+   "frame": "none",
+   "xf_mm": 5.1,
+   "C_finger_pF": 0.38725295222970424,
+   "C_e3_pF": 0.06132667179137242,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 44.412940507858686,
+      "alias_uVpp": 2.259462266865325e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 39.86963721611983,
+      "alias_uVpp": 0.0003349042208089389
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 9.098428077556038,
+      "alias_uVpp": 0.0014750629083250869
+     },
+     "edge_step_pp_uV": 32.136852447273085
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 131.88647325875704,
+      "alias_uVpp": 6.805651189510738e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 118.39953049077948,
+      "alias_uVpp": 0.0010076354728079124
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 27.023871768933628,
+      "alias_uVpp": 0.004441140673626798
+     },
+     "edge_step_pp_uV": 95.33459648967931
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 132.43272926447335,
+      "alias_uVpp": 6.990494564216363e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 118.89234501022891,
+      "alias_uVpp": 0.0010331075797677877
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 27.14196300211712,
+      "alias_uVpp": 0.004558420863722245
+     },
+     "edge_step_pp_uV": 95.72473088538389
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 16.72628882783064,
+      "alias_uVpp": 8.423297498545452e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 15.014965770265835,
+      "alias_uVpp": 0.00012491732534343017
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 3.4261045371489467,
+      "alias_uVpp": 0.0005499248348158407
+     },
+     "edge_step_pp_uV": 12.106784274288591
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 30.360405512931976,
+      "alias_uVpp": 1.781039037426157e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 27.938339460943737,
+      "alias_uVpp": 0.00026173698461654155
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 6.680903779765637,
+      "alias_uVpp": 0.00115576074342921
+     },
+     "edge_step_pp_uV": 16.19213235603829
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 293.6391570916744,
+      "alias_uVpp": 0.00016776879514097457
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 269.9658035646728,
+      "alias_uVpp": 0.0024816713647565773
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 64.45775127255341,
+      "alias_uVpp": 0.010941967250186573
+     },
+     "edge_step_pp_uV": 157.50541456292962
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 293.6391570916744,
+   "worst_any_fcom_uVpp": 293.63932486046957,
+   "pass_budget": false
+  },
+  "frame none | finger edge +3.0 mm | no GND-contact finger": {
+   "frame": "none",
+   "xf_mm": 3.0,
+   "C_finger_pF": 0.6628850618889713,
+   "C_e3_pF": 0.010755412214773616,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 7.816152391651287,
+      "alias_uVpp": 4.527803768284691e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 7.017534537844195,
+      "alias_uVpp": 6.664494956963688e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.603110685210442,
+      "alias_uVpp": 0.00029520242775863407
+     },
+     "edge_step_pp_uV": 5.6528960830010515
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 23.167661521404526,
+      "alias_uVpp": 1.4571860885680719e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 20.80263604494102,
+      "alias_uVpp": 0.00021259744217398593
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 4.757735485800578,
+      "alias_uVpp": 0.000945274342538301
+     },
+     "edge_step_pp_uV": 16.738532864195268
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 23.28081829669305,
+      "alias_uVpp": 1.7035462235675387e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 20.907919099156423,
+      "alias_uVpp": 0.00024575054793473457
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 4.790265831709748,
+      "alias_uVpp": 0.0010991502674130372
+     },
+     "edge_step_pp_uV": 16.812201875835704
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 2.9602898492122334,
+      "alias_uVpp": 1.951733119056144e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 2.658182895180725,
+      "alias_uVpp": 2.8443941960477987e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.6081731430171423,
+      "alias_uVpp": 0.00012666086463674446
+     },
+     "edge_step_pp_uV": 2.1411516291271027
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 5.391142974068471,
+      "alias_uVpp": 4.794771778154677e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 4.962717443526833,
+      "alias_uVpp": 6.69393192057468e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.191186298245148,
+      "alias_uVpp": 0.0003015129341806062
+     },
+     "edge_step_pp_uV": 2.874540407435096
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 51.66695243332795,
+      "alias_uVpp": 3.76991369704875e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 47.516545404313106,
+      "alias_uVpp": 0.0005461529229895347
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 11.375420022787457,
+      "alias_uVpp": 0.002434756121198774
+     },
+     "edge_step_pp_uV": 27.690513067991773
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 51.66695243332795,
+   "worst_any_fcom_uVpp": 51.66699013246492,
+   "pass_budget": false
+  },
+  "frame none | finger edge +1.0 mm | no GND-contact finger": {
+   "frame": "none",
+   "xf_mm": 1.0,
+   "C_finger_pF": 1.094330974082567,
+   "C_e3_pF": 0.004285436491023763,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 3.1580333876584583,
+      "alias_uVpp": 2.919832058299356e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 2.838065434935772,
+      "alias_uVpp": 4.2572258781700114e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.65474279247188,
+      "alias_uVpp": 0.00019082707301147422
+     },
+     "edge_step_pp_uV": 2.279361130397061
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 9.284327022914724,
+      "alias_uVpp": 9.509171616355348e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 8.342580595843856,
+      "alias_uVpp": 0.00013477446717185396
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.9211689400617638,
+      "alias_uVpp": 0.0006088091026432482
+     },
+     "edge_step_pp_uV": 6.695490470857661
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 9.35398651972613,
+      "alias_uVpp": 1.3501914890054762e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 8.411233882662799,
+      "alias_uVpp": 0.0001881979426700714
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.9507444778507235,
+      "alias_uVpp": 0.0008572796921109817
+     },
+     "edge_step_pp_uV": 6.732164397709957
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 1.2334183513510342,
+      "alias_uVpp": 2.1452389020307127e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1.1123497793095685,
+      "alias_uVpp": 3.086747488726995e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.26508571970723543,
+      "alias_uVpp": 0.00013945450052988084
+     },
+     "edge_step_pp_uV": 0.8826068242451318
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 2.2477638111099347,
+      "alias_uVpp": 4.681778603731337e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 2.0731469058330108,
+      "alias_uVpp": 6.268892893844065e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.506643034734451,
+      "alias_uVpp": 0.00028795881669984257
+     },
+     "edge_step_pp_uV": 1.193885808926006
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 20.824256639586277,
+      "alias_uVpp": 2.733382976448269e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 19.173198165583322,
+      "alias_uVpp": 0.00038272398952824386
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 4.630891715617016,
+      "alias_uVpp": 0.0017377620932366718
+     },
+     "edge_step_pp_uV": 11.126568095891416
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 20.824256639586277,
+   "worst_any_fcom_uVpp": 20.82428397341604,
+   "pass_budget": false
+  },
+  "frame none | finger edge +0.0 mm | no GND-contact finger": {
+   "frame": "none",
+   "xf_mm": 0.0,
+   "C_finger_pF": 1.3995361456539452,
+   "C_e3_pF": 0.0038362911322007854,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 2.8527973529848047,
+      "alias_uVpp": 3.265586625070414e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 2.5659285836245833,
+      "alias_uVpp": 4.7543207415776105e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.5968473220827397,
+      "alias_uVpp": 0.00021368018084339465
+     },
+     "edge_step_pp_uV": 2.054493031366257
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 8.338982148968253,
+      "alias_uVpp": 1.0389144949020495e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 7.4963388697073485,
+      "alias_uVpp": 0.00014597807219497987
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.734128061645191,
+      "alias_uVpp": 0.000662455376646969
+     },
+     "edge_step_pp_uV": 6.007587915791474
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 8.413979308334692,
+      "alias_uVpp": 1.5488411291837103e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 7.571516337227681,
+      "alias_uVpp": 0.00021417921631444053
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.7694002339973245,
+      "alias_uVpp": 0.00097976695083453
+     },
+     "edge_step_pp_uV": 6.04512007270271
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 1.140863028499209,
+      "alias_uVpp": 2.685090252764398e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1.033324179616635,
+      "alias_uVpp": 3.860682693275834e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.25524537326501984,
+      "alias_uVpp": 0.00017461412530316378
+     },
+     "edge_step_pp_uV": 0.8078203380340322
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 2.0664365863429257,
+      "alias_uVpp": 5.64929966720651e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1.908872299994725,
+      "alias_uVpp": 7.51910232834658e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.4727418645981416,
+      "alias_uVpp": 0.00034634143424537746
+     },
+     "edge_step_pp_uV": 1.09502270839362
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 18.764461160996458,
+      "alias_uVpp": 3.0853651645313276e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 17.288123431770984,
+      "alias_uVpp": 0.00042843552865651316
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 4.199499459034225,
+      "alias_uVpp": 0.001954266349962489
+     },
+     "edge_step_pp_uV": 10.007646277116205
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 18.764461160996458,
+   "worst_any_fcom_uVpp": 18.764492014648102,
+   "pass_budget": false
+  },
+  "frame none | finger edge -2.0 mm | no GND-contact finger": {
+   "frame": "none",
+   "xf_mm": -2.0,
+   "C_finger_pF": 2.056143133568136,
+   "C_e3_pF": 0.0037454073320328934,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 2.833128337317226,
+      "alias_uVpp": 4.308826010507335e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 2.5530434936171145,
+      "alias_uVpp": 6.266577661271298e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.6041837289753986,
+      "alias_uVpp": 0.0002822597218696214
+     },
+     "edge_step_pp_uV": 2.031156849862562
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 8.188218346355933,
+      "alias_uVpp": 1.3228081893267403e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 7.366357027536941,
+      "alias_uVpp": 0.00018414026559819162
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.7170187593153865,
+      "alias_uVpp": 0.000839761639467159
+     },
+     "edge_step_pp_uV": 5.889943901734932
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 8.282508551528679,
+      "alias_uVpp": 2.0713006701807823e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 7.462648871649662,
+      "alias_uVpp": 0.00028422284173843854
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.7654462198008596,
+      "alias_uVpp": 0.0013055539495764068
+     },
+     "edge_step_pp_uV": 5.933174949240998
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 1.187201857923319,
+      "alias_uVpp": 3.896700073955546e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1.0853767407702708,
+      "alias_uVpp": 5.600333291590558e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.28610822057999263,
+      "alias_uVpp": 0.00025346260981568025
+     },
+     "edge_step_pp_uV": 0.8215511237945482
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 2.111982526129592,
+      "alias_uVpp": 7.93126642697091e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1.957232299654524,
+      "alias_uVpp": 0.00010503951156199931
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.4969101406649438,
+      "alias_uVpp": 0.0004848833259345712
+     },
+     "edge_step_pp_uV": 1.1128986552005358
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 18.525447491911493,
+      "alias_uVpp": 4.069647879586935e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 17.08741896201565,
+      "alias_uVpp": 0.000560533160846257
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 4.190431835854884,
+      "alias_uVpp": 0.00256833877980903
+     },
+     "edge_step_pp_uV": 9.848161640556922
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 18.525447491911493,
+   "worst_any_fcom_uVpp": 18.525488188390288,
+   "pass_budget": false
+  },
+  "frame none | finger edge -5.0 mm | no GND-contact finger": {
+   "frame": "none",
+   "xf_mm": -5.0,
+   "C_finger_pF": 2.9849990410534337,
+   "C_e3_pF": 0.0037435393525174104,
+   "gnd_finger": "no GND-contact finger",
+   "per_electrode": {
+    "in-vivo nominal (E3 0.75 cm2)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 2.9069728931511123,
+      "alias_uVpp": 5.861154023361604e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 2.6283554045869657,
+      "alias_uVpp": 8.519692484578263e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.6403779126080964,
+      "alias_uVpp": 0.0003842127002537514
+     },
+     "edge_step_pp_uV": 2.0664814818705297
+    },
+    "in-vivo dry x2, E3 0.5 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 8.249641300959807,
+      "alias_uVpp": 1.7383590892849495e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 7.429581531835039,
+      "alias_uVpp": 0.0002401800122011695
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.7493791995158146,
+      "alias_uVpp": 0.0010996356015400138
+     },
+     "edge_step_pp_uV": 5.920265993928076
+    },
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 8.37283784068633,
+      "alias_uVpp": 2.824593771463767e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 7.557306928239857,
+      "alias_uVpp": 0.00038540154357561497
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 1.8175565239704101,
+      "alias_uVpp": 0.0017756630998019363
+     },
+     "edge_step_pp_uV": 5.972356964690125
+    },
+    "in-vivo moist x0.5, E3 1.0 cm2": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 1.3066057612989572,
+      "alias_uVpp": 5.627063842931143e-06
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 1.2123170919129473,
+      "alias_uVpp": 8.085479611909233e-05
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.3450778543026913,
+      "alias_uVpp": 0.00036604537365519593
+     },
+     "edge_step_pp_uV": 0.8733274026408666
+    },
+    "ARCH 1M|10n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 2.2475285590867147,
+      "alias_uVpp": 1.1200260402591357e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 2.0937483136477057,
+      "alias_uVpp": 0.0001478585293496213
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 0.5506679068817109,
+      "alias_uVpp": 0.0006834485030187014
+     },
+     "edge_step_pp_uV": 1.1752274545742578
+    },
+    "ARCH 10M|1n (-50/+50 %)": {
+     "30 Hz (EXTCOMIN 60 Hz)": {
+      "inband_uVpp": 18.800575795443145,
+      "alias_uVpp": 5.501043306118722e-05
+     },
+     "35 Hz (EXTCOMIN 70 Hz)": {
+      "inband_uVpp": 17.368771845161202,
+      "alias_uVpp": 0.0007531730165861781
+     },
+     "60 Hz (COM on both edges)": {
+      "inband_uVpp": 4.316903626660411,
+      "alias_uVpp": 0.003462319858171238
+     },
+     "edge_step_pp_uV": 9.94784983697155
+    }
+   },
+   "worst30_electrode": "ARCH 10M|1n (-50/+50 %)",
+   "worst30_uVpp": 18.800575795443145,
+   "worst_any_fcom_uVpp": 18.800630805876207,
+   "pass_budget": false
+  }
+ },
+ "sensitivity_3V_square_per_pF": {
+  "rf": {
+   "per_electrode_uVpp_per_pF": {
+    "in-vivo nominal (E3 0.75 cm2)": 0.21820883763551835,
+    "in-vivo dry x2, E3 0.5 cm2": 0.17910832266633162,
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": 0.20978545477475616,
+    "in-vivo moist x0.5, E3 1.0 cm2": 0.22379555946243765,
+    "ARCH 1M|10n (-50/+50 %)": 0.22163929708723668,
+    "ARCH 10M|1n (-50/+50 %)": 0.5284504506020353
+   },
+   "worst": 0.5284504506020353,
+   "c_max_pF_for_budget": 11.372873262106463
+  },
+  "e3": {
+   "per_electrode_uVpp_per_pF": {
+    "in-vivo nominal (E3 0.75 cm2)": 723.8616088929308,
+    "in-vivo dry x2, E3 0.5 cm2": 2149.5889240241495,
+    "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": 2158.3077000501726,
+    "in-vivo moist x0.5, E3 1.0 cm2": 272.47843456880616,
+    "ARCH 1M|10n (-50/+50 %)": 494.3404514498555,
+    "ARCH 10M|1n (-50/+50 %)": 4783.800136185903
+   },
+   "worst": 4783.800136185903,
+   "c_max_pF_for_budget": 0.0012563233891271508
+  }
+ },
+ "sim06_vdd_disp": {
+  "30 Hz (EXTCOMIN 60 Hz)": {
+   "r_src_ohm": 4.25,
+   "i_panel_uA": 16.920473773265652,
+   "vstor_sw_ripple_uVpk": 143.82402707275804,
+   "ldo_psrr_db": 69.76143937264017,
+   "avdd_ripple_nVpk": 46.74761688839249,
+   "h_net": 0.0008636923553068242,
+   "h_ads_psrr": 3.172764598994467e-05,
+   "input_referred_uVpp": 7.981361366092091e-05
+  },
+  "35 Hz (EXTCOMIN 70 Hz)": {
+   "r_src_ohm": 4.25,
+   "i_panel_uA": 16.920473773265652,
+   "vstor_sw_ripple_uVpk": 143.82402707275804,
+   "ldo_psrr_db": 69.72796597782487,
+   "avdd_ripple_nVpk": 46.92811889442646,
+   "h_net": 0.0008678663388199933,
+   "h_ads_psrr": 3.202355916255506e-05,
+   "input_referred_uVpp": 7.286012281026869e-05
+  },
+  "60 Hz (COM on both edges)": {
+   "r_src_ohm": 4.25,
+   "i_panel_uA": 16.920473773265652,
+   "vstor_sw_ripple_uVpk": 143.82402707275804,
+   "ldo_psrr_db": 69.61092437480818,
+   "avdd_ripple_nVpk": 47.56475083813596,
+   "h_net": 0.0008758584388087478,
+   "h_ads_psrr": 3.333950777995059e-05,
+   "input_referred_uVpp": 1.676024662621396e-05
+  }
+ },
+ "strap": {
+  "NTC line 1.8 V step, 0.08 pF to the skin": {
+   "worst_uVpp": 0.015472898546078034
+  },
+  "BATT_P conductor motion, dC 0.04 pF at 2.2 V (equivalent step)": {
+   "worst_uVpp": 0.009455781709374835
+  },
+  "NTC line 1.8 V, 10 ms sampling pulse, 0.08 pF": {
+   "worst_uVpp": 0.022539134226399155
+  }
+ },
+ "budget_uVpp": 6.01,
+ "floor_uVpp": 3.99,
+ "runtime_s": 22.249303102493286
+}

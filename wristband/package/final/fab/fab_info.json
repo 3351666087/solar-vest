@@ -1,0 +1,42 @@
+{
+ "board": "/path/to/SolarVest_work/wristband/v3/package/final/board/solarband_v3f_final_rf_silk.kicad_pcb",
+ "board_sha256": "0c095cb6f60dc2e5984bea5de2bf75589dc978fe1ac557118ae0398948bb0478",
+ "outline_mm": {
+  "width": 40.0,
+  "height": 34.0,
+  "closed": true
+ },
+ "cutouts": [
+  {
+   "kind": "circle",
+   "centre_mm": [
+    34.25,
+    24.05
+   ],
+   "diameter_mm": 8.6
+  }
+ ],
+ "vias": 508,
+ "via_min_diameter": 0.25,
+ "via_min_drill": 0.15,
+ "vias_in_smd_pads": 220,
+ "track_min_width": 0.09,
+ "tracks": 11466,
+ "drc_errors": 0,
+ "drc_unconnected": 0,
+ "drc_error_types": [],
+ "thickness_mm": 1.0,
+ "copper_layers": [
+  "F.Cu",
+  "In1.Cu",
+  "In2.Cu",
+  "In3.Cu",
+  "In4.Cu",
+  "In5.Cu",
+  "In6.Cu",
+  "B.Cu"
+ ],
+ "layer_count": 8,
+ "gerber_zip": "solarband_v3f_final_rf_gerbers_JLC.zip",
+ "gerber_zip_sha256": "a59989ceed915cae0dc667dc0f7754c9ffca2b6dd8be8d58966c3c33d824d7b7"
+}

@@ -1,0 +1,2088 @@
+{
+ "gate": "V3-G6 (SIM-06 / SIM-07 / SIM-08), V3-F variant v3f, 41 x 34 mm pod",
+ "date": "2026-11-15",
+ "ac_leakage": {
+  "rows": [
+   {
+    "head": "UCC12050 reinforced",
+    "source": "Class II charger 0.25 mA class",
+    "NC_uA_10pF": 0.4966397084767584,
+    "NC_uA_typ": 0.24062027016688647,
+    "SFC_barrier_shorted_uA": 249.99955162540275,
+    "NC_pass": true,
+    "SFC_pass_as_written": true,
+    "SFC_margin_pct": 50.00008967491946
+   },
+   {
+    "head": "UCC12050 reinforced",
+    "source": "Class II charger 0.5 mA class",
+    "NC_uA_10pF": 0.4971335009507273,
+    "NC_uA_typ": 0.24073612214838677,
+    "SFC_barrier_shorted_uA": 499.99641303217146,
+    "NC_pass": true,
+    "SFC_pass_as_written": true,
+    "SFC_margin_pct": 0.000717393565711176
+   },
+   {
+    "head": "UCC12050 reinforced",
+    "source": "pass-through power bank on a 0.5 mA charger",
+    "NC_uA_10pF": 0.4971335009507273,
+    "NC_uA_typ": 0.24073612214838677,
+    "SFC_barrier_shorted_uA": 499.99641303217146,
+    "NC_pass": true,
+    "SFC_pass_as_written": true,
+    "SFC_margin_pct": 0.000717393565711176
+   },
+   {
+    "head": "UCC12050 reinforced",
+    "source": "mains on the applied part (IEC test, 264 V through the barrier)",
+    "NC_uA_10pF": 0.9952565526572463
+   },
+   {
+    "head": "UCC12040 basic",
+    "source": "Class II charger 0.25 mA class",
+    "NC_uA_10pF": 0.4966397084767584,
+    "NC_uA_typ": 0.24062027016688647,
+    "SFC_barrier_shorted_uA": 249.99955162540275,
+    "NC_pass": true,
+    "SFC_pass_as_written": true,
+    "SFC_margin_pct": 50.00008967491946
+   },
+   {
+    "head": "UCC12040 basic",
+    "source": "Class II charger 0.5 mA class",
+    "NC_uA_10pF": 0.4971335009507273,
+    "NC_uA_typ": 0.24073612214838677,
+    "SFC_barrier_shorted_uA": 499.99641303217146,
+    "NC_pass": true,
+    "SFC_pass_as_written": true,
+    "SFC_margin_pct": 0.000717393565711176
+   },
+   {
+    "head": "UCC12040 basic",
+    "source": "pass-through power bank on a 0.5 mA charger",
+    "NC_uA_10pF": 0.4971335009507273,
+    "NC_uA_typ": 0.24073612214838677,
+    "SFC_barrier_shorted_uA": 499.99641303217146,
+    "NC_pass": true,
+    "SFC_pass_as_written": true,
+    "SFC_margin_pct": 0.000717393565711176
+   },
+   {
+    "head": "UCC12040 basic",
+    "source": "mains on the applied part (IEC test, 264 V through the barrier)",
+    "NC_uA_10pF": 0.9952565526572463
+   }
+  ],
+  "misuse_non_isolated_cable_uA": [
+   249.99955162540275,
+   499.99641303217146
+  ],
+  "note": "band side adds nothing in series: the TVS D5-D7 clamp the electrode pads to GND ahead of the 330 k chains; AVDD off (Q9) does not open that path"
+ },
+ "vbus_lockout": {
+  "vb_det_at_head_min_V": 2.55,
+  "vbus_needed_for_lockout_V": 1.9,
+  "q9_overdrive_V": 1.5999999999999999,
+  "avdd_en_when_locked_uV": 4.090909090909091,
+  "gaps": [
+   "no lock-out while a head is on but not driving (pin check pending / failed) or reversed: VBUS = 0; leakage then = intact-barrier NC value"
+  ]
+ },
+ "root_short": {
+  "model": "point source in moulding (k 0.20 W/m K, rho c 1.8 MJ/m3K) 1.0 mm from the skin face, skin 34 -> 43 C; heat spreading in the copper ignored (conservative)",
+  "cases": [
+   {
+    "r_cell": 0.3,
+    "r_f1": 0.1,
+    "v_cell": 4.2,
+    "i_A": 2.8885832187070153,
+    "p_bridge_W": 8.343913011395781,
+    "pcm_trips": true,
+    "t_skin43_s": 0.5004168493598202
+   },
+   {
+    "r_cell": 0.3,
+    "r_f1": 0.1,
+    "v_cell": 3.7,
+    "i_A": 2.544704264099037,
+    "p_bridge_W": 6.475519791723822,
+    "pcm_trips": true,
+    "t_skin43_s": 0.5275394028493581
+   },
+   {
+    "r_cell": 0.3,
+    "r_f1": 0.5,
+    "v_cell": 4.2,
+    "i_A": 2.26537216828479,
+    "p_bridge_W": 5.13191106083933,
+    "pcm_trips": false,
+    "t_skin43_s": 0.5550236879952833
+   },
+   {
+    "r_cell": 0.3,
+    "r_f1": 0.5,
+    "v_cell": 3.7,
+    "i_A": 1.9956850053937432,
+    "p_bridge_W": 3.9827586407534246,
+    "pcm_trips": false,
+    "t_skin43_s": 0.5882869548803219
+   },
+   {
+    "r_cell": 1.0,
+    "r_f1": 0.1,
+    "v_cell": 4.2,
+    "i_A": 1.9498607242339834,
+    "p_bridge_W": 3.801956843910274,
+    "pcm_trips": false,
+    "t_skin43_s": 0.5948009126355367
+   },
+   {
+    "r_cell": 1.0,
+    "r_f1": 0.1,
+    "v_cell": 3.7,
+    "i_A": 1.7177344475394616,
+    "p_bridge_W": 2.9506116322636995,
+    "pcm_trips": false,
+    "t_skin43_s": 0.632922124978931
+   },
+   {
+    "r_cell": 1.0,
+    "r_f1": 0.5,
+    "v_cell": 4.2,
+    "i_A": 1.644479248238058,
+    "p_bridge_W": 2.704311997885608,
+    "pcm_trips": false,
+    "t_skin43_s": 0.6471298652483031
+   },
+   {
+    "r_cell": 1.0,
+    "r_f1": 0.5,
+    "v_cell": 3.7,
+    "i_A": 1.4487079091620987,
+    "p_bridge_W": 2.0987546060688196,
+    "pcm_trips": false,
+    "t_skin43_s": 0.6921341651149167
+   }
+  ],
+  "i_min_A": 1.4487079091620987,
+  "t_min_s": 0.5004168493598202,
+  "requirement": "F1 must clear 1.45-2.89 A within 0.50 s; PCM IOV1 2.5 A min trips only in part of the cases"
+ },
+ "verdicts": [
+  {
+   "id": "1a",
+   "name": "SIM-06 VDD_DISP / VSTOR_SW -> AVDD -> ECG input",
+   "criterion": "M2 10 uVpp with the display running",
+   "status_before": "PASS",
+   "result_before": "panel 50 uW as pulses at f_COM: VSTOR_SW 144 uVpk -> AVDD 47 nVpk (TPS7A2030 70 dB) -> 0.0001 uVpp input-referred",
+   "status_after": "PASS",
+   "result_after": "0.0001 \u00b5Vpp (unchanged)",
+   "status": "PASS",
+   "status_mini": "PASS",
+   "result_mini": "unchanged by the mini-ECO",
+   "status_s2c": "PASS",
+   "result_s2c": "unchanged by stage 2c (Q20 not in this path)"
+  },
+  {
+   "id": "1b",
+   "name": "panel COM -> E3 net and finger, as built (stainless frame floating, no grounded print in netlist/CAD)",
+   "criterion": "M2 10 uVpp with the display running (floor 3.99 uVpp -> 6.0 uVpp for the display)",
+   "fix": "ground the window frame (one GND spring / conductive dot to a board GND pad at the E3 end): C(COM-E3) 0.0008-0.0015 pF, 0.70-1.10 uVpp nominal, <= 3.27 uVpp worst in-vivo -> <= 7.3 uVpp with the floor; ARCH 10M|1n corner 7.3 uVpp (11.3 total) stays over",
+   "status_before": "FAIL",
+   "result_before": "C(COM-E3 net) 0.064-0.30 pF through the floating frame; artefact 46-217 uVpp nominal electrode, 138-647 uVpp worst in-vivo (30 Hz COM, 3.0 V)",
+   "status_after": "PARTIAL",
+   "result_after": "frame grounded (J19) + 2 \u00d7 680 k: 0.70\u20131.10 \u00b5Vpp nominal, \u2264 3.28 \u00b5Vpp in-vivo \u2192 \u2264 7.27 \u00b5Vpp with the 3.99 floor; ARCH 10M|1n corner 7.29 \u2192 11.28 \u00b5Vpp",
+   "status": "PARTIAL",
+   "status_mini": "PARTIAL",
+   "result_mini": "2 x 330 k, frame grounded: 0.70-1.10 uVpp nominal, <= 3.27 uVpp in-vivo -> <= 7.26 uVpp with the 3.99 floor (PASS); ARCH 10M|1n corner 7.27 -> 11.26 uVpp > 10 (680 k gave 11.28: the chain value hardly moves this corner)",
+   "status_s2c": "PARTIAL",
+   "result_s2c": "unchanged by stage 2c (Q20 not in this path)"
+  },
+  {
+   "id": "1c",
+   "name": "second finger on the top-rim GND contact during ECG (artefact)",
+   "criterion": "M2 10 uVpp",
+   "fix": "as 1b",
+   "status_before": "FAIL",
+   "result_before": "changes the COM artefact by < 2 %: same verdict as 1b; with the frame fix PASS",
+   "status_after": "PARTIAL",
+   "result_after": "Q20 off: the second finger sees \u2265 4.25 M\u03a9, so the case reduces to 1b (not re-run separately)",
+   "status": "PARTIAL",
+   "status_mini": "PARTIAL",
+   "result_mini": "Q20 off + D15 TPD1E10B06: the second finger sees >= 3.86 MOhm (IDSS 1 uA + 100 nA bound), reduces to 1b",
+   "status_s2c": "PARTIAL",
+   "result_s2c": "Q20 CJBA7002K off + D15: the second finger sees >= 21.3 MOhm (IDSS 0.1 uA + D15 0.1 uA bound), reduces to 1b"
+  },
+  {
+   "id": "1d",
+   "name": "strap conductors (NTC step, BATT_P motion) into the skin under the root",
+   "criterion": "M2 10 uVpp",
+   "status_before": "PASS",
+   "result_before": "<= 0.023 uVpp worst electrode",
+   "status_after": "PASS",
+   "result_after": "unchanged",
+   "status": "PASS",
+   "status_mini": "PASS",
+   "result_mini": "unchanged by the mini-ECO",
+   "status_s2c": "PASS",
+   "result_s2c": "unchanged by stage 2c (Q20 not in this path)"
+  },
+  {
+   "id": "1e",
+   "name": "motor and front light locked out during ECG",
+   "criterion": "locked out",
+   "status_before": "PASS",
+   "result_before": "firmware rules BASELINE 14 (motor 'never during an ECG session') and 13.2 (front light); no hardware interlock; coupling not simulated",
+   "status_after": "PASS",
+   "result_after": "unchanged",
+   "status": "PASS",
+   "status_mini": "PASS",
+   "result_mini": "unchanged by the mini-ECO",
+   "status_s2c": "PASS",
+   "result_s2c": "unchanged by stage 2c (Q20 not in this path)"
+  },
+  {
+   "id": "2a",
+   "name": "patient DC, normal, incl. finger on the GND contact and on the + contact (no head)",
+   "criterion": "< 10 uA",
+   "status_before": "PASS",
+   "result_before": "4.85 uA worst (RLD driving the finger to GND, wet 1 k)",
+   "status_after": "PASS",
+   "result_after": "1.66 \u00b5A (finger on J18 behind Q20 + finger on J15)",
+   "status": "PASS",
+   "status_mini": "PASS",
+   "result_mini": "2.64 uA <= 10 uA normal (finger on J18 behind Q20 + finger on J15, 2 x 330 k)",
+   "status_s2c": "PASS",
+   "result_s2c": "2.48 uA <= 10 uA (finger on J18 behind Q20 + finger on J15); J18 finger alone 0.28 uA"
+  },
+  {
+   "id": "2b",
+   "name": "ARCH single faults (pin at a rail, 330 k shorted, LDO short, lead-off mis-set) + finger on the GND contact",
+   "criterion": "< 10 uA",
+   "status_before": "PASS",
+   "result_before": "9.77 uA worst (Ra2/Rb2 short), 2.3 % margin; without the GND finger 2.76 uA",
+   "status_after": "PASS",
+   "result_after": "2.85 \u00b5A (TVS on E1 shorted + finger on J15); 0.62 \u00b5A with the J18 finger",
+   "status": "PASS",
+   "status_mini": "PASS",
+   "result_mini": "3.44 uA (IN1P->AVDD + finger on J15); 2.93 uA with the J18 finger; <= 10 and <= 50 uA",
+   "status_s2c": "PASS",
+   "result_s2c": "3.44 uA (IN1P->AVDD + finger on J15, unchanged); 2.79 uA with the J18 finger; <= 10 and <= 50 uA"
+  },
+  {
+   "id": "2c",
+   "name": "TVS D5/D6/D7 shorted + finger on the GND contact",
+   "criterion": "< 10 uA",
+   "fix": "N-FET in series with the GND contact J18, on only while the head drives VBUS_K (body diode passes the charge return): <= 5.3 uA",
+   "status_before": "FAIL",
+   "result_before": "130-152 uA (half-cell 0.3 V across two wet 1 k paths to GND)",
+   "status_after": "PASS",
+   "result_after": "2.53 \u00b5A (J18 finger); Q20 itself shorted + J18 wet: 2.31 \u00b5A",
+   "status": "PASS",
+   "status_mini": "PASS",
+   "result_mini": "TVS on E1 shorted: 5.31 uA (J18 finger), 5.63 uA (J15 finger); Q20 shorted + J18 wet 4.85 uA; <= 10 and <= 50 uA",
+   "status_s2c": "PASS",
+   "result_s2c": "TVS on E1 shorted: 5.31 uA (J18 finger), 5.63 uA (J15 finger); Q20 shorted + J18 wet 4.85 uA (unchanged)"
+  },
+  {
+   "id": "2d",
+   "name": "seal fault (4.25 V / 3.05 V / 3.17 V / 1.91 V net -> skin, plate or E3 through 1 k sweat)",
+   "criterion": "< 10 uA",
+   "fix": "N-FET in J18 (-> 20.1 uA) plus chains 2 x 680 k (-> 10.5 uA with a 1 uA FET-leakage bound; < 10 uA needs IDSS <= 0.1 uA) - ECG noise re-check for 680 k",
+   "status_before": "FAIL",
+   "result_before": "19.1 uA alone (inherited from V2-B, < 50 uA IEC SFC); 2.13 mA with a finger on the GND contact",
+   "status_after": "FAIL",
+   "result_after": "seal alone 9.49 \u00b5A; + J18 finger 10.55 \u00b5A (IDSS 1 \u00b5A bound; 9.59 at 0.1 \u00b5A); **+ J15 finger 15.83 \u00b5A** (new case: D14 \u2192 R144/R145 2 M \u2225 R509/R510 1.1 M)",
+   "status": "PASS (F-3) / FAIL (< 10 uA)",
+   "status_mini": "PASS (F-3) / FAIL (< 10 uA)",
+   "result_mini": "single fault: seal alone 19.12 uA; + J18 finger 20.25 uA (19.32 at IDSS 0.1 uA); + J15 finger 25.39 uA: <= 50 uA SFC (F-3) PASS; > 10 uA (old single figure) FAIL",
+   "status_s2c": "PASS (F-3) / FAIL (< 10 uA)",
+   "result_s2c": "seal alone 19.12 uA; + J18 finger 19.32 uA (19.23 at IDSS 10 nA); + J15 finger 25.39 uA (unchanged): <= 50 uA SFC PASS; > 10 uA FAIL"
+  },
+  {
+   "id": "3a",
+   "name": "AC patient leakage through the head, NC, both heads",
+   "criterion": "<= 100 uA NC",
+   "status_before": "PASS",
+   "result_before": "0.50 uA (10 pF bound, Class II output at 132 V); 1.0 uA mains on the applied part",
+   "status_after": "PASS",
+   "result_after": "unchanged (not re-run)",
+   "status": "PASS",
+   "status_mini": "PASS",
+   "result_mini": "unchanged by the mini-ECO",
+   "status_s2c": "PASS",
+   "result_s2c": "unchanged by stage 2c (Q20 not in this path)"
+  },
+  {
+   "id": "3b",
+   "name": "barrier shorted, UCC12050 reinforced head",
+   "criterion": "<= 500 uA SFC",
+   "fix": "none on the band; keep the source class <= 0.25 mA in the head's instructions or accept the IEC reading",
+   "status_before": "PARTIAL",
+   "result_before": "250 / 500.0 uA (0.25 / 0.5 mA class source): meets <= 500 with 0.0 % margin; IEC does not treat a reinforced barrier short as a single fault",
+   "status_after": "PARTIAL",
+   "result_after": "unchanged",
+   "status": "PARTIAL",
+   "status_mini": "PARTIAL",
+   "result_mini": "unchanged by the mini-ECO",
+   "status_s2c": "PARTIAL",
+   "result_s2c": "unchanged by stage 2c (Q20 not in this path)"
+  },
+  {
+   "id": "3c",
+   "name": "barrier shorted, UCC12040 basic head",
+   "criterion": "<= 500 uA SFC",
+   "fix": "UCC12040 heads stay 'off the wrist only' (existing rule); no band-side change found (TVS path ahead of the 330 k cannot be opened)",
+   "status_before": "PARTIAL",
+   "result_before": "250 / 500.0 uA: equals the limit, no margin; any source above its class fails",
+   "status_after": "PARTIAL",
+   "result_after": "unchanged",
+   "status": "PARTIAL",
+   "status_mini": "PARTIAL",
+   "result_mini": "unchanged by the mini-ECO",
+   "status_s2c": "PARTIAL",
+   "result_s2c": "unchanged by stage 2c (Q20 not in this path)"
+  },
+  {
+   "id": "3d",
+   "name": "misuse: non-isolated look-alike cable on the contacts while worn",
+   "criterion": "stated as a residual risk",
+   "status_before": "PASS",
+   "result_before": "250-500 uA in normal condition (> 100 uA NC): residual risk, mitigated only by non-mateable contacts",
+   "status_after": "PASS",
+   "result_after": "unchanged",
+   "status": "PASS",
+   "status_mini": "PASS",
+   "result_mini": "unchanged by the mini-ECO",
+   "status_s2c": "PASS",
+   "result_s2c": "unchanged by stage 2c (Q20 not in this path)"
+  },
+  {
+   "id": "3e",
+   "name": "hardware ECG lock-out while VBUS (Q9)",
+   "criterion": "ECG off in hardware while VBUS",
+   "status_before": "PASS",
+   "result_before": "lock-out from VBUS >= 1.9 V (VGS(th) 0.95 V max); 1.6 V overdrive at the 5.1 V head minimum; no lock-out with a head on but not driving (leakage then 0.5 uA)",
+   "status_after": "PASS",
+   "result_after": "unchanged",
+   "status": "PASS",
+   "status_mini": "PASS",
+   "result_mini": "unchanged by the mini-ECO",
+   "status_s2c": "PASS",
+   "result_s2c": "unchanged by stage 2c (Q20 not in this path)"
+  },
+  {
+   "id": "4",
+   "name": "reversed head (-5 V)",
+   "criterion": "band safe at -5 V (U15 IN >= -0.3 V)",
+   "fix": "Schottky clamp GND -> VBUS (BAT54-class, anode GND) or a D14 with IR <= 0.15 uA at 5 V, 45 C",
+   "status_before": "PARTIAL",
+   "result_before": "D14 blocks, D13 off, <= 0.55 uA; VBUS -0.04 V typ but -IR x 2 MOhm reaches -0.3...-0.4 V at D14's max IR (U15 IN diode conducts uA)",
+   "status_after": "PASS \u26a0",
+   "result_after": "Q20 blocks: \u2264 1.05 \u00b5A, D14 \u2264 1.2 V reverse, VBUS \u2265 \u22120.08 V; Q20 shorted: \u22120.08 / \u22120.36 V (PMEG10020AELR typ / scaled max) without D16, \u22120.09 V with D16",
+   "status": "PASS \u26a0",
+   "status_mini": "PASS \u26a0",
+   "result_mini": "Q20 blocks: <= 1.10 uA (IDSS 1 uA + D15 100 nA), D14 <= 1.21 V reverse, VBUS >= -0.087 V; Q20 shorted unchanged (D16 -0.09 V)",
+   "status_s2c": "PASS \u26a0",
+   "result_s2c": "Q20 blocks: <= 0.20 uA (IDSS 0.1 uA + D15 0.1 uA), D14 <= 0.22 V reverse, VBUS >= -0.016 V; Q20 shorted unchanged (D16 -0.09 V)"
+  },
+  {
+   "id": "5a",
+   "name": "+ contact, +8 kV contact / +15 kV air",
+   "criterion": "no part beyond its rating",
+   "status_before": "PASS",
+   "result_before": "D13 5.8 / 17.3 A; VBUS 2.1 / 3.5 V (30 V abs max)",
+   "status_after": "PASS",
+   "result_after": "ESD761 2.2\u20132.8 A (+8 kV), 13 A (+15 kV); VBUS 2.1 / 3.7 V; Q20 gate \u2264 0.85 V",
+   "status": "PASS",
+   "status_mini": "PASS",
+   "result_mini": "unchanged by the mini-ECO",
+   "status_s2c": "PASS",
+   "result_s2c": "unchanged by stage 2c (Q20 not in this path)"
+  },
+  {
+   "id": "5b",
+   "name": "+ contact, -8 kV contact / -15 kV air, D14 40 V",
+   "criterion": "no part beyond its rating",
+   "fix": "D14 -> Schottky VR >= 100 V in the 0.6 x 1.0 land (VF <= 0.44 V at 33 mA for the D-3 budget; part not identified)",
+   "status_before": "FAIL",
+   "result_before": "D14 reverse 63.7 V (68.7 V at RDYN x1.5) at -8 kV for 1.7-42 ns, 97 V at -15 kV; with a 44 V breakdown 2.3 A avalanche, 0.12 uJ (not rated)",
+   "status_after": "PASS",
+   "result_after": "D14 PMEG10020AELR (100 V): reverse 61.9\u201367.4 V (\u22128 kV), 68.2 V (\u221215 kV); VBUS \u2265 \u22120.11 V; Q20 gate \u2265 \u22125.8 V",
+   "status": "PASS",
+   "status_mini": "PASS",
+   "result_mini": "unchanged by the mini-ECO",
+   "status_s2c": "PASS",
+   "result_s2c": "unchanged by stage 2c (Q20 not in this path)"
+  },
+  {
+   "id": "5c",
+   "name": "GND contact J18",
+   "criterion": "no part beyond its rating",
+   "status_before": "PASS",
+   "result_before": "direct to the ground plane, no series part (not simulated); with the 2c FET fix J18 needs its own ESD761",
+   "status_after": "FAIL",
+   "result_after": "D15 ESD761 holds GND_K at 25\u201346 V: Q20 VDS > 20 V for the whole discharge, avalanche 8.8\u201314.7 A (no rating). With a TPD1E10B06 instead: > 20 V for 1.9 ns, 0.25 \u00b5J",
+   "status": "FAIL",
+   "status_mini": "FAIL",
+   "result_mini": "D15 TPD1E10B06 (as built): Q20 VDS 37.1 V (+8 kV contact) / 56.5 V (+15 kV air) > 20 V for 1.9 / 23.1 ns, avalanche 6.6 / 16.3 A pk, 0.25 / 0.84 uJ (PMZ290UNE2: no avalanche rating); negative polarity -9.2 / -12.9 V body diode, OK. ESD761 was 15.8-26.8 uJ for the whole discharge",
+   "status_s2c": "FAIL",
+   "result_s2c": "Q20 CJBA7002K (60 V), D15 TPD1E10B06: VDS peak 65.9 / 80.0 V (+8 kV contact / +15 kV air; avalanche modelled at 60 V min breakdown), 74.6 / 88.8 V at 70 V; > 60 V for 0.22 / 0.70 ns, avalanche 3.0 / 10.0 A pk, 0.021 / 0.34 uJ (no avalanche rating); > 20 V for 1.8 / 20 ns no longer stresses it; VGS <= 10.7 V (rating 20 V); negative -9.2 / -12.9 V body diode. Improved from PMZ290UNE2 (0.25 / 0.84 uJ) but the written rating criterion is still exceeded for < 1 ns"
+  },
+  {
+   "id": "5d",
+   "name": "button SW1 (membrane puncture to the floating cover)",
+   "criterion": "no part beyond its rating",
+   "fix": "TPD1E10B06 on BTN at SW1 + 10 k series into the Q13 gate: gate -5.9 / +1.5 V",
+   "status_before": "FAIL",
+   "result_before": "TPE 0.40 mm + 0.7 mm air hold about 9-13 kV (estimate) < 15 kV air; if reached, Q13 gate -118 V at -8 kV, +18 V at +8 kV",
+   "status_after": "PASS \u26a0",
+   "result_after": "D18 TPD1E10B06 + R511 10 k: Q13 gate \u22125.9 / +1.5 V (\u00b18 kV), \u22126.2 / +2.1 V (\u00b115 kV)",
+   "status": "PASS \u26a0",
+   "status_mini": "PASS \u26a0",
+   "result_mini": "unchanged by the mini-ECO",
+   "status_s2c": "PASS \u26a0",
+   "result_s2c": "unchanged by stage 2c (Q20 not in this path)"
+  },
+  {
+   "id": "5e",
+   "name": "strap-root entries",
+   "criterion": "no discharge reaches a conductor",
+   "status_before": "PASS",
+   "result_before": "two insulation layers, >= 1 mm moulding: >= 20 kV (estimate) > 15 kV air; seam creepage not modelled",
+   "status_after": "PASS",
+   "result_after": "unchanged",
+   "status": "PASS",
+   "status_mini": "PASS",
+   "result_mini": "unchanged by the mini-ECO",
+   "status_s2c": "PASS",
+   "result_s2c": "unchanged by stage 2c (Q20 not in this path)"
+  },
+  {
+   "id": "5f",
+   "name": "display cover (+-15 kV air)",
+   "criterion": "no discharge reaches the panel",
+   "fix": "as 1b: ground the frame",
+   "status_before": "FAIL",
+   "result_before": "floating stainless frame about 1.1 mm from the outer surface along the glass edge and lip, 0.49 mm from the panel FPC (panel +-200 V class): no defined discharge path (estimate)",
+   "status_after": "PARTIAL \u26a0",
+   "result_after": "frame grounded through J19 (not simulated; position open in frame_gnd.json)",
+   "status": "PARTIAL \u26a0",
+   "status_mini": "PARTIAL \u26a0",
+   "result_mini": "unchanged by the mini-ECO",
+   "status_s2c": "PARTIAL \u26a0",
+   "result_s2c": "unchanged by stage 2c (Q20 not in this path)"
+  },
+  {
+   "id": "6",
+   "name": "strap-root 1 Ohm short with F1",
+   "criterion": "F1 opens before the bridge exceeds the skin limit",
+   "fix": "pack RFQ: F1 fast-acting, clears >= 1.45 A in <= 0.5 s (rating <= 0.5 A, hold >= 0.4 A)",
+   "status_before": "PARTIAL",
+   "result_before": "1.45-2.89 A, 2.1-8.3 W in the bridge; skin face 43 C after 0.50-0.69 s; PCM IOV1 (>= 2.5 A) trips in 2 of 8 corners; F1 part unknown",
+   "status_after": "PARTIAL",
+   "result_after": "unchanged (pack RFQ, E-7)",
+   "status": "PARTIAL",
+   "status_mini": "PARTIAL",
+   "result_mini": "unchanged by the mini-ECO",
+   "status_s2c": "PARTIAL",
+   "result_s2c": "unchanged by stage 2c (Q20 not in this path)"
+  }
+ ],
+ "before": {
+  "display": {
+   "cases": {
+    "frame floating | finger edge +5.1 mm | no GND-contact finger": {
+     "C_finger_pF": 0.2866107519242451,
+     "C_e3_pF": 0.29959479366177577,
+     "nominal30_uVpp": 216.89232370294596,
+     "worst_invivo_uVpp": 646.7739123550899,
+     "worst_arch_uVpp": 1433.852821770225
+    },
+    "frame floating | finger edge +5.1 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 0.2866107519242451,
+     "C_e3_pF": 0.29959479366177577,
+     "nominal30_uVpp": 216.61352070887204,
+     "worst_invivo_uVpp": 640.3830811492688,
+     "worst_arch_uVpp": 1412.3892352122446
+    },
+    "frame floating | finger edge +5.1 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 0.2866107519242451,
+     "C_e3_pF": 0.29959479366177577,
+     "nominal30_uVpp": 216.6579090651795,
+     "worst_invivo_uVpp": 640.5639489435736,
+     "worst_arch_uVpp": 1412.7637512537242
+    },
+    "frame floating | finger edge +3.0 mm | no GND-contact finger": {
+     "C_finger_pF": 0.5482983769670516,
+     "C_e3_pF": 0.19206286545809412,
+     "nominal30_uVpp": 139.06172839815105,
+     "worst_invivo_uVpp": 414.6769960855349,
+     "worst_arch_uVpp": 919.3664938298796
+    },
+    "frame floating | finger edge +3.0 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 0.5482983769670516,
+     "C_e3_pF": 0.19206286545809412,
+     "nominal30_uVpp": 138.84056835103885,
+     "worst_invivo_uVpp": 410.4439989206819,
+     "worst_arch_uVpp": 905.3204784421226
+    },
+    "frame floating | finger edge +3.0 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 0.5482983769670516,
+     "C_e3_pF": 0.19206286545809412,
+     "nominal30_uVpp": 138.89663872438547,
+     "worst_invivo_uVpp": 410.6737677456894,
+     "worst_arch_uVpp": 905.7955570792802
+    },
+    "frame floating | finger edge +1.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.0407779787854334,
+     "C_e3_pF": 0.07821987951566423,
+     "nominal30_uVpp": 56.671031651413784,
+     "worst_invivo_uVpp": 168.9623231166883,
+     "worst_arch_uVpp": 374.6761711175462
+    },
+    "frame floating | finger edge +1.0 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 1.0407779787854334,
+     "C_e3_pF": 0.07821987951566423,
+     "nominal30_uVpp": 56.48323206082293,
+     "worst_invivo_uVpp": 166.91285103828451,
+     "worst_arch_uVpp": 368.2228403809705
+    },
+    "frame floating | finger edge +1.0 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 1.0407779787854334,
+     "C_e3_pF": 0.07821987951566423,
+     "nominal30_uVpp": 56.56785992403763,
+     "worst_invivo_uVpp": 167.26007647944797,
+     "worst_arch_uVpp": 368.93803534200913
+    },
+    "frame floating | finger edge +0.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.354095257190735,
+     "C_e3_pF": 0.06607884608055736,
+     "nominal30_uVpp": 47.89583245423805,
+     "worst_invivo_uVpp": 142.78034668887028,
+     "worst_arch_uVpp": 316.6558491508337
+    },
+    "frame floating | finger edge +0.0 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 1.354095257190735,
+     "C_e3_pF": 0.06607884608055736,
+     "nominal30_uVpp": 47.67987960911473,
+     "worst_invivo_uVpp": 140.85822763714205,
+     "worst_arch_uVpp": 310.7698145433031
+    },
+    "frame floating | finger edge +0.0 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 1.354095257190735,
+     "C_e3_pF": 0.06607884608055736,
+     "nominal30_uVpp": 47.78726822102309,
+     "worst_invivo_uVpp": 141.29795847849732,
+     "worst_arch_uVpp": 311.6736962855035
+    },
+    "frame floating | finger edge -2.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.0123530928762747,
+     "C_e3_pF": 0.06364310591695375,
+     "nominal30_uVpp": 46.16224684608333,
+     "worst_invivo_uVpp": 137.58238101850793,
+     "worst_arch_uVpp": 305.1838998841526
+    },
+    "frame floating | finger edge -2.0 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 2.0123530928762747,
+     "C_e3_pF": 0.06364310591695375,
+     "nominal30_uVpp": 45.86833556849909,
+     "worst_invivo_uVpp": 135.44706890429546,
+     "worst_arch_uVpp": 298.8700216646309
+    },
+    "frame floating | finger edge -2.0 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 2.0123530928762747,
+     "C_e3_pF": 0.06364310591695375,
+     "nominal30_uVpp": 46.02525999589786,
+     "worst_invivo_uVpp": 136.08775014172525,
+     "worst_arch_uVpp": 300.18166377581156
+    },
+    "frame floating | finger edge -5.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.9412429819350594,
+     "C_e3_pF": 0.06359309023210312,
+     "nominal30_uVpp": 46.16855914811619,
+     "worst_invivo_uVpp": 137.56001583475535,
+     "worst_arch_uVpp": 305.2066451653202
+    },
+    "frame floating | finger edge -5.0 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 2.9412429819350594,
+     "C_e3_pF": 0.06359309023210312,
+     "nominal30_uVpp": 45.761464781465186,
+     "worst_invivo_uVpp": 135.05492405540215,
+     "worst_arch_uVpp": 298.05948222673914
+    },
+    "frame floating | finger edge -5.0 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 2.9412429819350594,
+     "C_e3_pF": 0.06359309023210312,
+     "nominal30_uVpp": 45.988358712791964,
+     "worst_invivo_uVpp": 135.9781094294575,
+     "worst_arch_uVpp": 299.9400722301053
+    },
+    "frame grounded | finger edge +5.1 mm | no GND-contact finger": {
+     "C_finger_pF": 0.2780634694363386,
+     "C_e3_pF": 0.0015025321537728736,
+     "nominal30_uVpp": 1.1013081388278882,
+     "worst_invivo_uVpp": 3.2696275586342836,
+     "worst_arch_uVpp": 7.27074514584798
+    },
+    "frame grounded | finger edge +3.0 mm | no GND-contact finger": {
+     "C_finger_pF": 0.5318225027837786,
+     "C_e3_pF": 0.0010232771736511234,
+     "nominal30_uVpp": 0.7718313614456819,
+     "worst_invivo_uVpp": 2.2598810658196884,
+     "worst_arch_uVpp": 5.052306468034404
+    },
+    "frame grounded | finger edge +1.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.032635402251369,
+     "C_e3_pF": 0.000850820887938284,
+     "nominal30_uVpp": 0.6950576362427634,
+     "worst_invivo_uVpp": 1.9406265397958855,
+     "worst_arch_uVpp": 4.385266898338431
+    },
+    "frame grounded | finger edge +0.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.3471934726105432,
+     "C_e3_pF": 0.0008175555115115586,
+     "nominal30_uVpp": 0.7086534551880077,
+     "worst_invivo_uVpp": 1.9045318117465688,
+     "worst_arch_uVpp": 4.331112784083198
+    },
+    "frame grounded | finger edge -2.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.005702559414042,
+     "C_e3_pF": 0.0008102108871521874,
+     "nominal30_uVpp": 0.7930885111532788,
+     "worst_invivo_uVpp": 1.9677772206222661,
+     "worst_arch_uVpp": 4.52544776202719
+    },
+    "frame grounded | finger edge -5.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.934597614527728,
+     "C_e3_pF": 0.0008100585695700064,
+     "nominal30_uVpp": 0.9390780040515013,
+     "worst_invivo_uVpp": 2.0885142067629046,
+     "worst_arch_uVpp": 4.868731356262476
+    },
+    "frame none | finger edge +5.1 mm | no GND-contact finger": {
+     "C_finger_pF": 0.38725295222970424,
+     "C_e3_pF": 0.06132667179137242,
+     "nominal30_uVpp": 44.412940507858686,
+     "worst_invivo_uVpp": 132.43279916941898,
+     "worst_arch_uVpp": 293.63932486046957
+    },
+    "frame none | finger edge +3.0 mm | no GND-contact finger": {
+     "C_finger_pF": 0.6628850618889713,
+     "C_e3_pF": 0.010755412214773616,
+     "nominal30_uVpp": 7.816152391651287,
+     "worst_invivo_uVpp": 23.280835332155284,
+     "worst_arch_uVpp": 51.66699013246492
+    },
+    "frame none | finger edge +1.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.094330974082567,
+     "C_e3_pF": 0.004285436491023763,
+     "nominal30_uVpp": 3.1580333876584583,
+     "worst_invivo_uVpp": 9.354000021641019,
+     "worst_arch_uVpp": 20.82428397341604
+    },
+    "frame none | finger edge +0.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.3995361456539452,
+     "C_e3_pF": 0.0038362911322007854,
+     "nominal30_uVpp": 2.8527973529848047,
+     "worst_invivo_uVpp": 8.413994796745984,
+     "worst_arch_uVpp": 18.764492014648102
+    },
+    "frame none | finger edge -2.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.056143133568136,
+     "C_e3_pF": 0.0037454073320328934,
+     "nominal30_uVpp": 2.833128337317226,
+     "worst_invivo_uVpp": 8.28252926453538,
+     "worst_arch_uVpp": 18.525488188390288
+    },
+    "frame none | finger edge -5.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.9849990410534337,
+     "C_e3_pF": 0.0037435393525174104,
+     "nominal30_uVpp": 2.9069728931511123,
+     "worst_invivo_uVpp": 8.372866086624045,
+     "worst_arch_uVpp": 18.800630805876207
+    }
+   },
+   "floor_input_short_uVpp": 3.99,
+   "budget_uVpp": 6.01,
+   "sensitivity": {
+    "rf": {
+     "per_electrode_uVpp_per_pF": {
+      "in-vivo nominal (E3 0.75 cm2)": 0.21820883763551835,
+      "in-vivo dry x2, E3 0.5 cm2": 0.17910832266633162,
+      "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": 0.20978545477475616,
+      "in-vivo moist x0.5, E3 1.0 cm2": 0.22379555946243765,
+      "ARCH 1M|10n (-50/+50 %)": 0.22163929708723668,
+      "ARCH 10M|1n (-50/+50 %)": 0.5284504506020353
+     },
+     "worst": 0.5284504506020353,
+     "c_max_pF_for_budget": 11.372873262106463
+    },
+    "e3": {
+     "per_electrode_uVpp_per_pF": {
+      "in-vivo nominal (E3 0.75 cm2)": 723.8616088929308,
+      "in-vivo dry x2, E3 0.5 cm2": 2149.5889240241495,
+      "in-vivo E3 dry x2 on 0.5 cm2, plates x0.5": 2158.3077000501726,
+      "in-vivo moist x0.5, E3 1.0 cm2": 272.47843456880616,
+      "ARCH 1M|10n (-50/+50 %)": 494.3404514498555,
+      "ARCH 10M|1n (-50/+50 %)": 4783.800136185903
+     },
+     "worst": 4783.800136185903,
+     "c_max_pF_for_budget": 0.0012563233891271508
+    }
+   },
+   "sim06": {
+    "30 Hz (EXTCOMIN 60 Hz)": {
+     "r_src_ohm": 4.25,
+     "i_panel_uA": 16.920473773265652,
+     "vstor_sw_ripple_uVpk": 143.82402707275804,
+     "ldo_psrr_db": 69.76143937264017,
+     "avdd_ripple_nVpk": 46.74761688839249,
+     "h_net": 0.0008636923553068242,
+     "h_ads_psrr": 3.172764598994467e-05,
+     "input_referred_uVpp": 7.981361366092091e-05
+    },
+    "35 Hz (EXTCOMIN 70 Hz)": {
+     "r_src_ohm": 4.25,
+     "i_panel_uA": 16.920473773265652,
+     "vstor_sw_ripple_uVpk": 143.82402707275804,
+     "ldo_psrr_db": 69.72796597782487,
+     "avdd_ripple_nVpk": 46.92811889442646,
+     "h_net": 0.0008678663388199933,
+     "h_ads_psrr": 3.202355916255506e-05,
+     "input_referred_uVpp": 7.286012281026869e-05
+    },
+    "60 Hz (COM on both edges)": {
+     "r_src_ohm": 4.25,
+     "i_panel_uA": 16.920473773265652,
+     "vstor_sw_ripple_uVpk": 143.82402707275804,
+     "ldo_psrr_db": 69.61092437480818,
+     "avdd_ripple_nVpk": 47.56475083813596,
+     "h_net": 0.0008758584388087478,
+     "h_ads_psrr": 3.333950777995059e-05,
+     "input_referred_uVpp": 1.676024662621396e-05
+    }
+   },
+   "strap": {
+    "NTC line 1.8 V step, 0.08 pF to the skin": {
+     "worst_uVpp": 0.015472898546078034
+    },
+    "BATT_P conductor motion, dC 0.04 pF at 2.2 V (equivalent step)": {
+     "worst_uVpp": 0.009455781709374835
+    },
+    "NTC line 1.8 V, 10 ms sampling pulse, 0.08 pF": {
+     "worst_uVpp": 0.022539134226399155
+    }
+   }
+  },
+  "patient_dc": {
+   "worst_by_class_uA": {
+    "SFC": 2.7605304552221326,
+    "SFC+GND": 152.27807568136944,
+    "fix": 20.14799629285485,
+    "fix+680k": 10.486263548474302,
+    "normal": 4.852366164442842,
+    "seal": 19.123488438448636,
+    "seal+GND": 2129.800156713657
+   },
+   "worst_case_by_class": {
+    "SFC": "SFC IN1P->AVDD",
+    "SFC+GND": "SFC TVS on E3 shorted + finger on the GND contact (wet 1k)",
+    "fix": "FIX (GND contact behind an off N-FET, <= 1 uA): VBAT / VSTOR 4.25 V -> plate E1 + finger on the GND contact [AFE off]",
+    "fix+680k": "FIX (GND-contact N-FET off) + chains 2 x 680 k: 4.25 V -> skin under the pod + finger on the GND contact [AFE off]",
+    "normal": "normal, finger on the GND contact (wet 1k) + finger on the + contact (no head, 2 M) [AFE on]",
+    "seal": "seal: VBAT / VSTOR 4.25 V -> skin under the pod [AFE off]",
+    "seal+GND": "seal: VBAT / VSTOR 4.25 V -> E3 / finger + finger on the GND contact (wet 1k) [AFE off]"
+   }
+  },
+  "reversed_head": {
+   "d13_conducts": false,
+   "d14_blocks": true,
+   "i_rev_uA": {
+    "25 C, 25 V spec max": 0.55,
+    "45 C (x2 per 10 K, estimate)": 2.2
+   },
+   "vbus_unclamped_V": {
+    "25 C, 25 V spec max": -1.1,
+    "45 C (x2 per 10 K, estimate)": -4.4
+   },
+   "vbus_typ_20nA_V": -0.04,
+   "u15_in_absmax_V": -0.3,
+   "note": "with max IR, -IR x 2 MOhm (R144 + R145) goes below -0.3 V until U15's IN diode conducts the uA (about -0.4 V): rating violated at uA level"
+  },
+  "esd": {
+   "+contact +8 kV iec RDYN 0.53 Vt 27.8 D14 BV 200": {
+    "case": "+contact +8 kV iec RDYN 0.53 Vt 27.8 D14 BV 200",
+    "esd761_ipk_A": 5.819567647907771,
+    "vk_peak_V": 32.60307982693649,
+    "d14_vrev_pk_V": -0.09975985991238234,
+    "d14_t_over_40V_ns": 0.0,
+    "d14_irev_pk_A": 0.0,
+    "d14_E_rev_uJ": 0.0,
+    "vbus_max_V": 2.102824451054457,
+    "vbus_min_V": 2.4948364044084082e-05
+   },
+   "+contact +8 kV iec RDYN 0.8 Vt 29.8 D14 BV 200": {
+    "case": "+contact +8 kV iec RDYN 0.8 Vt 29.8 D14 BV 200",
+    "esd761_ipk_A": 4.572737856536619,
+    "vk_peak_V": 34.43651521007556,
+    "d14_vrev_pk_V": -0.09975986881238708,
+    "d14_t_over_40V_ns": 0.0,
+    "d14_irev_pk_A": 0.0,
+    "d14_E_rev_uJ": 0.0,
+    "vbus_max_V": 2.1076449669496067,
+    "vbus_min_V": 2.4948364044084082e-05
+   },
+   "+contact -8 kV iec RDYN 0.53 Vt 27.8 D14 BV 200": {
+    "case": "+contact -8 kV iec RDYN 0.53 Vt 27.8 D14 BV 200",
+    "esd761_ipk_A": 29.246885476864044,
+    "vk_peak_V": -63.73219467739265,
+    "d14_vrev_pk_V": 63.73018884606282,
+    "d14_t_over_40V_ns": 1.6599999999999966,
+    "d14_irev_pk_A": 2.286919049484702,
+    "d14_E_rev_uJ": 0.05294155218973244,
+    "vbus_max_V": 0.01966629624734351,
+    "vbus_min_V": -0.023121648588195015
+   },
+   "+contact -8 kV iec RDYN 0.8 Vt 29.8 D14 BV 200": {
+    "case": "+contact -8 kV iec RDYN 0.8 Vt 29.8 D14 BV 200",
+    "esd761_ipk_A": 29.192146035496016,
+    "vk_peak_V": -68.68889520839117,
+    "d14_vrev_pk_V": 68.68942452022225,
+    "d14_t_over_40V_ns": 41.7200000000015,
+    "d14_irev_pk_A": 2.36335823967172,
+    "d14_E_rev_uJ": 0.05671704501362167,
+    "vbus_max_V": 0.019907632301091095,
+    "vbus_min_V": -0.02391634243364945
+   },
+   "+contact -8 kV iec RDYN 0.53 Vt 27.8 D14 BV 44": {
+    "case": "+contact -8 kV iec RDYN 0.53 Vt 27.8 D14 BV 44",
+    "esd761_ipk_A": 28.014140526700547,
+    "vk_peak_V": -45.66964664881094,
+    "d14_vrev_pk_V": 45.648818351055766,
+    "d14_t_over_40V_ns": 2.172439953487453,
+    "d14_irev_pk_A": 2.298082287015767,
+    "d14_E_rev_uJ": 0.12237474770161784,
+    "vbus_max_V": -2.4948364044084082e-05,
+    "vbus_min_V": -0.023295775229607536
+   },
+   "+contact +15 kV plain RDYN 0.53 Vt 27.8 D14 BV 200": {
+    "case": "+contact +15 kV plain RDYN 0.53 Vt 27.8 D14 BV 200",
+    "esd761_ipk_A": 17.275101106226252,
+    "vk_peak_V": 53.40601948208509,
+    "d14_vrev_pk_V": -0.1088514514512049,
+    "d14_t_over_40V_ns": 0.0,
+    "d14_irev_pk_A": 0.0,
+    "d14_E_rev_uJ": 0.0,
+    "vbus_max_V": 3.471355293779464,
+    "vbus_min_V": 6.992235377708635e-05
+   },
+   "+contact -15 kV plain RDYN 0.53 Vt 27.8 D14 BV 200": {
+    "case": "+contact -15 kV plain RDYN 0.53 Vt 27.8 D14 BV 200",
+    "esd761_ipk_A": 45.082694257515215,
+    "vk_peak_V": -97.07144898920215,
+    "d14_vrev_pk_V": 97.06984691668121,
+    "d14_t_over_40V_ns": 33.25064380510377,
+    "d14_irev_pk_A": 3.3948426206204485,
+    "d14_E_rev_uJ": 0.09888131814422177,
+    "vbus_max_V": 0.030688961279082994,
+    "vbus_min_V": -0.03424268912076638
+   },
+   "BTN +8 kV iec": {
+    "case": "BTN +8 kV iec",
+    "vgate_max_V": 18.193157466059372,
+    "vgate_min_V": 3.744373009690682e-05,
+    "vbtn_max_V": 18.19316015144768,
+    "vbtn_min_V": 4.6055788019195394e-05
+   },
+   "BTN +8 kV iec FIX: TPD1E10B06 on BTN + 10k gate R": {
+    "case": "BTN +8 kV iec FIX: TPD1E10B06 on BTN + 10k gate R",
+    "vgate_max_V": 1.4810414923602657,
+    "vgate_min_V": 2.7652841917185385e-09,
+    "vbtn_max_V": 15.155729743625544,
+    "vbtn_min_V": 0.0063601564062368285
+   },
+   "BTN -8 kV iec": {
+    "case": "BTN -8 kV iec",
+    "vgate_max_V": -3.744373009690682e-05,
+    "vgate_min_V": -117.98483141462938,
+    "vbtn_max_V": -4.6055788019195394e-05,
+    "vbtn_min_V": -117.98483016838534
+   },
+   "BTN -8 kV iec FIX: TPD1E10B06 on BTN + 10k gate R": {
+    "case": "BTN -8 kV iec FIX: TPD1E10B06 on BTN + 10k gate R",
+    "vgate_max_V": -2.7652841917185385e-09,
+    "vgate_min_V": -5.90127395917584,
+    "vbtn_max_V": 5.091726765226885,
+    "vbtn_min_V": -101.05987130737778
+   }
+  },
+  "note": "first run 2026-11-15, as built before the stage-2b ECO (330 k chains, frame floating, J18 = GND, D14 NSR0240)"
+ },
+ "after": {
+  "note": "stage-2b ECO as built in v3/design (2 x 680 k, J19 frame GND, Q20 + D15 on J18, D14 PMEG10020AELR, D16 clamp, D18 + R511 on BTN)",
+  "display": {
+   "cases": {
+    "frame floating | finger edge +5.1 mm | no GND-contact finger": {
+     "C_finger_pF": 0.2866107519242451,
+     "C_e3_pF": 0.29959479366177577,
+     "nominal30_uVpp": 216.59164749309807,
+     "worst_invivo_uVpp": 645.9074591715344,
+     "worst_arch_uVpp": 1431.9336099871846
+    },
+    "frame floating | finger edge +5.1 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 0.2866107519242451,
+     "C_e3_pF": 0.29959479366177577,
+     "nominal30_uVpp": 216.31382265166147,
+     "worst_invivo_uVpp": 639.5130827394063,
+     "worst_arch_uVpp": 1410.4447172931855
+    },
+    "frame floating | finger edge +5.1 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 0.2866107519242451,
+     "C_e3_pF": 0.29959479366177577,
+     "nominal30_uVpp": 216.3548901633212,
+     "worst_invivo_uVpp": 639.6802136757748,
+     "worst_arch_uVpp": 1410.8100840798595
+    },
+    "frame floating | finger edge +3.0 mm | no GND-contact finger": {
+     "C_finger_pF": 0.5482983769670516,
+     "C_e3_pF": 0.19206286545809412,
+     "nominal30_uVpp": 138.87089369713667,
+     "worst_invivo_uVpp": 414.14237488700047,
+     "worst_arch_uVpp": 918.1724627794924
+    },
+    "frame floating | finger edge +3.0 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 0.5482983769670516,
+     "C_e3_pF": 0.19206286545809412,
+     "nominal30_uVpp": 138.65043918183244,
+     "worst_invivo_uVpp": 409.894782359952,
+     "worst_arch_uVpp": 904.0795566127666
+    },
+    "frame floating | finger edge +3.0 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 0.5482983769670516,
+     "C_e3_pF": 0.19206286545809412,
+     "nominal30_uVpp": 138.70239933015827,
+     "worst_invivo_uVpp": 410.10721444299554,
+     "worst_arch_uVpp": 904.5429799140137
+    },
+    "frame floating | finger edge +1.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.0407779787854334,
+     "C_e3_pF": 0.07821987951566423,
+     "nominal30_uVpp": 56.59764206113426,
+     "worst_invivo_uVpp": 168.7912922107753,
+     "worst_arch_uVpp": 374.2712501953026
+    },
+    "frame floating | finger edge +1.0 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 1.0407779787854334,
+     "C_e3_pF": 0.07821987951566423,
+     "nominal30_uVpp": 56.41042927663168,
+     "worst_invivo_uVpp": 166.70821258666814,
+     "worst_arch_uVpp": 367.72982997953784
+    },
+    "frame floating | finger edge +1.0 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 1.0407779787854334,
+     "C_e3_pF": 0.07821987951566423,
+     "nominal30_uVpp": 56.48880280808829,
+     "worst_invivo_uVpp": 167.02937737723946,
+     "worst_arch_uVpp": 368.4279209739631
+    },
+    "frame floating | finger edge +0.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.354095257190735,
+     "C_e3_pF": 0.06607884608055736,
+     "nominal30_uVpp": 47.83632443225192,
+     "worst_invivo_uVpp": 142.662999338456,
+     "worst_arch_uVpp": 316.3609905315716
+    },
+    "frame floating | finger edge +0.0 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 1.354095257190735,
+     "C_e3_pF": 0.06607884608055736,
+     "nominal30_uVpp": 47.621074751659044,
+     "worst_invivo_uVpp": 140.6964649394935,
+     "worst_arch_uVpp": 310.36070220770745
+    },
+    "frame floating | finger edge +0.0 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 1.354095257190735,
+     "C_e3_pF": 0.06607884608055736,
+     "nominal30_uVpp": 47.72051157773622,
+     "worst_invivo_uVpp": 141.10309651242713,
+     "worst_arch_uVpp": 311.24280303676414
+    },
+    "frame floating | finger edge -2.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.0123530928762747,
+     "C_e3_pF": 0.06364310591695375,
+     "nominal30_uVpp": 46.10867677092837,
+     "worst_invivo_uVpp": 137.50991818564017,
+     "worst_arch_uVpp": 304.9706403768579
+    },
+    "frame floating | finger edge -2.0 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 2.0123530928762747,
+     "C_e3_pF": 0.06364310591695375,
+     "nominal30_uVpp": 45.81579184275122,
+     "worst_invivo_uVpp": 135.30797076603392,
+     "worst_arch_uVpp": 298.4870316659549
+    },
+    "frame floating | finger edge -2.0 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 2.0123530928762747,
+     "C_e3_pF": 0.06364310591695375,
+     "nominal30_uVpp": 45.96100812415594,
+     "worst_invivo_uVpp": 135.9001153132635,
+     "worst_arch_uVpp": 299.7667251611515
+    },
+    "frame floating | finger edge -5.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.9412429819350594,
+     "C_e3_pF": 0.06359309023210312,
+     "nominal30_uVpp": 46.11994750983771,
+     "worst_invivo_uVpp": 137.54079556898094,
+     "worst_arch_uVpp": 305.0865081711557
+    },
+    "frame floating | finger edge -5.0 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 2.9412429819350594,
+     "C_e3_pF": 0.06359309023210312,
+     "nominal30_uVpp": 45.71430283849768,
+     "worst_invivo_uVpp": 134.93808269022028,
+     "worst_arch_uVpp": 297.6912171557655
+    },
+    "frame floating | finger edge -5.0 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 2.9412429819350594,
+     "C_e3_pF": 0.06359309023210312,
+     "nominal30_uVpp": 45.924215285155654,
+     "worst_invivo_uVpp": 135.79068072267748,
+     "worst_arch_uVpp": 299.5255554031994
+    },
+    "frame grounded | finger edge +5.1 mm | no GND-contact finger": {
+     "C_finger_pF": 0.2780634694363386,
+     "C_e3_pF": 0.0015025321537728736,
+     "nominal30_uVpp": 1.1012227250883577,
+     "worst_invivo_uVpp": 3.281044377071759,
+     "worst_arch_uVpp": 7.288714123720424
+    },
+    "frame grounded | finger edge +3.0 mm | no GND-contact finger": {
+     "C_finger_pF": 0.5318225027837786,
+     "C_e3_pF": 0.0010232771736511234,
+     "nominal30_uVpp": 0.77338110578452,
+     "worst_invivo_uVpp": 2.2870226005036463,
+     "worst_arch_uVpp": 5.099003474572748
+    },
+    "frame grounded | finger edge +1.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.032635402251369,
+     "C_e3_pF": 0.000850820887938284,
+     "nominal30_uVpp": 0.6984689039315034,
+     "worst_invivo_uVpp": 1.9959421024293755,
+     "worst_arch_uVpp": 4.483965563356146
+    },
+    "frame grounded | finger edge +0.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.3471934726105432,
+     "C_e3_pF": 0.0008175555115115586,
+     "nominal30_uVpp": 0.7127608606910723,
+     "worst_invivo_uVpp": 1.9768567181363408,
+     "worst_arch_uVpp": 4.461929226700661
+    },
+    "frame grounded | finger edge -2.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.005702559414042,
+     "C_e3_pF": 0.0008102108871521874,
+     "nominal30_uVpp": 0.7979389331720825,
+     "worst_invivo_uVpp": 2.074462997142968,
+     "worst_arch_uVpp": 4.72253189044225
+    },
+    "frame grounded | finger edge -5.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.934597614527728,
+     "C_e3_pF": 0.0008100585695700064,
+     "nominal30_uVpp": 0.9438443736803859,
+     "worst_invivo_uVpp": 2.2409294558179904,
+     "worst_arch_uVpp": 5.157387076310213
+    },
+    "frame none | finger edge +5.1 mm | no GND-contact finger": {
+     "C_finger_pF": 0.38725295222970424,
+     "C_e3_pF": 0.06132667179137242,
+     "nominal30_uVpp": 44.35310327766953,
+     "worst_invivo_uVpp": 132.2741611837574,
+     "worst_arch_uVpp": 293.279072223136
+    },
+    "frame none | finger edge +3.0 mm | no GND-contact finger": {
+     "C_finger_pF": 0.6628850618889713,
+     "C_e3_pF": 0.010755412214773616,
+     "nominal30_uVpp": 7.808775850793232,
+     "worst_invivo_uVpp": 23.28697538389225,
+     "worst_arch_uVpp": 51.66303395763326
+    },
+    "frame none | finger edge +1.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.094330974082567,
+     "C_e3_pF": 0.004285436491023763,
+     "nominal30_uVpp": 3.159279689601647,
+     "worst_invivo_uVpp": 9.403688738792919,
+     "worst_arch_uVpp": 20.905746618635767
+    },
+    "frame none | finger edge +0.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.3995361456539452,
+     "C_e3_pF": 0.0038362911322007854,
+     "nominal30_uVpp": 2.855922319193453,
+     "worst_invivo_uVpp": 8.482254848255982,
+     "worst_arch_uVpp": 18.87962502069471
+    },
+    "frame none | finger edge -2.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.056143133568136,
+     "C_e3_pF": 0.0037454073320328934,
+     "nominal30_uVpp": 2.8392834165443714,
+     "worst_invivo_uVpp": 8.38804862286675,
+     "worst_arch_uVpp": 18.70748996145317
+    },
+    "frame none | finger edge -5.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.9849990410534337,
+     "C_e3_pF": 0.0037435393525174104,
+     "nominal30_uVpp": 2.916877109277587,
+     "worst_invivo_uVpp": 8.530335550674943,
+     "worst_arch_uVpp": 19.07674726097508
+    }
+   },
+   "floor_input_short_uVpp": 3.99,
+   "budget_uVpp": 6.01
+  },
+  "noise_invivo": {
+   "2 x 330 k": {
+    "in-vivo nominal": {
+     "lead-off off": {
+      "thermal_uV": 1.3797297272132933,
+      "shot_uV": 0.3062699160520621,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 1.5369784350728155,
+      "total_uVpp": 10.144057671480581
+     },
+     "lead-off 6 nA": {
+      "thermal_uV": 1.3797297272132933,
+      "shot_uV": 1.0147559262408545,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 1.8161032564921187,
+      "total_uVpp": 11.986281492847983
+     }
+    },
+    "in-vivo worst of v2 (k2/0.5/2 ph-80 a3 0.5)": {
+     "lead-off off": {
+      "thermal_uV": 1.7819703766100923,
+      "shot_uV": 1.3306003904905122,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 2.304509307972891,
+      "total_uVpp": 15.20976143262108
+     },
+     "lead-off 6 nA": {
+      "thermal_uV": 1.7819703766100923,
+      "shot_uV": 3.668794711126596,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 4.123144477671219,
+      "total_uVpp": 27.212753552630044
+     }
+    },
+    "ARCH 1M|10n": {
+     "lead-off off": {
+      "thermal_uV": 1.2093335315257352,
+      "shot_uV": 0.10870019389463904,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 1.356152886244583,
+      "total_uVpp": 8.950609049214249
+     },
+     "lead-off 6 nA": {
+      "thermal_uV": 1.2093335315257352,
+      "shot_uV": 0.5279985229891281,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 1.451246829107813,
+      "total_uVpp": 9.578229072111567
+     }
+    },
+    "ARCH 10M|1n": {
+     "lead-off off": {
+      "thermal_uV": 2.5901303086185123,
+      "shot_uV": 1.0870019389463903,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 2.8731856116759524,
+      "total_uVpp": 18.963025037061286
+     },
+     "lead-off 6 nA": {
+      "thermal_uV": 2.5901303086185123,
+      "shot_uV": 3.1049348863894384,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 4.088305638352727,
+      "total_uVpp": 26.982817213127998
+     }
+    },
+    "signal_att_nominal": {
+     "max_att": 0.009473995785251321,
+     "phase40_deg": -0.1932526614811393
+    }
+   },
+   "2 x 680 k": {
+    "in-vivo nominal": {
+     "lead-off off": {
+      "thermal_uV": 1.6740317568888101,
+      "shot_uV": 0.3062699160520621,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 1.8058324708552143,
+      "total_uVpp": 11.918494307644414
+     },
+     "lead-off 6 nA": {
+      "thermal_uV": 1.6740317568888101,
+      "shot_uV": 1.2525995306027076,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 2.1762893271306174,
+      "total_uVpp": 14.363509559062074
+     }
+    },
+    "in-vivo worst of v2 (k2/0.5/2 ph-80 a3 0.5)": {
+     "lead-off off": {
+      "thermal_uV": 2.0155600686008235,
+      "shot_uV": 1.3306003904905122,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 2.489543556067243,
+      "total_uVpp": 16.430987470043803
+     },
+     "lead-off 6 nA": {
+      "thermal_uV": 2.0155600686008235,
+      "shot_uV": 3.8385948085215533,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 4.377458146275194,
+      "total_uVpp": 28.891223765416274
+     }
+    },
+    "ARCH 1M|10n": {
+     "lead-off off": {
+      "thermal_uV": 1.5378797760732288,
+      "shot_uV": 0.10870019389463904,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 1.6558192129734608,
+      "total_uVpp": 10.92840680562484
+     },
+     "lead-off 6 nA": {
+      "thermal_uV": 1.5378797760732288,
+      "shot_uV": 0.7939016195209277,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 1.8330851904309498,
+      "total_uVpp": 12.098362256844268
+     }
+    },
+    "ARCH 10M|1n": {
+     "lead-off off": {
+      "thermal_uV": 2.7529414237390215,
+      "shot_uV": 1.0870019389463903,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 3.0207792084254876,
+      "total_uVpp": 19.937142775608216
+     },
+     "lead-off 6 nA": {
+      "thermal_uV": 2.7529414237390215,
+      "shot_uV": 3.352130248057741,
+      "ads_uV": 0.6040259334203083,
+      "total_uVrms": 4.379533195527367,
+      "total_uVpp": 28.90491909048062
+     }
+    },
+    "signal_att_nominal": {
+     "max_att": 0.010845709375691404,
+     "phase40_deg": -0.4134289955560071
+    }
+   }
+  },
+  "input_short_uVpp": 3.9865711605740355,
+  "patient_dc": {
+   "worst_by_class_uA": {
+    "SFC": 1.3677619718443597,
+    "SFC+GND": 2.8514350253481893,
+    "double (info)": 3.225340752673897,
+    "normal": 1.6568984660474302,
+    "seal": 9.4914160188,
+    "seal+GND": 15.827295710000405,
+    "seal+GND IDSS0.1": 9.591396340826128
+   },
+   "worst_case_by_class": {
+    "SFC": "SFC IN1P->AVDD",
+    "SFC+GND": "SFC TVS on E1 shorted + finger on the + contact (no head)",
+    "double (info)": "DOUBLE (information): Q20 shorted + LDO pass short AVDD 4.25 V, finger wet 1k on J18",
+    "normal": "normal, finger on the GND contact (wet 1k (behind Q20 off, IDSS 1 uA bound)) + finger on the + contact (no head, 1.1 M || 2 M) [AFE on]",
+    "seal": "seal: VBAT / VSTOR 4.25 V -> skin under the pod [AFE off]",
+    "seal+GND": "seal: VBAT / VSTOR 4.25 V -> plate E1 + finger on the + contact (no head) [AFE off]",
+    "seal+GND IDSS0.1": "seal: VBAT / VSTOR 4.25 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE off]"
+   },
+   "r_gate_ohm": 1100000.0
+  },
+  "reversed_head": {
+   "q20_intact": {
+    "i_loop_max_uA": 1.0499999999999998,
+    "v_board_gnd_above_vbus_k_V": 1.1549999999999998,
+    "q20_vgs_V": -1.0499999999999998,
+    "q20_vds_V": 3.845,
+    "d14_reverse_V": 1.1549999999999998,
+    "vbus_min_V": -0.08293941540957653,
+    "note": "Q20 blocks the reversed head; D14 sees <= 1.2 V reverse (IR scaled linearly from 5 V: conservative for a Schottky)"
+   },
+   "q20_shorted": {
+    "d14_ir45_typ_nA": 41.88859364120027,
+    "d14_ir45_max_nA": 179.52254417657258,
+    "vbus_unclamped_typ_V": -0.08377718728240055,
+    "vbus_unclamped_max_V": -0.3590450883531452,
+    "vbus_with_d16_V": -0.09,
+    "u15_in_absmax_V": -0.3,
+    "note": "without D16 the scaled maximum (-0.36 V) is below -0.3 V: E-5 clamp kept (D16)"
+   },
+   "before": {
+    "d14": "NSR0240 0.55 uA at 25 V (25 C) -> -0.04 V typ, -0.3...-0.4 V at max IR (g6_calc.json)"
+   }
+  },
+  "esd": {
+   "+contact +8 kV iec RDYN 0.53 Vt 27.8 D14 PMEG10020AELR (BV 100)": {
+    "case": "+contact +8 kV iec RDYN 0.53 Vt 27.8 D14 PMEG10020AELR (BV 100)",
+    "esd761_ipk_A": 2.767769180320082,
+    "vk_peak_V": 32.16435757924817,
+    "d14_vrev_pk_V": 7.110428401223097,
+    "d14_t_over_100V_ns": 0.0,
+    "d14_irev_pk_A": 0.0,
+    "vbus_max_V": 2.1161041371919698,
+    "vbus_min_V": 2.4361197551435147e-05,
+    "q20_gate_max_V": 0.5034964478627693,
+    "q20_gate_min_V": 6.000096443617254e-07
+   },
+   "+contact +8 kV iec RDYN 0.8 Vt 29.8 D14 PMEG10020AELR (BV 100)": {
+    "case": "+contact +8 kV iec RDYN 0.8 Vt 29.8 D14 PMEG10020AELR (BV 100)",
+    "esd761_ipk_A": 2.23199970238617,
+    "vk_peak_V": 33.778231193975536,
+    "d14_vrev_pk_V": 6.610949134540243,
+    "d14_t_over_100V_ns": 0.0,
+    "d14_irev_pk_A": 0.0,
+    "vbus_max_V": 2.1170060055666835,
+    "vbus_min_V": 2.4361197551435147e-05,
+    "q20_gate_max_V": 0.5036950801216467,
+    "q20_gate_min_V": 6.000096443617254e-07
+   },
+   "+contact -8 kV iec RDYN 0.53 Vt 27.8 D14 PMEG10020AELR (BV 100)": {
+    "case": "+contact -8 kV iec RDYN 0.53 Vt 27.8 D14 PMEG10020AELR (BV 100)",
+    "esd761_ipk_A": 32.12523188624406,
+    "vk_peak_V": -61.85603091535073,
+    "d14_vrev_pk_V": 61.85312171643355,
+    "d14_t_over_100V_ns": 0.0,
+    "d14_irev_pk_A": 8.289658551830593,
+    "vbus_max_V": 0.053182581980232686,
+    "vbus_min_V": -0.08600768070442771,
+    "q20_gate_max_V": -6.000096443617254e-07,
+    "q20_gate_min_V": -5.561311405571952
+   },
+   "+contact -8 kV iec RDYN 0.8 Vt 29.8 D14 PMEG10020AELR (BV 100)": {
+    "case": "+contact -8 kV iec RDYN 0.8 Vt 29.8 D14 PMEG10020AELR (BV 100)",
+    "esd761_ipk_A": 31.27662587056728,
+    "vk_peak_V": -67.3955951146611,
+    "d14_vrev_pk_V": 67.3993967344759,
+    "d14_t_over_100V_ns": 0.0,
+    "d14_irev_pk_A": 8.691782466490348,
+    "vbus_max_V": 0.04242580473760884,
+    "vbus_min_V": -0.08995959517413177,
+    "q20_gate_max_V": -6.000096443617254e-07,
+    "q20_gate_min_V": -5.790756424942714
+   },
+   "+contact +15 kV plain RDYN 0.53 Vt 27.8 D14 PMEG10020AELR (BV 100)": {
+    "case": "+contact +15 kV plain RDYN 0.53 Vt 27.8 D14 PMEG10020AELR (BV 100)",
+    "esd761_ipk_A": 13.127586126734117,
+    "vk_peak_V": 52.882170788104716,
+    "d14_vrev_pk_V": 9.104109722500517,
+    "d14_t_over_100V_ns": 0.0,
+    "d14_irev_pk_A": 2.749352311207248e-06,
+    "vbus_max_V": 3.7282233380805576,
+    "vbus_min_V": 6.827745717157708e-05,
+    "q20_gate_max_V": 0.8532993828922617,
+    "q20_gate_min_V": 1.6816551283632395e-06
+   },
+   "+contact -15 kV plain RDYN 0.53 Vt 27.8 D14 PMEG10020AELR (BV 100)": {
+    "case": "+contact -15 kV plain RDYN 0.53 Vt 27.8 D14 PMEG10020AELR (BV 100)",
+    "esd761_ipk_A": 47.62223790915207,
+    "vk_peak_V": -68.27436944390406,
+    "d14_vrev_pk_V": 68.2144368133779,
+    "d14_t_over_100V_ns": 0.0,
+    "d14_irev_pk_A": 11.095637806660335,
+    "vbus_max_V": 0.04222999839112534,
+    "vbus_min_V": -0.11442884199235068,
+    "q20_gate_max_V": -1.6816551283632395e-06,
+    "q20_gate_min_V": -5.731757075708388
+   },
+   "GND contact +8 kV iec ESD761 on J18, Q20 off": {
+    "case": "GND contact +8 kV iec ESD761 on J18, Q20 off",
+    "tvs_ipk_A": 18.21677688764628,
+    "q20_vds_max_V": 45.62489373967541,
+    "q20_vds_min_V": 0.00034487296356934603,
+    "q20_t_over_20V_ns": 999.9031145378011,
+    "q20_avalanche_ipk_A": 10.812446869837704,
+    "q20_avalanche_E_uJ": 22.422311094815694,
+    "q20_gate_max_V": 4.958057240720824,
+    "q20_gate_min_V": 3.748618989950244e-05
+   },
+   "GND contact +8 kV iec TPD1E10B06 on J18, Q20 off": {
+    "case": "GND contact +8 kV iec TPD1E10B06 on J18, Q20 off",
+    "tvs_ipk_A": 28.620539647672928,
+    "q20_vds_max_V": 37.149188996007965,
+    "q20_vds_min_V": 0.0003448770427297552,
+    "q20_t_over_20V_ns": 1.8583950410215007,
+    "q20_avalanche_ipk_A": 6.574594498003982,
+    "q20_avalanche_E_uJ": 0.24944136886189125,
+    "q20_gate_max_V": 4.03750886213018,
+    "q20_gate_min_V": 3.7486633286482235e-05
+   },
+   "GND contact -8 kV iec ESD761 on J18, Q20 off": {
+    "case": "GND contact -8 kV iec ESD761 on J18, Q20 off",
+    "tvs_ipk_A": 0.058164007908493534,
+    "q20_vds_max_V": -0.00034487296356934603,
+    "q20_vds_min_V": -9.392643404902637,
+    "q20_t_over_20V_ns": 0.0,
+    "q20_avalanche_ipk_A": 0.0,
+    "q20_avalanche_E_uJ": 0.0,
+    "q20_gate_max_V": -3.748618989950244e-05,
+    "q20_gate_min_V": -1.0206439287413762
+   },
+   "GND contact -8 kV iec TPD1E10B06 on J18, Q20 off": {
+    "case": "GND contact -8 kV iec TPD1E10B06 on J18, Q20 off",
+    "tvs_ipk_A": 1.1340665406506505,
+    "q20_vds_max_V": -0.0003448770427297552,
+    "q20_vds_min_V": -9.153030927629551,
+    "q20_t_over_20V_ns": 0.0,
+    "q20_avalanche_ipk_A": 0.0,
+    "q20_avalanche_E_uJ": 0.0,
+    "q20_gate_max_V": -3.7486633286482235e-05,
+    "q20_gate_min_V": -0.9946198610360923
+   },
+   "GND contact +15 kV plain ESD761 on J18, Q20 off": {
+    "case": "GND contact +15 kV plain ESD761 on J18, Q20 off",
+    "tvs_ipk_A": 33.24287612170437,
+    "q20_vds_max_V": 53.40501702961363,
+    "q20_vds_min_V": 0.0009673170963574058,
+    "q20_t_over_20V_ns": 999.9425095360527,
+    "q20_avalanche_ipk_A": 14.702508514806816,
+    "q20_avalanche_E_uJ": 26.819699345187278,
+    "q20_gate_max_V": 5.804496515282311,
+    "q20_gate_min_V": 0.0001051431576189583
+   },
+   "GND contact +15 kV plain TPD1E10B06 on J18, Q20 off": {
+    "case": "GND contact +15 kV plain TPD1E10B06 on J18, Q20 off",
+    "tvs_ipk_A": 42.917012112605306,
+    "q20_vds_max_V": 56.53335425269879,
+    "q20_vds_min_V": 0.0009673285377921803,
+    "q20_t_over_20V_ns": 23.1413391135321,
+    "q20_avalanche_ipk_A": 16.266677126349396,
+    "q20_avalanche_E_uJ": 0.842428327539765,
+    "q20_gate_max_V": 6.144472558420918,
+    "q20_gate_min_V": 0.00010514440125311344
+   },
+   "GND contact -15 kV plain ESD761 on J18, Q20 off": {
+    "case": "GND contact -15 kV plain ESD761 on J18, Q20 off",
+    "tvs_ipk_A": 0.09906677317514291,
+    "q20_vds_max_V": -0.0009673170963574058,
+    "q20_vds_min_V": -14.037086067666444,
+    "q20_t_over_20V_ns": 0.0,
+    "q20_avalanche_ipk_A": 0.0,
+    "q20_avalanche_E_uJ": 0.0,
+    "q20_gate_max_V": -0.0001051431576189583,
+    "q20_gate_min_V": -1.5252084370552936
+   },
+   "GND contact -15 kV plain TPD1E10B06 on J18, Q20 off": {
+    "case": "GND contact -15 kV plain TPD1E10B06 on J18, Q20 off",
+    "tvs_ipk_A": 5.766915600949148,
+    "q20_vds_max_V": -0.0009673285377921803,
+    "q20_vds_min_V": -12.859795431198217,
+    "q20_t_over_20V_ns": 0.0,
+    "q20_avalanche_ipk_A": 0.0,
+    "q20_avalanche_E_uJ": 0.0,
+    "q20_gate_max_V": -0.00010514440125311344,
+    "q20_gate_min_V": -1.397453297239579
+   },
+   "BTN +8 kV iec ECO (D18 TPD1E10B06 + R511 10 k)": {
+    "case": "BTN +8 kV iec ECO (D18 TPD1E10B06 + R511 10 k)",
+    "vgate_max_V": 1.4810414923602657,
+    "vgate_min_V": 2.7652841917185385e-09,
+    "vbtn_max_V": 15.155729743625544,
+    "vbtn_min_V": 0.0063601564062368285,
+    "d18_ipk_A": 6.839540573975847
+   },
+   "BTN -8 kV iec ECO (D18 TPD1E10B06 + R511 10 k)": {
+    "case": "BTN -8 kV iec ECO (D18 TPD1E10B06 + R511 10 k)",
+    "vgate_max_V": -2.7652841917185385e-09,
+    "vgate_min_V": -5.90127395917584,
+    "vbtn_max_V": 5.091726765226885,
+    "vbtn_min_V": -101.05987130737778,
+    "d18_ipk_A": 28.54030656251338
+   },
+   "BTN +15 kV plain ECO (D18 TPD1E10B06 + R511 10 k)": {
+    "case": "BTN +15 kV plain ECO (D18 TPD1E10B06 + R511 10 k)",
+    "vgate_max_V": 2.1155779520612423,
+    "vgate_min_V": 7.72504945111975e-09,
+    "vbtn_max_V": 21.529571938770033,
+    "vbtn_min_V": 0.017767621462624873,
+    "d18_ipk_A": 16.70876546401838
+   },
+   "BTN -15 kV plain ECO (D18 TPD1E10B06 + R511 10 k)": {
+    "case": "BTN -15 kV plain ECO (D18 TPD1E10B06 + R511 10 k)",
+    "vgate_max_V": -7.72504945111975e-09,
+    "vgate_min_V": -6.195020917222832,
+    "vbtn_max_V": -0.017767621462624873,
+    "vbtn_min_V": -102.95178272731887,
+    "d18_ipk_A": 44.02472264199155
+   }
+  },
+  "pmeg_fit": {
+   "IS": 1.1775832020659792e-05,
+   "N": 1.9925467408095703,
+   "RS": 0.06903783973405828,
+   "VF_33mA_typ_25C_V": 0.40862369724176345
+  }
+ },
+ "after_mini": {
+  "note": "mini-ECO as built in v3/design: D15 TPD1E10B06 (C48260) on J18, R301-R306 2 x 330 k anti-surge (E-3 withdrawn); patient DC against F-3: <= 10 uA normal, <= 50 uA single fault",
+  "display": {
+   "cases": {
+    "frame floating | finger edge +5.1 mm | no GND-contact finger": {
+     "C_finger_pF": 0.2866107519242451,
+     "C_e3_pF": 0.29959479366177577,
+     "nominal30_uVpp": 216.89232370294596,
+     "worst_invivo_uVpp": 646.7739123550899,
+     "worst_arch_uVpp": 1433.852821770225
+    },
+    "frame floating | finger edge +5.1 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 0.2866107519242451,
+     "C_e3_pF": 0.29959479366177577,
+     "nominal30_uVpp": 216.61352070887204,
+     "worst_invivo_uVpp": 640.3830811492688,
+     "worst_arch_uVpp": 1412.3892352122446
+    },
+    "frame floating | finger edge +5.1 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 0.2866107519242451,
+     "C_e3_pF": 0.29959479366177577,
+     "nominal30_uVpp": 216.6579090651795,
+     "worst_invivo_uVpp": 640.5639489435736,
+     "worst_arch_uVpp": 1412.7637512537242
+    },
+    "frame floating | finger edge +3.0 mm | no GND-contact finger": {
+     "C_finger_pF": 0.5482983769670516,
+     "C_e3_pF": 0.19206286545809412,
+     "nominal30_uVpp": 139.06172839815105,
+     "worst_invivo_uVpp": 414.6769960855349,
+     "worst_arch_uVpp": 919.3664938298796
+    },
+    "frame floating | finger edge +3.0 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 0.5482983769670516,
+     "C_e3_pF": 0.19206286545809412,
+     "nominal30_uVpp": 138.84056835103885,
+     "worst_invivo_uVpp": 410.4439989206819,
+     "worst_arch_uVpp": 905.3204784421226
+    },
+    "frame floating | finger edge +3.0 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 0.5482983769670516,
+     "C_e3_pF": 0.19206286545809412,
+     "nominal30_uVpp": 138.89663872438547,
+     "worst_invivo_uVpp": 410.6737677456894,
+     "worst_arch_uVpp": 905.7955570792802
+    },
+    "frame floating | finger edge +1.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.0407779787854334,
+     "C_e3_pF": 0.07821987951566423,
+     "nominal30_uVpp": 56.671031651413784,
+     "worst_invivo_uVpp": 168.9623231166883,
+     "worst_arch_uVpp": 374.6761711175462
+    },
+    "frame floating | finger edge +1.0 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 1.0407779787854334,
+     "C_e3_pF": 0.07821987951566423,
+     "nominal30_uVpp": 56.48323206082293,
+     "worst_invivo_uVpp": 166.91285103828451,
+     "worst_arch_uVpp": 368.2228403809705
+    },
+    "frame floating | finger edge +1.0 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 1.0407779787854334,
+     "C_e3_pF": 0.07821987951566423,
+     "nominal30_uVpp": 56.56785992403763,
+     "worst_invivo_uVpp": 167.26007647944797,
+     "worst_arch_uVpp": 368.93803534200913
+    },
+    "frame floating | finger edge +0.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.354095257190735,
+     "C_e3_pF": 0.06607884608055736,
+     "nominal30_uVpp": 47.89583245423805,
+     "worst_invivo_uVpp": 142.78034668887028,
+     "worst_arch_uVpp": 316.6558491508337
+    },
+    "frame floating | finger edge +0.0 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 1.354095257190735,
+     "C_e3_pF": 0.06607884608055736,
+     "nominal30_uVpp": 47.67987960911473,
+     "worst_invivo_uVpp": 140.85822763714205,
+     "worst_arch_uVpp": 310.7698145433031
+    },
+    "frame floating | finger edge +0.0 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 1.354095257190735,
+     "C_e3_pF": 0.06607884608055736,
+     "nominal30_uVpp": 47.78726822102309,
+     "worst_invivo_uVpp": 141.29795847849732,
+     "worst_arch_uVpp": 311.6736962855035
+    },
+    "frame floating | finger edge -2.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.0123530928762747,
+     "C_e3_pF": 0.06364310591695375,
+     "nominal30_uVpp": 46.16224684608333,
+     "worst_invivo_uVpp": 137.58238101850793,
+     "worst_arch_uVpp": 305.1838998841526
+    },
+    "frame floating | finger edge -2.0 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 2.0123530928762747,
+     "C_e3_pF": 0.06364310591695375,
+     "nominal30_uVpp": 45.86833556849909,
+     "worst_invivo_uVpp": 135.44706890429546,
+     "worst_arch_uVpp": 298.8700216646309
+    },
+    "frame floating | finger edge -2.0 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 2.0123530928762747,
+     "C_e3_pF": 0.06364310591695375,
+     "nominal30_uVpp": 46.02525999589786,
+     "worst_invivo_uVpp": 136.08775014172525,
+     "worst_arch_uVpp": 300.18166377581156
+    },
+    "frame floating | finger edge -5.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.9412429819350594,
+     "C_e3_pF": 0.06359309023210312,
+     "nominal30_uVpp": 46.16855914811619,
+     "worst_invivo_uVpp": 137.56001583475535,
+     "worst_arch_uVpp": 305.2066451653202
+    },
+    "frame floating | finger edge -5.0 mm | second finger on the GND contact, dry 100k": {
+     "C_finger_pF": 2.9412429819350594,
+     "C_e3_pF": 0.06359309023210312,
+     "nominal30_uVpp": 45.761464781465186,
+     "worst_invivo_uVpp": 135.05492405540215,
+     "worst_arch_uVpp": 298.05948222673914
+    },
+    "frame floating | finger edge -5.0 mm | second finger on the GND contact, wet 1k": {
+     "C_finger_pF": 2.9412429819350594,
+     "C_e3_pF": 0.06359309023210312,
+     "nominal30_uVpp": 45.988358712791964,
+     "worst_invivo_uVpp": 135.9781094294575,
+     "worst_arch_uVpp": 299.9400722301053
+    },
+    "frame grounded | finger edge +5.1 mm | no GND-contact finger": {
+     "C_finger_pF": 0.2780634694363386,
+     "C_e3_pF": 0.0015025321537728736,
+     "nominal30_uVpp": 1.1013081388278882,
+     "worst_invivo_uVpp": 3.2696275586342836,
+     "worst_arch_uVpp": 7.27074514584798
+    },
+    "frame grounded | finger edge +3.0 mm | no GND-contact finger": {
+     "C_finger_pF": 0.5318225027837786,
+     "C_e3_pF": 0.0010232771736511234,
+     "nominal30_uVpp": 0.7718313614456819,
+     "worst_invivo_uVpp": 2.2598810658196884,
+     "worst_arch_uVpp": 5.052306468034404
+    },
+    "frame grounded | finger edge +1.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.032635402251369,
+     "C_e3_pF": 0.000850820887938284,
+     "nominal30_uVpp": 0.6950576362427634,
+     "worst_invivo_uVpp": 1.9406265397958855,
+     "worst_arch_uVpp": 4.385266898338431
+    },
+    "frame grounded | finger edge +0.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.3471934726105432,
+     "C_e3_pF": 0.0008175555115115586,
+     "nominal30_uVpp": 0.7086534551880077,
+     "worst_invivo_uVpp": 1.9045318117465688,
+     "worst_arch_uVpp": 4.331112784083198
+    },
+    "frame grounded | finger edge -2.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.005702559414042,
+     "C_e3_pF": 0.0008102108871521874,
+     "nominal30_uVpp": 0.7930885111532788,
+     "worst_invivo_uVpp": 1.9677772206222661,
+     "worst_arch_uVpp": 4.52544776202719
+    },
+    "frame grounded | finger edge -5.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.934597614527728,
+     "C_e3_pF": 0.0008100585695700064,
+     "nominal30_uVpp": 0.9390780040515013,
+     "worst_invivo_uVpp": 2.0885142067629046,
+     "worst_arch_uVpp": 4.868731356262476
+    },
+    "frame none | finger edge +5.1 mm | no GND-contact finger": {
+     "C_finger_pF": 0.38725295222970424,
+     "C_e3_pF": 0.06132667179137242,
+     "nominal30_uVpp": 44.412940507858686,
+     "worst_invivo_uVpp": 132.43279916941898,
+     "worst_arch_uVpp": 293.63932486046957
+    },
+    "frame none | finger edge +3.0 mm | no GND-contact finger": {
+     "C_finger_pF": 0.6628850618889713,
+     "C_e3_pF": 0.010755412214773616,
+     "nominal30_uVpp": 7.816152391651287,
+     "worst_invivo_uVpp": 23.280835332155284,
+     "worst_arch_uVpp": 51.66699013246492
+    },
+    "frame none | finger edge +1.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.094330974082567,
+     "C_e3_pF": 0.004285436491023763,
+     "nominal30_uVpp": 3.1580333876584583,
+     "worst_invivo_uVpp": 9.354000021641019,
+     "worst_arch_uVpp": 20.82428397341604
+    },
+    "frame none | finger edge +0.0 mm | no GND-contact finger": {
+     "C_finger_pF": 1.3995361456539452,
+     "C_e3_pF": 0.0038362911322007854,
+     "nominal30_uVpp": 2.8527973529848047,
+     "worst_invivo_uVpp": 8.413994796745984,
+     "worst_arch_uVpp": 18.764492014648102
+    },
+    "frame none | finger edge -2.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.056143133568136,
+     "C_e3_pF": 0.0037454073320328934,
+     "nominal30_uVpp": 2.833128337317226,
+     "worst_invivo_uVpp": 8.28252926453538,
+     "worst_arch_uVpp": 18.525488188390288
+    },
+    "frame none | finger edge -5.0 mm | no GND-contact finger": {
+     "C_finger_pF": 2.9849990410534337,
+     "C_e3_pF": 0.0037435393525174104,
+     "nominal30_uVpp": 2.9069728931511123,
+     "worst_invivo_uVpp": 8.372866086624045,
+     "worst_arch_uVpp": 18.800630805876207
+    }
+   },
+   "floor_input_short_uVpp": 3.99,
+   "budget_uVpp": 6.01
+  },
+  "noise_invivo": {
+   "in-vivo nominal": {
+    "lead-off off": {
+     "thermal_uV": 1.3797297272132933,
+     "shot_uV": 0.3062699160520621,
+     "ads_uV": 0.6040259334203083,
+     "total_uVrms": 1.5369784350728155,
+     "total_uVpp": 10.144057671480581
+    },
+    "lead-off 6 nA": {
+     "thermal_uV": 1.3797297272132933,
+     "shot_uV": 1.0147559262408545,
+     "ads_uV": 0.6040259334203083,
+     "total_uVrms": 1.8161032564921187,
+     "total_uVpp": 11.986281492847983
+    }
+   },
+   "in-vivo worst of v2 (k2/0.5/2 ph-80 a3 0.5)": {
+    "lead-off off": {
+     "thermal_uV": 1.7819703766100923,
+     "shot_uV": 1.3306003904905122,
+     "ads_uV": 0.6040259334203083,
+     "total_uVrms": 2.304509307972891,
+     "total_uVpp": 15.20976143262108
+    },
+    "lead-off 6 nA": {
+     "thermal_uV": 1.7819703766100923,
+     "shot_uV": 3.668794711126596,
+     "ads_uV": 0.6040259334203083,
+     "total_uVrms": 4.123144477671219,
+     "total_uVpp": 27.212753552630044
+    }
+   },
+   "ARCH 1M|10n": {
+    "lead-off off": {
+     "thermal_uV": 1.2093335315257352,
+     "shot_uV": 0.10870019389463904,
+     "ads_uV": 0.6040259334203083,
+     "total_uVrms": 1.356152886244583,
+     "total_uVpp": 8.950609049214249
+    },
+    "lead-off 6 nA": {
+     "thermal_uV": 1.2093335315257352,
+     "shot_uV": 0.5279985229891281,
+     "ads_uV": 0.6040259334203083,
+     "total_uVrms": 1.451246829107813,
+     "total_uVpp": 9.578229072111567
+    }
+   },
+   "ARCH 10M|1n": {
+    "lead-off off": {
+     "thermal_uV": 2.5901303086185123,
+     "shot_uV": 1.0870019389463903,
+     "ads_uV": 0.6040259334203083,
+     "total_uVrms": 2.8731856116759524,
+     "total_uVpp": 18.963025037061286
+    },
+    "lead-off 6 nA": {
+     "thermal_uV": 2.5901303086185123,
+     "shot_uV": 3.1049348863894384,
+     "ads_uV": 0.6040259334203083,
+     "total_uVrms": 4.088305638352727,
+     "total_uVpp": 26.982817213127998
+    }
+   },
+   "signal_att_nominal": {
+    "max_att": 0.009473995785251321,
+    "phase40_deg": -0.1932526614811393
+   }
+  },
+  "input_short_uVpp": 3.9865711605740355,
+  "patient_dc": {
+   "worst_by_class_uA": {
+    "SFC": 2.7605304552221326,
+    "SFC+GND": 5.62618313458255,
+    "double (info)": 6.739436486037379,
+    "normal": 2.6423960418095804,
+    "seal": 19.123488438448636,
+    "seal+GND": 25.386706985661387,
+    "seal+GND IDSS0.1": 19.32150638279822
+   },
+   "worst_case_by_class": {
+    "SFC": "SFC IN1P->AVDD",
+    "SFC+GND": "SFC TVS on E1 shorted + finger on the + contact (no head)",
+    "double (info)": "DOUBLE (information): Q20 shorted + LDO pass short AVDD 4.25 V, finger wet 1k on J18",
+    "normal": "normal, finger on the GND contact (wet 1k (behind Q20 off, IDSS 1 uA bound)) + finger on the + contact (no head, 1.1 M || 2 M) [AFE on]",
+    "seal": "seal: VBAT / VSTOR 4.25 V -> skin under the pod [AFE off]",
+    "seal+GND": "seal: VBAT / VSTOR 4.25 V -> plate E1 + finger on the + contact (no head) [AFE off]",
+    "seal+GND IDSS0.1": "seal: VBAT / VSTOR 4.25 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE off]"
+   },
+   "normal_limit_uA": 10,
+   "sfc_limit_uA": 50
+  },
+  "reversed_head": {
+   "q20_intact": {
+    "i_loop_max_uA": 1.1,
+    "v_board_gnd_above_vbus_k_V": 1.21,
+    "q20_vgs_V": -1.0999999999999999,
+    "q20_vds_V": 3.79,
+    "d14_reverse_V": 1.21,
+    "vbus_min_V": -0.08688891138146113,
+    "note": "Q20 blocks the reversed head; D14 sees <= 1.2 V reverse (IR scaled linearly from 5 V: conservative for a Schottky)"
+   },
+   "q20_shorted": {
+    "d14_ir45_typ_nA": 41.88859364120027,
+    "d14_ir45_max_nA": 179.52254417657258,
+    "vbus_unclamped_typ_V": -0.08377718728240055,
+    "vbus_unclamped_max_V": -0.3590450883531452,
+    "vbus_with_d16_V": -0.09,
+    "u15_in_absmax_V": -0.3,
+    "note": "without D16 the scaled maximum (-0.36 V) is below -0.3 V: E-5 clamp kept (D16)"
+   },
+   "before": {
+    "d14": "NSR0240 0.55 uA at 25 V (25 C) -> -0.04 V typ, -0.3...-0.4 V at max IR (g6_calc.json)"
+   }
+  },
+  "esd_j18": {
+   "GND contact +8 kV iec TPD1E10B06 on J18, Q20 off": {
+    "case": "GND contact +8 kV iec TPD1E10B06 on J18, Q20 off",
+    "tvs_ipk_A": 28.620539647672928,
+    "q20_vds_max_V": 37.149188996007965,
+    "q20_vds_min_V": 0.0003448770427297552,
+    "q20_t_over_20V_ns": 1.8583950410215007,
+    "q20_avalanche_ipk_A": 6.574594498003982,
+    "q20_avalanche_E_uJ": 0.24944136886189125,
+    "q20_gate_max_V": 4.03750886213018,
+    "q20_gate_min_V": 3.7486633286482235e-05
+   },
+   "GND contact -8 kV iec TPD1E10B06 on J18, Q20 off": {
+    "case": "GND contact -8 kV iec TPD1E10B06 on J18, Q20 off",
+    "tvs_ipk_A": 1.1340665406506505,
+    "q20_vds_max_V": -0.0003448770427297552,
+    "q20_vds_min_V": -9.153030927629551,
+    "q20_t_over_20V_ns": 0.0,
+    "q20_avalanche_ipk_A": 0.0,
+    "q20_avalanche_E_uJ": 0.0,
+    "q20_gate_max_V": -3.7486633286482235e-05,
+    "q20_gate_min_V": -0.9946198610360923
+   },
+   "GND contact +15 kV plain TPD1E10B06 on J18, Q20 off": {
+    "case": "GND contact +15 kV plain TPD1E10B06 on J18, Q20 off",
+    "tvs_ipk_A": 42.917012112605306,
+    "q20_vds_max_V": 56.53335425269879,
+    "q20_vds_min_V": 0.0009673285377921803,
+    "q20_t_over_20V_ns": 23.1413391135321,
+    "q20_avalanche_ipk_A": 16.266677126349396,
+    "q20_avalanche_E_uJ": 0.842428327539765,
+    "q20_gate_max_V": 6.144472558420918,
+    "q20_gate_min_V": 0.00010514440125311344
+   },
+   "GND contact -15 kV plain TPD1E10B06 on J18, Q20 off": {
+    "case": "GND contact -15 kV plain TPD1E10B06 on J18, Q20 off",
+    "tvs_ipk_A": 5.766915600949148,
+    "q20_vds_max_V": -0.0009673285377921803,
+    "q20_vds_min_V": -12.859795431198217,
+    "q20_t_over_20V_ns": 0.0,
+    "q20_avalanche_ipk_A": 0.0,
+    "q20_avalanche_E_uJ": 0.0,
+    "q20_gate_max_V": -0.00010514440125311344,
+    "q20_gate_min_V": -1.397453297239579
+   }
+  }
+ },
+ "after_s2c": {
+  "note": "stage 2c as built in v3/design: Q20 CJBA7002K (C504101, 60 V, IDSS <= 100 nA), D15 TPD1E10B06 on J18; everything else as after_mini",
+  "patient_dc": {
+   "worst_by_class_uA": {
+    "SFC": 2.7605304552221326,
+    "SFC+GND": 5.62618313458255,
+    "double (info)": 6.739436486037379,
+    "normal": 2.4844310987657043,
+    "seal": 19.123488438448636,
+    "seal+GND": 25.386706985661387,
+    "seal+GND IDSS0.01": 19.232401192212663
+   },
+   "worst_case_by_class": {
+    "SFC": "SFC IN1P->AVDD",
+    "SFC+GND": "SFC TVS on E1 shorted + finger on the + contact (no head)",
+    "double (info)": "DOUBLE (information): Q20 shorted + LDO pass short AVDD 4.25 V, finger wet 1k on J18",
+    "normal": "normal, finger on the GND contact (wet 1k (behind Q20 CJBA7002K off, IDSS 0.1 uA bound)) + finger on the + contact (no head, 1.1 M || 2 M) [AFE on]",
+    "seal": "seal: VBAT / VSTOR 4.25 V -> skin under the pod [AFE off]",
+    "seal+GND": "seal: VBAT / VSTOR 4.25 V -> plate E1 + finger on the + contact (no head) [AFE off]",
+    "seal+GND IDSS0.01": "seal: VBAT / VSTOR 4.25 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 0.01 uA) [AFE off]"
+   },
+   "normal_limit_uA": 10,
+   "sfc_limit_uA": 50
+  },
+  "reversed_head": {
+   "q20_intact": {
+    "i_loop_max_uA": 0.19999999999999998,
+    "v_board_gnd_above_vbus_k_V": 0.22,
+    "q20_vgs_V": -0.19999999999999998,
+    "q20_vds_V": 4.78,
+    "d14_reverse_V": 0.22,
+    "vbus_min_V": -0.015797983887538388,
+    "note": "Q20 blocks the reversed head; D14 sees <= 1.2 V reverse (IR scaled linearly from 5 V: conservative for a Schottky)"
+   },
+   "q20_shorted": {
+    "d14_ir45_typ_nA": 41.88859364120027,
+    "d14_ir45_max_nA": 179.52254417657258,
+    "vbus_unclamped_typ_V": -0.08377718728240055,
+    "vbus_unclamped_max_V": -0.3590450883531452,
+    "vbus_with_d16_V": -0.09,
+    "u15_in_absmax_V": -0.3,
+    "note": "without D16 the scaled maximum (-0.36 V) is below -0.3 V: E-5 clamp kept (D16)"
+   },
+   "before": {
+    "d14": "NSR0240 0.55 uA at 25 V (25 C) -> -0.04 V typ, -0.3...-0.4 V at max IR (g6_calc.json)"
+   }
+  },
+  "esd_j18": {
+   "GND contact +8 kV iec TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 60 V": {
+    "case": "GND contact +8 kV iec TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 60 V",
+    "tvs_ipk_A": 29.54536853636017,
+    "q20_vds_max_V": 65.92766025834068,
+    "q20_vds_min_V": 0.00031598070600045546,
+    "q20_t_over_20V_ns": 1.7575213131741338,
+    "q20_t_over_60V_ns": 0.21911671159577573,
+    "q20_vgs_max_V": 7.922456242432304,
+    "q20_vgs_min_V": 3.797192854215253e-05,
+    "q20_avalanche_ipk_A": 2.96383012917034,
+    "q20_avalanche_E_uJ": 0.02109905690112068,
+    "q20_gate_max_V": 7.922456242432304,
+    "q20_gate_min_V": 3.797192854215253e-05
+   },
+   "GND contact -8 kV iec TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 60 V": {
+    "case": "GND contact -8 kV iec TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 60 V",
+    "tvs_ipk_A": 1.1340874719184955,
+    "q20_vds_max_V": -0.00031598070600045546,
+    "q20_vds_min_V": -9.153007168308925,
+    "q20_t_over_20V_ns": 0.0,
+    "q20_t_over_60V_ns": 0.0,
+    "q20_vgs_max_V": -3.797192854215253e-05,
+    "q20_vgs_min_V": -1.0996315265941734,
+    "q20_avalanche_ipk_A": 0.0,
+    "q20_avalanche_E_uJ": 0.0,
+    "q20_gate_max_V": -3.797192854215253e-05,
+    "q20_gate_min_V": -1.0996315265941734
+   },
+   "GND contact +15 kV plain TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 60 V": {
+    "case": "GND contact +15 kV plain TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 60 V",
+    "tvs_ipk_A": 45.36152645868854,
+    "q20_vds_max_V": 80.00781498406171,
+    "q20_vds_min_V": 0.0008862786355222624,
+    "q20_t_over_20V_ns": 20.22078700595773,
+    "q20_t_over_60V_ns": 0.6968251049840122,
+    "q20_vgs_max_V": 9.614287236985163,
+    "q20_vgs_min_V": 0.00010650558207322723,
+    "q20_avalanche_ipk_A": 10.003907492030855,
+    "q20_avalanche_E_uJ": 0.34232630484461923,
+    "q20_gate_max_V": 9.614287236985163,
+    "q20_gate_min_V": 0.00010650558207322723
+   },
+   "GND contact -15 kV plain TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 60 V": {
+    "case": "GND contact -15 kV plain TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 60 V",
+    "tvs_ipk_A": 5.766937237615635,
+    "q20_vds_max_V": -0.0008862786355222624,
+    "q20_vds_min_V": -12.859912502894746,
+    "q20_t_over_20V_ns": 0.0,
+    "q20_t_over_60V_ns": 0.0,
+    "q20_vgs_max_V": -0.00010650558207322723,
+    "q20_vgs_min_V": -1.5450106716247707,
+    "q20_avalanche_ipk_A": 0.0,
+    "q20_avalanche_E_uJ": 0.0,
+    "q20_gate_max_V": -0.00010650558207322723,
+    "q20_gate_min_V": -1.5450106716247707
+   },
+   "GND contact +8 kV iec TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 70 V": {
+    "case": "GND contact +8 kV iec TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 70 V",
+    "tvs_ipk_A": 29.93584052029638,
+    "q20_vds_max_V": 74.62335903274358,
+    "q20_vds_min_V": 0.00031598070600045546,
+    "q20_t_over_20V_ns": 2.8175691894500665,
+    "q20_t_over_60V_ns": 0.21916458787170592,
+    "q20_vgs_max_V": 8.967384162693834,
+    "q20_vgs_min_V": 3.797192854215253e-05,
+    "q20_avalanche_ipk_A": 2.3116795163717896,
+    "q20_avalanche_E_uJ": 0.012891657356284914,
+    "q20_gate_max_V": 8.967384162693834,
+    "q20_gate_min_V": 3.797192854215253e-05
+   },
+   "GND contact -8 kV iec TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 70 V": {
+    "case": "GND contact -8 kV iec TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 70 V",
+    "tvs_ipk_A": 1.1340874719184955,
+    "q20_vds_max_V": -0.00031598070600045546,
+    "q20_vds_min_V": -9.153007168308925,
+    "q20_t_over_20V_ns": 0.0,
+    "q20_t_over_60V_ns": 0.0,
+    "q20_vgs_max_V": -3.797192854215253e-05,
+    "q20_vgs_min_V": -1.0996315265941734,
+    "q20_avalanche_ipk_A": 0.0,
+    "q20_avalanche_E_uJ": 0.0,
+    "q20_gate_max_V": -3.797192854215253e-05,
+    "q20_gate_min_V": -1.0996315265941734
+   },
+   "GND contact +15 kV plain TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 70 V": {
+    "case": "GND contact +15 kV plain TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 70 V",
+    "tvs_ipk_A": 45.63155817176034,
+    "q20_vds_max_V": 88.83983943464627,
+    "q20_vds_min_V": 0.0008862786355222624,
+    "q20_t_over_20V_ns": 19.763681204237383,
+    "q20_t_over_60V_ns": 0.6184225599801518,
+    "q20_vgs_max_V": 10.675806153551648,
+    "q20_vgs_min_V": 0.00010650558207322723,
+    "q20_avalanche_ipk_A": 9.419919717323133,
+    "q20_avalanche_E_uJ": 0.27534198283076294,
+    "q20_gate_max_V": 10.675806153551648,
+    "q20_gate_min_V": 0.00010650558207322723
+   },
+   "GND contact -15 kV plain TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 70 V": {
+    "case": "GND contact -15 kV plain TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 70 V",
+    "tvs_ipk_A": 5.766937237615635,
+    "q20_vds_max_V": -0.0008862786355222624,
+    "q20_vds_min_V": -12.859912502894746,
+    "q20_t_over_20V_ns": 0.0,
+    "q20_t_over_60V_ns": 0.0,
+    "q20_vgs_max_V": -0.00010650558207322723,
+    "q20_vgs_min_V": -1.5450106716247707,
+    "q20_avalanche_ipk_A": 0.0,
+    "q20_avalanche_E_uJ": 0.0,
+    "q20_gate_max_V": -0.00010650558207322723,
+    "q20_gate_min_V": -1.5450106716247707
+   }
+  }
+ },
+ "precheck_2026_11_16": {
+  "check": "R-4 SIM-07 with the copper over the plates (routed board, 77 unconnected)",
+  "verdict": "FAIL as routed; PASS with NTC, I2C_SDA, I2C_SCL off the plates",
+  "as_routed_uVpp": "3.99 + 74-402 (NTC 54-319, I2C_SDA 13-55, I2C_SCL 6-27, SPI_MISO 0.2-0.9, DEC4 0.04-0.17)",
+  "after_move_uVpp": "4.24-5.04 <= 10",
+  "must_leave_plates": [
+   "NTC",
+   "NTC_ADC",
+   "O2_TC",
+   "O2_TH",
+   "I2C_SDA",
+   "I2C_SCL"
+  ],
+  "c_per_via_pF": "0.012-0.031 parallel plate, 0.026-0.059 with fringe (pads 0.25-0.40)",
+  "files": "v3/prechecks/sim07_vias.py, sim07_vias.json, plate_geom.json, PRECHECKS.md"
+ }
+}

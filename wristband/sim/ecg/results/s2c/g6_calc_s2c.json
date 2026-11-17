@@ -1,0 +1,23 @@
+{
+ "q20_intact": {
+  "i_loop_max_uA": 0.19999999999999998,
+  "v_board_gnd_above_vbus_k_V": 0.22,
+  "q20_vgs_V": -0.19999999999999998,
+  "q20_vds_V": 4.78,
+  "d14_reverse_V": 0.22,
+  "vbus_min_V": -0.015797983887538388,
+  "note": "Q20 blocks the reversed head; D14 sees <= 1.2 V reverse (IR scaled linearly from 5 V: conservative for a Schottky)"
+ },
+ "q20_shorted": {
+  "d14_ir45_typ_nA": 41.88859364120027,
+  "d14_ir45_max_nA": 179.52254417657258,
+  "vbus_unclamped_typ_V": -0.08377718728240055,
+  "vbus_unclamped_max_V": -0.3590450883531452,
+  "vbus_with_d16_V": -0.09,
+  "u15_in_absmax_V": -0.3,
+  "note": "without D16 the scaled maximum (-0.36 V) is below -0.3 V: E-5 clamp kept (D16)"
+ },
+ "before": {
+  "d14": "NSR0240 0.55 uA at 25 V (25 C) -> -0.04 V typ, -0.3...-0.4 V at max IR (g6_calc.json)"
+ }
+}

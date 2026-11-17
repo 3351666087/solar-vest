@@ -1,0 +1,16 @@
+{
+ "shuntA": null,
+ "ser": [
+  "L",
+  3.9e-09,
+  "LQG15HS3N9B02.s2p"
+ ],
+ "shuntB": [
+  "L",
+  1.1000000000000001e-09,
+  "LQG15HS1N1B02.s2p"
+ ],
+ "desc": "A:DNP | S:3.9 nH (LQG15HS3N9B02) | B:1.1 nH (LQG15HS1N1B02)",
+ "l_b_mm": 10.0,
+ "from_tag": "PA_c_screen"
+}

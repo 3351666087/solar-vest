@@ -1,0 +1,252 @@
+Ref,Value,LCSC,MPN,Footprint,Side,Courtyard_mm2,Height_max_mm,Class,Function
+AE1,lid strip L1 feed,,,solarband:AE1_lid_L1,top (sky),,0.0,copper only (no component),lid antenna L1: feed leg + J40 spring land in the copper-free pocket (all 6 layers); radiator = printed strip on the glass
+C101,4.7uF 16V X5R 0603,C19666,CL10A475KO8NNNC,easyeda_rev:C19666_C0603,top (sky),3.0,0.9,JLC-placed,"CIN 4.7 uF on VIN_DC, after R_LIM - do not enlarge (R-PMIC-2)"
+C102,10uF 10V X5R 0603,C19702,CL10A106KP8NNNC,easyeda_rev:C19702_C0603,top (sky),3.0,0.9,JLC-placed,CSTOR 10 uF on VSTOR (to pin 1)
+C103,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,CBYP 0.1 uF on VSTOR (first priority at pin 19-pin 1)
+C104,10nF 25V C0G 0402 GRM1555C1E103JE01D,C3855387,GRM1555C1E103JE01D,easyeda_rev:C3855387_C0402,top (sky),1.41,0.55,JLC-placed,CREF 10 nF C0G 0402 low leakage (MPPT hold 16 s) -> GND_PMIC [G1 L0: was 0603; same C0G insulation class]
+C105,22uF 6.3V X5R 0402 CL05A226MQ5QUNC,C105226,CL05A226MQ5QUNC,easyeda_rev:C105226_C0402,top (sky),1.41,0.7,JLC-placed,COUT 1/5: 22 uF 0402 on VDD_1V8 [SIM-06 re-run with the 0402 DC-bias curve]
+C106,22uF 6.3V X5R 0603,C59461,CL10A226MQ8NRNC,easyeda_rev:C59461_C0603,top (sky),3.0,1.0,JLC-placed,CBAT 22 uF local bypass at U1 VBAT
+C107,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,U4 VS bypass 0.1 uF (SBOSA81D section 9.4)
+C108,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,U5 VS bypass 0.1 uF (SBOSA81D section 9.4)
+C111,1uF 25V X5R 0402,C52923,CL05A105KA5NQNC,easyeda_rev:C52923_C0402,top (sky),1.41,0.6,JLC-placed,U3 CIN 1 uF; also U12 output bypass
+C112,1uF 25V X5R 0402,C52923,CL05A105KA5NQNC,easyeda_rev:C52923_C0402,top (sky),1.41,0.6,JLC-placed,U3 COUT 1 uF
+C113,10nF 25V X7R 0201,C285010,0201B103K250NT,easyeda_rev:C285010_C0201,top (sky),0.781,0.33,JLC-placed,NTC_ADC SAADC sample reservoir 10 nF (tau 10 ms with R149)
+C114,22uF 6.3V X5R 0402 CL05A226MQ5QUNC,C105226,CL05A226MQ5QUNC,easyeda_rev:C105226_C0402,top (sky),1.41,0.7,JLC-placed,COUT 2/5: 22 uF 0402 on VDD_1V8 [SIM-06 re-run with the 0402 DC-bias curve]
+C115,22uF 6.3V X5R 0402 CL05A226MQ5QUNC,C105226,CL05A226MQ5QUNC,easyeda_rev:C105226_C0402,top (sky),1.41,0.7,JLC-placed,COUT 3/5: 22 uF 0402 on VDD_1V8 [SIM-06 re-run with the 0402 DC-bias curve]
+C116,22uF 6.3V X5R 0402 CL05A226MQ5QUNC,C105226,CL05A226MQ5QUNC,easyeda_rev:C105226_C0402,top (sky),1.41,0.7,JLC-placed,COUT 4/5: 22 uF 0402 on VDD_1V8 [SIM-06 re-run with the 0402 DC-bias curve]
+C117,22uF 6.3V X5R 0402 CL05A226MQ5QUNC,C105226,CL05A226MQ5QUNC,easyeda_rev:C105226_C0402,top (sky),1.41,0.7,JLC-placed,COUT 5/5: 22 uF 0402 on VDD_1V8 [SIM-06 re-run with the 0402 DC-bias curve]
+C118,22uF 6.3V X5R 0402 CL05A226MQ5QUNC,C105226,CL05A226MQ5QUNC,easyeda_rev:C105226_C0402,top (sky),1.41,0.0,"DNP (pads only, excluded from BOM/CPL)",LED reservoir 22 uF at the LED anodes: NOT FITTED (0402 land kept; 22 uF 0402 = C105226) [P-6; FIX R-08; G1 L0: land 0603 -> 0402]
+C119,1uF 10V X5R 0201 GRM033R61A105ME44D,C76935,GRM033R61A105ME44D,easyeda_rev:C76935_C0201,top (sky),0.781,0.33,JLC-placed,U12 IN bypass 1 uF 0201 10 V (SiP32431 p.3); the bulk on this net is C102 10 uF [G1 L0]
+C120,10nF 25V X7R 0201,C285010,0201B103K250NT,easyeda_rev:C285010_C0201,top (sky),0.781,0.33,JLC-placed,U12 ON delay 10 nF (t ~ 6 ms to VIH)
+C121,4.7uF 10V X5R 0402,C23733,CL05A475MP5NRNC,easyeda_rev:C23733_C0402,top (sky),1.41,0.6,JLC-placed,EN_HOLD hold capacitor 4.7 uF (tau 15.5 s with R126) [FIX R-02]
+C122,1uF 10V X5R 0201 GRM033R61A105ME44D,C76935,GRM033R61A105ME44D,easyeda_rev:C76935_C0201,top (sky),0.781,0.33,JLC-placed,power-cycle timer 1 uF 0201 10 V (off interval 0.5-1 s with R128) [FIX R-02; G1 L0]
+C130,1uF 25V X5R 0402,C52923,CL05A105KA5NQNC,easyeda_rev:C52923_C0402,top (sky),1.41,0.6,JLC-placed,U15 IN 1 uF 25 V (SLUSDJ8A p.3: >= 1 uF close to the IC); absorbs the ESD charge behind D14
+C131,1uF 25V X5R 0402,C52923,CL05A105KA5NQNC,easyeda_rev:C52923_C0402,top (sky),1.41,0.6,JLC-placed,U15 OUT 1 uF 25 V (p.3)
+C132,4.7nF 25V X7R 0201 CC0201KRX7R8BB472,C309454,CC0201KRX7R8BB472,easyeda_rev:C309454_C0201,top (sky),0.781,0.33,JLC-placed,ISET RC: 4.7 nF X7R 25 V 0201 (TI SLUAAG9 p.7) [G1 L0]
+C170,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,V_O2 reservoir 100 nF
+C174,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,"Q14 gate-source hold 100 nF: keeps an approval for 0.64-1.67 s when the O-2 browns out (re-check cycle, CALC_V3F 3)"
+C175,220pF 5% C0G 0201 GRM0335C1H221JA01D,C161418,GRM0335C1H221JA01D,easyeda_rev:C161418_C0201,top (sky),0.781,0.33,JLC-placed,heartbeat coupling 220 pF C0G from CHG_DIS: a rising edge lifts O2_HB to >= 1.2 V for about 0.1 ms; a static level decays (tau 0.27 ms) [S1 D-1]
+C201,12pF 1% C0G 0201 GRM0335C1H120FA01D,C384960,GRM0335C1H120FA01D,easyeda_rev:C384960_C0201,top (sky),0.781,0.33,JLC-placed,Nordic C1 12 pF NP0: XC1
+C202,12pF 1% C0G 0201 GRM0335C1H120FA01D,C384960,GRM0335C1H120FA01D,easyeda_rev:C384960_C0201,top (sky),0.781,0.33,JLC-placed,Nordic C2 12 pF NP0: XC2
+C203,1.0pF +-0.1pF C0G 0201 GJM0335C1H1R0BB01D,C237514,GJM0335C1H1R0BB01D,easyeda_rev:C237514_C0201,top (sky),0.781,0.33,JLC-placed,"Nordic C3 1.0 pF 0201 shunt at ANT (ball D1, next to VSS_PA D2) [SIM-09 re-run]"
+C204,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,Nordic C4 100 nF: DEC1
+C205,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,Nordic C5 100 nF: VDD (ball H7 / pin 13)
+C206,100pF 5% C0G 0201 GRM0335C1H101JA01D,C76922,GRM0335C1H101JA01D,easyeda_rev:C76922_C0201,top (sky),0.781,0.33,JLC-placed,Nordic C6 100 pF NP0: DEC2 (fitted in the CIAA reference)
+C207,100pF 5% C0G 0201 GRM0335C1H101JA01D,C76922,GRM0335C1H101JA01D,easyeda_rev:C76922_C0201,top (sky),0.781,0.33,JLC-placed,Nordic C7 100 pF NP0: DEC3
+C209,4.7uF 10V X5R 0402,C23733,CL05A475MP5NRNC,easyeda_rev:C23733_C0402,top (sky),1.41,0.6,JLC-placed,Nordic C8 (WLCSP) / C9 (QFN) 4.7 uF: VDD (ball A7 / pin 48); 0402 10 V instead of Nordic's 0603 [Lens C 3.1]
+C210,1uF 25V X5R 0402,C52923,CL05A105KA5NQNC,easyeda_rev:C52923_C0402,top (sky),1.41,0.6,JLC-placed,Nordic C9 (WLCSP) / C10 (QFN) 1.0 uF 0402: DEC4
+C211,20pF 5% C0G 0201 GRM0335C1H200JA01D,C76923,GRM0335C1H200JA01D,easyeda_rev:C76923_C0201,top (sky),0.781,0.33,JLC-placed,LFXO load 20 pF C0G: (20 + 4 + 0.5)/2 = 12.25 pF
+C212,20pF 5% C0G 0201 GRM0335C1H200JA01D,C76923,GRM0335C1H200JA01D,easyeda_rev:C76923_C0201,top (sky),0.781,0.33,JLC-placed,LFXO load 20 pF C0G
+C213,DNP,C1546,0402CG101J500NT,easyeda_rev:C1546_C0402,top (sky),1.41,0.0,"DNP (pads only, excluded from BOM/CPL)","pi-net chip-side shunt land, DNP (tuning) [gate 3a]"
+C215,7.6nH 0402 LQW15AN7N6G80D,C2048575,LQW15AN7N6G80D,easyeda_rev:C2048575_IND-SMD_L1.0-W0.6,top (sky),2.266,0.6,JLC-placed,pi-net series 7.6 nH wire-wound on the C215 land (lid antenna L1) [F; S2c 9.0 nH; was 2.1 pF]
+C301,DNP,C76924,GRM0335C1H220JA01D,easyeda_rev:C76924_C0201,top (sky),0.781,0.0,"DNP (pads only, excluded from BOM/CPL)",C_CM+ DNP (pad kept) [SIM-07]
+C302,DNP,C76924,GRM0335C1H220JA01D,easyeda_rev:C76924_C0201,top (sky),0.781,0.0,"DNP (pads only, excluded from BOM/CPL)",C_CM- DNP (pad kept) [SIM-07]
+C303,DNP,C76922,GRM0335C1H101JA01D,easyeda_rev:C76922_C0201,top (sky),0.781,0.0,"DNP (pads only, excluded from BOM/CPL)",C_DIFF DNP (pad kept) [SIM-07]
+C304,150pF 5% C0G 0201 GRM0335C1H151JA01D,C161408,GRM0335C1H151JA01D,easyeda_rev:C161408_C0201,top (sky),0.781,0.33,JLC-placed,RLD CEXT 150 pF C0G (RLDINV side) [SIM-07: PM >= 55.4 deg]
+C305,4.7nF 50V C0G 0402 GRM1555C1H472JE01D,C1518204,GRM1555C1H472JE01D,easyeda_rev:C1518204_C0402,top (sky),1.41,0.55,JLC-placed,CFILTER PGA1 4.7 nF C0G 50 V 0402 [G1 L0: was 0603]
+C306,4.7nF 50V C0G 0402 GRM1555C1H472JE01D,C1518204,GRM1555C1H472JE01D,easyeda_rev:C1518204_C0402,top (sky),1.41,0.55,JLC-placed,CFILTER PGA2 4.7 nF C0G 50 V 0402 [G1 L0: was 0603]
+C307,10uF 6.3V X5R 0402,C15525,CL05A106MQ5NUNC,easyeda_rev:C15525_C0402,top (sky),1.41,0.7,JLC-placed,VREFP-VREFN 10 uF
+C308,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,VREFP-VREFN 0.1 uF
+C309,1uF 25V X5R 0402,C52923,CL05A105KA5NQNC,easyeda_rev:C52923_C0402,top (sky),1.41,0.6,JLC-placed,VCAP1 1 uF
+C310,1uF 25V X5R 0402,C52923,CL05A105KA5NQNC,easyeda_rev:C52923_C0402,top (sky),1.41,0.6,JLC-placed,VCAP2 1 uF
+C311,1uF 25V X5R 0402,C52923,CL05A105KA5NQNC,easyeda_rev:C52923_C0402,top (sky),1.41,0.6,JLC-placed,AVDD 1 uF
+C312,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,AVDD 0.1 uF
+C313,1uF 10V X5R 0201 GRM033R61A105ME44D,C76935,GRM033R61A105ME44D,easyeda_rev:C76935_C0201,top (sky),0.781,0.33,JLC-placed,DVDD 1 uF 0201 10 V (the rail carries 5 x 22 uF) [G1 L0]
+C314,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,DVDD 0.1 uF
+C401,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,VDD_ANA 0.1 uF (at bump D2)
+C402,10uF 6.3V X5R 0402,C15525,CL05A106MQ5NUNC,easyeda_rev:C15525_C0402,top (sky),1.41,0.7,JLC-placed,VDD_ANA 10 uF
+C403,1uF 25V X5R 0402,C52923,CL05A105KA5NQNC,easyeda_rev:C52923_C0402,top (sky),1.41,0.6,JLC-placed,VREF 1 uF to GND_ANA
+C404,10uF 10V X5R 0603,C19702,CL10A106KP8NNNC,easyeda_rev:C19702_C0603,top (sky),3.0,0.9,JLC-placed,VLED 10 uF to PGND (at bump A1); part of the LED reservoir
+C405,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,VDD_DIG 0.1 uF to GND_DIG (at bump C2)
+C501,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,LIS2DW12 100 nF at pin 9 (VDD) - section 4 application hints
+C502,10uF 6.3V X5R 0402,C15525,CL05A106MQ5NUNC,easyeda_rev:C15525_C0402,top (sky),1.41,0.7,JLC-placed,LIS2DW12 10 uF at pin 9 (VDD; ceramic instead of aluminium)
+C504,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,TMP117 V+ 0.1 uF
+C505,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,MX25R VCC 0.1 uF
+C1501,1uF 25V X5R 0402,C52923,CL05A105KA5NQNC,easyeda_rev:C52923_C0402,top (sky),1.41,0.6,JLC-placed,U16 IN 1 uF (SBVS277C p.5: >= 1 uF)
+C1502,1uF 25V X5R 0402,C52923,CL05A105KA5NQNC,easyeda_rev:C52923_C0402,top (sky),1.41,0.6,JLC-placed,"U16 OUT 1 uF (>= 0.5 uF effective for stability, p.5); panel VDD >= 1 uF"
+C1503,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,panel VDD / VDDA 100 nF at the FPC land (LD-29Y03 p.24: capacitor for VDD and VDDA)
+C1601,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,U17 / U21 VCCA 100 nF (SCES937B 8.4)
+C1602,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,U17 VCCB 100 nF
+C1603,100nF 10V X7R 0201,C7393837,TCC0201X7R104K100ZT,easyeda_rev:C7393837_C0201,top (sky),0.781,0.33,JLC-placed,U21 VCCB 100 nF
+D3,CT DBLP31.12 green,C5603826,CT DBLP31.12,easyeda_rev:C5603826_LED-SMD_3P-L2.2-W1.8_C5D-56-J6U6-20-R18,bottom (skin),6.21,0.7,JLC-placed,"Heart-rate LED 1 (anode VLED, cathode LED1_DRV), skin face"
+D4,CT DBLP31.12 green,C5603826,CT DBLP31.12,easyeda_rev:C5603826_LED-SMD_3P-L2.2-W1.8_C5D-56-J6U6-20-R18,bottom (skin),6.21,0.7,JLC-placed,"Heart-rate LED 2 (anode VLED, cathode LED2_DRV), skin face"
+D5,TPD1E10B06DPYR,C48260,TPD1E10B06DPYR,easyeda_rev:C48260_X1SON-2_L1.0-W0.6-P0.65-BI-1,top (sky),2.352,0.45,JLC-placed,"ESD clamp at the E1 (IN+, back, wearing wrist) landing pad"
+D6,TPD1E10B06DPYR,C48260,TPD1E10B06DPYR,easyeda_rev:C48260_X1SON-2_L1.0-W0.6-P0.65-BI-1,top (sky),2.352,0.45,JLC-placed,"ESD clamp at the E3 (IN-, top-rim strip, finger) landing pad"
+D7,TPD1E10B06DPYR,C48260,TPD1E10B06DPYR,easyeda_rev:C48260_X1SON-2_L1.0-W0.6-P0.65-BI-1,top (sky),2.352,0.45,JLC-placed,"ESD clamp at the E2 (RLD, back) landing pad"
+D8,TPD1E10B06DPYR,C48260,TPD1E10B06DPYR,easyeda_rev:C48260_X1SON-2_L1.0-W0.6-P0.65-BI-1,top (sky),2.352,0.45,JLC-placed,"TVS on PV+ (lid tail and wing root B), on the PV side of RSH1 [G-10 / E-20; SIM-08 with the PV node]"
+D9,"BAS521,115",C130414,"BAS521,115",easyeda_rev:C130414_SOD-523_L1.2-W0.8-LS1.6-RD,top (sky),3.12,0.7,JLC-placed,PWR_HOLD -> EN_HOLD (MCU keeps the harvester enabled in the dark)
+D10,KA-2810ASURSK hyper-red right-angle,C598214,KA-2810ASURSK,easyeda_rev:C598214_LED-SMD_L2.5-W1.2_KA-2810AVBS-D,top (sky),7.611,0.9,JLC-placed,"skin-hot warning LED, right-angle hyper red, at the board edge (light window in a light-tight pocket of the ring) [FIX R-06]"
+D11,"BAS521,115",C130414,"BAS521,115",easyeda_rev:C130414_SOD-523_L1.2-W0.8-LS1.6-RD,top (sky),3.12,0.7,JLC-placed,PWR_CYC -> CYC_A: no back-current into the unpowered MCU pin [FIX R-17a]
+D12,"BAV70M,315",C549313,"BAV70M,315",easyeda_rev:C549313_SOT883_BAV70M_land_of_C549275,top (sky),2.025,0.5,JLC-placed,"ship-mode wake into EN_HOLD: half A from VB_DET (head attached), half B from BTN (button pressed); Si pair, IR <= 30 nA at 25 V (hold node of FIX R-02) [BASELINE 5.1, 16]"
+D13,ESD761DPYR,C20345399,ESD761DPYR,easyeda_rev:C20345399_X1SON-2_L1.0-W0.6-P0.65-BI,top (sky),2.352,0.45,JLC-placed,"ESD on the + contact at the pod entry: bidirectional, 24 V working, IEC 61000-4-2 +-15 kV (SLVSH10C p.1, p.5) [G-10]"
+D14,PMEG10020AELR-QX,C6736531,PMEG10020AELR-QX,easyeda_rev:C6736531_SOD-123F_L2.8-W1.8-LS3.7-RD,top (sky),10.8,1.1,JLC-placed,"reverse-attach block, 100 V Schottky (Nexperia PMEG10020AELR, SOD123W): -5 V head and -15 kV contact ESD blocked; VF typ about 0.43 V at 33 mA, 25 C (Fig. 4) [S2b E-4: was NSR0240 40 V]"
+D15,TPD1E10B06DPYR,C48260,TPD1E10B06DPYR,easyeda_rev:C48260_X1SON-2_L1.0-W0.6-P0.65-BI-1,top (sky),2.352,0.45,JLC-placed,"ESD clamp on the - contact J18 (GND_K) at the pod entry: TPD1E10B06 (same part as D18), bidirectional, IEC 61000-4-2; protects Q20 (an ESD761 lets Q20 avalanche) [mini-ECO F-1; was ESD761]"
+D16,NSR0240MX2T5G,C896422,NSR0240MX2T5G,easyeda_rev:C896422_X2DFN-2_L1.0-W0.6-RD,top (sky),1.68,0.4,JLC-placed,"VBUS negative clamp, anode GND -> cathode VBUS: holds VBUS above -0.3 V (U15 IN abs. max) against the D14 leakage at -5 V [S2b E-5]"
+D17,"BAT54CM,315",C549275,"BAT54CM,315",easyeda_rev:C549275_DFN1006-3_L1.0-W0.6-P0.35-BR_BAT54CM,top (sky),2.025,0.5,JLC-placed,"ERM flyback: both Schottky halves in parallel from MOTOR_N to VBAT_IC (200 mA each, 30 V)"
+D18,TPD1E10B06DPYR,C48260,TPD1E10B06DPYR,easyeda_rev:C48260_X1SON-2_L1.0-W0.6-P0.65-BI-1,top (sky),2.352,0.45,JLC-placed,"ESD clamp on BTN at SW1 (bidirectional, IEC 61000-4-2): a discharge through the button membrane [S2b E-6, ECG.md 5d]"
+D19,"BAT54CM,315",C549275,"BAT54CM,315",easyeda_rev:C549275_DFN1006-3_L1.0-W0.6-P0.35-BR_BAT54CM,top (sky),2.025,0.5,JLC-placed,"V_O2 OR: half A from the PV (also the disconnect while Q8 shorts the PV), half B from NTC_EN (MCU bias for its own reading)"
+E11,PLATE DOT PAD 2.0 ENIG (B.Cu),,,solarband:Pad_PlateDot_D2.0mm,bottom (skin),6.25,0.0,copper only (no component),"E1 plate (IN+), silver-epoxy dot A; split ENIG pad on the skin face, opening in the carrier film"
+E12,PLATE DOT PAD 2.0 ENIG (B.Cu),,,solarband:Pad_PlateDot_D2.0mm,bottom (skin),6.25,0.0,copper only (no component),"E1 plate, dot B (through R318); split ENIG pad on the skin face, opening in the carrier film"
+E21,PLATE DOT PAD 2.0 ENIG (B.Cu),,,solarband:Pad_PlateDot_D2.0mm,bottom (skin),6.25,0.0,copper only (no component),"E2 plate (RLD), silver-epoxy dot A; split ENIG pad on the skin face, opening in the carrier film"
+E22,PLATE DOT PAD 2.0 ENIG (B.Cu),,,solarband:Pad_PlateDot_D2.0mm,bottom (skin),6.25,0.0,copper only (no component),"E2 plate, dot B (through R319); split ENIG pad on the skin face, opening in the carrier film"
+FB1,0R 0201 0201WMF0000TEE,C473473,0201WMF0000TEE,easyeda_rev:C473473_R0201,top (sky),0.704,0.26,JLC-placed,strap-line link BATT_P: 0 Ohm 0201 by default (rated 0.5 A); 0201 ferrite bead if SIM-10/11 asks (strap tails are quarter-wave monopoles) [BASELINE 13.1; G1 L0: was 0402]
+FB2,0R 0201 0201WMF0000TEE,C473473,0201WMF0000TEE,easyeda_rev:C473473_R0201,top (sky),0.704,0.26,JLC-placed,"strap-line link GND (root A, 1): 0 Ohm 0201 by default (rated 0.5 A); 0201 ferrite bead if SIM-10/11 asks (strap tails are quarter-wave monopoles) [BASELINE 13.1; G1 L0: was 0402]"
+FB3,0R 0201 0201WMF0000TEE,C473473,0201WMF0000TEE,easyeda_rev:C473473_R0201,top (sky),0.704,0.26,JLC-placed,strap-line link NTC: 0 Ohm 0201 by default (rated 0.5 A); 0201 ferrite bead if SIM-10/11 asks (strap tails are quarter-wave monopoles) [BASELINE 13.1; G1 L0: was 0402]
+FB4,0R 0201 0201WMF0000TEE,C473473,0201WMF0000TEE,easyeda_rev:C473473_R0201,top (sky),0.704,0.26,JLC-placed,"strap-line link GND (root A, 2): 0 Ohm 0201 by default (rated 0.5 A); 0201 ferrite bead if SIM-10/11 asks (strap tails are quarter-wave monopoles) [BASELINE 13.1; G1 L0: was 0402]"
+FB5,0R 0201 0201WMF0000TEE,C473473,0201WMF0000TEE,easyeda_rev:C473473_R0201,top (sky),0.704,0.26,JLC-placed,strap-line link PV_W+ (joins PV+): 0 Ohm 0201 by default (rated 0.5 A); 0201 ferrite bead if SIM-10/11 asks (strap tails are quarter-wave monopoles) [BASELINE 13.1; G1 L0: was 0402]
+FB6,0R 0201 0201WMF0000TEE,C473473,0201WMF0000TEE,easyeda_rev:C473473_R0201,top (sky),0.704,0.26,JLC-placed,strap-line link GND (root B): 0 Ohm 0201 by default (rated 0.5 A); 0201 ferrite bead if SIM-10/11 asks (strap tails are quarter-wave monopoles) [BASELINE 13.1; G1 L0: was 0402]
+FID1,FIDUCIAL 1.0/2.0,,,solarband:Fiducial_1.0mm_Mask2.0mm,top (sky),6.25,0.0,copper only (no component),local fiducial 1 (sky side)
+FID2,FIDUCIAL 1.0/2.0,,,solarband:Fiducial_1.0mm_Mask2.0mm,top (sky),6.25,0.0,copper only (no component),local fiducial 2 (sky side)
+FID3,FIDUCIAL 1.0/2.0,,,solarband:Fiducial_1.0mm_Mask2.0mm,bottom (skin),6.25,0.0,copper only (no component),local fiducial 3 (skin face: two-sided assembly)
+FID4,FIDUCIAL 1.0/2.0,,,solarband:Fiducial_1.0mm_Mask2.0mm,bottom (skin),6.25,0.0,copper only (no component),local fiducial 4 (skin face)
+J3,ROOT ENTRY PAD 1.0x2.5,,,solarband:Pad_RootEntry_1.0x2.5mm,top (sky),4.5,0.0,copper only (no component),"root A: BATT_P (pack +); 1-layer strap flex soldered to the entry land 1.0 x 2.5 mm [BASELINE 5.1, 9; G1 L0: was 1.0 x 4.0]"
+J4,ROOT ENTRY PAD 1.0x2.5,,,solarband:Pad_RootEntry_1.0x2.5mm,top (sky),4.5,0.0,copper only (no component),"root A: GND (pack -), guard between BATT_P and NTC; 1-layer strap flex soldered to the entry land 1.0 x 2.5 mm [BASELINE 5.1, 9; G1 L0: was 1.0 x 4.0]"
+J5,ROOT ENTRY PAD 1.0x2.5,,,solarband:Pad_RootEntry_1.0x2.5mm,top (sky),4.5,0.0,copper only (no component),"root A: NTC (10 k B 3950 K on the cell, to pack -); 1-layer strap flex soldered to the entry land 1.0 x 2.5 mm [BASELINE 5.1, 9; G1 L0: was 1.0 x 4.0]"
+J6,LID FLEX TAIL 3 x 1.0x2.0 P1.5,,,solarband:Pad_LidTail_3x1.0x2.0_P1.5mm,top (sky),11.25,0.0,copper only (no component),"lid flex-tail land 3 x 1.0 x 2.0 mm at 1.5 mm: PV+, PV-, backsheet ground (copper under the finger rest tied to PV-) [G1 L0: was 3 x 1.2 x 3.0 at 2.0]"
+J7,ROOT ENTRY PAD 1.0x2.5,,,solarband:Pad_RootEntry_1.0x2.5mm,top (sky),4.5,0.0,copper only (no component),"root B: PV_W+ (c-Si wing, 4 sub-cells in series); 1-layer strap flex soldered to the entry land 1.0 x 2.5 mm [BASELINE 5.1, 9; G1 L0: was 1.0 x 4.0]"
+J8,POGO 2x5 P1.27 (L6),,,solarband:TestPad_2x5_P1.27mm_D0.9mm,bottom (skin),20.7,0.0,copper only (no component),skin-face pogo array 2 x 5 for the G10 jig (before the floor is bonded); pad 6 is DISP_CTRL now (was UART_TX)
+J9,ROOT ENTRY PAD 1.0x2.5,,,solarband:Pad_RootEntry_1.0x2.5mm,top (sky),4.5,0.0,copper only (no component),"root B: GND (wing -); 1-layer strap flex soldered to the entry land 1.0 x 2.5 mm [BASELINE 5.1, 9; G1 L0: was 1.0 x 4.0]"
+J10,ROOT ENTRY PAD 1.0x2.5,,,solarband:Pad_RootEntry_1.0x2.5mm,top (sky),4.5,0.0,copper only (no component),"root A: GND (guard); 1-layer strap flex soldered to the entry land 1.0 x 2.5 mm [BASELINE 5.1, 9; G1 L0: was 1.0 x 4.0]"
+J11,BW0036BG spring finger 3.0x1.0x1.4,C2826535,BW0036BG-L3.0W1.0H1.4,easyeda_rev:C2826535_SMD_L2.9-W1.0-2108613-5,top (sky),6.295,1.5,JLC-placed,"E3 top-rim strip contact (IN-, finger): SMT spring finger BW0036BG under the strip's tab, working height 1.00 mm (0.70-1.30); mating tab >= 3.4 x 2.2 mm centred on the pad centre (rotation-neutral) [FIX R-04]"
+J12,SWD/RESET GROUP 2x3 P1.27,,,solarband:TestPad_2x3_P1.27mm_D0.9mm,top (sky),13.2,0.0,copper only (no component),"sky-side SWD / reset group 2 x 3 (reachable on screwed-lid units, S-10); pad 6 DISP_CTRL (was UART_TX: logs over RTT)"
+J13,FH34SRJ-10S-0.5SH(50),C324723,FH34SRJ-10S-0.5SH(50),easyeda_rev:C324723_FFC-SMD_10P-P0.50_FH34SRJ-10S-0.5SH,top (sky),32.938,1.0,JLC-placed,"display ZIF, top contact (Hirose FH34SRJ-10S-0.5SH, C324723): contact n = LS011B7DH03 terminal n (1 SCLK ... 10 VSSA); FPC entry toward the fold (+X), contact 1 at +Y; FPC inserted terminals UP [S2a; LD-29Y03 p.14, p.35; FH34 p.6, p.8]"
+J15,BW0036BG spring finger 3.0x1.0x1.4,C2826535,BW0036BG-L3.0W1.0H1.4,easyeda_rev:C2826535_SMD_L2.9-W1.0-2108613-5,top (sky),6.295,1.5,JLC-placed,"contact + (VBUS): BW0036BG spring finger under the insert-moulded pin of the top rim (inner face >= 3.4 x 2.2 mm centred on the land, BASELINE E-13)"
+J16,FRONT-LIGHT TAIL 2 PADS KEYED,,,solarband:Pad_Tail2_Keyed_FL,top (sky),5.32,0.0,copper only (no component),"front-light film tail: 2 keyed asymmetric pads (hand-soldered at final assembly): + = LED anode, - = cathode"
+J17,ERM WIRE PADS 2 x 1.0x1.5,,,solarband:Pad_Wire2_ERM_1.0x1.5mm,top (sky),5.22,0.0,copper only (no component),"ERM wire pads (Vybronics VCLP0820B004L, dia 8 x 2.1 mm, <= 35 mA, hand-fitted in the 8.6 mm cut-out): + = VBAT_IC, - = MOTOR_N; polarity only sets the spin"
+J18,BW0036BG spring finger 3.0x1.0x1.4,C2826535,BW0036BG-L3.0W1.0H1.4,easyeda_rev:C2826535_SMD_L2.9-W1.0-2108613-5,top (sky),6.295,1.5,JLC-placed,contact - (GND_K): BW0036BG spring finger under the second rim pin (BASELINE calls the pair 'J15'); behind Q20 [S2b E-2]
+J19,BW0036BG spring finger 3.0x1.0x1.4,C2826535,BW0036BG-L3.0W1.0H1.4,easyeda_rev:C2826535_SMD_L2.9-W1.0-2108613-5,top (sky),6.295,1.5,JLC-placed,"window-frame GND contact: BW0036BG spring finger under the stainless window frame at the E3 end (frame -> board GND) [S2b E-1, ECG.md 1b/1c/5f; position: v3/stage2b/frame_gnd.json]"
+J40,BW0020AG spring finger 3.5x1.5x3.0,C2826518,BW0020AG-L3.5W1.5H3.0,easyeda_rev:C2826516_ANT-SMD_L3.5-W1.5-H3.8,top (sky),8.0,3.1,JLC-placed,"feed spring finger to the lid strip L1 contact pad: BW0020AG (C2826518) on AE1's FEED land (the C2826516 land), board (3.30, 1.55), rot 340 [S2c; S2d J-1]"
+L1,22uH 420mA VLS201610CX-220M-1,C2050114,VLS201610CX-220M-1,easyeda_rev:C2050114_IND-SMD_L2.0-W1.6,top (sky),7.015,1.0,JLC-placed,Boost inductor 22 uH (datasheet L1)
+L2,10uH 550mA VLS201610CX-100M-1,C434843,VLS201610CX-100M-1,easyeda_rev:C434843_IND-SMD_L2.0-W1.6,top (sky),7.015,1.0,JLC-placed,Buck inductor 10 uH (datasheet L2)
+L201,3.3nH +-0.1nH 0201 LQP03TN3N3B02D,C98045,LQP03TN3N3B02D,easyeda_rev:C98045_L0201-RD,top (sky),0.781,0.33,JLC-placed,Nordic L1 3.3 nH 0201 series -> 50 Ohm [SIM-09 re-run]
+L202,10uH 0603 MPH160809S100MT,C6807729,MPH160809S100MT,easyeda_rev:C6807729_L0603,top (sky),2.95,0.95,JLC-placed,Nordic L2 10 uH 0603 (IDC >= 50 mA): DC/DC
+L203,15nH 0402 LQG15HS15NJ02D,C86059,LQG15HS15NJ02D,easyeda_rev:C86059_L0402,top (sky),1.445,0.55,JLC-placed,Nordic L3 15 nH 0402: DC/DC HF filter
+L204,4.3nH 0402 LQW15AN4N3B80D,C471381,LQW15AN4N3B80D,easyeda_rev:C471381_IND-SMD_L1.0-W0.6,top (sky),2.266,0.6,JLC-placed,"pi-net antenna-side shunt 4.3 nH wire-wound, fitted (lid antenna L1) [F; S2c 6.2 nH; was 1.8 nH]"
+NT1,NetTie,,,solarband:NetTie_2_SMD_0.3mm,top (sky),,0.0,copper only (no component),GND_PMIC star: joins GND only at U1 VSS pin 15 (R-PMIC-1)
+NT2,NetTie,,,solarband:NetTie_2_SMD_0.3mm,top (sky),,0.0,copper only (no component),PD_GND -> GND shorting via (data sheet note 3)
+PD1,VEMD8080,C511402,VEMD8080,easyeda_rev:C511402_SENSOR-SMD_8P-L4.8-W2.5-P1.31,bottom (skin),18.232,0.53,JLC-placed,"Photodiode: cathode pads -> PD1_IN, anode -> PD_GND, skin face"
+Q1,PMZ290UNE2YL,C478155,PMZ290UNE2YL,easyeda_rev:C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR,top (sky),2.025,0.5,JLC-placed,"PV_INH: shorts the PV after RSH1 (harvest inhibit of the W-C band, Isc probe, firmware 0-45 C governor) [N-3]"
+Q4,PMZ290UNE2YL,C478155,PMZ290UNE2YL,easyeda_rev:C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR,top (sky),2.025,0.5,JLC-placed,"EN hold: on = BQ25570 enabled; off = ship mode [G-4, E-03 c/d, E-31]"
+Q5,PMZ290UNE2YL,C478155,PMZ290UNE2YL,easyeda_rev:C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR,top (sky),2.025,0.5,JLC-placed,"power-cycle one-shot: buck and VSTOR_SW off while CYC_G is charged [G-4, E-09]"
+Q6,PMZ290UNE2YL,C478155,PMZ290UNE2YL,easyeda_rev:C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR,top (sky),2.025,0.5,JLC-placed,"warning LED switch (the LED supply is above VDD, so no GPIO sees it)"
+Q7,PMZ290UNE2YL,C478155,PMZ290UNE2YL,easyeda_rev:C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR,top (sky),2.025,0.5,JLC-placed,"VDD_1V8 discharge while the one-shot is active: the rail falls to 0 V, a real power-cycle [FIX R-02]"
+Q8,PMZ290UNE2YL,C478155,PMZ290UNE2YL,easyeda_rev:C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR,top (sky),2.025,0.5,JLC-placed,"PV short while VBUS is present: PV and USB never charge together (0.43 + 0.40 C would exceed the cell's rating) [BASELINE 11.5, 13.3]"
+Q9,PMZ290UNE2YL,C478155,PMZ290UNE2YL,easyeda_rev:C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR,top (sky),2.025,0.5,JLC-placed,"AVDD_EN low while VBUS is present: ECG supply off in hardware [BASELINE 13.2, 13.3]"
+Q10,PMZ290UNE2YL,C478155,PMZ290UNE2YL,easyeda_rev:C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR,top (sky),2.025,0.5,JLC-placed,"CHG_DIS: pulls TS below VTS_ENZ (40-60 mV): charger off (firmware: 41 C skin) [BASELINE 12, 14 item 10]"
+Q11,PMZ290UNE2YL,C478155,PMZ290UNE2YL,easyeda_rev:C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR,top (sky),2.025,0.5,JLC-placed,"front-light low-side switch, FL_EN (P0.10) PWM: 1.5 mA night, 3-5 mA dim room"
+Q12,PMZ290UNE2YL,C478155,PMZ290UNE2YL,easyeda_rev:C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR,top (sky),2.025,0.5,JLC-placed,"ERM low-side switch, upper of two in series: MOTOR_PWM (P0.04) 20-40 kHz PWM to about 3.0 V average, 30 ms soft start [BASELINE 14 item 6]"
+Q13,PMZ290UNE2YL,C478155,PMZ290UNE2YL,easyeda_rev:C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR,top (sky),2.025,0.5,JLC-placed,"button level shifter: BTN (VBAT level) -> BTN_N (1.8 V level, active low) on P0.26 SENSE [V3F: replaces the planned series R164]"
+Q14,PMZ350UPEYL,C478207,PMZ350UPEYL,easyeda_rev:C478207_X1-DFN1006-3_L1.0-W0.6-P0.35-BR,top (sky),1.952,0.5,JLC-placed,O-2 series PV switch PV_SW -> PV_Q (-> R130): OFF unless O2_G is pulled low; adds 0.4-0.9 Ohm to R_LIM [V3F O-2]
+Q16,PMZ290UNE2YL,C478155,PMZ290UNE2YL,easyeda_rev:C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR,top (sky),2.025,0.5,JLC-placed,firmware override: each heartbeat edge on O2_HB pulls O2_G low and refreshes the C174 hold; no heartbeat = no override [S1 D-1]
+Q17,PMZ290UNE2YL,C478155,PMZ290UNE2YL,easyeda_rev:C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR,top (sky),2.025,0.5,JLC-placed,O-2 approval: O2_OK high (not cold AND not hot) pulls the Q14 gate low
+Q18,PMZ350UPEYL,C478207,PMZ350UPEYL,easyeda_rev:C478207_X1-DFN1006-3_L1.0-W0.6-P0.35-BR,top (sky),1.952,0.5,JLC-placed,O-2 supply gate: on only while VBAT_OK is low (buck and MCU off); off = no O-2 load on the PV while the cell is healthy
+Q19,PMZ290UNE2YL,C478155,PMZ290UNE2YL,easyeda_rev:C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR,top (sky),2.025,0.5,JLC-placed,"ERM low-side switch, lower of two in series, same gate: one shorted FET no longer runs the motor from the unswitched VBAT_IC (single fault, review D-12); EOL probes MOTOR_S (test via) with the gate low [S1 D-12]"
+Q20,CJBA7002K,C504101,CJBA7002K,easyeda_rev:C504101_DFN1006-3L_L1.0-W0.6-BL,top (sky),2.025,0.53,JLC-placed,"GND-contact switch, 60 V N-FET: on only while VBUS_K is driven (head attached); off = a finger on J18 does not reach board GND [S2b E-2, ECG.md 2c/2d; F-8: was PMZ290UNE2 20 V]"
+R101,5.76M 1% 0402,C2766851,0402WGF5764TCE,easyeda_rev:C2766851_R0402,top (sky),1.496,0.55,JLC-placed,"ROV1 (VBAT_OV divider, bottom)"
+R102,7.32M 1% 0402,C423137,0402WGF7324TCE,easyeda_rev:C423137_R0402,top (sky),1.496,0.55,JLC-placed,"ROV2 (VBAT_OV divider, top) -> VBAT_OV 4.122 V"
+R103,3.92M 1% 0402,C423179,0402WGF3924TCE,easyeda_rev:C423179_R0402,top (sky),1.496,0.4,JLC-placed,"ROK1 3.92 M (VBAT_OK divider, bottom)"
+R104,6.81M 1% 0402,C477775,RC0402FR-076M81L,easyeda_rev:C477775_R0402,top (sky),1.496,0.4,JLC-placed,ROK2 6.81 M -> VBAT_OK 3.312 V falling
+R105,383k 1% 0402 0402WGF3833TCE,C45993,0402WGF3833TCE,easyeda_rev:C45993_R0402,top (sky),1.496,0.4,JLC-placed,"ROK3 383 k: VBAT_OK hysteresis 118 mV, no chatter [S2b, LEAD_NOTES 2b; was 294 k]"
+R106,7.5M 1% 0402,C423135,0402WGF7504TCE,easyeda_rev:C423135_R0402,top (sky),1.496,0.55,JLC-placed,"ROUT1 7.50 M (VOUT divider, bottom)"
+R107,4.02M 1% 0402,C423177,0402WGF4024TCE,easyeda_rev:C423177_R0402,top (sky),1.496,0.4,JLC-placed,"ROUT2 4.02 M (VOUT divider, top) -> VOUT 1.859 V [G-5 / E-06]"
+R108,10M 1% 0201 0201WMF1005TEE,C423797,0201WMF1005TEE,easyeda_rev:C423797_R0201,top (sky),0.704,0.26,JLC-placed,"RQ1 gate pull-down 10 M 0201: harvesting by default with the MCU off [V3F: 1 M -> 10 M; G1 L0: 0201, leakage across it only strengthens the pull-down]"
+R111,1R 0.1% 25ppm 0603,C861215,RT0603BRD071RL,easyeda_rev:C861215_R0603,top (sky),3.092,0.55,JLC-placed,RSH1 PV shunt 1.00 Ohm 0.1 % (INA_PV): lid + wing current
+R112,1R 0.1% 25ppm 0603,C861215,RT0603BRD071RL,easyeda_rev:C861215_R0603,top (sky),3.092,0.55,JLC-placed,RSH2 battery shunt 1.00 Ohm 0.1 % (INA_BAT)
+R116,100k 1% 0201,C270364,0201WMF1003TEE,easyeda_rev:C270364_R0201,top (sky),0.704,0.26,JLC-placed,NTC bias 100 k 1 % from V_O2 (O-2 ladder and the MCU's reading) [V3F: was 10 k from NTC_EN]
+R117,3.3R 1% 0402,C270612,0402WGF330KTCE,easyeda_rev:C270612_R0402,top (sky),1.496,0.4,JLC-placed,LED supply series R 3.3 Ohm VSTOR_SW -> VLED [P-6; SIM-06 re-run]
+R123,220k 1% 0201 0201WMF2203TEE,C473458,0201WMF2203TEE,easyeda_rev:C473458_R0201,top (sky),0.704,0.26,JLC-placed,"ECG_PWR_EN -> AVDD_EN series 220 k: EN 1.29 V against the 500 k internal pull-down before start, Q9 overrides it [V3F]"
+R124,1M 1% 0201,C295786,RC0201FR-071ML,easyeda_rev:C295786_R0201,top (sky),0.704,0.26,JLC-placed,U12 ON delay 1 M from VOUT_EN
+R125,10M 1% 0201 0201WMF1005TEE,C423797,0201WMF1005TEE,easyeda_rev:C423797_R0201,top (sky),0.704,0.26,JLC-placed,"EN pull-up 10 M 0201 to the VBAT pin: EN(H) >= VBAT - 0.2 V needs <= 20 nA of leakage on BQ_EN [G-4; G1 L0: 0201, leakage across it only strengthens the pull-up]"
+R126,3.3M 1% 0201 0201WMF3304TEE,C423582,0201WMF3304TEE,easyeda_rev:C423582_R0201,top (sky),0.704,0.26,JLC-placed,"EN_HOLD <- PV node 3.3 M: wake by light (>= 200 lx); in the dark it is the gate pull-down [G-4; FIX R-02, R-13]"
+R127,4.7k 1% 0201,C270346,0201WMF4701TEE,easyeda_rev:C270346_R0201,top (sky),0.704,0.26,JLC-placed,"CYC_A -> CYC_G 4.7 k: gate charge current <= 0.33 mA, tau 4.7 ms [FIX R-02]"
+R128,1M 1% 0201,C295786,RC0201FR-071ML,easyeda_rev:C295786_R0201,top (sky),0.704,0.26,JLC-placed,CYC_G discharge 1 M: off interval tau 1 s with C122 [FIX R-02]
+R129,47k 1% 0201 0201WMF4702TEE,C270345,0201WMF4702TEE,easyeda_rev:C270345_R0201,top (sky),0.704,0.26,JLC-placed,VBAT_OK -> VOUT_EN series 47 k: lets Q5 pull the enable node low [G-4; FIX R-17a]
+R130,12R 1% 0805 125mW 0805W8F120JT5E,C17445,0805W8F120JT5E,easyeda_rev:C17445_R0805,top (sky),6.843,0.65,JLC-placed,"R_LIM 12 Ohm 0805 125 mW between the O-2 switch Q14 (PV_Q) and VIN_DC: hardware charge-current limit, <= 52 mW; locked to the pack (BOM kit, EOL check) [G-15, BASELINE 11.5]"
+R131,10M 1% 0201 0201WMF1005TEE,C423797,0201WMF1005TEE,easyeda_rev:C423797_R0201,top (sky),0.704,0.26,JLC-placed,INA_EN pull-down 10 M 0201: rail off while the MCU is in reset [V3F: 1 M -> 10 M; G1 L0: 0201]
+R133,100R 1% 0201 0201WMF1000TEE,C270366,0201WMF1000TEE,easyeda_rev:C270366_R0201,top (sky),0.704,0.26,JLC-placed,"VDD_1V8 discharge 100 Ohm 0201 50 mW (<= 35 mW peak, <= 0.5 mJ per event) [FIX R-02; G1 L0]"
+R140,10.2k 0.5% 0201 RC0201DR-0710K2L,C851635,RC0201DR-0710K2L,easyeda_rev:C851635_R0201,top (sky),0.704,0.26,JLC-placed,"RISET 10.2 k 0.5 % 0201 [G1 L0]: ICHG = 300 A*Ohm / 10.2 k = 29.4 mA (26.2-32.7 mA): <= 0.50 C at a 66 mAh pack with KISET max and R -1 %; locked to the >= 66 mAh pack with R130 [BASELINE 11.5, FS-1; S1 D-8: was 10.0 k, 0.505 C]"
+R141,2k 1% 0201 0201WMF2001TEE,C270358,0201WMF2001TEE,easyeda_rev:C270358_R0201,top (sky),0.704,0.26,JLC-placed,"ISET RC: 2 k in series with C132, the pair across RISET (TI SLUAAG9 p.7: below 50 mA, R = 2 k, C = 4.7 nF)"
+R142,36k 1% 0402,C43676,0402WGF3602TCE,easyeda_rev:C43676_R0402,top (sky),1.496,0.4,JLC-placed,"VSET 36 k 1 % 100 ppm: 4.10 V (SLUSDJ8A Table 7-1, p.14; <= 200 ppm/C required p.4)"
+R143,220k 1% 0201 0201WMF2203TEE,C473458,0201WMF2203TEE,easyeda_rev:C473458_R0201,top (sky),0.704,0.26,JLC-placed,/PG pull-up 220 k to VDD_1V8 (open drain; 8.5 uA only while the head charges)
+R144,1M 1% 0201,C295786,RC0201FR-071ML,easyeda_rev:C295786_R0201,top (sky),0.704,0.26,JLC-placed,VBUS divider top 1 M -> VB_DET (2.3 V at 4.6 V)
+R145,1M 1% 0201,C295786,RC0201FR-071ML,easyeda_rev:C295786_R0201,top (sky),0.704,0.26,JLC-placed,VBUS divider bottom 1 M: holds VBUS and VB_DET at 0 V without a head; the contact node VBUS_K floats behind D14 (no drive at rest) [S1 D-16]
+R146,1M 1% 0201,C295786,RC0201FR-071ML,easyeda_rev:C295786_R0201,top (sky),0.704,0.26,JLC-placed,CHG_DIS gate pull-down 1 M: charging allowed while the MCU is in reset; no O-2 heartbeat then (o2.py)
+R149,1M 1% 0201,C295786,RC0201FR-071ML,easyeda_rev:C295786_R0201,top (sky),0.704,0.26,JLC-placed,"AIN protection 1 M on the NTC node: TS clamp 2.6 V / unpowered-MCU ESD path <= 0.2 uA [V3F: 100 k -> 1 M, CALC_V3F 3]"
+R160,100R 1% 0201 0201WMF1000TEE,C270366,0201WMF1000TEE,easyeda_rev:C270366_R0201,top (sky),0.704,0.26,JLC-placed,front-light LED resistor 100 Ohm from VSTOR_SW: 4.1-16.8 mA peak over VSTOR_SW 3.31-4.28 V and VF 2.6-2.9 V (E); PWM sets the 1.5 / 3-5 mA average [CALC_V3F 6]
+R161,1M 1% 0201,C295786,RC0201FR-071ML,easyeda_rev:C295786_R0201,top (sky),0.704,0.26,JLC-placed,FL_EN gate pull-down 1 M (light off while the MCU is in reset)
+R162,1k 1% 0201 0201WMF1001TEE,C270365,0201WMF1001TEE,easyeda_rev:C270365_R0201,top (sky),0.704,0.26,JLC-placed,Q12 gate series 1 k: GPIO peak current <= 1.9 mA into QG; gate edge about 0.2 us (CALC_V3F 5)
+R163,1M 1% 0201,C295786,RC0201FR-071ML,easyeda_rev:C295786_R0201,top (sky),0.704,0.26,JLC-placed,Q12 gate pull-down 1 M: motor off while the MCU is in reset
+R164,1M 1% 0201,C295786,RC0201FR-071ML,easyeda_rev:C295786_R0201,top (sky),0.704,0.26,JLC-placed,BTN_N pull-up 1 M to VDD_1V8 (1.9 uA while pressed; no current in ship mode: VDD_1V8 off)
+R165,100k 1% 0201,C270364,0201WMF1003TEE,easyeda_rev:C270364_R0201,top (sky),0.704,0.26,JLC-placed,"button supply 100 k from VBAT_IC: BTN = 0.91 x VBAT while pressed, <= 3.8 uA; charges C121 through D12B in about 0.3 s"
+R167,1M 1% 0201,C295786,RC0201FR-071ML,easyeda_rev:C295786_R0201,top (sky),0.704,0.26,JLC-placed,BTN pull-down 1 M (also the Q13 gate pull-down)
+R170,732k 1% 0201 0201WMF7323TEE,C423439,0201WMF7323TEE,easyeda_rev:C423439_R0201,top (sky),0.704,0.26,JLC-placed,O-2 chain top 732 k 1 %
+R171,162k 1% 0201 0201WMF1623TEE,C2691509,0201WMF1623TEE,easyeda_rev:C2691509_R0201,top (sky),0.704,0.26,JLC-placed,O-2 chain 162 k 1 %: O2_TC = 0.2265 V_O2 (cold threshold 2.6 C nominal)
+R172,53.6k 1% 0201 RTT015362FTH,C166160,RTT015362FTH,easyeda_rev:C166160_R0201,top (sky),0.704,0.26,JLC-placed,"O-2 chain bottom 53.6 k 1 %: hot stop <= 45.0 C down to a 1.30 V supply [S2b, LEAD_NOTES 2b; was 52.3 k]"
+R174,10M 1% 0201 0201WMF1005TEE,C423797,0201WMF1005TEE,easyeda_rev:C423797_R0201,top (sky),0.704,0.26,JLC-placed,Q14 gate-source 10 M 0201: default OFF (fail-safe); leakage across it only shortens the hold [G1 L0: was 0402]
+R175,1M 1% 0201,C295786,RC0201FR-071ML,easyeda_rev:C295786_R0201,top (sky),0.704,0.26,JLC-placed,Q17 gate pull-down 1 M: no approval while U20 is unpowered
+R176,1M 1% 0201,C295786,RC0201FR-071ML,easyeda_rev:C295786_R0201,top (sky),0.704,0.26,JLC-placed,"O2_HB pull-down 1 M: Q16 off without a heartbeat (MCU in reset, halted, off, or a static CHG_DIS level) [S1 D-1]"
+R301,330k 1% 0603 ERJ-PA3 anti-surge,C441935,ERJPA3F3303V,easyeda_rev:C441935_R0603,top (sky),3.092,0.55,JLC-placed,"E1 (IN+, back, wearing wrist) patient-current limit, 1st 330 k (pad side) [mini-ECO F-2: E-3 withdrawn]"
+R302,330k 1% 0603 ERJ-PA3 anti-surge,C441935,ERJPA3F3303V,easyeda_rev:C441935_R0603,top (sky),3.092,0.55,JLC-placed,"E1 (IN+, back, wearing wrist) patient-current limit, 2nd 330 k [mini-ECO F-2]"
+R303,330k 1% 0603 ERJ-PA3 anti-surge,C441935,ERJPA3F3303V,easyeda_rev:C441935_R0603,top (sky),3.092,0.55,JLC-placed,"E3 (IN-, top-rim strip, finger) patient-current limit, 1st 330 k (pad side) [mini-ECO F-2: E-3 withdrawn]"
+R304,330k 1% 0603 ERJ-PA3 anti-surge,C441935,ERJPA3F3303V,easyeda_rev:C441935_R0603,top (sky),3.092,0.55,JLC-placed,"E3 (IN-, top-rim strip, finger) patient-current limit, 2nd 330 k [mini-ECO F-2]"
+R305,330k 1% 0603 ERJ-PA3 anti-surge,C441935,ERJPA3F3303V,easyeda_rev:C441935_R0603,top (sky),3.092,0.55,JLC-placed,"E2 (RLD, back) patient-current limit, 1st 330 k (pad side) [mini-ECO F-2: E-3 withdrawn]"
+R306,330k 1% 0603 ERJ-PA3 anti-surge,C441935,ERJPA3F3303V,easyeda_rev:C441935_R0603,top (sky),3.092,0.55,JLC-placed,"E2 (RLD, back) patient-current limit, 2nd 330 k [mini-ECO F-2]"
+R307,DNP,C423797,0201WMF1005TEE,easyeda_rev:C423797_R0201,top (sky),0.704,0.0,"DNP (pads only, excluded from BOM/CPL)",RLD REXT DNP (pad kept; 10 M fallback) [SIM-07]
+R308,DNP,C423797,0201WMF1005TEE,easyeda_rev:C423797_R0201,top (sky),0.704,0.0,"DNP (pads only, excluded from BOM/CPL)","R_BIAS+ 10 M, 2-electrode variant only"
+R309,DNP,C423797,0201WMF1005TEE,easyeda_rev:C423797_R0201,top (sky),0.704,0.0,"DNP (pads only, excluded from BOM/CPL)","R_BIAS- 10 M, 2-electrode variant only"
+R311,10k 1% 0201,C473048,0201WMF1002TEE,easyeda_rev:C473048_R0201,top (sky),0.704,0.26,JLC-placed,PWDN/RESET pull-down 10 k: AFE held in power-down while the MCU is in reset (10 uA x 10 k = 0.1 V < VIL)
+R312,10k 1% 0201,C473048,0201WMF1002TEE,easyeda_rev:C473048_R0201,top (sky),0.704,0.26,JLC-placed,GPIO1 unused -> 10 k -> DGND
+R313,10k 1% 0201,C473048,0201WMF1002TEE,easyeda_rev:C473048_R0201,top (sky),0.704,0.26,JLC-placed,GPIO2 unused -> 10 k -> DGND
+R314,10k 1% 0201,C473048,0201WMF1002TEE,easyeda_rev:C473048_R0201,top (sky),0.704,0.26,JLC-placed,CLK unused (internal osc) -> 10 k -> DGND
+R315,100k 1% 0201,C270364,0201WMF1003TEE,easyeda_rev:C270364_R0201,top (sky),0.704,0.26,JLC-placed,CS_ECG pull-up 100 k (deselected while the MCU is in reset)
+R316,100k 1% 0201,C270364,0201WMF1003TEE,easyeda_rev:C270364_R0201,top (sky),0.704,0.26,JLC-placed,"START pull-down 100 k: START permanently low, conversions by the START opcode (ADS1291 p.44, p.48) [V3F: P0.04 is the motor PWM]"
+R317,470k 1% 0201 0201WMF4703TEE,C473560,0201WMF4703TEE,easyeda_rev:C473560_R0201,top (sky),0.704,0.26,JLC-placed,RLD Rz 470 k in series with CEXT (RLDOUT side) [SIM-07]
+R318,100R 1% 0402,C25076,0402WGF1000TCE,easyeda_rev:C25076_R0402,top (sky),1.496,0.4,JLC-placed,E1 dot-loop link 100 Ohm: pad E12 -> electrode net; loop measured TP1-TP2 at EOL-1
+R319,100R 1% 0402,C25076,0402WGF1000TCE,easyeda_rev:C25076_R0402,top (sky),1.496,0.4,JLC-placed,E2 dot-loop link 100 Ohm: pad E22 -> electrode net; loop measured TP3-TP4 at EOL-1
+R401,100k 1% 0201,C270364,0201WMF1003TEE,easyeda_rev:C270364_R0201,top (sky),0.704,0.26,JLC-placed,INT pull-up 100 k to 1.8 V (open-drain INT)
+R402,100k 1% 0201,C270364,0201WMF1003TEE,easyeda_rev:C270364_R0201,top (sky),0.704,0.26,JLC-placed,CS_PPG pull-up 100 k (deselected while the MCU is in reset)
+R501,100k 1% 0201,C270364,0201WMF1003TEE,easyeda_rev:C270364_R0201,top (sky),0.704,0.26,JLC-placed,CS_FLASH pull-up 100 k (deselected while the MCU is in reset)
+R503,100k 1% 0201,C270364,0201WMF1003TEE,easyeda_rev:C270364_R0201,top (sky),0.704,0.26,JLC-placed,"WP# pull-up 100 k (write-protect inactive; SIO2 never driven, QE = 0)"
+R504,100k 1% 0201,C270364,0201WMF1003TEE,easyeda_rev:C270364_R0201,top (sky),0.704,0.26,JLC-placed,"RESET# pull-up 100 k (SIO3 never driven, QE = 0)"
+R505,4.7k 1% 0201,C270346,0201WMF4701TEE,easyeda_rev:C270346_R0201,top (sky),0.704,0.26,JLC-placed,I2C SDA pull-up 4.7 k
+R506,4.7k 1% 0201,C270346,0201WMF4701TEE,easyeda_rev:C270346_R0201,top (sky),0.704,0.26,JLC-placed,I2C SCL pull-up 4.7 k
+R507,100R 1% 0402 100mW ERJ2RKF1000X,C413063,ERJ2RKF1000X,easyeda_rev:C413063_R0402,top (sky),1.496,0.4,JLC-placed,"warning LED series 100 Ohm 0402 100 mW (ERJ2RK) from VSTOR_SW: 8-25 mA, <= 65 mW in the resistor at 100 % duty, <= 16 mW at the 25 % blink (CALC.md 8) [FIX R-06; G1 L0: was 0603]"
+R508,1M 1% 0201,C295786,RC0201FR-071ML,easyeda_rev:C295786_R0201,top (sky),0.704,0.26,JLC-placed,ALERT_LED pull-down 1 M: LED off while the MCU is in reset
+R509,100k 1% 0201,C270364,0201WMF1003TEE,easyeda_rev:C270364_R0201,top (sky),0.704,0.26,JLC-placed,Q20 gate feed 100 k from VBUS_K (gate 4.5 V at a 5.0 V head) [S2b E-2]
+R510,1M 1% 0201,C295786,RC0201FR-071ML,easyeda_rev:C295786_R0201,top (sky),0.704,0.26,JLC-placed,Q20 gate pull-down 1 M: Q20 off without a head [S2b E-2]
+R511,10k 1% 0201,C473048,0201WMF1002TEE,easyeda_rev:C473048_R0201,top (sky),0.704,0.26,JLC-placed,Q13 gate series 10 k: limits the ESD current into the gate behind D18 [S2b E-6]
+SW1,PTS840GKSMTRLFS,C221907,PTS840GKSMTRLFS,easyeda_rev:C221907_SW-SMD_4P-L3.5-W3.5_PTS840GKSMTRLFS,top (sky),22.22,1.35,JLC-placed,"side-actuated tact switch C&K PTS840 GK (2.2 N, 0.2 mm travel) at the hand-end board edge behind a moulded membrane; pins 1-2 and 3-4 joined inside"
+TP1,EOL TEST PAD 1.0,,,solarband:TestPad_D1.0mm,top (sky),3.24,0.0,copper only (no component),EOL-1 test pad: E1 electrode net (dot A side)
+TP2,EOL TEST PAD 1.0,,,solarband:TestPad_D1.0mm,top (sky),3.24,0.0,copper only (no component),EOL-1 test pad: E1 dot B side: loop TP1-TP2
+TP3,EOL TEST PAD 1.0,,,solarband:TestPad_D1.0mm,top (sky),3.24,0.0,copper only (no component),EOL-1 test pad: E2 electrode net (dot A side)
+TP4,EOL TEST PAD 1.0,,,solarband:TestPad_D1.0mm,top (sky),3.24,0.0,copper only (no component),EOL-1 test pad: E2 dot B side: loop TP3-TP4
+TP5,EOL TEST PAD 1.0,,,solarband:TestPad_D1.0mm,top (sky),3.24,0.0,copper only (no component),"EOL-1 test pad: E3 electrode net (spring contact check, leakage test)"
+U1,BQ25570RGRR,C506250,BQ25570RGRR,easyeda_rev:C506250_VQFN-20_L3.5-W3.5-P0.50-BL-EP2.0,top (sky),23.04,1.0,JLC-placed,"MPPT harvester + 1.859 V buck; EN = self-hold node (ship mode), VOUT_EN behind R129; VBAT_OK also gates the O-2 (o2.py)"
+U3,TPS7A2030PDQNR,C5220164,TPS7A2030PDQNR,easyeda_rev:C5220164_X2SON-4_L1.0-W1.0-P0.65-TL-EP,top (sky),2.745,0.4,JLC-placed,"AVDD_ECG LDO 3.0 V, on only during ECG sessions; forced off by Q9 while VBUS is present [SIM-06, BASELINE 13.3]"
+U4,INA236AIYBJR,C4371025,INA236AIYBJR,easyeda_rev:C4371025_DSBGA-8_L1.5-W0.7-R2-C4-P0.40-BL,top (sky),2.4,0.4,JLC-placed,"INA_PV 0x40: PV current in RSH1 (lid + wing), bus = PV_SW"
+U5,INA236AIYBJR,C4371025,INA236AIYBJR,easyeda_rev:C4371025_DSBGA-8_L1.5-W0.7-R2-C4-P0.40-BL,top (sky),2.4,0.4,JLC-placed,"INA_BAT 0x41: pack net current (+ = charging, PV and USB), bus = BATT_P: the motor's VBAT >= 3.60 V rule reads it"
+U6,nRF52832-CIAA-R,C509405,NRF52832-CIAA-R,easyeda_rev:C509405_WLCSP-50_L3.2-W3.0-TL_NRF52832,top (sky),12.95,0.4,JLC-placed,"BLE SoC nRF52832-CIAA WLCSP-50, DC/DC enabled (Nordic CIAA DC/DC reference, Fig. 173)"
+U7,ADS1291IRSMR,C139059,ADS1291IRSMR,easyeda_rev:C139059_QFN-32_L4.0-W4.0-P0.40-BL-EP2.9,top (sky),28.09,1.0,JLC-placed,"ECG AFE, internal oscillator + reference"
+U8,MAX86141ENP+T,C5328762,MAX86141ENP+T,easyeda_rev:C5328762_BGA-20_L2.0-W1.8-R4-C5-P0.40-TL,top (sky),5.75,0.5,JLC-placed,"PPG AFE (2 PD channels, LED1/LED2 drivers)"
+U9,LIS2DW12TR,C189624,LIS2DW12TR,easyeda_rev:C189624_LGA-12_L2.0-W2.0-P0.50-BL,top (sky),7.618,0.7,JLC-placed,"Accelerometer, I2C 0x19"
+U10,TMP117MAIDRVR,C2803242,TMP117MAIDRVR,easyeda_rev:C2803242_WSON-6_L2.0-W2.0-P0.65-BL-EP,top (sky),7.3,0.8,JLC-placed,"Skin temperature, I2C 0x48, on the dry side over the thermal-via island under an electrode plate (REDESIGN 5.7)"
+U11,MX25R1635FZUIH0,C5687033,MX25R1635FZUIH0,easyeda_rev:C5687033_USON-8_L3.0-W2.0-P0.50-BL-EP1.6_MX25R1635FZUIH0,top (sky),8.75,0.6,JLC-placed,16 Mbit NOR: log + MCUboot secondary slot
+U12,SiP32431DNP3-T1GE4,C727398,SIP32431DNP3-T1GE4,easyeda_rev:C727398_TDFN-4_L1.2-W1.6-P0.50-BL-EP,top (sky),4.284,0.6,JLC-placed,"VSTOR -> VSTOR_SW load switch (TDFN4), ON = VOUT_EN delayed (off during cold start) [SIM-03a]"
+U13,SiP32431DNP3-T1GE4,C727398,SIP32431DNP3-T1GE4,easyeda_rev:C727398_TDFN-4_L1.2-W1.6-P0.50-BL-EP,top (sky),4.284,0.6,JLC-placed,"INA rail switch VDD_1V8 -> INA_VS, ON = INA_EN: both INA236 unpowered in SHELF [G-11, Lens B E4]"
+U15,BQ25170DSGR,C5208201,BQ25170DSGR,easyeda_rev:C5208201_WSON-8_L2.0-W2.0-P0.50-TL-EP,top (sky),7.35,0.8,JLC-placed,linear charger 4.10 V / 27-33 mA from the contacts; TS = pack NTC (0-45 C window with B 3950 K); OUT on VBAT_IC (INA_BAT sees the charge)
+U16,TPS7A0230PDQNR,C2867950,TPS7A0230PDQNR,easyeda_rev:C2867950_UDFN-4_L1.0-W1.0-P0.65-TL,top (sky),2.777,0.4,JLC-placed,"VDD_DISP 3.0 V LDO for the panel (25 nA IQ, 3 nA off, output discharge 60 Ohm) EN = DISP_EN"
+U17,TXU0104RUTR,C5187176,TXU0104RUTR,easyeda_rev:C5187176_XQFN-12_L2.0-W1.7-P0.40-BL,top (sky),7.28,0.55,JLC-placed,"A->B translator 1.86 -> 3.0 V: SCLK, SI, SCS, EXTCOMIN; VCCA = OE = DISP_EN (both sides unpowered while the display is off)"
+U19,TLV7031DCKR,C2863637,TLV7031DCKR,easyeda_rev:C2863637_SC-70-5_L2.1-W1.3-P0.65-LS2.2-BR,top (sky),9.36,1.1,JLC-placed,O-2 'not cold': OUT high while NTC < O2_TC; OUT is the supply of U20 (POR holds OUT low below 1.6 V)
+U20,TLV7031DCKR,C2863637,TLV7031DCKR,easyeda_rev:C2863637_SC-70-5_L2.1-W1.3-P0.65-LS2.2-BR,top (sky),9.36,1.1,JLC-placed,O-2 'not hot': OUT high while NTC > O2_TH and U19 says not cold
+U21,TXU0101DRYR,C5217869,TXU0101DRYR,easyeda_rev:C5217869_SON-6_L1.5-W1.0-P0.50-TL,top (sky),2.925,0.6,JLC-placed,"A->B translator for DISP (P0.18 DISP_CTRL): edge <= 50 ns, DISP low before VDD off (LD-29Y03 p.21-22) [V3F]"
+X1,32MHz 8pF X201632MKB4SI,C718072,X201632MKB4SI,easyeda_rev:C718072_CRYSTAL-SMD_4P-L2.0-W1.6-BL,top (sky),6.776,0.55,JLC-placed,"Nordic X1 32 MHz 2016, CL 8 pF (kept: the 1612 C2982342 is 150 Ohm max, over the nRF limit)"
+X2,32.768kHz 12.5pF SC-16S,C398713,SC-16S 32.768kHz 20PPM 12.5pF,easyeda_rev:C398713_CRYSTAL-SMD_L1.6-W1.0,top (sky),3.33,0.5,JLC-placed,"X2 32.768 kHz SC-16S 1610, CL 12.5 pF, ESR <= 90 k (nRF limits: 12.5 pF, 100 k)"
+BT1,"protected pack: GEB301030-class 70 mAh cell (>= 66 mAh nominal, >= 60 mAh minimum) + PCM (XB5358D0 class, Iq <= 6 uA) + F1 (hold >= 0.4 A, opens <= 1 A) + NTC 10 k B 3950 K +-1 %, welded by the pack maker; capsule 38.4 x 11.9 x 4.5 mm on strap root A",,pack maker RFQ (GEB301030 class),-,-,,,"off the PCBA (hand-assembled, not on LCSC)",root-A flex to J3 (BATT_P) / J4 (GND) / J5 (NTC) / J10 (GND); R130 and R140 are locked to this pack (BOM kit + EOL check of the label)
+LID1,"PV laminate: 4 IBC strips 27.7 x 2.30 mm in series from Y 21.0 mm, 0.50 mm glass, flex tail (PV+, PV-, backsheet ground)",,custom (lid RFQ),-,-,,,"off the PCBA (hand-assembled, not on LCSC)",tail hand-soldered to J6
+WING1,"c-Si wing on strap root B: 4 sub-cells 2.7 x 31 mm in series, 3.35 cm2, no diode",,custom (lid RFQ),-,-,,,"off the PCBA (hand-assembled, not on LCSC)",root-B flex to J7 (PV_W+) / J9 (GND)
+DISP1,"Sharp LS011B7DH03 1.08 inch memory LCD (+ custom front-light film <= 0.25 mm above the panel, LED on the film tail)",,Sharp samples (C18337240 stock 0),-,-,,,"off the PCBA (hand-assembled, not on LCSC)","[S2a] FPC folded 180 deg toward its rear 1.9 mm from the glass edge, stiffened end into the J13 ZIF terminals UP (top contact, contact n = terminal n); film tail to J16"
+M1,"ERM coin motor Vybronics VCLP0820B004L, dia 8 x 2.1 mm, 3.0 V class, <= 35 mA, 0.25 Grms (maker's page)",,samples (not in the JLC library),-,-,,,"off the PCBA (hand-assembled, not on LCSC)","in the 8.6 mm board cut-out on the floor film, wires to J17"
+"E1, E2","titanium Gr2 electrode plates 0.25 mm, each on two silver-epoxy dots (E11/E12, E21/E22)",,custom,-,-,,,"off the PCBA (hand-assembled, not on LCSC)",floor laminate
+E3,"titanium Gr2 strip on the top rim, tab >= 3.4 x 2.2 mm onto spring finger J11",,custom,-,-,,,"off the PCBA (hand-assembled, not on LCSC)",insert in the ring
+"K+, K-","flush contact pins in the top rim (gold over a nickel-free layer, or 316L / Ti), non-standard pitch and recess, inner faces >= 3.4 x 2.2 mm centred on J15 / J18",,ring moulder RFQ,-,-,,,"off the PCBA (hand-assembled, not on LCSC)",insert-moulded
+HEAD1,"isolated USB-C magnetic head (accessory, UCC12050 reinforced for wearers): 5.0 V >= 4.85 V at 50 mA on the band contacts (D14 drop)",,own JLC PCBA (V3-G10),-,-,,,"off the PCBA (hand-assembled, not on LCSC)",not part of this board

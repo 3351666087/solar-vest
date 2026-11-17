@@ -1,0 +1,28 @@
+{
+ "placement": "@SVROOT@/wristband/v3/grow8/work/seed8/placement.json",
+ "zfile": "@SVROOT@/wristband/v3/track2/work/board_zones_t2_layout.json",
+ "router": {
+  "iters": 60,
+  "pres0": 0.5,
+  "pres_mult": 1.2,
+  "hist_inc": 3.5,
+  "tlim": 7200
+ },
+ "order": "short",
+ "seed": 1,
+ "layers": 8,
+ "forbidden_add": [
+  "NTC",
+  "NTC_ADC",
+  "I2C_SDA",
+  "I2C_SCL",
+  "O2_TC",
+  "O2_TH"
+ ],
+ "neck": 1.5,
+ "shield": [
+  "In2.Cu",
+  "In3.Cu"
+ ],
+ "note": "eco3: g2 router settings, h4 placement with U19/U20 SC70-5 C2863637 moved (legalize + revert)"
+}

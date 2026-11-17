@@ -1,0 +1,626 @@
+{
+ "CHECK stage-2a C2 wing as designed 165 mm w0.003 (before 44.97)": {
+  "skin_max_C": 45.0,
+  "s_at_max": 13.6,
+  "cell_max_C": 60.24,
+  "cell_mean_C": 59.41,
+  "device_top_max_C": 60.47,
+  "sub_cell_skin_max_C": [
+   41.43,
+   42.48,
+   43.78,
+   44.97
+  ],
+  "sub_cell_mean_gap_mm": [
+   2.74,
+   1.66,
+   0.83,
+   0.27
+  ],
+  "strap_far_skin_C": 42.61,
+  "free_span_mm": 15.22
+ },
+ "S2B C2 wing 140 mm w0.001": {
+  "skin_max_C": 42.4,
+  "s_at_max": 8.3,
+  "cell_max_C": 60.08,
+  "cell_mean_C": 59.78,
+  "device_top_max_C": 60.18,
+  "sub_cell_skin_max_C": [
+   41.78,
+   42.04,
+   42.27,
+   42.38
+  ],
+  "sub_cell_mean_gap_mm": [
+   3.51,
+   2.83,
+   2.2,
+   1.63
+  ],
+  "strap_far_skin_C": 41.11,
+  "free_span_mm": 14.46
+ },
+ "S2B C2 wing 140 mm w0.003": {
+  "skin_max_C": 40.66,
+  "s_at_max": 8.3,
+  "cell_max_C": 59.27,
+  "cell_mean_C": 58.94,
+  "device_top_max_C": 59.39,
+  "sub_cell_skin_max_C": [
+   40.14,
+   40.36,
+   40.55,
+   40.64
+  ],
+  "sub_cell_mean_gap_mm": [
+   3.51,
+   2.83,
+   2.2,
+   1.63
+  ],
+  "strap_far_skin_C": 39.64,
+  "free_span_mm": 14.46
+ },
+ "S2B C2 wing 140 mm w0.006": {
+  "skin_max_C": 39.77,
+  "s_at_max": 8.2,
+  "cell_max_C": 58.86,
+  "cell_mean_C": 58.53,
+  "device_top_max_C": 58.99,
+  "sub_cell_skin_max_C": [
+   39.34,
+   39.52,
+   39.68,
+   39.76
+  ],
+  "sub_cell_mean_gap_mm": [
+   3.51,
+   2.83,
+   2.2,
+   1.63
+  ],
+  "strap_far_skin_C": 38.96,
+  "free_span_mm": 14.46
+ },
+ "S2B C2 wing 140 mm w0.003 wind x0.6 (h 6)": {
+  "skin_max_C": 41.22,
+  "s_at_max": 8.4,
+  "cell_max_C": 62.62,
+  "cell_mean_C": 62.21,
+  "device_top_max_C": 62.77,
+  "sub_cell_skin_max_C": [
+   40.63,
+   40.87,
+   41.09,
+   41.21
+  ],
+  "sub_cell_mean_gap_mm": [
+   3.51,
+   2.83,
+   2.2,
+   1.63
+  ],
+  "strap_far_skin_C": 39.97,
+  "free_span_mm": 14.46
+ },
+ "S2B C2 wing 140 mm w0.001 wind x0.6 (h 6)": {
+  "skin_max_C": 43.27,
+  "s_at_max": 8.6,
+  "cell_max_C": 63.71,
+  "cell_mean_C": 63.32,
+  "device_top_max_C": 63.84,
+  "sub_cell_skin_max_C": [
+   42.53,
+   42.84,
+   43.1,
+   43.25
+  ],
+  "sub_cell_mean_gap_mm": [
+   3.51,
+   2.83,
+   2.2,
+   1.63
+  ],
+  "strap_far_skin_C": 41.72,
+  "free_span_mm": 14.46
+ },
+ "S2B C2 wing 165 mm w0.001": {
+  "skin_max_C": 42.46,
+  "s_at_max": 7.8,
+  "cell_max_C": 59.75,
+  "cell_mean_C": 59.46,
+  "device_top_max_C": 59.86,
+  "sub_cell_skin_max_C": [
+   41.91,
+   42.17,
+   42.37,
+   42.46
+  ],
+  "sub_cell_mean_gap_mm": [
+   3.03,
+   2.47,
+   1.94,
+   1.47
+  ],
+  "strap_far_skin_C": 41.11,
+  "free_span_mm": 15.22
+ },
+ "S2B C2 wing 165 mm w0.003": {
+  "skin_max_C": 40.71,
+  "s_at_max": 7.8,
+  "cell_max_C": 58.91,
+  "cell_mean_C": 58.6,
+  "device_top_max_C": 59.03,
+  "sub_cell_skin_max_C": [
+   40.25,
+   40.46,
+   40.64,
+   40.71
+  ],
+  "sub_cell_mean_gap_mm": [
+   3.03,
+   2.47,
+   1.94,
+   1.47
+  ],
+  "strap_far_skin_C": 39.64,
+  "free_span_mm": 15.22
+ },
+ "S2B C2 wing 165 mm w0.006": {
+  "skin_max_C": 39.82,
+  "s_at_max": 7.7,
+  "cell_max_C": 58.5,
+  "cell_mean_C": 58.17,
+  "device_top_max_C": 58.62,
+  "sub_cell_skin_max_C": [
+   39.43,
+   39.61,
+   39.76,
+   39.82
+  ],
+  "sub_cell_mean_gap_mm": [
+   3.03,
+   2.47,
+   1.94,
+   1.47
+  ],
+  "strap_far_skin_C": 38.96,
+  "free_span_mm": 15.22
+ },
+ "S2B C2 wing 165 mm w0.003 wind x0.6 (h 6)": {
+  "skin_max_C": 41.28,
+  "s_at_max": 7.9,
+  "cell_max_C": 62.16,
+  "cell_mean_C": 61.76,
+  "device_top_max_C": 62.3,
+  "sub_cell_skin_max_C": [
+   40.74,
+   40.99,
+   41.19,
+   41.28
+  ],
+  "sub_cell_mean_gap_mm": [
+   3.03,
+   2.47,
+   1.94,
+   1.47
+  ],
+  "strap_far_skin_C": 39.97,
+  "free_span_mm": 15.22
+ },
+ "S2B C2 wing 165 mm w0.001 wind x0.6 (h 6)": {
+  "skin_max_C": 43.34,
+  "s_at_max": 8.0,
+  "cell_max_C": 63.27,
+  "cell_mean_C": 62.9,
+  "device_top_max_C": 63.41,
+  "sub_cell_skin_max_C": [
+   42.67,
+   42.97,
+   43.22,
+   43.33
+  ],
+  "sub_cell_mean_gap_mm": [
+   3.03,
+   2.47,
+   1.94,
+   1.47
+  ],
+  "strap_far_skin_C": 41.72,
+  "free_span_mm": 15.22
+ },
+ "S2B C2 wing 200 mm w0.001": {
+  "skin_max_C": 42.56,
+  "s_at_max": 7.4,
+  "cell_max_C": 59.35,
+  "cell_mean_C": 59.08,
+  "device_top_max_C": 59.46,
+  "sub_cell_skin_max_C": [
+   42.06,
+   42.31,
+   42.5,
+   42.56
+  ],
+  "sub_cell_mean_gap_mm": [
+   2.57,
+   2.11,
+   1.69,
+   1.31
+  ],
+  "strap_far_skin_C": 41.11,
+  "free_span_mm": 16.24
+ },
+ "S2B C2 wing 200 mm w0.003": {
+  "skin_max_C": 40.79,
+  "s_at_max": 7.4,
+  "cell_max_C": 58.49,
+  "cell_mean_C": 58.19,
+  "device_top_max_C": 58.6,
+  "sub_cell_skin_max_C": [
+   40.38,
+   40.59,
+   40.75,
+   40.79
+  ],
+  "sub_cell_mean_gap_mm": [
+   2.57,
+   2.11,
+   1.69,
+   1.31
+  ],
+  "strap_far_skin_C": 39.64,
+  "free_span_mm": 16.24
+ },
+ "S2B C2 wing 200 mm w0.006": {
+  "skin_max_C": 39.89,
+  "s_at_max": 7.3,
+  "cell_max_C": 58.05,
+  "cell_mean_C": 57.75,
+  "device_top_max_C": 58.17,
+  "sub_cell_skin_max_C": [
+   39.53,
+   39.72,
+   39.86,
+   39.89
+  ],
+  "sub_cell_mean_gap_mm": [
+   2.57,
+   2.11,
+   1.69,
+   1.31
+  ],
+  "strap_far_skin_C": 38.96,
+  "free_span_mm": 16.24
+ },
+ "S2B C2 wing 200 mm w0.003 wind x0.6 (h 6)": {
+  "skin_max_C": 41.36,
+  "s_at_max": 7.5,
+  "cell_max_C": 61.59,
+  "cell_mean_C": 61.22,
+  "device_top_max_C": 61.74,
+  "sub_cell_skin_max_C": [
+   40.88,
+   41.12,
+   41.3,
+   41.36
+  ],
+  "sub_cell_mean_gap_mm": [
+   2.57,
+   2.11,
+   1.69,
+   1.31
+  ],
+  "strap_far_skin_C": 39.97,
+  "free_span_mm": 16.24
+ },
+ "S2B C2 wing 200 mm w0.001 wind x0.6 (h 6)": {
+  "skin_max_C": 43.43,
+  "s_at_max": 7.6,
+  "cell_max_C": 62.74,
+  "cell_mean_C": 62.4,
+  "device_top_max_C": 62.87,
+  "sub_cell_skin_max_C": [
+   42.83,
+   43.13,
+   43.35,
+   43.43
+  ],
+  "sub_cell_mean_gap_mm": [
+   2.57,
+   2.11,
+   1.69,
+   1.31
+  ],
+  "strap_far_skin_C": 41.72,
+  "free_span_mm": 16.24
+ },
+ "S2B C3 capsule a 0.15 h 5 140 mm w3e-3": {
+  "skin_max_C": 40.0,
+  "s_at_max": 13.8,
+  "cell_max_C": 42.61,
+  "cell_mean_C": 42.37,
+  "device_top_max_C": 45.28,
+  "strap_far_skin_C": 40.06,
+  "free_span_mm": 14.46
+ },
+ "S2B C3 capsule a 0.15 h 5 165 mm w3e-3": {
+  "skin_max_C": 39.9,
+  "s_at_max": 13.8,
+  "cell_max_C": 42.62,
+  "cell_mean_C": 42.38,
+  "device_top_max_C": 45.2,
+  "strap_far_skin_C": 40.06,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 capsule a 0.15 h 5 200 mm w3e-3": {
+  "skin_max_C": 39.78,
+  "s_at_max": 13.8,
+  "cell_max_C": 42.61,
+  "cell_mean_C": 42.37,
+  "device_top_max_C": 45.08,
+  "strap_far_skin_C": 40.06,
+  "free_span_mm": 16.24
+ },
+ "S2B C3 capsule a 0.15 h 10 140 mm w3e-3": {
+  "skin_max_C": 39.48,
+  "s_at_max": 13.8,
+  "cell_max_C": 41.45,
+  "cell_mean_C": 41.27,
+  "device_top_max_C": 43.76,
+  "strap_far_skin_C": 39.64,
+  "free_span_mm": 14.46
+ },
+ "S2B C3 capsule a 0.15 h 10 165 mm w3e-3": {
+  "skin_max_C": 39.4,
+  "s_at_max": 13.8,
+  "cell_max_C": 41.46,
+  "cell_mean_C": 41.28,
+  "device_top_max_C": 43.7,
+  "strap_far_skin_C": 39.64,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 capsule a 0.15 h 10 200 mm w3e-3": {
+  "skin_max_C": 39.3,
+  "s_at_max": 13.8,
+  "cell_max_C": 41.45,
+  "cell_mean_C": 41.28,
+  "device_top_max_C": 43.61,
+  "strap_far_skin_C": 39.64,
+  "free_span_mm": 16.24
+ },
+ "S2B C3 capsule a 0.15 h 20 140 mm w3e-3": {
+  "skin_max_C": 38.78,
+  "s_at_max": 13.8,
+  "cell_max_C": 39.95,
+  "cell_mean_C": 39.85,
+  "device_top_max_C": 41.78,
+  "strap_far_skin_C": 39.02,
+  "free_span_mm": 14.46
+ },
+ "S2B C3 capsule a 0.15 h 20 165 mm w3e-3": {
+  "skin_max_C": 38.73,
+  "s_at_max": 13.8,
+  "cell_max_C": 39.95,
+  "cell_mean_C": 39.86,
+  "device_top_max_C": 41.74,
+  "strap_far_skin_C": 39.02,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 capsule a 0.15 h 20 200 mm w3e-3": {
+  "skin_max_C": 38.66,
+  "s_at_max": 13.8,
+  "cell_max_C": 39.95,
+  "cell_mean_C": 39.86,
+  "device_top_max_C": 41.69,
+  "strap_far_skin_C": 39.02,
+  "free_span_mm": 16.24
+ },
+ "S2B C3 capsule a 0.15 h 5 165 mm w0.001": {
+  "skin_max_C": 41.27,
+  "s_at_max": 13.8,
+  "cell_max_C": 43.56,
+  "cell_mean_C": 43.35,
+  "device_top_max_C": 46.06,
+  "strap_far_skin_C": 41.81,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 capsule a 0.15 h 5 165 mm w0.006": {
+  "skin_max_C": 39.24,
+  "s_at_max": 13.8,
+  "cell_max_C": 42.18,
+  "cell_mean_C": 41.93,
+  "device_top_max_C": 44.81,
+  "strap_far_skin_C": 39.24,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 capsule a 0.30 h 5 140 mm w3e-3": {
+  "skin_max_C": 41.15,
+  "s_at_max": 13.0,
+  "cell_max_C": 46.04,
+  "cell_mean_C": 45.49,
+  "device_top_max_C": 47.58,
+  "strap_far_skin_C": 40.06,
+  "free_span_mm": 14.46
+ },
+ "S2B C3 capsule a 0.30 h 5 165 mm w3e-3": {
+  "skin_max_C": 40.95,
+  "s_at_max": 13.1,
+  "cell_max_C": 46.07,
+  "cell_mean_C": 45.53,
+  "device_top_max_C": 47.51,
+  "strap_far_skin_C": 40.06,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 capsule a 0.30 h 5 200 mm w3e-3": {
+  "skin_max_C": 40.75,
+  "s_at_max": 13.1,
+  "cell_max_C": 46.07,
+  "cell_mean_C": 45.53,
+  "device_top_max_C": 47.38,
+  "strap_far_skin_C": 40.06,
+  "free_span_mm": 16.24
+ },
+ "S2B C3 capsule a 0.30 h 10 140 mm w3e-3": {
+  "skin_max_C": 40.45,
+  "s_at_max": 13.0,
+  "cell_max_C": 44.43,
+  "cell_mean_C": 43.99,
+  "device_top_max_C": 45.69,
+  "strap_far_skin_C": 39.64,
+  "free_span_mm": 14.46
+ },
+ "S2B C3 capsule a 0.30 h 10 165 mm w3e-3": {
+  "skin_max_C": 40.28,
+  "s_at_max": 13.1,
+  "cell_max_C": 44.46,
+  "cell_mean_C": 44.02,
+  "device_top_max_C": 45.63,
+  "strap_far_skin_C": 39.64,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 capsule a 0.30 h 10 200 mm w3e-3": {
+  "skin_max_C": 40.12,
+  "s_at_max": 13.3,
+  "cell_max_C": 44.46,
+  "cell_mean_C": 44.02,
+  "device_top_max_C": 45.54,
+  "strap_far_skin_C": 39.64,
+  "free_span_mm": 16.24
+ },
+ "S2B C3 capsule a 0.30 h 20 140 mm w3e-3": {
+  "skin_max_C": 39.51,
+  "s_at_max": 13.1,
+  "cell_max_C": 42.32,
+  "cell_mean_C": 42.01,
+  "device_top_max_C": 43.22,
+  "strap_far_skin_C": 39.02,
+  "free_span_mm": 14.46
+ },
+ "S2B C3 capsule a 0.30 h 20 165 mm w3e-3": {
+  "skin_max_C": 39.4,
+  "s_at_max": 13.8,
+  "cell_max_C": 42.34,
+  "cell_mean_C": 42.03,
+  "device_top_max_C": 43.18,
+  "strap_far_skin_C": 39.02,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 capsule a 0.30 h 20 200 mm w3e-3": {
+  "skin_max_C": 39.3,
+  "s_at_max": 13.8,
+  "cell_max_C": 42.35,
+  "cell_mean_C": 42.04,
+  "device_top_max_C": 43.13,
+  "strap_far_skin_C": 39.02,
+  "free_span_mm": 16.24
+ },
+ "S2B C3 capsule a 0.30 h 5 165 mm w0.001": {
+  "skin_max_C": 42.59,
+  "s_at_max": 13.2,
+  "cell_max_C": 47.24,
+  "cell_mean_C": 46.74,
+  "device_top_max_C": 48.57,
+  "strap_far_skin_C": 41.85,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 capsule a 0.30 h 5 165 mm w0.006": {
+  "skin_max_C": 40.12,
+  "s_at_max": 13.0,
+  "cell_max_C": 45.51,
+  "cell_mean_C": 44.94,
+  "device_top_max_C": 47.0,
+  "strap_far_skin_C": 39.24,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 cold worn air -10 w0.001 h 20 sun 0": {
+  "skin_max_C": 28.11,
+  "s_at_max": 2.0,
+  "cell_max_C": 13.1,
+  "cell_mean_C": 11.25,
+  "device_top_max_C": 18.64,
+  "strap_far_skin_C": 22.71,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 cold worn air -10 w0.0005 h 30 sun 0": {
+  "skin_max_C": 24.11,
+  "s_at_max": 2.0,
+  "cell_max_C": 8.07,
+  "cell_mean_C": 6.24,
+  "device_top_max_C": 13.3,
+  "strap_far_skin_C": 16.71,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 cold worn air -10 w0.0005 h 30 sun 500": {
+  "skin_max_C": 24.81,
+  "s_at_max": 2.0,
+  "cell_max_C": 9.64,
+  "cell_mean_C": 7.87,
+  "device_top_max_C": 14.78,
+  "strap_far_skin_C": 18.35,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 cold off-wrist air -10 h 20 sun 0": {
+  "skin_max_C": 37.0,
+  "s_at_max": 2.0,
+  "cell_max_C": -10.0,
+  "cell_mean_C": -10.0,
+  "device_top_max_C": -10.0,
+  "strap_far_skin_C": 37.0,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 cold off-wrist air -10 h 20 sun 500": {
+  "skin_max_C": 37.0,
+  "s_at_max": 2.0,
+  "cell_max_C": -8.0,
+  "cell_mean_C": -8.09,
+  "device_top_max_C": -7.48,
+  "strap_far_skin_C": 37.0,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 cold worn air -20 w0.001 h 20 sun 0": {
+  "skin_max_C": 26.31,
+  "s_at_max": 2.0,
+  "cell_max_C": 8.21,
+  "cell_mean_C": 5.99,
+  "device_top_max_C": 14.9,
+  "strap_far_skin_C": 19.82,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 cold worn air -20 w0.0005 h 30 sun 0": {
+  "skin_max_C": 21.45,
+  "s_at_max": 2.0,
+  "cell_max_C": 2.05,
+  "cell_mean_C": -0.16,
+  "device_top_max_C": 8.37,
+  "strap_far_skin_C": 12.5,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 cold worn air -20 w0.0005 h 30 sun 500": {
+  "skin_max_C": 22.11,
+  "s_at_max": 2.0,
+  "cell_max_C": 3.52,
+  "cell_mean_C": 1.36,
+  "device_top_max_C": 9.76,
+  "strap_far_skin_C": 14.06,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 cold off-wrist air -20 h 20 sun 0": {
+  "skin_max_C": 37.0,
+  "s_at_max": 2.0,
+  "cell_max_C": -20.0,
+  "cell_mean_C": -20.0,
+  "device_top_max_C": -20.0,
+  "strap_far_skin_C": 37.0,
+  "free_span_mm": 15.22
+ },
+ "S2B C3 cold off-wrist air -20 h 20 sun 500": {
+  "skin_max_C": 37.0,
+  "s_at_max": 2.0,
+  "cell_max_C": -17.98,
+  "cell_mean_C": -18.06,
+  "device_top_max_C": -17.45,
+  "strap_far_skin_C": 37.0,
+  "free_span_mm": 15.22
+ }
+}

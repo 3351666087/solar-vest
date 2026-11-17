@@ -1,0 +1,618 @@
+{
+ "EN_ship_wake": {
+  "head VBUS 5.0 V": {
+   "t_to_EN_HOLD_1V_s": 1.709,
+   "EN_HOLD_final_V": 1.758
+  },
+  "head VBUS 4.75 V (minimum at the band)": {
+   "t_to_EN_HOLD_1V_s": 1.885,
+   "EN_HOLD_final_V": 1.653
+  },
+  "button at VBAT 2.8 V (press 0.30 s)": {
+   "t_to_1V_s": 0.293,
+   "EN_HOLD_at_release_V": 1.017,
+   "wakes_within_0p3s": true
+  },
+  "button at VBAT 3.0 V (press 0.30 s)": {
+   "t_to_1V_s": 0.261,
+   "EN_HOLD_at_release_V": 1.107,
+   "wakes_within_0p3s": true
+  },
+  "button at VBAT 3.3 V (press 0.30 s)": {
+   "t_to_1V_s": 0.223,
+   "EN_HOLD_at_release_V": 1.242,
+   "wakes_within_0p3s": true
+  },
+  "button at VBAT 3.7 V (press 0.30 s)": {
+   "t_to_1V_s": 0.187,
+   "EN_HOLD_at_release_V": 1.422,
+   "wakes_within_0p3s": true
+  },
+  "button at VBAT 4.1 V (press 0.30 s)": {
+   "t_to_1V_s": 0.161,
+   "EN_HOLD_at_release_V": 1.603,
+   "wakes_within_0p3s": true
+  },
+  "light wake 100 lx (PV node 1.46 V through R126 3.3 M)": {
+   "t_to_1V_s": 17.9
+  },
+  "light wake 200 lx (PV node 1.69 V through R126 3.3 M)": {
+   "t_to_1V_s": 13.9
+  },
+  "light wake 300 lx (PV node 1.77 V through R126 3.3 M)": {
+   "t_to_1V_s": 12.9
+  },
+  "ship mode leakage": "D12 unbiased (both anodes at 0 V through R145 / R167, cathode at EN_HOLD 0 V): 0 A; Q12 IDSS bound 3.7 uW counted in SIM-05 (CALC_V3F 7, 9)"
+ },
+ "haptic": {
+  "typical path 1.40 ohm | step to 3.0 V average (no soft start) | no PV": {
+   "VBAT_IC_min_incl_ripple_V": 3.489,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 48.0,
+   "battery_peak_mA": 69.9,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "typical path 1.40 ohm | step to 3.0 V average (no soft start) | PV 0.1 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.492,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 51.0,
+   "battery_peak_mA": 67.7,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "typical path 1.40 ohm | step to 3.0 V average (no soft start) | PV 0.45 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.502,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 61.0,
+   "battery_peak_mA": 60.5,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "typical path 1.40 ohm | 30 ms PWM soft start | no PV": {
+   "VBAT_IC_min_incl_ripple_V": 3.511,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 70.0,
+   "battery_peak_mA": 53.6,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "typical path 1.40 ohm | 30 ms PWM soft start | PV 0.1 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.514,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 73.0,
+   "battery_peak_mA": 51.3,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "typical path 1.40 ohm | 30 ms PWM soft start | PV 0.45 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.524,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 83.0,
+   "battery_peak_mA": 44.2,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "typical path 1.40 ohm | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | no PV": {
+   "VBAT_IC_min_incl_ripple_V": 3.53,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 89.0,
+   "battery_peak_mA": 40.1,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "typical path 1.40 ohm | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | PV 0.1 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.53,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 89.0,
+   "battery_peak_mA": 40.1,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "typical path 1.40 ohm | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | PV 0.45 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.53,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 89.0,
+   "battery_peak_mA": 40.1,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "maximum path 2.25 ohm (25 C) | step to 3.0 V average (no soft start) | no PV": {
+   "VBAT_IC_min_incl_ripple_V": 3.427,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": -14.0,
+   "battery_peak_mA": 70.6,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "maximum path 2.25 ohm (25 C) | step to 3.0 V average (no soft start) | PV 0.1 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.432,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": -9.0,
+   "battery_peak_mA": 68.2,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "maximum path 2.25 ohm (25 C) | step to 3.0 V average (no soft start) | PV 0.45 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.449,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 8.0,
+   "battery_peak_mA": 60.9,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "maximum path 2.25 ohm (25 C) | 30 ms PWM soft start | no PV": {
+   "VBAT_IC_min_incl_ripple_V": 3.464,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 23.0,
+   "battery_peak_mA": 54.3,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "maximum path 2.25 ohm (25 C) | 30 ms PWM soft start | PV 0.1 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.469,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 28.0,
+   "battery_peak_mA": 52.0,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "maximum path 2.25 ohm (25 C) | 30 ms PWM soft start | PV 0.45 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.485,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 44.0,
+   "battery_peak_mA": 44.7,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "maximum path 2.25 ohm (25 C) | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | no PV": {
+   "VBAT_IC_min_incl_ripple_V": 3.517,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 76.0,
+   "battery_peak_mA": 30.8,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "maximum path 2.25 ohm (25 C) | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | PV 0.1 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.517,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 76.0,
+   "battery_peak_mA": 30.8,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "maximum path 2.25 ohm (25 C) | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | PV 0.45 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.517,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 76.0,
+   "battery_peak_mA": 30.8,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "0 C cell 3.75 ohm | step to 3.0 V average (no soft start) | no PV": {
+   "VBAT_IC_min_incl_ripple_V": 3.313,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": -128.0,
+   "battery_peak_mA": 72.8,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "0 C cell 3.75 ohm | step to 3.0 V average (no soft start) | PV 0.1 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.322,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": -119.0,
+   "battery_peak_mA": 70.4,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "0 C cell 3.75 ohm | step to 3.0 V average (no soft start) | PV 0.45 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.351,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": -90.0,
+   "battery_peak_mA": 62.8,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "0 C cell 3.75 ohm | 30 ms PWM soft start | no PV": {
+   "VBAT_IC_min_incl_ripple_V": 3.377,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": -64.0,
+   "battery_peak_mA": 55.6,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "0 C cell 3.75 ohm | 30 ms PWM soft start | PV 0.1 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.386,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": -55.0,
+   "battery_peak_mA": 53.3,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "0 C cell 3.75 ohm | 30 ms PWM soft start | PV 0.45 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.414,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": -27.0,
+   "battery_peak_mA": 45.8,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  },
+  "0 C cell 3.75 ohm | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | no PV": {
+   "VBAT_IC_min_incl_ripple_V": 3.507,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 66.0,
+   "battery_peak_mA": 21.1,
+   "motor_avg_V_max": 2.66,
+   "starts_E": true,
+   "back_emf_end_V": 1.66
+  },
+  "0 C cell 3.75 ohm | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | PV 0.1 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.507,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 66.0,
+   "battery_peak_mA": 21.1,
+   "motor_avg_V_max": 2.8,
+   "starts_E": true,
+   "back_emf_end_V": 1.75
+  },
+  "0 C cell 3.75 ohm | firmware rule CALC_V3F 4.3 (ramp while I_bat <= 40 mA and VBAT_IC - I x 1 ohm >= 3.50 V) | PV 0.45 sun": {
+   "VBAT_IC_min_incl_ripple_V": 3.507,
+   "margin_to_VBAT_OK_fall_max_3p441_mV": 66.0,
+   "battery_peak_mA": 21.1,
+   "motor_avg_V_max": 3.0,
+   "starts_E": true,
+   "back_emf_end_V": 1.87
+  }
+ },
+ "reversed_head": {
+  "reversed head -5 V (stiff, 0.5 ohm)": {
+   "VBUS_min_V": -0.0061,
+   "VBUS_end_V": -0.0061,
+   "contact_current_end_uA": -0.344,
+   "contact_current_peak_mA": 0.2
+  },
+  "correct head +5 V (reference)": {
+   "VBUS_min_V": 0.0,
+   "VBUS_end_V": 4.9256,
+   "contact_current_end_uA": 4.918,
+   "contact_current_peak_mA": 2995.167
+  },
+  "reversed head -5.5 V": {
+   "VBUS_min_V": -0.0061,
+   "VBUS_end_V": -0.0061,
+   "contact_current_end_uA": -0.187,
+   "contact_current_peak_mA": 0.22
+  },
+  "note": "U15 IN absolute minimum -0.3 V (SLUSDJ8A p.4); D14 NSR0240 VR 40 V, IR <= 0.55 uA at 25 V (p.2); ESD761 VRWM +-24 V (SLVSH10C)"
+ },
+ "charge_bound_R12_plus_Q14": {
+  "strips 2.30 mm | 1.2 sun strings -10 C | k 0.8": {
+   "i_bat_mA": 22.3,
+   "C_70": 0.319,
+   "C_66": 0.338
+  },
+  "strips 2.30 mm | 1.2 sun strings -10 C | k 0.72": {
+   "i_bat_mA": 26.36,
+   "C_70": 0.377,
+   "C_66": 0.399
+  },
+  "strips 2.30 mm | 1.2 sun strings -20 C | k 0.8": {
+   "i_bat_mA": 23.41,
+   "C_70": 0.334,
+   "C_66": 0.355
+  },
+  "strips 2.30 mm | 1.2 sun strings -20 C | k 0.72": {
+   "i_bat_mA": 27.6,
+   "C_70": 0.394,
+   "C_66": 0.418
+  },
+  "strips 2.30 mm | 1.2 sun strings 0 C | k 0.8": {
+   "i_bat_mA": 21.21,
+   "C_70": 0.303,
+   "C_66": 0.321
+  },
+  "strips 2.30 mm | 1.2 sun strings 0 C | k 0.72": {
+   "i_bat_mA": 25.14,
+   "C_70": 0.359,
+   "C_66": 0.381
+  },
+  "strips 2.30 mm | 1 sun strings 25 C | k 0.8": {
+   "i_bat_mA": 17.65,
+   "C_70": 0.252,
+   "C_66": 0.267
+  },
+  "strips 2.30 mm | 1 sun strings 25 C | k 0.72": {
+   "i_bat_mA": 20.77,
+   "C_70": 0.297,
+   "C_66": 0.315
+  },
+  "strips 2.50 mm | 1.2 sun strings -10 C | k 0.8": {
+   "i_bat_mA": 22.57,
+   "C_70": 0.322,
+   "C_66": 0.342
+  },
+  "strips 2.50 mm | 1.2 sun strings -10 C | k 0.72": {
+   "i_bat_mA": 26.73,
+   "C_70": 0.382,
+   "C_66": 0.405
+  },
+  "strips 2.50 mm | 1.2 sun strings -20 C | k 0.8": {
+   "i_bat_mA": 23.7,
+   "C_70": 0.339,
+   "C_66": 0.359
+  },
+  "strips 2.50 mm | 1.2 sun strings -20 C | k 0.72": {
+   "i_bat_mA": 28.0,
+   "C_70": 0.4,
+   "C_66": 0.424
+  },
+  "strips 2.50 mm | 1.2 sun strings 0 C | k 0.8": {
+   "i_bat_mA": 21.47,
+   "C_70": 0.307,
+   "C_66": 0.325
+  },
+  "strips 2.50 mm | 1.2 sun strings 0 C | k 0.72": {
+   "i_bat_mA": 25.49,
+   "C_70": 0.364,
+   "C_66": 0.386
+  },
+  "strips 2.50 mm | 1 sun strings 25 C | k 0.8": {
+   "i_bat_mA": 17.88,
+   "C_70": 0.255,
+   "C_66": 0.271
+  },
+  "strips 2.50 mm | 1 sun strings 25 C | k 0.72": {
+   "i_bat_mA": 21.1,
+   "C_70": 0.301,
+   "C_66": 0.32
+  },
+  "strips 2.80 mm | 1.2 sun strings -10 C | k 0.8": {
+   "i_bat_mA": 22.95,
+   "C_70": 0.328,
+   "C_66": 0.348
+  },
+  "strips 2.80 mm | 1.2 sun strings -10 C | k 0.72": {
+   "i_bat_mA": 27.25,
+   "C_70": 0.389,
+   "C_66": 0.413
+  },
+  "strips 2.80 mm | 1.2 sun strings -20 C | k 0.8": {
+   "i_bat_mA": 24.1,
+   "C_70": 0.344,
+   "C_66": 0.365
+  },
+  "strips 2.80 mm | 1.2 sun strings -20 C | k 0.72": {
+   "i_bat_mA": 28.56,
+   "C_70": 0.408,
+   "C_66": 0.433
+  },
+  "strips 2.80 mm | 1.2 sun strings 0 C | k 0.8": {
+   "i_bat_mA": 21.83,
+   "C_70": 0.312,
+   "C_66": 0.331
+  },
+  "strips 2.80 mm | 1.2 sun strings 0 C | k 0.72": {
+   "i_bat_mA": 25.98,
+   "C_70": 0.371,
+   "C_66": 0.394
+  },
+  "strips 2.80 mm | 1 sun strings 25 C | k 0.8": {
+   "i_bat_mA": 18.21,
+   "C_70": 0.26,
+   "C_66": 0.276
+  },
+  "strips 2.80 mm | 1 sun strings 25 C | k 0.72": {
+   "i_bat_mA": 21.55,
+   "C_70": 0.308,
+   "C_66": 0.327
+  }
+ },
+ "deep_discharge": {
+  "strips 2.30 mm | 1 sun 25 C | cell 0 V": {
+   "i_mA": 48.2,
+   "C_70": 0.69
+  },
+  "strips 2.30 mm | 1 sun 25 C | cell 0.5 V": {
+   "i_mA": 29.9,
+   "C_70": 0.43
+  },
+  "strips 2.30 mm | 1 sun 25 C | cell 1 V": {
+   "i_mA": 4.9,
+   "C_70": 0.07
+  },
+  "strips 2.30 mm | 1 sun 25 C | cell 1.2 V": {
+   "i_mA": 0.0,
+   "C_70": 0.0
+  },
+  "strips 2.30 mm | 1.2 sun 0 C (O-2 window edge) | cell 0 V": {
+   "i_mA": 58.9,
+   "C_70": 0.84
+  },
+  "strips 2.30 mm | 1.2 sun 0 C (O-2 window edge) | cell 0.5 V": {
+   "i_mA": 40.7,
+   "C_70": 0.58
+  },
+  "strips 2.30 mm | 1.2 sun 0 C (O-2 window edge) | cell 1 V": {
+   "i_mA": 15.7,
+   "C_70": 0.22
+  },
+  "strips 2.30 mm | 1.2 sun 0 C (O-2 window edge) | cell 1.2 V": {
+   "i_mA": 4.9,
+   "C_70": 0.07
+  },
+  "strips 2.30 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 0 V": {
+   "i_mA": 60.3,
+   "C_70": 0.86
+  },
+  "strips 2.30 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 0.5 V": {
+   "i_mA": 43.8,
+   "C_70": 0.63
+  },
+  "strips 2.30 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 1 V": {
+   "i_mA": 19.3,
+   "C_70": 0.28
+  },
+  "strips 2.30 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 1.2 V": {
+   "i_mA": 8.7,
+   "C_70": 0.12
+  },
+  "strips 2.80 mm | 1 sun 25 C | cell 0 V": {
+   "i_mA": 51.1,
+   "C_70": 0.73
+  },
+  "strips 2.80 mm | 1 sun 25 C | cell 0.5 V": {
+   "i_mA": 31.0,
+   "C_70": 0.44
+  },
+  "strips 2.80 mm | 1 sun 25 C | cell 1 V": {
+   "i_mA": 5.0,
+   "C_70": 0.07
+  },
+  "strips 2.80 mm | 1 sun 25 C | cell 1.2 V": {
+   "i_mA": 0.0,
+   "C_70": 0.0
+  },
+  "strips 2.80 mm | 1.2 sun 0 C (O-2 window edge) | cell 0 V": {
+   "i_mA": 62.4,
+   "C_70": 0.89
+  },
+  "strips 2.80 mm | 1.2 sun 0 C (O-2 window edge) | cell 0.5 V": {
+   "i_mA": 42.1,
+   "C_70": 0.6
+  },
+  "strips 2.80 mm | 1.2 sun 0 C (O-2 window edge) | cell 1 V": {
+   "i_mA": 16.1,
+   "C_70": 0.23
+  },
+  "strips 2.80 mm | 1.2 sun 0 C (O-2 window edge) | cell 1.2 V": {
+   "i_mA": 5.0,
+   "C_70": 0.07
+  },
+  "strips 2.80 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 0 V": {
+   "i_mA": 64.3,
+   "C_70": 0.92
+  },
+  "strips 2.80 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 0.5 V": {
+   "i_mA": 45.4,
+   "C_70": 0.65
+  },
+  "strips 2.80 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 1 V": {
+   "i_mA": 19.9,
+   "C_70": 0.28
+  },
+  "strips 2.80 mm | 1.2 sun -10 C (only with the MCU running and the O-2 bypassed: not reachable) | cell 1.2 V": {
+   "i_mA": 8.9,
+   "C_70": 0.13
+  }
+ },
+ "q8_single_fault": {
+  "strips 2.30 mm | 1.2 sun strings 0 C | Q8 open, MCU off (cell 3.0-3.40 V, VBAT_OK low): PV + USB": {
+   "pv_mA": 21.21,
+   "usb_mA": 32.74,
+   "C_70": 0.771,
+   "C_66": 0.818
+  },
+  "strips 2.30 mm | 1.2 sun strings 25 C | Q8 open, MCU off (cell 3.0-3.40 V, VBAT_OK low): PV + USB": {
+   "pv_mA": 18.67,
+   "usb_mA": 32.74,
+   "C_70": 0.734,
+   "C_66": 0.779
+  },
+  "strips 2.30 mm | 1.2 sun strings 45 C | Q8 open, MCU off (cell 3.0-3.40 V, VBAT_OK low): PV + USB": {
+   "pv_mA": 16.81,
+   "usb_mA": 32.74,
+   "C_70": 0.708,
+   "C_66": 0.751
+  },
+  "strips 2.80 mm | 1.2 sun strings 0 C | Q8 open, MCU off (cell 3.0-3.40 V, VBAT_OK low): PV + USB": {
+   "pv_mA": 21.83,
+   "usb_mA": 32.74,
+   "C_70": 0.78,
+   "C_66": 0.827
+  },
+  "strips 2.80 mm | 1.2 sun strings 25 C | Q8 open, MCU off (cell 3.0-3.40 V, VBAT_OK low): PV + USB": {
+   "pv_mA": 19.19,
+   "usb_mA": 32.74,
+   "C_70": 0.742,
+   "C_66": 0.787
+  },
+  "strips 2.80 mm | 1.2 sun strings 45 C | Q8 open, MCU off (cell 3.0-3.40 V, VBAT_OK low): PV + USB": {
+   "pv_mA": 17.27,
+   "usb_mA": 32.74,
+   "C_70": 0.715,
+   "C_66": 0.758
+  }
+ },
+ "vbat_ok_chatter": {
+  "strips 2.30 | 1 sun 25 C | VSTOR path typical 2.90 ohm": {
+   "i_mA": 15.6,
+   "step_mV": 45.0,
+   "hysteresis_mV": 91,
+   "chatter_possible": false
+  },
+  "strips 2.30 | 1 sun 25 C | VSTOR path max 25 C 3.75 ohm": {
+   "i_mA": 15.6,
+   "step_mV": 58.0,
+   "hysteresis_mV": 91,
+   "chatter_possible": false
+  },
+  "strips 2.30 | 1 sun 25 C | VSTOR path 0 C cell 5.25 ohm": {
+   "i_mA": 15.6,
+   "step_mV": 82.0,
+   "hysteresis_mV": 91,
+   "chatter_possible": false
+  },
+  "strips 2.30 | 1.2 sun 0 C | VSTOR path typical 2.90 ohm": {
+   "i_mA": 18.7,
+   "step_mV": 54.0,
+   "hysteresis_mV": 91,
+   "chatter_possible": false
+  },
+  "strips 2.30 | 1.2 sun 0 C | VSTOR path max 25 C 3.75 ohm": {
+   "i_mA": 18.7,
+   "step_mV": 70.0,
+   "hysteresis_mV": 91,
+   "chatter_possible": false
+  },
+  "strips 2.30 | 1.2 sun 0 C | VSTOR path 0 C cell 5.25 ohm": {
+   "i_mA": 18.7,
+   "step_mV": 98.0,
+   "hysteresis_mV": 91,
+   "chatter_possible": true
+  },
+  "strips 2.80 | 1 sun 25 C | VSTOR path typical 2.90 ohm": {
+   "i_mA": 16.1,
+   "step_mV": 47.0,
+   "hysteresis_mV": 91,
+   "chatter_possible": false
+  },
+  "strips 2.80 | 1 sun 25 C | VSTOR path max 25 C 3.75 ohm": {
+   "i_mA": 16.1,
+   "step_mV": 60.0,
+   "hysteresis_mV": 91,
+   "chatter_possible": false
+  },
+  "strips 2.80 | 1 sun 25 C | VSTOR path 0 C cell 5.25 ohm": {
+   "i_mA": 16.1,
+   "step_mV": 84.0,
+   "hysteresis_mV": 91,
+   "chatter_possible": false
+  },
+  "strips 2.80 | 1.2 sun 0 C | VSTOR path typical 2.90 ohm": {
+   "i_mA": 19.2,
+   "step_mV": 56.0,
+   "hysteresis_mV": 91,
+   "chatter_possible": false
+  },
+  "strips 2.80 | 1.2 sun 0 C | VSTOR path max 25 C 3.75 ohm": {
+   "i_mA": 19.2,
+   "step_mV": 72.0,
+   "hysteresis_mV": 91,
+   "chatter_possible": false
+  },
+  "strips 2.80 | 1.2 sun 0 C | VSTOR path 0 C cell 5.25 ohm": {
+   "i_mA": 19.2,
+   "step_mV": 101.0,
+   "hysteresis_mV": 91,
+   "chatter_possible": true
+  }
+ }
+}

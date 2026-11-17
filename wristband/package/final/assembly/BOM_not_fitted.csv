@@ -1,0 +1,9 @@
+Ref,Value,LCSC,MPN,Footprint,Side,Class,Function,On_board
+C118,22uF 6.3V X5R 0402 CL05A226MQ5QUNC,C105226,CL05A226MQ5QUNC,easyeda_rev:C105226_C0402,top (sky),"DNP (pads only, excluded from BOM/CPL)",LED reservoir 22 uF at the LED anodes: NOT FITTED (0402 land kept; 22 uF 0402 = C105226) [P-6; FIX R-08; G1 L0: land 0603 -> 0402],yes
+C213,DNP,C1546,0402CG101J500NT,easyeda_rev:C1546_C0402,top (sky),"DNP (pads only, excluded from BOM/CPL)","pi-net chip-side shunt land, DNP (tuning) [gate 3a]",yes
+C301,DNP,C76924,GRM0335C1H220JA01D,easyeda_rev:C76924_C0201,top (sky),"DNP (pads only, excluded from BOM/CPL)",C_CM+ DNP (pad kept) [SIM-07],yes
+C302,DNP,C76924,GRM0335C1H220JA01D,easyeda_rev:C76924_C0201,top (sky),"DNP (pads only, excluded from BOM/CPL)",C_CM- DNP (pad kept) [SIM-07],yes
+C303,DNP,C76922,GRM0335C1H101JA01D,easyeda_rev:C76922_C0201,top (sky),"DNP (pads only, excluded from BOM/CPL)",C_DIFF DNP (pad kept) [SIM-07],yes
+R307,DNP,C423797,0201WMF1005TEE,easyeda_rev:C423797_R0201,top (sky),"DNP (pads only, excluded from BOM/CPL)",RLD REXT DNP (pad kept; 10 M fallback) [SIM-07],yes
+R308,DNP,C423797,0201WMF1005TEE,easyeda_rev:C423797_R0201,top (sky),"DNP (pads only, excluded from BOM/CPL)","R_BIAS+ 10 M, 2-electrode variant only",yes
+R309,DNP,C423797,0201WMF1005TEE,easyeda_rev:C423797_R0201,top (sky),"DNP (pads only, excluded from BOM/CPL)","R_BIAS- 10 M, 2-electrode variant only",yes

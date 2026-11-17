@@ -1,0 +1,18 @@
+{
+ "lines": 91,
+ "placements": 207,
+ "not_fitted": 8,
+ "hand_fitted": 9,
+ "copper_only": 27,
+ "fails": [],
+ "value_diffs": [
+  {
+   "ref": "C203",
+   "board": "1.0pF +-0.1pF C0G 0201 GJM0335C1H1R0BB01",
+   "design": "1.0pF +-0.1pF C0G 0201 GJM0335C1H1R0BB01D",
+   "used": "design"
+  }
+ ],
+ "source": "/path/to/SolarVest_work/wristband/v3/design/BOM_v3f.csv",
+ "source_sha256": "f6869dd8937a1d83b95b09e9ae1b8ba504fe654fc23e65deab77f2dbc072e93a"
+}

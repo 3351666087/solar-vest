@@ -29,3 +29,15 @@ The BITalino dimensions used in this project come from PLUX's *BITalino (r)evolu
 ## Tools
 
 KiCad, SKiDL, build123d (OpenCascade), trimesh, manifold3d, ngspice, esbuild, glTF-Transform and openhtmltopdf are used as tools. None of their source code is redistributed here.
+
+## SolarBand wristband (`wristband/`)
+
+| Item | Source | License / terms | Where used here |
+|---|---|---|---|
+| Component footprints and symbols, one per LCSC part number | EasyEDA / LCSC public component library, converted to KiCad format with the open-source tool easyeda2kicad (the tool is not included) | Terms of the EasyEDA / LCSC library; no separate open license is stated by the library | Raw conversions in `wristband/design/lib/easyeda.pretty` and `easyeda.kicad_sym`; reviewed copies (paste, courtyard, holes and fields fixed by `design/tools/review_footprints.py`, copper unchanged) in `easyeda_rev.pretty` and in the routing bundle; placed on the board in `wristband/board/` and `wristband/package/final/board/` |
+| EasyEDA 3D models (`easyeda.3dshapes`) | EasyEDA / LCSC | **Not** included; the footprints still name them, so KiCad shows no body for those parts | Board STEP exports in `wristband/cad/img/` embed the bodies that were available when they were exported |
+| Part fields (stock, price, package, description) | JLCPCB public parts search, read 2026-11-13 to 11-16 | Facts quoted for the BOM; the raw API answers are not included | `wristband/design/parts.json`, `stock_report.md`, `wristband/package/final/assembly/stock_today.*` |
+| Data-sheet figures | Manufacturers' data sheets (TI, Sharp, C&K, Vybronics and others), cited by document number, page and figure in the reports | Cited, not redistributed (no data-sheet PDFs or page texts are included) | Reports in `wristband/docs`, `design`, `cad/sources.md`, `sim/`; digitised curve points in `wristband/sim/ecg/refs/curves.json` |
+| IEC 60601-1, IEC 61000-4-2, ISO 22810 | Standards | Cited by clause structure only | Pass criteria in the reports |
+
+KiCad 10 (kicad-cli, pcbnew Python module), SKiDL, build123d (OpenCascade), ngspice, numpy, scipy, shapely and matplotlib are used as tools by the wristband scripts. Freerouting was tried in early stages and is not bundled. None of their source code is redistributed here. The routing path-finder (`wristband/routing/**/pf.c`) and all other scripts in `wristband/` are this project's own code.

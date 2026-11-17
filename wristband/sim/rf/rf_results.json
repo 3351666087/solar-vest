@@ -1,0 +1,225 @@
+{
+ "gate": "V3-G3a (SIM-10 / SIM-11), V3-F stage 2b, pod 41 x 34, board 38 x 31",
+ "date": "2026-11-15",
+ "verdict": "PARTIAL",
+ "runs_used": 5,
+ "runs_budget": 6,
+ "runs": {
+  "PA_body_c": "fill booster, body, coarse",
+  "PB_body_c": "shorted loop, body, coarse",
+  "PA_body_f": "chosen, body, fine",
+  "PA_free_f": "chosen, free space, fine",
+  "PAfl_body_c": "chosen, body, coarse, window frame floating (E-1 ground removed)"
+ },
+ "screening_coarse_body": {
+  "PA": {
+   "Z_2p44": "3.7-152j",
+   "eta_rad": 0.0427,
+   "eta_tot_body_min_best_2part": 0.0126
+  },
+  "PB": {
+   "Z_2p44": "0.3+43.7j",
+   "eta_rad": 0.136,
+   "eta_tot_body_min_S11ranked": 0.009,
+   "note": "R 0.3 ohm: PEC model omits copper loss (~0.1-0.2 ohm est.), rejected"
+  }
+ },
+ "chosen": {
+  "name": "PA_fill_booster",
+  "radiator": "capacitive booster: keep-out pocket filled on F.Cu (3.5 mm2) and B.Cu (3.0 mm2), 2 vias, feed leg at board X 2.5-3.0",
+  "Z_body": {
+   "2.40": "(3.5-158.8j)",
+   "2.44": "(3.5-155.7j)",
+   "2.48": "(3.5-152.7j)"
+  },
+  "Z_free": {
+   "2.40": "(3.2-160.2j)",
+   "2.44": "(3.2-157j)",
+   "2.48": "(3.2-154j)"
+  },
+  "eta_rad_body": {
+   "2.30": 0.03831581465206807,
+   "2.40": 0.04152943795215968,
+   "2.44": 0.04282085785157297,
+   "2.48": 0.04395659762948147,
+   "2.58": 0.045730707970964374
+  },
+  "eta_rad_free": {
+   "2.30": 0.255764016914702,
+   "2.40": 0.27658509761011973,
+   "2.44": 0.28894087877257885,
+   "2.48": 0.3038589647868217,
+   "2.58": 0.35014060667691516
+  },
+  "pinet": {
+   "desc": "A:1.1 nH (LQG15HS1N1B02) | S:5.1 nH (LQG15HS5N1B02) | B:DNP",
+   "C213_land_chip_side_shunt": "1.1 nH LQG15HS1N1B02",
+   "C215_land_series": "5.1 nH LQG15HS5N1B02",
+   "L204_land_antenna_side_shunt": "DNP",
+   "l_b_mm": 0.5
+  },
+  "eta_tot_body": {
+   "2.40": 0.012980698148509204,
+   "2.44": 0.014304000172141992,
+   "2.48": 0.01293555833867536
+  },
+  "eta_tot_body_min": 0.01293555833867536,
+  "eta_tot_free": {
+   "2.40": 0.07761970942970225,
+   "2.44": 0.08987565875189288,
+   "2.48": 0.08561532034693345
+  },
+  "eta_tot_free_min": 0.07761970942970225,
+  "S11_body_dB_band_max": -6.879917147985877,
+  "S11_free_dB_band_max": -7.141642724284015,
+  "network_loss_dB_band_max": {
+   "body": 4.352498369881656,
+   "free": 4.651451307294201
+  },
+  "tolerance_eta_mc": {
+   "pinet": "A:1.1 nH (LQG15HS1N1B02) | S:5.1 nH (LQG15HS5N1B02) | B:DNP",
+   "l_b_mm": 0.5,
+   "n": 400,
+   "eta_tot_body_min_median": 0.010489931210468081,
+   "p5": 0.006401513760654469,
+   "p95": 0.012682493560049024,
+   "yield_ge_1pct": 0.5725
+  },
+  "tolerance_RL_mc": {
+   "n": 300,
+   "RL_body_min_p5": 3.4312946225743155,
+   "RL_body_min_worst": 3.013249729034059,
+   "RL_free_min_p5": 3.436552658859905,
+   "RL_free_min_worst": 2.997883941131536
+  },
+  "detuning_free_to_body_MHz": {
+   "S11_min": -10.0,
+   "eta_max": -10.0
+  },
+  "f_S11min_GHz": {
+   "body": 2.43,
+   "free": 2.44
+  },
+  "sensitivity": {
+   "series_L_4.7nH": 0.00713,
+   "series_L_5.6nH": 0.00394,
+   "l_b_1.0mm": 0.00536,
+   "l_b_2.0mm": 0.00136,
+   "frame_floating_coarse": {
+    "eta_tot_body_min": 0.01238,
+    "nominal_coarse": 0.01261
+   },
+   "mesh_c_vs_f_same_net": {
+    "c": 0.01261,
+    "f": 0.01294
+   }
+  },
+  "estimate_high_Q_inductor": {
+   "Q_L": 60,
+   "eta_tot_body_min": 0.0207,
+   "note": "ideal parts, no lands: ESTIMATE only, no S2P"
+  }
+ },
+ "link": {
+  "worst_margin_dB": 14.516065659320674,
+  "inputs": {
+   "P_tx_band_dBm": {
+    "value": 4.0,
+    "source": "nRF52832 max TX power, PS v1.x [BLE lane, datasheet]"
+   },
+   "sens_band_dBm": {
+    "value": -96.0,
+    "source": "nRF52832 BLE 1 Msps sensitivity, PS v1.x [BLE lane, datasheet]"
+   },
+   "P_tx_phone_dBm": {
+    "value": 4.0,
+    "source": "assumed equal to the band (typical phones 0..+10 dBm) [E]"
+   },
+   "sens_phone_dBm": {
+    "value": -96.0,
+    "source": "assumed equal to the band (typical phones -90..-97 dBm) [E]"
+   },
+   "G_phone_dBi": {
+    "value": -5.0,
+    "source": "ARCHITECTURE \u00a79 SIM-11 criterion"
+   },
+   "body_shadow_dB": {
+    "value": 15.0,
+    "source": "ARCHITECTURE \u00a79 SIM-11 criterion"
+   },
+   "distance_m": {
+    "value": 2.0,
+    "source": "ARCHITECTURE \u00a79 SIM-11 criterion"
+   },
+   "IL_nordic_match_dB": {
+    "value": 0.24436937848360593,
+    "source": "SIM-09, Murata S2P + lands, worst in 2.402-2.480 GHz"
+   }
+  },
+  "at_eta_p5_margin_dB": 11.46
+ },
+ "cases": [
+  {
+   "name": "G3a min: eta_tot body >= 1 %",
+   "value": 0.01293555833867536,
+   "status": "PASS"
+  },
+  {
+   "name": "G3a min: eta_tot body >= 1 % under part/land/line tolerances",
+   "value": {
+    "pinet": "A:1.1 nH (LQG15HS1N1B02) | S:5.1 nH (LQG15HS5N1B02) | B:DNP",
+    "l_b_mm": 0.5,
+    "n": 400,
+    "eta_tot_body_min_median": 0.010489931210468081,
+    "p5": 0.006401513760654469,
+    "p95": 0.012682493560049024,
+    "yield_ge_1pct": 0.5725
+   },
+   "status": "PARTIAL"
+  },
+  {
+   "name": "G3a min: link margin >= 13 dB",
+   "value": 14.516065659320674,
+   "status": "PASS"
+  },
+  {
+   "name": "ARCH 9 SIM-10: eta_tot body >= 5 %",
+   "value": 0.01293555833867536,
+   "status": "FAIL"
+  },
+  {
+   "name": "ARCH 9 SIM-10: S11 body <= -10 dB (<= 2 parts)",
+   "value": -6.879917147985877,
+   "status": "FAIL"
+  },
+  {
+   "name": "ARCH 9 SIM-10: S11 free <= -6 dB",
+   "value": -7.141642724284015,
+   "status": "PASS"
+  },
+  {
+   "name": "ARCH 9 SIM-11: margin >= 10 dB",
+   "value": 14.516065659320674,
+   "status": "PASS"
+  }
+ ],
+ "export": {
+  "json": "export/AE1_PA_fill_booster.json",
+  "kicad_mod": "export/AE1_PA_fill_booster.kicad_mod",
+  "placement": "AE1 at board (0,0) rot 0 front = KiCad (100,130)",
+  "feed_point_board": [
+   2.75,
+   3.0
+  ],
+  "vias_board": [
+   [
+    3.75,
+    1.5
+   ],
+   [
+    2.0,
+    1.75
+   ]
+  ]
+ }
+}

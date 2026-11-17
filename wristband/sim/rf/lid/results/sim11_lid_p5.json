@@ -1,0 +1,68 @@
+{
+ "sim10_source": "results/sim10_lid_E_p5.json",
+ "directivity_source": "results/sim10_lid_E_p5.json",
+ "inputs": {
+  "P_tx_band_dBm": {
+   "value": 4.0,
+   "source": "nRF52832 max TX power, PS v1.x [BLE lane, datasheet]"
+  },
+  "sens_band_dBm": {
+   "value": -96.0,
+   "source": "nRF52832 BLE 1 Msps sensitivity, PS v1.x [BLE lane, datasheet]"
+  },
+  "P_tx_phone_dBm": {
+   "value": 4.0,
+   "source": "assumed equal to the band (typical phones 0..+10 dBm) [E]"
+  },
+  "sens_phone_dBm": {
+   "value": -96.0,
+   "source": "assumed equal to the band (typical phones -90..-97 dBm) [E]"
+  },
+  "G_phone_dBi": {
+   "value": -5.0,
+   "source": "ARCHITECTURE \u00a79 SIM-11 criterion"
+  },
+  "body_shadow_dB": {
+   "value": 15.0,
+   "source": "ARCHITECTURE \u00a79 SIM-11 criterion"
+  },
+  "distance_m": {
+   "value": 2.0,
+   "source": "ARCHITECTURE \u00a79 SIM-11 criterion"
+  },
+  "IL_nordic_match_dB": {
+   "value": 0.24436937848360593,
+   "source": "SIM-09, Murata S2P + lands, worst in 2.402-2.480 GHz"
+  }
+ },
+ "rows": [
+  {
+   "f_GHz": 2.4,
+   "direction": "band->phone",
+   "eta_tot_body": 0.06987182349649804,
+   "G_mean_dBi": -11.556979224944342,
+   "D_max_dBi": null,
+   "G_peak_dBi": null,
+   "FSPL_dB": 46.07260796939512,
+   "P_rx_dBm": -73.87395657282306,
+   "margin_dB": 22.12604342717694
+  },
+  {
+   "f_GHz": 2.4,
+   "direction": "phone->band",
+   "eta_tot_body": 0.06987182349649804,
+   "G_mean_dBi": -11.556979224944342,
+   "D_max_dBi": null,
+   "G_peak_dBi": null,
+   "FSPL_dB": 46.07260796939512,
+   "P_rx_dBm": -73.87395657282306,
+   "margin_dB": 22.12604342717694
+  }
+ ],
+ "worst_margin_dB": 22.12604342717694,
+ "pass_ge_10dB": true,
+ "with_3dB_polarization_loss_margin_dB": 19.12604342717694,
+ "range_for_10dB_margin_m": 8.078526743482273,
+ "range_for_0dB_margin_m_free_space_slope": 25.546544647986806,
+ "note": "free-space path loss; indoor multipath can add or remove ~10 dB; the 15 dB body shadow is the ARCHITECTURE allowance, not a simulated value (the phantom in SIM-10 covers only the wrist)."
+}

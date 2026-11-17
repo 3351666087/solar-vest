@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "filename": "solarband_v3f.kicad_pro",
+    "version": 3
+  },
+  "schematic": {
+    "drawing": {}
+  },
+  "sheets": [
+    [
+      "c067beab-b2ed-44f4-bdc3-d147f764b7f6",
+      "Root"
+    ],
+    [
+      "46966b5a-81be-4f81-87ee-ba79b066f710",
+      "power"
+    ],
+    [
+      "17045a43-fefc-4c4a-aa75-c0ec4657b2c9",
+      "charger"
+    ],
+    [
+      "31039f15-ddd5-41a5-b9a2-58f9bedd4fad",
+      "o2"
+    ],
+    [
+      "d29ab58a-085e-4bf3-80c0-710c0aec7e59",
+      "hmi"
+    ],
+    [
+      "23ac8d59-e940-4437-aeab-07cd8f4a9aff",
+      "mcu_rf"
+    ],
+    [
+      "f91eccac-1dbb-4df7-a63c-3cc37c813054",
+      "ecg"
+    ],
+    [
+      "a8484934-f239-4f1d-8544-d1a8e224ce4a",
+      "ppg"
+    ],
+    [
+      "38c9433b-c238-466a-81fd-f9c3f5340180",
+      "sensors_storage"
+    ],
+    [
+      "4ecc6e73-9a87-4f4c-8918-ecb898506db0",
+      "io"
+    ]
+  ]
+}

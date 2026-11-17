@@ -102,10 +102,12 @@ flowchart LR
 ├── research/      Toolchain survey and the parametric samples that validated it
 ├── tools/         CAD/EDA/simulation generators, explorer source, serial bridge
 ├── pdf/           Pipeline that typesets the architecture documents to PDF (fonts not included)
+├── wristband/     SolarBand V3-F light-harvesting wristband: design, board, JLC package,
+│                  CAD, simulations, routing environment (simulation only, not built)
 └── THIRD_PARTY_NOTICES.md
 ```
 
-Start with [docs/build-and-assembly-guide.md](docs/build-and-assembly-guide.md).
+Start with [docs/build-and-assembly-guide.md](docs/build-and-assembly-guide.md). The sister wristband project starts at [wristband/README.md](wristband/README.md).
 
 ### Quick start
 
@@ -333,10 +335,11 @@ flowchart LR
 ├── research/      工具链调研及验证用的参数化样例
 ├── tools/         CAD/EDA/仿真生成脚本、3D 浏览器源码、串口桥
 ├── pdf/           把架构文档排版成 PDF 的流程（不含字体）
+├── wristband/     SolarBand V3-F 太阳能手环：原理图、PCB、JLC 生产包、CAD、仿真、布线环境（仅仿真验证，未制作）
 └── THIRD_PARTY_NOTICES.md
 ```
 
-建议从 [docs/build-and-assembly-guide.md](docs/build-and-assembly-guide.md) 开始看。
+建议从 [docs/build-and-assembly-guide.md](docs/build-and-assembly-guide.md) 开始看。手环子项目从 [wristband/README.md](wristband/README.md) 开始。
 
 ### 快速上手
 

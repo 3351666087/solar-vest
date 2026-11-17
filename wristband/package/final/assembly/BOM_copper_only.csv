@@ -1,0 +1,28 @@
+Ref,Value,LCSC,MPN,Footprint,Side,Class,Function,On_board
+AE1,lid strip L1 feed,,,solarband:AE1_lid_L1,top (sky),copper only (no component),lid antenna L1: feed leg + J40 spring land in the copper-free pocket (all 6 layers); radiator = printed strip on the glass,yes
+E11,PLATE DOT PAD 2.0 ENIG (B.Cu),,,solarband:Pad_PlateDot_D2.0mm,bottom (skin),copper only (no component),"E1 plate (IN+), silver-epoxy dot A; split ENIG pad on the skin face, opening in the carrier film",yes
+E12,PLATE DOT PAD 2.0 ENIG (B.Cu),,,solarband:Pad_PlateDot_D2.0mm,bottom (skin),copper only (no component),"E1 plate, dot B (through R318); split ENIG pad on the skin face, opening in the carrier film",yes
+E21,PLATE DOT PAD 2.0 ENIG (B.Cu),,,solarband:Pad_PlateDot_D2.0mm,bottom (skin),copper only (no component),"E2 plate (RLD), silver-epoxy dot A; split ENIG pad on the skin face, opening in the carrier film",yes
+E22,PLATE DOT PAD 2.0 ENIG (B.Cu),,,solarband:Pad_PlateDot_D2.0mm,bottom (skin),copper only (no component),"E2 plate, dot B (through R319); split ENIG pad on the skin face, opening in the carrier film",yes
+FID1,FIDUCIAL 1.0/2.0,,,solarband:Fiducial_1.0mm_Mask2.0mm,top (sky),copper only (no component),local fiducial 1 (sky side),yes
+FID2,FIDUCIAL 1.0/2.0,,,solarband:Fiducial_1.0mm_Mask2.0mm,top (sky),copper only (no component),local fiducial 2 (sky side),yes
+FID3,FIDUCIAL 1.0/2.0,,,solarband:Fiducial_1.0mm_Mask2.0mm,bottom (skin),copper only (no component),local fiducial 3 (skin face: two-sided assembly),yes
+FID4,FIDUCIAL 1.0/2.0,,,solarband:Fiducial_1.0mm_Mask2.0mm,bottom (skin),copper only (no component),local fiducial 4 (skin face),yes
+J10,ROOT ENTRY PAD 1.0x2.5,,,solarband:Pad_RootEntry_1.0x2.5mm,top (sky),copper only (no component),"root A: GND (guard); 1-layer strap flex soldered to the entry land 1.0 x 2.5 mm [BASELINE 5.1, 9; G1 L0: was 1.0 x 4.0]",yes
+J12,SWD/RESET GROUP 2x3 P1.27,,,solarband:TestPad_2x3_P1.27mm_D0.9mm,top (sky),copper only (no component),"sky-side SWD / reset group 2 x 3 (reachable on screwed-lid units, S-10); pad 6 DISP_CTRL (was UART_TX: logs over RTT)",yes
+J16,FRONT-LIGHT TAIL 2 PADS KEYED,,,solarband:Pad_Tail2_Keyed_FL,top (sky),copper only (no component),"front-light film tail: 2 keyed asymmetric pads (hand-soldered at final assembly): + = LED anode, - = cathode",yes
+J17,ERM WIRE PADS 2 x 1.0x1.5,,,solarband:Pad_Wire2_ERM_1.0x1.5mm,top (sky),copper only (no component),"ERM wire pads (Vybronics VCLP0820B004L, dia 8 x 2.1 mm, <= 35 mA, hand-fitted in the 8.6 mm cut-out): + = VBAT_IC, - = MOTOR_N; polarity only sets the spin",yes
+J3,ROOT ENTRY PAD 1.0x2.5,,,solarband:Pad_RootEntry_1.0x2.5mm,top (sky),copper only (no component),"root A: BATT_P (pack +); 1-layer strap flex soldered to the entry land 1.0 x 2.5 mm [BASELINE 5.1, 9; G1 L0: was 1.0 x 4.0]",yes
+J4,ROOT ENTRY PAD 1.0x2.5,,,solarband:Pad_RootEntry_1.0x2.5mm,top (sky),copper only (no component),"root A: GND (pack -), guard between BATT_P and NTC; 1-layer strap flex soldered to the entry land 1.0 x 2.5 mm [BASELINE 5.1, 9; G1 L0: was 1.0 x 4.0]",yes
+J5,ROOT ENTRY PAD 1.0x2.5,,,solarband:Pad_RootEntry_1.0x2.5mm,top (sky),copper only (no component),"root A: NTC (10 k B 3950 K on the cell, to pack -); 1-layer strap flex soldered to the entry land 1.0 x 2.5 mm [BASELINE 5.1, 9; G1 L0: was 1.0 x 4.0]",yes
+J6,LID FLEX TAIL 3 x 1.0x2.0 P1.5,,,solarband:Pad_LidTail_3x1.0x2.0_P1.5mm,top (sky),copper only (no component),"lid flex-tail land 3 x 1.0 x 2.0 mm at 1.5 mm: PV+, PV-, backsheet ground (copper under the finger rest tied to PV-) [G1 L0: was 3 x 1.2 x 3.0 at 2.0]",yes
+J7,ROOT ENTRY PAD 1.0x2.5,,,solarband:Pad_RootEntry_1.0x2.5mm,top (sky),copper only (no component),"root B: PV_W+ (c-Si wing, 4 sub-cells in series); 1-layer strap flex soldered to the entry land 1.0 x 2.5 mm [BASELINE 5.1, 9; G1 L0: was 1.0 x 4.0]",yes
+J8,POGO 2x5 P1.27 (L6),,,solarband:TestPad_2x5_P1.27mm_D0.9mm,bottom (skin),copper only (no component),skin-face pogo array 2 x 5 for the G10 jig (before the floor is bonded); pad 6 is DISP_CTRL now (was UART_TX),yes
+J9,ROOT ENTRY PAD 1.0x2.5,,,solarband:Pad_RootEntry_1.0x2.5mm,top (sky),copper only (no component),"root B: GND (wing -); 1-layer strap flex soldered to the entry land 1.0 x 2.5 mm [BASELINE 5.1, 9; G1 L0: was 1.0 x 4.0]",yes
+NT1,NetTie,,,solarband:NetTie_2_SMD_0.3mm,top (sky),copper only (no component),GND_PMIC star: joins GND only at U1 VSS pin 15 (R-PMIC-1),yes
+NT2,NetTie,,,solarband:NetTie_2_SMD_0.3mm,top (sky),copper only (no component),PD_GND -> GND shorting via (data sheet note 3),yes
+TP1,EOL TEST PAD 1.0,,,solarband:TestPad_D1.0mm,top (sky),copper only (no component),EOL-1 test pad: E1 electrode net (dot A side),yes
+TP2,EOL TEST PAD 1.0,,,solarband:TestPad_D1.0mm,top (sky),copper only (no component),EOL-1 test pad: E1 dot B side: loop TP1-TP2,yes
+TP3,EOL TEST PAD 1.0,,,solarband:TestPad_D1.0mm,top (sky),copper only (no component),EOL-1 test pad: E2 electrode net (dot A side),yes
+TP4,EOL TEST PAD 1.0,,,solarband:TestPad_D1.0mm,top (sky),copper only (no component),EOL-1 test pad: E2 dot B side: loop TP3-TP4,yes
+TP5,EOL TEST PAD 1.0,,,solarband:TestPad_D1.0mm,top (sky),copper only (no component),"EOL-1 test pad: E3 electrode net (spring contact check, leakage test)",yes

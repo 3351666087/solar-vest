@@ -1,0 +1,982 @@
+{
+ "supports": {
+  "rib_insert_mm": [
+   0.5,
+   0.995
+  ],
+  "rib_post_gap_mm": 6.0,
+  "k_rib_N_per_mm2": 469.4,
+  "kt_rib_Nmm_per_rad_mm": 473.0,
+  "rail_mm": [
+   0.4,
+   0.945
+  ],
+  "rail_post_gap_mm": 4.0,
+  "k_rail_N_per_mm2": 1628.7,
+  "note": "E: peak sag between posts used as a uniform spring (conservative); insert height grows with the 0.15 raise (S2a)"
+ },
+ "stack": {
+  "W1_window_film_to_panel_gap": {
+   "name": "W1 window: film (under the glass) -> panel front, air gap [S2b: seat +0.09, precision tolerances M-2]",
+   "req": ">= 0",
+   "mean": 0.33,
+   "wc": 0.08,
+   "rss": 0.2055,
+   "pass_wc": true,
+   "pass_rss": true,
+   "mc_fail": 0.0,
+   "terms": [
+    [
+     "rail / rib-insert seat (precision +-0.02)",
+     1,
+     1.975,
+     2.015
+    ],
+    [
+     "bond line with spacer beads +-0.03",
+     1,
+     0.17,
+     0.23
+    ],
+    [
+     "frame +-0.02",
+     1,
+     0.23,
+     0.27
+    ],
+    [
+     "film + OCA +-0.02 (RFQ)",
+     -1,
+     0.2,
+     0.24
+    ],
+    [
+     "support legs + band (precision +-0.02)",
+     -1,
+     1.13,
+     1.17
+    ],
+    [
+     "LS011B7DH03 0.745 +-0.11",
+     -1,
+     0.635,
+     0.855
+    ],
+    [
+     "board local flatness between posts / legs",
+     -1,
+     -0.03,
+     0.03
+    ]
+   ]
+  },
+  "W2_ZIF_to_panel": {
+   "name": "W2 J13 ZIF top -> panel underside [S2b M-4: legs +-0.02, FH34SRJ 1.0 as a maximum]",
+   "req": ">= 0",
+   "mean": 0.125,
+   "wc": 0.02,
+   "rss": 0.0718,
+   "pass_wc": true,
+   "pass_rss": true,
+   "mc_fail": 0.0,
+   "terms": [
+    [
+     "support legs + band +-0.02",
+     1,
+     1.13,
+     1.17
+    ],
+    [
+     "FH34SRJ height 0.95-1.00 (1.0 as max, connector RFQ to confirm)",
+     -1,
+     0.95,
+     1.0
+    ],
+    [
+     "solder standoff 0.02-0.08",
+     -1,
+     0.02,
+     0.08
+    ],
+    [
+     "board local flatness between posts / legs",
+     -1,
+     -0.03,
+     0.03
+    ]
+   ]
+  },
+  "W3_low_parts_to_support": {
+   "name": "W3 low parts (<= 0.70 body + 0.05 solder, max) -> support band underside",
+   "req": ">= 0",
+   "mean": 0.15,
+   "wc": 0.07,
+   "rss": 0.0917,
+   "pass_wc": true,
+   "pass_rss": true,
+   "mc_fail": 0.0,
+   "terms": [
+    [
+     "support legs, board -> band underside +-0.05",
+     1,
+     1.0,
+     1.1
+    ],
+    [
+     "low-zone part + solder at its (raised) maximum",
+     -1,
+     0.9,
+     0.9
+    ],
+    [
+     "board local flatness between posts / legs",
+     -1,
+     -0.03,
+     0.03
+    ]
+   ]
+  },
+  "W4_display_FPC_fold_Rin": {
+   "name": "W4 display FPC fold inner radius (rule >= 0.45)",
+   "req": ">= 0.45",
+   "mean": 0.6825,
+   "wc": 0.5975,
+   "rss": 0.641,
+   "pass_wc": true,
+   "pass_rss": true,
+   "mc_fail": 0.0,
+   "terms": [
+    [
+     "half of: support legs + band +-0.05",
+     1,
+     0.55,
+     0.6
+    ],
+    [
+     "half of: bottom Pol + TFT 0.365 +-0.05",
+     1,
+     0.1575,
+     0.2075
+    ],
+    [
+     "half of: tape 0.05 +-0.01",
+     -1,
+     0.02,
+     0.03
+    ],
+    [
+     "half of: FPC 0.10 +-0.03",
+     -1,
+     0.035,
+     0.065
+    ],
+    [
+     "half of: board flatness",
+     -1,
+     -0.015,
+     0.015
+    ]
+   ]
+  },
+  "P1_PV_lam_to_parts": {
+   "name": "P1 PV laminate underside -> tallest part",
+   "req": ">= 0",
+   "mean": 1.045,
+   "wc": 0.745,
+   "rss": 0.9079,
+   "pass_wc": true,
+   "pass_rss": true,
+   "mc_fail": 0.0,
+   "terms": [
+    [
+     "ring floor top -> PV seat 2.20 +-0.05",
+     1,
+     2.895,
+     2.995
+    ],
+    [
+     "lid bond line 0.20 +-0.05",
+     1,
+     0.15,
+     0.25
+    ],
+    [
+     "carrier film 0.10 +-0.02",
+     -1,
+     0.08,
+     0.12
+    ],
+    [
+     "PCB 1.0 +-0.1 (JLC)",
+     -1,
+     0.9,
+     1.1
+    ],
+    [
+     "tallest part + solder 0.95-1.05",
+     -1,
+     0.95,
+     1.05
+    ],
+    [
+     "board local flatness between posts / legs",
+     -1,
+     -0.03,
+     0.03
+    ]
+   ]
+  },
+  "P2_PV_lam_to_motor": {
+   "name": "P2 PV laminate underside -> motor top (carrier cut away)",
+   "req": ">= 0",
+   "mean": 0.995,
+   "wc": 0.785,
+   "rss": 0.8721,
+   "pass_wc": true,
+   "pass_rss": true,
+   "mc_fail": 0.0,
+   "terms": [
+    [
+     "ring floor top -> PV seat 2.20 +-0.05",
+     1,
+     2.895,
+     2.995
+    ],
+    [
+     "lid bond line 0.20 +-0.05",
+     1,
+     0.15,
+     0.25
+    ],
+    [
+     "motor PSA 0.05 +-0.01",
+     -1,
+     0.04,
+     0.06
+    ],
+    [
+     "motor 2.0-2.2 (2.1 typ, 2.2 max class)",
+     -1,
+     2.0,
+     2.2
+    ]
+   ]
+  },
+  "P3_rib_bondline": {
+   "name": "P3 rib PV seat below the ring PV seat -> bond line at the rib must stay >= 0",
+   "req": ">= 0",
+   "mean": 1.045,
+   "wc": 0.855,
+   "rss": 0.9297,
+   "pass_wc": true,
+   "pass_rss": true,
+   "mc_fail": 0.0,
+   "terms": [
+    [
+     "ring floor top -> PV seat +-0.05",
+     1,
+     2.895,
+     2.995
+    ],
+    [
+     "bond line nominal",
+     1,
+     0.2,
+     0.2
+    ],
+    [
+     "carrier film +-0.02",
+     -1,
+     0.08,
+     0.12
+    ],
+    [
+     "PCB 1.0 +-0.1",
+     -1,
+     0.9,
+     1.1
+    ],
+    [
+     "stainless post 1.0 +-0.02 (board -> insert underside = PC shelf top)",
+     -1,
+     0.98,
+     1.02
+    ]
+   ]
+  }
+ },
+ "check_navier_28p7x12p6": 4.15,
+ "case1_pv": {
+  "bead t0.50": {
+   "w_mm_per_bar": 0.06481,
+   "support_part_mm_per_bar": 0.05199,
+   "contact_bar": {
+    "max_material": 13.81,
+    "wc": 11.49,
+    "rss": 14.01
+   },
+   "sigma_5bar_MPa": 214.0,
+   "pv_half_mm": 5.395,
+   "verdict": "PASS",
+   "f2d": 0.918,
+   "span": [
+    34.52,
+    12.475
+   ],
+   "seat_raise_needed_mm": 0.0
+  },
+  "bead t0.55": {
+   "w_mm_per_bar": 0.05496,
+   "support_part_mm_per_bar": 0.04559,
+   "contact_bar": {
+    "max_material": 16.29,
+    "wc": 13.56,
+    "rss": 16.52
+   },
+   "sigma_5bar_MPa": 177.0,
+   "pv_half_mm": 5.445,
+   "verdict": "PASS",
+   "f2d": 0.918,
+   "span": [
+    34.52,
+    12.475
+   ],
+   "seat_raise_needed_mm": 0.0
+  },
+  "bead t0.60": {
+   "w_mm_per_bar": 0.04812,
+   "support_part_mm_per_bar": 0.04112,
+   "contact_bar": {
+    "max_material": 18.6,
+    "wc": 15.48,
+    "rss": 18.87
+   },
+   "sigma_5bar_MPa": 148.0,
+   "pv_half_mm": 5.495,
+   "verdict": "PASS",
+   "f2d": 0.918,
+   "span": [
+    34.52,
+    12.475
+   ],
+   "seat_raise_needed_mm": 0.0
+  },
+  "bond_pin t0.50": {
+   "w_mm_per_bar": 0.02758,
+   "support_part_mm_per_bar": 0.01407,
+   "contact_bar": {
+    "max_material": 32.46,
+    "wc": 27.02,
+    "rss": 32.92
+   },
+   "sigma_5bar_MPa": 157.0,
+   "pv_half_mm": 5.395,
+   "verdict": "PASS",
+   "f2d": 0.918,
+   "span": [
+    34.52,
+    12.475
+   ],
+   "seat_raise_needed_mm": 0.0
+  },
+  "bond_pin t0.55": {
+   "w_mm_per_bar": 0.02201,
+   "support_part_mm_per_bar": 0.01204,
+   "contact_bar": {
+    "max_material": 40.66,
+    "wc": 33.84,
+    "rss": 41.24
+   },
+   "sigma_5bar_MPa": 134.0,
+   "pv_half_mm": 5.445,
+   "verdict": "PASS",
+   "f2d": 0.918,
+   "span": [
+    34.52,
+    12.475
+   ],
+   "seat_raise_needed_mm": 0.0
+  },
+  "bond_pin t0.60": {
+   "w_mm_per_bar": 0.01789,
+   "support_part_mm_per_bar": 0.01038,
+   "contact_bar": {
+    "max_material": 50.03,
+    "wc": 41.65,
+    "rss": 50.76
+   },
+   "sigma_5bar_MPa": 115.0,
+   "pv_half_mm": 5.495,
+   "verdict": "PASS",
+   "f2d": 0.918,
+   "span": [
+    34.52,
+    12.475
+   ],
+   "seat_raise_needed_mm": 0.0
+  },
+  "bond t0.50": {
+   "w_mm_per_bar": 0.02306,
+   "support_part_mm_per_bar": 0.01128,
+   "contact_bar": {
+    "max_material": 38.82,
+    "wc": 32.31,
+    "rss": 39.38
+   },
+   "sigma_5bar_MPa": 135.0,
+   "pv_half_mm": 5.395,
+   "verdict": "PASS",
+   "f2d": 0.918,
+   "span": [
+    34.52,
+    12.475
+   ],
+   "seat_raise_needed_mm": 0.0
+  },
+  "bond t0.55": {
+   "w_mm_per_bar": 0.01917,
+   "support_part_mm_per_bar": 0.0102,
+   "contact_bar": {
+    "max_material": 46.69,
+    "wc": 38.87,
+    "rss": 47.37
+   },
+   "sigma_5bar_MPa": 119.0,
+   "pv_half_mm": 5.445,
+   "verdict": "PASS",
+   "f2d": 0.918,
+   "span": [
+    34.52,
+    12.475
+   ],
+   "seat_raise_needed_mm": 0.0
+  },
+  "bond t0.60": {
+   "w_mm_per_bar": 0.01613,
+   "support_part_mm_per_bar": 0.00922,
+   "contact_bar": {
+    "max_material": 55.5,
+    "wc": 46.2,
+    "rss": 56.3
+   },
+   "sigma_5bar_MPa": 105.0,
+   "pv_half_mm": 5.495,
+   "verdict": "PASS",
+   "f2d": 0.918,
+   "span": [
+    34.52,
+    12.475
+   ],
+   "seat_raise_needed_mm": 0.0
+  }
+ },
+ "case1_fix_bonded_seat_raise": {
+  "t0.50": {
+   "seat_raise_mm": -0.6,
+   "pv_half_mm": 4.795,
+   "within_window_half": true,
+   "contact_bar_max_material": 10.7,
+   "contact_bar_wc": 5.26,
+   "P1_wc": 0.145,
+   "P2_wc": 0.185,
+   "P3_wc": 0.855,
+   "mass_g": 0.0
+  },
+  "t0.55": {
+   "seat_raise_mm": -0.63,
+   "pv_half_mm": 4.815,
+   "within_window_half": true,
+   "contact_bar_max_material": 12.04,
+   "contact_bar_wc": 5.22,
+   "P1_wc": 0.115,
+   "P2_wc": 0.155,
+   "P3_wc": 0.855,
+   "mass_g": 0.056
+  },
+  "t0.60": {
+   "seat_raise_mm": -0.65,
+   "pv_half_mm": 4.845,
+   "within_window_half": true,
+   "contact_bar_max_material": 13.69,
+   "contact_bar_wc": 5.31,
+   "P1_wc": 0.095,
+   "P2_wc": 0.135,
+   "P3_wc": 0.855,
+   "mass_g": 0.112
+  }
+ },
+ "case2_window": {
+  "t0.70": {
+   "w_mm_per_bar": 0.01358,
+   "y_at": 13.25,
+   "support_part_mm_per_bar": 0.00873,
+   "rail_sag_mm_5bar": 0.0043,
+   "rib_sag_mm_5bar": 0.0156,
+   "contact_bar": {
+    "max_material": 13.99,
+    "wc": 5.89,
+    "rss": 15.13
+   },
+   "sigma_5bar_MPa": 184.0,
+   "f2d": 0.87,
+   "span": [
+    37.0,
+    15.3
+   ],
+   "verdict": "PASS",
+   "seat_raise_needed_mm": 0.0
+  },
+  "t0.80": {
+   "w_mm_per_bar": 0.0104,
+   "y_at": 13.3,
+   "support_part_mm_per_bar": 0.00707,
+   "rail_sag_mm_5bar": 0.0043,
+   "rib_sag_mm_5bar": 0.0156,
+   "contact_bar": {
+    "max_material": 18.26,
+    "wc": 7.69,
+    "rss": 19.75
+   },
+   "sigma_5bar_MPa": 120.0,
+   "f2d": 0.87,
+   "span": [
+    37.0,
+    15.3
+   ],
+   "verdict": "PASS",
+   "seat_raise_needed_mm": 0.0
+  }
+ },
+ "case2_window_LCP_section": {
+  "w_mm_per_bar": 0.01358,
+  "rail_sag_mm_5bar": 0.0044,
+  "contact_bar": {
+   "max_material": 13.99,
+   "wc": 5.89,
+   "rss": 15.13
+  },
+  "verdict": "PASS",
+  "note": "GF-LCP rail inside the 5 mm antenna buffer (X 1.1-11.5), posts [2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 13.5], largest gap 2 mm [mini-ECO F-4], evaluated with the mid-span strip (E, conservative)",
+  "lcp_post_gap_mm": 2.0,
+  "posts_2mm": {
+   "max_material": 13.99,
+   "wc": 5.89,
+   "rss": 15.13
+  },
+  "posts_3mm": {
+   "max_material": 11.43,
+   "wc": 4.81,
+   "rss": 12.36
+  }
+ },
+ "case2_fix": {
+  "W1_precision": {
+   "name": "W1 with precision tolerances",
+   "req": ">= 0",
+   "mean": 0.33,
+   "wc": 0.08,
+   "rss": 0.2055,
+   "pass_wc": true,
+   "pass_rss": true,
+   "mc_fail": 0.0,
+   "terms": [
+    [
+     "rail / rib-insert seat (precision +-0.02)",
+     1,
+     1.975,
+     2.015
+    ],
+    [
+     "bond line with spacer beads +-0.03",
+     1,
+     0.17,
+     0.23
+    ],
+    [
+     "frame +-0.02",
+     1,
+     0.23,
+     0.27
+    ],
+    [
+     "film + OCA +-0.02 (RFQ)",
+     -1,
+     0.2,
+     0.24
+    ],
+    [
+     "support legs + band (precision +-0.02)",
+     -1,
+     1.13,
+     1.17
+    ],
+    [
+     "LS011B7DH03 0.745 +-0.11",
+     -1,
+     0.635,
+     0.855
+    ],
+    [
+     "board local flatness between posts / legs",
+     -1,
+     -0.03,
+     0.03
+    ]
+   ]
+  },
+  "variants": {
+   "rail LCP as built | t0.70 | baseline tolerances": {
+    "w_mm_per_bar": 0.01358,
+    "W1_wc": 0.08,
+    "seat_raise_mm": 0.0,
+    "window_half_mm": 5.395
+   },
+   "rail LCP as built | t0.70 | precision tolerances": {
+    "w_mm_per_bar": 0.01358,
+    "W1_wc": 0.08,
+    "seat_raise_mm": 0.0,
+    "window_half_mm": 5.395
+   },
+   "rail LCP as built | t0.80 | baseline tolerances": {
+    "w_mm_per_bar": 0.0104,
+    "W1_wc": 0.08,
+    "seat_raise_mm": 0.0,
+    "window_half_mm": 5.495
+   },
+   "rail LCP as built | t0.80 | precision tolerances": {
+    "w_mm_per_bar": 0.0104,
+    "W1_wc": 0.08,
+    "seat_raise_mm": 0.0,
+    "window_half_mm": 5.495
+   },
+   "rail stainless core 0.4 x 0.855 | t0.70 | baseline tolerances": {
+    "w_mm_per_bar": 0.01286,
+    "W1_wc": 0.08,
+    "seat_raise_mm": 0.0,
+    "window_half_mm": 5.395
+   },
+   "rail stainless core 0.4 x 0.855 | t0.70 | precision tolerances": {
+    "w_mm_per_bar": 0.01286,
+    "W1_wc": 0.08,
+    "seat_raise_mm": 0.0,
+    "window_half_mm": 5.395
+   },
+   "rail stainless core 0.4 x 0.855 | t0.80 | baseline tolerances": {
+    "w_mm_per_bar": 0.00975,
+    "W1_wc": 0.08,
+    "seat_raise_mm": 0.0,
+    "window_half_mm": 5.495
+   },
+   "rail stainless core 0.4 x 0.855 | t0.80 | precision tolerances": {
+    "w_mm_per_bar": 0.00975,
+    "W1_wc": 0.08,
+    "seat_raise_mm": 0.0,
+    "window_half_mm": 5.495
+   }
+  }
+ },
+ "case5_fix_W2": {
+  "precision": {
+   "name": "W2 with precision support legs and the ZIF 1.0 as a maximum",
+   "req": ">= 0",
+   "mean": 0.125,
+   "wc": 0.02,
+   "rss": 0.0718,
+   "pass_wc": true,
+   "pass_rss": true,
+   "mc_fail": 0.0,
+   "terms": [
+    [
+     "support legs + band +-0.02",
+     1,
+     1.13,
+     1.17
+    ],
+    [
+     "FH34SRJ height 0.95-1.00 (1.0 as max, to be confirmed)",
+     -1,
+     0.95,
+     1.0
+    ],
+    [
+     "solder standoff 0.02-0.08",
+     -1,
+     0.02,
+     0.08
+    ],
+    [
+     "board local flatness between posts / legs",
+     -1,
+     -0.03,
+     0.03
+    ]
+   ]
+  },
+  "raise_needed_mm_baseline_tol": -0.02
+ },
+ "case2_check_stage1_SS_36x14p6": 4.05,
+ "case3_capsule": {
+  "span_mm": [
+   37.4,
+   10.9
+  ],
+  "spread": {
+   "patch_mm": [
+    37.4,
+    10.9
+   ],
+   "w_30N_mm": 0.0171,
+   "sigma_30N_MPa": 25.0,
+   "force_to_touch_cell_N": 351.8,
+   "verdict": "PASS"
+  },
+  "thumb_15mm": {
+   "patch_mm": [
+    13.29,
+    10.9
+   ],
+   "w_30N_mm": 0.0353,
+   "sigma_30N_MPa": 54.0,
+   "force_to_touch_cell_N": 170.2,
+   "verdict": "PASS"
+  },
+  "probe_5mm": {
+   "patch_mm": [
+    4.43,
+    4.43
+   ],
+   "w_30N_mm": 0.0675,
+   "sigma_30N_MPa": 127.0,
+   "force_to_touch_cell_N": 88.9,
+   "verdict": "PASS"
+  },
+  "5bar": {
+   "contact_bar_SS": 8.63,
+   "sigma_5bar_MPa": 173.0,
+   "verdict": "PASS",
+   "t_needed_for_SF_mm": 0.477
+  },
+  "5bar_fix_t0.50": {
+   "contact_bar_SS": 8.63,
+   "probe_force_to_touch_N": 88.9,
+   "capsule_t_mm": 4.699999999999999
+  }
+ },
+ "case4_floor_membrane": {
+  "force_on_motor_N_5bar": 29.0,
+  "film_unsupported_clamped_mm": 0.77,
+  "motor_as_boss_centred": {
+   "annulus_mm": 0.3,
+   "motor_rise_mm_5bar": 0.0026,
+   "film_stress_MPa": 16.0
+  },
+  "motor_as_boss_eccentric_worst": {
+   "annulus_mm": 0.5,
+   "motor_rise_mm_5bar": 0.0064,
+   "film_stress_MPa": 26.1
+  },
+  "Ti_disc_0p25_clamped_mm": 0.017,
+  "Ti_disc_0p25_SS_mm": 0.069,
+  "membrane": {
+   "window_mm": [
+    3.2,
+    1.75
+   ],
+   "force_5bar_N": 2.8,
+   "PTS840_operating_N": 2.2,
+   "switch_held_pressed": true,
+   "bar_at_actuation": 3.93
+  }
+ },
+ "case6_drop": {
+  "capsule_only_2p75g": {
+   "energy_J": 0.028,
+   "by_angle": {
+    "30deg": {
+     "window_edge_line_mm": 0.091,
+     "window_corner_R6_mm": 0.321,
+     "window_glass_edge_clear_mm": 0.25,
+     "capsule_corner_R1_mm": 0.459,
+     "capsule_glass_edge_clear_mm": 0.5
+    },
+    "45deg": {
+     "window_edge_line_mm": 0.098,
+     "window_corner_R6_mm": 0.34,
+     "window_glass_edge_clear_mm": 0.354,
+     "capsule_corner_R1_mm": 0.487,
+     "capsule_glass_edge_clear_mm": 0.707
+    },
+    "60deg": {
+     "window_edge_line_mm": 0.091,
+     "window_corner_R6_mm": 0.321,
+     "window_glass_edge_clear_mm": 0.433,
+     "capsule_corner_R1_mm": 0.459,
+     "capsule_glass_edge_clear_mm": 0.866
+    },
+    "75deg": {
+     "window_edge_line_mm": 0.069,
+     "window_corner_R6_mm": 0.258,
+     "window_glass_edge_clear_mm": 0.483,
+     "capsule_corner_R1_mm": 0.369,
+     "capsule_glass_edge_clear_mm": 0.966
+    }
+   }
+  },
+  "pod_only": {
+   "energy_J": 0.103,
+   "by_angle": {
+    "30deg": {
+     "window_edge_line_mm": 0.175,
+     "window_corner_R6_mm": 0.541,
+     "window_glass_edge_clear_mm": 0.25,
+     "capsule_corner_R1_mm": 0.773,
+     "capsule_glass_edge_clear_mm": 0.5
+    },
+    "45deg": {
+     "window_edge_line_mm": 0.188,
+     "window_corner_R6_mm": 0.573,
+     "window_glass_edge_clear_mm": 0.354,
+     "capsule_corner_R1_mm": 0.819,
+     "capsule_glass_edge_clear_mm": 0.707
+    },
+    "60deg": {
+     "window_edge_line_mm": 0.175,
+     "window_corner_R6_mm": 0.541,
+     "window_glass_edge_clear_mm": 0.433,
+     "capsule_corner_R1_mm": 0.773,
+     "capsule_glass_edge_clear_mm": 0.866
+    },
+    "75deg": {
+     "window_edge_line_mm": 0.133,
+     "window_corner_R6_mm": 0.434,
+     "window_glass_edge_clear_mm": 0.483,
+     "capsule_corner_R1_mm": 0.621,
+     "capsule_glass_edge_clear_mm": 0.966
+    }
+   }
+  },
+  "whole_band": {
+   "energy_J": 0.203,
+   "by_angle": {
+    "30deg": {
+     "window_edge_line_mm": 0.246,
+     "window_corner_R6_mm": 0.709,
+     "window_glass_edge_clear_mm": 0.25,
+     "capsule_corner_R1_mm": 1.015,
+     "capsule_glass_edge_clear_mm": 0.5
+    },
+    "45deg": {
+     "window_edge_line_mm": 0.264,
+     "window_corner_R6_mm": 0.751,
+     "window_glass_edge_clear_mm": 0.354,
+     "capsule_corner_R1_mm": 1.075,
+     "capsule_glass_edge_clear_mm": 0.707
+    },
+    "60deg": {
+     "window_edge_line_mm": 0.246,
+     "window_corner_R6_mm": 0.709,
+     "window_glass_edge_clear_mm": 0.433,
+     "capsule_corner_R1_mm": 1.015,
+     "capsule_glass_edge_clear_mm": 0.866
+    },
+    "75deg": {
+     "window_edge_line_mm": 0.187,
+     "window_corner_R6_mm": 0.569,
+     "window_glass_edge_clear_mm": 0.483,
+     "capsule_corner_R1_mm": 0.814,
+     "capsule_glass_edge_clear_mm": 0.966
+    }
+   }
+  },
+  "window_setback_needed_mm_pod_only": 1.08,
+  "corner_bumper_proud_needed_mm_pod_only": 0.34,
+  "S2b_bumper_mm": 0.34,
+  "S2b_R6_corner_margin_mm_pod_only": {
+   "30deg": 0.004,
+   "45deg": 0.021,
+   "60deg": 0.062,
+   "75deg": 0.137
+  },
+  "S2b_R6_corner_margin_mm_whole_band": {
+   "30deg": -0.165,
+   "45deg": -0.157,
+   "60deg": -0.106,
+   "75deg": 0.002
+  }
+ },
+ "case7_flex_hinge": {
+  "hinge_len_mm": 2.0,
+  "tilts_deg": {
+   "130": 69.9,
+   "140": 64.6,
+   "165": 54.2,
+   "200": 43.9
+  },
+  "moulded_angle_deg": 56.9,
+  "static_R_mm": {
+   "130": 1.64,
+   "140": 1.77,
+   "165": 2.11,
+   "200": 2.61
+  },
+  "fit_offset_deg": 13.0,
+  "R_fit_offset_mm": 8.81,
+  "wear_cycle_deg": 10.0,
+  "R_wear_cycle_mm": 11.46,
+  "IPC2223_dynamic_1layer_min_R_mm": 7.0,
+  "IPC2223_static_1layer_min_R_mm": 0.42,
+  "cu_strain_amplitude_wear_pct": 0.166,
+  "cu_strain_fit_pct": 0.216,
+  "cu_strain_full_bend_from_flat_pct": 1.159,
+  "RA_cu_limit_1e5_pct": 0.3,
+  "note": "E: the 0.07 mm PI/Cu flex is ~60x stiffer in tension than the 1.2 mm TPU around it, so it bends about its own neutral axis wherever it sits in the TPU",
+  "verdict": "PASS"
+ },
+ "inputs": {
+  "tag": "L41W34_fold1p9_fpcdwg_jointzif_raise0p15",
+  "Z": {
+   "floor1": 0.25,
+   "pcb1": 1.45,
+   "parts_gen": 2.5,
+   "parts_low": 2.35,
+   "pv_seat": 3.195,
+   "pv0": 3.395,
+   "pv1": 4.595,
+   "sup0": 2.5,
+   "panel0": 2.6,
+   "film0": 3.645,
+   "win0": 3.895,
+   "win1": 4.595,
+   "win_seat": 3.445,
+   "frame0": 3.645,
+   "frame1": 3.895,
+   "insert0": 2.45,
+   "insert1": 3.445,
+   "rail0": 2.5
+  },
+  "pod_pv": 5.395,
+  "pod_win": 5.395,
+  "gaps": {
+   "pv": {
+    "max_material": 0.895,
+    "wc": 0.745,
+    "rss": 0.9079
+   },
+   "window": {
+    "max_material": 0.18999999999999995,
+    "wc": 0.08,
+    "rss": 0.2055
+   }
+  },
+  "SF": 1.5,
+  "bead_E_MPa": 3.0,
+  "k_bead_pv": 53.0,
+  "k_epoxy": 44141.0,
+  "kt_ring_wall": 75.4,
+  "frame_opening_y": [
+   5.65,
+   18.972
+  ],
+  "a_pv": 34.525
+ }
+}

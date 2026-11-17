@@ -1,0 +1,5 @@
+# cplgate waivers (spec §6.4). A waiver pins one part's expected result and is void on any change of
+# (ref, lcsc, easyeda_fp_sha256, fp_uuid). Only the user may add one, with a written reason. None are granted.
+waivers: []
+# example (NOT granted):
+# - {ref: J40, lcsc: C2826518, rule: R7, easyeda_fp_sha256: "...", fp_uuid: "...", reason: "...", by: "the user", date: "..."}

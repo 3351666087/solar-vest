@@ -1,0 +1,1598 @@
+{
+ "r_gate_ohm": 1100000.0,
+ "r_plus_contact_ohm": 709677.4193548388,
+ "results": [
+  {
+   "case": "normal, no contact touched",
+   "cls": "normal",
+   "i_patient_uA": 0.1979999573738336,
+   "i_electrode_max_uA": 0.1979999573738336,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "normal, finger on the GND contact (wet 1k (behind Q20 off, IDSS 1 uA bound)) [AFE on]",
+   "cls": "normal",
+   "i_patient_uA": 0.6212081100768274,
+   "i_electrode_max_uA": 0.6212081100768274,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.42320819307844276,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "normal, finger on the GND contact (wet 1k (behind Q20 off, IDSS 1 uA bound)) + finger on the + contact (no head, 1.1 M || 2 M) [AFE on]",
+   "cls": "normal",
+   "i_patient_uA": 1.6568984660474302,
+   "i_electrode_max_uA": 1.6568984660474302,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 1.2527800808049976,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "normal, finger on the + contact only (no head, 1.1 M || 2 M) [AFE on]",
+   "cls": "normal",
+   "i_patient_uA": 1.585410078871568,
+   "i_electrode_max_uA": 1.585410078871568,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 1.3900352711745299,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "normal, finger on the GND contact (wet 1k (behind Q20 off, IDSS 1 uA bound)) [AFE off]",
+   "cls": "normal",
+   "i_patient_uA": 0.1774825500937209,
+   "i_electrode_max_uA": 0.1774825500937209,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.12935435790173708,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "normal, finger on the GND contact (wet 1k (behind Q20 off, IDSS 1 uA bound)) + finger on the + contact (no head, 1.1 M || 2 M) [AFE off]",
+   "cls": "normal",
+   "i_patient_uA": 0.31659555489314956,
+   "i_electrode_max_uA": 0.1818875116824566,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.31659555489314956,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "normal, finger on the + contact only (no head, 1.1 M || 2 M) [AFE off]",
+   "cls": "normal",
+   "i_patient_uA": 0.3512819105598147,
+   "i_electrode_max_uA": 0.16841138673105763,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.3512819105598147,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "normal, finger on the GND contact (IDSS 0.1 uA) [AFE on]",
+   "cls": "normal",
+   "i_patient_uA": 0.24032222528058372,
+   "i_electrode_max_uA": 0.24032222528058372,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.04232228719597501,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "normal, finger on the GND contact (IDSS 0.1 uA) + finger on the + contact (no head, 1.1 M || 2 M) [AFE on]",
+   "cls": "normal",
+   "i_patient_uA": 1.593256185812166,
+   "i_electrode_max_uA": 1.593256185812166,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 1.374971019778727,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "normal, finger on the + contact only (no head, 1.1 M || 2 M) [AFE on]",
+   "cls": "normal",
+   "i_patient_uA": 1.585410078871568,
+   "i_electrode_max_uA": 1.585410078871568,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 1.3900352711745299,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "normal, finger on the GND contact (IDSS 0.1 uA) [AFE off]",
+   "cls": "normal",
+   "i_patient_uA": 0.1971996864734628,
+   "i_electrode_max_uA": 0.1971996864734628,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.016326442935305944,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "normal, finger on the GND contact (IDSS 0.1 uA) + finger on the + contact (no head, 1.1 M || 2 M) [AFE off]",
+   "cls": "normal",
+   "i_patient_uA": 0.34747495813511925,
+   "i_electrode_max_uA": 0.16985767629990847,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.34747495813511925,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "normal, finger on the + contact only (no head, 1.1 M || 2 M) [AFE off]",
+   "cls": "normal",
+   "i_patient_uA": 0.3512819105598147,
+   "i_electrode_max_uA": 0.16841138673105763,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.3512819105598147,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC IN1P->AVDD",
+   "cls": "SFC",
+   "i_patient_uA": 1.3677619718443597,
+   "i_electrode_max_uA": 1.3677619718443597,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC IN1P->AVDD + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 1.4996840634723834,
+   "i_electrode_max_uA": 1.4996840634723834,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.3250436794390529,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC IN1P->AVDD + finger on the + contact (no head)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 1.835790837028413,
+   "i_electrode_max_uA": 1.835790837028413,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 1.1531794004717677,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC IN1P->AVSS",
+   "cls": "SFC",
+   "i_patient_uA": 1.3677307178114388,
+   "i_electrode_max_uA": 1.3677307178114388,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC IN1P->AVSS + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 1.4976069505766765,
+   "i_electrode_max_uA": 1.4976069505766765,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.3209701271826175,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC IN1P->AVSS + finger on the + contact (no head)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 1.8285013432482935,
+   "i_electrode_max_uA": 1.8285013432482935,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 1.1387274078116598,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC IN1N->AVDD",
+   "cls": "SFC",
+   "i_patient_uA": 1.2512896637259527,
+   "i_electrode_max_uA": 1.2512896637259527,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC IN1N->AVDD + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 1.399294203257644,
+   "i_electrode_max_uA": 1.399294203257644,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.32691439934707434,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC IN1N->AVDD + finger on the + contact (no head)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 1.7764361072816377,
+   "i_electrode_max_uA": 1.7764361072816377,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 1.1599504497853335,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC IN1N->AVSS",
+   "cls": "SFC",
+   "i_patient_uA": 1.251269471388142,
+   "i_electrode_max_uA": 1.251269471388142,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC IN1N->AVSS + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 1.3971588607014367,
+   "i_electrode_max_uA": 1.3971588607014367,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.3227743376299348,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC IN1N->AVSS + finger on the + contact (no head)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 1.7689109776326652,
+   "i_electrode_max_uA": 1.7689109776326652,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 1.1452594186402314,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC RLDOUT->AVDD",
+   "cls": "SFC",
+   "i_patient_uA": 0.21068037728636285,
+   "i_electrode_max_uA": 0.21068037728636285,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC RLDOUT->AVDD + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 0.7163712380794784,
+   "i_electrode_max_uA": 0.7163712380794784,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.5154530400205048,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC RLDOUT->AVDD + finger on the + contact (no head)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 1.5951581725539112,
+   "i_electrode_max_uA": 1.5951581725539112,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 1.3997561182453946,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC RLDOUT->AVSS",
+   "cls": "SFC",
+   "i_patient_uA": 0.18568361915837475,
+   "i_electrode_max_uA": 0.18568361915837475,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC RLDOUT->AVSS + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 0.16993314919771474,
+   "i_electrode_max_uA": 0.16993314919771474,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.12246806729612239,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC RLDOUT->AVSS + finger on the + contact (no head)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 0.3356123343206928,
+   "i_electrode_max_uA": 0.16031999489595788,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.3356123343206928,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Ra1 short",
+   "cls": "SFC",
+   "i_patient_uA": 0.1979998776862985,
+   "i_electrode_max_uA": 0.1979998776862985,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Ra1 short + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 0.6218149701955294,
+   "i_electrode_max_uA": 0.6218149701955294,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.42381513386297465,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Ra1 short + finger on the + contact (no head)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 1.585406334046197,
+   "i_electrode_max_uA": 1.585406334046197,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 1.3900434864492683,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Rb1 short",
+   "cls": "SFC",
+   "i_patient_uA": 0.19799995114488939,
+   "i_electrode_max_uA": 0.19799995114488939,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Rb1 short + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 0.6218150443088952,
+   "i_electrode_max_uA": 0.6218150443088952,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.42381513249430314,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Rb1 short + finger on the + contact (no head)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 1.5854063567167656,
+   "i_electrode_max_uA": 1.5854063567167656,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 1.3900497882713856,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Ra2 short",
+   "cls": "SFC",
+   "i_patient_uA": 0.1979999717866568,
+   "i_electrode_max_uA": 0.1979999717866568,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Ra2 short + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 0.6212092977768878,
+   "i_electrode_max_uA": 0.6212092977768878,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.4232093514176473,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Ra2 short + finger on the + contact (no head)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 2.4095628910558835,
+   "i_electrode_max_uA": 2.4095628910558835,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 2.2124733925075826,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Rb2 short",
+   "cls": "SFC",
+   "i_patient_uA": 0.19799996492402155,
+   "i_electrode_max_uA": 0.19799996492402155,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Rb2 short + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 0.6212092857287682,
+   "i_electrode_max_uA": 0.6212092857287682,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.42320934998540805,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Rb2 short + finger on the + contact (no head)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 2.40956285206747,
+   "i_electrode_max_uA": 2.40956285206747,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 2.2124733630144955,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Ra3 short",
+   "cls": "SFC",
+   "i_patient_uA": 0.19799991664232425,
+   "i_electrode_max_uA": 0.19799991664232425,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Ra3 short + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 0.6207611991873666,
+   "i_electrode_max_uA": 0.6207611991873666,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.42276136233583467,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Ra3 short + finger on the + contact (no head)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 1.5854121802648655,
+   "i_electrode_max_uA": 1.5854121802648655,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 1.3900317580521988,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Rb3 short",
+   "cls": "SFC",
+   "i_patient_uA": 0.19799988115906467,
+   "i_electrode_max_uA": 0.19799988115906467,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Rb3 short + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 0.62076119107763,
+   "i_electrode_max_uA": 0.62076119107763,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.42276135524654784,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Rb3 short + finger on the + contact (no head)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 1.5854121799108762,
+   "i_electrode_max_uA": 1.5854121799108762,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 1.3900317969504896,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC TVS on E1 shorted + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 2.5284599715939566,
+   "i_electrode_max_uA": 2.5284599715939566,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.07102776684169645,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC TVS on E1 shorted + finger on the + contact (no head)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 2.8514350253481893,
+   "i_electrode_max_uA": 2.8514350253481893,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.4247149794672213,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Q20 shorted (J18 = GND) + finger on the GND contact wet 1k, TVS on E1 intact",
+   "cls": "SFC+GND",
+   "i_patient_uA": 2.3078437369679823,
+   "i_electrode_max_uA": 2.3078437369679823,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 2.1237202758412894,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC TVS on E2 shorted + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 0.2643111203807314,
+   "i_electrode_max_uA": 0.2643111203807314,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.07061721574898018,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC TVS on E2 shorted + finger on the + contact (no head)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 0.6154340407846812,
+   "i_electrode_max_uA": 0.6154340407846812,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.4222570211384584,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Q20 shorted (J18 = GND) + finger on the GND contact wet 1k, TVS on E2 intact",
+   "cls": "SFC+GND",
+   "i_patient_uA": 2.3078437369679823,
+   "i_electrode_max_uA": 2.3078437369679823,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 2.1237202758412894,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC TVS on E3 shorted + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 2.3702765080752775,
+   "i_electrode_max_uA": 2.3702765080752775,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.07104168221387082,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC TVS on E3 shorted + finger on the + contact (no head)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 2.718670032671276,
+   "i_electrode_max_uA": 2.718670032671276,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.4249447376261456,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC Q20 shorted (J18 = GND) + finger on the GND contact wet 1k, TVS on E3 intact",
+   "cls": "SFC+GND",
+   "i_patient_uA": 2.3078437369679823,
+   "i_electrode_max_uA": 2.3078437369679823,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 2.1237202758412894,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC LDO pass short AVDD 4.25 V + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 0.7682597710389923,
+   "i_electrode_max_uA": 0.7682597710389923,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.5702598805826155,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "SFC lead-off current mis-set 22 uA + finger on the GND contact (Q20 off)",
+   "cls": "SFC+GND",
+   "i_patient_uA": 1.4086062479555304,
+   "i_electrode_max_uA": 1.4086062479555304,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 0.4195719276740702,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "DOUBLE (information): Q20 shorted + LDO pass short AVDD 4.25 V, finger wet 1k on J18",
+   "cls": "double (info)",
+   "i_patient_uA": 3.225340752673897,
+   "i_electrode_max_uA": 3.225340752673897,
+   "i_leak_uA": 0.0,
+   "i_contact_uA": 3.0436924645650305,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> skin under the pod [AFE on]",
+   "cls": "seal",
+   "i_patient_uA": 5.117990854217717,
+   "i_electrode_max_uA": 3.42482498797023,
+   "i_leak_uA": 5.117990854217717,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 6.11404885652403,
+   "i_electrode_max_uA": 3.4240930396302196,
+   "i_leak_uA": 6.11404885652403,
+   "i_contact_uA": 0.998763898179359,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE on]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 5.217624019259294,
+   "i_electrode_max_uA": 3.4247517729729675,
+   "i_leak_uA": 5.217624019259294,
+   "i_contact_uA": 0.09990383269323869,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> skin under the pod + finger on the + contact (no head) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 11.073957134131865,
+   "i_electrode_max_uA": 3.4204518409382705,
+   "i_leak_uA": 11.073957134131865,
+   "i_contact_uA": 5.972146764896406,
+   "pass_10uA": false,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> skin under the pod [AFE off]",
+   "cls": "seal",
+   "i_patient_uA": 9.4914160188,
+   "i_electrode_max_uA": 3.4502783184599446,
+   "i_leak_uA": 9.4914160188,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 10.486263548474302,
+   "i_electrode_max_uA": 3.4495472788070565,
+   "i_leak_uA": 10.486263548474302,
+   "i_contact_uA": 0.9975888609514609,
+   "pass_10uA": false,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE off]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 9.59092810471595,
+   "i_electrode_max_uA": 3.4502051943466183,
+   "i_leak_uA": 9.59092810471595,
+   "i_contact_uA": 0.09978629488915565,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> skin under the pod + finger on the + contact (no head) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 15.440143841773818,
+   "i_electrode_max_uA": 3.445907039996662,
+   "i_leak_uA": 15.440143841773818,
+   "i_contact_uA": 5.965119651026623,
+   "pass_10uA": false,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> plate E1 [AFE on]",
+   "cls": "seal",
+   "i_patient_uA": 5.118363533977703,
+   "i_electrode_max_uA": 4.485067934074063,
+   "i_leak_uA": 5.118363533977703,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 6.182007591231953,
+   "i_electrode_max_uA": 5.549461739884167,
+   "i_leak_uA": 6.182007591231953,
+   "i_contact_uA": 1.0680150343576709,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE on]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 5.2247773284373125,
+   "i_electrode_max_uA": 4.591557264666627,
+   "i_leak_uA": 5.2247773284373125,
+   "i_contact_uA": 0.1068533559048234,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> plate E1 + finger on the + contact (no head) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 11.470949136227965,
+   "i_electrode_max_uA": 10.84215691430184,
+   "i_leak_uA": 11.470949136227965,
+   "i_contact_uA": 6.378800817249592,
+   "pass_10uA": false,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> plate E1 [AFE off]",
+   "cls": "seal",
+   "i_patient_uA": 9.485157148281706,
+   "i_electrode_max_uA": 6.680910437930398,
+   "i_leak_uA": 9.485157148281706,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 10.547033563665767,
+   "i_electrode_max_uA": 7.743562186376936,
+   "i_leak_uA": 10.547033563665767,
+   "i_contact_uA": 1.0663212247082605,
+   "pass_10uA": false,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE off]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 9.591396340826128,
+   "i_electrode_max_uA": 6.787227201585209,
+   "i_leak_uA": 9.591396340826128,
+   "i_contact_uA": 0.10668389003785958,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> plate E1 + finger on the + contact (no head) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 15.827295710000405,
+   "i_electrode_max_uA": 13.027679712367688,
+   "i_leak_uA": 15.827295710000405,
+   "i_contact_uA": 6.368685381829509,
+   "pass_10uA": false,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> E3 / finger [AFE on]",
+   "cls": "seal",
+   "i_patient_uA": 5.116338302702397,
+   "i_electrode_max_uA": 3.423978470700348,
+   "i_leak_uA": 5.116338302702397,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 6.112742039536602,
+   "i_electrode_max_uA": 3.423246595212957,
+   "i_leak_uA": 6.112742039536602,
+   "i_contact_uA": 0.9988644609625412,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE on]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 5.215979167287873,
+   "i_electrode_max_uA": 3.423908836918627,
+   "i_leak_uA": 5.215979167287873,
+   "i_contact_uA": 0.0999092074171555,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> E3 / finger + finger on the + contact (no head) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 11.076457761534485,
+   "i_electrode_max_uA": 3.419600657205091,
+   "i_leak_uA": 11.076457761534485,
+   "i_contact_uA": 5.974842771845634,
+   "pass_10uA": false,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> E3 / finger [AFE off]",
+   "cls": "seal",
+   "i_patient_uA": 9.48924013379223,
+   "i_electrode_max_uA": 3.448950410915153,
+   "i_leak_uA": 9.48924013379223,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 10.484589325661506,
+   "i_electrode_max_uA": 3.4482193351220696,
+   "i_leak_uA": 10.484589325661506,
+   "i_contact_uA": 0.9978419291528544,
+   "pass_10uA": false,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE off]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 9.588796087299377,
+   "i_electrode_max_uA": 3.4488772878237524,
+   "i_leak_uA": 9.588796087299377,
+   "i_contact_uA": 0.09980528039089145,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VBAT / VSTOR 4.25 V -> E3 / finger + finger on the + contact (no head) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 15.44305639988518,
+   "i_electrode_max_uA": 3.4445773821879504,
+   "i_leak_uA": 15.44305639988518,
+   "i_contact_uA": 5.9687268641090805,
+   "pass_10uA": false,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> skin under the pod [AFE on]",
+   "cls": "seal",
+   "i_patient_uA": 2.8823812720975335,
+   "i_electrode_max_uA": 2.6325566642703713,
+   "i_leak_uA": 2.8823812720975335,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 3.626204180971787,
+   "i_electrode_max_uA": 2.632009737861699,
+   "i_leak_uA": 3.626204180971787,
+   "i_contact_uA": 0.7450842932734533,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE on]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 2.9567818025988073,
+   "i_electrode_max_uA": 2.632504420107876,
+   "i_leak_uA": 2.9567818025988073,
+   "i_contact_uA": 0.07452881743612322,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> skin under the pod + finger on the + contact (no head) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 7.330055947070339,
+   "i_electrode_max_uA": 2.6292887655104002,
+   "i_leak_uA": 7.330055947070339,
+   "i_contact_uA": 4.455243400862469,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> skin under the pod [AFE off]",
+   "cls": "seal",
+   "i_patient_uA": 7.128175605313141,
+   "i_electrode_max_uA": 2.6585373829563332,
+   "i_leak_uA": 7.128175605313141,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 7.870207622305896,
+   "i_electrode_max_uA": 2.657992086746321,
+   "i_leak_uA": 7.870207622305896,
+   "i_contact_uA": 0.7441594065818382,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE off]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 7.2023991939954355,
+   "i_electrode_max_uA": 2.6584828383079415,
+   "i_leak_uA": 7.2023991939954355,
+   "i_contact_uA": 0.07443638657133742,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> skin under the pod + finger on the + contact (no head) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 11.565183652027143,
+   "i_electrode_max_uA": 2.6552767642373567,
+   "i_leak_uA": 11.565183652027143,
+   "i_contact_uA": 4.4497287789826325,
+   "pass_10uA": false,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> plate E1 [AFE on]",
+   "cls": "seal",
+   "i_patient_uA": 3.078425876052293,
+   "i_electrode_max_uA": 2.9760977848001393,
+   "i_leak_uA": 3.078425876052293,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 3.891203997659872,
+   "i_electrode_max_uA": 3.788877545003039,
+   "i_leak_uA": 3.891203997659872,
+   "i_contact_uA": 0.8148128526986081,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE on]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 3.159765984287777,
+   "i_electrode_max_uA": 3.0574295996276684,
+   "i_leak_uA": 3.159765984287777,
+   "i_contact_uA": 0.081520921025564,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> plate E1 + finger on the + contact (no head) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 7.932992343387993,
+   "i_electrode_max_uA": 7.830674030703576,
+   "i_leak_uA": 7.932992343387993,
+   "i_contact_uA": 4.866506395681648,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> plate E1 [AFE off]",
+   "cls": "seal",
+   "i_patient_uA": 7.12421988725874,
+   "i_electrode_max_uA": 5.105819299653263,
+   "i_leak_uA": 7.12421988725874,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 7.934079401709497,
+   "i_electrode_max_uA": 5.916268447431184,
+   "i_leak_uA": 7.934079401709497,
+   "i_contact_uA": 0.8133212400884614,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE off]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 7.205245155079839,
+   "i_electrode_max_uA": 5.186903559583581,
+   "i_leak_uA": 7.205245155079839,
+   "i_contact_uA": 0.08137160920042942,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> plate E1 + finger on the + contact (no head) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 11.961168103915282,
+   "i_electrode_max_uA": 9.946289119811617,
+   "i_leak_uA": 11.961168103915282,
+   "i_contact_uA": 4.857623475291411,
+   "pass_10uA": false,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> E3 / finger [AFE on]",
+   "cls": "seal",
+   "i_patient_uA": 2.8814750117488415,
+   "i_electrode_max_uA": 2.631958450560037,
+   "i_leak_uA": 2.8814750117488415,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 3.625419169171475,
+   "i_electrode_max_uA": 2.6314090712219174,
+   "i_leak_uA": 3.625419169171475,
+   "i_contact_uA": 0.7451435041041571,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE on]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 2.9558849822461792,
+   "i_electrode_max_uA": 2.6319036835418426,
+   "i_leak_uA": 2.9558849822461792,
+   "i_contact_uA": 0.0745301200942849,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> E3 / finger + finger on the + contact (no head) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 7.3315536647082356,
+   "i_electrode_max_uA": 2.628687331154808,
+   "i_leak_uA": 7.3315536647082356,
+   "i_contact_uA": 4.457170544289827,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> E3 / finger [AFE off]",
+   "cls": "seal",
+   "i_patient_uA": 7.126520790152805,
+   "i_electrode_max_uA": 2.657556375916637,
+   "i_leak_uA": 7.126520790152805,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 7.868925332850906,
+   "i_electrode_max_uA": 2.6570110564554916,
+   "i_leak_uA": 7.868925332850906,
+   "i_contact_uA": 0.7443391406265228,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE off]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 7.2007769333763845,
+   "i_electrode_max_uA": 2.657501832400462,
+   "i_leak_uA": 7.2007769333763845,
+   "i_contact_uA": 0.07444964431909791,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: PV+ 3.17 V -> E3 / finger + finger on the + contact (no head) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 11.567314303219199,
+   "i_electrode_max_uA": 2.6542944738080303,
+   "i_leak_uA": 11.567314303219199,
+   "i_contact_uA": 4.452365518460113,
+   "pass_10uA": false,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> skin under the pod [AFE on]",
+   "cls": "seal",
+   "i_patient_uA": 2.7573775969335363,
+   "i_electrode_max_uA": 2.5444581025505864,
+   "i_leak_uA": 2.7573775969335363,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 3.4736153654109114,
+   "i_electrode_max_uA": 2.5439318785182827,
+   "i_leak_uA": 3.4736153654109114,
+   "i_contact_uA": 0.7168774555057623,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE on]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 2.8290185610305483,
+   "i_electrode_max_uA": 2.5444054656272495,
+   "i_leak_uA": 2.8290185610305483,
+   "i_contact_uA": 0.07170747118069909,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> skin under the pod + finger on the + contact (no head) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 7.040027162042966,
+   "i_electrode_max_uA": 2.5413115337077676,
+   "i_leak_uA": 7.040027162042966,
+   "i_contact_uA": 4.286585586941026,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> skin under the pod [AFE off]",
+   "cls": "seal",
+   "i_patient_uA": 6.8658540411571485,
+   "i_electrode_max_uA": 2.570565907003035,
+   "i_leak_uA": 6.8658540411571485,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 7.57979538377753,
+   "i_electrode_max_uA": 2.570041248989463,
+   "i_leak_uA": 7.57979538377753,
+   "i_contact_uA": 0.7160004719228613,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE off]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 6.9372677906339,
+   "i_electrode_max_uA": 2.570513426742284,
+   "i_leak_uA": 6.9372677906339,
+   "i_contact_uA": 0.07161971945067057,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> skin under the pod + finger on the + contact (no head) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 11.134892854025582,
+   "i_electrode_max_uA": 2.567428695143897,
+   "i_leak_uA": 11.134892854025582,
+   "i_contact_uA": 4.28135137870045,
+   "pass_10uA": false,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> plate E1 [AFE on]",
+   "cls": "seal",
+   "i_patient_uA": 2.9743021011169977,
+   "i_electrode_max_uA": 2.8722137067687292,
+   "i_leak_uA": 2.9743021011169977,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 3.759546214766432,
+   "i_electrode_max_uA": 3.6574593870026093,
+   "i_leak_uA": 3.759546214766432,
+   "i_contact_uA": 0.7866344021957835,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE on]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 3.052864636027296,
+   "i_electrode_max_uA": 2.950776398560778,
+   "i_leak_uA": 3.052864636027296,
+   "i_contact_uA": 0.07870170526493328,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> plate E1 + finger on the + contact (no head) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 7.66425427236736,
+   "i_electrode_max_uA": 7.562167293809542,
+   "i_leak_uA": 7.66425427236736,
+   "i_contact_uA": 4.698209332759029,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> plate E1 [AFE off]",
+   "cls": "seal",
+   "i_patient_uA": 6.8621823239732835,
+   "i_electrode_max_uA": 4.9309392472072044,
+   "i_leak_uA": 6.8621823239732835,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 7.644039894948514,
+   "i_electrode_max_uA": 5.713365798001832,
+   "i_leak_uA": 7.644039894948514,
+   "i_contact_uA": 0.785210007818603,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE off]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 6.940406038035675,
+   "i_electrode_max_uA": 5.009219887024731,
+   "i_leak_uA": 6.940406038035675,
+   "i_contact_uA": 0.07855912126186466,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> plate E1 + finger on the + contact (no head) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 11.531886777317826,
+   "i_electrode_max_uA": 9.604041948835949,
+   "i_leak_uA": 11.531886777317826,
+   "i_contact_uA": 4.689726973171883,
+   "pass_10uA": false,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> E3 / finger [AFE on]",
+   "cls": "seal",
+   "i_patient_uA": 2.756801362550693,
+   "i_electrode_max_uA": 2.5438769066162035,
+   "i_leak_uA": 2.756801362550693,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 3.473052522000628,
+   "i_electrode_max_uA": 2.543350755738972,
+   "i_leak_uA": 3.473052522000628,
+   "i_contact_uA": 0.7169357877096221,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE on]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 2.8284196722153885,
+   "i_electrode_max_uA": 2.543824280352239,
+   "i_leak_uA": 2.8284196722153885,
+   "i_contact_uA": 0.07170875162499164,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> E3 / finger + finger on the + contact (no head) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 7.04130338370305,
+   "i_electrode_max_uA": 2.5407296692033174,
+   "i_leak_uA": 7.04130338370305,
+   "i_contact_uA": 4.288441392648552,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> E3 / finger [AFE off]",
+   "cls": "seal",
+   "i_patient_uA": 6.864257105595872,
+   "i_electrode_max_uA": 2.5696234011380907,
+   "i_leak_uA": 6.864257105595872,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 7.578556633490773,
+   "i_electrode_max_uA": 2.5690987212941585,
+   "i_leak_uA": 7.578556633490773,
+   "i_contact_uA": 0.7161720716142294,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE off]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 6.935702153408745,
+   "i_electrode_max_uA": 2.569570922021792,
+   "i_leak_uA": 6.935702153408745,
+   "i_contact_uA": 0.07163234217035173,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_DISP 3.05 V -> E3 / finger + finger on the + contact (no head) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 11.136936657709796,
+   "i_electrode_max_uA": 2.566484957694778,
+   "i_leak_uA": 11.136936657709796,
+   "i_contact_uA": 4.283880370750745,
+   "pass_10uA": false,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> skin under the pod [AFE on]",
+   "cls": "seal",
+   "i_patient_uA": 1.9083468718088004,
+   "i_electrode_max_uA": 1.707518516266033,
+   "i_leak_uA": 1.9083468718088004,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 2.356833294310106,
+   "i_electrode_max_uA": 1.707189012977556,
+   "i_leak_uA": 2.356833294310106,
+   "i_contact_uA": 0.4489222444323194,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE on]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 1.9532078543851323,
+   "i_electrode_max_uA": 1.7074855568451721,
+   "i_leak_uA": 1.9532078543851323,
+   "i_contact_uA": 0.044904577016259585,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> skin under the pod + finger on the + contact (no head) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 4.590081970079787,
+   "i_electrode_max_uA": 1.70554824375373,
+   "i_leak_uA": 4.590081970079787,
+   "i_contact_uA": 2.6843411043135044,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> skin under the pod [AFE off]",
+   "cls": "seal",
+   "i_patient_uA": 4.378365934960683,
+   "i_electrode_max_uA": 1.7348317077430788,
+   "i_leak_uA": 4.378365934960683,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 4.825444830125735,
+   "i_electrode_max_uA": 1.7345031130495372,
+   "i_leak_uA": 4.825444830125735,
+   "i_contact_uA": 0.4484883933752504,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> skin under the pod + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE off]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 4.423086107797058,
+   "i_electrode_max_uA": 1.7347988392174902,
+   "i_leak_uA": 4.423086107797058,
+   "i_contact_uA": 0.04486116186352836,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> skin under the pod + finger on the + contact (no head) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 7.051690801889822,
+   "i_electrode_max_uA": 1.732866863710218,
+   "i_leak_uA": 7.051690801889822,
+   "i_contact_uA": 2.6817529094800148,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> plate E1 [AFE on]",
+   "cls": "seal",
+   "i_patient_uA": 2.1264996054500656,
+   "i_electrode_max_uA": 2.033265445416419,
+   "i_leak_uA": 2.1264996054500656,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 2.644468406017804,
+   "i_electrode_max_uA": 2.5512352791927513,
+   "i_leak_uA": 2.644468406017804,
+   "i_contact_uA": 0.5189406650840631,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE on]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 2.178321681354174,
+   "i_electrode_max_uA": 2.085087624762363,
+   "i_leak_uA": 2.178321681354174,
+   "i_contact_uA": 0.051919309859717364,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> plate E1 + finger on the + contact (no head) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 5.220091555033629,
+   "i_electrode_max_uA": 5.126863565493389,
+   "i_leak_uA": 5.220091555033629,
+   "i_contact_uA": 3.0993964528313134,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> plate E1 [AFE off]",
+   "cls": "seal",
+   "i_patient_uA": 4.378091302807324,
+   "i_electrode_max_uA": 3.2718573306305654,
+   "i_leak_uA": 4.378091302807324,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 4.893929503827523,
+   "i_electrode_max_uA": 3.788067779016189,
+   "i_leak_uA": 4.893929503827523,
+   "i_contact_uA": 0.5181509888566483,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE off]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 4.42970016545797,
+   "i_electrode_max_uA": 3.3235034362501854,
+   "i_leak_uA": 4.42970016545797,
+   "i_contact_uA": 0.05184025456250849,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> plate E1 + finger on the + contact (no head) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 7.458990341506403,
+   "i_electrode_max_uA": 6.354976437709395,
+   "i_leak_uA": 7.458990341506403,
+   "i_contact_uA": 3.0946963689736307,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> E3 / finger [AFE on]",
+   "cls": "seal",
+   "i_patient_uA": 1.9079492041100383,
+   "i_electrode_max_uA": 1.7071221238448109,
+   "i_leak_uA": 1.9079492041100383,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 2.3564752570607093,
+   "i_electrode_max_uA": 1.7067926642842355,
+   "i_leak_uA": 2.3564752570607093,
+   "i_contact_uA": 0.4489614626080594,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE on]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 1.9528113015306556,
+   "i_electrode_max_uA": 1.7070891708910063,
+   "i_leak_uA": 1.9528113015306556,
+   "i_contact_uA": 0.04490564785602513,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> E3 / finger + finger on the + contact (no head) [AFE on]",
+   "cls": "seal+GND",
+   "i_patient_uA": 4.590864080352135,
+   "i_electrode_max_uA": 1.705151420276777,
+   "i_leak_uA": 4.590864080352135,
+   "i_contact_uA": 2.6855193322926527,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> E3 / finger [AFE off]",
+   "cls": "seal",
+   "i_patient_uA": 4.377318622356036,
+   "i_electrode_max_uA": 1.73425406687662,
+   "i_leak_uA": 4.377318622356036,
+   "i_contact_uA": 0.0,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 1 uA bound) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 4.824619604326484,
+   "i_electrode_max_uA": 1.733925463578812,
+   "i_leak_uA": 4.824619604326484,
+   "i_contact_uA": 0.44858300372364873,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> E3 / finger + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE off]",
+   "cls": "seal+GND IDSS0.1",
+   "i_patient_uA": 4.422058173215484,
+   "i_electrode_max_uA": 1.7342211995754757,
+   "i_leak_uA": 4.422058173215484,
+   "i_contact_uA": 0.04486778052702289,
+   "pass_10uA": true,
+   "pass_50uA": true
+  },
+  {
+   "case": "seal: VDD_1V8 1.91 V -> E3 / finger + finger on the + contact (no head) [AFE off]",
+   "cls": "seal+GND",
+   "i_patient_uA": 7.0529101304251745,
+   "i_electrode_max_uA": 1.7322884818071798,
+   "i_leak_uA": 7.0529101304251745,
+   "i_contact_uA": 2.6832600172282315,
+   "pass_10uA": true,
+   "pass_50uA": true
+  }
+ ],
+ "worst_by_class_uA": {
+  "SFC": 1.3677619718443597,
+  "SFC+GND": 2.8514350253481893,
+  "double (info)": 3.225340752673897,
+  "normal": 1.6568984660474302,
+  "seal": 9.4914160188,
+  "seal+GND": 15.827295710000405,
+  "seal+GND IDSS0.1": 9.591396340826128
+ },
+ "worst_case_by_class": {
+  "SFC": "SFC IN1P->AVDD",
+  "SFC+GND": "SFC TVS on E1 shorted + finger on the + contact (no head)",
+  "double (info)": "DOUBLE (information): Q20 shorted + LDO pass short AVDD 4.25 V, finger wet 1k on J18",
+  "normal": "normal, finger on the GND contact (wet 1k (behind Q20 off, IDSS 1 uA bound)) + finger on the + contact (no head, 1.1 M || 2 M) [AFE on]",
+  "seal": "seal: VBAT / VSTOR 4.25 V -> skin under the pod [AFE off]",
+  "seal+GND": "seal: VBAT / VSTOR 4.25 V -> plate E1 + finger on the + contact (no head) [AFE off]",
+  "seal+GND IDSS0.1": "seal: VBAT / VSTOR 4.25 V -> plate E1 + finger on the GND contact (Q20 off, IDSS 0.1 uA) [AFE off]"
+ },
+ "crit_A": 1e-05,
+ "sfc_limit_A": 5e-05,
+ "electrode_R": 1000.0,
+ "runtime_s": 39.576643228530884
+}

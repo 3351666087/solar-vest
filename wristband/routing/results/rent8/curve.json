@@ -1,0 +1,42 @@
+{
+ "curve": [
+  {
+   "gen": 0,
+   "best_gen": 32,
+   "best_gen_id": "g00_c12",
+   "best_gen_unconnected": 32,
+   "best_gen_drc": 0,
+   "median_gen": 42,
+   "best_so_far": 32,
+   "best_so_far_id": "g00_c12",
+   "n": 24
+  },
+  {
+   "gen": 1,
+   "best_gen": 31,
+   "best_gen_id": "g01_c23",
+   "best_gen_unconnected": 31,
+   "best_gen_drc": 0,
+   "median_gen": 40,
+   "best_so_far": 31,
+   "best_so_far_id": "g01_c23",
+   "n": 24
+  },
+  {
+   "gen": 2,
+   "best_gen": 26,
+   "best_gen_id": "g02_c18",
+   "best_gen_unconnected": 26,
+   "best_gen_drc": 0,
+   "median_gen": 39,
+   "best_so_far": 26,
+   "best_so_far_id": "g02_c18",
+   "n": 24
+  }
+ ],
+ "gen_wall_s": [
+  1850,
+  1906,
+  1991
+ ]
+}

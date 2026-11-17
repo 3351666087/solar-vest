@@ -1,0 +1,18 @@
+{
+ "curve": [
+  {
+   "gen": 0,
+   "best_gen": 12,
+   "best_gen_id": "g00_c127",
+   "best_gen_unconnected": 12,
+   "best_gen_drc": 0,
+   "median_gen": 21,
+   "best_so_far": 12,
+   "best_so_far_id": "g00_c127",
+   "n": 132
+  }
+ ],
+ "gen_wall_s": [
+  7394
+ ]
+}

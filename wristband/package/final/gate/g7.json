@@ -1,0 +1,1886 @@
+{
+ "summary": {
+  "parts": 207,
+  "passed": 207,
+  "failed": [],
+  "silk_mark_found": 36,
+  "silk_mark_missing": 171,
+  "notes": {
+   "SW1": [
+    "JLC pad 5 has no board pin of that number and lands on no copper (pad left out of the board land?)"
+   ],
+   "U10": [
+    "1 pad(s) without paste under them"
+   ]
+  }
+ },
+ "parts": {
+  "C101": {
+   "ref": "C101",
+   "lcsc": "C19666",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C102": {
+   "ref": "C102",
+   "lcsc": "C19702",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C103": {
+   "ref": "C103",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C104": {
+   "ref": "C104",
+   "lcsc": "C3855387",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C105": {
+   "ref": "C105",
+   "lcsc": "C105226",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C106": {
+   "ref": "C106",
+   "lcsc": "C59461",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C107": {
+   "ref": "C107",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C108": {
+   "ref": "C108",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C111": {
+   "ref": "C111",
+   "lcsc": "C52923",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C112": {
+   "ref": "C112",
+   "lcsc": "C52923",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C113": {
+   "ref": "C113",
+   "lcsc": "C285010",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C114": {
+   "ref": "C114",
+   "lcsc": "C105226",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C115": {
+   "ref": "C115",
+   "lcsc": "C105226",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C116": {
+   "ref": "C116",
+   "lcsc": "C105226",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C117": {
+   "ref": "C117",
+   "lcsc": "C105226",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C119": {
+   "ref": "C119",
+   "lcsc": "C76935",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C120": {
+   "ref": "C120",
+   "lcsc": "C285010",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C121": {
+   "ref": "C121",
+   "lcsc": "C23733",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C122": {
+   "ref": "C122",
+   "lcsc": "C76935",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C130": {
+   "ref": "C130",
+   "lcsc": "C52923",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C131": {
+   "ref": "C131",
+   "lcsc": "C52923",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C132": {
+   "ref": "C132",
+   "lcsc": "C309454",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C1501": {
+   "ref": "C1501",
+   "lcsc": "C52923",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C1502": {
+   "ref": "C1502",
+   "lcsc": "C52923",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C1503": {
+   "ref": "C1503",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C1601": {
+   "ref": "C1601",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C1602": {
+   "ref": "C1602",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C1603": {
+   "ref": "C1603",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C170": {
+   "ref": "C170",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C174": {
+   "ref": "C174",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C175": {
+   "ref": "C175",
+   "lcsc": "C161418",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C201": {
+   "ref": "C201",
+   "lcsc": "C384960",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C202": {
+   "ref": "C202",
+   "lcsc": "C384960",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C203": {
+   "ref": "C203",
+   "lcsc": "C237514",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C204": {
+   "ref": "C204",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C205": {
+   "ref": "C205",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C206": {
+   "ref": "C206",
+   "lcsc": "C76922",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C207": {
+   "ref": "C207",
+   "lcsc": "C76922",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C209": {
+   "ref": "C209",
+   "lcsc": "C23733",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C210": {
+   "ref": "C210",
+   "lcsc": "C52923",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C211": {
+   "ref": "C211",
+   "lcsc": "C76923",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C212": {
+   "ref": "C212",
+   "lcsc": "C76923",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C215": {
+   "ref": "C215",
+   "lcsc": "C2048575",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C304": {
+   "ref": "C304",
+   "lcsc": "C161408",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C305": {
+   "ref": "C305",
+   "lcsc": "C1518204",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C306": {
+   "ref": "C306",
+   "lcsc": "C1518204",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C307": {
+   "ref": "C307",
+   "lcsc": "C15525",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C308": {
+   "ref": "C308",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C309": {
+   "ref": "C309",
+   "lcsc": "C52923",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C310": {
+   "ref": "C310",
+   "lcsc": "C52923",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C311": {
+   "ref": "C311",
+   "lcsc": "C52923",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C312": {
+   "ref": "C312",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C313": {
+   "ref": "C313",
+   "lcsc": "C76935",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C314": {
+   "ref": "C314",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C401": {
+   "ref": "C401",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C402": {
+   "ref": "C402",
+   "lcsc": "C15525",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C403": {
+   "ref": "C403",
+   "lcsc": "C52923",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C404": {
+   "ref": "C404",
+   "lcsc": "C19702",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C405": {
+   "ref": "C405",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C501": {
+   "ref": "C501",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C502": {
+   "ref": "C502",
+   "lcsc": "C15525",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C504": {
+   "ref": "C504",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "C505": {
+   "ref": "C505",
+   "lcsc": "C7393837",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "D10": {
+   "ref": "D10",
+   "lcsc": "C598214",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "D11": {
+   "ref": "D11",
+   "lcsc": "C130414",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "D12": {
+   "ref": "D12",
+   "lcsc": "C549313",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "D13": {
+   "ref": "D13",
+   "lcsc": "C20345399",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "D14": {
+   "ref": "D14",
+   "lcsc": "C6736531",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "D15": {
+   "ref": "D15",
+   "lcsc": "C48260",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "D16": {
+   "ref": "D16",
+   "lcsc": "C896422",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "D17": {
+   "ref": "D17",
+   "lcsc": "C549275",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "D18": {
+   "ref": "D18",
+   "lcsc": "C48260",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "D19": {
+   "ref": "D19",
+   "lcsc": "C549275",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "D3": {
+   "ref": "D3",
+   "lcsc": "C5603826",
+   "side": "bot",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "D4": {
+   "ref": "D4",
+   "lcsc": "C5603826",
+   "side": "bot",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "D5": {
+   "ref": "D5",
+   "lcsc": "C48260",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "D6": {
+   "ref": "D6",
+   "lcsc": "C48260",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "D7": {
+   "ref": "D7",
+   "lcsc": "C48260",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "D8": {
+   "ref": "D8",
+   "lcsc": "C48260",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "D9": {
+   "ref": "D9",
+   "lcsc": "C130414",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "FB1": {
+   "ref": "FB1",
+   "lcsc": "C473473",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "FB2": {
+   "ref": "FB2",
+   "lcsc": "C473473",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "FB3": {
+   "ref": "FB3",
+   "lcsc": "C473473",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "FB4": {
+   "ref": "FB4",
+   "lcsc": "C473473",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "FB5": {
+   "ref": "FB5",
+   "lcsc": "C473473",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "FB6": {
+   "ref": "FB6",
+   "lcsc": "C473473",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "J11": {
+   "ref": "J11",
+   "lcsc": "C2826535",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "J13": {
+   "ref": "J13",
+   "lcsc": "C324723",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "J15": {
+   "ref": "J15",
+   "lcsc": "C2826535",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "J18": {
+   "ref": "J18",
+   "lcsc": "C2826535",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "J19": {
+   "ref": "J19",
+   "lcsc": "C2826535",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "J40": {
+   "ref": "J40",
+   "lcsc": "C2826518",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "L1": {
+   "ref": "L1",
+   "lcsc": "C2050114",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "L2": {
+   "ref": "L2",
+   "lcsc": "C434843",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "L201": {
+   "ref": "L201",
+   "lcsc": "C98045",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "L202": {
+   "ref": "L202",
+   "lcsc": "C6807729",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "L203": {
+   "ref": "L203",
+   "lcsc": "C86059",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "L204": {
+   "ref": "L204",
+   "lcsc": "C471381",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "PD1": {
+   "ref": "PD1",
+   "lcsc": "C511402",
+   "side": "bot",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "Q1": {
+   "ref": "Q1",
+   "lcsc": "C478155",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "Q10": {
+   "ref": "Q10",
+   "lcsc": "C478155",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "Q11": {
+   "ref": "Q11",
+   "lcsc": "C478155",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "Q12": {
+   "ref": "Q12",
+   "lcsc": "C478155",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "Q13": {
+   "ref": "Q13",
+   "lcsc": "C478155",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "Q14": {
+   "ref": "Q14",
+   "lcsc": "C478207",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "Q16": {
+   "ref": "Q16",
+   "lcsc": "C478155",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "Q17": {
+   "ref": "Q17",
+   "lcsc": "C478155",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "Q18": {
+   "ref": "Q18",
+   "lcsc": "C478207",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "Q19": {
+   "ref": "Q19",
+   "lcsc": "C478155",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "Q20": {
+   "ref": "Q20",
+   "lcsc": "C504101",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "Q4": {
+   "ref": "Q4",
+   "lcsc": "C478155",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "Q5": {
+   "ref": "Q5",
+   "lcsc": "C478155",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "Q6": {
+   "ref": "Q6",
+   "lcsc": "C478155",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "Q7": {
+   "ref": "Q7",
+   "lcsc": "C478155",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "Q8": {
+   "ref": "Q8",
+   "lcsc": "C478155",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "Q9": {
+   "ref": "Q9",
+   "lcsc": "C478155",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "R101": {
+   "ref": "R101",
+   "lcsc": "C2766851",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R102": {
+   "ref": "R102",
+   "lcsc": "C423137",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R103": {
+   "ref": "R103",
+   "lcsc": "C423179",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R104": {
+   "ref": "R104",
+   "lcsc": "C477775",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R105": {
+   "ref": "R105",
+   "lcsc": "C45993",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R106": {
+   "ref": "R106",
+   "lcsc": "C423135",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R107": {
+   "ref": "R107",
+   "lcsc": "C423177",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R108": {
+   "ref": "R108",
+   "lcsc": "C423797",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R111": {
+   "ref": "R111",
+   "lcsc": "C861215",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R112": {
+   "ref": "R112",
+   "lcsc": "C861215",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R116": {
+   "ref": "R116",
+   "lcsc": "C270364",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R117": {
+   "ref": "R117",
+   "lcsc": "C270612",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R123": {
+   "ref": "R123",
+   "lcsc": "C473458",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R124": {
+   "ref": "R124",
+   "lcsc": "C295786",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R125": {
+   "ref": "R125",
+   "lcsc": "C423797",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R126": {
+   "ref": "R126",
+   "lcsc": "C423582",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R127": {
+   "ref": "R127",
+   "lcsc": "C270346",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R128": {
+   "ref": "R128",
+   "lcsc": "C295786",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R129": {
+   "ref": "R129",
+   "lcsc": "C270345",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R130": {
+   "ref": "R130",
+   "lcsc": "C17445",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R131": {
+   "ref": "R131",
+   "lcsc": "C423797",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R133": {
+   "ref": "R133",
+   "lcsc": "C270366",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R140": {
+   "ref": "R140",
+   "lcsc": "C851635",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R141": {
+   "ref": "R141",
+   "lcsc": "C270358",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R142": {
+   "ref": "R142",
+   "lcsc": "C43676",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R143": {
+   "ref": "R143",
+   "lcsc": "C473458",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R144": {
+   "ref": "R144",
+   "lcsc": "C295786",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R145": {
+   "ref": "R145",
+   "lcsc": "C295786",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R146": {
+   "ref": "R146",
+   "lcsc": "C295786",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R149": {
+   "ref": "R149",
+   "lcsc": "C295786",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R160": {
+   "ref": "R160",
+   "lcsc": "C270366",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R161": {
+   "ref": "R161",
+   "lcsc": "C295786",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R162": {
+   "ref": "R162",
+   "lcsc": "C270365",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R163": {
+   "ref": "R163",
+   "lcsc": "C295786",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R164": {
+   "ref": "R164",
+   "lcsc": "C295786",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R165": {
+   "ref": "R165",
+   "lcsc": "C270364",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R167": {
+   "ref": "R167",
+   "lcsc": "C295786",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R170": {
+   "ref": "R170",
+   "lcsc": "C423439",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R171": {
+   "ref": "R171",
+   "lcsc": "C2691509",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R172": {
+   "ref": "R172",
+   "lcsc": "C166160",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R174": {
+   "ref": "R174",
+   "lcsc": "C423797",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R175": {
+   "ref": "R175",
+   "lcsc": "C295786",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R176": {
+   "ref": "R176",
+   "lcsc": "C295786",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R301": {
+   "ref": "R301",
+   "lcsc": "C441935",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R302": {
+   "ref": "R302",
+   "lcsc": "C441935",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R303": {
+   "ref": "R303",
+   "lcsc": "C441935",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R304": {
+   "ref": "R304",
+   "lcsc": "C441935",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R305": {
+   "ref": "R305",
+   "lcsc": "C441935",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R306": {
+   "ref": "R306",
+   "lcsc": "C441935",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R311": {
+   "ref": "R311",
+   "lcsc": "C473048",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R312": {
+   "ref": "R312",
+   "lcsc": "C473048",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R313": {
+   "ref": "R313",
+   "lcsc": "C473048",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R314": {
+   "ref": "R314",
+   "lcsc": "C473048",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R315": {
+   "ref": "R315",
+   "lcsc": "C270364",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R316": {
+   "ref": "R316",
+   "lcsc": "C270364",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R317": {
+   "ref": "R317",
+   "lcsc": "C473560",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R318": {
+   "ref": "R318",
+   "lcsc": "C25076",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R319": {
+   "ref": "R319",
+   "lcsc": "C25076",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R401": {
+   "ref": "R401",
+   "lcsc": "C270364",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R402": {
+   "ref": "R402",
+   "lcsc": "C270364",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R501": {
+   "ref": "R501",
+   "lcsc": "C270364",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R503": {
+   "ref": "R503",
+   "lcsc": "C270364",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R504": {
+   "ref": "R504",
+   "lcsc": "C270364",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R505": {
+   "ref": "R505",
+   "lcsc": "C270346",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R506": {
+   "ref": "R506",
+   "lcsc": "C270346",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R507": {
+   "ref": "R507",
+   "lcsc": "C413063",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R508": {
+   "ref": "R508",
+   "lcsc": "C295786",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R509": {
+   "ref": "R509",
+   "lcsc": "C270364",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R510": {
+   "ref": "R510",
+   "lcsc": "C295786",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "R511": {
+   "ref": "R511",
+   "lcsc": "C473048",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "SW1": {
+   "ref": "SW1",
+   "lcsc": "C221907",
+   "side": "top",
+   "fails": [],
+   "notes": [
+    "JLC pad 5 has no board pin of that number and lands on no copper (pad left out of the board land?)"
+   ],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "U1": {
+   "ref": "U1",
+   "lcsc": "C506250",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "U10": {
+   "ref": "U10",
+   "lcsc": "C2803242",
+   "side": "top",
+   "fails": [],
+   "notes": [
+    "1 pad(s) without paste under them"
+   ],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "U11": {
+   "ref": "U11",
+   "lcsc": "C5687033",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "U12": {
+   "ref": "U12",
+   "lcsc": "C727398",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "U13": {
+   "ref": "U13",
+   "lcsc": "C727398",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "U15": {
+   "ref": "U15",
+   "lcsc": "C5208201",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "U16": {
+   "ref": "U16",
+   "lcsc": "C2867950",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "U17": {
+   "ref": "U17",
+   "lcsc": "C5187176",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "U19": {
+   "ref": "U19",
+   "lcsc": "C2863637",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "U20": {
+   "ref": "U20",
+   "lcsc": "C2863637",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "U21": {
+   "ref": "U21",
+   "lcsc": "C5217869",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "U3": {
+   "ref": "U3",
+   "lcsc": "C5220164",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "U4": {
+   "ref": "U4",
+   "lcsc": "C4371025",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "U5": {
+   "ref": "U5",
+   "lcsc": "C4371025",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "U6": {
+   "ref": "U6",
+   "lcsc": "C509405",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "U7": {
+   "ref": "U7",
+   "lcsc": "C139059",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "U8": {
+   "ref": "U8",
+   "lcsc": "C5328762",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "U9": {
+   "ref": "U9",
+   "lcsc": "C189624",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "board silk under the JLC pin-1 mark"
+  },
+  "X1": {
+   "ref": "X1",
+   "lcsc": "C718072",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  },
+  "X2": {
+   "ref": "X2",
+   "lcsc": "C398713",
+   "side": "top",
+   "fails": [],
+   "notes": [],
+   "centre_offset_mm": 0.0,
+   "silk_mark": "no board silk at the JLC pin-1 mark"
+  }
+ }
+}

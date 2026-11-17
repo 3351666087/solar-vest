@@ -1,0 +1,5 @@
+# Same packages for Python 3.10 (Ubuntu 22.04); the newest releases that still support 3.10 (not tested on the laptop)
+numpy==2.2.6
+scipy==1.15.3
+shapely==2.1.1
+matplotlib==3.10.3

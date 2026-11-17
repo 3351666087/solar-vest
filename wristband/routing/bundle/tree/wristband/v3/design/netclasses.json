@@ -1,0 +1,497 @@
+{
+ "board": "SolarBand V3-F main (baseline v3f)",
+ "generated": "2026-11-15",
+ "source": "v3/decide/BASELINE.md 4, 7, 13 + REDESIGN_V2 5.8 layout row + ARCHITECTURE 5.2-5.5; RF and stack values wait for SIM-12 and V3-G3a",
+ "netclasses": {
+  "PWR_HIGH": {
+   "nets": [
+    "VSTOR",
+    "VSTOR_SW",
+    "VBAT_IC",
+    "BATT_P",
+    "BATT_P_A",
+    "VIN_DC",
+    "PV_NODE",
+    "PV_SW",
+    "PV_Q",
+    "PV_W",
+    "LBOOST",
+    "LBUCK",
+    "VLED",
+    "VDD_1V8",
+    "VBUS_K",
+    "VBUS",
+    "MOTOR_N"
+   ],
+   "track_mm": 0.3,
+   "clearance_mm": 0.15,
+   "via_mm": [
+    0.2,
+    0.4
+   ],
+   "why": "BQ25570 boost CBC 230 mA / buck 185 mA; PV up to ~60 mA through Q14 and R130 (cold start 36-52 mW in R130, CALC_V3F 2); pack path BATT_P carries the U12 inrush ~0.3 A and the motor start <= 80 mA; VBUS 33 mA (U15); motor 30-80 mA on MOTOR_N / VBAT_IC (J17 + and D17 at VBAT_IC, next to C106). LBOOST / LBUCK loops as short as possible."
+  },
+  "GND": {
+   "nets": [
+    "GND",
+    "GND_A1",
+    "GND_A2",
+    "GND_B"
+   ],
+   "track_mm": 0.3,
+   "clearance_mm": 0.1,
+   "via_mm": [
+    0.2,
+    0.4
+   ],
+   "why": "solid ground planes; B.Cu and L5 void under the electrode plates; GND_A1 / GND_A2 are the guard conductors between BATT_P and NTC in strap root A (through FB2 / FB4)."
+  },
+  "PWR_LOW": {
+   "nets": [
+    "AVDD_ECG",
+    "INA_VS",
+    "VDD_DIS",
+    "DEC1",
+    "DEC2",
+    "DEC3",
+    "DEC4",
+    "DCC",
+    "DCDC_MID",
+    "VDD_DISP",
+    "V_O2",
+    "FL_A",
+    "FL_K",
+    "DISP_EN"
+   ],
+   "track_mm": 0.2,
+   "clearance_mm": 0.1,
+   "via_mm": [
+    0.2,
+    0.4
+   ],
+   "why": "nRF52832 decoupling / DC/DC nodes (Nordic reference layout); AVDD_ECG star from U3; VDD_DISP from U16 (<= 1 mA); V_O2 the O-2 supply (<= 25 uA); front light <= 8 mA."
+  },
+  "RF_50R": {
+   "nets": [
+    "RF_ANT",
+    "RF_50R",
+    "ANT_FEED"
+   ],
+   "impedance_ohm": 50,
+   "structure": "to be re-derived for the 6-layer 1.0 mm stack (SIM-12 re-run)",
+   "why": "as V2-B; radiator geometry from V3-G3a."
+  },
+  "ECG_PAIR": {
+   "nets": [
+    "ECG_INP",
+    "ECG_INN"
+   ],
+   "track_mm": 0.15,
+   "clearance_mm": 0.2,
+   "diff_pair": true,
+   "length_match_mm": 0.5,
+   "why": "R-ECG-1: symmetric inputs, >= 8 mm from L1 / L2, the motor (J17, Q12, D17) and the display SPI / EXTCOMIN lines."
+  },
+  "ECG_ELECTRODE": {
+   "nets": [
+    "E1_PAD",
+    "E1_LINK",
+    "E1_MID",
+    "E2_PAD",
+    "E2_LINK",
+    "E2_MID",
+    "E3_PAD",
+    "E3_MID",
+    "RLD_OUT",
+    "RLD_INV",
+    "RLD_Z"
+   ],
+   "track_mm": 0.15,
+   "clearance_mm": 0.3,
+   "why": "IEC 61000-4-2 entry nets before the 330 k chain; no ground or pour on B.Cu / L5 facing the plates."
+  },
+  "MOHM_KEEPOUT": {
+   "nets": [
+    "VBAT_OV",
+    "OK_PROG",
+    "OK_HYST",
+    "VOUT_SET",
+    "VRDIV",
+    "VREF_SAMP",
+    "GND_PMIC",
+    "BQ_EN",
+    "EN_HOLD",
+    "CYC_G",
+    "CYC_A",
+    "O2_G",
+    "O2_TC",
+    "O2_TH",
+    "VB_DET",
+    "BTN",
+    "BTN_SUP",
+    "BTN_N"
+   ],
+   "track_mm": 0.15,
+   "clearance_mm": 0.3,
+   "no_copper_pour": true,
+   "min_leakage_ohm": 10000000000.0,
+   "why": "R-PMIC-1 as v1, the V2-B hold nodes, and [V3F] O2_G (10 MOhm / 100 nF hold of Q14), the O-2 chain taps (732 k / 162 k / 52.3 k: 1 nA of leakage = 0.05 mV), VB_DET (1 MOhm divider: also the D12A wake source), the button nodes (100 k / 1 MOhm)."
+  },
+  "NTC_SENSE": {
+   "nets": [
+    "NTC",
+    "NTC_A",
+    "NTC_ADC",
+    "O2_NC",
+    "O2_OK",
+    "O2_PV",
+    "ISET",
+    "ISET_RC",
+    "VSET"
+   ],
+   "track_mm": 0.15,
+   "clearance_mm": 0.2,
+   "why": "[V3F] pack NTC node shared by the BQ25170 TS (38 uA), the O-2 ladder (100 k) and the MCU AIN (1 M): route as a guarded analog trace from the root-A land (J5 / FB3) to U15, U19, U20, R116, R149, away from SPI, EXTCOMIN, motor and PWM lines; ISET / VSET of U15 short and quiet (ISET is the current-sense node)."
+  },
+  "ECG_LOCAL": {
+   "nets": [
+    "ECG_VREFP",
+    "ECG_VCAP1",
+    "ECG_VCAP2",
+    "PGA1P",
+    "PGA1N",
+    "PGA2P",
+    "PGA2N"
+   ],
+   "track_mm": 0.15,
+   "clearance_mm": 0.15,
+   "why": "as v1 (SBAS502C Fig. 73)."
+  },
+  "XTAL": {
+   "nets": [
+    "XC1",
+    "XC2",
+    "XL1",
+    "XL2"
+   ],
+   "track_mm": 0.15,
+   "clearance_mm": 0.2,
+   "why": "short, symmetric, ground guard; no copper under the SC-16S body (Seiko remark)."
+  },
+  "PPG_ANALOG": {
+   "nets": [
+    "PD1_IN",
+    "PD_GND",
+    "PPG_VREF",
+    "LED1_DRV",
+    "LED2_DRV"
+   ],
+   "track_mm": 0.15,
+   "clearance_mm": 0.15,
+   "why": "PD cathode node is a nA input crossing the board from the skin-face photodiode to the sky-side MAX86141: one via, guarded by PD_GND."
+  },
+  "DISPLAY": {
+   "nets": [
+    "D_SCLK",
+    "D_SI",
+    "D_SCS",
+    "D_EXTCOMIN",
+    "D_DISP"
+   ],
+   "track_mm": 0.1,
+   "clearance_mm": 0.1,
+   "why": "[V3F] 3 V panel lines from U17 / U21 to the FPC land J13: short (edge rate <= 50 ns at the panel, LD-29Y03 p.22), >= 8 mm from the ECG inputs; EXTCOMIN 60 Hz is a coupling source for E3 (display lane 3.6)."
+  },
+  "SIGNAL": {
+   "nets": "all others",
+   "track_mm": 0.1,
+   "clearance_mm": 0.1,
+   "via_mm": [
+    0.2,
+    0.4
+   ],
+   "why": "0.10 / 0.10 mm (0.09 only in the WLCSP fan-out); via-in-pad under WLCSP / DSBGA inner balls."
+  }
+ },
+ "signal_nets": [
+  "ALERT_A",
+  "ALERT_K",
+  "ALERT_LED",
+  "AVDD_EN",
+  "BTN_G",
+  "CHG_DIS",
+  "CHG_PG_N",
+  "CS_ECG",
+  "CS_FLASH",
+  "CS_PPG",
+  "DISP_CTRL",
+  "DISP_SCS",
+  "ECG_CLK",
+  "ECG_DRDY",
+  "ECG_GPIO1",
+  "ECG_GPIO2",
+  "ECG_PWDN",
+  "ECG_PWR_EN",
+  "ECG_START",
+  "EXTCOMIN",
+  "FLASH_RST",
+  "FLASH_WP",
+  "FL_EN",
+  "GK_G",
+  "GND_K",
+  "I2C_SCL",
+  "I2C_SDA",
+  "IMU_INT1",
+  "INA_EN",
+  "MOTOR_G",
+  "MOTOR_PWM",
+  "MOTOR_S",
+  "NRESET",
+  "NTC_EN",
+  "O2_HB",
+  "PPG_INT",
+  "PV_INH",
+  "PWR_CYC",
+  "PWR_HOLD",
+  "SPI_MISO",
+  "SPI_MOSI",
+  "SPI_SCK",
+  "SWDCLK",
+  "SWDIO",
+  "SW_ON",
+  "VBAT_OK",
+  "VOUT_EN"
+ ],
+ "rule_areas": [
+  {
+   "name": "PLATE_VOID",
+   "rules": [
+    "B.Cu and L5 void under the two electrode plates except the plate-dot pads and the TMP117 thermal island",
+    "vias under the plates covered by mask and >= 1 mm from a dot opening",
+    "no via of a PWR_HIGH net or of VDD_1V8 under a plate: only GND and nets behind >= 100 kOhm (review R-14)",
+    "J8 (bare ENIG with VSTOR, VLED, VIN_DC, AVDD_ECG, VDD) and every other mask-free B.Cu feature >= 2 mm from the plate edges and from the dot openings (review R-14)",
+    "[V3F] the 8.6 mm motor cut-out sits between E1 and E2 (planning centre X 20.0, Y 25.4 mm, BASELINE 5.1): the plate outlines and the cut-out are fixed together in V3-G9"
+   ],
+   "source": "REDESIGN 5.5, 5.7; review R-14; BASELINE 5.1, 7"
+  },
+  {
+   "name": "ELECTRODE_TEST_PADS",
+   "around": [
+    "TP1",
+    "TP2",
+    "TP3",
+    "TP4",
+    "TP5",
+    "J11"
+   ],
+   "rules": [
+    "bare pads on the electrode nets ahead of the 2 x 330 kOhm: >= 1 mm to copper of any net above 0.5 V (review R-14)"
+   ],
+   "source": "review R-14"
+  },
+  {
+   "name": "ROOT_A_ENTRY",
+   "around": [
+    "J3",
+    "J4",
+    "J5",
+    "J10",
+    "FB1",
+    "FB2",
+    "FB3",
+    "FB4"
+   ],
+   "rules": [
+    "[V3F] land order along the root wall BATT_P (J3) | GND (J4) | NTC (J5) | GND (J10): pads 1.0 x 4.0 mm at 1.5 mm pitch (gap 0.5 mm), span 5.5 mm inside X 4.5-10.5 mm (BASELINE 1, 4, 7)",
+    "one 0402 link per conductor, next to its land (FB1-FB4); the strap tails are quarter-wave monopoles at 2.44 GHz (BASELINE 13.1)",
+    "BATT_P_A to every other net >= 0.5 mm; no third net between the J3 and J4 lands (a root short is the cell short of BASELINE 13.2; F1 sits in the pack)"
+   ],
+   "source": "BASELINE 4, 7, 13.1, 13.2"
+  },
+  {
+   "name": "ROOT_B_ENTRY",
+   "around": [
+    "J7",
+    "J9",
+    "FB5",
+    "FB6"
+   ],
+   "rules": [
+    "[V3F] wing tail PV_W+ (J7) | GND (J9) with FB5 / FB6 at the lands; PV_W joins PV_NODE before RSH1 so INA_PV measures lid + wing"
+   ],
+   "source": "BASELINE 4"
+  },
+  {
+   "name": "CONTACTS",
+   "around": [
+    "J15",
+    "J18",
+    "D13",
+    "D14"
+   ],
+   "rules": [
+    "[V3F] J15 / J18 at the elbow-end corner under the rim pins (X 0.4-3.7, Y 20.2-31.6 mm; contact zone 15.7 mm from the antenna keep-out, BASELINE 1, 13.1)",
+    "D13 next to J15 (one via at most between the land and the TVS), then D14, then C130 at U15 IN",
+    "mating pin inner face >= 3.4 x 2.2 mm centred on each spring-finger land (rotation-neutral, BASELINE E-13); free height >= 1.60 mm at the fingers"
+   ],
+   "source": "BASELINE 1, 13.1, 16; SLVSH10C layout guidelines"
+  },
+  {
+   "name": "TMP117_ISLAND",
+   "around": [
+    "U10"
+   ],
+   "rules": [
+    "thermal-via island under U10 down to B.Cu under a plate; isolated copper (not on an electrode net)"
+   ],
+   "source": "REDESIGN 5.7"
+  },
+  {
+   "name": "VREF_SAMP_100G",
+   "around": [
+    "C104",
+    "U1 pin 4"
+   ],
+   "rules": [
+    "VREF_SAMP >= 100 GOhm to every other node"
+   ],
+   "source": "SIM-02 (v1)"
+  },
+  {
+   "name": "PMIC_NO_POUR",
+   "around": [
+    "R101-R107",
+    "R125",
+    "R126",
+    "C121",
+    "C104",
+    "NT1",
+    "R170-R172",
+    "R174",
+    "C174"
+   ],
+   "rules": [
+    "no pours / planes under the divider, CREF, MOhm hold-node and O-2 chain footprints"
+   ],
+   "source": "R-PMIC-1; CALC_V3F 3"
+  },
+  {
+   "name": "WLCSP_LIGHT",
+   "around": [
+    "U6",
+    "U8",
+    "U4",
+    "U5",
+    "U19",
+    "U20"
+   ],
+   "rules": [
+    "bare-die / X2SON packages under the opaque lid or the opaque mask of the window: no direct light (photo-currents in nA nodes)",
+    "no line of sight from D10, from its light window, from the front-light film or from the SWD / lid-tail openings to U6, U8, U4, U5 (review R-06)"
+   ],
+   "source": "REDESIGN S-9; review R-06"
+  },
+  {
+   "name": "SC16S_NO_PATTERN",
+   "around": [
+    "X2"
+   ],
+   "rules": [
+    "no copper under the crystal body"
+   ],
+   "source": "Seiko SC-16S p.1"
+  },
+  {
+   "name": "ECG_NOISE_DISTANCE",
+   "rules": [
+    "L1, L2, Q12 / D17 / J17 (motor), Q11 / J16 (front-light PWM), U17 / U21 / J13 (display lines) >= 8 mm from the ADS1291 inputs and the electrode networks"
+   ],
+   "source": "R-ECG-1; BASELINE 13.2"
+  },
+  {
+   "name": "ANTENNA",
+   "rules": [
+    "keep-out and radiator geometry from V3-G3a; ERM can and magnet >= 10 mm (planned 20.9 mm), contact pins 15.7 mm, rib insert, front-light tail (BASELINE 13.1)"
+   ],
+   "source": "V3-G3a"
+  },
+  {
+   "name": "LOW_PART_ZONE",
+   "rules": [
+    "[V3F] under the display panel (board X 1-33, Y 6-20 mm): only parts with height_max_mm <= 0.70 (parts.json); tall parts (> 0.70 mm) outside it: U15 0.80, SW1 1.35, J11 / J15 / J18 1.50, D10 0.90, L1 / L2, the 0603 and 1206 parts (BASELINE 5.3, 7)"
+   ],
+   "source": "BASELINE 5.3, 7, 8"
+  },
+  {
+   "name": "MOTOR_CUTOUT",
+   "around": [
+    "J17"
+   ],
+   "rules": [
+    "[V3F] 8.6 mm board cut-out under the PV band, planning centre X 20.0, Y 25.4 mm; J17 at its edge; Q12 / D17 within 5 mm of J17 (loop of the 30-80 mA motor current)",
+    "the narrow board strip beside the cut-out: routing and drop strength checked in V3-G1"
+   ],
+   "source": "BASELINE 1, 5.1, 18 V3-G1"
+  },
+  {
+   "name": "BUTTON",
+   "around": [
+    "SW1"
+   ],
+   "rules": [
+    "[V3F] SW1 at the hand-end board edge below E3, actuator toward the wall membrane (side actuated, C&K B-41); 1.35 mm tall: needs >= 1.50 mm free height at the edge (V3-G9)"
+   ],
+   "source": "BASELINE 1, 16"
+  },
+  {
+   "name": "EDGE_LED",
+   "around": [
+    "D10"
+   ],
+   "rules": [
+    "at the board edge facing the light window of the ring; light-tight pocket (review R-06)",
+    "lands = Kingbright's recommended pattern (1.4 x 0.9 mm, gap 1.0 mm), which is what the JLC footprint of C598214 has"
+   ],
+   "source": "REDESIGN decision 5 (b); review R-06"
+  },
+  {
+   "name": "RLIM_1206",
+   "around": [
+    "R130"
+   ],
+   "rules": [
+    "[V3F] R130 1206 250 mW carries the cold-start clamp current: 36 mW at 1 sun 25 C, 52 mW at 1.2 sun -10 C (BASELINE 11.5): copper for heat spreading"
+   ],
+   "source": "BASELINE 11.5"
+  },
+  {
+   "name": "SPRING_TABS",
+   "around": [
+    "J11",
+    "J15",
+    "J18"
+   ],
+   "rules": [
+    "mating tab / pin >= 3.4 x 2.2 mm centred on the pad centre (contact at 0 and 180 deg)",
+    "tab underside 1.00 mm above the land in the closed unit, 0.70-1.30 mm over the whole tolerance chain (review R-04)"
+   ],
+   "source": "REDESIGN 5.8 item 6; BW0036BG drawing 681-0036B-2"
+  }
+ ],
+ "fixed_features_without_net": [
+  {
+   "name": "rib post feet",
+   "count": 6,
+   "area_mm2_each": 1.0,
+   "where": "board Y 19.8-20.8 mm, X ~ 4 / 10 / 16 / 22 / 28 / 33 mm (pitch <= 6 mm)",
+   "source": "BASELINE 5.1 (placement area -6.0 mm2)"
+  },
+  {
+   "name": "motor cut-out",
+   "count": 1,
+   "area_mm2_each": 66.2,
+   "where": "8.6 mm circle (+0.3 mm band), centre X 20.0, Y 25.4 mm",
+   "source": "BASELINE 5.1 (placement area -66.2 mm2)"
+  }
+ ]
+}

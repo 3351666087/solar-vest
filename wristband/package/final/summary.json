@@ -1,0 +1,122 @@
+{
+ "board": "/path/to/SolarVest_work/wristband/v3/package/final/board/solarband_v3f_final_rf_silk.kicad_pcb",
+ "board_sha256": "0c095cb6f60dc2e5984bea5de2bf75589dc978fe1ac557118ae0398948bb0478",
+ "placed": {
+  "top": 204,
+  "bottom": 3,
+  "jlc_set": 207,
+  "without_cpl_row": 0
+ },
+ "bom": {
+  "unique_lines": 91,
+  "basic": 7,
+  "preferred": 0,
+  "extended": 84,
+  "not_fitted": 8,
+  "hand_fitted": 9,
+  "copper_only": 27,
+  "check_failures": 0
+ },
+ "low_stock": [
+  {
+   "lcsc": "C23733",
+   "mpn": "CL05A475MP5NRNC",
+   "refs": "C121,C209",
+   "stock": 624037,
+   "presale": -15705,
+   "why": "LOW: orderable 0 (stock 624037, canPresale -15705) < 50"
+  },
+  {
+   "lcsc": "C4371025",
+   "mpn": "INA236AIYBJR",
+   "refs": "U4,U5",
+   "stock": 94,
+   "presale": 48,
+   "why": "LOW: orderable 48 (stock 94, canPresale 48) < 50"
+  },
+  {
+   "lcsc": "C5328762",
+   "mpn": "MAX86141ENP+T",
+   "refs": "U8",
+   "stock": 51,
+   "presale": 43,
+   "why": "LOW: orderable 43 (stock 51, canPresale 43) < 50"
+  },
+  {
+   "lcsc": "C5208201",
+   "mpn": "BQ25170DSGR",
+   "refs": "U15",
+   "stock": 149,
+   "presale": -67,
+   "why": "LOW: orderable 0 (stock 149, canPresale -67) < 50"
+  }
+ ],
+ "gate": {
+  "counts": {
+   "GREEN": 192,
+   "PREVIEW": 15
+  },
+  "shippable": true,
+  "board_red": [],
+  "preview_pending": [
+   "D10",
+   "D11",
+   "D12",
+   "D14",
+   "D16",
+   "D3",
+   "D4",
+   "D9",
+   "J11",
+   "J15",
+   "J18",
+   "J19",
+   "J40",
+   "PD1",
+   "SW1"
+  ]
+ },
+ "g7": {
+  "passed": 207,
+  "parts": 207,
+  "failed": []
+ },
+ "mutations": {
+  "M1_cpl_mutations": "PASS",
+  "M2_pad_number_permutation": "PASS",
+  "M3_wrong_package": "PASS",
+  "M4_board_copy_turned": "PASS",
+  "verdict": "PASS"
+ },
+ "fab": {
+  "outline_mm": {
+   "width": 40.0,
+   "height": 34.0,
+   "closed": true
+  },
+  "cutouts": [
+   {
+    "kind": "circle",
+    "centre_mm": [
+     34.25,
+     24.05
+    ],
+    "diameter_mm": 8.6
+   }
+  ],
+  "vias": 508,
+  "vias_in_smd_pads": 220,
+  "drc_errors": 0,
+  "drc_unconnected": 0
+ },
+ "exit_codes": {
+  "silk": "0",
+  "drc": "0",
+  "gerber": "0",
+  "bom": "0",
+  "gate": "0",
+  "g7": "0",
+  "mutations": "0"
+ },
+ "orderable": true
+}

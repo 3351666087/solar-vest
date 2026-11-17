@@ -1,0 +1,95 @@
+{
+ "dyn": {
+  "heartbeat | Q14 Vth 0.45 | Q16 Vth 0.45": {
+   "o2hb_first_pulse_peak_V": 1.464,
+   "vgs14_first_pulse_V": 0.867,
+   "vgs14_min_between_pulses_V": 0.789,
+   "iq14_on_mA": 24.838,
+   "release_after_last_pulse_s": 1.574,
+   "iq14_before_first_pulse_uA": 0.0037
+  },
+  "heartbeat | Q14 Vth 0.45 | Q16 Vth 0.95": {
+   "o2hb_first_pulse_peak_V": 1.464,
+   "vgs14_first_pulse_V": 0.865,
+   "vgs14_min_between_pulses_V": 0.783,
+   "iq14_on_mA": 24.837,
+   "release_after_last_pulse_s": 1.51,
+   "iq14_before_first_pulse_uA": 0.0035
+  },
+  "heartbeat | Q14 Vth 0.95 | Q16 Vth 0.45": {
+   "o2hb_first_pulse_peak_V": 1.464,
+   "vgs14_first_pulse_V": 1.354,
+   "vgs14_min_between_pulses_V": 1.23,
+   "iq14_on_mA": 24.686,
+   "release_after_last_pulse_s": 0.898,
+   "iq14_before_first_pulse_uA": 0.0003
+  },
+  "heartbeat | Q14 Vth 0.95 | Q16 Vth 0.95": {
+   "o2hb_first_pulse_peak_V": 1.464,
+   "vgs14_first_pulse_V": 1.354,
+   "vgs14_min_between_pulses_V": 1.225,
+   "iq14_on_mA": 24.685,
+   "release_after_last_pulse_s": 0.873,
+   "iq14_before_first_pulse_uA": 0.0003
+  },
+  "static CHG_DIS high from 0.05 s (MCU halted with the pin high)": {
+   "iq14_max_mA": 49.383,
+   "on_from_s": 0.05,
+   "on_until_s": 1.617
+  },
+  "no heartbeat, VBAT_OK high (MCU in reset / off at a healthy cell)": {
+   "iq14_max_mA": 0.0,
+   "on_from_s": null,
+   "on_until_s": null
+  },
+  "PV_INH probe (MCU on, 1 sun, Q14 Vth 0.95)": {
+   "iq14_during_probe_uA": 15.08,
+   "pvsw_during_probe_mV": 25.961,
+   "INA_PV_over_Isc": 1.0,
+   "recovery_to_90pct_ms": 30.0,
+   "o2g_min_during_probe_V": -0.271
+  },
+  "MCU off, 1.2 sun | Q1 static on from 0.5 s": {
+   "o2ok_edges_after_short": 0,
+   "iq14_max_after_0p6s_uA": -0.061,
+   "edges_per_Q1_cycle": null
+  },
+  "MCU off, 1.2 sun | Q1 toggled 10 Hz from 0.5 s": {
+   "o2ok_edges_after_short": 28,
+   "iq14_max_after_0p6s_uA": null,
+   "edges_per_Q1_cycle": 2.0
+  },
+  "Q8 | MCU on (heartbeat), 1.2 sun": {
+   "iq14_before_mA": 25.972,
+   "iq14_after_mean_mA": -0.0,
+   "t_to_1pct_ms": 0.29,
+   "i_shorted_PV_mA": 59.19
+  },
+  "Q8 | MCU off, flat cell 3.0 V (VBAT_OK low), 1.2 sun": {
+   "iq14_before_mA": 26.019,
+   "iq14_after_mean_mA": -0.0001,
+   "t_to_1pct_ms": 0.29,
+   "i_shorted_PV_mA": 59.19
+  },
+  "Q8 | Q8 OPEN (single fault), MCU off, flat cell, 1.2 sun": {
+   "iq14_before_mA": 26.019,
+   "iq14_after_mean_mA": 26.0189,
+   "t_to_1pct_ms": null,
+   "i_shorted_PV_mA": 26.05
+  },
+  "Q8 | Q8 OPEN (single fault), MCU on, Q1 backup 5 ms after VBUS, 1.2 sun": {
+   "iq14_before_mA": 25.972,
+   "iq14_after_mean_mA": -0.0,
+   "t_to_1pct_ms": 5.06,
+   "i_shorted_PV_mA": 59.19
+  },
+  "dark | VBAT_OK 0.0 V": {
+   "vo2_V": 0.0,
+   "pvsw_V": 0.0
+  },
+  "dark | VBAT_OK 3.3 V": {
+   "vo2_V": 0.0,
+   "pvsw_V": 4e-06
+  }
+ }
+}

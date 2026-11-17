@@ -1,0 +1,1601 @@
+{
+ "C506250": {
+  "lcsc": "C506250",
+  "title": "BQ25570RGRR",
+  "footprint": "easyeda:C506250_VQFN-20_L3.5-W3.5-P0.50-BL-EP2.0",
+  "package_title": "VQFN-20_L3.5-W3.5-P0.50-BL-EP2.0",
+  "symbol": "C506250_BQ25570RGRR",
+  "model3d": "VQFN-20_L3.5-W3.5-P0.50-BL-EP2.0",
+  "mfr_part": "BQ25570RGRR"
+ },
+ "C77540": {
+  "lcsc": "C77540",
+  "title": "NRF52832-QFAA-R",
+  "footprint": "easyeda:C77540_QFN-48_L6.0-W6.0-P0.40-BL-EP3.8",
+  "package_title": "QFN-48_L6.0-W6.0-P0.40-BL-EP3.8",
+  "symbol": "C77540_NRF52832-QFAA-R",
+  "model3d": "QFN-48_L6.0-W6.0-P0.40-BL-EP3.8",
+  "mfr_part": "NRF52832-QFAA-R"
+ },
+ "C139059": {
+  "lcsc": "C139059",
+  "title": "ADS1291IRSMR",
+  "footprint": "easyeda:C139059_QFN-32_L4.0-W4.0-P0.40-BL-EP2.9",
+  "package_title": "QFN-32_L4.0-W4.0-P0.40-BL-EP2.9",
+  "symbol": "C139059_ADS1291IRSMR",
+  "model3d": "QFN-32_L4.0-W4.0-P0.40-BL-EP2.9",
+  "mfr_part": "ADS1291IRSMR"
+ },
+ "C5328762": {
+  "lcsc": "C5328762",
+  "title": "MAX86141ENP+T",
+  "footprint": "easyeda:C5328762_BGA-20_L2.0-W1.8-R4-C5-P0.40-TL",
+  "package_title": "BGA-20_L2.0-W1.8-R4-C5-P0.40-TL",
+  "symbol": "C5328762_MAX86141ENP+T",
+  "model3d": "BGA-20_L2.0-W1.8-R4-C5-P0.40-TL",
+  "mfr_part": "MAX86141ENP+T"
+ },
+ "C189624": {
+  "lcsc": "C189624",
+  "title": "LIS2DW12TR",
+  "footprint": "easyeda:C189624_LGA-12_L2.0-W2.0-P0.50-BL",
+  "package_title": "LGA-12_L2.0-W2.0-P0.50-BL",
+  "symbol": "C189624_LIS2DW12TR",
+  "model3d": "LGA-12_L2.0-W2.0-H1.0-P0.50",
+  "mfr_part": "LIS2DW12TR"
+ },
+ "C2803242": {
+  "lcsc": "C2803242",
+  "title": "TMP117MAIDRVR",
+  "footprint": "easyeda:C2803242_WSON-6_L2.0-W2.0-P0.65-BL-EP",
+  "package_title": "WSON-6_L2.0-W2.0-P0.65-BL-EP",
+  "symbol": "C2803242_TMP117MAIDRVR",
+  "model3d": "WSON-6_L2.0-W2.0-H0.8-P0.65",
+  "mfr_part": "TMP117MAIDRVR"
+ },
+ "C5687033": {
+  "lcsc": "C5687033",
+  "title": "MX25R1635FZUIH0",
+  "footprint": "easyeda:C5687033_USON-8_L3.0-W2.0-P0.50-BL-EP1.6_MX25R1635FZUIH0",
+  "package_title": "USON-8_L3.0-W2.0-P0.50-BL-EP1.6_MX25R1635FZUIH0",
+  "symbol": "C5687033_MX25R1635FZUIH0",
+  "model3d": "USON-8_L3.0-W2.0-P0.50-BL-EP1.6_MX25R1635FZUIH0",
+  "mfr_part": "MX25R1635FZUIH0"
+ },
+ "C2842395": {
+  "lcsc": "C2842395",
+  "title": "TPS61099DRVR",
+  "footprint": "easyeda:C2842395_WSON-6_L2.0-W2.0-P0.65-TL-EP",
+  "package_title": "WSON-6_L2.0-W2.0-P0.65-TL-EP",
+  "symbol": "C2842395_TPS61099DRVR",
+  "model3d": "WSON-6_L2.0-W2.0-H0.8-P0.65",
+  "mfr_part": "TPS61099DRVR"
+ },
+ "C3747031": {
+  "lcsc": "C3747031",
+  "title": "TPS7A0230PDBVR",
+  "footprint": "easyeda:C3747031_SOT-23-5_L2.9-W1.6-P0.95-LS2.8-BR",
+  "package_title": "SOT-23-5_L2.9-W1.6-P0.95-LS2.8-BR",
+  "symbol": "C3747031_TPS7A0230PDBVR",
+  "model3d": "SOT-23-5_L2.9-W1.6-P0.95-LS2.8-BR",
+  "mfr_part": "TPS7A0230PDBVR"
+ },
+ "C5443912": {
+  "lcsc": "C5443912",
+  "title": "INA236AIDDFR",
+  "footprint": "easyeda:C5443912_SOT-23-8_L2.9-W1.6-P0.65-LS2.8-BR",
+  "package_title": "SOT-23-8_L2.9-W1.6-P0.65-LS2.8-BR",
+  "symbol": "C5443912_INA236AIDDFR",
+  "model3d": "SOT-23-8_L2.9-W1.6-H1.5-LS2.8-P0.65",
+  "mfr_part": "INA236AIDDFR"
+ },
+ "C10488": {
+  "lcsc": "C10488",
+  "title": "Si2302CDS-T1-GE3",
+  "footprint": "easyeda:C10488_SOT-23_L2.9-W1.3-P1.90-LS2.4-BR",
+  "package_title": "SOT-23_L2.9-W1.3-P1.90-LS2.4-BR",
+  "symbol": "C10488_Si2302CDS-T1-GE3",
+  "model3d": "SOT-23-3P_L2.9-W1.3-H1.0-LS2.4-P0.95",
+  "mfr_part": "Si2302CDS-T1-GE3"
+ },
+ "C48502": {
+  "lcsc": "C48502",
+  "title": "BAS116,215",
+  "footprint": "easyeda:C48502_SOT-23_L2.9-W1.3-P1.90-LS2.4-BR",
+  "package_title": "SOT-23_L2.9-W1.3-P1.90-LS2.4-BR",
+  "symbol": "C48502_BAS116,215",
+  "model3d": "SOT-23-3P_L2.9-W1.3-H1.0-LS2.4-P0.95",
+  "mfr_part": "BAS116,215"
+ },
+ "C48260": {
+  "lcsc": "C48260",
+  "title": "TPD1E10B06DPYR",
+  "footprint": "easyeda:C48260_X1SON-2_L1.0-W0.6-P0.65-BI-1",
+  "package_title": "X1SON-2_L1.0-W0.6-P0.65-BI-1",
+  "symbol": "C48260_TPD1E10B06DPYR",
+  "model3d": "X1SON-2_L1.0-W0.6-P0.65-BI-1",
+  "mfr_part": "TPD1E10B06DPYR"
+ },
+ "C7220997": {
+  "lcsc": "C7220997",
+  "error": "fetch failed"
+ },
+ "C511402": {
+  "lcsc": "C511402",
+  "title": "VEMD8080",
+  "footprint": "easyeda:C511402_SENSOR-SMD_8P-L4.8-W2.5-P1.31",
+  "package_title": "SENSOR-SMD_8P-L4.8-W2.5-P1.31",
+  "symbol": "C511402_VEMD8080",
+  "model3d": "SENSOR-SMD_8P-L4.8-W2.5-P1.31",
+  "mfr_part": "VEMD8080"
+ },
+ "C718072": {
+  "lcsc": "C718072",
+  "title": "X201632MKB4SI",
+  "footprint": "easyeda:C718072_CRYSTAL-SMD_4P-L2.0-W1.6-BL",
+  "package_title": "CRYSTAL-SMD_4P-L2.0-W1.6-BL",
+  "symbol": "C718072_X201632MKB4SI",
+  "model3d": "CRYSTAL-SMD_4P-L2.0-W1.6-BL",
+  "mfr_part": "X201632MKB4SI"
+ },
+ "C97604": {
+  "lcsc": "C97604",
+  "title": "SC-32S32.768kHz20PPM7pF",
+  "footprint": "easyeda:C97604_OSC-SMD_L3.2-W1.5",
+  "package_title": "OSC-SMD_L3.2-W1.5",
+  "symbol": "C97604_SC-32S32.768kHz20PPM7pF",
+  "model3d": "OSC-SMD_L3.2-W1.5-H0.8",
+  "mfr_part": "SC-32S32.768kHz20PPM7pF"
+ },
+ "C2050114": {
+  "lcsc": "C2050114",
+  "title": "VLS201610CX-220M-1",
+  "footprint": "easyeda:C2050114_IND-SMD_L2.0-W1.6",
+  "package_title": "IND-SMD_L2.0-W1.6",
+  "symbol": "C2050114_VLS201610CX-220M-1",
+  "model3d": "IND-SMD_L2.0-W1.6-H1.1",
+  "mfr_part": "VLS201610CX-220M-1"
+ },
+ "C434843": {
+  "lcsc": "C434843",
+  "title": "VLS201610CX-100M-1",
+  "footprint": "easyeda:C434843_IND-SMD_L2.0-W1.6",
+  "package_title": "IND-SMD_L2.0-W1.6",
+  "symbol": "C434843_VLS201610CX-100M-1",
+  "model3d": "IND-SMD_L2.0-W1.6-H1.1",
+  "mfr_part": "VLS201610CX-100M-1"
+ },
+ "C2041554": {
+  "lcsc": "C2041554",
+  "title": "VLS201610CX-2R2M-1",
+  "footprint": "easyeda:C2041554_IND-SMD_L2.0-W1.6",
+  "package_title": "IND-SMD_L2.0-W1.6",
+  "symbol": "C2041554_VLS201610CX-2R2M-1",
+  "model3d": "IND-SMD_L2.0-W1.6-H1.1",
+  "mfr_part": "VLS201610CX-2R2M-1"
+ },
+ "C6807729": {
+  "lcsc": "C6807729",
+  "title": "MPH160809S100MT",
+  "footprint": "easyeda:C6807729_L0603",
+  "package_title": "L0603",
+  "symbol": "C6807729_MPH160809S100MT",
+  "model3d": "L0603_L1.6-W0.8-H0.5_BEAD",
+  "mfr_part": "MPH160809S100MT"
+ },
+ "C86059": {
+  "lcsc": "C86059",
+  "title": "LQG15HS15NJ02D",
+  "footprint": "easyeda:C86059_L0402",
+  "package_title": "L0402",
+  "symbol": "C86059_LQG15HS15NJ02D",
+  "model3d": "L0402_L1.0-W0.5-H0.5_BEAD",
+  "mfr_part": "LQG15HS15NJ02D"
+ },
+ "C5452416": {
+  "lcsc": "C5452416",
+  "title": "LQG15HS3N9B02D",
+  "footprint": "easyeda:C5452416_L0402",
+  "package_title": "L0402",
+  "symbol": "C5452416_LQG15HS3N9B02D",
+  "model3d": "L0402_L1.0-W0.5-H0.5_BEAD",
+  "mfr_part": "LQG15HS3N9B02D"
+ },
+ "C88902": {
+  "lcsc": "C88902",
+  "title": "GJM1555C1HR80WB01D",
+  "footprint": "easyeda:C88902_C0402",
+  "package_title": "C0402",
+  "symbol": "C88902_GJM1555C1HR80WB01D",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "GJM1555C1HR80WB01D"
+ },
+ "C861215": {
+  "lcsc": "C861215",
+  "title": "RT0603BRD071RL",
+  "footprint": "easyeda:C861215_R0603",
+  "package_title": "R0603",
+  "symbol": "C861215_RT0603BRD071RL",
+  "model3d": "R0603",
+  "mfr_part": "RT0603BRD071RL"
+ },
+ "C441935": {
+  "lcsc": "C441935",
+  "title": "ERJPA3F3303V",
+  "footprint": "easyeda:C441935_R0603",
+  "package_title": "R0603",
+  "symbol": "C441935_ERJPA3F3303V",
+  "model3d": "R0603",
+  "mfr_part": "ERJPA3F3303V"
+ },
+ "C19666": {
+  "lcsc": "C19666",
+  "title": "CL10A475KO8NNNC",
+  "footprint": "easyeda:C19666_C0603",
+  "package_title": "C0603",
+  "symbol": "C19666_CL10A475KO8NNNC",
+  "model3d": "C0603_L1.6-W0.8-H0.8",
+  "mfr_part": "CL10A475KO8NNNC"
+ },
+ "C19702": {
+  "lcsc": "C19702",
+  "title": "CL10A106KP8NNNC",
+  "footprint": "easyeda:C19702_C0603",
+  "package_title": "C0603",
+  "symbol": "C19702_CL10A106KP8NNNC",
+  "model3d": "C0603_L1.6-W0.8-H0.8",
+  "mfr_part": "CL10A106KP8NNNC"
+ },
+ "C15195": {
+  "lcsc": "C15195",
+  "title": "CL05B103KB5NNNC",
+  "footprint": "easyeda:C15195_C0402",
+  "package_title": "C0402",
+  "symbol": "C15195_CL05B103KB5NNNC",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "CL05B103KB5NNNC"
+ },
+ "C85973": {
+  "lcsc": "C85973",
+  "title": "GRM1885C1H103JA01D",
+  "footprint": "easyeda:C85973_C0603",
+  "package_title": "C0603",
+  "symbol": "C85973_GRM1885C1H103JA01D",
+  "model3d": "C0603_L1.6-W0.8-H0.8",
+  "mfr_part": "GRM1885C1H103JA01D"
+ },
+ "C59461": {
+  "lcsc": "C59461",
+  "title": "CL10A226MQ8NRNC",
+  "footprint": "easyeda:C59461_C0603",
+  "package_title": "C0603",
+  "symbol": "C59461_CL10A226MQ8NRNC",
+  "model3d": "C0603_L1.6-W0.8-H0.8",
+  "mfr_part": "CL10A226MQ8NRNC"
+ },
+ "C2766851": {
+  "lcsc": "C2766851",
+  "title": "0402WGF5764TCE_C2766851",
+  "footprint": "easyeda:C2766851_R0402",
+  "package_title": "R0402",
+  "symbol": "C2766851_0402WGF5764TCE_C2766851",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF5764TCE"
+ },
+ "C423137": {
+  "lcsc": "C423137",
+  "title": "0402WGF7324TCE",
+  "footprint": "easyeda:C423137_R0402",
+  "package_title": "R0402",
+  "symbol": "C423137_0402WGF7324TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF7324TCE"
+ },
+ "C423169": {
+  "lcsc": "C423169",
+  "title": "0402WGF4324TCE",
+  "footprint": "easyeda:C423169_R0402",
+  "package_title": "R0402",
+  "symbol": "C423169_0402WGF4324TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF4324TCE"
+ },
+ "C423135": {
+  "lcsc": "C423135",
+  "title": "0402WGF7504TCE",
+  "footprint": "easyeda:C423135_R0402",
+  "package_title": "R0402",
+  "symbol": "C423135_0402WGF7504TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF7504TCE"
+ },
+ "C43675": {
+  "lcsc": "C43675",
+  "title": "0402WGF1204TCE",
+  "footprint": "easyeda:C43675_R0402",
+  "package_title": "R0402",
+  "symbol": "C43675_0402WGF1204TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF1204TCE"
+ },
+ "C407659": {
+  "lcsc": "C407659",
+  "title": "0402WGF8664TCE",
+  "footprint": "easyeda:C407659_R0402",
+  "package_title": "R0402",
+  "symbol": "C407659_0402WGF8664TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF8664TCE"
+ },
+ "C423173": {
+  "lcsc": "C423173",
+  "title": "0402WGF4224TCE",
+  "footprint": "easyeda:C423173_R0402",
+  "package_title": "R0402",
+  "symbol": "C423173_0402WGF4224TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF4224TCE"
+ },
+ "C26083": {
+  "lcsc": "C26083",
+  "title": "0402WGF1004TCE",
+  "footprint": "easyeda:C26083_R0402",
+  "package_title": "R0402",
+  "symbol": "C26083_0402WGF1004TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF1004TCE"
+ },
+ "C270613": {
+  "lcsc": "C270613",
+  "title": "0402WGF3304TCE",
+  "footprint": "easyeda:C270613_R0402",
+  "package_title": "R0402",
+  "symbol": "C270613_0402WGF3304TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF3304TCE"
+ },
+ "C1525": {
+  "lcsc": "C1525",
+  "title": "CL05B104KO5NNNC",
+  "footprint": "easyeda:C1525_C0402",
+  "package_title": "C0402",
+  "symbol": "C1525_CL05B104KO5NNNC",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "CL05B104KO5NNNC"
+ },
+ "C52923": {
+  "lcsc": "C52923",
+  "title": "CL05A105KA5NQNC",
+  "footprint": "easyeda:C52923_C0402",
+  "package_title": "C0402",
+  "symbol": "C52923_CL05A105KA5NQNC",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "CL05A105KA5NQNC"
+ },
+ "C15849": {
+  "lcsc": "C15849",
+  "title": "CL10A105KB8NNNC",
+  "footprint": "easyeda:C15849_C0603",
+  "package_title": "C0603",
+  "symbol": "C15849_CL10A105KB8NNNC",
+  "model3d": "C0603_L1.6-W0.8-H0.8",
+  "mfr_part": "CL10A105KB8NNNC"
+ },
+ "C1547": {
+  "lcsc": "C1547",
+  "title": "0402CG120J500NT",
+  "footprint": "easyeda:C1547_C0402",
+  "package_title": "C0402",
+  "symbol": "C1547_0402CG120J500NT",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "0402CG120J500NT"
+ },
+ "C32949": {
+  "lcsc": "C32949",
+  "title": "CL05C100JB5NNNC",
+  "footprint": "easyeda:C32949_C0402",
+  "package_title": "C0402",
+  "symbol": "C32949_CL05C100JB5NNNC",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "CL05C100JB5NNNC"
+ },
+ "C1546": {
+  "lcsc": "C1546",
+  "title": "0402CG101J500NT",
+  "footprint": "easyeda:C1546_C0402",
+  "package_title": "C0402",
+  "symbol": "C1546_0402CG101J500NT",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "0402CG101J500NT"
+ },
+ "C17168": {
+  "lcsc": "C17168",
+  "title": "0402WGF0000TCE",
+  "footprint": "easyeda:C17168_R0402",
+  "package_title": "R0402",
+  "symbol": "C17168_0402WGF0000TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF0000TCE"
+ },
+ "C1555": {
+  "lcsc": "C1555",
+  "title": "0402CG220J500NT",
+  "footprint": "easyeda:C1555_C0402",
+  "package_title": "C0402",
+  "symbol": "C1555_0402CG220J500NT",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "0402CG220J500NT"
+ },
+ "C15525": {
+  "lcsc": "C15525",
+  "title": "CL05A106MQ5NUNC",
+  "footprint": "easyeda:C15525_C0402",
+  "package_title": "C0402",
+  "symbol": "C15525_CL05A106MQ5NUNC",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "CL05A106MQ5NUNC"
+ },
+ "C25744": {
+  "lcsc": "C25744",
+  "title": "0402WGF1002TCE",
+  "footprint": "easyeda:C25744_R0402",
+  "package_title": "R0402",
+  "symbol": "C25744_0402WGF1002TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF1002TCE"
+ },
+ "C668348": {
+  "lcsc": "C668348",
+  "title": "GRM1555C1H152JA01D",
+  "footprint": "easyeda:C668348_C0402",
+  "package_title": "C0402",
+  "symbol": "C668348_GRM1555C1H152JA01D",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "GRM1555C1H152JA01D"
+ },
+ "C85980": {
+  "lcsc": "C85980",
+  "title": "GRM1885C1H472JA01D",
+  "footprint": "easyeda:C85980_C0603",
+  "package_title": "C0603",
+  "symbol": "C85980_GRM1885C1H472JA01D",
+  "model3d": "C0603_L1.6-W0.8-H0.8",
+  "mfr_part": "GRM1885C1H472JA01D"
+ },
+ "C26082": {
+  "lcsc": "C26082",
+  "title": "0402WGF1005TCE",
+  "footprint": "easyeda:C26082_R0402",
+  "package_title": "R0402",
+  "symbol": "C26082_0402WGF1005TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF1005TCE"
+ },
+ "C25741": {
+  "lcsc": "C25741",
+  "title": "0402WGF1003TCE",
+  "footprint": "easyeda:C25741_R0402",
+  "package_title": "R0402",
+  "symbol": "C25741_0402WGF1003TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF1003TCE"
+ },
+ "C25900": {
+  "lcsc": "C25900",
+  "title": "0402WGF4701TCE",
+  "footprint": "easyeda:C25900_R0402",
+  "package_title": "R0402",
+  "symbol": "C25900_0402WGF4701TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF4701TCE"
+ },
+ "C161527": {
+  "lcsc": "C161527",
+  "title": "GRM1555C1H120GA01D",
+  "footprint": "easyeda:C161527_C0402",
+  "package_title": "C0402",
+  "symbol": "C161527_GRM1555C1H120GA01D",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "GRM1555C1H120GA01D"
+ },
+ "C29936": {
+  "lcsc": "C29936",
+  "title": "CL10B105KA8NNNC",
+  "footprint": "easyeda:C29936_C0603",
+  "package_title": "C0603",
+  "symbol": "C29936_CL10B105KA8NNNC",
+  "model3d": "C0603_L1.6-W0.8-H0.8",
+  "mfr_part": "CL10B105KA8NNNC"
+ },
+ "C7498943": {
+  "lcsc": "C7498943",
+  "error": "fetch failed"
+ },
+ "C5879045": {
+  "lcsc": "C5879045",
+  "error": "fetch failed"
+ },
+ "C965793": {
+  "lcsc": "C965793",
+  "title": "XL-1005UGC",
+  "footprint": "easyeda:C965793_LED0402-RD_GREEN",
+  "package_title": "LED0402-RD_GREEN",
+  "symbol": "C965793_XL-1005UGC",
+  "model3d": "LED0402-RD_GREEN",
+  "mfr_part": "XL-1005UGC"
+ },
+ "C325459": {
+  "lcsc": "C325459",
+  "title": "CC0402GRNPO9BN100",
+  "footprint": "easyeda:C325459_C0402",
+  "package_title": "C0402",
+  "symbol": "C325459_CC0402GRNPO9BN100",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "CC0402GRNPO9BN100"
+ },
+ "C364549": {
+  "lcsc": "C364549",
+  "title": "LTST-C281TGKT-5A",
+  "footprint": "easyeda:C364549_LED0402-R-RD_GREEN",
+  "package_title": "LED0402-R-RD_GREEN",
+  "symbol": "C364549_LTST-C281TGKT-5A",
+  "model3d": "LED0402-R-RD_GREEN",
+  "mfr_part": "LTST-C281TGKT-5A"
+ },
+ "C5220164": {
+  "lcsc": "C5220164",
+  "title": "TPS7A2030PDQNR",
+  "footprint": "easyeda:C5220164_X2SON-4_L1.0-W1.0-P0.65-TL-EP",
+  "package_title": "X2SON-4_L1.0-W1.0-P0.65-TL-EP",
+  "symbol": "C5220164_TPS7A2030PDQNR",
+  "model3d": "X2SON-4_L1.0-W1.0-H0.4-P0.65-TL-EPSLDPRT",
+  "mfr_part": "TPS7A2030PDQNR"
+ },
+ "C141606": {
+  "lcsc": "C141606",
+  "title": "SIP32431DR3-T1GE3",
+  "footprint": "easyeda:C141606_SOT-363_L2.0-W1.3-P0.65-LS2.1-BR",
+  "package_title": "SOT-363_L2.0-W1.3-P0.65-LS2.1-BR",
+  "symbol": "C141606_SIP32431DR3-T1GE3",
+  "model3d": "SOT-363-6P_L2.0-W1.3-H1.1-LS2.0-P0.65",
+  "mfr_part": "SIP32431DR3-T1GE3"
+ },
+ "C8661": {
+  "lcsc": "C8661",
+  "title": "BAS21,215",
+  "footprint": "easyeda:C8661_SOT-23-3_L2.9-W1.6-P1.90-LS2.8-BR",
+  "package_title": "SOT-23-3_L2.9-W1.6-P1.90-LS2.8-BR",
+  "symbol": "C8661_BAS21,215",
+  "model3d": "SOT-23-3L_L2.9-W1.6-H1.1-LS2.8-P0.95",
+  "mfr_part": "BAS21,215"
+ },
+ "C20526": {
+  "lcsc": "C20526",
+  "title": "MMBT3904",
+  "footprint": "easyeda:C20526_SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR",
+  "package_title": "SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR",
+  "symbol": "C20526_MMBT3904-C20526",
+  "model3d": "SOT-23-3P_L2.9-W1.3-H1.0-LS2.4-P0.95",
+  "mfr_part": "MMBT3904(RANGE:100-300)"
+ },
+ "C76886": {
+  "lcsc": "C76886",
+  "title": "BLM15AX601SN1D",
+  "footprint": "easyeda:C76886_L0402",
+  "package_title": "L0402",
+  "symbol": "C76886_BLM15AX601SN1D",
+  "model3d": "L0402_L1.0-W0.5-H0.5_BEAD",
+  "mfr_part": "BLM15AX601SN1D"
+ },
+ "C2220990": {
+  "lcsc": "C2220990",
+  "title": "GJM1555C1H2R1WB01D",
+  "footprint": "easyeda:C2220990_C0402",
+  "package_title": "C0402",
+  "symbol": "C2220990_GJM1555C1H2R1WB01D",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "GJM1555C1H2R1WB01D"
+ },
+ "C521065": {
+  "lcsc": "C521065",
+  "title": "LQG15HS1N8B02D",
+  "footprint": "easyeda:C521065_L0402",
+  "package_title": "L0402",
+  "symbol": "C521065_LQG15HS1N8B02D",
+  "model3d": "L0402_L1.0-W0.5-H0.5_BEAD",
+  "mfr_part": "LQG15HS1N8B02D"
+ },
+ "C76951": {
+  "lcsc": "C76951",
+  "title": "GRM1555C1H151JA01D",
+  "footprint": "easyeda:C76951_C0402",
+  "package_title": "C0402",
+  "symbol": "C76951_GRM1555C1H151JA01D",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "GRM1555C1H151JA01D"
+ },
+ "C2766825": {
+  "lcsc": "C2766825",
+  "error": "fetch failed"
+ },
+ "C242493": {
+  "lcsc": "C242493",
+  "title": "CRCW04026M19FKED",
+  "footprint": "easyeda:C242493_R0402",
+  "package_title": "R0402",
+  "symbol": "C242493_CRCW04026M19FKED",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "CRCW04026M19FKED"
+ },
+ "C477696": {
+  "lcsc": "C477696",
+  "title": "RC0402FR-073M4L",
+  "footprint": "easyeda:C477696_R0402",
+  "package_title": "R0402",
+  "symbol": "C477696_RC0402FR-073M4L",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "RC0402FR-073M4L"
+ },
+ "C25790": {
+  "lcsc": "C25790",
+  "title": "0402WGF4703TCE",
+  "footprint": "easyeda:C25790_R0402",
+  "package_title": "R0402",
+  "symbol": "C25790_0402WGF4703TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF4703TCE"
+ },
+ "C25792": {
+  "lcsc": "C25792",
+  "title": "0402WGF4702TCE",
+  "footprint": "easyeda:C25792_R0402",
+  "package_title": "R0402",
+  "symbol": "C25792_0402WGF4702TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF4702TCE"
+ },
+ "C25091": {
+  "lcsc": "C25091",
+  "title": "0402WGF2200TCE",
+  "footprint": "easyeda:C25091_R0402",
+  "package_title": "R0402",
+  "symbol": "C25091_0402WGF2200TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF2200TCE"
+ },
+ "C477705": {
+  "lcsc": "C477705",
+  "title": "RC0402FR-073M74L",
+  "footprint": "easyeda:C477705_R0402",
+  "package_title": "R0402",
+  "symbol": "C477705_RC0402FR-073M74L",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "RC0402FR-073M74L"
+ },
+ "C172111": {
+  "lcsc": "C172111",
+  "title": "WR04W6494FTL",
+  "footprint": "easyeda:C172111_R0402",
+  "package_title": "R0402",
+  "symbol": "C172111_WR04W6494FTL",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "WR04W6494FTL"
+ },
+ "C423258": {
+  "lcsc": "C423258",
+  "title": "0402WGF1054TCE",
+  "footprint": "easyeda:C423258_R0402",
+  "package_title": "R0402",
+  "symbol": "C423258_0402WGF1054TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF1054TCE"
+ },
+ "C477700": {
+  "lcsc": "C477700",
+  "title": "RC0402FR-073M65L",
+  "footprint": "easyeda:C477700_R0402",
+  "package_title": "R0402",
+  "symbol": "C477700_RC0402FR-073M65L",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "RC0402FR-073M65L"
+ },
+ "C25768": {
+  "lcsc": "C25768",
+  "title": "0402WGF2202TCE",
+  "footprint": "easyeda:C25768_R0402",
+  "package_title": "R0402",
+  "symbol": "C25768_0402WGF2202TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF2202TCE"
+ },
+ "C25767": {
+  "lcsc": "C25767",
+  "title": "0402WGF2203TCE",
+  "footprint": "easyeda:C25767_R0402",
+  "package_title": "R0402",
+  "symbol": "C25767_0402WGF2203TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF2203TCE"
+ },
+ "C2760012": {
+  "lcsc": "C2760012",
+  "title": "XB5358D0",
+  "footprint": "easyeda:C2760012_SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BR",
+  "package_title": "SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BR",
+  "symbol": "C2760012_XB5358D0",
+  "model3d": "SOT-23-5_L2.9-W1.6-H1.1-LS2.8-P0.95",
+  "mfr_part": "XB5358D0"
+ },
+ "C5603826": {
+  "lcsc": "C5603826",
+  "title": "CT DBLP31.12",
+  "footprint": "easyeda:C5603826_LED-SMD_3P-L2.2-W1.8_C5D-56-J6U6-20-R18",
+  "package_title": "LED-SMD_3P-L2.2-W1.8_C5D-56-J6U6-20-R18",
+  "symbol": "C5603826_CT DBLP31.12",
+  "model3d": "LED-SMD_3P-L2.2-W1.8_C5D-56-J6U6-20-R18",
+  "mfr_part": "CT DBLP31.12"
+ },
+ "C509405": {
+  "lcsc": "C509405",
+  "title": "NRF52832-CIAA-R",
+  "footprint": "easyeda:C509405_WLCSP-50_L3.2-W3.0-TL_NRF52832",
+  "package_title": "WLCSP-50_L3.2-W3.0-TL_NRF52832",
+  "symbol": "C509405_NRF52832-CIAA-R",
+  "model3d": "WLCSP-50_L3.2-W3.0-H0.4-TL_NRF52832",
+  "mfr_part": "NRF52832-CIAA-R"
+ },
+ "C398713": {
+  "lcsc": "C398713",
+  "title": "SC-16S-32.768KHZ-20PPM-12.5PF",
+  "footprint": "easyeda:C398713_CRYSTAL-SMD_L1.6-W1.0",
+  "package_title": "CRYSTAL-SMD_L1.6-W1.0",
+  "symbol": "C398713_SC-16S-32.768KHZ-20PPM-12.5PF",
+  "model3d": "CRYSTAL-SMD_L1.6-W1.0",
+  "mfr_part": "SC-16S 32.768kHz 20PPM 12.5pF"
+ },
+ "C4371025": {
+  "lcsc": "C4371025",
+  "title": "INA236AIYBJR",
+  "footprint": "easyeda:C4371025_DSBGA-8_L1.5-W0.7-R2-C4-P0.40-BL",
+  "package_title": "DSBGA-8_L1.5-W0.7-R2-C4-P0.40-BL",
+  "symbol": "C4371025_INA236AIYBJR",
+  "model3d": "DSBGA-8_L1.5-W0.7-R2-C4-P0.40-BL",
+  "mfr_part": "INA236AIYBJR"
+ },
+ "C478155": {
+  "lcsc": "C478155",
+  "title": "PMZ290UNE2YL",
+  "footprint": "easyeda:C478155_DFN1006-3L_L1.0-W0.6-LS1.0-BR",
+  "package_title": "DFN1006-3L_L1.0-W0.6-LS1.0-BR",
+  "symbol": "C478155_PMZ290UNE2YL",
+  "model3d": "DFN1006-3L_L1.0-W0.6-H0.4-LS1.0-BR",
+  "mfr_part": "PMZ290UNE2YL"
+ },
+ "C727398": {
+  "lcsc": "C727398",
+  "title": "SIP32431DNP3-T1GE4",
+  "footprint": "easyeda:C727398_TDFN-4_L1.2-W1.6-P0.50-BL-EP",
+  "package_title": "TDFN-4_L1.2-W1.6-P0.50-BL-EP",
+  "symbol": "C727398_SIP32431DNP3-T1GE4",
+  "model3d": "TDFN-4_L1.2-W1.6-H0.6-P0.50-BL-EP",
+  "mfr_part": "SIP32431DNP3-T1GE4"
+ },
+ "C105226": {
+  "lcsc": "C105226",
+  "title": "CL05A226MQ5QUNC",
+  "footprint": "easyeda:C105226_C0402",
+  "package_title": "C0402",
+  "symbol": "C105226_CL05A226MQ5QUNC",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "CL05A226MQ5QUNC"
+ },
+ "C23733": {
+  "lcsc": "C23733",
+  "title": "CL05A475MP5NRNC",
+  "footprint": "easyeda:C23733_C0402",
+  "package_title": "C0402",
+  "symbol": "C23733_CL05A475MP5NRNC",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "CL05A475MP5NRNC"
+ },
+ "C2826523": {
+  "lcsc": "C2826523",
+  "title": "BW0025BG-L2.8W1.55H1.35",
+  "footprint": "easyeda:C2826523_BAT-SMD_BW0025BG-L2.8W1.55H1.35",
+  "package_title": "BAT-SMD_BW0025BG-L2.8W1.55H1.35",
+  "symbol": "C2826523_BW0025BG-L2.8W1.55H1.35",
+  "model3d": "BAT-SMD_BW0025BG-L2.8W1.55H1.35",
+  "mfr_part": "BW0025BG-L2.8W1.55H1.35"
+ },
+ "C253326": {
+  "lcsc": "C253326",
+  "title": "EMX1T2R",
+  "footprint": "easyeda:C253326_SC-89-6_L1.6-W1.2-P0.50-LS1.6-BL",
+  "package_title": "SC-89-6_L1.6-W1.2-P0.50-LS1.6-BL",
+  "symbol": "C253326_EMX1T2R",
+  "model3d": "SC-89-6_L1.6-W1.2-P0.50-LS1.6-BL",
+  "mfr_part": "EMX1T2R"
+ },
+ "C130414": {
+  "lcsc": "C130414",
+  "title": "BAS521,115",
+  "footprint": "easyeda:C130414_SOD-523_L1.2-W0.8-LS1.6-RD",
+  "package_title": "SOD-523_L1.2-W0.8-LS1.6-RD",
+  "symbol": "C130414_BAS521,115",
+  "model3d": "SOD-523_L1.2-W0.8-H0.7-LS1.6",
+  "mfr_part": "BAS521,115"
+ },
+ "C423177": {
+  "lcsc": "C423177",
+  "title": "0402WGF4024TCE",
+  "footprint": "easyeda:C423177_R0402",
+  "package_title": "R0402",
+  "symbol": "C423177_0402WGF4024TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF4024TCE"
+ },
+ "C423179": {
+  "lcsc": "C423179",
+  "title": "0402WGF3924TCE",
+  "footprint": "easyeda:C423179_R0402",
+  "package_title": "R0402",
+  "symbol": "C423179_0402WGF3924TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF3924TCE"
+ },
+ "C477775": {
+  "lcsc": "C477775",
+  "title": "RC0402FR-076M81L",
+  "footprint": "easyeda:C477775_R0402",
+  "package_title": "R0402",
+  "symbol": "C477775_RC0402FR-076M81L",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "RC0402FR-076M81L"
+ },
+ "C159047": {
+  "lcsc": "C159047",
+  "title": "RTT022943FTH",
+  "footprint": "easyeda:C159047_R0402",
+  "package_title": "R0402",
+  "symbol": "C159047_RTT022943FTH",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "RTT022943FTH"
+ },
+ "C270612": {
+  "lcsc": "C270612",
+  "title": "0402WGF330KTCE",
+  "footprint": "easyeda:C270612_R0402",
+  "package_title": "R0402",
+  "symbol": "C270612_0402WGF330KTCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF330KTCE"
+ },
+ "C11702": {
+  "lcsc": "C11702",
+  "title": "0402WGF1001TCE",
+  "footprint": "easyeda:C11702_R0402",
+  "package_title": "R0402",
+  "symbol": "C11702_0402WGF1001TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF1001TCE"
+ },
+ "C25076": {
+  "lcsc": "C25076",
+  "title": "0402WGF1000TCE",
+  "footprint": "easyeda:C25076_R0402",
+  "package_title": "R0402",
+  "symbol": "C25076_0402WGF1000TCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF1000TCE"
+ },
+ "C384960": {
+  "lcsc": "C384960",
+  "title": "GRM0335C1H120FA01D",
+  "footprint": "easyeda:C384960_C0201",
+  "package_title": "C0201",
+  "symbol": "C384960_GRM0335C1H120FA01D",
+  "model3d": "C0201_L0.6-W0.3-H0.3",
+  "mfr_part": "GRM0335C1H120FA01D"
+ },
+ "C237514": {
+  "lcsc": "C237514",
+  "title": "GJM0335C1H1R0BB01D",
+  "footprint": "easyeda:C237514_C0201",
+  "package_title": "C0201",
+  "symbol": "C237514_GJM0335C1H1R0BB01D",
+  "model3d": "C0201_L0.6-W0.3-H0.3",
+  "mfr_part": "GJM0335C1H1R0BB01D"
+ },
+ "C7393837": {
+  "lcsc": "C7393837",
+  "title": "TCC0201X7R104K100ZT",
+  "footprint": "easyeda:C7393837_C0201",
+  "package_title": "C0201",
+  "symbol": "C7393837_TCC0201X7R104K100ZT",
+  "model3d": "C0201_L0.6-W0.3-H0.3",
+  "mfr_part": "TCC0201X7R104K100ZT"
+ },
+ "C76922": {
+  "lcsc": "C76922",
+  "title": "GRM0335C1H101JA01D",
+  "footprint": "easyeda:C76922_C0201",
+  "package_title": "C0201",
+  "symbol": "C76922_GRM0335C1H101JA01D",
+  "model3d": "C0201_L0.6-W0.3-H0.3",
+  "mfr_part": "GRM0335C1H101JA01D"
+ },
+ "C98045": {
+  "lcsc": "C98045",
+  "title": "LQP03TN3N3B02D",
+  "footprint": "easyeda:C98045_L0201-RD",
+  "package_title": "L0201-RD",
+  "symbol": "C98045_LQP03TN3N3B02D",
+  "model3d": "L0201-RD",
+  "mfr_part": "LQP03TN3N3B02D"
+ },
+ "C1554": {
+  "lcsc": "C1554",
+  "title": "0402CG200J500NT",
+  "footprint": "easyeda:C1554_C0402",
+  "package_title": "C0402",
+  "symbol": "C1554_0402CG200J500NT",
+  "model3d": "C0402_L1.0-W0.5-H0.5",
+  "mfr_part": "0402CG200J500NT"
+ },
+ "C125114": {
+  "lcsc": "C125114",
+  "title": "LTST-S270KRKT",
+  "footprint": "easyeda:C125114_LED-SMD_L1.7-W0.6-RD",
+  "package_title": "LED-SMD_L1.7-W0.6-RD",
+  "symbol": "C125114_LTST-S270KRKT",
+  "model3d": "LED-SMD_L1.7-W0.6-H1.2",
+  "mfr_part": "LTST-S270KRKT"
+ },
+ "C25084": {
+  "lcsc": "C25084",
+  "title": "0402WGF180JTCE",
+  "footprint": "easyeda:C25084_R0402",
+  "package_title": "R0402",
+  "symbol": "C25084_0402WGF180JTCE",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "0402WGF180JTCE"
+ },
+ "C295786": {
+  "lcsc": "C295786",
+  "title": "RC0201FR-071ML",
+  "footprint": "easyeda:C295786_R0201",
+  "package_title": "R0201",
+  "symbol": "C295786_RC0201FR-071ML",
+  "model3d": "R0201_L0.6-W0.3-H0.3",
+  "mfr_part": "RC0201FR-071ML"
+ },
+ "C270364": {
+  "lcsc": "C270364",
+  "title": "0201WMF1003TEE",
+  "footprint": "easyeda:C270364_R0201",
+  "package_title": "R0201",
+  "symbol": "C270364_0201WMF1003TEE",
+  "model3d": "R0201_L0.6-W0.3-H0.3",
+  "mfr_part": "0201WMF1003TEE"
+ },
+ "C473048": {
+  "lcsc": "C473048",
+  "title": "0201WMF1002TEE",
+  "footprint": "easyeda:C473048_R0201",
+  "package_title": "R0201",
+  "symbol": "C473048_0201WMF1002TEE",
+  "model3d": "R0201_L0.6-W0.3-H0.3",
+  "mfr_part": "0201WMF1002TEE"
+ },
+ "C270346": {
+  "lcsc": "C270346",
+  "title": "0201WMF4701TEE",
+  "footprint": "easyeda:C270346_R0201",
+  "package_title": "R0201",
+  "symbol": "C270346_0201WMF4701TEE",
+  "model3d": "R0201_L0.6-W0.3-H0.3",
+  "mfr_part": "0201WMF4701TEE"
+ },
+ "C285010": {
+  "lcsc": "C285010",
+  "title": "0201B103K250NT",
+  "footprint": "easyeda:C285010_C0201",
+  "package_title": "C0201",
+  "symbol": "C285010_0201B103K250NT",
+  "model3d": "C0201_L0.6-W0.3-H0.3",
+  "mfr_part": "0201B103K250NT"
+ },
+ "C601689": {
+  "lcsc": "C601689",
+  "title": "TJ-S3806SW1TGLC2R-A5",
+  "footprint": "easyeda:C601689_LED-SMD_L3.8-W1.0-R-RD_RED",
+  "package_title": "LED-SMD_L3.8-W1.0-R-RD_RED",
+  "symbol": "C601689_TJ-S3806SW1TGLC2R-A5",
+  "model3d": "LED-SMD_L3.8-W1.0-R-RD_RED",
+  "mfr_part": "TJ-S3806SW1TGLC2R-A5"
+ },
+ "C2826535": {
+  "lcsc": "C2826535",
+  "title": "BW0036BG-L3.0W1.0H1.4",
+  "footprint": "easyeda:C2826535_SMD_L2.9-W1.0-2108613-5",
+  "package_title": "SMD_L2.9-W1.0-2108613-5",
+  "symbol": "C2826535_BW0036BG-L3.0W1.0H1.4",
+  "model3d": null,
+  "mfr_part": "BW0036BG-L3.0W1.0H1.4"
+ },
+ "C144806": {
+  "lcsc": "C144806",
+  "title": "AC0402FR-0710ML",
+  "footprint": "easyeda:C144806_R0402",
+  "package_title": "R0402",
+  "symbol": "C144806_AC0402FR-0710ML",
+  "model3d": "R0402_L1.0-W0.5-H0.4",
+  "mfr_part": "AC0402FR-0710ML"
+ },
+ "C23345": {
+  "lcsc": "C23345",
+  "title": "0603WAF220JT5E",
+  "footprint": "easyeda:C23345_R0603",
+  "package_title": "R0603",
+  "symbol": "C23345_0603WAF220JT5E",
+  "model3d": "R0603",
+  "mfr_part": "0603WAF220JT5E"
+ },
+ "C22830": {
+  "lcsc": "C22830",
+  "title": "0603WAF180JT5E",
+  "footprint": "easyeda:C22830_R0603",
+  "package_title": "R0603",
+  "symbol": "C22830_0603WAF180JT5E",
+  "model3d": "R0603",
+  "mfr_part": "0603WAF180JT5E"
+ },
+ "C22775": {
+  "lcsc": "C22775",
+  "title": "0603WAF1000T5E",
+  "footprint": "easyeda:C22775_R0603",
+  "package_title": "R0603",
+  "symbol": "C22775_0603WAF1000T5E",
+  "model3d": "R0603",
+  "mfr_part": "0603WAF1000T5E"
+ },
+ "C598214": {
+  "lcsc": "C598214",
+  "title": "KA-2810ASURSK",
+  "footprint": "easyeda:C598214_LED-SMD_L2.5-W1.2_KA-2810AVBS-D",
+  "package_title": "LED-SMD_L2.5-W1.2_KA-2810AVBS-D",
+  "symbol": "C598214_KA-2810ASURSK",
+  "model3d": "LED-SMD_L2.5-W1.2_KA-2810AVBS-D",
+  "mfr_part": "KA-2810ASURSK"
+ },
+ "C2826525": {
+  "lcsc": "C2826525",
+  "title": "BW0026BG-L2.8W1.55H1.1",
+  "footprint": "easyeda:C2826525_CONN-SMD_BW0026BG-L2.8W1.55H1.1",
+  "package_title": "CONN-SMD_BW0026BG-L2.8W1.55H1.1",
+  "symbol": "C2826525_BW0026BG-L2.8W1.55H1.1",
+  "model3d": null,
+  "mfr_part": "BW0026BG-L2.8W1.55H1.1"
+ },
+ "C5208201": {
+  "lcsc": "C5208201",
+  "title": "BQ25170DSGR",
+  "footprint": "easyeda:C5208201_WSON-8_L2.0-W2.0-P0.50-TL-EP",
+  "package_title": "WSON-8_L2.0-W2.0-P0.50-TL-EP",
+  "symbol": "C5208201_BQ25170DSGR",
+  "model3d": null,
+  "mfr_part": "BQ25170DSGR"
+ },
+ "C2867950": {
+  "lcsc": "C2867950",
+  "title": "TPS7A0230PDQNR",
+  "footprint": "easyeda:C2867950_UDFN-4_L1.0-W1.0-P0.65-TL",
+  "package_title": "UDFN-4_L1.0-W1.0-P0.65-TL",
+  "symbol": "C2867950_TPS7A0230PDQNR",
+  "model3d": null,
+  "mfr_part": "TPS7A0230PDQNR"
+ },
+ "C5187176": {
+  "lcsc": "C5187176",
+  "title": "TXU0104RUTR",
+  "footprint": "easyeda:C5187176_XQFN-12_L2.0-W1.7-P0.40-BL",
+  "package_title": "XQFN-12_L2.0-W1.7-P0.40-BL",
+  "symbol": "C5187176_TXU0104RUTR",
+  "model3d": null,
+  "mfr_part": "TXU0104RUTR"
+ },
+ "C5217869": {
+  "lcsc": "C5217869",
+  "title": "TXU0101DRYR",
+  "footprint": "easyeda:C5217869_SON-6_L1.5-W1.0-P0.50-TL",
+  "package_title": "SON-6_L1.5-W1.0-P0.50-TL",
+  "symbol": "C5217869_TXU0101DRYR",
+  "model3d": null,
+  "mfr_part": "TXU0101DRYR"
+ },
+ "C549313": {
+  "lcsc": "C549313",
+  "footprint": "easyeda:C549313_PROXY-C549275_DFN1006-3_L1.0-W0.6-P0.35-BR_BAT54CM",
+  "proxy_of": "C549275",
+  "symbol": null,
+  "fetch": [
+   {
+    "utc": "2026-11-13T20:41Z",
+    "answer": "404 Component not found"
+   },
+   {
+    "utc": "2026-11-16T06:31:34Z",
+    "answer": "HTTP 200, body {success:false, code:404, message:'Component not found'}",
+    "tool": "v3/design/tools/fetch_easyeda.py"
+   }
+  ],
+  "note": "PROXY, not JLC data: footprint copied from C549275 (BAT54CM,315, same Nexperia DFN1006-3/SOT883 pin positions). cplgate treats a proxy as PREVIEW only where v3/package/preview_rules.yaml allows it (ruling P-6), otherwise RED."
+ },
+ "C549275": {
+  "lcsc": "C549275",
+  "title": "BAT54CM,315",
+  "footprint": "easyeda:C549275_DFN1006-3_L1.0-W0.6-P0.35-BR_BAT54CM",
+  "package_title": "DFN1006-3_L1.0-W0.6-P0.35-BR_BAT54CM",
+  "symbol": "C549275_BAT54CM,315",
+  "model3d": null,
+  "mfr_part": "BAT54CM,315"
+ },
+ "C20345399": {
+  "lcsc": "C20345399",
+  "title": "ESD761DPYR",
+  "footprint": "easyeda:C20345399_X1SON-2_L1.0-W0.6-P0.65-BI",
+  "package_title": "X1SON-2_L1.0-W0.6-P0.65-BI",
+  "symbol": "C20345399_ESD761DPYR",
+  "model3d": null,
+  "mfr_part": "ESD761DPYR"
+ },
+ "C221907": {
+  "lcsc": "C221907",
+  "title": "PTS840GKSMTRLFS",
+  "footprint": "easyeda:C221907_SW-SMD_4P-L3.5-W3.5_PTS840GKSMTRLFS",
+  "package_title": "SW-SMD_4P-L3.5-W3.5_PTS840GKSMTRLFS",
+  "symbol": "C221907_PTS840GKSMTRLFS",
+  "model3d": null,
+  "mfr_part": "PTS840GKSMTRLFS"
+ },
+ "C2876045": {
+  "lcsc": "C2876045",
+  "title": "TLV7031DPWR",
+  "footprint": "easyeda:C2876045_X2SON-4_L0.8-W0.8-P0.48-TL-A",
+  "package_title": "X2SON-4_L0.8-W0.8-P0.48-TL-A",
+  "symbol": "C2876045_TLV7031DPWR",
+  "model3d": null,
+  "mfr_part": "TLV7031DPWR"
+ },
+ "C478207": {
+  "lcsc": "C478207",
+  "title": "PMZ350UPEYL",
+  "footprint": "easyeda:C478207_X1-DFN1006-3_L1.0-W0.6-P0.35-BR",
+  "package_title": "X1-DFN1006-3_L1.0-W0.6-P0.35-BR",
+  "symbol": "C478207_PMZ350UPEYL",
+  "model3d": null,
+  "mfr_part": "PMZ350UPEYL"
+ },
+ "C5247957": {
+  "lcsc": "C5247957",
+  "error": "fetch failed"
+ },
+ "C17913": {
+  "lcsc": "C17913",
+  "title": "1206W4F120JT5E",
+  "footprint": "easyeda:C17913_R1206",
+  "package_title": "R1206",
+  "symbol": "C17913_1206W4F120JT5E",
+  "model3d": null,
+  "mfr_part": "1206W4F120JT5E"
+ },
+ "C4109": {
+  "lcsc": "C4109",
+  "title": "0402WGF2001TCE",
+  "footprint": "easyeda:C4109_R0402",
+  "package_title": "R0402",
+  "symbol": "C4109_0402WGF2001TCE",
+  "model3d": null,
+  "mfr_part": "0402WGF2001TCE"
+ },
+ "C1538": {
+  "lcsc": "C1538",
+  "title": "0402B472K500NT",
+  "footprint": "easyeda:C1538_C0402",
+  "package_title": "C0402",
+  "symbol": "C1538_0402B472K500NT",
+  "model3d": null,
+  "mfr_part": "0402B472K500NT"
+ },
+ "C43676": {
+  "lcsc": "C43676",
+  "title": "0402WGF3602TCE",
+  "footprint": "easyeda:C43676_R0402",
+  "package_title": "R0402",
+  "symbol": "C43676_0402WGF3602TCE",
+  "model3d": null,
+  "mfr_part": "0402WGF3602TCE"
+ },
+ "C2875812": {
+  "lcsc": "C2875812",
+  "error": "fetch failed"
+ },
+ "C240197": {
+  "lcsc": "C240197",
+  "title": "WSB5546N-2/TR",
+  "footprint": "easyeda:C240197_DFN1006-2L-RD",
+  "package_title": "DFN1006-2L-RD",
+  "symbol": "C240197_WSB5546N-2/TR",
+  "model3d": null,
+  "mfr_part": "WSB5546N-2/TR"
+ },
+ "C896422": {
+  "lcsc": "C896422",
+  "title": "NSR0240MX2T5G",
+  "footprint": "easyeda:C896422_X2DFN-2_L1.0-W0.6-RD",
+  "package_title": "X2DFN-2_L1.0-W0.6-RD",
+  "symbol": "C896422_NSR0240MX2T5G",
+  "model3d": null,
+  "mfr_part": "NSR0240MX2T5G"
+ },
+ "C423439": {
+  "lcsc": "C423439",
+  "title": "0201WMF7323TEE",
+  "footprint": "easyeda:C423439_R0201",
+  "package_title": "R0201",
+  "symbol": "C423439_0201WMF7323TEE",
+  "model3d": null,
+  "mfr_part": "0201WMF7323TEE"
+ },
+ "C2691509": {
+  "lcsc": "C2691509",
+  "title": "0201WMF1623TEE",
+  "footprint": "easyeda:C2691509_R0201",
+  "package_title": "R0201",
+  "symbol": "C2691509_0201WMF1623TEE",
+  "model3d": null,
+  "mfr_part": "0201WMF1623TEE"
+ },
+ "C473632": {
+  "lcsc": "C473632",
+  "title": "0201WMF5232TEE",
+  "footprint": "easyeda:C473632_R0201",
+  "package_title": "R0201",
+  "symbol": "C473632_0201WMF5232TEE",
+  "model3d": null,
+  "mfr_part": "0201WMF5232TEE"
+ },
+ "C270356": {
+  "lcsc": "C270356",
+  "title": "0201WMF2200TEE",
+  "footprint": "easyeda:C270356_R0201",
+  "package_title": "R0201",
+  "symbol": "C270356_0201WMF2200TEE",
+  "model3d": null,
+  "mfr_part": "0201WMF2200TEE"
+ },
+ "C270365": {
+  "lcsc": "C270365",
+  "title": "0201WMF1001TEE",
+  "footprint": "easyeda:C270365_R0201",
+  "package_title": "R0201",
+  "symbol": "C270365_0201WMF1001TEE",
+  "model3d": null,
+  "mfr_part": "0201WMF1001TEE"
+ },
+ "C270366": {
+  "lcsc": "C270366",
+  "title": "0201WMF1000TEE",
+  "footprint": "easyeda:C270366_R0201",
+  "package_title": "R0201",
+  "symbol": "C270366_0201WMF1000TEE",
+  "model3d": null,
+  "mfr_part": "0201WMF1000TEE"
+ },
+ "C161418": {
+  "lcsc": "C161418",
+  "title": "GRM0335C1H221JA01D",
+  "footprint": "easyeda:C161418_C0201",
+  "package_title": "C0201",
+  "symbol": "C161418_GRM0335C1H221JA01D",
+  "model3d": null,
+  "mfr_part": "GRM0335C1H221JA01D"
+ },
+ "C11660": {
+  "lcsc": "C11660",
+  "title": "0402WGF1022TCE",
+  "footprint": "easyeda:C11660_R0402",
+  "package_title": "R0402",
+  "symbol": "C11660_0402WGF1022TCE",
+  "model3d": null,
+  "mfr_part": "0402WGF1022TCE"
+ },
+ "C423797": {
+  "lcsc": "C423797",
+  "title": "0201WMF1005TEE",
+  "footprint": "easyeda:C423797_R0201",
+  "package_title": "R0201",
+  "symbol": "C423797_0201WMF1005TEE",
+  "model3d": null,
+  "mfr_part": "0201WMF1005TEE"
+ },
+ "C473458": {
+  "lcsc": "C473458",
+  "title": "0201WMF2203TEE",
+  "footprint": "easyeda:C473458_R0201",
+  "package_title": "R0201",
+  "symbol": "C473458_0201WMF2203TEE",
+  "model3d": null,
+  "mfr_part": "0201WMF2203TEE"
+ },
+ "C423582": {
+  "lcsc": "C423582",
+  "title": "0201WMF3304TEE",
+  "footprint": "easyeda:C423582_R0201",
+  "package_title": "R0201",
+  "symbol": "C423582_0201WMF3304TEE",
+  "model3d": null,
+  "mfr_part": "0201WMF3304TEE"
+ },
+ "C270345": {
+  "lcsc": "C270345",
+  "title": "0201WMF4702TEE",
+  "footprint": "easyeda:C270345_R0201",
+  "package_title": "R0201",
+  "symbol": "C270345_0201WMF4702TEE",
+  "model3d": null,
+  "mfr_part": "0201WMF4702TEE"
+ },
+ "C851635": {
+  "lcsc": "C851635",
+  "title": "RC0201DR-0710K2L",
+  "footprint": "easyeda:C851635_R0201",
+  "package_title": "R0201",
+  "symbol": "C851635_RC0201DR-0710K2L",
+  "model3d": null,
+  "mfr_part": "RC0201DR-0710K2L"
+ },
+ "C270358": {
+  "lcsc": "C270358",
+  "title": "0201WMF2001TEE",
+  "footprint": "easyeda:C270358_R0201",
+  "package_title": "R0201",
+  "symbol": "C270358_0201WMF2001TEE",
+  "model3d": null,
+  "mfr_part": "0201WMF2001TEE"
+ },
+ "C473560": {
+  "lcsc": "C473560",
+  "title": "0201WMF4703TEE",
+  "footprint": "easyeda:C473560_R0201",
+  "package_title": "R0201",
+  "symbol": "C473560_0201WMF4703TEE",
+  "model3d": null,
+  "mfr_part": "0201WMF4703TEE"
+ },
+ "C473473": {
+  "lcsc": "C473473",
+  "title": "0201WMF0000TEE",
+  "footprint": "easyeda:C473473_R0201",
+  "package_title": "R0201",
+  "symbol": "C473473_0201WMF0000TEE",
+  "model3d": null,
+  "mfr_part": "0201WMF0000TEE"
+ },
+ "C76935": {
+  "lcsc": "C76935",
+  "title": "GRM033R61A105ME44D",
+  "footprint": "easyeda:C76935_C0201",
+  "package_title": "C0201",
+  "symbol": "C76935_GRM033R61A105ME44D",
+  "model3d": null,
+  "mfr_part": "GRM033R61A105ME44D"
+ },
+ "C309454": {
+  "lcsc": "C309454",
+  "title": "CC0201KRX7R8BB472",
+  "footprint": "easyeda:C309454_C0201",
+  "package_title": "C0201",
+  "symbol": "C309454_CC0201KRX7R8BB472",
+  "model3d": null,
+  "mfr_part": "CC0201KRX7R8BB472"
+ },
+ "C76923": {
+  "lcsc": "C76923",
+  "title": "GRM0335C1H200JA01D",
+  "footprint": "easyeda:C76923_C0201",
+  "package_title": "C0201",
+  "symbol": "C76923_GRM0335C1H200JA01D",
+  "model3d": null,
+  "mfr_part": "GRM0335C1H200JA01D"
+ },
+ "C161408": {
+  "lcsc": "C161408",
+  "title": "GRM0335C1H151JA01D",
+  "footprint": "easyeda:C161408_C0201",
+  "package_title": "C0201",
+  "symbol": "C161408_GRM0335C1H151JA01D",
+  "model3d": null,
+  "mfr_part": "GRM0335C1H151JA01D"
+ },
+ "C76924": {
+  "lcsc": "C76924",
+  "title": "GRM0335C1H220JA01D",
+  "footprint": "easyeda:C76924_C0201",
+  "package_title": "C0201",
+  "symbol": "C76924_GRM0335C1H220JA01D",
+  "model3d": null,
+  "mfr_part": "GRM0335C1H220JA01D"
+ },
+ "C3855387": {
+  "lcsc": "C3855387",
+  "title": "GRM1555C1E103JE01D",
+  "footprint": "easyeda:C3855387_C0402",
+  "package_title": "C0402",
+  "symbol": "C3855387_GRM1555C1E103JE01D",
+  "model3d": null,
+  "mfr_part": "GRM1555C1E103JE01D"
+ },
+ "C1518204": {
+  "lcsc": "C1518204",
+  "title": "GRM1555C1H472JE01D",
+  "footprint": "easyeda:C1518204_C0402",
+  "package_title": "C0402",
+  "symbol": "C1518204_GRM1555C1H472JE01D",
+  "model3d": null,
+  "mfr_part": "GRM1555C1H472JE01D"
+ },
+ "C413063": {
+  "lcsc": "C413063",
+  "title": "ERJ2RKF1000X",
+  "footprint": "easyeda:C413063_R0402",
+  "package_title": "R0402",
+  "symbol": "C413063_ERJ2RKF1000X",
+  "model3d": null,
+  "mfr_part": "ERJ2RKF1000X"
+ },
+ "C17445": {
+  "lcsc": "C17445",
+  "title": "0805W8F120JT5E",
+  "footprint": "easyeda:C17445_R0805",
+  "package_title": "R0805",
+  "symbol": "C17445_0805W8F120JT5E",
+  "model3d": null,
+  "mfr_part": "0805W8F120JT5E"
+ },
+ "C161371": {
+  "lcsc": "C161371",
+  "title": "GRM0335C1E102JA01D",
+  "footprint": "easyeda:C161371_C0201",
+  "package_title": "C0201",
+  "symbol": "C161371_GRM0335C1E102JA01D",
+  "model3d": null,
+  "mfr_part": "GRM0335C1E102JA01D"
+ },
+ "C324723": {
+  "lcsc": "C324723",
+  "title": "FH34SRJ-10S-0.5SH(50)",
+  "footprint": "easyeda:C324723_FFC-SMD_10P-P0.50_FH34SRJ-10S-0.5SH",
+  "package_title": "FFC-SMD_10P-P0.50_FH34SRJ-10S-0.5SH",
+  "symbol": "C324723_FH34SRJ-10S-0.5SH",
+  "model3d": null,
+  "mfr_part": "FH34SRJ-10S-0.5SH(50)"
+ },
+ "C6736531": {
+  "lcsc": "C6736531",
+  "title": "PMEG10020AELR-QX",
+  "footprint": "easyeda:C6736531_SOD-123F_L2.8-W1.8-LS3.7-RD",
+  "package_title": "SOD-123F_L2.8-W1.8-LS3.7-RD",
+  "symbol": "C6736531_PMEG10020AELR-QX",
+  "model3d": null,
+  "mfr_part": "PMEG10020AELR-QX"
+ },
+ "C45993": {
+  "lcsc": "C45993",
+  "title": "0402WGF3833TCE",
+  "footprint": "easyeda:C45993_R0402",
+  "package_title": "R0402",
+  "symbol": "C45993_0402WGF3833TCE",
+  "model3d": null,
+  "mfr_part": "0402WGF3833TCE"
+ },
+ "C423488": {
+  "lcsc": "C423488",
+  "title": "0201WMF5362TEE",
+  "footprint": "easyeda:C423488_R0201",
+  "package_title": "R0201",
+  "symbol": "C423488_0201WMF5362TEE",
+  "model3d": null,
+  "mfr_part": "0201WMF5362TEE"
+ },
+ "C25822": {
+  "lcsc": "C25822",
+  "title": "0603WAF6803T5E",
+  "footprint": "easyeda:C25822_R0603",
+  "package_title": "R0603",
+  "symbol": "C25822_0603WAF6803T5E",
+  "model3d": null,
+  "mfr_part": "0603WAF6803T5E"
+ },
+ "C2826516": {
+  "lcsc": "C2826516",
+  "title": "BW0019BG-L3.5W1.5H3.8",
+  "footprint": "easyeda:C2826516_ANT-SMD_L3.5-W1.5-H3.8",
+  "package_title": "ANT-SMD_L3.5-W1.5-H3.8",
+  "symbol": "C2826516_BW0019BG-L3.5W1.5H3.8",
+  "model3d": null,
+  "mfr_part": "BW0019BG-L3.5W1.5H3.8"
+ },
+ "C504101": {
+  "lcsc": "C504101",
+  "title": "CJBA7002K",
+  "footprint": "easyeda:C504101_DFN1006-3L_L1.0-W0.6-BL",
+  "package_title": "DFN1006-3L_L1.0-W0.6-BL",
+  "symbol": "C504101_CJBA7002K",
+  "model3d": null,
+  "mfr_part": "CJBA7002K"
+ },
+ "C6652901": {
+  "lcsc": "C6652901",
+  "title": "LQW15AN9N0G80D",
+  "footprint": "easyeda:C6652901_IND-SMD_L1.0-W0.6",
+  "package_title": "IND-SMD_L1.0-W0.6",
+  "symbol": "C6652901_LQW15AN9N0G80D",
+  "model3d": null,
+  "mfr_part": "LQW15AN9N0G80D"
+ },
+ "C668465": {
+  "lcsc": "C668465",
+  "title": "LQW15AN6N2B80D",
+  "footprint": "easyeda:C668465_L0402",
+  "package_title": "L0402",
+  "symbol": "C668465_LQW15AN6N2B80D",
+  "model3d": null,
+  "mfr_part": "LQW15AN6N2B80D"
+ },
+ "C2826518": {
+  "lcsc": "C2826518",
+  "title": "BW0020AG-L3.5W1.5H3.0",
+  "footprint": "easyeda:C2826518_ANT-SMD_L3.5-W1.5",
+  "package_title": "ANT-SMD_L3.5-W1.5",
+  "symbol": "C2826518_BW0020AG-L3.5W1.5H3.0",
+  "model3d": null,
+  "mfr_part": "BW0020AG-L3.5W1.5H3.0"
+ },
+ "C2863637": {
+  "lcsc": "C2863637",
+  "title": "TLV7031DCKR",
+  "footprint": "easyeda:C2863637_SC-70-5_L2.1-W1.3-P0.65-LS2.2-BR",
+  "package_title": "SC-70-5_L2.1-W1.3-P0.65-LS2.2-BR",
+  "symbol": "C2863637_TLV7031DCKR",
+  "model3d": null,
+  "mfr_part": "TLV7031DCKR"
+ },
+ "C2048575": {
+  "lcsc": "C2048575",
+  "title": "LQW15AN7N6G80D",
+  "footprint": "easyeda:C2048575_IND-SMD_L1.0-W0.6",
+  "package_title": "IND-SMD_L1.0-W0.6",
+  "symbol": "C2048575_LQW15AN7N6G80D",
+  "model3d": null,
+  "mfr_part": "LQW15AN7N6G80D"
+ },
+ "C471381": {
+  "lcsc": "C471381",
+  "title": "LQW15AN4N3B80D",
+  "footprint": "easyeda:C471381_IND-SMD_L1.0-W0.6",
+  "package_title": "IND-SMD_L1.0-W0.6",
+  "symbol": "C471381_LQW15AN4N3B80D",
+  "model3d": null,
+  "mfr_part": "LQW15AN4N3B80D"
+ },
+ "C166160": {
+  "lcsc": "C166160",
+  "title": "RTT015362FTH",
+  "footprint": "easyeda:C166160_R0201",
+  "package_title": "R0201",
+  "symbol": "C166160_RTT015362FTH",
+  "model3d": null,
+  "mfr_part": "RTT015362FTH"
+ }
+}

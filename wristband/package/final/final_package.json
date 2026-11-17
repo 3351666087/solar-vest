@@ -1,0 +1,122 @@
+{
+ "date": "2026-11-16",
+ "board": "v3/finish/solarband_v3f_final.kicad_pcb",
+ "board_modified": false,
+ "verdict": "PARTIAL",
+ "drc": {
+  "errors": 0,
+  "unconnected": 0
+ },
+ "layers": 8,
+ "outline_mm": [
+  40.0,
+  34.0
+ ],
+ "cutout": "circle 8.6 at (34.25,24.05)",
+ "vias": 508,
+ "vias_in_pads": 220,
+ "gate": {
+  "GREEN": 192,
+  "PREVIEW": 15,
+  "YELLOW": 0,
+  "RED": 0,
+  "UNKNOWN": 0
+ },
+ "g7": "207/207",
+ "g8": "PASS",
+ "preview": [
+  "D3",
+  "D4",
+  "PD1",
+  "D9",
+  "D10",
+  "D11",
+  "D14",
+  "D16",
+  "D12",
+  "J11",
+  "J15",
+  "J18",
+  "J19",
+  "J40",
+  "SW1"
+ ],
+ "bom": {
+  "lines": 91,
+  "placements": 207,
+  "top": 204,
+  "bottom": 3,
+  "basic": 7,
+  "preferred": 0,
+  "extended": 84,
+  "not_fitted": 8,
+  "hand_fitted": 9,
+  "copper_only": 27
+ },
+ "board_footprints": {
+  "total": 242,
+  "top": 232,
+  "bottom": 10
+ },
+ "value_diffs": [
+  {
+   "ref": "C203",
+   "board": "1.0pF +-0.1pF C0G 0201 GJM0335C1H1R0BB01",
+   "design": "1.0pF +-0.1pF C0G 0201 GJM0335C1H1R0BB01D",
+   "used": "design"
+  }
+ ],
+ "stock_today_utc": "2026-11-16T19:11:25Z",
+ "stock_low": [
+  {
+   "lcsc": "C423488",
+   "refs": "R172",
+   "orderable": 0
+  },
+  {
+   "lcsc": "C5208201",
+   "refs": "U15",
+   "orderable": 0
+  },
+  {
+   "lcsc": "C4371025",
+   "refs": "U4,U5",
+   "orderable": 54
+  }
+ ],
+ "r172_in_stock_alternatives": [
+  "C166160",
+  "C320952",
+  "C474764"
+ ],
+ "open": [
+  "R172 and U15 not orderable today",
+  "P-3 antenna re-tune not run",
+  "P-5 8 layers at 1.0 mm unconfirmed",
+  "port P-6 reviews into pinmap_data*.py"
+ ],
+ "update_20261116_1933": {
+  "board": "v3/final/board/solarband_v3f_final_rf.kicad_pcb",
+  "bom_change": {
+   "C215": "C2048575 7.6nH",
+   "L204": "C471381 4.3nH",
+   "C213": "DNP"
+  },
+  "exit": 0,
+  "gate": {
+   "GREEN": 192,
+   "PREVIEW": 15,
+   "YELLOW": 0,
+   "RED": 0,
+   "UNKNOWN": 0
+  },
+  "g7": "207/207",
+  "g8": "PASS",
+  "drc": [
+   0,
+   0
+  ],
+  "gerbers_identical_to_previous": true,
+  "zip": "upload/solarband_v3f_final_rf_gerbers_JLC.zip"
+ }
+}

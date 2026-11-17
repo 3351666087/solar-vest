@@ -1,0 +1,131 @@
+{
+ "generator": {
+  "iec_fit": [
+   8.977605842143132e-12,
+   211.00302800577086,
+   1.94230044461548e-07,
+   2.747048825895385e-06
+  ]
+ },
+ "cases": [
+  {
+   "case": "GND contact +8 kV iec TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 60 V",
+   "tvs_ipk_A": 29.54536853636017,
+   "q20_vds_max_V": 65.92766025834068,
+   "q20_vds_min_V": 0.00031598070600045546,
+   "q20_t_over_20V_ns": 1.7575213131741338,
+   "q20_t_over_60V_ns": 0.21911671159577573,
+   "q20_vgs_max_V": 7.922456242432304,
+   "q20_vgs_min_V": 3.797192854215253e-05,
+   "q20_avalanche_ipk_A": 2.96383012917034,
+   "q20_avalanche_E_uJ": 0.02109905690112068,
+   "q20_gate_max_V": 7.922456242432304,
+   "q20_gate_min_V": 3.797192854215253e-05
+  },
+  {
+   "case": "GND contact -8 kV iec TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 60 V",
+   "tvs_ipk_A": 1.1340874719184955,
+   "q20_vds_max_V": -0.00031598070600045546,
+   "q20_vds_min_V": -9.153007168308925,
+   "q20_t_over_20V_ns": 0.0,
+   "q20_t_over_60V_ns": 0.0,
+   "q20_vgs_max_V": -3.797192854215253e-05,
+   "q20_vgs_min_V": -1.0996315265941734,
+   "q20_avalanche_ipk_A": 0.0,
+   "q20_avalanche_E_uJ": 0.0,
+   "q20_gate_max_V": -3.797192854215253e-05,
+   "q20_gate_min_V": -1.0996315265941734
+  },
+  {
+   "case": "GND contact +15 kV plain TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 60 V",
+   "tvs_ipk_A": 45.36152645868854,
+   "q20_vds_max_V": 80.00781498406171,
+   "q20_vds_min_V": 0.0008862786355222624,
+   "q20_t_over_20V_ns": 20.22078700595773,
+   "q20_t_over_60V_ns": 0.6968251049840122,
+   "q20_vgs_max_V": 9.614287236985163,
+   "q20_vgs_min_V": 0.00010650558207322723,
+   "q20_avalanche_ipk_A": 10.003907492030855,
+   "q20_avalanche_E_uJ": 0.34232630484461923,
+   "q20_gate_max_V": 9.614287236985163,
+   "q20_gate_min_V": 0.00010650558207322723
+  },
+  {
+   "case": "GND contact -15 kV plain TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 60 V",
+   "tvs_ipk_A": 5.766937237615635,
+   "q20_vds_max_V": -0.0008862786355222624,
+   "q20_vds_min_V": -12.859912502894746,
+   "q20_t_over_20V_ns": 0.0,
+   "q20_t_over_60V_ns": 0.0,
+   "q20_vgs_max_V": -0.00010650558207322723,
+   "q20_vgs_min_V": -1.5450106716247707,
+   "q20_avalanche_ipk_A": 0.0,
+   "q20_avalanche_E_uJ": 0.0,
+   "q20_gate_max_V": -0.00010650558207322723,
+   "q20_gate_min_V": -1.5450106716247707
+  },
+  {
+   "case": "GND contact +8 kV iec TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 70 V",
+   "tvs_ipk_A": 29.93584052029638,
+   "q20_vds_max_V": 74.62335903274358,
+   "q20_vds_min_V": 0.00031598070600045546,
+   "q20_t_over_20V_ns": 2.8175691894500665,
+   "q20_t_over_60V_ns": 0.21916458787170592,
+   "q20_vgs_max_V": 8.967384162693834,
+   "q20_vgs_min_V": 3.797192854215253e-05,
+   "q20_avalanche_ipk_A": 2.3116795163717896,
+   "q20_avalanche_E_uJ": 0.012891657356284914,
+   "q20_gate_max_V": 8.967384162693834,
+   "q20_gate_min_V": 3.797192854215253e-05
+  },
+  {
+   "case": "GND contact -8 kV iec TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 70 V",
+   "tvs_ipk_A": 1.1340874719184955,
+   "q20_vds_max_V": -0.00031598070600045546,
+   "q20_vds_min_V": -9.153007168308925,
+   "q20_t_over_20V_ns": 0.0,
+   "q20_t_over_60V_ns": 0.0,
+   "q20_vgs_max_V": -3.797192854215253e-05,
+   "q20_vgs_min_V": -1.0996315265941734,
+   "q20_avalanche_ipk_A": 0.0,
+   "q20_avalanche_E_uJ": 0.0,
+   "q20_gate_max_V": -3.797192854215253e-05,
+   "q20_gate_min_V": -1.0996315265941734
+  },
+  {
+   "case": "GND contact +15 kV plain TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 70 V",
+   "tvs_ipk_A": 45.63155817176034,
+   "q20_vds_max_V": 88.83983943464627,
+   "q20_vds_min_V": 0.0008862786355222624,
+   "q20_t_over_20V_ns": 19.763681204237383,
+   "q20_t_over_60V_ns": 0.6184225599801518,
+   "q20_vgs_max_V": 10.675806153551648,
+   "q20_vgs_min_V": 0.00010650558207322723,
+   "q20_avalanche_ipk_A": 9.419919717323133,
+   "q20_avalanche_E_uJ": 0.27534198283076294,
+   "q20_gate_max_V": 10.675806153551648,
+   "q20_gate_min_V": 0.00010650558207322723
+  },
+  {
+   "case": "GND contact -15 kV plain TPD1E10B06 on J18, Q20 CJBA7002K off, avalanche at 70 V",
+   "tvs_ipk_A": 5.766937237615635,
+   "q20_vds_max_V": -0.0008862786355222624,
+   "q20_vds_min_V": -12.859912502894746,
+   "q20_t_over_20V_ns": 0.0,
+   "q20_t_over_60V_ns": 0.0,
+   "q20_vgs_max_V": -0.00010650558207322723,
+   "q20_vgs_min_V": -1.5450106716247707,
+   "q20_avalanche_ipk_A": 0.0,
+   "q20_avalanche_E_uJ": 0.0,
+   "q20_gate_max_V": -0.00010650558207322723,
+   "q20_gate_min_V": -1.5450106716247707
+  }
+ ],
+ "pmeg_fit": {
+  "IS": 1.1775832020659792e-05,
+  "N": 1.9925467408095703,
+  "RS": 0.06903783973405828,
+  "VF_33mA_typ_25C_V": 0.40862369724176345
+ },
+ "runtime_s": 1.8640148639678955
+}

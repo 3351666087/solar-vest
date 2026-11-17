@@ -1,0 +1,155 @@
+(version 1)
+# JLCPCB 8-layer plan B (v3/planb, through vias only); 6-layer deck values, as read on jlcpcb.com/capabilities/pcb-capabilities (cache/v2/jlc_cap, 2026-11-12) + v3/design/netclasses.json
+(rule "WLCSP / DSBGA fan-out: 0.09 / 0.09 inside the package courtyards only"
+  (condition "A.intersectsCourtyard('U6') || B.intersectsCourtyard('U6') || A.intersectsCourtyard('U8') || B.intersectsCourtyard('U8') || A.intersectsCourtyard('U4') || B.intersectsCourtyard('U4') || A.intersectsCourtyard('U5') || B.intersectsCourtyard('U5')")
+  (constraint clearance (min 0.09mm)) (constraint track_width (min 0.09mm)))
+(rule "JLC via 0.15 / 0.25 minimum"
+  (condition "A.Type == 'Via'") (constraint hole_size (min 0.15mm)) (constraint via_diameter (min 0.25mm)) (constraint annular_width (min 0.05mm)))
+(rule "JLC via hole to track / inner-layer hole to copper 0.20"
+  (constraint hole_clearance (min 0.2mm)))
+(rule "JLC hole to hole 0.20"
+  (constraint hole_to_hole (min 0.2mm)))
+# [layout] LEAD_NOTES 2e R-2: PWR_HIGH, VDD_1V8 and ECG-band nets: no via over a plate, no inner-layer track over a plate
+# [lead P-7, 2026-11-17] narrow exception to R-2 / P-1: I2C_SCL and I2C_SDA may have vias over plate E1 only (never E2), at most two in
+# total (counted by board_stats, reported in v3/finish/FINISH.md), each >= 1.0 mm from a plate-dot opening (dot keep-out areas unchanged).
+(rule "P-7 I2C via over plate E1 (exception, max 2, counted)"
+  (condition "A.Type == 'Via' && (A.NetName == 'I2C_SCL' || A.NetName == 'I2C_SDA') && A.intersectsArea('PLATE_E1_AREA')")
+  (constraint hole_size (min 0.15mm)))
+(rule "R-2 no via of a forbidden net over a plate"
+  (condition "A.Type == 'Via' && !((A.NetName == 'I2C_SCL' || A.NetName == 'I2C_SDA') && !A.intersectsArea('PLATE_E2_AREA')) && (A.intersectsArea('PLATE_E1_AREA') || A.intersectsArea('PLATE_E2_AREA')) && (A.NetName == 'ALERT_A' || A.NetName == 'ALERT_K' || A.NetName == 'ALERT_LED' || A.NetName == 'AVDD_EN' || A.NetName == 'BATT_P' || A.NetName == 'BATT_P_A' || A.NetName == 'BQ_EN' || A.NetName == 'BTN' || A.NetName == 'BTN_G' || A.NetName == 'BTN_N' || A.NetName == 'BTN_SUP' || A.NetName == 'CHG_DIS' || A.NetName == 'DISP_CTRL' || A.NetName == 'DISP_EN' || A.NetName == 'D_DISP' || A.NetName == 'D_EXTCOMIN' || A.NetName == 'ECG_PWR_EN' || A.NetName == 'EN_HOLD' || A.NetName == 'EXTCOMIN' || A.NetName == 'FL_A' || A.NetName == 'FL_EN' || A.NetName == 'FL_K' || A.NetName == 'I2C_SCL' || A.NetName == 'I2C_SDA' || A.NetName == 'INA_EN' || A.NetName == 'LBOOST' || A.NetName == 'LBUCK' || A.NetName == 'LED1_DRV' || A.NetName == 'LED2_DRV' || A.NetName == 'MOTOR_G' || A.NetName == 'MOTOR_N' || A.NetName == 'MOTOR_PWM' || A.NetName == 'MOTOR_S' || A.NetName == 'NTC' || A.NetName == 'NTC_ADC' || A.NetName == 'NTC_EN' || A.NetName == 'O2_HB' || A.NetName == 'O2_TC' || A.NetName == 'O2_TH' || A.NetName == 'PV_INH' || A.NetName == 'PV_NODE' || A.NetName == 'PV_Q' || A.NetName == 'PV_SW' || A.NetName == 'PV_W' || A.NetName == 'PWR_CYC' || A.NetName == 'PWR_HOLD' || A.NetName == 'SW_ON' || A.NetName == 'VBAT_IC' || A.NetName == 'VBUS' || A.NetName == 'VBUS_K' || A.NetName == 'VDD_1V8' || A.NetName == 'VIN_DC' || A.NetName == 'VLED' || A.NetName == 'VOUT_EN' || A.NetName == 'VSTOR' || A.NetName == 'VSTOR_SW')")
+  (constraint disallow via))
+(rule "R-2 no inner track of a forbidden net over a plate"
+  (layer inner)
+  (condition "A.Type == 'Track' && A.Layer != 'In2.Cu' && A.Layer != 'In3.Cu' && (A.intersectsArea('PLATE_E1_AREA') || A.intersectsArea('PLATE_E2_AREA')) && (A.NetName == 'ALERT_A' || A.NetName == 'ALERT_K' || A.NetName == 'ALERT_LED' || A.NetName == 'AVDD_EN' || A.NetName == 'BATT_P' || A.NetName == 'BATT_P_A' || A.NetName == 'BQ_EN' || A.NetName == 'BTN' || A.NetName == 'BTN_G' || A.NetName == 'BTN_N' || A.NetName == 'BTN_SUP' || A.NetName == 'CHG_DIS' || A.NetName == 'DISP_CTRL' || A.NetName == 'DISP_EN' || A.NetName == 'D_DISP' || A.NetName == 'D_EXTCOMIN' || A.NetName == 'ECG_PWR_EN' || A.NetName == 'EN_HOLD' || A.NetName == 'EXTCOMIN' || A.NetName == 'FL_A' || A.NetName == 'FL_EN' || A.NetName == 'FL_K' || A.NetName == 'I2C_SCL' || A.NetName == 'I2C_SDA' || A.NetName == 'INA_EN' || A.NetName == 'LBOOST' || A.NetName == 'LBUCK' || A.NetName == 'LED1_DRV' || A.NetName == 'LED2_DRV' || A.NetName == 'MOTOR_G' || A.NetName == 'MOTOR_N' || A.NetName == 'MOTOR_PWM' || A.NetName == 'MOTOR_S' || A.NetName == 'NTC' || A.NetName == 'NTC_ADC' || A.NetName == 'NTC_EN' || A.NetName == 'O2_HB' || A.NetName == 'O2_TC' || A.NetName == 'O2_TH' || A.NetName == 'PV_INH' || A.NetName == 'PV_NODE' || A.NetName == 'PV_Q' || A.NetName == 'PV_SW' || A.NetName == 'PV_W' || A.NetName == 'PWR_CYC' || A.NetName == 'PWR_HOLD' || A.NetName == 'SW_ON' || A.NetName == 'VBAT_IC' || A.NetName == 'VBUS' || A.NetName == 'VBUS_K' || A.NetName == 'VDD_1V8' || A.NetName == 'VIN_DC' || A.NetName == 'VLED' || A.NetName == 'VOUT_EN' || A.NetName == 'VSTOR' || A.NetName == 'VSTOR_SW')")
+  (constraint disallow track))
+(rule "T-5 U10 island: no via of another net"
+  (condition "A.Type == 'Via' && A.NetName != 'TMP117_ISLAND' && A.intersectsArea('U10_ISLAND_AREA')")
+  (constraint disallow via))
+(rule "S2d J40 sits on the AE1 spring land (LEAD_NOTES 2i L-1)"
+  (condition "(A.Reference == 'J40' && B.Reference == 'AE1') || (A.Reference == 'AE1' && B.Reference == 'J40')")
+  (constraint courtyard_clearance (min -10mm)))
+# vendor land patterns (own pad gap below the net-class clearance) - generated by build_board.intra_rules
+(rule "land pattern AE1 (own pad gap 0.000 mm)"
+  (condition "A.memberOfFootprint('AE1') && B.memberOfFootprint('AE1')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern C113 (own pad gap 0.172 mm)"
+  (condition "A.memberOfFootprint('C113') && B.memberOfFootprint('C113')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern C122 (own pad gap 0.172 mm)"
+  (condition "A.memberOfFootprint('C122') && B.memberOfFootprint('C122')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern C132 (own pad gap 0.172 mm)"
+  (condition "A.memberOfFootprint('C132') && B.memberOfFootprint('C132')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern C174 (own pad gap 0.172 mm)"
+  (condition "A.memberOfFootprint('C174') && B.memberOfFootprint('C174')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern C201 (own pad gap 0.172 mm)"
+  (condition "A.memberOfFootprint('C201') && B.memberOfFootprint('C201')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern C202 (own pad gap 0.172 mm)"
+  (condition "A.memberOfFootprint('C202') && B.memberOfFootprint('C202')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern C211 (own pad gap 0.172 mm)"
+  (condition "A.memberOfFootprint('C211') && B.memberOfFootprint('C211')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern C212 (own pad gap 0.172 mm)"
+  (condition "A.memberOfFootprint('C212') && B.memberOfFootprint('C212')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern C301 (own pad gap 0.172 mm)"
+  (condition "A.memberOfFootprint('C301') && B.memberOfFootprint('C301')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern C302 (own pad gap 0.172 mm)"
+  (condition "A.memberOfFootprint('C302') && B.memberOfFootprint('C302')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern C303 (own pad gap 0.172 mm)"
+  (condition "A.memberOfFootprint('C303') && B.memberOfFootprint('C303')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern C304 (own pad gap 0.172 mm)"
+  (condition "A.memberOfFootprint('C304') && B.memberOfFootprint('C304')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern FB3 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('FB3') && B.memberOfFootprint('FB3')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R116 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R116') && B.memberOfFootprint('R116')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R125 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R125') && B.memberOfFootprint('R125')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R126 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R126') && B.memberOfFootprint('R126')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R127 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R127') && B.memberOfFootprint('R127')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R128 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R128') && B.memberOfFootprint('R128')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R140 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R140') && B.memberOfFootprint('R140')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R141 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R141') && B.memberOfFootprint('R141')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R144 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R144') && B.memberOfFootprint('R144')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R145 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R145') && B.memberOfFootprint('R145')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R149 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R149') && B.memberOfFootprint('R149')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R164 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R164') && B.memberOfFootprint('R164')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R165 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R165') && B.memberOfFootprint('R165')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R167 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R167') && B.memberOfFootprint('R167')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R170 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R170') && B.memberOfFootprint('R170')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R171 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R171') && B.memberOfFootprint('R171')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R172 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R172') && B.memberOfFootprint('R172')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R174 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R174') && B.memberOfFootprint('R174')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R175 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R175') && B.memberOfFootprint('R175')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R307 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R307') && B.memberOfFootprint('R307')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R308 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R308') && B.memberOfFootprint('R308')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R309 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R309') && B.memberOfFootprint('R309')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R317 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R317') && B.memberOfFootprint('R317')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern R511 (own pad gap 0.177 mm)"
+  (condition "A.memberOfFootprint('R511') && B.memberOfFootprint('R511')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern U16 (own pad gap 0.000 mm)"
+  (condition "A.memberOfFootprint('U16') && B.memberOfFootprint('U16')")
+  (constraint clearance (min 0.09mm)))
+(rule "land pattern U3 (own pad gap 0.000 mm)"
+  (condition "A.memberOfFootprint('U3') && B.memberOfFootprint('U3')")
+  (constraint clearance (min 0.09mm)))
+# [grow8 Q-2] neck-down at pads (LEAD_NOTES 2p): 0.09 / 0.09 mm within 1.5 mm of an own pad (areas NECK_k_AREA)
+(rule "Q-2 neck clearance"
+  (condition "A.Type == 'Track' && A.Width < 0.095mm && ((A.NetName == 'ALERT_A' && A.enclosedByArea('NECK_0_AREA')) || (A.NetName == 'ALERT_K' && A.enclosedByArea('NECK_1_AREA')) || (A.NetName == 'ALERT_LED' && A.enclosedByArea('NECK_2_AREA')) || (A.NetName == 'ANT_FEED' && A.enclosedByArea('NECK_3_AREA')) || (A.NetName == 'AVDD_ECG' && A.enclosedByArea('NECK_4_AREA')) || (A.NetName == 'AVDD_EN' && A.enclosedByArea('NECK_5_AREA')) || (A.NetName == 'BATT_P' && A.enclosedByArea('NECK_6_AREA')) || (A.NetName == 'BATT_P_A' && A.enclosedByArea('NECK_7_AREA')) || (A.NetName == 'BQ_EN' && A.enclosedByArea('NECK_8_AREA')) || (A.NetName == 'BTN' && A.enclosedByArea('NECK_9_AREA')) || (A.NetName == 'BTN_G' && A.enclosedByArea('NECK_10_AREA')) || (A.NetName == 'BTN_N' && A.enclosedByArea('NECK_11_AREA')) || (A.NetName == 'BTN_SUP' && A.enclosedByArea('NECK_12_AREA')) || (A.NetName == 'CHG_DIS' && A.enclosedByArea('NECK_13_AREA')) || (A.NetName == 'CHG_PG_N' && A.enclosedByArea('NECK_14_AREA')) || (A.NetName == 'CS_ECG' && A.enclosedByArea('NECK_15_AREA')) || (A.NetName == 'CS_FLASH' && A.enclosedByArea('NECK_16_AREA')) || (A.NetName == 'CS_PPG' && A.enclosedByArea('NECK_17_AREA')) || (A.NetName == 'CYC_A' && A.enclosedByArea('NECK_18_AREA')) || (A.NetName == 'CYC_G' && A.enclosedByArea('NECK_19_AREA')) || (A.NetName == 'DCC' && A.enclosedByArea('NECK_20_AREA')) || (A.NetName == 'DCDC_MID' && A.enclosedByArea('NECK_21_AREA')) || (A.NetName == 'DEC1' && A.enclosedByArea('NECK_22_AREA')) || (A.NetName == 'DEC2' && A.enclosedByArea('NECK_23_AREA')) || (A.NetName == 'DEC3' && A.enclosedByArea('NECK_24_AREA')) || (A.NetName == 'DEC4' && A.enclosedByArea('NECK_25_AREA')) || (A.NetName == 'DISP_CTRL' && A.enclosedByArea('NECK_26_AREA')) || (A.NetName == 'DISP_EN' && A.enclosedByArea('NECK_27_AREA')) || (A.NetName == 'DISP_SCS' && A.enclosedByArea('NECK_28_AREA')) || (A.NetName == 'D_DISP' && A.enclosedByArea('NECK_29_AREA')) || (A.NetName == 'D_EXTCOMIN' && A.enclosedByArea('NECK_30_AREA')) || (A.NetName == 'D_SCLK' && A.enclosedByArea('NECK_31_AREA')) || (A.NetName == 'D_SCS' && A.enclosedByArea('NECK_32_AREA')) || (A.NetName == 'D_SI' && A.enclosedByArea('NECK_33_AREA')) || (A.NetName == 'E1_LINK' && A.enclosedByArea('NECK_34_AREA')) || (A.NetName == 'E1_MID' && A.enclosedByArea('NECK_35_AREA')) || (A.NetName == 'E1_PAD' && A.enclosedByArea('NECK_36_AREA')) || (A.NetName == 'E2_LINK' && A.enclosedByArea('NECK_37_AREA')) || (A.NetName == 'E2_MID' && A.enclosedByArea('NECK_38_AREA')) || (A.NetName == 'E2_PAD' && A.enclosedByArea('NECK_39_AREA')) || (A.NetName == 'E3_MID' && A.enclosedByArea('NECK_40_AREA')) || (A.NetName == 'E3_PAD' && A.enclosedByArea('NECK_41_AREA')) || (A.NetName == 'ECG_CLK' && A.enclosedByArea('NECK_42_AREA')) || (A.NetName == 'ECG_DRDY' && A.enclosedByArea('NECK_43_AREA')) || (A.NetName == 'ECG_GPIO1' && A.enclosedByArea('NECK_44_AREA')) || (A.NetName == 'ECG_GPIO2' && A.enclosedByArea('NECK_45_AREA')) || (A.NetName == 'ECG_INN' && A.enclosedByArea('NECK_46_AREA')) || (A.NetName == 'ECG_INP' && A.enclosedByArea('NECK_47_AREA')) || (A.NetName == 'ECG_PWDN' && A.enclosedByArea('NECK_48_AREA')) || (A.NetName == 'ECG_PWR_EN' && A.enclosedByArea('NECK_49_AREA')) || (A.NetName == 'ECG_START' && A.enclosedByArea('NECK_50_AREA')) || (A.NetName == 'ECG_VCAP1' && A.enclosedByArea('NECK_51_AREA')) || (A.NetName == 'ECG_VCAP2' && A.enclosedByArea('NECK_52_AREA')) || (A.NetName == 'ECG_VREFP' && A.enclosedByArea('NECK_53_AREA')) || (A.NetName == 'EN_HOLD' && A.enclosedByArea('NECK_54_AREA')) || (A.NetName == 'EXTCOMIN' && A.enclosedByArea('NECK_55_AREA')) || (A.NetName == 'FLASH_RST' && A.enclosedByArea('NECK_56_AREA')) || (A.NetName == 'FLASH_WP' && A.enclosedByArea('NECK_57_AREA')) || (A.NetName == 'FL_A' && A.enclosedByArea('NECK_58_AREA')) || (A.NetName == 'FL_EN' && A.enclosedByArea('NECK_59_AREA')) || (A.NetName == 'FL_K' && A.enclosedByArea('NECK_60_AREA')) || (A.NetName == 'GK_G' && A.enclosedByArea('NECK_61_AREA')) || (A.NetName == 'GND' && A.enclosedByArea('NECK_62_AREA')) || (A.NetName == 'GND_A1' && A.enclosedByArea('NECK_63_AREA')) || (A.NetName == 'GND_A2' && A.enclosedByArea('NECK_64_AREA')) || (A.NetName == 'GND_B' && A.enclosedByArea('NECK_65_AREA')) || (A.NetName == 'GND_K' && A.enclosedByArea('NECK_66_AREA')) || (A.NetName == 'GND_PMIC' && A.enclosedByArea('NECK_67_AREA')) || (A.NetName == 'I2C_SCL' && A.enclosedByArea('NECK_68_AREA')) || (A.NetName == 'I2C_SDA' && A.enclosedByArea('NECK_69_AREA')) || (A.NetName == 'IMU_INT1' && A.enclosedByArea('NECK_70_AREA')) || (A.NetName == 'INA_EN' && A.enclosedByArea('NECK_71_AREA')) || (A.NetName == 'INA_VS' && A.enclosedByArea('NECK_72_AREA')) || (A.NetName == 'ISET' && A.enclosedByArea('NECK_73_AREA')) || (A.NetName == 'ISET_RC' && A.enclosedByArea('NECK_74_AREA')) || (A.NetName == 'LBOOST' && A.enclosedByArea('NECK_75_AREA')) || (A.NetName == 'LBUCK' && A.enclosedByArea('NECK_76_AREA')) || (A.NetName == 'LED1_DRV' && A.enclosedByArea('NECK_77_AREA')) || (A.NetName == 'LED2_DRV' && A.enclosedByArea('NECK_78_AREA')) || (A.NetName == 'MOTOR_G' && A.enclosedByArea('NECK_79_AREA')) || (A.NetName == 'MOTOR_N' && A.enclosedByArea('NECK_80_AREA')) || (A.NetName == 'MOTOR_PWM' && A.enclosedByArea('NECK_81_AREA')) || (A.NetName == 'MOTOR_S' && A.enclosedByArea('NECK_82_AREA')) || (A.NetName == 'NRESET' && A.enclosedByArea('NECK_83_AREA')) || (A.NetName == 'NTC' && A.enclosedByArea('NECK_84_AREA')) || (A.NetName == 'NTC_A' && A.enclosedByArea('NECK_85_AREA')) || (A.NetName == 'NTC_ADC' && A.enclosedByArea('NECK_86_AREA')) || (A.NetName == 'NTC_EN' && A.enclosedByArea('NECK_87_AREA')) || (A.NetName == 'O2_G' && A.enclosedByArea('NECK_88_AREA')) || (A.NetName == 'O2_HB' && A.enclosedByArea('NECK_89_AREA')) || (A.NetName == 'O2_NC' && A.enclosedByArea('NECK_90_AREA')) || (A.NetName == 'O2_OK' && A.enclosedByArea('NECK_91_AREA')) || (A.NetName == 'O2_PV' && A.enclosedByArea('NECK_92_AREA')) || (A.NetName == 'O2_TC' && A.enclosedByArea('NECK_93_AREA')) || (A.NetName == 'O2_TH' && A.enclosedByArea('NECK_94_AREA')) || (A.NetName == 'OK_HYST' && A.enclosedByArea('NECK_95_AREA')) || (A.NetName == 'OK_PROG' && A.enclosedByArea('NECK_96_AREA')) || (A.NetName == 'PD1_IN' && A.enclosedByArea('NECK_97_AREA')) || (A.NetName == 'PD_GND' && A.enclosedByArea('NECK_98_AREA')) || (A.NetName == 'PGA1N' && A.enclosedByArea('NECK_99_AREA')) || (A.NetName == 'PGA1P' && A.enclosedByArea('NECK_100_AREA')) || (A.NetName == 'PGA2N' && A.enclosedByArea('NECK_101_AREA')) || (A.NetName == 'PGA2P' && A.enclosedByArea('NECK_102_AREA')) || (A.NetName == 'PPG_INT' && A.enclosedByArea('NECK_103_AREA')) || (A.NetName == 'PPG_VREF' && A.enclosedByArea('NECK_104_AREA')) || (A.NetName == 'PV_INH' && A.enclosedByArea('NECK_105_AREA')) || (A.NetName == 'PV_NODE' && A.enclosedByArea('NECK_106_AREA')) || (A.NetName == 'PV_Q' && A.enclosedByArea('NECK_107_AREA')) || (A.NetName == 'PV_SW' && A.enclosedByArea('NECK_108_AREA')) || (A.NetName == 'PV_W' && A.enclosedByArea('NECK_109_AREA')) || (A.NetName == 'PWR_CYC' && A.enclosedByArea('NECK_110_AREA')) || (A.NetName == 'PWR_HOLD' && A.enclosedByArea('NECK_111_AREA')) || (A.NetName == 'RF_50R' && A.enclosedByArea('NECK_112_AREA')) || (A.NetName == 'RF_ANT' && A.enclosedByArea('NECK_113_AREA')) || (A.NetName == 'RLD_INV' && A.enclosedByArea('NECK_114_AREA')) || (A.NetName == 'RLD_OUT' && A.enclosedByArea('NECK_115_AREA')) || (A.NetName == 'RLD_Z' && A.enclosedByArea('NECK_116_AREA')) || (A.NetName == 'SPI_MISO' && A.enclosedByArea('NECK_117_AREA')) || (A.NetName == 'SPI_MOSI' && A.enclosedByArea('NECK_118_AREA')) || (A.NetName == 'SPI_SCK' && A.enclosedByArea('NECK_119_AREA')) || (A.NetName == 'SWDCLK' && A.enclosedByArea('NECK_120_AREA')) || (A.NetName == 'SWDIO' && A.enclosedByArea('NECK_121_AREA')) || (A.NetName == 'SW_ON' && A.enclosedByArea('NECK_122_AREA')) || (A.NetName == 'VBAT_IC' && A.enclosedByArea('NECK_123_AREA')) || (A.NetName == 'VBAT_OK' && A.enclosedByArea('NECK_124_AREA')) || (A.NetName == 'VBAT_OV' && A.enclosedByArea('NECK_125_AREA')) || (A.NetName == 'VBUS' && A.enclosedByArea('NECK_126_AREA')) || (A.NetName == 'VBUS_K' && A.enclosedByArea('NECK_127_AREA')) || (A.NetName == 'VB_DET' && A.enclosedByArea('NECK_128_AREA')) || (A.NetName == 'VDD_1V8' && A.enclosedByArea('NECK_129_AREA')) || (A.NetName == 'VDD_DIS' && A.enclosedByArea('NECK_130_AREA')) || (A.NetName == 'VDD_DISP' && A.enclosedByArea('NECK_131_AREA')) || (A.NetName == 'VIN_DC' && A.enclosedByArea('NECK_132_AREA')) || (A.NetName == 'VLED' && A.enclosedByArea('NECK_133_AREA')) || (A.NetName == 'VOUT_EN' && A.enclosedByArea('NECK_134_AREA')) || (A.NetName == 'VOUT_SET' && A.enclosedByArea('NECK_135_AREA')) || (A.NetName == 'VRDIV' && A.enclosedByArea('NECK_136_AREA')) || (A.NetName == 'VREF_SAMP' && A.enclosedByArea('NECK_137_AREA')) || (A.NetName == 'VSET' && A.enclosedByArea('NECK_138_AREA')) || (A.NetName == 'VSTOR' && A.enclosedByArea('NECK_139_AREA')) || (A.NetName == 'VSTOR_SW' && A.enclosedByArea('NECK_140_AREA')) || (A.NetName == 'V_O2' && A.enclosedByArea('NECK_141_AREA')) || (A.NetName == 'XC1' && A.enclosedByArea('NECK_142_AREA')) || (A.NetName == 'XC2' && A.enclosedByArea('NECK_143_AREA')) || (A.NetName == 'XL1' && A.enclosedByArea('NECK_144_AREA')) || (A.NetName == 'XL2' && A.enclosedByArea('NECK_145_AREA')))")
+  (constraint clearance (min 0.09mm)))
+(rule "Q-2 neck only at pads"
+  (condition "A.Type == 'Track' && A.Width < 0.095mm && (!(A.intersectsCourtyard('U6') || A.intersectsCourtyard('U6') || A.intersectsCourtyard('U8') || A.intersectsCourtyard('U8') || A.intersectsCourtyard('U4') || A.intersectsCourtyard('U4') || A.intersectsCourtyard('U5') || A.intersectsCourtyard('U5')) && ((A.NetName == 'ANT_FEED' && !A.enclosedByArea('NECK_3_AREA')) || (A.NetName == 'AVDD_ECG' && !A.enclosedByArea('NECK_4_AREA')) || (A.NetName == 'BATT_P' && !A.enclosedByArea('NECK_6_AREA')) || (A.NetName == 'BATT_P_A' && !A.enclosedByArea('NECK_7_AREA')) || (A.NetName == 'BQ_EN' && !A.enclosedByArea('NECK_8_AREA')) || (A.NetName == 'BTN' && !A.enclosedByArea('NECK_9_AREA')) || (A.NetName == 'BTN_N' && !A.enclosedByArea('NECK_11_AREA')) || (A.NetName == 'BTN_SUP' && !A.enclosedByArea('NECK_12_AREA')) || (A.NetName == 'CYC_A' && !A.enclosedByArea('NECK_18_AREA')) || (A.NetName == 'CYC_G' && !A.enclosedByArea('NECK_19_AREA')) || (A.NetName == 'DCC' && !A.enclosedByArea('NECK_20_AREA')) || (A.NetName == 'DCDC_MID' && !A.enclosedByArea('NECK_21_AREA')) || (A.NetName == 'DEC1' && !A.enclosedByArea('NECK_22_AREA')) || (A.NetName == 'DEC2' && !A.enclosedByArea('NECK_23_AREA')) || (A.NetName == 'DEC3' && !A.enclosedByArea('NECK_24_AREA')) || (A.NetName == 'DEC4' && !A.enclosedByArea('NECK_25_AREA')) || (A.NetName == 'DISP_EN' && !A.enclosedByArea('NECK_27_AREA')) || (A.NetName == 'E1_LINK' && !A.enclosedByArea('NECK_34_AREA')) || (A.NetName == 'E1_MID' && !A.enclosedByArea('NECK_35_AREA')) || (A.NetName == 'E1_PAD' && !A.enclosedByArea('NECK_36_AREA')) || (A.NetName == 'E2_LINK' && !A.enclosedByArea('NECK_37_AREA')) || (A.NetName == 'E2_MID' && !A.enclosedByArea('NECK_38_AREA')) || (A.NetName == 'E2_PAD' && !A.enclosedByArea('NECK_39_AREA')) || (A.NetName == 'E3_MID' && !A.enclosedByArea('NECK_40_AREA')) || (A.NetName == 'E3_PAD' && !A.enclosedByArea('NECK_41_AREA')) || (A.NetName == 'ECG_INN' && !A.enclosedByArea('NECK_46_AREA')) || (A.NetName == 'ECG_INP' && !A.enclosedByArea('NECK_47_AREA')) || (A.NetName == 'ECG_VCAP1' && !A.enclosedByArea('NECK_51_AREA')) || (A.NetName == 'ECG_VCAP2' && !A.enclosedByArea('NECK_52_AREA')) || (A.NetName == 'ECG_VREFP' && !A.enclosedByArea('NECK_53_AREA')) || (A.NetName == 'EN_HOLD' && !A.enclosedByArea('NECK_54_AREA')) || (A.NetName == 'FL_A' && !A.enclosedByArea('NECK_58_AREA')) || (A.NetName == 'FL_K' && !A.enclosedByArea('NECK_60_AREA')) || (A.NetName == 'GND' && !A.enclosedByArea('NECK_62_AREA')) || (A.NetName == 'GND_A1' && !A.enclosedByArea('NECK_63_AREA')) || (A.NetName == 'GND_A2' && !A.enclosedByArea('NECK_64_AREA')) || (A.NetName == 'GND_B' && !A.enclosedByArea('NECK_65_AREA')) || (A.NetName == 'GND_PMIC' && !A.enclosedByArea('NECK_67_AREA')) || (A.NetName == 'INA_VS' && !A.enclosedByArea('NECK_72_AREA')) || (A.NetName == 'ISET' && !A.enclosedByArea('NECK_73_AREA')) || (A.NetName == 'ISET_RC' && !A.enclosedByArea('NECK_74_AREA')) || (A.NetName == 'LBOOST' && !A.enclosedByArea('NECK_75_AREA')) || (A.NetName == 'LBUCK' && !A.enclosedByArea('NECK_76_AREA')) || (A.NetName == 'LED1_DRV' && !A.enclosedByArea('NECK_77_AREA')) || (A.NetName == 'LED2_DRV' && !A.enclosedByArea('NECK_78_AREA')) || (A.NetName == 'MOTOR_N' && !A.enclosedByArea('NECK_80_AREA')) || (A.NetName == 'NTC' && !A.enclosedByArea('NECK_84_AREA')) || (A.NetName == 'NTC_A' && !A.enclosedByArea('NECK_85_AREA')) || (A.NetName == 'NTC_ADC' && !A.enclosedByArea('NECK_86_AREA')) || (A.NetName == 'O2_G' && !A.enclosedByArea('NECK_88_AREA')) || (A.NetName == 'O2_NC' && !A.enclosedByArea('NECK_90_AREA')) || (A.NetName == 'O2_OK' && !A.enclosedByArea('NECK_91_AREA')) || (A.NetName == 'O2_PV' && !A.enclosedByArea('NECK_92_AREA')) || (A.NetName == 'O2_TC' && !A.enclosedByArea('NECK_93_AREA')) || (A.NetName == 'O2_TH' && !A.enclosedByArea('NECK_94_AREA')) || (A.NetName == 'OK_HYST' && !A.enclosedByArea('NECK_95_AREA')) || (A.NetName == 'OK_PROG' && !A.enclosedByArea('NECK_96_AREA')) || (A.NetName == 'PD1_IN' && !A.enclosedByArea('NECK_97_AREA')) || (A.NetName == 'PD_GND' && !A.enclosedByArea('NECK_98_AREA')) || (A.NetName == 'PGA1N' && !A.enclosedByArea('NECK_99_AREA')) || (A.NetName == 'PGA1P' && !A.enclosedByArea('NECK_100_AREA')) || (A.NetName == 'PGA2N' && !A.enclosedByArea('NECK_101_AREA')) || (A.NetName == 'PGA2P' && !A.enclosedByArea('NECK_102_AREA')) || (A.NetName == 'PPG_VREF' && !A.enclosedByArea('NECK_104_AREA')) || (A.NetName == 'PV_NODE' && !A.enclosedByArea('NECK_106_AREA')) || (A.NetName == 'PV_Q' && !A.enclosedByArea('NECK_107_AREA')) || (A.NetName == 'PV_SW' && !A.enclosedByArea('NECK_108_AREA')) || (A.NetName == 'PV_W' && !A.enclosedByArea('NECK_109_AREA')) || (A.NetName == 'RF_50R' && !A.enclosedByArea('NECK_112_AREA')) || (A.NetName == 'RF_ANT' && !A.enclosedByArea('NECK_113_AREA')) || (A.NetName == 'RLD_INV' && !A.enclosedByArea('NECK_114_AREA')) || (A.NetName == 'RLD_OUT' && !A.enclosedByArea('NECK_115_AREA')) || (A.NetName == 'RLD_Z' && !A.enclosedByArea('NECK_116_AREA')) || (A.NetName == 'VBAT_IC' && !A.enclosedByArea('NECK_123_AREA')) || (A.NetName == 'VBAT_OV' && !A.enclosedByArea('NECK_125_AREA')) || (A.NetName == 'VBUS' && !A.enclosedByArea('NECK_126_AREA')) || (A.NetName == 'VBUS_K' && !A.enclosedByArea('NECK_127_AREA')) || (A.NetName == 'VB_DET' && !A.enclosedByArea('NECK_128_AREA')) || (A.NetName == 'VDD_1V8' && !A.enclosedByArea('NECK_129_AREA')) || (A.NetName == 'VDD_DIS' && !A.enclosedByArea('NECK_130_AREA')) || (A.NetName == 'VDD_DISP' && !A.enclosedByArea('NECK_131_AREA')) || (A.NetName == 'VIN_DC' && !A.enclosedByArea('NECK_132_AREA')) || (A.NetName == 'VLED' && !A.enclosedByArea('NECK_133_AREA')) || (A.NetName == 'VOUT_SET' && !A.enclosedByArea('NECK_135_AREA')) || (A.NetName == 'VRDIV' && !A.enclosedByArea('NECK_136_AREA')) || (A.NetName == 'VREF_SAMP' && !A.enclosedByArea('NECK_137_AREA')) || (A.NetName == 'VSET' && !A.enclosedByArea('NECK_138_AREA')) || (A.NetName == 'VSTOR' && !A.enclosedByArea('NECK_139_AREA')) || (A.NetName == 'VSTOR_SW' && !A.enclosedByArea('NECK_140_AREA')) || (A.NetName == 'V_O2' && !A.enclosedByArea('NECK_141_AREA')) || (A.NetName == 'XC1' && !A.enclosedByArea('NECK_142_AREA')) || (A.NetName == 'XC2' && !A.enclosedByArea('NECK_143_AREA')) || (A.NetName == 'XL1' && !A.enclosedByArea('NECK_144_AREA')) || (A.NetName == 'XL2' && !A.enclosedByArea('NECK_145_AREA'))))")
+  (constraint disallow track))

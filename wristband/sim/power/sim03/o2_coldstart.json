@@ -1,0 +1,110 @@
+{
+ "coldstart": {
+  "wing 1 x lid | strips 2.30 mm": {
+   "i_cold_start_200lx_uA": 0.0,
+   "lux_for_21p4uA_through_O2": 350.0
+  },
+  "wing 1 x lid | strips 2.80 mm": {
+   "i_cold_start_200lx_uA": 0.0,
+   "lux_for_21p4uA_through_O2": 330.0
+  },
+  "wing 0.5 x lid | strips 2.30 mm": {
+   "i_cold_start_200lx_uA": 0.0,
+   "lux_for_21p4uA_through_O2": 480.0
+  },
+  "wing 0.5 x lid | strips 2.80 mm": {
+   "i_cold_start_200lx_uA": 0.0,
+   "lux_for_21p4uA_through_O2": 450.0
+  },
+  "wing 0.25 x lid | strips 2.30 mm": {
+   "i_cold_start_200lx_uA": 0.0,
+   "lux_for_21p4uA_through_O2": 600.0
+  },
+  "wing 0.25 x lid | strips 2.80 mm": {
+   "i_cold_start_200lx_uA": 0.0,
+   "lux_for_21p4uA_through_O2": 540.0
+  },
+  "wing 0.1 x lid | strips 2.30 mm": {
+   "i_cold_start_200lx_uA": 0.0,
+   "lux_for_21p4uA_through_O2": 710.0
+  },
+  "wing 0.1 x lid | strips 2.80 mm": {
+   "i_cold_start_200lx_uA": 0.0,
+   "lux_for_21p4uA_through_O2": 620.0
+  },
+  "wing 0 x lid | strips 2.30 mm": {
+   "i_cold_start_200lx_uA": 0.0,
+   "lux_for_21p4uA_through_O2": 800.0
+  },
+  "wing 0 x lid | strips 2.80 mm": {
+   "i_cold_start_200lx_uA": 0.0,
+   "lux_for_21p4uA_through_O2": 690.0
+  },
+  "Q14 Vth 0.45 | 200 lx | wing 1": {
+   "i_avg_uA": 0.0
+  },
+  "Q14 Vth 0.95 | 200 lx | wing 1": {
+   "i_avg_uA": 0.0
+  },
+  "Q14 Vth 0.45 | 500 lx | wing 1": {
+   "i_avg_uA": 75.18
+  },
+  "Q14 Vth 0.95 | 500 lx | wing 1": {
+   "i_avg_uA": 55.87
+  },
+  "Q14 Vth 0.45 | 711 lx | wing 1": {
+   "i_avg_uA": 115.13
+  },
+  "Q14 Vth 0.95 | 711 lx | wing 1": {
+   "i_avg_uA": 95.17
+  },
+  "Q14 Vth 0.45 | 1000 lx | wing 1": {
+   "i_avg_uA": 167.5
+  },
+  "Q14 Vth 0.95 | 1000 lx | wing 1": {
+   "i_avg_uA": 147.23
+  },
+  "reference without the O-2 (v3_energy cs_at at 0.70 V)": {
+   "wing 1 | strips 2.30 mm": {
+    "i_200lx_uA": 29.6,
+    "lux_needed": 155.0
+   },
+   "wing 0.5 | strips 2.30 mm": {
+    "i_200lx_uA": 19.3,
+    "lux_needed": 216.0
+   },
+   "wing 0.25 | strips 2.30 mm": {
+    "i_200lx_uA": 14.2,
+    "lux_needed": 269.0
+   },
+   "wing 0.1 | strips 2.30 mm": {
+    "i_200lx_uA": 11.2,
+    "lux_needed": 316.0
+   },
+   "wing 0 | strips 2.30 mm": {
+    "i_200lx_uA": 9.1,
+    "lux_needed": 358.0
+   },
+   "wing 1 | strips 2.80 mm": {
+    "i_200lx_uA": 32.4,
+    "lux_needed": 144.0
+   },
+   "wing 0.5 | strips 2.80 mm": {
+    "i_200lx_uA": 22.1,
+    "lux_needed": 195.0
+   },
+   "wing 0.25 | strips 2.80 mm": {
+    "i_200lx_uA": 17.0,
+    "lux_needed": 237.0
+   },
+   "wing 0.1 | strips 2.80 mm": {
+    "i_200lx_uA": 13.9,
+    "lux_needed": 271.0
+   },
+   "wing 0 | strips 2.80 mm": {
+    "i_200lx_uA": 11.9,
+    "lux_needed": 300.0
+   }
+  }
+ }
+}

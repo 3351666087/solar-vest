@@ -1,0 +1,63 @@
+{
+ "board": "v3/finish/solarband_v3f_final.kicad_pcb (not modified)",
+ "limit_uVpp": 10.0,
+ "floor_uVpp": 3.99,
+ "M2_as_ruled": {
+  "flags": [
+   "F-9",
+   "P-2"
+  ],
+  "worst_uVpp": 613.78,
+  "verdict": "FAIL",
+  "dominant": {
+   "IMU_INT1": 558.0,
+   "SPI_SCK": 31.48,
+   "PPG_INT": 13.72,
+   "CS_FLASH": 3.26,
+   "PV_SW": 1.69,
+   "SPI_MISO": 1.4,
+   "DEC1": 0.25
+  }
+ },
+ "M2_with_fix": {
+  "flags": [
+   "P-2b a: IMU INT1 off",
+   "P-2b b: PPG paused",
+   "P-2b c: no flash writes in the session"
+  ],
+  "worst_uVpp": 6.23,
+  "invivo_worst_uVpp": 5.3,
+  "verdict": "PASS"
+ },
+ "partial_sets_worst_uVpp": {
+  "a": 55.78,
+  "a+c": 32.54,
+  "a+b": 29.38
+ },
+ "P2_broken_worst_uVpp": 661.84,
+ "I2C_SDA_P7_if_P2_broken_uVpp": 48.06,
+ "in4_gaps": {
+  "active_in_session": {
+   "PV_SW": 1.69,
+   "VIN_DC": 0.0001
+  },
+  "static": [
+   "PWR_CYC",
+   "NTC",
+   "O2_TH",
+   "INA_EN",
+   "DISP_CTRL",
+   "I2C_SDA (P-2)"
+  ]
+ },
+ "in1_gaps": "far side of the In2/In3 tracks from the plates: no path to the plates",
+ "board_change": "none; DRC not re-run (board unchanged)",
+ "patient_dc_esd": "unchanged; J-3 D15-J18 courtyard gap 0.693 mm (chk_final.json); 5c recorded residual",
+ "files": [
+  "plate_geom8.py",
+  "plate_geom_final.json",
+  "sim07_final.py",
+  "sim07_final_*.json",
+  "ECG_FINAL.md"
+ ]
+}
